@@ -15,13 +15,15 @@ use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
- });
+// Route::get('/', function () {
+//     return view('auth.login');
+//  });
  //Route::get('/', [AdminDashboardController::class,'index'])->name('index');
 // Route::get('/admin',[AdminDashboardController::class,'admin'])->name('admin')->middleware('admin');
 // Route::get('/superadmin', [AdminDashboardController::class,'superadmin'])->name('superadmin')->middleware('superadmin');
-
+Route::get('/',function(){
+    return view('frontend.seller.layouts.app');
+});
 Route::name('admin')->prefix('admin')->middleware('admin')->group(function () {
 
     Route::controller(AdminDashboardController::class)->group(function () {
@@ -38,7 +40,7 @@ Route::group(['prefix' => 'superadmin','middleware'=>['auth','superadmin']], fun
     Route::post('/store',  [SuperAdminDashboardController::class,'store'])->name('store');
     Route::get('/view-role',  [SuperAdminDashboardController::class,'ViewRole'])->name('ViewRole');
     Route::get('/edit/{id}',  [SuperAdminDashboardController::class,'EditRoleForm'])->name('EditRoleForm');
-    Route::get('/edit/{id}',  [SuperAdminDashboardController::class,'EditRoleForm'])->name('EditRoleForm');
+    Route::post('/update/{id}',  [SuperAdminDashboardController::class,'update'])->name('update');
     Route::get('/delete/{id}',  [SuperAdminDashboardController::class,'delete'])->name('Delete');
 
 
