@@ -24,7 +24,7 @@ class SuperAdmin
             return $next($request);
         }
         if (Auth::user()->role_id == 2) {
-            return redirect()->route('admin');
+            return redirect()->route('seller');
         }
     }
 }

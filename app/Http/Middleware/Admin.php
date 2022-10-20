@@ -20,11 +20,12 @@ class Admin
             return redirect()->route('login');
         }
 
+
         if (Auth::user()->role_id == 1) {
-            return redirect()->route('superadmin');
+            return $next($request);
         }
         if (Auth::user()->role_id == 2) {
-            return $next($request);
+            return redirect()->route('seller');
         }
     }
 }

@@ -1,7 +1,10 @@
-<section class="sec-8 mb-5">
+
+ <!-- FOOTER -->
+
+ <section class="sec-8">
     <div class="container-1151">
-        <div class="main-footer d-flex justify-content-between">
-            <div class="footer-sub about col-lg-3 col-sm-6">
+        <div class="main-footer">
+            <div class="footer-sub about">
                 <h5>About</h5>
                 <ul>
                     <a href="#">
@@ -18,7 +21,7 @@
                     </a>
                 </ul>
             </div>
-            <div class="footer-sub product col-lg-3 col-sm-6">
+            <div class="footer-sub product">
                 <h5>Product</h5>
                 <ul>
                     <a href="#">
@@ -41,7 +44,7 @@
                     </a>
                 </ul>
             </div>
-            <div class="footer-sub product-2 col-lg-3 col-sm-6">
+            <div class="footer-sub product-2">
                 <ul>
                     <a href="">
                         <li>Car buying sites</li>
@@ -63,7 +66,7 @@
                     </a>
                 </ul>
             </div>
-            <div class="footer-sub contact col-lg-3 col-sm-6">
+            <div class="footer-sub contact">
                 <div>
                     <h5>Whatsapp</h5>
                     <p>+39 0432 500759</p>
@@ -77,8 +80,8 @@
                     <p>hello@motorific.com</p>
                 </div>
             </div>
-            <div class="footer-sub contact-2 col-lg-3 mx-auto col-sm-6">
-                <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="">
+            <div class="footer-sub contact-2">
+                <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt="">
                 <div class="d-flex mt-4 mb-4">
                     <a href="#">
                         <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>
