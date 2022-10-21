@@ -73,6 +73,70 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/delete-seat-material/{id}', [VehicleController::class,'deleteSeatMaterial'])->name('deleteSeatMaterial.delete');
 
     // end seat material
+    
+    // number of keys
+    Route::get('/view-number-of-keys', [VehicleController::class,'ViewNumberOfkeys'])->name('ViewNumberOfkeys');
+    Route::get('/add-number-of-keys', [VehicleController::class,'createNumberOfkeysForm'])->name('createNumberOfkeysForm');
+    Route::post('/store-keys', [VehicleController::class, 'storeNumberOfKeys'])->name('storeNumberOfKeys');
+    Route::get('/edit-Keys/{id}', [VehicleController::class,'editKeysForm'])->name('editKeysForm');
+    Route::post('/update-Keys/{id}', [VehicleController::class,'updateKey'])->name('updateKey');
+    Route::get('/delete-key/{id}', [VehicleController::class,'deleteKey'])->name('deleteKey');
+   
+    // end number of keys
+   
+    // Tool Pack
+    Route::get('/view-tool-pack', [VehicleController::class,'ViewToolPack'])->name('ViewToolPack');
+    Route::get('/add-tool-pack', [VehicleController::class,'createToolPackForm'])->name('createToolPackForm');
+    Route::post('/store-tool-pack', [VehicleController::class, 'storeToolPack'])->name('storeToolPack');
+    Route::get('/edit-tool-pack/{id}', [VehicleController::class,'editToolPackForm'])->name('editToolPackForm');
+    Route::post('/update-Tool-Pack/{id}', [VehicleController::class,'updateToolPack'])->name('updateToolPack');
+    Route::get('/delete-tool-kit/{id}', [VehicleController::class,'deleteToolPack'])->name('deleteToolPack');
+    // end number of keys
+
+    // locking wheel nut
+    Route::get('/view-wheel-nut', [VehicleController::class,'viewWheelNut'])->name('viewWheelNut');
+    Route::get('/add-wheel-nut', [VehicleController::class,'createWheelNutForm'])->name('createWheelNutForm');
+    Route::post('/store-wheel-nut', [VehicleController::class, 'storeWheelNut'])->name('storeWheelNut');
+    Route::get('/edit-wheel-nut/{id}', [VehicleController::class,'editWheelNutForm'])->name('editWheelNutForm');
+    Route::post('/update-wheel-nut/{id}', [VehicleController::class,'updateWheelNut'])->name('updateWheelNut');
+    Route::get('/delete-wheel-nut/{id}', [VehicleController::class,'deleteWheelNut'])->name('deleteWheelNut');
+    // end locking wheel nut
+    
+    // smmoking
+    Route::get('/view-smooking', [VehicleController::class,'viewSmooking'])->name('viewSmooking');
+    Route::get('/add-smooking', [VehicleController::class,'createSmookingForm'])->name('createSmookingForm');
+    Route::post('/store-Smooking', [VehicleController::class, 'storeSmooking'])->name('storeSmooking');
+    Route::get('/edit-smooking/{id}', [VehicleController::class,'editsmookingForm'])->name('editsmookingForm');
+    Route::post('/update-smooking/{id}', [VehicleController::class,'updateSmooking'])->name('updateSmooking');
+    Route::get('/delete-smooking/{id}', [VehicleController::class,'deleteSmooking'])->name('deleteSmooking');
+    // end Smooking
+
+    // logbook
+    Route::get('/view-logbook', [VehicleController::class,'viewlogbook'])->name('viewlogbook');
+    Route::get('/add-logbook', [VehicleController::class,'createLogBookForm'])->name('createLogBookForm');
+    Route::post('/store-logbook', [VehicleController::class, 'storeLogBook'])->name('storeLogBook');
+    Route::get('/edit-logbook/{id}', [VehicleController::class,'editLogBookForm'])->name('editLogBookForm');
+    Route::post('/update-logbook/{id}', [VehicleController::class,'updateLogBook'])->name('updateLogBook');
+    Route::get('/delete-logbook/{id}', [VehicleController::class,'deleteLogBook'])->name('deleteLogBook');
+    // end logbook    
+
+    // vehicle owner
+    Route::get('/view-vehicle-owner', [VehicleController::class,'viewVehicalOwner'])->name('viewVehicalOwner');
+    Route::get('/add-Vehicle-Owner', [VehicleController::class,'createVehicleOwnerForm'])->name('createVehicleOwnerForm');
+    Route::post('/store-Vehicle-Owner', [VehicleController::class, 'storeVehicleOwner'])->name('storeVehicleOwner');
+    Route::get('/edit-Vehicle-Owner/{id}', [VehicleController::class,'editVehicalOwnerForm'])->name('editVehicalOwnerForm');
+    Route::post('/update-vehicle-owner/{id}', [VehicleController::class,'updateVehicleOwner'])->name('updateVehicleOwner');
+    Route::get('/delete-vehicle-owner/{id}', [VehicleController::class,'deleteVehcileOwner'])->name('deleteVehcileOwner');
+    // end vehicle owner   
+
+    // priavte plate
+    Route::get('/view-private-plate', [VehicleController::class,'viewPrivatePlate'])->name('viewPrivatePlate');
+    Route::get('/add-private-plate', [VehicleController::class,'createPrivatePlateForm'])->name('createPrivatePlateForm');
+    Route::post('/store-private-plate', [VehicleController::class, 'storePrivatePlate'])->name('storePrivatePlate');
+    Route::get('/edit-private-plate/{id}', [VehicleController::class,'editPrivatePlateForm'])->name('editPrivatePlateForm');
+    Route::post('/update-vehicle-owner/{id}', [VehicleController::class,'updateVehicleOwner'])->name('updateVehicleOwner');
+    Route::get('/delete-private-plate/{id}', [VehicleController::class,'deletePrivatePlate'])->name('deletePrivatePlate');
+    // end private plate       
 });
 
 // end admin panel routes

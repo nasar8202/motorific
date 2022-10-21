@@ -38,8 +38,27 @@
                 <a href="{{ route('ViewSeatMaterials') }}">View Seat Materials</a>
             </li>
             <li class="submenu-item">
-                <a href="{{ route('dealer.blockDealersByAdmin') }}">Block Dealers</a>
+                <a href="{{ route('ViewNumberOfkeys') }}">Number of keys</a>
             </li>
+            <li class="submenu-item">
+                <a href="{{ route('ViewToolPack') }}">Tools Pack</a>
+            </li>
+            <li class="submenu-item">
+                <a href="{{ route('viewWheelNut') }}">Wheel Nut</a>
+            </li>
+            <li class="submenu-item">
+                <a href="{{ route('viewSmooking') }}">Smooking</a>
+            </li>
+            <li class="submenu-item">
+                <a href="{{ route('viewlogbook') }}">Logbook</a>
+            </li>
+             <li class="submenu-item">
+                <a href="{{ route('viewVehicalOwner') }}">Vehicle Owner</a>
+            </li>
+            <li class="submenu-item">
+                <a href="{{ route('viewPrivatePlate') }}">Private plate</a>
+            </li>
+            
         </ul>
     </li>
     <li class="sidebar-item">
