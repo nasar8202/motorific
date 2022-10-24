@@ -20,6 +20,11 @@
     <link rel="shortcut icon" href="{{URL::asset('backend/admin/assets/images/favicon.svg')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/simple-datatables/style.css')}}">
 
+
+
+    <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/chartjs/Chart.min.css')}}">
+
+
     <style>
         .fontawesome-icons {
             text-align: center;
@@ -34,8 +39,7 @@
             font-size: 24px;
         }
     </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
-     alpha/css/bootstrap.css" rel="stylesheet">
+   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -125,6 +129,10 @@
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
+
+<script src="{{URL::asset('backend/admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
+<script src="{{URL::asset('backend/admin/assets/js/pages/ui-chartjs.js')}}"></script>
+
 </body>
 
 </html>
