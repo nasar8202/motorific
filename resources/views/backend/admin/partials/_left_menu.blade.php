@@ -69,11 +69,11 @@
             <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
-                    <span>User Details </span>
+                    <span>Manage User </span>
                 </a>
                 <ul class="submenu">
                     <li class="submenu-item">
-                        <a href="">Vehicle Feature</a>
+                        <a href="{{route('viewUsers')}}">User Detail</a>
                     </li>
 
                 </ul>
