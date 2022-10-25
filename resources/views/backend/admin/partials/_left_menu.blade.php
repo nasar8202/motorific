@@ -32,7 +32,7 @@
         </a>
         <ul class="submenu">
             <li class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
+                <a href="#" class='sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? '' : '') }}'>
                     <i class="bi bi-stack"></i>
                     <span>Vehricle Details </span>
                 </a>

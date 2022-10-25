@@ -15,6 +15,11 @@ for(var i = 0; i < sidebarItems.length; i++) {
     })
 }
 
+
+
+
+
+
 window.addEventListener('DOMContentLoaded', (event) => {
     var w = window.innerWidth;
     if(w < 1200) {
