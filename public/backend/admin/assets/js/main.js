@@ -5,7 +5,7 @@ for(var i = 0; i < sidebarItems.length; i++) {
     let sidebarItem = sidebarItems[i];
 	sidebarItems[i].querySelector('.sidebar-link').addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         let submenu = sidebarItem.querySelector('.submenu');
         if( submenu.classList.contains('active') ) submenu.style.display = "block"
 
@@ -14,6 +14,11 @@ for(var i = 0; i < sidebarItems.length; i++) {
         slideToggle(submenu, 300)
     })
 }
+
+
+
+
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
     var w = window.innerWidth;

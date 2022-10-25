@@ -8,6 +8,7 @@ use App\Http\Controllers\frontend\seller\SellerDashboardController;
 
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\VehicleController;
+use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 /*
 |--------------------------------------------------------------------------
@@ -137,6 +138,13 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-vehicle-owner/{id}', [VehicleController::class,'updateVehicleOwner'])->name('updateVehicleOwner');
     Route::get('/delete-private-plate/{id}', [VehicleController::class,'deletePrivatePlate'])->name('deletePrivatePlate');
     // end private plate       
+
+    // manage user
+    Route::get('/view-user', [UserController::class,'viewUsers'])->name('viewUsers');
+    Route::get('/edit-user/{id}', [UserController::class,'editUserForm'])->name('editUserForm');
+    Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
+    Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
+    // end manage user    
 });
 
 // end admin panel routes

@@ -122,9 +122,6 @@ class FrontController extends Controller
             $request->session()->put('register', $register);
         }
 
-
-
-
             $register = $request->session()->get('register');
 
             $request->session()->put('register', $register);
@@ -155,7 +152,7 @@ class FrontController extends Controller
     }
     public function index()
     {
-        
+
         return view('frontend.seller.index');
     }
     public function sellMyCar()
