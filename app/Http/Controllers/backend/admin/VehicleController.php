@@ -1,0 +1,585 @@
+<?php
+
+namespace App\Http\Controllers\backend\admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\VehicleFeature;
+use App\Models\SeatMaterial;
+use App\Models\NumberOfKey;
+use App\Models\ToolPack;
+use App\Models\LockingWheelNut;
+use App\Models\Smoking;
+use App\Models\VCLogBook;
+use App\Models\VehicleOwner;
+use App\Models\PrivatePlate;
+use DB;
+class VehicleController extends Controller
+{
+
+    public function ViewVehicleFeatures()
+    {
+        $VehicleFeatures = VehicleFeature::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewVehicleFeatures',compact('VehicleFeatures'));
+    }
+    public function ViewSeatMaterials()
+    {
+        $SeatMaterials = SeatMaterial::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewSeatMaterials',compact('SeatMaterials'));
+    }
+    public function ViewNumberOfkeys()
+    {
+        $ViewNumberOfkeys = NumberOfKey::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewNumberOfKeys',compact('ViewNumberOfkeys'));
+    }
+    public function ViewToolPack()
+    {
+        $ViewToolPacks = ToolPack::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewToolPack',compact('ViewToolPacks'));
+    }
+    public function viewWheelNut()
+    {
+        $viewLockingWheelNuts = LockingWheelNut::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewWheelNut',compact('viewLockingWheelNuts'));
+    }
+    public function viewSmooking()
+    {
+        $viewSmokings = Smoking::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewSmooking',compact('viewSmokings'));
+    }
+
+        public function viewlogbook()
+    {
+        $viewLoogBooks = VCLogBook::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewLogBooks',compact('viewLoogBooks'));
+    }
+
+    public function viewVehicalOwner()
+    {
+        $viewVehicleOwners = VehicleOwner::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewVehicleOwner',compact('viewVehicleOwners'));
+    }
+    public function viewPrivatePlate()
+    {
+        $viewPrivatePlates = PrivatePlate::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewPrivatePlate',compact('viewPrivatePlates'));
+    }
+
+    public function createVehicleFeatureForm()
+    {
+
+        return view('backend.admin.vehicles.createVehicleFeatureForm');
+    }
+    public function createNumberOfkeysForm()
+    {
+
+        return view('backend.admin.vehicles.createNumberOfKeys');
+    }
+    public function createToolPackForm()
+    {
+
+        return view('backend.admin.vehicles.createToolPack');
+    }
+
+    public function createSeatMaterialForm()
+    {
+
+        return view('backend.admin.vehicles.createSeatMaterial');
+    }
+
+    public function createWheelNutForm()
+    {
+
+        return view('backend.admin.vehicles.createWheelNut');
+    }
+
+    public function createLogBookForm()
+    {
+
+        return view('backend.admin.vehicles.createLogBook');
+    }
+    public function createVehicleOwnerForm()
+    {
+
+        return view('backend.admin.vehicles.createVehicleOwner');
+    }
+    public function createPrivatePlateForm()
+    {
+
+        return view('backend.admin.vehicles.createPrivatePlate');
+    }
+
+    public function storeSeatMaterial(Request $request)
+    {
+            $request->validate([
+                'addMoreInputFields.*.title' => 'required'
+            ]);
+            DB::beginTransaction();
+            try{
+            foreach($request->addMoreInputFields as $data) {
+
+
+                    $seat_material_iamges = time() . '_' . $data['image']->getClientOriginalName();
+
+                    $data['image']->move(public_path() . '/materials/seat_material_iamges/', $seat_material_iamges);
+
+                    $seatMaterial = new SeatMaterial();
+                    $seatMaterial->image = $seat_material_iamges;
+                    $seatMaterial->title = $data['title'];
+                    $seatMaterial->save();
+
+
+            }
+            }catch(\Exception $e)
+            {
+                DB::rollback();
+                return Redirect()->back()
+                    ->with('error',$e->getMessage() )
+                    ->withInput();
+            }
+            DB::commit();
+
+         return redirect()->route('ViewSeatMaterials')->with('success', 'Seat Material added  Successfully!');
+
+    }
+    public function storePrivatePlate(Request $request)
+    {
+            $request->validate([
+                'addMoreInputFields.*.title' => 'required'
+            ]);
+            DB::beginTransaction();
+            try{
+            foreach($request->addMoreInputFields as $data) {
+
+
+                    $seat_material_iamges = time() . '_' . $data['image']->getClientOriginalName();
+
+                    $data['image']->move(public_path() . '/plates/private_plate_iamges/', $seat_material_iamges);
+
+                    $seatMaterial = new PrivatePlate();
+                    $seatMaterial->image = $seat_material_iamges;
+                    $seatMaterial->title = $data['title'];
+                    $seatMaterial->save();
+
+
+            }
+            }catch(\Exception $e)
+            {
+                DB::rollback();
+                return Redirect()->back()
+                    ->with('error',$e->getMessage() )
+                    ->withInput();
+            }
+            DB::commit();
+
+         return redirect()->route('viewPrivatePlate')->with('success', 'Private Plate added  Successfully!');
+
+    }
+    public function storeNumberOfKeys(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.number_of_key' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            NumberOfKey::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('ViewNumberOfkeys')->with('success', 'Keys added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+    public function storeToolPack(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            ToolPack::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('ViewToolPack')->with('success', 'Tool Pack added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+    public function storeWheelNut(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            LockingWheelNut::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewWheelNut')->with('success', 'Wheel Nut added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+    public function storeSmooking(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            Smoking::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewSmooking')->with('success', 'Smoking Question added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+    public function storeLogBook(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            VCLogBook::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewlogbook')->with('success', 'LogBook Question added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+    public function storeVehicleOwner(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            VehicleOwner::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewVehicalOwner')->with('success', 'Vehcile Owner Question added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+
+    public function editSeatMaterialForm($id)
+    {
+        $editSeatMaterial = SeatMaterial::where('id',$id)->first();
+        return view('backend.admin.vehicles.editSeatMaterialForm',compact('editSeatMaterial'));
+    }
+    public function editPrivatePlateForm($id)
+    {
+        $editPrivatePlate = PrivatePlate::where('id',$id)->first();
+        return view('backend.admin.vehicles.editPrivatePlateForm',compact('editPrivatePlate'));
+    }
+    public function updateSeatMaterial(Request $request, $id)
+    {
+
+
+        $request->validate([
+            'title' => 'required'
+        ]);
+
+        try{
+            $SeatMaterial = SeatMaterial::find($id);
+
+
+            $SeatMaterial->title = $request->title;
+            if( $request->file('image')){
+
+                if(file_exists(public_path("/materials/seat_material_iamges/".$SeatMaterial->image))){
+                    unlink(public_path("/materials/seat_material_iamges/".$SeatMaterial->image));
+                  }
+                $seat_material_images = time() . '_' . $request->file('image')->getClientOriginalName();
+                    //            $product_image_first_path = $request->file('product_image_first')->storeAs('products', $product_image_first);
+                $request->file('image')->move(public_path() . '/materials/seat_material_iamges/', $seat_material_images);
+
+            $SeatMaterial->image = $seat_material_images;
+            }
+            $SeatMaterial->update();
+
+        }catch(\Exception $e){
+            return $e->getMessage();
+    }
+
+    return redirect()->route('ViewSeatMaterials')->with('success', 'Seat Material updated  Successfully!');
+
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            VehicleFeature::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('ViewVehicleFeatures')->with('success', 'Vehicle Feature added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+    public function editVehicleFeatureForm($id)
+    {
+        $editVehicle = VehicleFeature::where('id',$id)->first();
+        return view('backend.admin.vehicles.editVehicleFeatureForm',compact('editVehicle'));
+
+    }
+    public function editKeysForm($id)
+    {
+        $editKeys = NumberOfKey::where('id',$id)->first();
+        return view('backend.admin.vehicles.editNumberOfKeysForm',compact('editKeys'));
+
+    }
+    
+    public function editToolPackForm($id)
+    {
+        $editToolPack = ToolPack::where('id',$id)->first();
+        
+        return view('backend.admin.vehicles.editToolPackForm',compact('editToolPack'));
+
+    }
+    public function editWheelNutForm($id)
+    {
+        $editLockingWheelNut = LockingWheelNut::where('id',$id)->first();
+        
+        return view('backend.admin.vehicles.editWheelNutForm',compact('editLockingWheelNut'));
+
+    }
+    public function editSmookingForm($id)
+    {
+        $editSmoking = Smoking::where('id',$id)->first();
+        
+        return view('backend.admin.vehicles.editSmookingForm',compact('editSmoking'));
+
+    }
+    public function editLogBookForm($id)
+    {
+        $editLogBook = VCLogBook::where('id',$id)->first();
+        
+        return view('backend.admin.vehicles.editLogBookForm',compact('editLogBook'));
+
+    }
+    public function editVehicalOwnerForm($id)
+    {
+        $editVehicleOwner = VehicleOwner::where('id',$id)->first();
+        
+        return view('backend.admin.vehicles.editVehicleOwnerForm',compact('editVehicleOwner'));
+
+    }
+    
+    public function editVehicleFeature(Request $request,$id)
+    {
+        $data = [
+            'title'=>$request->title
+        ];
+        VehicleFeature::where('id',$id)->update($data);
+
+        return redirect()->route('ViewVehicleFeatures')->with('success', 'Vehicle Feature Updated  Successfully!');
+
+    }
+    public function updateKey(Request $request,$id)
+    {
+        $data = [
+            'number_of_key'=>$request->number_of_key
+        ];
+        NumberOfKey::where('id',$id)->update($data);
+
+        return redirect()->route('ViewNumberOfkeys')->with('success', 'Key Updated  Successfully!');
+
+    }
+    public function updateToolPack(Request $request,$id)
+    {
+        
+        $data = [
+            'title'=>$request->title
+        ];
+        ToolPack::where('id',$id)->update($data);
+
+        return redirect()->route('ViewToolPack')->with('success', 'ToolPack Updated  Successfully!');
+
+    }
+    public function updateWheelNut(Request $request,$id)
+    {
+        
+        $data = [
+            'title'=>$request->title
+        ];
+        LockingWheelNut::where('id',$id)->update($data);
+
+        return redirect()->route('viewWheelNut')->with('success', 'Wheel Nut Updated  Successfully!');
+
+    }
+
+    public function updateSmooking(Request $request,$id)
+    {
+        
+        $data = [
+            'title'=>$request->title
+        ];
+        Smoking::where('id',$id)->update($data);
+
+        return redirect()->route('viewSmooking')->with('success', 'Smooking Question Updated  Successfully!');
+
+    }
+    public function updateLogBook(Request $request,$id)
+    {
+        
+        $data = [
+            'title'=>$request->title
+        ];
+        VCLogBook::where('id',$id)->update($data);
+
+        return redirect()->route('viewlogbook')->with('success', 'LogBook Question Updated  Successfully!');
+
+    }
+    public function updateVehicleOwner(Request $request,$id)
+    {
+        
+        
+        $data = [
+            'title'=>$request->title
+        ];
+        VehicleOwner::where('id',$id)->update($data);
+
+        return redirect()->route('viewVehicalOwner')->with('success', 'Vehicle Owner Question Updated  Successfully!');
+
+    }
+
+    public function deleteVehicle($id)
+    {
+        VehicleFeature::where('id',$id)->delete();
+        return redirect()->route('ViewVehicleFeatures')->with('error', 'Vehicle Feature Deleted  Successfully!');
+    }
+    public function deleteKey($id)
+    {
+        NumberOfKey::where('id',$id)->delete();
+        return redirect()->route('ViewNumberOfkeys')->with('error', 'Key  Deleted  Successfully!');
+    }
+    public function deleteToolPack($id)
+    {
+        ToolPack::where('id',$id)->delete();
+        return redirect()->route('ViewToolPack')->with('error', 'Tool Kit  Deleted  Successfully!');
+    }
+    public function deleteWheelNut($id)
+    {
+        LockingWheelNut::where('id',$id)->delete();
+        return redirect()->route('viewWheelNut')->with('error', 'Wheel Nut Question  Deleted  Successfully!');
+    }
+    public function deleteSmooking($id)
+    {
+        Smoking::where('id',$id)->delete();
+        return redirect()->route('viewSmooking')->with('error', 'Smooking Question  Deleted  Successfully!');
+    }
+    public function deleteLogBook($id)
+    {
+        VCLogBook::where('id',$id)->delete();
+        return redirect()->route('viewlogbook')->with('error', 'LogBook Question  Deleted  Successfully!');
+    }
+    public function deleteVehcileOwner($id)
+    {
+        VehicleOwner::where('id',$id)->delete();
+        return redirect()->route('viewVehicalOwner')->with('error', 'Vehical Owner Question  Deleted  Successfully!');
+    }
+    public function deletePrivatePlate($id)
+    {
+        $SeatMaterial = PrivatePlate::where('id',$id)->first();
+        if(isset($SeatMaterial))
+        {
+        try{
+          if(file_exists(public_path("/plates/private_plate_iamges/".$SeatMaterial->image))){
+              unlink(public_path("/plates/private_plate_iamges/".$SeatMaterial->image));
+            }
+               }catch(\Exception $e){
+                return $e->getMessage();
+          }
+
+          PrivatePlate::where('id',$id)->delete();
+
+        }
+
+        return redirect()->route('viewPrivatePlate')->with('error', 'Private Plate Deleted  Successfully!');
+    }
+    public function deleteSeatMaterial($id)
+    {
+        $SeatMaterial = SeatMaterial::where('id',$id)->first();
+        if(isset($SeatMaterial))
+        {
+        try{
+          if(file_exists(public_path("materials/seat_material_iamges/".$SeatMaterial->image))){
+              unlink(public_path("materials/seat_material_iamges/".$SeatMaterial->image));
+            }
+               }catch(\Exception $e){
+                return $e->getMessage();
+          }
+
+          SeatMaterial::where('id',$id)->delete();
+
+        }
+
+        return redirect()->route('ViewSeatMaterials')->with('error', 'Seat Material Deleted  Successfully!');
+    }
+
+
+}

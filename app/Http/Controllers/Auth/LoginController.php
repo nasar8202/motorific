@@ -30,17 +30,23 @@ class LoginController extends Controller
     protected $redirectTo;
     public function redirectTo()
     {
+        $role = Auth::user()->role_id;
 
-        switch(Auth::user()->role_id){
+        switch($role){
 
             case 1:
-                $this->redirectTo = '/superadmin/dashboard';
-                return $this->redirectTo;
-                break;
-            case 2:
                 $this->redirectTo = '/admin/dashboard';
                 return $this->redirectTo;
                 break;
+
+             case 2:
+                 $this->redirectTo = '/';
+                 return $this->redirectTo;
+                 break;
+             case 3:
+                 $this->redirectTo = '/dealer/dashboard';
+                 return $this->redirectTo;
+                 break;
             default:
                 $this->redirectTo = '/login';
                 return $this->redirectTo;
@@ -63,6 +69,6 @@ class LoginController extends Controller
         auth()->logout();
         Session()->flush();
 
-        return Redirect()->route('login');
+        return Redirect()->route('myLogin');
     }
 }

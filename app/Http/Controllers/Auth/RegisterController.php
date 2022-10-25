@@ -33,15 +33,20 @@ class RegisterController extends Controller
    protected $redirectTo;
    public function redirectTo()
    {
-       switch(Auth::user()->role){
+    $role =Auth::user()->role_id;
+       switch($role){
 
            case 1:
-               $this->redirectTo = '/superadmin';
+               $this->redirectTo = 'admin/dashboard';
                return $this->redirectTo;
                break;
 
             case 2:
-                $this->redirectTo = '/admin';
+                $this->redirectTo = 'seller/dashboard';
+                return $this->redirectTo;
+                break;
+            case 3:
+                $this->redirectTo = '/dealer';
                 return $this->redirectTo;
                 break;
            default:
@@ -72,7 +77,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -87,7 +93,10 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'role_id' => 3,
+            'role_id' => 2,
+            'post_code'=>$data['post_code'],
+            'mile_age'=>$data['mile_age'],
+            'phone_number'=>$data['phone_number'],
             'password' => Hash::make($data['password']),
         ]);
     }
