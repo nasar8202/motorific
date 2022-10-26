@@ -10,6 +10,7 @@ use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\VehicleController;
+use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 
