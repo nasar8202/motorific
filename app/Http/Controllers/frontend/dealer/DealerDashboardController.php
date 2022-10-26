@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DealerDashboardController extends Controller
 {
-    public function seller()
+    public function index()
     {
 
         return view('frontend.dealer.index');

@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\VehicleController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +36,6 @@ Route::post('/register-post-step-3', [FrontController::class,'PostcreateStep3'])
 Route::post('/store', [FrontController::class,'store'])->name('store');
 // Route::get('/data', [FrontController::class,'index'])->name('index');
 
-Route::get('/dealer', [DealerDashboardController::class,'index'])->name('dealer');
 
 Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
@@ -76,7 +76,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/delete-seat-material/{id}', [VehicleController::class,'deleteSeatMaterial'])->name('deleteSeatMaterial.delete');
 
     // end seat material
-
+    
     // number of keys
     Route::get('/view-number-of-keys', [VehicleController::class,'ViewNumberOfkeys'])->name('ViewNumberOfkeys');
     Route::get('/add-number-of-keys', [VehicleController::class,'createNumberOfkeysForm'])->name('createNumberOfkeysForm');
@@ -84,9 +84,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-Keys/{id}', [VehicleController::class,'editKeysForm'])->name('editKeysForm');
     Route::post('/update-Keys/{id}', [VehicleController::class,'updateKey'])->name('updateKey');
     Route::get('/delete-key/{id}', [VehicleController::class,'deleteKey'])->name('deleteKey');
-
+   
     // end number of keys
-
+   
     // Tool Pack
     Route::get('/view-tool-pack', [VehicleController::class,'ViewToolPack'])->name('ViewToolPack');
     Route::get('/add-tool-pack', [VehicleController::class,'createToolPackForm'])->name('createToolPackForm');
@@ -104,7 +104,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-wheel-nut/{id}', [VehicleController::class,'updateWheelNut'])->name('updateWheelNut');
     Route::get('/delete-wheel-nut/{id}', [VehicleController::class,'deleteWheelNut'])->name('deleteWheelNut');
     // end locking wheel nut
-
+    
     // smmoking
     Route::get('/view-smooking', [VehicleController::class,'viewSmooking'])->name('viewSmooking');
     Route::get('/add-smooking', [VehicleController::class,'createSmookingForm'])->name('createSmookingForm');
@@ -121,7 +121,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-logbook/{id}', [VehicleController::class,'editLogBookForm'])->name('editLogBookForm');
     Route::post('/update-logbook/{id}', [VehicleController::class,'updateLogBook'])->name('updateLogBook');
     Route::get('/delete-logbook/{id}', [VehicleController::class,'deleteLogBook'])->name('deleteLogBook');
-    // end logbook
+    // end logbook    
 
     // vehicle owner
     Route::get('/view-vehicle-owner', [VehicleController::class,'viewVehicalOwner'])->name('viewVehicalOwner');
@@ -130,7 +130,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-Vehicle-Owner/{id}', [VehicleController::class,'editVehicalOwnerForm'])->name('editVehicalOwnerForm');
     Route::post('/update-vehicle-owner/{id}', [VehicleController::class,'updateVehicleOwner'])->name('updateVehicleOwner');
     Route::get('/delete-vehicle-owner/{id}', [VehicleController::class,'deleteVehcileOwner'])->name('deleteVehcileOwner');
-    // end vehicle owner
+    // end vehicle owner   
 
     // priavte plate
     Route::get('/view-private-plate', [VehicleController::class,'viewPrivatePlate'])->name('viewPrivatePlate');
@@ -139,7 +139,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-private-plate/{id}', [VehicleController::class,'editPrivatePlateForm'])->name('editPrivatePlateForm');
     Route::post('/update-private-plate/{id}', [VehicleController::class,'updatePrivatePlate'])->name('updatePrivatePlate');
     Route::get('/delete-private-plate/{id}', [VehicleController::class,'deletePrivatePlate'])->name('deletePrivatePlate');
-    // end private plate
+    // end private plate       
 
      // finance
      Route::get('/view-finance', [VehicleController::class,'viewFinance'])->name('viewFinance');
@@ -155,7 +155,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-user/{id}', [UserController::class,'editUserForm'])->name('editUserForm');
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
-    // end manage user
+    // end manage user    
 });
 
 // end admin panel routes
@@ -168,15 +168,6 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 });
 
 // end seller panel routes
-
-// start dealer panel routes
-Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
-  //  Route::get('/', [DealerDashboardController::class,'index'])->name('dealer');
-
-
-});
-
-// end dealer panel routes
 
 Route::group(['prefix' => 'superadmin','middleware'=>['auth','superadmin']], function () {
 //Route::name('superadmin')->prefix('superadmin')->middleware('superadmin')->group(function () {
@@ -197,4 +188,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
+Route::get('/dealer', [DealerDashboardController::class,'index'])->name('dealer');
