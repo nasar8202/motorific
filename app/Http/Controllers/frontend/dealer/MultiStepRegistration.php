@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\frontend\seller;
+namespace App\Http\Controllers\frontend\dealer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-class FrontController extends Controller
+use Session;
+class MultiStepRegistration extends Controller
 {
-
     public function createStep1(Request $request)
     {
         $register = $request->session()->get('register');
@@ -15,23 +14,34 @@ class FrontController extends Controller
         return view('frontend.dealer.step1',compact('register'));
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
+    public function createStep2(Request $request)
+    {
+        $register = $request->session()->get('register');
+
+        return view('frontend.dealer.step2',compact('register'));
+    }
+
+    public function createStep3(Request $request)
+    {
+        $register = $request->session()->get('register');
+        return view('frontend.dealer.step3',compact('register'));
+    }
+
+
     public function PostcreateStep1(Request $request)
     {
         $validatedData = $request->validate([
-            'full_name' => 'required',
-            'company_name' => 'required',
-            'position' => 'required',
-            'mobile_number' => 'required',
-            'email' => 'required',
-            'hear_about_us' => 'required',
+            'name' => 'required',
+            'password' => 'required',
+             'company_name' => 'required',
+             'position' => 'required',
+             'phone_number' => 'required',
+             'email' => 'required',
+             'hear_about_us' => 'required',
+             'privacy_policy'=>'required'
         ]);
         if(empty($request->session()->get('register'))){
-            $register = new \App\Models\Dealer();
+            $register = new \App\Models\User();
             $register->fill($validatedData);
             $request->session()->put('register', $register);
         }else{
@@ -39,27 +49,9 @@ class FrontController extends Controller
             $register->fill($validatedData);
             $request->session()->put('register', $register);
         }
-        dd($request->session()->put('register', $register));
         return redirect('/register-create-step-2');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function createStep2(Request $request)
-    {
-        $register = $request->session()->get('register');
-
-        return view('register.step2',compact('register'));
-    }
-
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function PostcreateStep2(Request $request)
     {
         $validatedData = $request->validate([
@@ -72,7 +64,7 @@ class FrontController extends Controller
             'company_phone' => 'required',
         ]);
         if(empty($request->session()->get('register'))){
-            $register = new \App\Models\Dealer();
+            $register = new \App\Models\UserDetail();
             $register->fill($validatedData);
             $request->session()->put('register', $register);
         }else{
@@ -83,25 +75,9 @@ class FrontController extends Controller
         return redirect()->route('register.create.step.3');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function createStep3(Request $request)
-    {
-        $register = $request->session()->get('register');
-        return view('register.step3',compact('register'));
-    }
-
-   /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function PostcreateStep3(Request $request)
     {
-
+// dd($request->session()->get('register'));
         $validatedData = $request->validate([
             'lowest_purchase_price' => 'required',
             'highest_purchase_price' => 'required',
@@ -113,7 +89,7 @@ class FrontController extends Controller
             'purchase_each_month_vehicles' => 'required',
         ]);
         if(empty($request->session()->get('register'))){
-            $register = new \App\Models\Dealer();
+            $register = new \App\Models\UserDetail();
             $register->fill($validatedData);
 
             $request->session()->put('register', $register);
@@ -123,74 +99,35 @@ class FrontController extends Controller
             $request->session()->put('register', $register);
         }
 
+
             $register = $request->session()->get('register');
 
             $request->session()->put('register', $register);
+
+            $register->role_id = 3;
+
+            $register->user_id = $register->id;
+
             $register->all_makes = $request->all_makes;
             $register->specific_makes = $request->specific_makes;
             $register->any_thing_else = $request->any_thing_else;
             $register->save();
-
+            Session::flush();
         return redirect('/');
     }
 
-   /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function store(Request $request)
     {
         $register = $request->session()->get('register');
+        $user = new User;
+        $user->abc = $register->abc;
+        $user->save();
 
+        $user_id = $user->id;
+        $user = new UserDetail;
+        $user->abc = $register->abc;
+        $user->save();
+        Session::flush();
         return redirect('/data');
-    }
-    public function index()
-    {
-
-        return view('frontend.seller.index');
-    }
-    public function sellMyCar()
-    {
-        return view('frontend.seller.index');
-    }
-    public function valuation()
-    {
-        return view('frontend.seller.valuation');
-    }
-    public function photoUpload()
-    {
-        return view('frontend.seller.photoUpload');
-    }
-    public function registration()
-    {
-        return view('frontend.seller.registration');
-    }
-    public function myLogin()
-    {
-        return view('frontend.seller.myLogin');
-    }
-    public function getUsers(Request $request)
-    {
-
-        $users = User::where('id',$request->id)->first();
-        if ($users) {
-        return response()->json(['success'=>'success','users'=>$users]);
-
-        }else{
-        return response()->json(['success'=>'error']);
-        }
-        // $users = User::where('id',$request->id)->get();
-        // if(count($users)>0){
-        //     return response()->json(['success'=>'success','users'=>$users]);
-        // }else{
-        //     return response()->json(['success'=>'error']);
-        // }
     }
 }

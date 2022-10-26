@@ -18,7 +18,7 @@
             </ul>
         </div>
         <div class="head-btns  justify-content-between">
-            <button>Sign In</button>
+            <button><a href="{{ route('signup') }}">Sign In</a></button>
             <button>Contact Us</button>
         </div>
         <div class="menu">

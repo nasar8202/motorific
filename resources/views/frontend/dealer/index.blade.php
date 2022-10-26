@@ -1,4 +1,3 @@
-
     @extends('frontend.dealer.layouts.app')
     @section('title','Sell your car the with Motorific')
     @section('section')

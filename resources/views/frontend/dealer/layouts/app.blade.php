@@ -22,7 +22,7 @@
 
     <!-- Css -->
     <style type="text/css">
-        
+
         /*Background color*/
         #grad1 {
             padding-top: 100px;
@@ -251,7 +251,7 @@
             box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
             box-sizing: border-box;
             cursor:pointer;
-            margin: 8px 2px; 
+            margin: 8px 2px;
         }
 
         .radio:hover {
@@ -472,7 +472,7 @@
             border-width: 2px;
         }
         .select2-container--open .select2-dropdown--below {
-            
+
             border-radius: 6px;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
@@ -527,7 +527,7 @@
 <body>
 <main>
     <!-- HEADER -->
-    @include('frontend.dealer.partials.header')    
+    @include('frontend.dealer.partials.header')
 
     @yield('section')
 
@@ -538,7 +538,7 @@
 </main>
 
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -558,71 +558,71 @@
                 placeholder : "Placeholder",
                 allowHtml: true,
                 allowClear: true,
-                tags: true 
+                tags: true
             });
 
-            
+
             var current_fs, next_fs, previous_fs; //fieldsets
             var opacity;
-            
+
             $(".next").click(function(){
-                
+
                 current_fs = $(this).parent();
                 next_fs = $(this).parent().next();
-                
+
                 //Add Class Active
                 $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-                
+
                 //show the next fieldset
-                next_fs.show(); 
+                next_fs.show();
                 //hide the current fieldset with style
                 current_fs.animate({opacity: 0}, {
                     step: function(now) {
                         // for making fielset appear animation
                         opacity = 1 - now;
-            
+
                         current_fs.css({
                             'display': 'none',
                             'position': 'relative'
                         });
                         next_fs.css({'opacity': opacity});
-                    }, 
+                    },
                     duration: 600
                 });
             });
-            
+
             $(".previous").click(function(){
-                
+
                 current_fs = $(this).parent();
                 previous_fs = $(this).parent().prev();
-                
+
                 //Remove class active
                 $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-                
+
                 //show the previous fieldset
                 previous_fs.show();
-            
+
                 //hide the current fieldset with style
                 current_fs.animate({opacity: 0}, {
                     step: function(now) {
                         // for making fielset appear animation
                         opacity = 1 - now;
-            
+
                         current_fs.css({
                             'display': 'none',
                             'position': 'relative'
                         });
                         previous_fs.css({'opacity': opacity});
-                    }, 
+                    },
                     duration: 600
                 });
             });
-            
+
             $('.radio-group .radio').click(function(){
                 $(this).parent().find('.radio').removeClass('selected');
                 $(this).addClass('selected');
             });
-            
+
             $(".submit").click(function(){
                 return false;
             })
