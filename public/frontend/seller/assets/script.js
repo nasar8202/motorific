@@ -38,7 +38,7 @@ function myFunction2() {
 
 
   // for loader
-  $(window).on("load",function(){
-    $(".loader-wrapper").fadeOut("slow")
+  jQuery(window).on("load",function(){
+    jQuery(".loader-wrapper").fadeOut("slow")
   });
 
