@@ -8,6 +8,7 @@ use App\Http\Controllers\frontend\seller\SellerDashboardController;
 
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\VehicleController;
+use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 /*
@@ -144,7 +145,18 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-user/{id}', [UserController::class,'editUserForm'])->name('editUserForm');
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
-    // end manage user    
+    // end manage user
+
+    // vehicle
+    Route::get('/view-vehcile', [ManageVehicleController::class,'viewVehicle'])->name('viewVehicle');
+    Route::get('/add-vehicle', [ManageVehicleController::class,'createVehicleForm'])->name('createVehicleForm');
+    Route::post('/store-vehicle', [ManageVehicleController::class, 'StoreVehicle'])->name('StoreVehicle');
+    Route::get('/edit-vehicle/{id}', [ManageVehicleController::class,'editVehicle'])->name('editVehicle');
+    Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
+    Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
+    // end vehcile 
+    
+    
 });
 
 // end admin panel routes

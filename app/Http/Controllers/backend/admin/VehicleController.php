@@ -132,6 +132,8 @@ class VehicleController extends Controller
 
                     $data['image']->move(public_path() . '/materials/seat_material_iamges/', $seat_material_iamges);
 
+
+                    
                     $seatMaterial = new SeatMaterial();
                     $seatMaterial->image = $seat_material_iamges;
                     $seatMaterial->title = $data['title'];

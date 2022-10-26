@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/css/bootstrap.css')}}">
-
+    <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/choices.js/choices.min.css')}}" />
     <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/fontawesome/all.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/iconly/bold.css')}}">
     <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/dripicons/webfont.css')}}">
@@ -132,6 +132,7 @@
 
 <script src="{{URL::asset('backend/admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
 <script src="{{URL::asset('backend/admin/assets/js/pages/ui-chartjs.js')}}"></script>
+<script src="{{URL::asset('backend/admin/assets/vendors/choices.js/choices.min.js')}}"></script>
 
 </body>
 
