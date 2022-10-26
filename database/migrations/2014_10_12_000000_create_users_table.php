@@ -23,11 +23,16 @@ class CreateUsersTable extends Migration
             $table->string('post_code');
             $table->string('phone_number');
             $table->string('mile_age');
+            $table->string('company_name');
+            $table->string('position');
+            $table->string('hear_about_us');
+            $table->boolean('privacy_policy')->default(0);
             $table->string('status')->default(1)->comment('1 = Active , 2 = Deactive');;
             $table->rememberToken();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

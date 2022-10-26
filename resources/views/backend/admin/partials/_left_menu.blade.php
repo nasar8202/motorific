@@ -64,6 +64,9 @@
                     <li class="submenu-item">
                         <a href="{{ route('viewPrivatePlate') }}">Private plate</a>
                     </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewFinance') }}">Finance</a>
+                    </li>
                 </ul>
             </li>
             <li class="sidebar-item  has-sub">
