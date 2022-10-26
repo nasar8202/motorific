@@ -5,12 +5,14 @@ use App\Http\Controllers\Auth\LoginController;
 
 use App\Http\Controllers\frontend\seller\FrontController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
+use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\VehicleController;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -136,9 +138,18 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/add-private-plate', [VehicleController::class,'createPrivatePlateForm'])->name('createPrivatePlateForm');
     Route::post('/store-private-plate', [VehicleController::class, 'storePrivatePlate'])->name('storePrivatePlate');
     Route::get('/edit-private-plate/{id}', [VehicleController::class,'editPrivatePlateForm'])->name('editPrivatePlateForm');
-    Route::post('/update-vehicle-owner/{id}', [VehicleController::class,'updateVehicleOwner'])->name('updateVehicleOwner');
+    Route::post('/update-private-plate/{id}', [VehicleController::class,'updatePrivatePlate'])->name('updatePrivatePlate');
     Route::get('/delete-private-plate/{id}', [VehicleController::class,'deletePrivatePlate'])->name('deletePrivatePlate');
     // end private plate       
+
+     // finance
+     Route::get('/view-finance', [VehicleController::class,'viewFinance'])->name('viewFinance');
+     Route::get('/add-finance', [VehicleController::class,'createFinanceForm'])->name('createFinanceForm');
+     Route::post('/store-finance', [VehicleController::class, 'storeFinance'])->name('storeFinance');
+     Route::get('/edit-finance/{id}', [VehicleController::class,'editFinanceForm'])->name('editFinanceForm');
+     Route::post('/update-finance/{id}', [VehicleController::class,'updateFinance'])->name('updateFinance');
+     Route::get('/delete-finance/{id}', [VehicleController::class,'deleteFinance'])->name('deleteFinance');
+     // end finance
 
     // manage user
     Route::get('/view-user', [UserController::class,'viewUsers'])->name('viewUsers');
@@ -189,4 +200,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
+Route::get('/dealer', [DealerDashboardController::class,'index'])->name('dealer');

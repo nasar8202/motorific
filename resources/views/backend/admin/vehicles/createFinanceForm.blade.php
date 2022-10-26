@@ -1,6 +1,6 @@
 
 @extends('backend.admin.layouts.app')
-@section('title','Edit Seat Material Form')
+@section('title','add wheel nut ')
 @section('secton')
 <style>
     .container {
@@ -16,14 +16,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Edit Seat Material Form</h3>
-                <p class="text-subtitle text-muted">Edit Seat Material Form</p>
+                <h3>Add Finance</h3>
+                <p class="text-subtitle text-muted">Add Finance</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Seat Material </li>
+                        <li class="breadcrumb-item active" aria-current="page">Finance</li>
                     </ol>
                 </nav>
             </div>
@@ -34,14 +34,15 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Edit Seat Material Form</h4>
+                    <h4 class="card-title">Add Finance</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
                         <div class="container">
 
                             <div class="row">
-                                <form action="{{ route('updatePrivatePlate',$editPrivatePlate->id) }}" method="POST" enctype="multipart/form-data">
+
+                                <form action="{{ route('storeFinance') }}" method="POST">
                                     @csrf
                                     @if ($errors->any())
                                     <div class="alert alert-danger" role="alert">
@@ -55,17 +56,13 @@
 
                                     <table class="table table-bordered" id="dynamicAddRemove">
                                         <tr>
-                                            <th>Title</th>
-                                            <th>Image Upload</th>
-                                            <th>Image</th>
+                                            <th>Finance Title</th>
+                                            <th>Action</th>
                                         </tr>
                                         <tr>
-                                            <td><input type="text" name="title" placeholder="Enter Title" value="{{ $editPrivatePlate->title }}" class="form-control" />
+                                            <td><input type="text" name="addMoreInputFields[0][title]" placeholder="Enter Finance" class="form-control" />
                                             </td>
-                                            <td><input type="file" name="image" value="{{ $editPrivatePlate->image }}" placeholder="Enter Title" class="form-control" />
-                                            </td>
-                                            <td><img src="{{ asset('/plates/private_plate_iamges/'.$editPrivatePlate->image) }}" width="100" height="80"></td>
-
+                                            <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add More</button></td>
                                         </tr>
                                     </table>
                                     <button type="submit" class="btn btn-outline-success btn-block">Save</button>
@@ -80,5 +77,16 @@
     </div>
 </section>
 </div>
-
+<script type="text/javascript">
+    var i = 0;
+    $("#dynamic-ar").click(function () {
+        ++i;
+        $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +
+            '][title]" placeholder="Enter Finance" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Remove </button></td></tr>'
+            );
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
 @endsection
