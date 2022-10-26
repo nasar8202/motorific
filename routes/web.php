@@ -153,7 +153,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/delete-private-plate/{id}', [VehicleController::class,'deletePrivatePlate'])->name('deletePrivatePlate');
     // end private plate
 
-     // finance
+     // finance nnn
      Route::get('/view-finance', [VehicleController::class,'viewFinance'])->name('viewFinance');
      Route::get('/add-finance', [VehicleController::class,'createFinanceForm'])->name('createFinanceForm');
      Route::post('/store-finance', [VehicleController::class, 'storeFinance'])->name('storeFinance');
