@@ -14,8 +14,5 @@ class VehicleImage extends Model
         'vehicle_id','image'
     ];
 
-    public function VehicleImage()
-    {
-         return $this->belongsTo(Vehicle::class);
-    }
+    
 }

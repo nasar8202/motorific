@@ -16,7 +16,11 @@ class CreateVehicleImagesTable extends Migration
         Schema::create('vehicle_images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('vehicle_id')->nullable();
-            $table->string('image')->nullable();
+            $table->string('front')->nullable();
+            $table->string('passenger_rare_side_corner')->nullable();
+            $table->string('driver_rare_side_corner')->nullable();
+            $table->string('interior_front')->nullable();
+            $table->string('dashboard')->nullable();
             $table->timestamps();
         });
     }

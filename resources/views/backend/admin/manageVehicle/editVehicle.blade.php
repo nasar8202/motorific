@@ -339,7 +339,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage[0]->image) }}" width="80%">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" width="80%">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
@@ -359,7 +359,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage[1]->image) }}" width="80%">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" width="80%">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
@@ -379,7 +379,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage[2]->image) }}" width="80%">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}" width="80%">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
@@ -398,7 +398,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage[3]->image) }}" width="80%">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}" width="80%">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
@@ -417,7 +417,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage[4]->image) }}" width="80%">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}" width="80%">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
@@ -434,7 +434,7 @@
                 
                 <div class="col-12 d-flex justify-content-end">
                     <button type="submit"
-                        class="btn btn-primary me-1 mb-1">Submit</button>
+                        class="btn btn-primary me-1 mb-1">Update Data</button>
                     <button type="reset"
                         class="btn btn-light-secondary me-1 mb-1">Reset</button>
                 </div>

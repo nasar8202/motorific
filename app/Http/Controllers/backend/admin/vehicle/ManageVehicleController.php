@@ -38,7 +38,7 @@ class ManageVehicleController extends Controller
     }
     public function StoreVehicle(Request $request)
     {
-        // dd($request->file());
+       
         $request->validate([
             'register_number' => 'required',
             'vehicle_name' => 'required',
@@ -97,21 +97,27 @@ class ManageVehicleController extends Controller
         $vehicleInformation->finance_id =  $request->finance;
         $vehicleInformation->save();
         
-            foreach($request->file() as $data) {
 
-                $seat_material_iamges = time() . '_' . $data->getClientOriginalName();
-
-                $data->move(public_path() . '/vehicles/vehicles_images/', $seat_material_iamges);
-
-            //     $instructor_image_name = time() . '_' . $request->file('instructor_image')->getClientOriginalName();
-            //     //            $product_image_first_path = $request->file('product_image_first')->storeAs('products', $product_image_first);
-            // $request->file('instructor_image')->move(public_path() . '/uploads/instructorimages/', $instructor_image_name);
+                $front = time() . '_' . $request->file('image1')->getClientOriginalName();
+                $request->file('image1')->move(public_path() . '/vehicles/vehicles_images/', $front);
+                $passenger_rare_side_corner = time() . '_' . $request->file('image2')->getClientOriginalName();
+                $request->file('image2')->move(public_path() . '/vehicles/vehicles_images/', $passenger_rare_side_corner);
+                $driver_rare_side_corner = time() . '_' . $request->file('image3')->getClientOriginalName();
+                $request->file('image3')->move(public_path() . '/vehicles/vehicles_images/', $driver_rare_side_corner);
+                $interior_front = time() . '_' . $request->file('image4')->getClientOriginalName();
+                $request->file('image4')->move(public_path() . '/vehicles/vehicles_images/', $interior_front);
+                $dashboard = time() . '_' . $request->file('image5')->getClientOriginalName();
+                $request->file('image5')->move(public_path() . '/vehicles/vehicles_images/', $dashboard);
 
                 $VehicleImage = new VehicleImage;
                 $VehicleImage->vehicle_id =  $vehicle->id;
-                $VehicleImage->image = $seat_material_iamges;
+                $VehicleImage->front = $front;
+                $VehicleImage->passenger_rare_side_corner = $passenger_rare_side_corner;
+                $VehicleImage->driver_rare_side_corner = $driver_rare_side_corner;
+                $VehicleImage->interior_front = $interior_front;
+                $VehicleImage->dashboard = $dashboard;
                 $VehicleImage->save();
-            }
+            
         }catch(\Exception $e)
         {
             DB::rollback();
@@ -128,10 +134,9 @@ class ManageVehicleController extends Controller
     }
     public function viewVehicle()
     {   
-       $vehicles = Vehicle::
-       with('vehicleInformation')
-       ->with('VehicleImage')->get();
-       
+        
+       $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->get();
+    //    dd($vehicles);
         return view('backend.admin.manageVehicle.viewVehicle',compact('vehicles'));
     }
 
@@ -142,15 +147,32 @@ class ManageVehicleController extends Controller
     
        $vehicles = Vehicle::find($id);
        $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
-       $VehicleImage = VehicleImage::where('vehicle_id',$id)->get();
+       $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
        $vehicles->delete();
        $vehicleInformation->delete();
-       foreach($VehicleImage as $VehicleImg){
-        if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImg->image))){
-            unlink(public_path("/vehicles/vehicles_images/".$VehicleImg->image));
+       
+       
+        if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->front))){
+            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->front));
           }
-        $VehicleImg->delete();
-       }
+       
+          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner))){
+            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner));
+          }
+       
+          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner))){
+            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner));
+          }
+       
+          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front))){
+            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front));
+          }
+       
+          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard))){
+            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard));
+          }
+          $VehicleImage->delete();
+       
     }catch(\Exception $e)
     {
         DB::rollback();
@@ -167,7 +189,7 @@ class ManageVehicleController extends Controller
 
         $vehicles = Vehicle::find($id);
         $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
-        $VehicleImage = VehicleImage::where('vehicle_id',$id)->get();
+        $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
         $VehicleFeatures =  VehicleFeature::where('status',1)->get();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
         $SeatMaterials =  SeatMaterial::where('status',1)->get();
@@ -206,7 +228,8 @@ class ManageVehicleController extends Controller
             'finance' => 'required',
            
         ]);
-        
+        DB::beginTransaction();
+        try{
         $vehicle = Vehicle::find($id);
         $vehicle->user_id = Auth::user()->id;
         $vehicle->vehicle_registartion_number = $request->register_number;
@@ -236,23 +259,62 @@ class ManageVehicleController extends Controller
         $vehicleInformation->finance_id =  $request->finance;
         $vehicleInformation->save();
         
-            foreach($request->file() as $data) {
 
-                $seat_material_iamges = time() . '_' . $data->getClientOriginalName();
+        $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
+        if($request->file('image1')){
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->front))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->front));
+              }
+            $front = time() . '_' . $request->file('image1')->getClientOriginalName();
+            $request->file('image1')->move(public_path() . '/vehicles/vehicles_images/', $front);
+            $VehicleImage->front = $front;
+        }
+        if($request->file('image2')){
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner));
+              }
+            $passenger_rare_side_corner = time() . '_' . $request->file('image2')->getClientOriginalName();
+            $request->file('image2')->move(public_path() . '/vehicles/vehicles_images/', $passenger_rare_side_corner);
+            $VehicleImage->passenger_rare_side_corner = $passenger_rare_side_corner;
+        }
+        if($request->file('image3')){
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner));
+              }
+            $driver_rare_side_corner = time() . '_' . $request->file('image3')->getClientOriginalName();
+            $request->file('image3')->move(public_path() . '/vehicles/vehicles_images/', $driver_rare_side_corner);
+            $VehicleImage->driver_rare_side_corner = $driver_rare_side_corner;
+        }
+        if($request->file('image4')){
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front));
+              }
+            $interior_front = time() . '_' . $request->file('image4')->getClientOriginalName();
+            $request->file('image4')->move(public_path() . '/vehicles/vehicles_images/', $interior_front);
+            $VehicleImage->interior_front = $interior_front;
+        }
 
-                $data->move(public_path() . '/vehicles/vehicles_images/', $seat_material_iamges);
-
-            //     $instructor_image_name = time() . '_' . $request->file('instructor_image')->getClientOriginalName();
-            //     //            $product_image_first_path = $request->file('product_image_first')->storeAs('products', $product_image_first);
-            // $request->file('instructor_image')->move(public_path() . '/uploads/instructorimages/', $instructor_image_name);
-
-                $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
-                $VehicleImage->vehicle_id =  $vehicle->id;
-                $VehicleImage->image = $seat_material_iamges;
-                $VehicleImage->save();
-            }
+        if($request->file('image5')){
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard));
+              }
+            $dashboard = time() . '_' . $request->file('image5')->getClientOriginalName();
+            $request->file('image5')->move(public_path() . '/vehicles/vehicles_images/', $dashboard);
+            $VehicleImage->dashboard = $dashboard;
+        }
+        $VehicleImage->vehicle_id =  $vehicle->id;
+        
+        $VehicleImage->save();
        
-            
+    }catch(\Exception $e)
+    {
+        DB::rollback();
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
+    DB::commit();
+        
             return redirect()->route('viewVehicle')->with('success', 'Vehicle Updated  Successfully!');
 
         

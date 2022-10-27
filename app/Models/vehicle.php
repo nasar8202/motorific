@@ -25,6 +25,7 @@ class Vehicle extends Model
 
     {
 
-        return $this->hasMany(VehicleImage::class);
+        return $this->hasOne(VehicleImage::class,'vehicle_id','id');
+        
     }
 }

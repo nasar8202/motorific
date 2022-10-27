@@ -53,6 +53,7 @@
                         @endphp
                         @foreach ($vehicles as $vehicle)
                         <tr>
+                          
                             <td>{{ $i++ }}</td>
                             <td>{{ $vehicle->vehicle_registartion_number}}</td>
                             <td>{{ $vehicle->vehicle_name}}</td>
@@ -61,7 +62,7 @@
                             <td>{{ $vehicle->vehicle_tank}}</td>
                             <td>{{ $vehicle->vehicle_price}}</td>
                             <td>
-                                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->first()->image) }}" width="100" height="100">
+                                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="100" height="100">
                             </td>
                             <td>
                                 <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge bg-success">View Details</span></a>
