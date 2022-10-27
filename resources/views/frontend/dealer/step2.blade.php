@@ -25,6 +25,7 @@
                             </ul>
                         </div>
                     @endif
+
                             <!-- progressbar -->
                             <ul id="progressbar">
                                 <li class="active" id="account"><strong>Your details</strong></li>
@@ -39,41 +40,41 @@
                                     <h2 class="fs-title">Dealership details</h2>
                                     <div class="form-group">
                                         <label>Address line 1 *</label>
-                                        <input type="text" name="address_line_1"  placeholder="Enter description" value="{{ session()->get('register.address_line_1') }}" required>
+                                        <input type="text" name="address_line_1"  placeholder="Enter description" value="{{ session()->get('address_line_1') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Address line 2 *</label>
-                                        <input type="text" name="address_line_2"  placeholder="Enter description" value="{{ session()->get('register.address_line_2') }}" required>
+                                        <input type="text" name="address_line_2"  placeholder="Enter description" value="{{ session()->get('address_line_2') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Town / city *</label>
-                                        <input type="text" name="city"  placeholder="Enter description" value="{{ session()->get('register.city') }}" required>
+                                        <input type="text" name="city"  placeholder="Enter description" value="{{ session()->get('city') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Postcode *</label>
-                                        <input type="text" name="postcode"  placeholder="Enter description" value="{{ session()->get('register.postcode') }}" required>
+                                        <input type="text" name="postcode"  placeholder="Enter description" value="{{ session()->get('postcode') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Company type *</label>
-                                        <select name="company_type"  placeholder="Enter description" value="{{ session()->get('register.company_type') }}">
+                                        <select name="company_type"  placeholder="Enter description" value="{{ session()->get('company_type') }}">
                                             <option value="">Select company type</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Broker" ? 'selected' :  '' }}  value="Broker" @endif>Broker</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Car supermarket" ? 'selected' :  '' }}  value="Car supermarket" @endif>Car supermarket</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Independent" ? 'selected' :  '' }}  value="Independent" @endif>Independent</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Leasing company" ? 'selected' :  '' }}  value="Leasing company" @endif>Leasing company</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Main dealer (multi-franchise)" ? 'selected' :  '' }}  value="Main dealer (multi-franchise)" @endif>Main dealer (multi-franchise)</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Main dealer (single-franchise)" ? 'selected' :  '' }}  value="Main dealer (single-franchise)" @endif>Main dealer (single-franchise)</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Manufacturer" ? 'selected' :  '' }}  value="Manufacturer" @endif>Manufacturer</option>
-                                            <option @if(session()->get('register.company_type') != null) {{ session()->get('register.company_type') == "Online car buyer" ? 'selected' :  '' }}  value="Online car buyer" @endif>Online car buyer</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Broker" ? 'selected' :  '' }}  value="Broker" @endif>Broker</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Car supermarket" ? 'selected' :  '' }}  value="Car supermarket" @endif>Car supermarket</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Independent" ? 'selected' :  '' }}  value="Independent" @endif>Independent</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Leasing company" ? 'selected' :  '' }}  value="Leasing company" @endif>Leasing company</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Main dealer (multi-franchise)" ? 'selected' :  '' }}  value="Main dealer (multi-franchise)" @endif>Main dealer (multi-franchise)</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Main dealer (single-franchise)" ? 'selected' :  '' }}  value="Main dealer (single-franchise)" @endif>Main dealer (single-franchise)</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Manufacturer" ? 'selected' :  '' }}  value="Manufacturer" @endif>Manufacturer</option>
+                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Online car buyer" ? 'selected' :  '' }}  value="Online car buyer" @endif>Online car buyer</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Website *</label>
-                                        <input type="text" name="website" value="{{ session()->get('register.website') }}" placeholder="e.g. www.motorofic.co.uk" required>
+                                        <input type="text" name="website" value="{{ session()->get('website') }}" placeholder="e.g. www.motorofic.co.uk" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Company phone *</label>
-                                        <input type="number" name="company_phone"  placeholder="Enter Phone Number" value="{{ session()->get('register.company_phone') }}" required>
+                                        <input type="number" name="company_phone"  placeholder="Enter Phone Number" value="{{ session()->get('company_phone') }}" required>
                                     </div>
                                 </div>
                                 {{-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
