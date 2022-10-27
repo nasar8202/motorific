@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <select name="specific_makes" class="js-select2 companyType"  multiple="multiple">
+                                        <select name="specific_makes[]" class="js-select2 companyType"  multiple="multiple">
                                             <option value="">Select Makes</option>
                                             <option @if(session()->get('specific_makes') != null) {{ session()->get('specific_makes') == "1" ? 'selected' :  '' }}  value="1" @endif>1</option>
                                             <option @if(session()->get('specific_makes') != null) {{ session()->get('specific_makes') == "2" ? 'selected' :  '' }}  value="2" @endif>2</option>
@@ -65,24 +65,24 @@
                                         <label>What is the age of vehicles you typically purchase? *</label>
                                         <div class="absolutelabel">
                                             <label>From</label>
-                                            <input id="ageFrom" class="mw-input" placeholder="1" required="" pattern="[0-9]*" data-private="true" type="text" name="age_range_from"  value="{{ session()->get('age_range_from') }}">
+                                            <input id="ageFrom" class="mw-input" placeholder="1" required="" pattern="[0-9]*" data-private="true" type="number" name="age_range_from"  value="{{ session()->get('age_range_from') }}">
                                         </div>
                                         <span>-</span>
                                         <div class="absolutelabel">
                                             <label>To</label>
-                                            <input id="ageTo" class="mw-input" placeholder="5" required="" pattern="[0-9]*" data-private="true" type="text" name="age_range_to"  value="{{ session()->get('age_range_to') }}">
+                                            <input id="ageTo" class="mw-input" placeholder="5" required="" pattern="[0-9]*" data-private="true" type="number" name="age_range_to"  value="{{ session()->get('age_range_to') }}">
                                         </div>
                                     </div>
                                     <div class="form-group twoInOneLine">
                                         <label>What is the mileage of vehicles you typically purchase? *</label>
                                         <div class="absolutelabel">
                                             <label>From</label>
-                                            <input id="mileageFrom" class="mw-input" placeholder="12,000" required="" pattern="[0-9]*" data-private="true" type="text"  name="mileage_from"  value="{{ session()->get('mileage_from') }}">
+                                            <input id="mileageFrom" class="mw-input" placeholder="12,000" required="" pattern="[0-9]*" data-private="true" type="number"  name="mileage_from"  value="{{ session()->get('mileage_from') }}">
                                         </div>
                                         <span>-</span>
                                         <div class="absolutelabel">
                                             <label>To</label>
-                                            <input id="mileageTo" class="mw-input" placeholder="20,000" required="" pattern="[0-9]*" data-private="true" type="text" name="mileage_to"  value="{{ session()->get('mileage_to') }}">
+                                            <input id="mileageTo" class="mw-input" placeholder="20,000" required="" pattern="[0-9]*" data-private="true" type="number" name="mileage_to"  value="{{ session()->get('mileage_to') }}">
                                         </div>
                                     </div>
                                     <div class="form-group">

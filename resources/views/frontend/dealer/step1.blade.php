@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="form-group radio-group">
                                         <label for="policy">
-                                            <input type="radio" name="privacy_policy" value="1"  id="policy">
+                                            <input type="radio" name="privacy_policy" value="1"  id="policy" checked>
                                             <span>I have read the <a href="/privacy" rel="noopener noreferrer" target="_blank">Privacy Policy</a> and accept the <a class="SignupPage_termsLink__GuXm5" href="/terms" rel="noopener noreferrer" target="_blank">Terms &amp; Conditions</a>.</span>
                                         </label>
                                     </div>

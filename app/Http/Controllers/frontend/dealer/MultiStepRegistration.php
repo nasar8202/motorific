@@ -58,13 +58,13 @@ class MultiStepRegistration extends Controller
         $request->session()->put('privacy_policy',$request->input('privacy_policy'));
         if(empty($request->session()->get('register'))){
             $register = new User();
-            $register->role_id = 3;
+            // $register->role_id = 3;
             $register->fill($validatedData);
             $request->session()->put('register', $register);
         }else{
             $register = $request->session()->get('register');
             $register->fill($validatedData);
-            $register->role_id = 3;
+            // $register->role_id = 3;
             $request->session()->put('register', $register);
         }
         return redirect('/register-create-step-2');
@@ -131,7 +131,7 @@ class MultiStepRegistration extends Controller
         if($request->input('all_makes') == 'all_makes'){
             $request->session()->put('all_makes',$request->input('all_makes'));
         }else{
-            dd($request->session()->put('specific_makes',$request->input('specific_makes')));
+            $request->session()->put('specific_makes',$request->input('specific_makes'));
         }
 
         if(empty($request->session()->get('register'))){
@@ -158,6 +158,8 @@ class MultiStepRegistration extends Controller
             $user->hear_about_us = $request->session()->get('hear_about_us');
             $user->phone_number = $request->session()->get('phone_number');
             $user->privacy_policy = $request->session()->get('privacy_policy');
+            $user->status = 2;
+            $user->role_id = 3;
             //dd($register->email);
             $user->save();
 
@@ -180,14 +182,18 @@ class MultiStepRegistration extends Controller
             $user_detail->mileage_to = $request->session()->get('mileage_to');
             $user_detail->how_far_distance = $request->session()->get('how_far_distance');
             $user_detail->purchase_each_month_vehicles = $request->session()->get('purchase_each_month_vehicles');
-            $user_detail->all_makes = $request->session()->get('all_makes');
-            $user_detail->specific_makes = $request->session()->get('specific_makes');
+            if($request->input('all_makes') == 'all_makes'){
+                $user_detail->all_makes = $request->session()->get('all_makes');
+            }else{
+                $implode_data = implode(",",$request->session()->get('specific_makes'));
+                $user_detail->specific_makes = $implode_data;
+            }
             $user_detail->any_thing_else = $request->session()->get('any_thing_else');
 
             $user_detail->save();
 
             Session::flush();
-        return redirect('/');
+        return redirect()->route('dealer')->with("success","Account Create Successfully! Waiting For Admin Approval");
     }
 
     public function store(Request $request)
