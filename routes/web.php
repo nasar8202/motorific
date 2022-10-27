@@ -168,6 +168,15 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
     // end manage user
+
+     // vehicle
+     Route::get('/view-vehcile', [ManageVehicleController::class,'viewVehicle'])->name('viewVehicle');
+     Route::get('/add-vehicle', [ManageVehicleController::class,'createVehicleForm'])->name('createVehicleForm');
+     Route::post('/store-vehicle', [ManageVehicleController::class, 'StoreVehicle'])->name('StoreVehicle');
+     Route::get('/edit-vehicle/{id}', [ManageVehicleController::class,'editVehicle'])->name('editVehicle');
+     Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
+     Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
+     // end vehcile 
 });
 
 // end admin panel routes
