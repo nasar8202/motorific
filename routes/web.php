@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\frontend\seller\FrontController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
+use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\VehicleController;
@@ -27,15 +28,25 @@ use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 // Route::get('/', function () {
 //     return view('auth.login');
 //  });
-Route::get('/register-step-1', [FrontController::class, 'createStep1'])->name('signup');
-Route::post('/register-post-step-1', [FrontController::class,'PostcreateStep1'])->name('register.post.step.1');
-Route::get('/register-create-step-2', [FrontController::class,'createStep2'])->name('register.create.step.2');
-Route::post('/register-post-step-2', [FrontController::class,'PostcreateStep2'])->name('register.post.step.2');
-Route::get('/register-create-step-3', [FrontController::class,'createStep3'])->name('register.create.step.3');
-Route::post('/register-post-step-3', [FrontController::class,'PostcreateStep3'])->name('register.post.step.3');
-
-Route::post('/store', [FrontController::class,'store'])->name('store');
+// start multi step registration for dealer
+Route::get('/register-step-1', [MultiStepRegistration::class, 'createStep1'])->name('signup');
+Route::post('/register-post-step-1', [MultiStepRegistration::class,'PostcreateStep1'])->name('register.post.step.1');
+Route::get('/register-create-step-2', [MultiStepRegistration::class,'createStep2'])->name('register.create.step.2');
+Route::post('/register-post-step-2', [MultiStepRegistration::class,'PostcreateStep2'])->name('register.post.step.2');
+Route::get('/register-create-step-3', [MultiStepRegistration::class,'createStep3'])->name('register.create.step.3');
+Route::post('/register-post-step-3', [MultiStepRegistration::class,'PostcreateStep3'])->name('register.post.step.3');
+Route::post('/store', [MultiStepRegistration::class,'store'])->name('store');
 // Route::get('/data', [FrontController::class,'index'])->name('index');
+
+// end multi step registration for dealer
+
+// Route::get('/register-step-1', [FrontController::class, 'createStep1'])->name('signup');
+// Route::post('/register-post-step-1', [FrontController::class,'PostcreateStep1'])->name('register.post.step.1');
+// Route::get('/register-create-step-2', [FrontController::class,'createStep2'])->name('register.create.step.2');
+// Route::post('/register-post-step-2', [FrontController::class,'PostcreateStep2'])->name('register.post.step.2');
+// Route::get('/register-create-step-3', [FrontController::class,'createStep3'])->name('register.create.step.3');
+// Route::post('/register-post-step-3', [FrontController::class,'PostcreateStep3'])->name('register.post.step.3');
+// Route::post('/store', [FrontController::class,'store'])->name('store');
 
 
 Route::get('/', [FrontController::class,'index'])->name('index');
@@ -77,7 +88,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/delete-seat-material/{id}', [VehicleController::class,'deleteSeatMaterial'])->name('deleteSeatMaterial.delete');
 
     // end seat material
-    
+
     // number of keys
     Route::get('/view-number-of-keys', [VehicleController::class,'ViewNumberOfkeys'])->name('ViewNumberOfkeys');
     Route::get('/add-number-of-keys', [VehicleController::class,'createNumberOfkeysForm'])->name('createNumberOfkeysForm');
@@ -85,9 +96,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-Keys/{id}', [VehicleController::class,'editKeysForm'])->name('editKeysForm');
     Route::post('/update-Keys/{id}', [VehicleController::class,'updateKey'])->name('updateKey');
     Route::get('/delete-key/{id}', [VehicleController::class,'deleteKey'])->name('deleteKey');
-   
+
     // end number of keys
-   
+
     // Tool Pack
     Route::get('/view-tool-pack', [VehicleController::class,'ViewToolPack'])->name('ViewToolPack');
     Route::get('/add-tool-pack', [VehicleController::class,'createToolPackForm'])->name('createToolPackForm');
@@ -105,7 +116,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-wheel-nut/{id}', [VehicleController::class,'updateWheelNut'])->name('updateWheelNut');
     Route::get('/delete-wheel-nut/{id}', [VehicleController::class,'deleteWheelNut'])->name('deleteWheelNut');
     // end locking wheel nut
-    
+
     // smmoking
     Route::get('/view-smooking', [VehicleController::class,'viewSmooking'])->name('viewSmooking');
     Route::get('/add-smooking', [VehicleController::class,'createSmookingForm'])->name('createSmookingForm');
@@ -122,7 +133,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-logbook/{id}', [VehicleController::class,'editLogBookForm'])->name('editLogBookForm');
     Route::post('/update-logbook/{id}', [VehicleController::class,'updateLogBook'])->name('updateLogBook');
     Route::get('/delete-logbook/{id}', [VehicleController::class,'deleteLogBook'])->name('deleteLogBook');
-    // end logbook    
+    // end logbook
 
     // vehicle owner
     Route::get('/view-vehicle-owner', [VehicleController::class,'viewVehicalOwner'])->name('viewVehicalOwner');
@@ -131,7 +142,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-Vehicle-Owner/{id}', [VehicleController::class,'editVehicalOwnerForm'])->name('editVehicalOwnerForm');
     Route::post('/update-vehicle-owner/{id}', [VehicleController::class,'updateVehicleOwner'])->name('updateVehicleOwner');
     Route::get('/delete-vehicle-owner/{id}', [VehicleController::class,'deleteVehcileOwner'])->name('deleteVehcileOwner');
-    // end vehicle owner   
+    // end vehicle owner
 
     // priavte plate
     Route::get('/view-private-plate', [VehicleController::class,'viewPrivatePlate'])->name('viewPrivatePlate');
@@ -140,7 +151,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-private-plate/{id}', [VehicleController::class,'editPrivatePlateForm'])->name('editPrivatePlateForm');
     Route::post('/update-private-plate/{id}', [VehicleController::class,'updatePrivatePlate'])->name('updatePrivatePlate');
     Route::get('/delete-private-plate/{id}', [VehicleController::class,'deletePrivatePlate'])->name('deletePrivatePlate');
-    // end private plate       
+    // end private plate
 
      // finance nnn
      Route::get('/view-finance', [VehicleController::class,'viewFinance'])->name('viewFinance');
@@ -157,17 +168,6 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
     // end manage user
-
-    // vehicle
-    Route::get('/view-vehcile', [ManageVehicleController::class,'viewVehicle'])->name('viewVehicle');
-    Route::get('/add-vehicle', [ManageVehicleController::class,'createVehicleForm'])->name('createVehicleForm');
-    Route::post('/store-vehicle', [ManageVehicleController::class, 'StoreVehicle'])->name('StoreVehicle');
-    Route::get('/edit-vehicle/{id}', [ManageVehicleController::class,'editVehicle'])->name('editVehicle');
-    Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
-    Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
-    // end vehcile 
-    
-    
 });
 
 // end admin panel routes

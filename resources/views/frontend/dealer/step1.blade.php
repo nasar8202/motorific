@@ -39,55 +39,55 @@
                                     <h2 class="fs-title">Your details</h2>
                                     <div class="form-group">
                                         <label>Full name *</label>
-                                        <input type="text" name="name" placeholder="Enter name" value="{{ session()->get('register.name') }}" >
+                                        <input type="text" name="name" placeholder="Enter name" value="{{ session()->get('name') }}" >
 
                                     </div>
                                     <div class="form-group">
                                         <label>Email address *</label>
-                                        <input type="email" name="email" value="{{ session()->get('register.email') }}" >
+                                        <input type="email" name="email" value="{{ session()->get('email') }}" >
                                     </div>
                                     <div class="form-group">
                                         <label>Password *</label>
-                                        <input type="password" name="password" value="{{ session()->get('register.password') }}" >
+                                        <input type="password" name="password" value="{{ session()->get('password') }}" >
                                     </div>
                                     <div class="form-group">
                                         <label>Company Name *</label>
-                                        <input type="text" name="company_name" placeholder="Enter name" value="{{ session()->get('register.company_name') }}" >
+                                        <input type="text" name="company_name" placeholder="Enter name" value="{{ session()->get('company_name') }}" >
                                     </div>
                                     <div class="form-group">
                                         <label>Position *</label>
                                         <select name="position" >
                                             <option selected="" value="">Select position</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "Buyer" ? 'selected' :  '' }} value="Buyer" @endif>Buyer</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "CEO / Managing Director" ? 'selected' :  '' }} value="CEO / Managing Director" @endif>CEO / Managing Director</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "Director" ? 'selected' :  '' }} value="Director" @endif>Director</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "Group Buyer" ? 'selected' :  '' }} value="Group Buyer" @endif>Group Buyer</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "Group Sales Manager" ? 'selected' :  '' }} value="Group Sales Manager" @endif>Group Sales Manager</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "" ? 'selected' :  '' }} value="Owner / Proprietor" @endif>Owner / Proprietor</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "Sales Manager" ? 'selected' :  '' }} value="Sales Manager" @endif>Sales Manager</option>
-                                            <option @if(session()->get('register.position') != null) {{ session()->get('register.position') == "Stock Controller" ? 'selected' :  '' }} value="Stock Controller" @endif>Stock Controller</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "Buyer" ? 'selected' :  '' }} value="Buyer" @endif>Buyer</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "CEO / Managing Director" ? 'selected' :  '' }} value="CEO / Managing Director" @endif>CEO / Managing Director</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "Director" ? 'selected' :  '' }} value="Director" @endif>Director</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "Group Buyer" ? 'selected' :  '' }} value="Group Buyer" @endif>Group Buyer</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "Group Sales Manager" ? 'selected' :  '' }} value="Group Sales Manager" @endif>Group Sales Manager</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "" ? 'selected' :  '' }} value="Owner / Proprietor" @endif>Owner / Proprietor</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "Sales Manager" ? 'selected' :  '' }} value="Sales Manager" @endif>Sales Manager</option>
+                                            <option @if(session()->get('position') != null) {{ session()->get('position') == "Stock Controller" ? 'selected' :  '' }} value="Stock Controller" @endif>Stock Controller</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Mobile number *</label>
-                                        <input type="number" name="phone_number" value="{{ session()->get('register.phone_number') }}" >
+                                        <input type="number" name="phone_number" value="{{ session()->get('phone_number') }}" >
                                     </div>
 
                                     <div class="form-group">
                                         <select name="hear_about_us" >
                                             <option value="">Select how you heard about us</option>
-                                            <option @if(session()->get('register.hear_about_us') != null) {{ session()->get('register.hear_about_us') == "Search engine" ? 'selected' :  '' }} value="Search engine" @endif >Search engine</option>
-                                            <option @if(session()->get('register.hear_about_us') != null) {{ session()->get('register.hear_about_us') == "TV" ? 'selected' :  '' }} value="TV" @endif>TV</option>
-                                            <option @if(session()->get('register.hear_about_us') != null) {{ session()->get('register.hear_about_us') == "Radio" ? 'selected' :  '' }} value="Radio" @endif>Radio</option>
-                                            <option @if(session()->get('register.hear_about_us') != null) {{ session()->get('register.hear_about_us') == "Printed advert" ? 'selected' :  '' }} value="Printed advert" @endif>Printed advert</option>
-                                            <option @if(session()->get('register.hear_about_us') != null) {{ session()->get('register.hear_about_us') == "Event" ? 'selected' :  '' }} value="Event" @endif>Event</option>
-                                            <option @if(session()->get('register.hear_about_us') != null) {{ session()->get('register.hear_about_us') == "Word of mouth" ? 'selected' :  '' }} value="Word of mouth" @endif>Word of mouth</option>
-                                            <option @if(session()->get('register.hear_about_us') != null) {{ session()->get('register.hear_about_us') == "Other" ? 'selected' :  '' }} value="Other" @endif>Other</option>
+                                            <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Search engine" ? 'selected' :  '' }} value="Search engine" @endif >Search engine</option>
+                                            <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "TV" ? 'selected' :  '' }} value="TV" @endif>TV</option>
+                                            <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Radio" ? 'selected' :  '' }} value="Radio" @endif>Radio</option>
+                                            <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Printed advert" ? 'selected' :  '' }} value="Printed advert" @endif>Printed advert</option>
+                                            <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Event" ? 'selected' :  '' }} value="Event" @endif>Event</option>
+                                            <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Word of mouth" ? 'selected' :  '' }} value="Word of mouth" @endif>Word of mouth</option>
+                                            <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Other" ? 'selected' :  '' }} value="Other" @endif>Other</option>
                                         </select>
                                     </div>
                                     <div class="form-group radio-group">
                                         <label for="policy">
-                                            <input type="radio" name="privacy_policy" value="1" checked id="policy">
+                                            <input type="radio" name="privacy_policy" value="1"  id="policy">
                                             <span>I have read the <a href="/privacy" rel="noopener noreferrer" target="_blank">Privacy Policy</a> and accept the <a class="SignupPage_termsLink__GuXm5" href="/terms" rel="noopener noreferrer" target="_blank">Terms &amp; Conditions</a>.</span>
                                         </label>
                                     </div>
