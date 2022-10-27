@@ -36,14 +36,12 @@ class RedirectIfAuthenticated
                     return redirect('admin/dashboard');
                     break;
                 case '2':
-                    return redirect('user/dashboard');
+                    return redirect('seller/dashboard');
                     break;
                 case '3':
-                    return redirect('vendor/dashboard');
+                    return redirect('dealer/dashboard');
                     break;
-                case '4':
-                    return redirect('admin/dashboard');
-                    break;
+
 
                 default:
                     return redirect('/home');

@@ -202,4 +202,12 @@ class MultiStepRegistration extends Controller
 
         return redirect('/data');
     }
+
+
+    public function DealerLogin()
+    {
+        return view('frontend.dealer.dealerLogin');
+    }
+
+   
 }
