@@ -39,12 +39,13 @@ Route::post('/store', [FrontController::class,'store'])->name('store');
 
 Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
-Route::get('/usersss', [FrontController::class,'getUsers'])->name('usersss');
+//Route::get('/usersss', [FrontController::class,'getUsers'])->name('usersss');
 Route::get('/photo-upload', [FrontController::class,'photoUpload'])->name('photoUpload');
 Route::get('/registration', [FrontController::class,'registration'])->name('registration');
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
 Route::get('/valuation', [FrontController::class,'valuation'])->name('valuation');
 Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
+
 
 // start admin panel routes
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
@@ -180,3 +181,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/dealer', [DealerDashboardController::class,'index'])->name('dealer');
+
