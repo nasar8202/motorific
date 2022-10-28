@@ -199,7 +199,7 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
-    Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer');
+    Route::get('/dashboard', [DealerDashboardController::class,'dashboard'])->name('dealer');
 
 
 });

@@ -28,7 +28,7 @@ class Admin
             return redirect()->route('seller');
         }
         if (Auth::user()->role_id == 3) {
-            if(Auth::user()->role_id == 3 && Auth::user()->status == 1){
+            if(Auth::user()->role_id == 3 && Auth::user()->status == 0){
                 return redirect()->route('dealer');
             }
             else{

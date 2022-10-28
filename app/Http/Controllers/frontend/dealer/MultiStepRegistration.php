@@ -158,7 +158,7 @@ class MultiStepRegistration extends Controller
             $user->hear_about_us = $request->session()->get('hear_about_us');
             $user->phone_number = $request->session()->get('phone_number');
             $user->privacy_policy = $request->session()->get('privacy_policy');
-            $user->status = 2;
+            $user->status = 0;
             $user->role_id = 3;
             //dd($register->email);
             $user->save();
@@ -209,5 +209,5 @@ class MultiStepRegistration extends Controller
         return view('frontend.dealer.dealerLogin');
     }
 
-   
+
 }
