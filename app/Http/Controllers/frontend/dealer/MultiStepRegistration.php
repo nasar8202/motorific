@@ -193,7 +193,7 @@ class MultiStepRegistration extends Controller
             $user_detail->save();
 
             Session::flush();
-        return redirect()->route('dealer')->with("success","Account Create Successfully! Waiting For Admin Approval");
+        return redirect()->route('DealerLogin')->with("success","Account Create Successfully! Waiting For Admin Approval");
     }
 
     public function store(Request $request)

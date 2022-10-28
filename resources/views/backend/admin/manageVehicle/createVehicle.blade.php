@@ -327,7 +327,7 @@
                  <div class="row">
                     
                     <div class="col-md-6">
-                        <img src="/frontend/seller/assets/image/add-p-front.png" width="80%">
+                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" width="80%">
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -343,7 +343,7 @@
                  <div class="row">
                     
                     <div class="col-md-6">
-                        <img src="/frontend/seller/assets/image/add-p-back.png" class="rounded mx-auto d-block">
+                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -359,7 +359,7 @@
                  <div class="row">
                     
                     <div class="col-md-6">
-                        <img src="/frontend/seller/assets/image/add-p-back-corner.png" class="rounded mx-auto d-block">
+                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -374,7 +374,7 @@
                  <div class="row">
                     
                     <div class="col-md-6">
-                        <img src="/frontend/seller/assets/image/add-p-interior.png" class="rounded mx-auto d-block">
+                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-interior.png')}}" class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -384,12 +384,13 @@
                         @if ($errors->has('image4'))
                         <span class="text-danger">{{ $errors->first('image4') }}</span>
                     @endif
+                    
                     </div>
                  </div>
                  <div class="row">
                     
                     <div class="col-md-6">
-                        <img src="/frontend/seller/assets/image/add-p-dashboard.png" class="rounded mx-auto d-block">
+                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">

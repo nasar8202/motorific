@@ -143,7 +143,8 @@
                     <div class="photo-up-sec-2-vehicle-information">
                         <div class="vehicleStepsMain">
                             <!--0-->
-                            <div class="vehicleSteps" dataid="VehicleFeatures">
+                            <div class="vehicleSteps vehicleStepsActive" dataid="VehicleFeatures">
+                                <span class="checkboxNum" style="display:none;">0</span>
                                 <h3>Vehicle features</h3>
                                 <p>Select the features your vehicle has.</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -191,6 +192,7 @@
                             </div>
                             <!--1-->
                             <div class="vehicleSteps" data-id="SeatMaterial">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Seat material</h3>
                                 <p>Select the material your seats are upholstered with.</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -259,6 +261,7 @@
                             </div>
                             <!--2-->
                             <div class="vehicleSteps" data-id="NumberOfKeys">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Number of keys</h3>
                                 <p>How many keys do you have?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -300,6 +303,7 @@
                             </div>
                             <!--3-->
                             <div class="vehicleSteps" data-id="Toolpack">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Tool pack</h3>
                                 <p>Do you have the tool pack that came with the vehicle?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -338,6 +342,7 @@
                             </div>
                             <!--4-->
                             <div class="vehicleSteps" data-id="LockingWheelNut">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Locking wheel nut</h3>
                                 <p>Do you have the locking wheel nut?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -382,6 +387,7 @@
                             </div>
                             <!--5-->
                             <div class="vehicleSteps" data-id="Smoking">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Smoking</h3>
                                 <p>Has anyone regularly smoked in the vehicle?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -416,7 +422,8 @@
                                 </div>
                             </div>
                             <!--6 with Popup-->
-                            <div class="vehicleSteps vehicleStepsActive popUpOnFalse" data-id="V5CLogbook">
+                            <div class="vehicleSteps popUpOnFalse" data-id="V5CLogbook">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>V5C logbook</h3>
                                 <p>Do you have the V5C logbook for this vehicle? You will only need to provide it once the vehicle has sold.</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -510,6 +517,7 @@
                             </div>
                             <!--8-->
                             <div class="vehicleSteps" data-id="VehicleOwner">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Vehicle owner</h3>
                                 <p>Who is named on the V5C form?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -541,6 +549,7 @@
                             </div>
                             <!--9-->
                             <div class="vehicleSteps ifMe afterFriendNameInput afterProbateSale" data-id="PrivatePlate">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Private plate?</h3>
                                 <p>Does your vehicle have a private registration plate?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -582,6 +591,7 @@
                             </div>
                             <!--10-->
                             <div class="vehicleSteps ifSomeoneElse" data-id="WhoOwnsTheVehicle">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Who owns the vehicle?</h3>
                                 <p>Does your vehicle have a private registration plate?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -649,6 +659,7 @@
                             </div>
                             <!--12-->
                             <div class="vehicleSteps ifPrivatePlate" data-id="KeepingThePlate">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Keeping the plate?</h3>
                                 <p>Are you wanting to keep the private plate?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -684,6 +695,7 @@
                             </div> 
                             <!--13-->
                             <div class="vehicleSteps ifnormalRegistrationPlate ifKeepingit ifNotKeepingit" data-id="Finance">
+                                <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Finance</h3>
                                 <p>Is this vehicle on finance?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
@@ -1040,6 +1052,200 @@
             $(this).closest('.photo-up-sec-2-vi-row-ay').find('.info-box-image > img').attr('src',imgLabel);
         });
         // 28-10-22
+                $('button.nxtBtn').on('click', function(){
+            
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+            
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                 $(vehicleSteps).removeClass('vehicleStepsActive'); 
+                 $(vehicleSteps).slideUp();
+                 $(vehicleSteps).next().slideDown();
+                 $(vehicleSteps).next().addClass('vehicleStepsActive');
+            }
+                
+        });
         
+        $('button.prevBtn').on('click', function(){
+            $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+            $(this).closest('.vehicleSteps').slideUp();
+            $(this).closest('.vehicleSteps').prev().slideDown();
+            $(this).closest('.vehicleSteps').prev().addClass('vehicleStepsActive');
+        });
+        
+        $('.vehicleSteps .photo-up-sec-2-vi-btns input[type="radio"],.vehicleSteps .photo-up-sec-2-vi-btns input[type="checkbox"]').change(function(){
+
+            var totalRadChecked = $(this).closest('.vehicleSteps').find('input[type="radio"]:checked').length;
+            var totalChecked = $(this).closest('.vehicleSteps').find('input[type="checkbox"]:checked').length;
+            
+            $(this).closest('.vehicleSteps').find('.checboxNum').text(totalRadChecked);
+            $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked);
+            
+            var radioVal =  $(this).attr('id'); 
+            console.log(radioVal);
+                // For Popup on False Condition
+                if( radioVal == 'hasV5LogBook-false'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.modalBtn').show();
+                }
+                else if( radioVal == 'hasV5LogBook-true'){ 
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').show();
+                    $(this).closest('.vehicleSteps').find('.modalBtn').hide();
+                }
+                // If Select ME in Vehicle Owner
+                else if(radioVal == 'radio-keeperType-seller'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').show();
+                    $(this).closest('.vehicleSteps').find('.forSomeoneElseBtn').hide();
+                }
+                else if(radioVal == 'radio-keeperType-other'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.forSomeoneElseBtn').show();
+                }
+                // If Select Normal registration plate in Private Plate
+                else if(radioVal == 'radio-hasPrivatePlate-false'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToFinance').show();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToKeepingThePlate').hide();
+                }
+                else if(radioVal == 'radio-hasPrivatePlate-true'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToFinance').hide();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToKeepingThePlate').show();
+                }
+                // If Select Family Member or Friend in Who owns the vehicle
+                else if(radioVal == 'radio-keeperType-familyOrFriend'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').show();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').hide();
+                }
+                else if(radioVal == 'radio-keeperType-probate'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').show();
+                }
+                else if(radioVal == 'radio-keeperType-company'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').show();
+                }
+            
+        });
+        
+        // When Click on Someone Else Button
+        $('.forSomeoneElseBtn').on('click', function(){
+                  $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+                  $(this).closest('.vehicleSteps').slideUp();
+                  $('.ifSomeoneElse').slideDown();
+                  $('.ifSomeoneElse').addClass('vehicleStepsActive');
+        });
+        // When Click on Who On Previous Button
+        $('.prevBtnToVehicleOwner').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="VehicleOwner"]').slideDown();
+              $('.vehicleSteps[data-id="VehicleOwner"]').addClass('vehicleStepsActive');
+        });
+        
+        // When Click on Vehicle Owner Previous Button
+        $('.prevBtnToV5Clogbook').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="V5CLogbook"]').slideDown();
+              $('.vehicleSteps[data-id="V5CLogbook"]').addClass('vehicleStepsActive');
+        });
+        // When Click on nxtBtnToFinance
+        $('.nxtBtnToFinance').on('click', function(){
+
+            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
+            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            
+            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+              
+                  $(vehicleSteps).removeClass('vehicleStepsActive');
+                  $(vehicleSteps).slideUp();
+                  $('.ifnormalRegistrationPlate').slideDown();
+                  $('.ifnormalRegistrationPlate').addClass('vehicleStepsActive');
+            }
+        });
+        // When Click on nxtBtnToKeepingThePlate
+        $('.nxtBtnToKeepingThePlate').on('click', function(){
+            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
+            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            
+            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                  $(vehicleSteps).removeClass('vehicleStepsActive');
+                  $(vehicleSteps).slideUp();
+                  $('.ifPrivatePlate').slideDown();
+                  $('.ifPrivatePlate').addClass('vehicleStepsActive');
+            }
+              
+        });
+
+        //When Click on prevBtnToVehicleLocation from Name on V5C 
+        $('.prevBtnToVehicleLocation').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="VehicleLocation"]').slideDown();
+              $('.vehicleSteps[data-id="VehicleLocation"]').addClass('vehicleStepsActive');
+        });
+        //When Click on nxtBtnToPrivatePlate from Name on V5C 
+        $('.nxtBtnToPrivatePlate').on('click', function(){
+            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
+            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            
+            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                  $(vehicleSteps).removeClass('vehicleStepsActive');
+                  $(vehicleSteps).slideUp();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').slideDown();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
+            }
+        });
+        //When Click on prevBtnFinaceToPrivatePlate from Finance
+        $('.prevBtnFinaceToPrivatePlate').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="PrivatePlate"]').slideDown();
+              $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
+        });
+        //When Click on nxtBtnWhoOwnsTheVehicleToPrivatePlate from Who owns the vehicle
+        $('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').on('click', function(){
+            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
+            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            
+            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                  $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+                  $(this).closest('.vehicleSteps').slideUp();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').slideDown();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
+            }
+        });
+        // Modal Open Close of Vehicle Form 
+        $('.modalBtn').on('click',function(){
+             $('#v5Cfalse').modal('toggle'); 
+        });
+        
+        $('.modalTN .close').on('click',function(){
+             $(this).closest('.modal').modal('toggle'); 
+        });
 </script>
 @endpush
