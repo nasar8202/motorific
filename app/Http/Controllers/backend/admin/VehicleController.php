@@ -168,6 +168,7 @@ class VehicleController extends Controller
          return redirect()->route('ViewSeatMaterials')->with('success', 'Seat Material added  Successfully!');
 
     }
+
     public function storePrivatePlate(Request $request)
     {
             $request->validate([
@@ -200,6 +201,27 @@ class VehicleController extends Controller
 
          return redirect()->route('viewPrivatePlate')->with('success', 'Private Plate added  Successfully!');
 
+    }
+    public function storeFinance(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            Finance::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewFinance')->with('success', 'Finance added  Successfully!');
+        
     }
     public function storeNumberOfKeys(Request $request)
     {

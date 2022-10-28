@@ -22,6 +22,7 @@ class CreateVehicleImagesTable extends Migration
             $table->string('interior_front')->nullable();
             $table->string('dashboard')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

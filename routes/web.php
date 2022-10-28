@@ -64,6 +64,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/dealers', [AdminDashboardController::class,'viewDealers'])->name('ViewDealers');
     Route::get('/approve-dealer/{id}', [AdminDashboardController::class,'approveDealer'])->name('dealer.approve');
     Route::get('/block-dealer/{id}', [AdminDashboardController::class,'blockDealer'])->name('dealer.block');
+    Route::get('/view-dealer-details/{id}', [AdminDashboardController::class,'viewDealerDetails'])->name('viewDealerDetails');
 
     Route::get('/approved-dealers-list', [AdminDashboardController::class,'approvedDealersByAdmin'])->name('dealer.approvedDealersByAdmin');
     Route::get('/block-dealers-list', [AdminDashboardController::class,'blockDealersByAdmin'])->name('dealer.blockDealersByAdmin');
@@ -74,7 +75,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/store-vehicle-feature', [VehicleController::class, 'store'])->name('addVehicleFeature');
     Route::get('/edit-vehicle-feature/{id}', [VehicleController::class,'editVehicleFeatureForm'])->name('vehicleFeature.edit');
     Route::post('/update-vehicle-feature/{id}', [VehicleController::class,'editVehicleFeature'])->name('editVehicleFeature');
-    Route::get('/delete-vehicle/{id}', [VehicleController::class,'deleteVehicle'])->name('vehicleFeature.delete');
+    Route::get('/delete-vehicle/{id}', [VehicleController::class,'deleteVehicle'])->name('deleteVehicle');
     // end vehicle
 
     // seat material

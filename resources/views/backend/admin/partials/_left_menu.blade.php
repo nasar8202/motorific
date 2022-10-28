@@ -95,16 +95,16 @@
             </li>
         </ul>
     </li>
-    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/dealers') || request()->IS('admin/approved-dealers-list') || request()->IS('admin/block-dealers-list') ? 'active open' : '') }} ">
+    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Manage Your Vehicle</span>
         </a>
-        <ul class="submenu">
-            <li class="submenu-item {{ request()->IS('admin/dealers') ? 'active' : '' }}">
+        <ul class="submenu" style="display:{{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'block' : '') }}">
+            <li class="submenu-item {{ request()->IS('admin/add-vehicle') ? 'active' : '' }}">
                 <a href="{{ route('createVehicleForm') }} ">Add Vehicle</a>
             </li>
-            <li class="submenu-item {{ request()->IS('admin/approved-dealers-list') ? 'active' : '' }}">
+            <li class="submenu-item {{ request()->IS('admin/view-vehcile') ? 'active' : '' }}">
                 <a href="{{ route('viewVehicle') }}">View Vehicle</a>
             </li>
             

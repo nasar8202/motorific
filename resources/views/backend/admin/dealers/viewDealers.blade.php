@@ -37,26 +37,29 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
-                            <th>Company Name</th>
-                            <th>Position</th>
-                            <th>City</th>
-                            <th>Status</th>
+
+                            
+                            <th colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($dealers as $dealer)
                         <tr>
-                            <td>{{ $dealer->full_name }}</td>
+                            <td>{{ $dealer->name }}</td>
                             <td>{{ $dealer->email }}</td>
-                            <td>{{ $dealer->mobile_number }}</td>
-                            <td>{{ $dealer->company_name }}</td>
-                            <td>{{ $dealer->position }}</td>
+                            <td>{{ $dealer->phone_number }}</td>
+
+                          
                             <td>{{ $dealer->city }}</td>
                             <td>
-                                <a href="{{ route('dealer.approve',$dealer->id) }}"><span class="badge bg-success">Approve Dealer</span></a>
-                                <a href="{{ route('dealer.block',$dealer->id) }}"><span class="badge bg-danger">Block Dealer</span></a>
+                                <a href="{{ route('dealer.approve',$dealer->id) }}"><span class="badge bg-success ">Approve</a>
+                                <a href="{{ route('viewDealerDetails',$dealer->id) }}"><span class="badge bg-info">View Details</span></a>
+                                <a href="{{ route('dealer.block',$dealer->id) }}"><span class="badge bg-danger">Block</span></a>
                             </td>
-                        </tr>
+                        </tr><!-- Large modal -->
+                       
+                        
+                      
 
                         @endforeach
 

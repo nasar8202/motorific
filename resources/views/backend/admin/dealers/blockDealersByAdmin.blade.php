@@ -39,19 +39,19 @@
                             <th>Phone Number</th>
                             <th>Company Name</th>
                             <th>Position</th>
-                            <th>City</th>
-                            <th>Status</th>
+                     
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($blockDealersByAdmin as $dealer)
                         <tr>
-                            <td>{{ $dealer->full_name }}</td>
+                            <td>{{ $dealer->name }}</td>
                             <td>{{ $dealer->email }}</td>
-                            <td>{{ $dealer->mobile_number }}</td>
+                            <td>{{ $dealer->phone_number }}</td>
                             <td>{{ $dealer->company_name }}</td>
                             <td>{{ $dealer->position }}</td>
-                            <td>{{ $dealer->city }}</td>
+                            
                             <td>
                                 <a href="{{ route('dealer.approve',$dealer->id) }}"><span class="badge bg-success">Approved Dealer</span></a>
                             </td>

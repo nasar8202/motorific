@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\backend\admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Dealer;
+use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
+use App\Http\Controllers\Controller;
+use Notification;
+use App\Notifications\ApprovedDealerNotification;
+use App\Notifications\RejectDealerNotification;
+
 class AdminDashboardController extends Controller
 {
     public function index()
@@ -14,23 +19,57 @@ class AdminDashboardController extends Controller
     }
     public function viewDealers()
     {
-        $dealers = Dealer::where('dealer_status',2)->orderBy('id', 'DESC')->get();
+        $dealers = User::where('status',0)->where('role_id',3)->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.dealers.viewDealers',compact('dealers'));
+    }
+    public function viewDealerDetails($id)
+    {
+        $dealers = User::where('id',$id)->with('userDetails')->first();
+
+        return view('backend.admin.dealers.viewDealersDetail',compact('dealers'));
     }
 
     public function approveDealer($id)
     {
-        $status = ['dealer_status' => 0];
-        $dealers = Dealer::where('id',$id)->update($status);
-        return redirect()->back()->with('success', 'Dealer approved Successfully!');
+        $status = ['status' => 1];
+        $user = User::where('id',$id)->first();
+        
+        $dealers = User::where('id',$id)->update($status);
+
+        $details = [
+            'greeting' => 'Hi ' . $user->name,
+            'body' => 'Your Request Has Been Approved',
+            'thanks' => 'Thank you for using Motorfic.com ',
+            'actionText' => 'Login',
+            'actionURL' => url('/register-step-1'),
+            'order_id' => 101
+        ];
+  
+        // Notification::send($user->email, new MyFirstNotification($details));
+        $user->notify(new ApprovedDealerNotification($details));
+      
+       return redirect()->back()->with('success', 'Dealer approved Successfully!');
         //return view('backend.admin.dealers.viewDealers',compact('dealers'));
     }
     public function blockDealer($id)
     {
-        $status = ['dealer_status' => 1];
-        $dealers = Dealer::where('id',$id)->update($status);
+        $status = ['status' => 2];
+        $user = User::where('id',$id)->first();
+        $dealers = User::where('id',$id)->update($status);
+        $details = [
+            'greeting' => 'Hi ' . $user->name,
+            'body' => 'Your Request Has Been Rejected',
+            'thanks' => 'Thank you for using Motorfic.com ',
+            'actionText' => 'Login',
+            'actionURL' => url('/register-step-1'),
+            'order_id' => 101
+        ];
+  
+        // Notification::send($user->email, new MyFirstNotification($details));
+        $user->notify(new RejectDealerNotification($details));
         return redirect()->back()->with('error', 'Dealer Blocked Successfully!');
+        
     }
     public function admin()
     {
@@ -40,7 +79,7 @@ class AdminDashboardController extends Controller
     // start approved dealer by admin
     public function approvedDealersByAdmin()
     {
-        $approvedDealersByAdmin = Dealer::where('dealer_status',0)->orderBy('id', 'DESC')->get();
+        $approvedDealersByAdmin = User::where('status',1)->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.dealers.approvedDealersByAdmin',compact('approvedDealersByAdmin'));
     }
@@ -50,7 +89,7 @@ class AdminDashboardController extends Controller
      // block approved dealer by admin
      public function blockDealersByAdmin()
      {
-         $blockDealersByAdmin = Dealer::where('dealer_status',1)->orderBy('id', 'DESC')->get();
+         $blockDealersByAdmin = User::where('status',2)->where('role_id',3)->orderBy('id', 'DESC')->get();
 
          return view('backend.admin.dealers.blockDealersByAdmin',compact('blockDealersByAdmin'));
      }
