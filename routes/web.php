@@ -40,6 +40,13 @@ Route::post('/store', [MultiStepRegistration::class,'store'])->name('store');
 
 // end multi step registration for dealer
 
+// start dealer login
+
+Route::get('/dealer-login', [MultiStepRegistration::class, 'DealerLogin'])->name('DealerLogin');
+
+
+// end dealer login
+
 // Route::get('/register-step-1', [FrontController::class, 'createStep1'])->name('signup');
 // Route::post('/register-post-step-1', [FrontController::class,'PostcreateStep1'])->name('register.post.step.1');
 // Route::get('/register-create-step-2', [FrontController::class,'createStep2'])->name('register.create.step.2');
@@ -177,7 +184,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/edit-vehicle/{id}', [ManageVehicleController::class,'editVehicle'])->name('editVehicle');
      Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
      Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
-     // end vehcile 
+     // end vehcile
 });
 
 // end admin panel routes
@@ -185,6 +192,15 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 // start seller panel routes
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
     Route::get('/', [SellerDashboardController::class,'seller'])->name('seller');
+
+
+});
+
+// end seller panel routes
+
+// start seller panel routes
+Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
+    Route::get('/dashboard', [DealerDashboardController::class,'dashboard'])->name('dealer');
 
 
 });

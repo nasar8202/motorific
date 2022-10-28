@@ -46,7 +46,7 @@ class RegisterController extends Controller
                 return $this->redirectTo;
                 break;
             case 3:
-                $this->redirectTo = '/dealer';
+                $this->redirectTo = 'dealer/dashboard';
                 return $this->redirectTo;
                 break;
            default:

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Auth;
-class Admin
+class Dealer
 {
     /**
      * Handle an incoming request.
@@ -28,8 +28,9 @@ class Admin
             return redirect()->route('seller');
         }
         if (Auth::user()->role_id == 3) {
-            if(Auth::user()->role_id == 3 && Auth::user()->status == 0){
-                return redirect()->route('dealer');
+            if(Auth::user()->role_id == 3 && Auth::user()->status == 1){
+                //return redirect()->route('dealer');
+                return $next($request);
             }
             else{
                 return back()->with('error',"waiting for approval");
