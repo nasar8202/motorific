@@ -13,4 +13,11 @@ class DealerDashboardController extends Controller
         return view('frontend.dealer.index');
 
     }
+    public function dashboard()
+    {
+
+        return view('frontend.dealer.dashboard');
+
+    }
 }
+

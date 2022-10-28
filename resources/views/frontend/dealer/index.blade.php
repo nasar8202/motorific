@@ -3,7 +3,7 @@
     @section('section')
     <!-- form css -->
     <style>
-       
+
     </style>
 
     <!-- MultiStep Form -->
@@ -123,11 +123,11 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="form-group"> 
+                                        <div class="form-group">
                                             <select name="companyType" class="js-select2 companyType"  multiple="multiple">
                                                 <option value="">Select Makes</option>
-                                                <option>1</option> 
-                                                <option>2</option> 
+                                                <option>1</option>
+                                                <option>2</option>
                                             </select>
                                         </div>
                                         <div class="form-group twoInOneLine">
@@ -194,4 +194,5 @@
         </div>
     </div>
     @endsection
-   
+
+

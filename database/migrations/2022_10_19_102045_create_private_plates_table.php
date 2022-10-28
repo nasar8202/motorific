@@ -16,6 +16,7 @@ class CreatePrivatePlatesTable extends Migration
         Schema::create('private_plates', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('image')->nullable();
             $table->string('status')->default(1)->comment('1 = Active , 2 = Deactive');
             $table->timestamps();
             $table->softDeletes();

@@ -1,0 +1,459 @@
+
+@extends('backend.admin.layouts.app')
+@section('title','add wheel nut ')
+@section('secton')
+<style>
+    .container {
+          max-width: 1200px;
+      }
+  </style>
+<header class="mb-3">
+    <a href="#" class="burger-btn d-block d-xl-none">
+        <i class="bi bi-justify fs-3"></i>
+    </a>
+</header>
+<div class="page-heading">
+    <form class="form" method="post" action="{{route('updateVehicle',$vehicles->id)}}" enctype="multipart/form-data">
+        @csrf
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>View Vehicle Details</h3>
+                <p class="text-subtitle text-muted">View Vehicle Details</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">View Vehicle Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">View Vehicle Details</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                          
+                               
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">Vehicle Registartion Number</label>
+                                            <input type="text" id="first-name-column" class="form-control"
+                                                placeholder="Registartion Number" value="{{$vehicles->vehicle_registartion_number}}" name="register_number">
+                                        </div>
+                                        @if ($errors->has('register_number'))
+                                    <span class="text-danger">{{ $errors->first('register_number') }}</span>
+                                @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="last-name-column">Vehicle Name</label>
+                                            <input type="text" id="last-name-column" class="form-control"
+                                                placeholder="Vehicle Name" value="{{$vehicles->vehicle_name}}" name="vehicle_name">
+                                        </div>
+                                        @if ($errors->has('vehicle_name'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_name') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="city-column">Vehicle Year</label>
+                                            <input type="text" id="city-column" class="form-control"
+                                                placeholder="Vehicle Year" value="{{$vehicles->vehicle_year}}" name="vehicle_year">
+                                        </div>
+                                        @if ($errors->has('vehicle_year'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_year') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="country-floating">Vehicle Color</label>
+                                            <input type="text" id="country-floating" class="form-control"
+                                                name="vehicle_color" value="{{$vehicles->vehicle_color}}" placeholder="Vehicle Color">
+                                        </div>
+                                        @if ($errors->has('vehicle_color'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_color') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="company-column">Vehicle Type</label>
+                                            <input type="text" id="company-column" class="form-control"
+                                                name="vehicle_type" value="{{$vehicles->vehicle_type}}" placeholder="Vehicle Type">
+                                        </div>
+                                        @if ($errors->has('vehicle_type'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_type') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">Vehicle Tank</label>
+                                            <input type="text" id="" class="form-control"
+                                                name="vehicle_tank" value="{{$vehicles->vehicle_tank}}" placeholder="Vehicle Tank">
+                                        </div>
+                                        @if ($errors->has('vehicle_tank'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_tank') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">Vehicle Mileage</label>
+                                            <input type="number" id="email-id-column" class="form-control"
+                                                name="vehicle_mileage" value="{{$vehicles->vehicle_mileage}}" placeholder="Vehicle Mileage">
+                                        </div>
+                                        @if ($errors->has('vehicle_mileage'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_mileage') }}</span>
+                                    @endif
+                                    </div>
+                                    
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">Vehicle Price</label>
+                                            <input type="number" id="email-id-column" class="form-control"
+                                                name="vehicle_price" value="{{$vehicles->vehicle_price}}" placeholder="Vehicle Price">
+                                        </div>
+                                        @if ($errors->has('vehicle_price'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_price') }}</span>
+                                    @endif
+                                    </div>
+                                    
+
+                                </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Vehicle features</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                             <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Select Vehicle Feature</h6>
+                                        
+                                        <div class="form-group">
+                                            @if(isset($vehicleInformation))
+                                            @php 
+                                            $a=explode(',',$vehicleInformation->vehicle_feature_id);
+                                            @endphp
+                                        @endif
+                                        
+                                            {{-- <option disabled selected>Select Grade</option> --}}
+                                            <select name="vehicle_feature[]" class="choices form-select multiple-remove"
+                                            multiple="multiple">
+                                            @foreach ($VehicleFeatures as $VehicleFeature)
+                                                <option value="{{ $VehicleFeature->id }}"  @if (isset($vehicleInformation)) {{in_array( $VehicleFeature->id, $a) ? 'selected' : '' }} @endif>{{$VehicleFeature->title}}</option>
+                                                @endforeach
+
+                                                {{-- <option @if($VehicleFeature->id == $vehicleInformation->vehicle_feature_id ) selected @endif  value="{{$VehicleFeature->id}}">{{$VehicleFeature->title}}</option> --}}
+                                                
+                                                
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('vehicle_feature'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_feature') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Select Seat Material</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="seat_material" id="basicSelect">
+                                                <option disabled selected>Select Seat Material</option>
+                                                @foreach($SeatMaterials as $SeatMaterial)
+                                                    <option @if($SeatMaterial->id == $vehicleInformation->seat_material_id ) selected @endif value="{{$SeatMaterial->id}}">{{$SeatMaterial->title}}</option>
+                                                   @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('seat_material'))
+                                        <span class="text-danger">{{ $errors->first('seat_material') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Number of keys</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="number_of_keys" id="basicSelect">
+                                                <option disabled selected>Select Number of keys</option>
+                                                @foreach($NumberOfKeys as $NumberOfKey)
+                                                <option @if($NumberOfKey->id == $vehicleInformation->number_of_keys_id ) selected @endif value="{{$NumberOfKey->id}}">{{$NumberOfKey->number_of_key}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('number_of_keys'))
+                                        <span class="text-danger">{{ $errors->first('number_of_keys') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Tool pack</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="tool_pack" id="basicSelect">
+                                                <option disabled selected>Select Tool pack</option>
+                                                @foreach($ToolPacks as $ToolPack)
+                                                <option @if($ToolPack->id == $vehicleInformation->tool_pack_id ) selected @endif value="{{$ToolPack->id}}">{{$ToolPack->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('tool_pack'))
+                                        <span class="text-danger">{{ $errors->first('tool_pack') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Locking wheel nut</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="wheel_nut" id="basicSelect">
+                                                <option disabled selected>Select Locking wheel nut</option>
+                                                @foreach($LockingWheelNuts as $LockingWheelNut)
+                                                <option @if($LockingWheelNut->id == $vehicleInformation->looking_wheel_nut_id ) selected @endif value="{{$LockingWheelNut->id}}">{{$LockingWheelNut->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('wheel_nut'))
+                                        <span class="text-danger">{{ $errors->first('wheel_nut') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Smoking</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="smoking" id="basicSelect">
+                                                <option disabled selected>Select Smoking</option>
+                                                @foreach($Smokings as $Smoking)
+                                                <option  @if($Smoking->id == $vehicleInformation->smooking_id ) selected @endif value="{{$Smoking->id}}">{{$Smoking->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('smoking'))
+                                        <span class="text-danger">{{ $errors->first('smoking') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>V5C logbook</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="logbook" id="basicSelect">
+                                                <option disabled selected>Select V5C logbook</option>
+                                                @foreach($VCLogBooks as $VCLogBook)
+                                                <option @if($VCLogBook->id == $vehicleInformation->logbook_id ) selected @endif value="{{$VCLogBook->id}}">{{$VCLogBook->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('logbook'))
+                                        <span class="text-danger">{{ $errors->first('logbook') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">Location</label>
+                                            <input type="text"  class="form-control"
+                                                name="location" value="{{$vehicleInformation->location}}" placeholder="Enter Your Location">
+                                        </div>
+                                        @if ($errors->has('location'))
+                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Vehicle owner</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="vehicle_owner" id="basicSelect">
+                                                <option disabled selected>Select Vehicle owner</option>
+                                                @foreach($VehicleOwners as $VehicleOwner)
+                                                <option @if($VehicleOwner->id == $vehicleInformation->vehicle_owner_id ) selected @endif value="{{$VehicleOwner->id}}">{{$VehicleOwner->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('vehicle_owner'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_owner') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Private plate</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="private_plate" id="basicSelect">
+                                                <option disabled selected>Select Private plate</option>
+                                                @foreach($PrivatePlates as $PrivatePlate)
+                                                <option @if($PrivatePlate->id == $vehicleInformation->private_plate_id ) selected @endif value="{{$PrivatePlate->id}}">{{$PrivatePlate->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('private_plate'))
+                                        <span class="text-danger">{{ $errors->first('private_plate') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Finance</h6>
+                                        
+                                        <div class="form-group">
+                                            <select class="form-select" name="finance" id="basicSelect">
+                                                <option disabled selected>Select Finance</option>
+                                                @foreach($Finances as $Finance)
+                                                <option  @if($Finance->id == $vehicleInformation->finance_id ) selected @endif  value="{{$Finance->id}}">{{$Finance->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('finance'))
+                                        <span class="text-danger">{{ $errors->first('finance') }}</span>
+                                    @endif
+                                    </div>
+                                    
+                                    
+                                </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Add Pictures</h4>
+                    </div>
+                 <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/frontend/seller/assets/image/add-p-front.png" width="80%">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="formFile" class="form-label">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" width="80%">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Add Picture In This Type</label>
+                            <input class="form-control" type="file" name="image1" id="formFile">
+                        </div>
+                        @if ($errors->has('image1'))
+                        <span class="text-danger">{{ $errors->first('image1') }}</span>
+                    @endif
+                    </div>
+                 </div>
+                 <br>
+                 <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/frontend/seller/assets/image/add-p-back.png" class="rounded mx-auto d-block">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="formFile" class="form-label">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" width="80%">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Add Picture In This Type</label>
+                            <input class="form-control" type="file" name="image2" id="formFile">
+                        </div>
+                        @if ($errors->has('image2'))
+                        <span class="text-danger">{{ $errors->first('image2') }}</span>
+                    @endif
+                    </div>
+                 </div>
+                
+                 <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/frontend/seller/assets/image/add-p-back-corner.png" class="rounded mx-auto d-block">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="formFile" class="form-label">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}" width="80%">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Add Picture In This Type</label>
+                            <input class="form-control" type="file" name="image3"   id="formFile">
+                        </div>
+                        @if ($errors->has('image3'))
+                        <span class="text-danger">{{ $errors->first('image3') }}</span>
+                    @endif
+                    </div>
+                 </div>
+                 <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/frontend/seller/assets/image/add-p-interior.png" class="rounded mx-auto d-block">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="formFile" class="form-label">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}" width="80%">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Add Picture In This Type</label>
+                            <input class="form-control" type="file" name="image4"  id="formFile">
+                        </div>
+                        @if ($errors->has('image4'))
+                        <span class="text-danger">{{ $errors->first('image4') }}</span>
+                    @endif
+                    </div>
+                 </div>
+                 <div class="row">
+                    
+                    <div class="col-md-4">
+                        <img src="/frontend/seller/assets/image/add-p-dashboard.png" class="rounded mx-auto d-block">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="formFile" class="form-label">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}" width="80%">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Add Picture In This Type</label>
+                            <input class="form-control" type="file" id="formFile"  name="image5">
+                        </div>
+                        @if ($errors->has('image5'))
+                        <span class="text-danger">{{ $errors->first('image5') }}</span>
+                    @endif
+                    </div>
+                 </div>
+
+                </div>
+                
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="submit"
+                        class="btn btn-primary me-1 mb-1">Update Data</button>
+                    <button type="reset"
+                        class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                </div>
+            </div>
+        
+        </div>
+    </section>
+</form>
+</div>
+<script type="text/javascript">
+    var i = 0;
+    $("#dynamic-ar").click(function () {
+        ++i;
+        $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +
+            '][title]" placeholder="Enter LogBook Question" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Remove </button></td></tr>'
+            );
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
+@endsection

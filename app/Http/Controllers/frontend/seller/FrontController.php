@@ -12,7 +12,7 @@ class FrontController extends Controller
     {
         $register = $request->session()->get('register');
 
-        return view('register.step1',compact('register'));
+        return view('frontend.dealer.step1',compact('register'));
     }
 
     /**
@@ -39,6 +39,7 @@ class FrontController extends Controller
             $register->fill($validatedData);
             $request->session()->put('register', $register);
         }
+        dd($request->session()->put('register', $register));
         return redirect('/register-create-step-2');
     }
 

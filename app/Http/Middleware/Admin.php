@@ -27,5 +27,13 @@ class Admin
         if (Auth::user()->role_id == 2) {
             return redirect()->route('seller');
         }
+        if (Auth::user()->role_id == 3) {
+            if(Auth::user()->role_id == 3 && Auth::user()->status == 0){
+                return redirect()->route('dealer');
+            }
+            else{
+                return back()->with('error',"waiting for approval");
+            }
+        }
     }
 }

@@ -41,7 +41,7 @@
                         <div class="container">
 
                             <div class="row">
-                                <form action="{{ route('updateSeatMaterial',$editPrivatePlate->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('updatePrivatePlate',$editPrivatePlate->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @if ($errors->any())
                                     <div class="alert alert-danger" role="alert">

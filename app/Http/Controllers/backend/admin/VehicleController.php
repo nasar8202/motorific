@@ -12,6 +12,7 @@ use App\Models\LockingWheelNut;
 use App\Models\Smoking;
 use App\Models\VCLogBook;
 use App\Models\VehicleOwner;
+use App\Models\Finance;
 use App\Models\PrivatePlate;
 use DB;
 class VehicleController extends Controller
@@ -73,6 +74,12 @@ class VehicleController extends Controller
 
         return view('backend.admin.vehicles.viewPrivatePlate',compact('viewPrivatePlates'));
     }
+    public function viewFinance()
+    {
+        $viewFinances = Finance::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewFinance',compact('viewFinances'));
+    }
 
     public function createVehicleFeatureForm()
     {
@@ -101,11 +108,15 @@ class VehicleController extends Controller
 
         return view('backend.admin.vehicles.createWheelNut');
     }
-
     public function createLogBookForm()
     {
 
         return view('backend.admin.vehicles.createLogBook');
+    }
+    public function createSmookingForm()
+    {
+
+        return view('backend.admin.vehicles.createSmooking');
     }
     public function createVehicleOwnerForm()
     {
@@ -118,6 +129,10 @@ class VehicleController extends Controller
         return view('backend.admin.vehicles.createPrivatePlate');
     }
 
+    public function createFinanceForm()
+    {
+        return view('backend.admin.vehicles.createFinanceForm');
+    }
     public function storeSeatMaterial(Request $request)
     {
             $request->validate([
@@ -132,6 +147,8 @@ class VehicleController extends Controller
 
                     $data['image']->move(public_path() . '/materials/seat_material_iamges/', $seat_material_iamges);
 
+
+                    
                     $seatMaterial = new SeatMaterial();
                     $seatMaterial->image = $seat_material_iamges;
                     $seatMaterial->title = $data['title'];
@@ -151,6 +168,7 @@ class VehicleController extends Controller
          return redirect()->route('ViewSeatMaterials')->with('success', 'Seat Material added  Successfully!');
 
     }
+
     public function storePrivatePlate(Request $request)
     {
             $request->validate([
@@ -183,6 +201,27 @@ class VehicleController extends Controller
 
          return redirect()->route('viewPrivatePlate')->with('success', 'Private Plate added  Successfully!');
 
+    }
+    public function storeFinance(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            Finance::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewFinance')->with('success', 'Finance added  Successfully!');
+        
     }
     public function storeNumberOfKeys(Request $request)
     {
@@ -321,10 +360,128 @@ class VehicleController extends Controller
         $editSeatMaterial = SeatMaterial::where('id',$id)->first();
         return view('backend.admin.vehicles.editSeatMaterialForm',compact('editSeatMaterial'));
     }
+    public function editFinanceForm($id)
+    {
+        $editFinance = Finance::where('id',$id)->first();
+        return view('backend.admin.vehicles.editFinanceForm',compact('editFinance'));
+    }
     public function editPrivatePlateForm($id)
     {
         $editPrivatePlate = PrivatePlate::where('id',$id)->first();
         return view('backend.admin.vehicles.editPrivatePlateForm',compact('editPrivatePlate'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            VehicleFeature::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('ViewVehicleFeatures')->with('success', 'Vehicle Feature added  Successfully!');
+        //return back()->with('success', 'New title has been added.');
+    }
+    public function editVehicleFeatureForm($id)
+    {
+        $editVehicle = VehicleFeature::where('id',$id)->first();
+        return view('backend.admin.vehicles.editVehicleFeatureForm',compact('editVehicle'));
+
+    }
+    public function editKeysForm($id)
+    {
+        $editKeys = NumberOfKey::where('id',$id)->first();
+        return view('backend.admin.vehicles.editNumberOfKeysForm',compact('editKeys'));
+
+    }
+
+    public function editToolPackForm($id)
+    {
+        $editToolPack = ToolPack::where('id',$id)->first();
+
+        return view('backend.admin.vehicles.editToolPackForm',compact('editToolPack'));
+
+    }
+    public function editWheelNutForm($id)
+    {
+        $editLockingWheelNut = LockingWheelNut::where('id',$id)->first();
+
+        return view('backend.admin.vehicles.editWheelNutForm',compact('editLockingWheelNut'));
+
+    }
+    public function editSmookingForm($id)
+    {
+        $editSmoking = Smoking::where('id',$id)->first();
+
+        return view('backend.admin.vehicles.editSmookingForm',compact('editSmoking'));
+
+    }
+    public function editLogBookForm($id)
+    {
+        $editLogBook = VCLogBook::where('id',$id)->first();
+
+        return view('backend.admin.vehicles.editLogBookForm',compact('editLogBook'));
+
+    }
+    public function editVehicalOwnerForm($id)
+    {
+        $editVehicleOwner = VehicleOwner::where('id',$id)->first();
+
+        return view('backend.admin.vehicles.editVehicleOwnerForm',compact('editVehicleOwner'));
+
+    }
+
+    public function editVehicleFeature(Request $request,$id)
+    {
+        $data = [
+            'title'=>$request->title
+        ];
+        VehicleFeature::where('id',$id)->update($data);
+
+        return redirect()->route('ViewVehicleFeatures')->with('success', 'Vehicle Feature Updated  Successfully!');
+
+    }
+    public function updateKey(Request $request,$id)
+    {
+        $data = [
+            'number_of_key'=>$request->number_of_key
+        ];
+        NumberOfKey::where('id',$id)->update($data);
+
+        return redirect()->route('ViewNumberOfkeys')->with('success', 'Key Updated  Successfully!');
+
+    }
+    public function updateToolPack(Request $request,$id)
+    {
+
+        $data = [
+            'title'=>$request->title
+        ];
+        ToolPack::where('id',$id)->update($data);
+
+        return redirect()->route('ViewToolPack')->with('success', 'ToolPack Updated  Successfully!');
+
+    }
+    public function updateWheelNut(Request $request,$id)
+    {
+
+        $data = [
+            'title'=>$request->title
+        ];
+        LockingWheelNut::where('id',$id)->update($data);
+
+        return redirect()->route('viewWheelNut')->with('success', 'Wheel Nut Updated  Successfully!');
+
     }
     public function updateSeatMaterial(Request $request, $id)
     {
@@ -359,122 +516,54 @@ class VehicleController extends Controller
     return redirect()->route('ViewSeatMaterials')->with('success', 'Seat Material updated  Successfully!');
 
     }
-    public function store(Request $request)
+
+    public function updatePrivatePlate(Request $request, $id)
     {
+
+
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'title' => 'required'
         ]);
-        DB::beginTransaction();
+
         try{
-        foreach ($request->addMoreInputFields as $key => $value) {
-            VehicleFeature::create($value);
-        }
-        }catch(\Exception $e)
-        {
-            DB::rollback();
-            return Redirect()->back()
-                ->with('error',$e->getMessage() )
-                ->withInput();
-        }
-        DB::commit();
-        return redirect()->route('ViewVehicleFeatures')->with('success', 'Vehicle Feature added  Successfully!');
-        //return back()->with('success', 'New title has been added.');
+            $PrivatePlate = PrivatePlate::find($id);
+
+
+            $PrivatePlate->title = $request->title;
+            if( $request->file('image')){
+
+                if(file_exists(public_path("/plates/private_plate_iamges/".$PrivatePlate->image))){
+                    unlink(public_path("/plates/private_plate_iamges/".$PrivatePlate->image));
+                  }
+                $private_plate_images = time() . '_' . $request->file('image')->getClientOriginalName();
+                    //            $product_image_first_path = $request->file('product_image_first')->storeAs('products', $product_image_first);
+                $request->file('image')->move(public_path() . '/plates/private_plate_iamges/', $private_plate_images);
+
+            $PrivatePlate->image = $private_plate_images;
+            }
+            $PrivatePlate->update();
+
+        }catch(\Exception $e){
+            return $e->getMessage();
     }
-    public function editVehicleFeatureForm($id)
-    {
-        $editVehicle = VehicleFeature::where('id',$id)->first();
-        return view('backend.admin.vehicles.editVehicleFeatureForm',compact('editVehicle'));
+
+    return redirect()->route('viewPrivatePlate')->with('success', 'Private Plated updated  Successfully!');
 
     }
-    public function editKeysForm($id)
+    public function updateFinance(Request $request,$id)
     {
-        $editKeys = NumberOfKey::where('id',$id)->first();
-        return view('backend.admin.vehicles.editNumberOfKeysForm',compact('editKeys'));
 
-    }
-    
-    public function editToolPackForm($id)
-    {
-        $editToolPack = ToolPack::where('id',$id)->first();
-        
-        return view('backend.admin.vehicles.editToolPackForm',compact('editToolPack'));
-
-    }
-    public function editWheelNutForm($id)
-    {
-        $editLockingWheelNut = LockingWheelNut::where('id',$id)->first();
-        
-        return view('backend.admin.vehicles.editWheelNutForm',compact('editLockingWheelNut'));
-
-    }
-    public function editSmookingForm($id)
-    {
-        $editSmoking = Smoking::where('id',$id)->first();
-        
-        return view('backend.admin.vehicles.editSmookingForm',compact('editSmoking'));
-
-    }
-    public function editLogBookForm($id)
-    {
-        $editLogBook = VCLogBook::where('id',$id)->first();
-        
-        return view('backend.admin.vehicles.editLogBookForm',compact('editLogBook'));
-
-    }
-    public function editVehicalOwnerForm($id)
-    {
-        $editVehicleOwner = VehicleOwner::where('id',$id)->first();
-        
-        return view('backend.admin.vehicles.editVehicleOwnerForm',compact('editVehicleOwner'));
-
-    }
-    
-    public function editVehicleFeature(Request $request,$id)
-    {
         $data = [
             'title'=>$request->title
         ];
-        VehicleFeature::where('id',$id)->update($data);
+        Finance::where('id',$id)->update($data);
 
-        return redirect()->route('ViewVehicleFeatures')->with('success', 'Vehicle Feature Updated  Successfully!');
-
-    }
-    public function updateKey(Request $request,$id)
-    {
-        $data = [
-            'number_of_key'=>$request->number_of_key
-        ];
-        NumberOfKey::where('id',$id)->update($data);
-
-        return redirect()->route('ViewNumberOfkeys')->with('success', 'Key Updated  Successfully!');
+        return redirect()->route('viewFinance')->with('success', 'Finance Updated  Successfully!');
 
     }
-    public function updateToolPack(Request $request,$id)
-    {
-        
-        $data = [
-            'title'=>$request->title
-        ];
-        ToolPack::where('id',$id)->update($data);
-
-        return redirect()->route('ViewToolPack')->with('success', 'ToolPack Updated  Successfully!');
-
-    }
-    public function updateWheelNut(Request $request,$id)
-    {
-        
-        $data = [
-            'title'=>$request->title
-        ];
-        LockingWheelNut::where('id',$id)->update($data);
-
-        return redirect()->route('viewWheelNut')->with('success', 'Wheel Nut Updated  Successfully!');
-
-    }
-
     public function updateSmooking(Request $request,$id)
     {
-        
+
         $data = [
             'title'=>$request->title
         ];
@@ -485,7 +574,7 @@ class VehicleController extends Controller
     }
     public function updateLogBook(Request $request,$id)
     {
-        
+
         $data = [
             'title'=>$request->title
         ];
@@ -496,8 +585,8 @@ class VehicleController extends Controller
     }
     public function updateVehicleOwner(Request $request,$id)
     {
-        
-        
+
+
         $data = [
             'title'=>$request->title
         ];
@@ -536,6 +625,11 @@ class VehicleController extends Controller
     {
         VCLogBook::where('id',$id)->delete();
         return redirect()->route('viewlogbook')->with('error', 'LogBook Question  Deleted  Successfully!');
+    }
+    public function deleteFinance($id)
+    {
+        Finance::where('id',$id)->delete();
+        return redirect()->route('viewFinance')->with('error', 'Finance  Deleted  Successfully!');
     }
     public function deleteVehcileOwner($id)
     {
