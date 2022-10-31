@@ -143,7 +143,7 @@
                     <div class="photo-up-sec-2-vehicle-information">
                         <div class="vehicleStepsMain">
                             <!--0-->
-                            <div class="vehicleSteps vehicleStepsActive" dataid="VehicleFeatures">
+                            <div class="vehicleStepsActive vehicleSteps" dataid="VehicleFeatures">
                                 <span class="checkboxNum" style="display:none;">0</span>
                                 <h3>Vehicle features</h3>
                                 <p>Select the features your vehicle has.</p>
@@ -749,7 +749,7 @@
                                             					<p>Upgraded sound system</p>
                                             				</td>
                                             				<td>
-                                            					<span data-title="VehicleFeatures" >
+                                            					<span class="stepOpener" data-title="VehicleFeatures" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -758,7 +758,7 @@
                                             				<td><span>Seat material</span></td>
                                             				<td>Leather</td>
                                             				<td>
-                                            					<span data-title="SeatMaterial" >
+                                            					<span class="stepOpener" data-title="SeatMaterial" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -767,7 +767,7 @@
                                             				<td><span>Number of keys</span></td>
                                             				<td>3</td>
                                             				<td>
-                                            					<span data-title="NumberOfKeys" >
+                                            					<span class="stepOpener" data-title="NumberOfKeys" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -776,7 +776,7 @@
                                             				<td><span>Tool pack</span></td>
                                             				<td>No</td>
                                             				<td>
-                                            					<span data-title="ToolPack" >
+                                            					<span class="stepOpener" data-title="ToolPack" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -785,7 +785,7 @@
                                             				<td><span>Locking wheel nut</span></td>
                                             				<td>N/A</td>
                                             				<td>
-                                            					<span data-title="LockingWheelNut" >
+                                            					<span class="stepOpener" data-title="LockingWheelNut" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -794,7 +794,7 @@
                                             				<td><span>Smoking</span></td>
                                             				<td>Yes</td>
                                             				<td>
-                                            					<span data-title="Smoking">
+                                            					<span class="stepOpener" data-title="Smoking">
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -809,7 +809,7 @@
                                             					<td><span>V5C logbook</span></td>
                                             						<td>Yes</td>
                                             						<td>
-                                            						<span data-title="V5CLogbook">
+                                            						<span class="stepOpener" data-title="V5CLogbook">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -820,7 +820,7 @@
                                             					</td>
                                             						<td>–</td>
                                             						<td>
-                                            						<span data-title="VehicleLocation">
+                                            						<span class="stepOpener" data-title="VehicleLocation">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -829,7 +829,7 @@
                                             					<td><span>Vehicle owner</span></td>
                                             						<td>Me</td>
                                             						<td>
-                                            						<span data-title="VehicleOwner">
+                                            						<span class="stepOpener" data-title="VehicleOwner">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -838,7 +838,7 @@
                                             					<td><span>Private plate</span></td>
                                             						<td>Private plate</td>
                                             						<td>
-                                            						<span data-title="PrivatePlate">
+                                            						<span class="stepOpener" data-title="PrivatePlate">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -847,7 +847,7 @@
                                             					<td><span>Keeping the plate</span></td>
                                             						<td>Not keeping it</td>
                                             						<td>
-                                            						<span data-title="KeepingThePlate">
+                                            						<span class="stepOpener" data-title="KeepingThePlate">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -856,7 +856,7 @@
                                             					<td><span>Finance</span></td>
                                             						<td>Not on finance</td>
                                             						<td>
-                                            						<span data-title="Finance">
+                                            						<span class="stepOpener" data-title="Finance">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -1052,7 +1052,7 @@
             $(this).closest('.photo-up-sec-2-vi-row-ay').find('.info-box-image > img').attr('src',imgLabel);
         });
         // 28-10-22
-                $('button.nxtBtn').on('click', function(){
+        $('button.nxtBtn').on('click', function(){
             
             var vehicleSteps = $(this).closest('.vehicleSteps');
             var numChecked = $(vehicleSteps).find('.checboxNum').text();
@@ -1091,7 +1091,7 @@
             $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked);
             
             var radioVal =  $(this).attr('id'); 
-            console.log(radioVal);
+                console.log(radioVal);
                 // For Popup on False Condition
                 if( radioVal == 'hasV5LogBook-false'){
                     $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
@@ -1160,15 +1160,19 @@
         // When Click on nxtBtnToFinance
         $('.nxtBtnToFinance').on('click', function(){
 
-            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
-            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
             var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
             
-            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
             else{
-              
                   $(vehicleSteps).removeClass('vehicleStepsActive');
                   $(vehicleSteps).slideUp();
                   $('.ifnormalRegistrationPlate').slideDown();
@@ -1177,11 +1181,16 @@
         });
         // When Click on nxtBtnToKeepingThePlate
         $('.nxtBtnToKeepingThePlate').on('click', function(){
-            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
-            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
             var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
             
-            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
             else{
@@ -1202,11 +1211,16 @@
         });
         //When Click on nxtBtnToPrivatePlate from Name on V5C 
         $('.nxtBtnToPrivatePlate').on('click', function(){
-            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
-            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
             var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
             
-            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
             else{
@@ -1225,11 +1239,16 @@
         });
         //When Click on nxtBtnWhoOwnsTheVehicleToPrivatePlate from Who owns the vehicle
         $('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').on('click', function(){
-            var radio = $(this).closest('.vehicleSteps').find('input[type="radio"]');
-            var checkbox = $(this).closest('.vehicleSteps').find('input[type="checkbox"]');
             var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
             
-            if(  $(radio).prop("checked") == false || $(checkbox).prop("checked") == false ){
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
             else{
@@ -1238,6 +1257,15 @@
                   $('.vehicleSteps[data-id="PrivatePlate"]').slideDown();
                   $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
             }
+        });
+        
+        // Summary Step
+        $('.stepOpener').on('click', function(){
+            var thisData = $(this).attr('data-title');
+            $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+            $(this).closest('.vehicleSteps').slideUp();
+            $('.vehicleSteps[data-id="'+ thisData +'"]').slideDown();
+            $('.vehicleSteps[data-id="'+ thisData +'"]').addClass('vehicleStepsActive');
         });
         // Modal Open Close of Vehicle Form 
         $('.modalBtn').on('click',function(){
