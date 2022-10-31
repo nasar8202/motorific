@@ -15,11 +15,12 @@ use App\Models\VehicleImage;
 use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
-
 use App\Models\LockingWheelNut;
 use App\Models\vehicleInformation;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ManageVehicleController extends Controller
 {
@@ -39,8 +40,14 @@ class ManageVehicleController extends Controller
     }
     public function StoreVehicle(Request $request)
     {
-       
+
         $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'post_code' => 'required',
+            'phone_number' => 'required',
+            'mile_age' => 'required',
             'register_number' => 'required',
             'vehicle_name' => 'required',
             'vehicle_year' => 'required',
@@ -65,39 +72,52 @@ class ManageVehicleController extends Controller
             'image3' => 'required',
             'image4' => 'required',
             'image5' => 'required',
-            
+
         ]);
         DB::beginTransaction();
         try{
-        $vehicle = new Vehicle;
-        $vehicle->user_id = Auth::user()->id;
-        $vehicle->vehicle_registartion_number = $request->register_number;
-        $vehicle->vehicle_name = $request->vehicle_name;
-        $vehicle->vehicle_year = $request->vehicle_year;
-        $vehicle->vehicle_color = $request->vehicle_color;
-        $vehicle->vehicle_type = $request->vehicle_type;
-        $vehicle->vehicle_tank = $request->vehicle_tank;
-        $vehicle->vehicle_mileage = $request->vehicle_mileage;
-        $vehicle->vehicle_price = $request->vehicle_price;
-       
-        $vehicle->save();
-       $vehicle_feature_id =  implode(',', $request->vehicle_feature);
-      
-        $vehicleInformation = new vehicleInformation;
-        $vehicleInformation->vehicle_id = $vehicle->id;
-        $vehicleInformation->vehicle_feature_id = $vehicle_feature_id ;
-        $vehicleInformation->seat_material_id =  $request->seat_material;
-        $vehicleInformation->number_of_keys_id =  $request->number_of_keys;
-        $vehicleInformation->tool_pack_id =  $request->tool_pack;
-        $vehicleInformation->looking_wheel_nut_id =  $request->wheel_nut;
-        $vehicleInformation->smooking_id =  $request->smoking;
-        $vehicleInformation->logbook_id =  $request->logbook;
-        $vehicleInformation->location =  $request->location;
-        $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
-        $vehicleInformation->private_plate_id =  $request->private_plate;
-        $vehicleInformation->finance_id =  $request->finance;
-        $vehicleInformation->save();
-        
+
+            $seller = new User;
+            $seller->name = $request->name;
+            $seller->email = $request->email;
+            $seller->mile_age = $request->mile_age;
+            $seller->post_code = $request->post_code;
+            $seller->phone_number = $request->phone_number;
+            $seller->password = Hash::make($request->password);
+
+            $seller->save();
+
+            $seller_id = $seller->id;
+            $vehicle = new Vehicle;
+            $vehicle->user_id = $seller_id;
+            $vehicle->vehicle_registartion_number = $request->register_number;
+            $vehicle->vehicle_name = $request->vehicle_name;
+            $vehicle->vehicle_year = $request->vehicle_year;
+            $vehicle->vehicle_color = $request->vehicle_color;
+            $vehicle->vehicle_type = $request->vehicle_type;
+            $vehicle->vehicle_tank = $request->vehicle_tank;
+            $vehicle->vehicle_mileage = $request->vehicle_mileage;
+            $vehicle->vehicle_price = $request->vehicle_price;
+
+            $vehicle->save();
+
+            $vehicle_feature_id =  implode(',', $request->vehicle_feature);
+
+            $vehicleInformation = new vehicleInformation;
+            $vehicleInformation->vehicle_id = $vehicle->id;
+            $vehicleInformation->vehicle_feature_id = $vehicle_feature_id ;
+            $vehicleInformation->seat_material_id =  $request->seat_material;
+            $vehicleInformation->number_of_keys_id =  $request->number_of_keys;
+            $vehicleInformation->tool_pack_id =  $request->tool_pack;
+            $vehicleInformation->looking_wheel_nut_id =  $request->wheel_nut;
+            $vehicleInformation->smooking_id =  $request->smoking;
+            $vehicleInformation->logbook_id =  $request->logbook;
+            $vehicleInformation->location =  $request->location;
+            $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
+            $vehicleInformation->private_plate_id =  $request->private_plate;
+            $vehicleInformation->finance_id =  $request->finance;
+            $vehicleInformation->save();
+
 
                 $front = time() . '_' . $request->file('image1')->getClientOriginalName();
                 $request->file('image1')->move(public_path() . '/vehicles/vehicles_images/', $front);
@@ -118,62 +138,63 @@ class ManageVehicleController extends Controller
                 $VehicleImage->interior_front = $interior_front;
                 $VehicleImage->dashboard = $dashboard;
                 $VehicleImage->save();
-            
+
         }catch(\Exception $e)
         {
             DB::rollback();
+           //return $e;
             return Redirect()->back()
                 ->with('error',$e->getMessage() )
                 ->withInput();
         }
         DB::commit();
-            
+
             return redirect()->route('createVehicleForm')->with('success', 'Vehicle added  Successfully!');
 
-        
-        
+
+
     }
     public function viewVehicle()
-    {   
-        
+    {
+
        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->get();
     //    dd($vehicles);
         return view('backend.admin.manageVehicle.viewVehicle',compact('vehicles'));
     }
 
     public function deleteVehicle($id)
-    {   
+    {
         DB::beginTransaction();
         try{
-    
+
        $vehicles = Vehicle::find($id);
        $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
        $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
        $vehicles->delete();
        $vehicleInformation->delete();
-       
-       
+
+
         if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->front))){
             unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->front));
           }
-       
+
           if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner))){
             unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner));
           }
-       
+
           if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner))){
             unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner));
           }
-       
+
           if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front))){
             unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front));
           }
-       
+
           if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard))){
             unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard));
           }
           $VehicleImage->delete();
-       
+
     }catch(\Exception $e)
     {
         DB::rollback();
@@ -186,9 +207,11 @@ class ManageVehicleController extends Controller
 
     }
     public function editVehicle($id)
-    {   
+    {
 
         $vehicles = Vehicle::find($id);
+        $seller  = User::where('id',$vehicles->user_id)->first();
+
         $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
         $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
         $VehicleFeatures =  VehicleFeature::where('status',1)->get();
@@ -201,12 +224,12 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
-        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage'));
-   
+        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','seller','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage'));
+
     }
     public function updateVehicle(Request $request,$id)
     {
-        
+
         $request->validate([
             'register_number' => 'required',
             'vehicle_name' => 'required',
@@ -227,12 +250,13 @@ class ManageVehicleController extends Controller
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
-           
+
         ]);
         DB::beginTransaction();
         try{
+
+
         $vehicle = Vehicle::find($id);
-        $vehicle->user_id = Auth::user()->id;
         $vehicle->vehicle_registartion_number = $request->register_number;
         $vehicle->vehicle_name = $request->vehicle_name;
         $vehicle->vehicle_year = $request->vehicle_year;
@@ -241,10 +265,20 @@ class ManageVehicleController extends Controller
         $vehicle->vehicle_tank = $request->vehicle_tank;
         $vehicle->vehicle_mileage = $request->vehicle_mileage;
         $vehicle->vehicle_price = $request->vehicle_price;
-       
+
         $vehicle->save();
+
+        $seller = User::find($vehicle->user_id);
+        $seller->name = $request->name;
+        $seller->email = $request->email;
+        $seller->mile_age = $request->mile_age;
+        $seller->post_code = $request->post_code;
+        $seller->phone_number = $request->phone_number;
+        // $seller->password = Hash::make($request->password);
+        $seller->save();
+
        $vehicle_feature_id =  implode(',', $request->vehicle_feature);
-      
+
         $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
         $vehicleInformation->vehicle_id = $vehicle->id;
         $vehicleInformation->vehicle_feature_id = $vehicle_feature_id ;
@@ -259,7 +293,7 @@ class ManageVehicleController extends Controller
         $vehicleInformation->private_plate_id =  $request->private_plate;
         $vehicleInformation->finance_id =  $request->finance;
         $vehicleInformation->save();
-        
+
 
         $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
         if($request->file('image1')){
@@ -304,9 +338,9 @@ class ManageVehicleController extends Controller
             $VehicleImage->dashboard = $dashboard;
         }
         $VehicleImage->vehicle_id =  $vehicle->id;
-        
+
         $VehicleImage->save();
-       
+
     }catch(\Exception $e)
     {
         DB::rollback();
@@ -315,10 +349,10 @@ class ManageVehicleController extends Controller
             ->withInput();
     }
     DB::commit();
-        
+
             return redirect()->route('viewVehicle')->with('success', 'Vehicle Updated  Successfully!');
 
-        
-        
+
+
     }
 }
