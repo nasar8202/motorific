@@ -18,14 +18,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>View Vehicle Details</h3>
-                <p class="text-subtitle text-muted">View Vehicle Details</p>
+                <h3>View And Update Vehicle Details</h3>
+                <p class="text-subtitle text-muted">View And Update Vehicle Details</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">View Vehicle Details</li>
+                        <li class="breadcrumb-item active" aria-current="page">View And Update Vehicle Details</li>
                     </ol>
                 </nav>
             </div>
@@ -36,12 +36,80 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">View Vehicle Details</h4>
+                        <h4 class="card-title">View And Update User Information</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                          
-                               
+
+
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">User Email</label>
+                                            <input type="email" id="first-name-column" class="form-control"
+                                                placeholder="Registartion Number" value="{{$seller->email}}" name="email">
+                                        </div>
+                                        @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                                    </div>
+                                    {{-- <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="last-name-column">Password</label>
+                                            <input type="password" id="last-name-column" class="form-control"
+                                                placeholder="Enter password" value="" name="password">
+                                        </div>
+                                        @if ($errors->has('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    @endif
+                                    </div> --}}
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="city-column">Seller Name</label>
+                                            <input type="text" id="city-column" class="form-control"
+                                                placeholder="Enter Seller Name" value="{{$seller->name}}" name="name">
+                                        </div>
+                                        @if ($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="country-floating"></label>
+                                            <input type="text" id="country-floating" class="form-control"
+                                                name="phone_number" value="{{$seller->phone_number}}" placeholder="Phone Number">
+                                        </div>
+                                        @if ($errors->has('phone_number'))
+                                        <span class="text-danger">{{ $errors->first('phone_number') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="city-column">Post Code </label>
+                                            <input type="text" id="city-column" class="form-control"
+                                                placeholder="Enter Post Code" value="{{$seller->post_code}}" name="post_code">
+                                        </div>
+                                        @if ($errors->has('post_code'))
+                                        <span class="text-danger">{{ $errors->first('post_code') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="country-floating">Car Mile Age</label>
+                                            <input type="text" id="country-floating" value="{{$seller->mile_age}}" class="form-control"
+                                                name="mile_age" placeholder="Vehicle Age">
+                                        </div>
+                                        @if ($errors->has('mile_age'))
+                                        <span class="text-danger">{{ $errors->first('mile_age') }}</span>
+                                    @endif
+                                    </div>
+
+
+
+                                </div>
+                                <div class="card-header">
+                                    <h4 class="card-title">View Vehicle Details</h4>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
@@ -113,7 +181,7 @@
                                         <span class="text-danger">{{ $errors->first('vehicle_mileage') }}</span>
                                     @endif
                                     </div>
-                                    
+
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Price</label>
@@ -124,10 +192,9 @@
                                         <span class="text-danger">{{ $errors->first('vehicle_price') }}</span>
                                     @endif
                                     </div>
-                                    
+
 
                                 </div>
-                        
                         </div>
                     </div>
                 </div>
@@ -146,14 +213,14 @@
                              <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <h6>Select Vehicle Feature</h6>
-                                        
+
                                         <div class="form-group">
                                             @if(isset($vehicleInformation))
-                                            @php 
+                                            @php
                                             $a=explode(',',$vehicleInformation->vehicle_feature_id);
                                             @endphp
                                         @endif
-                                        
+
                                             {{-- <option disabled selected>Select Grade</option> --}}
                                             <select name="vehicle_feature[]" class="choices form-select multiple-remove"
                                             multiple="multiple">
@@ -162,8 +229,8 @@
                                                 @endforeach
 
                                                 {{-- <option @if($VehicleFeature->id == $vehicleInformation->vehicle_feature_id ) selected @endif  value="{{$VehicleFeature->id}}">{{$VehicleFeature->title}}</option> --}}
-                                                
-                                                
+
+
                                             </select>
                                         </div>
                                         @if ($errors->has('vehicle_feature'))
@@ -172,7 +239,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Select Seat Material</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="seat_material" id="basicSelect">
                                                 <option disabled selected>Select Seat Material</option>
@@ -187,7 +254,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Number of keys</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="number_of_keys" id="basicSelect">
                                                 <option disabled selected>Select Number of keys</option>
@@ -202,7 +269,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Tool pack</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="tool_pack" id="basicSelect">
                                                 <option disabled selected>Select Tool pack</option>
@@ -217,7 +284,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Locking wheel nut</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="wheel_nut" id="basicSelect">
                                                 <option disabled selected>Select Locking wheel nut</option>
@@ -232,7 +299,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Smoking</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="smoking" id="basicSelect">
                                                 <option disabled selected>Select Smoking</option>
@@ -247,7 +314,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>V5C logbook</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="logbook" id="basicSelect">
                                                 <option disabled selected>Select V5C logbook</option>
@@ -272,7 +339,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Vehicle owner</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="vehicle_owner" id="basicSelect">
                                                 <option disabled selected>Select Vehicle owner</option>
@@ -287,7 +354,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Private plate</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="private_plate" id="basicSelect">
                                                 <option disabled selected>Select Private plate</option>
@@ -302,7 +369,7 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Finance</h6>
-                                        
+
                                         <div class="form-group">
                                             <select class="form-select" name="finance" id="basicSelect">
                                                 <option disabled selected>Select Finance</option>
@@ -315,10 +382,10 @@
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
                                     @endif
                                     </div>
-                                    
-                                    
+
+
                                 </div>
-                         
+
                         </div>
                     </div>
                 </div>
@@ -333,7 +400,7 @@
                         <h4 class="card-title">Add Pictures</h4>
                     </div>
                  <div class="row">
-                    
+
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" width="80%">
                     </div>
@@ -353,7 +420,7 @@
                  </div>
                  <br>
                  <div class="row">
-                    
+
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " class="rounded mx-auto d-block">
                     </div>
@@ -371,9 +438,9 @@
                     @endif
                     </div>
                  </div>
-                
+
                  <div class="row">
-                    
+
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " class="rounded mx-auto d-block">
                     </div>
@@ -392,7 +459,7 @@
                     </div>
                  </div>
                  <div class="row">
-                    
+
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-interior.png')}} " class="rounded mx-auto d-block">
                     </div>
@@ -411,7 +478,7 @@
                     </div>
                  </div>
                  <div class="row">
-                    
+
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " class="rounded mx-auto d-block">
                     </div>
@@ -431,7 +498,7 @@
                  </div>
 
                 </div>
-                
+
                 <div class="col-12 d-flex justify-content-end">
                     <button type="submit"
                         class="btn btn-primary me-1 mb-1">Update Data</button>
@@ -439,21 +506,10 @@
                         class="btn btn-light-secondary me-1 mb-1">Reset</button>
                 </div>
             </div>
-        
+
         </div>
     </section>
 </form>
 </div>
-<script type="text/javascript">
-    var i = 0;
-    $("#dynamic-ar").click(function () {
-        ++i;
-        $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +
-            '][title]" placeholder="Enter LogBook Question" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Remove </button></td></tr>'
-            );
-    });
-    $(document).on('click', '.remove-input-field', function () {
-        $(this).parents('tr').remove();
-    });
-</script>
+
 @endsection

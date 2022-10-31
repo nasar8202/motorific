@@ -7,21 +7,88 @@
     </style>
 
     <!-- MultiStep Form -->
-    <div class="container-fluid" id="grad1">
-        <div class="row justify-content-center mt-0">
-            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
-                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2><strong>Welcome!  {{ Auth::user()->name }}</strong></h2>
-                    <p>Dealer Dashboard</p>
-                    <div class="row">
-                        <div class="col-md-12 mx-0">
+<br>
+<br>
+<br>
+<br>
+<br>
+<section class="sec-2">
+    <div class="container-1151">
+        <div class="sec-2-txt pb-4">
+            <h2>Live Sell ends in 2 hrs</h2>
+            <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
+        </div>
+        <div class="row">
 
-                        </div>
+            <!-- BOX-1 -->
+            <div class="col-lg-3 col-md-3">
+                <div class="box">
+                    <h4>Sold by Sydney</h4>
+                    <div class="box-img">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/box-1.png') }}" width="200px" alt="">
+                    </div>
+                    <h5>Mercedes C180 KOMP Avantgarde...,</h5>
+                    <div class="d-flex justify-content-between">
+                        <p>Sold for £1,400</p>
+                        <h5>a day ago</h5>
                     </div>
                 </div>
             </div>
+
+            <!-- BOX-2 -->
+            <div class="col-lg-3 col-md-3">
+                <div class="box">
+                    <h4>Sold by Sydney</h4>
+                    <div class="box-img">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/box-2.png') }}" width="200px" alt="">
+                    </div>
+                    <h5>Mercedes C180 KOMP. Avantgarde…,</h5>
+                    <div class="d-flex justify-content-between">
+                        <p>Sold for £1,400</p>
+                        <h5>a day ago</h5>
+                    </div>
+                </div>
+            </div>
+ <!-- BOX-2 -->
+ <div class="col-lg-3 col-md-3">
+    <div class="box">
+        <h4>Sold by Sydney</h4>
+        <div class="box-img">
+            <img src="{{ URL::asset('frontend/seller/assets/image/box-2.png') }}" width="200px" alt="">
+        </div>
+        <h5>Mercedes C180 KOMP. Avantgarde…,</h5>
+        <div class="d-flex justify-content-between">
+            <p>Sold for £1,400</p>
+            <h5>a day ago</h5>
         </div>
     </div>
+</div>
+
+            <!-- BOX-3 -->
+            <div class="col-lg-3 col-md-3 mx-auto">
+                <div class="box">
+                    <h4>Sold by Sydney</h4>
+                    <div class="box-img">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/box-3.png') }}" width="200px" alt="">
+                    </div>
+                    <h5>Mercedes C180 KOMP. Avantgarde…,</h5>
+                    <div class="d-flex justify-content-between">
+                        <p>Sold for £1,400</p>
+                        <h5>a day ago</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="sec-2-btns text-center">
+            <button>VALUE YOUR CAR</button>
+            <button>GET IN TOUCH</button>
+        </div>
+    </div>
+</section>
+
     @endsection
 
 

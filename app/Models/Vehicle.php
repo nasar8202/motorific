@@ -26,6 +26,6 @@ class Vehicle extends Model
     {
 
         return $this->hasOne(VehicleImage::class,'vehicle_id','id');
-        
+
     }
 }
