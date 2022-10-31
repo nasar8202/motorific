@@ -906,54 +906,72 @@
                 <form>
                     <div class="add-photos-inner row">
                         <div class="add-photos-box1 col-lg-6">
-                            <div class="add-photos-numbering">
-                                <h3>1</h3>
-                            </div>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="">
+                            <label class="labelForFile" for="photo1">
+                                <div class="add-photos-numbering">
+                                    <h3>1</h3>
+                                </div>
+                                <input type="file" name="photo1" id="photo1" />
+                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="" accept="image/*" >
+                            </label>
                         </div>
                         <div class="col-lg-6">
                             <div class="add-photos-box1">
-                                <div class="add-photos-numbering">
-                                    <h3>2</h3>
-                                </div>
-                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="">>
+                                <label class="labelForFile" for="photo2">
+                                    <div class="add-photos-numbering">
+                                        <h3>2</h3>
+                                    </div>
+                                    <input type="file" name="photo1" id="photo2" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="" accept="image/*" >
+                                </label>
                             </div>
                             <div class="add-photos-box1">
-                                <div class="add-photos-numbering">
-                                    <h3>3</h3>
-                                </div>
-                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-corner.png')}}" alt="">
+                                <label class="labelForFile" for="photo3">
+                                    <div class="add-photos-numbering">
+                                        <h3>3</h3>
+                                    </div>
+                                    <input type="file" name="photo1" id="photo3" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-corner.png')}}" alt="" accept="image/*" >
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="add-p-bottom-row row">
                         <div class="col-lg-4">
                             <div class="add-photos-box1">
-                                <div class="add-photos-numbering">
-                                    <h3>4</h3>
-                                </div>
-                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="">
+                                <label class="labelForFile" for="photo4">
+                                    <div class="add-photos-numbering">
+                                        <h3>4</h3>
+                                    </div>
+                                    <input type="file" name="photo1" id="photo4" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" >
+                                </label>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="add-photos-box1">
-                                <div class="add-photos-numbering">
-                                    <h3>5</h3>
-                                </div>
-                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="">
+                                <label class="labelForFile" for="photo5">
+                                    <div class="add-photos-numbering">
+                                        <h3>5</h3>
+                                    </div>
+                                    <input type="file" name="photo1" id="photo5" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" >
+                                </labe>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="add-photos-box1">
-                                <div class="add-photos-numbering">
-                                    <h3>6</h3>
-                                </div>
-                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="">
+                                <label class="labelForFile" for="photo6">
+                                    <div class="add-photos-numbering">
+                                        <h3>6</h3>
+                                    </div>
+                                    <input type="file" name="photo1" id="photo6" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="" accept="image/*" >
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="photo-up-sec-2-btn photo-up-sec-2-box-btn text-center clr-s-gr">
-                        <button>CONTINUE</button>
+                        <button>Submit</button>
                     </div>
                 </form>
             </div>
@@ -1275,5 +1293,24 @@
         $('.modalTN .close').on('click',function(){
              $(this).closest('.modal').modal('toggle'); 
         });
+        
+        // Images On Change
+        $('.labelForFile').each(function(){
+       var thisInpt = $(this).find('input');
+       $(thisInpt).on('change', function(){
+          
+          var file = $(thisInpt).get(0).files[0];
+     
+            if(file){
+                var reader = new FileReader();
+     
+                reader.onload = function(){
+                    $(thisInpt).closest('.labelForFile').find('img').attr("src", reader.result);
+                }
+     
+                reader.readAsDataURL(file);
+            }
+       });
+    });
 </script>
 @endpush
