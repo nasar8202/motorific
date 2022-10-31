@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\backend\admin;
 
+use Notification;
 use App\Models\User;
 use App\Models\Dealer;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Http\Controllers\Controller;
-use Notification;
-use App\Notifications\ApprovedDealerNotification;
+use Illuminate\Support\Facades\Http;
 use App\Notifications\RejectDealerNotification;
+use App\Notifications\ApprovedDealerNotification;
 
 class AdminDashboardController extends Controller
 {
@@ -19,6 +20,12 @@ class AdminDashboardController extends Controller
     }
     public function viewDealers()
     {
+        $response = Http::post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry', [
+            'registrationNumber' => 'AY69 GOU',
+            'id-token'=>'c5TilCBdU22DgHAtlNJiY7EnD5EV2CdM9WU4KPyt',
+           
+        ]);
+        dd($response);
         $dealers = User::where('status',0)->where('role_id',3)->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.dealers.viewDealers',compact('dealers'));
