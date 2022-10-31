@@ -948,6 +948,7 @@ section.photo-up-sec-2 {
     width: 100%;
     border-radius: 20px;
     padding: 30px 40px;
+    position:relative;
 }
 
 .photo-up-sec-2-vehicle-information h3 {
@@ -1002,13 +1003,16 @@ section.photo-up-sec-2 {
 .photo-up-sec-2-vi-btns a {
     text-decoration: none;
 }
-
-.col-lg-6 .photo-up-sec-2-vi-btns .photo-up-sec-2-vi-btn:nth-child(2){
-   margin: 20px 0px;
+.photo-up-sec-2-vi-btns label {
+    width: 100%;
+}
+.photo-up-sec-2-vi-btns label input {
+    display: none;
+}
+.photo-up-sec-2-vi-btns label input:checked + div.photo-up-sec-2-vi-btn{
    border-color: #05eab5;
 }
-
-.col-lg-6 .photo-up-sec-2-vi-btns .photo-up-sec-2-vi-btn:nth-child(2)::after{
+.photo-up-sec-2-vi-btns label input:checked + div.photo-up-sec-2-vi-btn::after{
     background-color: #05eab5;
 }
 
@@ -1222,8 +1226,10 @@ section.photo-up-sec-2 {
 
 .personal-info-form form h4 {
     margin-bottom: 0px;
-    font-size:20px;
+    font-size: 17px;
     font-weight: 700;
+    padding-bottom: 8px;
+    padding-left: 10px;
 }
 
 .personal-info-form form input {
@@ -1231,21 +1237,145 @@ section.photo-up-sec-2 {
     border-radius: 50px;
     padding: 8px 20px;
     width: 30%;
+    font-size: 15px;
 }
-
 .personal-info-form form input::placeholder{
     font-weight:700;
     color:black;
 }
-
 .personal-info-form form div:nth-child(2){
     margin: 23px 0px;
 }
-
 .personal-info-form-btn{
     margin-top:50px;
 }
+.personal-info-form-btn button {
+    width: auto;
+    padding: 12px 40px;
+}
+.withImgInLabel .photo-up-sec-2-vi-btn > img,div#myDIV3 {
+    display:none;
+}
+.photo-up-sec-2-vi-input input {
+    width: 100%;
+    height: 58px;
+    border: 1px solid #e3e3e3;
+    padding: 10px 15px;
+}
+.photo-up-sec-2-vi-input label {
+    width: 100%;
+}
+.photo-up-sec-2-vi-input input {
+    border: 1px solid #e3e3e3;
+    outline: none;
+}
+.vehicleSteps {
+    display: none;
+    height: 350px;
+    overflow-y: auto;
+    width: 100%;
+    overflow-x: hidden;
+}
+.vehicleSteps.vehicleStepsActive {
+    display: block;
+}
 
-.personal-info-form-btn button{
-    width:45%;
+.vehicleSteps.vehicleStepsActive .photo-up-sec-2-vi-bnch-btns{
+    opacity:1;
+}
+.photo-up-sec-2-vi-bnch-btns {
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    opacity: 0;
+}
+.vehicleSteps::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius:6px;
+}
+
+.vehicleSteps::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+	border-radius:6px;
+}
+
+.vehicleSteps::-webkit-scrollbar-thumb
+{
+	background-color: #05eab5;
+	border-radius:6px;
+}
+.modalTN .modal-header {
+    border: 0;
+    justify-content: flex-end;
+}
+
+.modalTN .modal-body {
+    text-align: center;
+    padding: 30px;
+}
+.modalTN .Modal__component article {
+    border: 2px solid #05eab5;
+    position: relative;
+    padding: 25px 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.modalTN .Modal__component article i {
+    position: absolute;
+    top: -15px;
+    font-size: 30px;
+    background: #fff;
+    width: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modalTN .Modal__component article p {
+    margin: 0;
+}
+
+.modalTN .Modal__component p {
+    font-size: 16px;
+}
+
+.modalTN .Modal__component a {
+    color:#05eab5;
+    text-decoration:none;
+}
+
+.modalTN button {
+    background: #05eab5;
+    padding: 10px 30px;
+    border: 1px solid #05eab5;
+    color:#ffffff;
+    border-radius: 50px;
+}
+.modalTN button.close{
+    padding: 10px 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 25px;
+}
+
+.modalTN button:hover {
+    background: #000000;
+    border-color: #000000;
+}
+
+div#myDIV2{
+    display:none;
+}
+.info-box a {
+    text-decoration: none;
+    color: #7977a2;
+    font-weight: 500;
 }

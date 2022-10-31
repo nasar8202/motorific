@@ -111,11 +111,10 @@
                             <h4>Phone Number</h4>
                             <input type="number" placeholder="Enter Phone">
                         </div>
+                        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
+                            <button type="submit">CONFIRM</button>
+                        </div>
                     </form>
-                </div>
-
-                <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
-                    <button>CONFIRM</button>
                 </div>
             </div>
         </div>
@@ -128,59 +127,765 @@
                         <p>Features, equipment & ownership</p>
                     </div>
                     <div class="prf-complete d-flex align-items-center">
-                        <div>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/load.png')}}" alt="">
-                        </div>
-                        <h3>15% Complete</h3>
+                        <!--<div>-->
+                        <!--    <img src="{{ URL::asset('frontend/seller/assets/image/load.png')}}" alt="">-->
+                        <!--</div>-->
+                        <!--<h3>15% Complete</h3>-->
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-s-gr my-auto">
-                    <button onclick="myFunction2()">CONTINUE</button>
+                    <button onclick="myFunction2()">Start</button>
                 </div>
             </div>
 
             <div class="photo-up-sec-2" id="myDIV2">
-                <div class="photo-up-sec-2-vehicle-information">
-                    <h3>Locking wheel nut</h3>
-                    <p>Do you have the locking wheel nut?</p>
-                    <div class="row photo-up-sec-2-vi-row-ay">
-                        <div class="col-lg-6 my-auto">
-                            <div class="photo-up-sec-2-vi-btns">
-                                    <div class="photo-up-sec-2-vi-btn">
-                                        <p>Locking wheel nut included</p>
+                <form class="vehicleinformationForm">
+                    <div class="photo-up-sec-2-vehicle-information">
+                        <div class="vehicleStepsMain">
+                            <!--0-->
+                            <div class="vehicleStepsActive vehicleSteps" dataid="VehicleFeatures">
+                                <span class="checkboxNum" style="display:none;">0</span>
+                                <h3>Vehicle features</h3>
+                                <p>Select the features your vehicle has.</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                            <label for="sat_nav">
+                                                <input type="checkbox" name="sat_nav" value="1" id="sat_nav" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Sat nav</p>
+                                                </div>    
+                                            </label>
+                                            <label for="panoramic_roof">
+                                                <input type="checkbox" name="panoramic_roof" value="2" id="panoramic_roof"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Panoramic roof</p>
+                                                </div>    
+                                            </label>
+                                            <label for="heated_seats">
+                                                <input type="checkbox" name="heated_seats" value="3" id="heated_seats"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Heated seats</p>
+                                                </div>    
+                                            </label>
+                                            <label for="parking_cam">
+                                                <input type="checkbox" name="parking_cam" value="2" id="parking_cam"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Rear parking camera</p>
+                                                </div>    
+                                            </label>
+                                            <label for="sound_system">
+                                                <input type="checkbox" name="sound_system" value="3" id="sound_system"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Upgraded sound system</p>
+                                                </div>    
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="photo-up-sec-2-vi-btn">
-                                        <p>Locking wheel nut included</p>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="nxtBtn">NEXT</button>
                                     </div>
-                                    <div class="photo-up-sec-2-vi-btn">
-                                        <p>Locking wheel nut included</p>
+                                </div>
+                            </div>
+                            <!--1-->
+                            <div class="vehicleSteps" data-id="SeatMaterial">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Seat material</h3>
+                                <p>Select the material your seats are upholstered with.</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns withImgInLabel">
+                                            <label for="interiorType-cloth">
+                                                <input type="radio" name="interiorType" value="Cloth" id="interiorType-cloth" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Cloth</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/cloth.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                            <label for="interiorType-fauxleather">
+                                                <input type="radio" name="interiorType" value="Fauxleather" id="interiorType-fauxleather"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Faux leather</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/fauxLeather.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                            <label for="interiorType-halfleather">
+                                                <input type="radio" name="interiorType" value="Halfleather" id="interiorType-halfleather"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Half leather</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                            <label for="interiorType-halfsuede">
+                                                <input type="radio" name="interiorType" value="Cloth" id="interiorType-halfsuede"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Half suede</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/halfSuede.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                            <label for="interiorType-leather">
+                                                <input type="radio" name="interiorType" value="Leather" id="interiorType-leather"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Leather</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/leather.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                            <label for="interiorType-suede">
+                                                <input type="radio" name="interiorType" value="Suede" id="interiorType-suede"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Suede</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/suede.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                        </div>
                                     </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
+                                            <div class="info-box-image">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--2-->
+                            <div class="vehicleSteps" data-id="NumberOfKeys">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Number of keys</h3>
+                                <p>How many keys do you have?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                            <label for="keysCount1">
+                                                <input type="radio" name="keysCount" value="1" id="keysCount1" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>1 key</p>
+                                                </div>    
+                                            </label>
+                                            <label for="keysCount2">
+                                                <input type="radio" name="keysCount" value="2" id="keysCount2"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>2 key</p>
+                                                </div>    
+                                            </label>
+                                            <label for="keysCount3">
+                                                <input type="radio" name="keysCount" value="3" id="keysCount3"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>3 key</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>Please don't include any keys with problems, e.g. where the remote unlocking is broken.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--3-->
+                            <div class="vehicleSteps" data-id="Toolpack">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Tool pack</h3>
+                                <p>Do you have the tool pack that came with the vehicle?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns withImgInLabel">
+                                            <label for="hasToolsInBoot-included">
+                                                <input type="radio" name="hasToolsInBoot" value="Included" id="hasToolsInBoot-included" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Tool pack included</p>
+                                                </div>    
+                                            </label>
+                                            <label for="hasToolsInBoot-missing">
+                                                <input type="radio" name="hasToolsInBoot" value="Missing" id="hasToolsInBoot-missing"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Tool pack missing</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>Check your spare wheel and its compartment — tool packs can usually be found there and should include a jack and wheel wrench.</p>
+                                            <div class="info-box-image">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/toolPack.avif')}}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--4-->
+                            <div class="vehicleSteps" data-id="LockingWheelNut">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Locking wheel nut</h3>
+                                <p>Do you have the locking wheel nut?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns withImgInLabel">
+                                            <label for="lockingWheelNut-yes">
+                                                <input type="radio" name="lockingWheelNut" value="Yes" id="lockingWheelNut-yes" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Locking wheel nut included</p>
+                                                </div>    
+                                            </label>
+                                            <label for="lockingWheelNut-no">
+                                                <input type="radio" name="lockingWheelNut" value="No" id="lockingWheelNut-no"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Locking wheel nut missing</p>
+                                                </div>    
+                                            </label>
+                                            <label for="lockingWheelNut-not_applicable">
+                                                <input type="radio" name="lockingWheelNut" value="Not Applicable" id="lockingWheelNut-not_applicable"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Wheels do not have locking nuts</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
+                                            <div class="info-box-image">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/wheelNut.avif')}}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--5-->
+                            <div class="vehicleSteps" data-id="Smoking">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Smoking</h3>
+                                <p>Has anyone regularly smoked in the vehicle?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                            <label for="hasBeenSmokedIn-no">
+                                                <input type="radio" name="hasBeenSmokedIn" value="No" id="hasBeenSmokedIn-no" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Vehicle has not been smoked in</p>
+                                                </div>    
+                                            </label>
+                                            <label for="hasBeenSmokedIn-yes">
+                                                <input type="radio" name="hasBeenSmokedIn" value="Yes" id="hasBeenSmokedIn-yes"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Vehicle has been smoked in</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>This does not include vaping. If vehicle has been vaped in, then please select ‘Vehicle has not been smoked in’.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--6 with Popup-->
+                            <div class="vehicleSteps popUpOnFalse" data-id="V5CLogbook">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>V5C logbook</h3>
+                                <p>Do you have the V5C logbook for this vehicle? You will only need to provide it once the vehicle has sold.</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns withImgInLabel">
+                                            <label for="hasV5LogBook-true">
+                                                <input type="radio" name="hasV5LogBook" value="True" id="hasV5LogBook-true" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>I can provide the V5C logbook once sold</p>
+                                                </div>    
+                                            </label>
+                                            <label for="hasV5LogBook-false">
+                                                <input type="radio" name="hasV5LogBook" value="False" id="hasV5LogBook-false"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>I’ve lost the V5C logbook</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>The V5C logbook (also known as the V5 form or document) records the Registered Keeper(s) of the vehicle.</p>
+                                            <div class="info-box-image">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/V5C-logbook.avif')}}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Modal on false Condition -->
+                                <div class="modal fade modalTN" id="v5Cfalse" tabindex="-1" role="dialog" aria-labelledby="V5CfalseTitle" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="Modal__component">
+                                        	<h3>Lost V5C logbook</h3>
+                                        	<article class="">
+                                        		<i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        		<p>We are unable to sell vehicles with a missing V5C log book.</p>
+                                        	</article>
+                                        	<p>You can obtain a replacement V5C on the <a class="" href="https://www.gov.uk/vehicle-log-book" rel="noreferrer" target="_blank">DVLA website</a>. Once you have it, return to Motorway and we will be happy to help with your vehicle sale.</p>
+                                        </div>
+                                        <div class="Modal__dvlaButton">
+                                        	<a href="https://www.gov.uk/vehicle-log-book" rel="noopener noreferrer" target="_blank">
+                                        		<button type="button">
+                                        			<span class="Button-module__label">Take me to the DVLA website</span>
+                                        			<span class="Button-module__icon Button-module__chevron Button-module__autoFlip"></span>
+                                        		</button>
+                                        	</a>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                        <button type="button" class="modalBtn" style="display:none;">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--7 Search-->
+                            <div class="vehicleSteps" data-id="VehicleLocation">
+                                <h3>Vehicle location</h3>
+                                <p>Where do you keep the vehicle?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-input">
+                                            <label for="search-loc" class="iconAbsolute">
+                                                <span><p>Enter postcode or the first line of the address</p></span>
+                                                <input type="search" name="search-loc" value="" id="search-loc" placeholder="Vehicle location"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--8-->
+                            <div class="vehicleSteps" data-id="VehicleOwner">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Vehicle owner</h3>
+                                <p>Who is named on the V5C form?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                            <label for="radio-keeperType-seller">
+                                                <input type="radio" name="keeperType" value="Seller" id="radio-keeperType-seller" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Me</p>
+                                                </div>    
+                                            </label>
+                                            <label for="radio-keeperType-other">
+                                                <input type="radio" name="keeperType" value="Other" id="radio-keeperType-other"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Someone Else</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtnToVehicleLocation">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn formeBtn">NEXT</button>
+                                        <button style="display:none" type="button" class="forSomeoneElseBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--9-->
+                            <div class="vehicleSteps ifMe afterFriendNameInput afterProbateSale" data-id="PrivatePlate">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Private plate?</h3>
+                                <p>Does your vehicle have a private registration plate?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns withImgInLabel">
+                                            <label for="radio-hasPrivatePlate-false">
+                                                <input type="radio" name="hasPrivatePlate" value="False" id="radio-hasPrivatePlate-false"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Normal registration plate</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateFalse.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                            <label for="radio-hasPrivatePlate-true">
+                                                <input type="radio" name="hasPrivatePlate" value="True" id="radio-hasPrivatePlate-true"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Private plate</p>
+                                                    <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" />
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p></p>
+                                            <div class="info-box-image">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtnToKeepingThePlate" style="display:none">NEXT</button>
+                                        <button type="button" class="nxtBtnToFinance">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--10-->
+                            <div class="vehicleSteps ifSomeoneElse" data-id="WhoOwnsTheVehicle">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Who owns the vehicle?</h3>
+                                <p>Does your vehicle have a private registration plate?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns withImgInLabel">
+                                            <label for="radio-keeperType-familyOrFriend">
+                                                <input type="radio" name="keeperType" value="friend" id="radio-keeperType-familyOrFriend"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>A family member or friend</p>
+                                                </div>    
+                                            </label>
+                                            <label for="radio-keeperType-probate">
+                                                <input type="radio" name="keeperType" value="probate" id="radio-keeperType-probate"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>This is a probate sale</p>
+                                                </div>    
+                                            </label>
+                                            <label for="radio-keeperType-company">
+                                                <input type="radio" name="keeperType" value="company" id="radio-keeperType-company"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>It's a company vehicle or owned by a business</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p></p>
+                                            <div class="info-box-image">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtnToVehicleLocation">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                        <button type="button" class="nxtBtnWhoOwnsTheVehicleToPrivatePlate" style="display:none">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--11-->
+                            <div class="vehicleSteps ifFriend" data-id="NameOnV5C">
+                                <h3>Name on V5C</h3>
+                                <p>Please enter the full name as written on the V5C logbook</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-input">
+                                            <label for="friendName">
+                                                <span><p>Enter their full name</p></span>
+                                                <input type="text" name="friendName" value="" id="friendName" placeholder="e.g. Joe Bloggs"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtnToVehicleLocation">PREVIOUS</button>
+                                        <button type="button" class="nxtBtnToPrivatePlate">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--12-->
+                            <div class="vehicleSteps ifPrivatePlate" data-id="KeepingThePlate">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Keeping the plate?</h3>
+                                <p>Are you wanting to keep the private plate?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                            <label for="radio-keepPrivatePlate-true">
+                                                <input type="radio" name="keepPrivatePlate" value="true" id="radio-keepPrivatePlate-true" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Keeping it</p>
+                                                </div>    
+                                            </label>
+                                            <label for="radio-keepPrivatePlate-false">
+                                                <input type="radio" name="keepPrivatePlate" value="false" id="radio-keepPrivatePlate-false"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Not keeping it</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>If you want to keep your private plate, then you’ll need to visit the <a href="https://www.gov.uk/personalised-vehicle-registration-numbers/take-private-number-off" rel="noreferrer" target="_blank">DVLA website</a> to get a new V5C form. This takes about 5 days to receive so we advise starting the process now.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!--13-->
+                            <div class="vehicleSteps ifnormalRegistrationPlate ifKeepingit ifNotKeepingit" data-id="Finance">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Finance</h3>
+                                <p>Is this vehicle on finance?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                            <label for="radio-isVehicleOnFinance-true">
+                                                <input type="radio" name="isVehicleOnFinance" value="true" id="radio-isVehicleOnFinance-true" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>On finance</p>
+                                                </div>    
+                                            </label>
+                                            <label for="radio-isVehicleOnFinance-false">
+                                                <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Not on finance</p>
+                                                </div>    
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>If your vehicle currently has any finance remaining, whether PCP or HP, or any other type of loan or finance, please select “On finance”.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtnFinaceToPrivatePlate">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--14-->
+                            <div class="vehicleSteps Summary">
+                                <h3>Summary</h3>
+                                <p>Please check the information you have provided.</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-12 my-auto">
+                                        <div class="photo-up-sec-2-vi-table">
+                                            <div class="summTn">
+                                            	<table class="table table-striped">
+                                            		<tbody class="">
+                                            			<tr class="SectionTable__withLink">
+                                            				<td><span>Vehicle features</span></td>
+                                            				<td>
+                                            					<p>Sat nav</p>
+                                            					<p>Panoramic roof</p>
+                                            					<p>Heated seats</p>
+                                            					<p>Rear parking camera</p>
+                                            					<p>Upgraded sound system</p>
+                                            				</td>
+                                            				<td>
+                                            					<span class="stepOpener" data-title="VehicleFeatures" >
+                                            						<i class="fa fa-pencil"></i>
+                                            					</span>
+                                            				</td>
+                                            			</tr>
+                                            			<tr class="SectionTable__withLink">
+                                            				<td><span>Seat material</span></td>
+                                            				<td>Leather</td>
+                                            				<td>
+                                            					<span class="stepOpener" data-title="SeatMaterial" >
+                                            						<i class="fa fa-pencil"></i>
+                                            					</span>
+                                            				</td>
+                                            			</tr>
+                                            			<tr class="SectionTable__withLink">
+                                            				<td><span>Number of keys</span></td>
+                                            				<td>3</td>
+                                            				<td>
+                                            					<span class="stepOpener" data-title="NumberOfKeys" >
+                                            						<i class="fa fa-pencil"></i>
+                                            					</span>
+                                            				</td>
+                                            			</tr>
+                                            			<tr class="SectionTable__withLink">
+                                            				<td><span>Tool pack</span></td>
+                                            				<td>No</td>
+                                            				<td>
+                                            					<span class="stepOpener" data-title="ToolPack" >
+                                            						<i class="fa fa-pencil"></i>
+                                            					</span>
+                                            				</td>
+                                            			</tr>
+                                            			<tr class="SectionTable__withLink">
+                                            				<td><span>Locking wheel nut</span></td>
+                                            				<td>N/A</td>
+                                            				<td>
+                                            					<span class="stepOpener" data-title="LockingWheelNut" >
+                                            						<i class="fa fa-pencil"></i>
+                                            					</span>
+                                            				</td>
+                                            			</tr>
+                                            			<tr class="SectionTable__withLink">
+                                            				<td><span>Smoking</span></td>
+                                            				<td>Yes</td>
+                                            				<td>
+                                            					<span class="stepOpener" data-title="Smoking">
+                                            						<i class="fa fa-pencil"></i>
+                                            					</span>
+                                            				</td>
+                                            			</tr>
+                                            		</tbody>
+                                            	</table>
+                                            	<div class="SectionTable__component">
+                                            		<h2>Ownership</h2>
+                                            		<table class="table table-striped">
+                                            			<tbody class="">
+                                            				<tr class="SectionTable__withLink">
+                                            					<td><span>V5C logbook</span></td>
+                                            						<td>Yes</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="V5CLogbook">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                            				<tr class="SectionTable__noValue SectionTable__withLink">
+                                            					<td>
+                                            						<span>Vehicle location</span>
+                                            					</td>
+                                            						<td>–</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="VehicleLocation">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                            				<tr class="SectionTable__withLink">
+                                            					<td><span>Vehicle owner</span></td>
+                                            						<td>Me</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="VehicleOwner">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                            				<tr class="SectionTable__withLink">
+                                            					<td><span>Private plate</span></td>
+                                            						<td>Private plate</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="PrivatePlate">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                            				<tr class="SectionTable__withLink">
+                                            					<td><span>Keeping the plate</span></td>
+                                            						<td>Not keeping it</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="KeepingThePlate">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                            				<tr class="SectionTable__withLink">
+                                            					<td><span>Finance</span></td>
+                                            						<td>Not on finance</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="Finance">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                            			</tbody>
+                                            		</table>
+                                            	</div>
+                                            </div>        
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="info-box">
-                                <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
-                                <div class="info-box-image">
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                        <div class="photo-up-sec-2-vi-btm-btns d-flex justify-content-between">
+                            <div class="photo-up-sec-2-vi-btns">
+                                <div class="photo-up-sec-2-box-btn clr-prp my-auto">
+                                    <button type="submit">SAVE AND EXIT</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="photo-up-sec-2-vi-btm-btns d-flex justify-content-between">
-                        <div class="photo-up-sec-2-vi-btns">
-                            <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                                <button>SAVE AND EXIT</button>
-                            </div>
-                        </div>
-                        <div class="photo-up-sec-2-vi-bnch-btns">
-                            <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
-                                <button>PREVIOUS</button>
-                                <button>NEXT</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
 
@@ -286,6 +991,30 @@
         </div>
     </div>
 </section>
+
+<!--Alert Modal-->
+<button type="button" class="alertModalOn" data-bs-toggle="modal" data-bs-target="#selectAnyRadio" style="display:none;">Launch static backdrop modal</button>
+<div class="modal fade modalTN" id="selectAnyRadio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="selectAnyRadioLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="Modal__component">
+        	<h3>Alert!</h3>
+        	<article class="">
+        		<i class="fa fa-info-circle" aria-hidden="true"></i>
+        		<p>Please Select Atleast One Option</p>
+        	</article>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
 @push('child-scripts')
 <script type="text/javascript">
@@ -316,5 +1045,235 @@
                }
            });
        });
+       
+        //   On Hover Change Image in Profile Form 27-10-22
+        $('.photo-up-sec-2-vi-btns label').on('mouseenter', function(){
+            var imgLabel = $(this).find('.photo-up-sec-2-vi-btn > img').attr('src');
+            $(this).closest('.photo-up-sec-2-vi-row-ay').find('.info-box-image > img').attr('src',imgLabel);
+        });
+        // 28-10-22
+        $('button.nxtBtn').on('click', function(){
+            
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+            
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                 $(vehicleSteps).removeClass('vehicleStepsActive'); 
+                 $(vehicleSteps).slideUp();
+                 $(vehicleSteps).next().slideDown();
+                 $(vehicleSteps).next().addClass('vehicleStepsActive');
+            }
+                
+        });
+        
+        $('button.prevBtn').on('click', function(){
+            $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+            $(this).closest('.vehicleSteps').slideUp();
+            $(this).closest('.vehicleSteps').prev().slideDown();
+            $(this).closest('.vehicleSteps').prev().addClass('vehicleStepsActive');
+        });
+        
+        $('.vehicleSteps .photo-up-sec-2-vi-btns input[type="radio"],.vehicleSteps .photo-up-sec-2-vi-btns input[type="checkbox"]').change(function(){
+
+            var totalRadChecked = $(this).closest('.vehicleSteps').find('input[type="radio"]:checked').length;
+            var totalChecked = $(this).closest('.vehicleSteps').find('input[type="checkbox"]:checked').length;
+            
+            $(this).closest('.vehicleSteps').find('.checboxNum').text(totalRadChecked);
+            $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked);
+            
+            var radioVal =  $(this).attr('id'); 
+                console.log(radioVal);
+                // For Popup on False Condition
+                if( radioVal == 'hasV5LogBook-false'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.modalBtn').show();
+                }
+                else if( radioVal == 'hasV5LogBook-true'){ 
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').show();
+                    $(this).closest('.vehicleSteps').find('.modalBtn').hide();
+                }
+                // If Select ME in Vehicle Owner
+                else if(radioVal == 'radio-keeperType-seller'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').show();
+                    $(this).closest('.vehicleSteps').find('.forSomeoneElseBtn').hide();
+                }
+                else if(radioVal == 'radio-keeperType-other'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.forSomeoneElseBtn').show();
+                }
+                // If Select Normal registration plate in Private Plate
+                else if(radioVal == 'radio-hasPrivatePlate-false'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToFinance').show();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToKeepingThePlate').hide();
+                }
+                else if(radioVal == 'radio-hasPrivatePlate-true'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToFinance').hide();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnToKeepingThePlate').show();
+                }
+                // If Select Family Member or Friend in Who owns the vehicle
+                else if(radioVal == 'radio-keeperType-familyOrFriend'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').show();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').hide();
+                }
+                else if(radioVal == 'radio-keeperType-probate'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').show();
+                }
+                else if(radioVal == 'radio-keeperType-company'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
+                    $(this).closest('.vehicleSteps').find('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').show();
+                }
+            
+        });
+        
+        // When Click on Someone Else Button
+        $('.forSomeoneElseBtn').on('click', function(){
+                  $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+                  $(this).closest('.vehicleSteps').slideUp();
+                  $('.ifSomeoneElse').slideDown();
+                  $('.ifSomeoneElse').addClass('vehicleStepsActive');
+        });
+        // When Click on Who On Previous Button
+        $('.prevBtnToVehicleOwner').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="VehicleOwner"]').slideDown();
+              $('.vehicleSteps[data-id="VehicleOwner"]').addClass('vehicleStepsActive');
+        });
+        
+        // When Click on Vehicle Owner Previous Button
+        $('.prevBtnToV5Clogbook').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="V5CLogbook"]').slideDown();
+              $('.vehicleSteps[data-id="V5CLogbook"]').addClass('vehicleStepsActive');
+        });
+        // When Click on nxtBtnToFinance
+        $('.nxtBtnToFinance').on('click', function(){
+
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+            
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                  $(vehicleSteps).removeClass('vehicleStepsActive');
+                  $(vehicleSteps).slideUp();
+                  $('.ifnormalRegistrationPlate').slideDown();
+                  $('.ifnormalRegistrationPlate').addClass('vehicleStepsActive');
+            }
+        });
+        // When Click on nxtBtnToKeepingThePlate
+        $('.nxtBtnToKeepingThePlate').on('click', function(){
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+            
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                  $(vehicleSteps).removeClass('vehicleStepsActive');
+                  $(vehicleSteps).slideUp();
+                  $('.ifPrivatePlate').slideDown();
+                  $('.ifPrivatePlate').addClass('vehicleStepsActive');
+            }
+              
+        });
+
+        //When Click on prevBtnToVehicleLocation from Name on V5C 
+        $('.prevBtnToVehicleLocation').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="VehicleLocation"]').slideDown();
+              $('.vehicleSteps[data-id="VehicleLocation"]').addClass('vehicleStepsActive');
+        });
+        //When Click on nxtBtnToPrivatePlate from Name on V5C 
+        $('.nxtBtnToPrivatePlate').on('click', function(){
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+            
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                  $(vehicleSteps).removeClass('vehicleStepsActive');
+                  $(vehicleSteps).slideUp();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').slideDown();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
+            }
+        });
+        //When Click on prevBtnFinaceToPrivatePlate from Finance
+        $('.prevBtnFinaceToPrivatePlate').on('click', function(){
+              $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+              $(this).closest('.vehicleSteps').slideUp();
+              $('.vehicleSteps[data-id="PrivatePlate"]').slideDown();
+              $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
+        });
+        //When Click on nxtBtnWhoOwnsTheVehicleToPrivatePlate from Who owns the vehicle
+        $('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').on('click', function(){
+            var vehicleSteps = $(this).closest('.vehicleSteps');
+            var numChecked = $(vehicleSteps).find('.checboxNum').text();
+            var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+            var numChecked1 = parseInt(numChecked);
+            var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+            
+            if( numChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else if( numcheckBoxChecked1 < 1){
+                $('#selectAnyRadio').modal('toggle');
+            }
+            else{
+                  $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+                  $(this).closest('.vehicleSteps').slideUp();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').slideDown();
+                  $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
+            }
+        });
+        
+        // Summary Step
+        $('.stepOpener').on('click', function(){
+            var thisData = $(this).attr('data-title');
+            $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
+            $(this).closest('.vehicleSteps').slideUp();
+            $('.vehicleSteps[data-id="'+ thisData +'"]').slideDown();
+            $('.vehicleSteps[data-id="'+ thisData +'"]').addClass('vehicleStepsActive');
+        });
+        // Modal Open Close of Vehicle Form 
+        $('.modalBtn').on('click',function(){
+             $('#v5Cfalse').modal('toggle'); 
+        });
+        
+        $('.modalTN .close').on('click',function(){
+             $(this).closest('.modal').modal('toggle'); 
+        });
 </script>
 @endpush

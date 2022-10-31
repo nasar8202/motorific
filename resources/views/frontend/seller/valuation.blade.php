@@ -92,7 +92,7 @@
         </div>
 
         <div class="valuation-btn">
-            <button>CONTINUE</button>
+            <button onclick="window.location.href='https://webprojectmockup.com/custom/motorific/public/photo-upload'">CONTINUE</button>
         </div>
     </div>
 </div>

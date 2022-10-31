@@ -19,26 +19,20 @@ function myFunction() {
 
 function myFunction2() {
     var x = document.getElementById("myDIV2");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+    $(x).slideToggle(); 
   }
 
   function myFunction3() {
     var x = document.getElementById("myDIV3");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+    $(x).slideToggle();
   }
 
 
 
-  // for loader
-  jQuery(window).on("load",function(){
-    jQuery(".loader-wrapper").fadeOut("slow")
-  });
+// for loader
+jQuery(document).ready(function($){
+    $(window).on("load",function(){
+        $(".loader-wrapper").fadeOut("slow")
+    });
+});
 
