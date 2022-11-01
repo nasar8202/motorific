@@ -50,8 +50,8 @@
                                                 placeholder="Registartion Number" value="{{$seller->email}}" name="email">
                                         </div>
                                         @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                         @endif
                                     </div>
                                     {{-- <div class="col-md-6 col-12">
                                         <div class="form-group">
@@ -244,7 +244,7 @@
                                             <select class="form-select" name="seat_material" id="basicSelect">
                                                 <option disabled selected>Select Seat Material</option>
                                                 @foreach($SeatMaterials as $SeatMaterial)
-                                                    <option @if($SeatMaterial->id == $vehicleInformation->seat_material_id ) selected @endif value="{{$SeatMaterial->id}}">{{$SeatMaterial->title}}</option>
+                                                    <option @if($SeatMaterial->id == $vehicleInformation->seat_material_id ) selected @endif value="{{$SeatMaterial->id }}">{{$SeatMaterial->title}}</option>
                                                    @endforeach
                                             </select>
                                         </div>
@@ -477,6 +477,7 @@
                     @endif
                     </div>
                  </div>
+
                  <div class="row">
 
                     <div class="col-md-4">
@@ -498,7 +499,66 @@
                  </div>
 
                 </div>
+                <div class="row match-height">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Action Date And Time Of Vehicle</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="start_vehicle_date">Start Vehicle Date </label>
+                                                    <input type="date" id="start_vehicle_date" value="{{ date('Y-m-d'); }}" readonly class="form-control"
+                                                       name="start_vehicle_date" placeholder="Registartion Number" >
 
+                                                </div>
+                                                @if ($errors->has('start_vehicle_date'))
+                                                <span class="text-danger">{{ $errors->first('start_vehicle_date') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="start_vehicle_time">Start Vehicle Time </label>
+                                                    <input type="time" id="start_vehicle_time" class="form-control"
+                                                       name="start_vehicle_time" value="{{  date("H:i", strtotime("08:00 AM")); }}" readonly placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('start_vehicle_time'))
+                                                <span class="text-danger">{{ $errors->first('start_vehicle_time') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="end_vehicle_date">End Vehicle Date </label>
+                                                    <input type="date" id="end_vehicle_date" value="{{ date('Y-m-d'); }}" readonly class="form-control"
+                                                       name="end_vehicle_date" placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('end_vehicle_date'))
+                                                <span class="text-danger">{{ $errors->first('end_vehicle_date') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="end_vehicle_time">Start Vehicle Date </label>
+                                                    <input type="time" id="end_vehicle_time" class="form-control"
+                                                       name="end_vehicle_time" value="{{  date("H:i", strtotime("04:00 PM")); }}" readonly placeholder="Registartion Number" >
+
+                                                </div>
+                                                @if ($errors->has('end_vehicle_time'))
+                                                <span class="text-danger">{{ $errors->first('end_vehicle_time') }}</span>
+                                                @endif
+                                            </div>
+
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12 d-flex justify-content-end">
                     <button type="submit"
                         class="btn btn-primary me-1 mb-1">Update Data</button>
@@ -509,6 +569,7 @@
 
         </div>
     </section>
+
 </form>
 </div>
 

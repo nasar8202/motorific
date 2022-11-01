@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ApprovedDealerNotification extends Notification
+class NewDealerRequestNotification extends Notification
 {
     use Queueable;
 

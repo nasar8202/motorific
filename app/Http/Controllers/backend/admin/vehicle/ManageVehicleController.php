@@ -98,6 +98,7 @@ class ManageVehicleController extends Controller
             $vehicle->vehicle_tank = $request->vehicle_tank;
             $vehicle->vehicle_mileage = $request->vehicle_mileage;
             $vehicle->vehicle_price = $request->vehicle_price;
+            $vehicle->stats = 0;
 
             $vehicle->save();
 
@@ -229,6 +230,7 @@ class ManageVehicleController extends Controller
     }
     public function updateVehicle(Request $request,$id)
     {
+       // dd($request->all());
 
         $request->validate([
             'register_number' => 'required',
@@ -255,6 +257,8 @@ class ManageVehicleController extends Controller
         DB::beginTransaction();
         try{
 
+            // list($start_vehicle_date, $start_vehicle_time) = explode("T", $request->start_vehicle_date_and_time, 2);
+            // list($end_vehicle_date, $end_vehicle_time) = explode("T", $request->end_vehicle_date_and_time, 2);
 
         $vehicle = Vehicle::find($id);
         $vehicle->vehicle_registartion_number = $request->register_number;
@@ -265,6 +269,11 @@ class ManageVehicleController extends Controller
         $vehicle->vehicle_tank = $request->vehicle_tank;
         $vehicle->vehicle_mileage = $request->vehicle_mileage;
         $vehicle->vehicle_price = $request->vehicle_price;
+
+        $vehicle->start_vehicle_date =$request->start_vehicle_date;
+        $vehicle->start_vehicle_time =$request->start_vehicle_time;
+        $vehicle->end_vehicle_date =$request->end_vehicle_date;
+        $vehicle->end_vehicle_time =$request->end_vehicle_time;
 
         $vehicle->save();
 
@@ -343,6 +352,7 @@ class ManageVehicleController extends Controller
 
     }catch(\Exception $e)
     {
+        return $e;
         DB::rollback();
         return Redirect()->back()
             ->with('error',$e->getMessage() )
