@@ -1379,3 +1379,38 @@ div#myDIV2{
     color: #7977a2;
     font-weight: 500;
 }
+label.labelForFile {
+    width: 100%;
+}
+
+label.labelForFile input {
+    display: none;
+}
+.labelForFile img {
+    height: 180px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+label.labelForFile[for="photo1"] img {
+    max-width: 100%;
+    height: auto;
+}
+
+.add-photos-box1 {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.add-photos-numbering {
+    position: absolute;
+    top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-photos-numbering h3 {
+    margin: 0;
+}

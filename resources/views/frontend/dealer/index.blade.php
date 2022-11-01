@@ -26,20 +26,22 @@
             <div class="box">
 
                 <div class="box-img">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/box-1.png') }}" width="200px" alt="">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="180px" alt="">
                 </div>
-                <h4>{{ $vehicle->vehicle_name }}</h4>
+                <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
                 <div class="d-flex justify-content-between">
-                    <p>{{ $vehicle->vehicle_registartion_number }}</p>
-                    <h5>{{ $vehicle->vehicle_price }}</h5>
+                    <p>{{ $vehicle->vehicle_name }}</p>
+                   
 
                 </div>
                 <div class="d-flex justify-content-between">
 
-                    <h5>{{ $vehicle->vehicle_price }}</h5>
-                    <h5>{{ $vehicle->vehicle_price }}</h5>
+                    <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}</h6>
+                  
+                   
 
                 </div>
+                <span>${{ $vehicle->vehicle_price }}</span>
             </div>
             <br>
         </div>
