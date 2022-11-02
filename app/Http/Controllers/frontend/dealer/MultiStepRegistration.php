@@ -9,6 +9,9 @@ use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeDealerRegistrationRequestMail;
+use App\Notifications\NewDealerRequestNotification;
 
 class MultiStepRegistration extends Controller
 {
@@ -43,7 +46,7 @@ class MultiStepRegistration extends Controller
              'company_name' => 'required',
              'position' => 'required',
              'phone_number' => 'required',
-             'email' => 'required',
+             'email' => 'required|unique:users',
              'hear_about_us' => 'required',
              'privacy_policy'=>'required'
         ]);
@@ -193,6 +196,24 @@ class MultiStepRegistration extends Controller
             $user_detail->save();
 
             Session::flush();
+
+            $details = [
+                'greeting' => 'New Request Dealer Name :' . $user->name. " And  Email :".$user->email,
+                'body' => 'New Dealer Request Please Check Details',
+                'thanks' => 'Thank you for using Motorfic.com',
+                'actionText' => 'View New Dealers Request',
+                'actionURL' => url('/requests-dealers'),
+                'order_id' => 101
+            ];
+            $email = User::where('role_id',1)->first();
+            $data = ([
+                'name' => $user->name,
+                'email' => $user->email,
+
+                ]);
+               Mail::to($email)->send(new WelcomeDealerRegistrationRequestMail($data));
+            // Notification::send($user->email, new MyFirstNotification($details));
+            //$user->notify(new NewDealerRequestNotification($details));
         return redirect()->route('DealerLogin')->with("success","Account Create Successfully! Waiting For Admin Approval");
     }
 

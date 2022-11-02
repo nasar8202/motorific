@@ -34,7 +34,7 @@ class AdminDashboardController extends Controller
     {
         $status = ['status' => 1];
         $user = User::where('id',$id)->first();
-        
+
         $dealers = User::where('id',$id)->update($status);
 
         $details = [
@@ -45,10 +45,10 @@ class AdminDashboardController extends Controller
             'actionURL' => url('/register-step-1'),
             'order_id' => 101
         ];
-  
+
         // Notification::send($user->email, new MyFirstNotification($details));
         $user->notify(new ApprovedDealerNotification($details));
-      
+
        return redirect()->back()->with('success', 'Dealer approved Successfully!');
         //return view('backend.admin.dealers.viewDealers',compact('dealers'));
     }
@@ -62,14 +62,14 @@ class AdminDashboardController extends Controller
             'body' => 'Your Request Has Been Rejected',
             'thanks' => 'Thank you for using Motorfic.com ',
             'actionText' => 'Login',
-            'actionURL' => url('/register-step-1'),
+            'actionURL' => url('/dealer-login'),
             'order_id' => 101
         ];
-  
+
         // Notification::send($user->email, new MyFirstNotification($details));
         $user->notify(new RejectDealerNotification($details));
         return redirect()->back()->with('error', 'Dealer Blocked Successfully!');
-        
+
     }
     public function admin()
     {

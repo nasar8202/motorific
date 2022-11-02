@@ -39,7 +39,7 @@
             font-size: 24px;
         }
     </style>
-   
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -133,7 +133,7 @@
 <script src="{{URL::asset('backend/admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
 <script src="{{URL::asset('backend/admin/assets/js/pages/ui-chartjs.js')}}"></script>
 <script src="{{URL::asset('backend/admin/assets/vendors/choices.js/choices.min.js')}}"></script>
-
+@stack('child-scripts')
 </body>
 
 </html>
