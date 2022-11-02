@@ -1414,3 +1414,93 @@ label.labelForFile[for="photo1"] img {
 .add-photos-numbering h3 {
     margin: 0;
 }
+.rangeCommon input[type="number"] {
+    display: none;
+}
+.rangeCommon span.irs {
+    width: 100%;
+}
+label.rangeCommon {
+    width: 100%;
+}
+.productPageTn {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.productPageTn + section.sec-8 .footer-sub{
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.productPageTn + section.sec-8 {
+    margin-bottom: 0;
+}
+div.productsFiltersCol {
+    padding-right: 30px;
+}
+.productsFiltersCol + div {
+    padding-left: 30px;
+}
+.productsFilters h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: black;
+}
+.filterIn h4 {
+    font-weight: 700;
+    color: black;
+    font-size: 21px;
+    margin-bottom: 14px;
+}
+.filterIn {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e3e3e3;
+    clear: both;
+}
+.filterIn label.checkboxCommon {
+    width: 60px;
+    height: 60px;
+}
+.selectCommon span.select2.select2-container {
+    margin: 0;
+}
+.filterIn:last-child {
+    border: 0;
+}
+label.checkboxCommon input {
+    display: none;
+}
+label.checkboxCommon span {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e3e3e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.filterIn label {
+    width: 100%;
+}
+.productsFiltersCol:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: calc(100% + 150px);
+    width: 2px;
+    background: #e3e3e3;
+}
+.productsFiltersCol {
+    position: relative;
+}
+.topRightFilter {
+    float: right;
+}
+.topRightFilter select {
+    width: 300px;
+}
+input.irs-hidden-input {
+    position: static !important;
+}

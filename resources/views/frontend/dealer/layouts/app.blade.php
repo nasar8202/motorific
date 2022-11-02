@@ -18,7 +18,9 @@
     <!-- Select 2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <title>Motorific- @yield('title')</title>
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Css -->
     <style type="text/css">
@@ -522,9 +524,7 @@
             display: none;
         }
     </style>
-    	<link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-   
+    	
 </head>
 
 <body>
@@ -576,7 +576,7 @@
             "closeButton" : true,
             "progressBar" : true
         }
-                toastr.warning("{{ session('warning') }}");
+        toastr.warning("{{ session('warning') }}");
         @endif
 </script>
 
@@ -586,7 +586,10 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <!-- Select 2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ URL::asset('frontend/seller/assets/script.js') }}"></script>
+    
 
     <!-- Step Form -->
      <script type="text/javascript">
@@ -682,6 +685,69 @@
                 }
             });
             });
+    </script>
+    <!--Filter Product-->
+    <script type="text/javascript">
+        // Price Slider
+        var $range = $(".js-range-slider"),
+            $from = $(".from"),
+            $to = $(".to"),
+            range,
+            min = $range.data('min'),
+            max = $range.data('max'),
+            from,
+            to;
+        
+        var updateValues = function () {
+            $from.prop("value", from);
+            $to.prop("value", to);
+        };
+        
+        $range.ionRangeSlider({
+            onChange: function (data) {
+              from = data.from;
+              to = data.to;
+              updateValues();
+            }
+        });
+        
+        range = $range.data("ionRangeSlider");
+        var updateRange = function () {
+            range.update({
+                from: from,
+                to: to
+            });
+        };
+        
+        $from.on("input", function () {
+            from = +$(this).prop("value");
+            if (from < min) {
+                from = min;
+            }
+            if (from > to) {
+                from = to;
+            }
+            updateValues();    
+            updateRange();
+        });
+        
+        $to.on("input", function () {
+            to = +$(this).prop("value");
+            if (to > max) {
+                to = max;
+            }
+            if (to < from) {
+                to = from;
+            }
+            updateValues();    
+            updateRange();
+        });
+        
+        // Single Select
+        $('.selectSingle select').select2();
+        $('.topRightFilter select').select2();
+
+
     </script>
 </body>
 
