@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend\admin;
 
 use App\Models\User;
 use App\Models\Dealer;
+use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Http\Controllers\Controller;
@@ -29,7 +30,40 @@ class AdminDashboardController extends Controller
 
         return view('backend.admin.dealers.viewDealersDetail',compact('dealers'));
     }
+    public function approveRequestDocuments(Request $request)
+    {
 
+        $status = ['status' => 1];
+        $user = User::where('id',$request->id)->first();
+
+        $dealers = User::where('id',$request->id)->update($status);
+
+        $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
+        $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
+
+        $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
+        $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
+
+
+        $dealerDetails = UserDetail::where('user_id',$request->id)->first();
+
+        $dealerDetails->dealer_identity_card = $dealer_identity_card ;
+        $dealerDetails->dealer_documents =  $dealer_documents;
+        $dealerDetails->save();
+        $details = [
+            'greeting' => 'Hi ' . $user->name,
+            'body' => 'Your Request Has Been Approved',
+            'thanks' => 'Thank you for using Motorfic.com ',
+            'actionText' => 'Login',
+            'actionURL' => url('/dealer-login'),
+            'order_id' => 101
+        ];
+
+        // Notification::send($user->email, new MyFirstNotification($details));
+        $user->notify(new ApprovedDealerNotification($details));
+
+       return redirect()->route('approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
+    }
     public function approveDealer($id)
     {
         $status = ['status' => 1];

@@ -38,7 +38,7 @@
                             <th>Email</th>
                             <th>Phone Number</th>
 
-                            
+
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -49,17 +49,17 @@
                             <td>{{ $dealer->email }}</td>
                             <td>{{ $dealer->phone_number }}</td>
 
-                          
+
                             <td>{{ $dealer->city }}</td>
                             <td>
-                                <a href="{{ route('dealer.approve',$dealer->id) }}"><span class="badge bg-success ">Approve</a>
+                                {{-- <a href="{{ route('dealer.approve',$dealer->id) }}"><span class="badge bg-success ">Approve</a> --}}
                                 <a href="{{ route('viewDealerDetails',$dealer->id) }}"><span class="badge bg-info">View Details</span></a>
-                                <a href="{{ route('dealer.block',$dealer->id) }}"><span class="badge bg-danger">Block</span></a>
+                                {{-- <a href="{{ route('dealer.block',$dealer->id) }}"><span class="badge bg-danger">Block</span></a> --}}
                             </td>
                         </tr><!-- Large modal -->
-                       
-                        
-                      
+
+
+
 
                         @endforeach
 

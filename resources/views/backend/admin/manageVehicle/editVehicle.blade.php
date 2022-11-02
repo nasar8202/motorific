@@ -6,6 +6,15 @@
     .container {
           max-width: 1200px;
       }
+      body {
+  font-family: arial;
+}
+.hide {
+  display: none;
+}
+p {
+  font-weight: bold;
+}
   </style>
 <header class="mb-3">
     <a href="#" class="burger-btn d-block d-xl-none">
@@ -503,10 +512,24 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Action Date And Time Of Vehicle</h4>
+                                <h4 class="card-title">Auction Date And Time Of Vehicle</h4>
                             </div>
-                            <div class="card-content">
+                            <div class="card-body">
+                                <fieldset>
+                                    <div class="some-class">
+                                      <input type="radio" class="radio" name="auction_date_and_time" value="all" {{ ($vehicles->all_auction == 'all' ? 'checked' : '')}} onclick="show1();"  />
+                                      <label for="y">Buy Now (All)</label>
+                                      <input type="radio" class="radio commonCheck"  name="auction_date_and_time" id="liveSell" value="date_and_time" {{ ($vehicles->all_auction == null ? 'checked' : '')}} onclick="show2();" style="margin-left: 20px" />
+                                      <label for="z">Time Auction (Live Sale)</label>
+                                    </div>
+                                  </fieldset>
+
+                            </div>
+
+
+                            <div class="card-content hide" id="div1">
                                 <div class="card-body">
+
                                         <div class="row">
                                             <div class="col-md-3 col-3">
                                                 <div class="form-group">
@@ -559,6 +582,67 @@
                         </div>
                     </div>
                 </div>
+                <div class="row match-height">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Add Vehicle Prices for Bidding</h4>
+                            </div>
+
+                            <div class="card-content" >
+                                <div class="card-body">
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="retail_price">Vehicle Detail Price </label>
+                                                    <input type="number" id="retail_price" value=""  class="form-control"
+                                                       name="retail_price" placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('retail_price'))
+                                                <span class="text-danger">{{ $errors->first('retail_price') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="clean_price">Vehicle Clean Price </label>
+                                                    <input type="number" id="clean_price" value=""  class="form-control"
+                                                       name="clean_price" placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('clean_price'))
+                                                <span class="text-danger">{{ $errors->first('clean_price') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="average_price">Vehicle Average Price </label>
+                                                    <input type="number" id="average_price" value=""  class="form-control"
+                                                       name="average_price" placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('average_price'))
+                                                <span class="text-danger">{{ $errors->first('average_price') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-3">
+                                                <div class="form-group">
+                                                    <label for="hidden_price">Vehicle Hidden Price </label>
+                                                    <input type="number" id="hidden_price" value=""  class="form-control"
+                                                       name="hidden_price" placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('hidden_price'))
+                                                <span class="text-danger">{{ $errors->first('hidden_price') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12 d-flex justify-content-end">
                     <button type="submit"
                         class="btn btn-primary me-1 mb-1">Update Data</button>
@@ -572,5 +656,20 @@
 
 </form>
 </div>
+<script type="text/javascript">
 
+function show1(){
+  document.getElementById('div1').style.display ='none';
+}
+function show2(){
+  document.getElementById('div1').style.display = 'block';
+}
+$(document).on('change', '.commonCheck', function () {
+
+        document.getElementById('div1').style.display = 'block';
+
+});
+
+$('#liveSell').prop('checked', true).trigger('change');
+</script>
 @endsection

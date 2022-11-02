@@ -71,6 +71,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/dashboard', [AdminDashboardController::class,'admin'])->name('admin');
     Route::get('/requests-dealers', [AdminDashboardController::class,'viewDealers'])->name('ViewDealers');
     Route::get('/approve-dealer/{id}', [AdminDashboardController::class,'approveDealer'])->name('dealer.approve');
+    Route::post('/approve-dealer', [AdminDashboardController::class,'approveRequestDocuments'])->name('dealer.approveRequestDocuments');
     Route::get('/block-dealer/{id}', [AdminDashboardController::class,'blockDealer'])->name('dealer.block');
     Route::get('/view-dealer-details/{id}', [AdminDashboardController::class,'viewDealerDetails'])->name('viewDealerDetails');
 

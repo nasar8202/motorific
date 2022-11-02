@@ -260,6 +260,20 @@ class ManageVehicleController extends Controller
             // list($start_vehicle_date, $start_vehicle_time) = explode("T", $request->start_vehicle_date_and_time, 2);
             // list($end_vehicle_date, $end_vehicle_time) = explode("T", $request->end_vehicle_date_and_time, 2);
 
+            if($request->auction_date_and_time == 'all'){
+                $auction_date_time = 'all';
+                $start_date = null;
+                $start_time = null;
+                $end_date = null;
+                $end_time = null;
+            }else{
+                    $start_date = $request->start_vehicle_date;
+                    $start_time = $request->start_vehicle_time;
+                    $end_date = $request->end_vehicle_date;
+                    $end_time = $request->end_vehicle_time;
+                    $auction_date_time = null;
+            }
+
         $vehicle = Vehicle::find($id);
         $vehicle->vehicle_registartion_number = $request->register_number;
         $vehicle->vehicle_name = $request->vehicle_name;
@@ -270,10 +284,18 @@ class ManageVehicleController extends Controller
         $vehicle->vehicle_mileage = $request->vehicle_mileage;
         $vehicle->vehicle_price = $request->vehicle_price;
 
-        $vehicle->start_vehicle_date =$request->start_vehicle_date;
-        $vehicle->start_vehicle_time =$request->start_vehicle_time;
-        $vehicle->end_vehicle_date =$request->end_vehicle_date;
-        $vehicle->end_vehicle_time =$request->end_vehicle_time;
+        // add time
+        $vehicle->all_auction = $auction_date_time;
+        $vehicle->start_vehicle_date = $start_date;
+        $vehicle->start_vehicle_time = $start_time;
+        $vehicle->end_vehicle_date =$end_date;
+        $vehicle->end_vehicle_time =$end_time;
+
+        // prices
+        $vehicle->retail_price = $request->retail_price;
+        $vehicle->clean_price = $request->clean_price;
+        $vehicle->average_price = $request->average_price;
+        $vehicle->hidden_price = $request->hidden_price;
 
         $vehicle->save();
 

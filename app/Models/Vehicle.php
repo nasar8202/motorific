@@ -13,6 +13,7 @@ class Vehicle extends Model
     use SoftDeletes;
     protected $fillable = [
         'user_id','vehicle_registartion_number','vehicle_name','vehicle_year','vehicle_color','vehicle_type','vehicle_tank','vehicle_mileage','vehicle_price','status'
+        ,'all_auction','start_vehicle_date','start_vehicle_time','end_vehicle_date','end_vehicle_time','retail_price','clean_price','average_price','hidden_price'
     ];
     public function vehicleInformation()
 
