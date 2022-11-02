@@ -83,7 +83,7 @@
                     </div>
                     <div class="filterIn">
                         <h4>Distance From SL1 2LX</h4>
-                        <label class="selectCommon selectSingle">    
+                        <label class="selectCommon selectSingle">
                               <select name="SL12LX" id="SL12LX">
                                 <option value=""> Select Age</option>
                                 <option value="10,000"> < 10,0000</option>
@@ -148,7 +148,7 @@
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
                 <h2>Live Sell ends in 2 hrs</h2>
-                <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
+                <h4>Showing  {{ $countVehicle }} vehicles</h4>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -163,36 +163,35 @@
                 <!-- BOX-1 -->
                 @foreach ($vehicles as $vehicle)
                 <div class="col-lg-4 col-md-4">
-                    <div class="box">
-        
-                        <div class="box-img">
-                            <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="180px" alt="">
+                    <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
+                        <div class="box">
+
+                            <div class="box-img">
+                                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="180px" alt="">
+                            </div>
+                            <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
+                            <div class="d-flex justify-content-between">
+                                <p>{{ $vehicle->vehicle_name }}</p>
+
+
+                            </div>
+                            <div class="d-flex justify-content-between">
+
+                                <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}</h6>
+
+
+
+                            </div>
+                            <span>${{ $vehicle->vehicle_price }}</span>
                         </div>
-                        <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
-                        <div class="d-flex justify-content-between">
-                            <p>{{ $vehicle->vehicle_name }}</p>
-                           
-        
-                        </div>
-                        <div class="d-flex justify-content-between">
-        
-                            <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}</h6>
-                          
-                           
-        
-                        </div>
-                        <span>${{ $vehicle->vehicle_price }}</span>
-                    </div>
+                    </a>
                     <br>
                 </div>
-        
+
                 @endforeach
-        
+
             </div>
-            <div class="sec-2-btns text-center">
-                <button>VALUE YOUR CAR</button>
-                <button>GET IN TOUCH</button>
-            </div>
+
         </div>
     </div>
 </div>
