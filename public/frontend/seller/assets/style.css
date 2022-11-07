@@ -1504,3 +1504,283 @@ label.checkboxCommon span {
 input.irs-hidden-input {
     position: static !important;
 }
+main.topPadingPage {
+    padding-top: 90px;
+}
+.sliderImgVehicleDetail button.slick-arrow {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background: rgba(0,0,0,.3);
+    border: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s linear 0s;
+}
+.sliderImgVehicleDetail button.slick-arrow.slick-next {
+    left: auto;
+    right: 30px;
+}
+.sliderImgVehicleDetail .sliderImgVehicleDetailRepeater img {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.sliderImgVehicleDetail .slick-current + .sliderImgVehicleDetailRepeater img {
+    padding-left: .5px;
+    padding-right: 0.5px;
+}
+.sliderImgVehicleDetail button.slick-arrow i {
+    color: #fff;
+    font-size: 30px;
+}
+.sliderImgVehicleDetail button.slick-arrow:hover {
+    background: #000;
+}
+.numberStarDiv span {
+    padding: 10px 30px;
+    background: black;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    color: #fff;
+    margin-right: 10px;
+}
+.numberStarDiv {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.titleVehicle h2 {
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin-bottom: 1rem;
+}
+.titleVehicle p {
+    position: relative;
+    padding-left: 25px;
+}
+.titleVehicle p:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 15px;
+    height: 15px;
+    background: #000;
+}
+.head-btns button a {
+    color: inherit;
+    text-decoration: none;
+}
+.mapAndText {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.mapAndText p {
+    margin-bottom: .5rem;
+}
+.mapAndText iframe {
+    padding-top: 15px;
+    width: 100%;
+}
+.bottomList {
+    padding-top: 30px;
+}
+.bottomListTitle h4 i {font-size: 120%;padding-right: 10px;}
+.bottomListTitle h4 {
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: .5px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.bottomListTitle ul {
+    background: #fff;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    padding: 20px 20px;
+    list-style-type: none;
+}
+.bottomListTitle ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+}
+.bottomListTitle ul li > i {
+    padding-right: 15px;
+}
+.bottomList.features ul li:last-child i {
+    float: right;
+    cursor: pointer;
+    padding: 0;
+}
+.bottomListTitle ul li span {
+    position: relative;
+    margin-left: auto;
+}
+i.circleI {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.bottomListTitle ul li:nth-child(even) {
+    background: #e3e3e3;
+}
+.vehicleDetailGal h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: capitalize;
+}
+.vehicleDetailGal {
+    padding-top: 30px;
+    width: 100%;
+}
+
+.vehicleDetailGalrepeatMain {
+    display: flex;
+    flex-flow: wrap;
+    gap: 5px;
+}
+
+.imgVehicle {
+    flex: 0 0 calc(25% - 10px);
+    width: calc(25% - 10px);
+}
+
+.imgVehicle img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+.liveSalesInProgress {
+    background: #e3e3e3;
+    padding: 60px 0px 40px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.liveSalesInProgress h4 {
+    position: absolute;
+    top: -20px;
+    background: #000;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.reserveDetail ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reserveDetail ul li {
+    border-bottom: 1px solid rgba(255,255,255,.5);
+    padding: 10px 15px;
+    color: #000;
+    letter-spacing: .5px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.reserveDetail ul li span {
+    margin-left: auto;
+}
+
+.reserveDetail ul li:nth-child(2) span {
+    cursor: pointer;
+}
+
+.reserveDetail ul li:nth-child(3) span {font-weight: bold;font-size: 120%;}
+
+.reserveDetail ul li span a {
+    color: #05eab5;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.form-group {
+    display: block;
+    width: 100%;
+}
+
+.reserveDetail form {
+    padding: 10px 0 0;
+}
+
+.reserveDetail form label {
+    padding: 0px 15px;
+    color: #000;
+    letter-spacing: .5px;
+    font-weight: 500;
+    display: block;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.reserveDetail form input {
+    display: block;
+    margin: 0 15px;
+    background: #fff;
+    width: calc(100% - 30px);
+    border-radius: 5px;
+    border: 1px solid #fff;
+    height: 40px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.reserveDetail form button {
+    display: block;
+}
+
+.reserveDetail form button {
+    margin: 0px 15px;
+    display: block;
+    width: calc(100% - 30px);
+    border-radius: 5px;
+    height: 40px;
+    background: #05eab5;
+    border: 1px solid #05eab5;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: .5px;
+    transition: all .5s linear 0s;
+}
+
+.reserveDetail form button:hover {
+    background: #000;
+    border-color:#000;
+}
