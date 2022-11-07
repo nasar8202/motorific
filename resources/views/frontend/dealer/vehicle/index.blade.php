@@ -153,7 +153,7 @@
                 <button>All</button>
                 <button>Live Sell</button>
                 <button>Buy It Now</button>
-                <h4>Showing  {{ $countVehicle }} vehicles</h4>
+                <h4>Showing  {{ $countAllVehicle }} vehicles</h4>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <!-- BOX-1 -->
-                @foreach ($vehicles as $vehicle)
+                @foreach ($allVehicles as $vehicle)
                 <div class="col-lg-4 col-md-4">
                     <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
                         <div class="box">

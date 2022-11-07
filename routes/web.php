@@ -229,6 +229,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/dealer', [DealerDashboardController::class,'index'])->name('dealer');
+Route::get('/test', [DealerDashboardController::class,'test'])->name('test');
 Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
+Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
 
 
