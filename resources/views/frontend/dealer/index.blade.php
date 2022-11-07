@@ -3,7 +3,11 @@
 @section('section')
 <!-- form css -->
 <style>
-
+    .sec-2-txt h2 div,.sec-2-txt h2 div span {
+        font-size: inherit;
+        display: initial;
+        color: inherit;
+    }
 </style>
 
 <!-- MultiStep Form -->
@@ -147,7 +151,15 @@
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
-                <h2>Live Sell ends in 2 hrs</h2>
+                <h2>
+                    Live Sell ends in 
+                    <div id="timer">
+                        <!-- <div id="days"></div> -->
+                        <div id="hours"></div>
+                        <!-- <div id="minutes"></div>
+                        <div id="seconds"></div> -->
+                    </div>
+                </h2>
                 <h4>Showing  {{ $countVehicle }} vehicles</h4>
             </div>
             <div class="row">
