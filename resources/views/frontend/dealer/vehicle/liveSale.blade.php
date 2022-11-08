@@ -153,7 +153,7 @@
                 <button>All</button>
                 <button>Live Sell</button>
                 <button>Buy It Now</button>
-                <h4>Showing  {{ $countVehicle }} vehicles</h4>
+                <h4>Showing  {{ $countLiveSellVehicle }} vehicles</h4>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -166,32 +166,29 @@
                     </div>
                 </div>
                 <!-- BOX-1 -->
-                @foreach ($vehicles as $vehicle)
-                <div class="col-lg-4 col-md-4">
-                    <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
-                        <div class="box">
 
-                            <div class="box-img">
-                                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="180px" alt="">
+                @foreach ($liveSellVehicles as $vehicle)
+                @if ($vehicle->all_auction != 'all')
+                    <div class="col-lg-4 col-md-4">
+                        <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
+                            <div class="box">
+
+                                <div class="box-img">
+                                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="180px" alt="">
+                                </div>
+                                <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
+                                <div class="d-flex justify-content-between">
+                                    <p>{{ $vehicle->vehicle_name }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}</h6>
+                                </div>
+                                <span>${{ $vehicle->vehicle_price }}</span>
                             </div>
-                            <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
-                            <div class="d-flex justify-content-between">
-                                <p>{{ $vehicle->vehicle_name }}</p>
-
-
-                            </div>
-                            <div class="d-flex justify-content-between">
-
-                                <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}</h6>
-
-
-
-                            </div>
-                            <span>${{ $vehicle->vehicle_price }}</span>
-                        </div>
-                    </a>
-                    <br>
-                </div>
+                        </a>
+                        <br>
+                    </div>
+                @endif
 
                 @endforeach
 
