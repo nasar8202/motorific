@@ -21,6 +21,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\vehicleConditionAndDamage;
 
 class ManageVehicleController extends Controller
 {
@@ -67,6 +68,16 @@ class ManageVehicleController extends Controller
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
+            'exterior_grade' => 'required',
+            'scratches' => 'required',
+            'dents' => 'required',
+            'paintwork' => 'required',
+            'windscreen' => 'required',
+            'broken_missing' => 'required',
+            'warning_lights' => 'required',
+            'service_record' => 'required',
+            'main_dealer' => 'required',
+            'independent_dealer' => 'required',
             'image1' => 'required',
             'image2' => 'required',
             'image3' => 'required',
@@ -98,9 +109,24 @@ class ManageVehicleController extends Controller
             $vehicle->vehicle_tank = $request->vehicle_tank;
             $vehicle->vehicle_mileage = $request->vehicle_mileage;
             $vehicle->vehicle_price = $request->vehicle_price;
-            $vehicle->stats = 0;
+            $vehicle->status = 0;
 
             $vehicle->save();
+
+            $damages = new vehicleConditionAndDamage;
+            $damages->vehicle_id = $vehicle->id;
+            $damages->exterior_grade = $request->exterior_grade;
+            $damages->scratches_and_scuffs = $request->scratches;
+            $damages->dents = $request->dents;
+            $damages->paintwork_problems = $request->paintwork;
+            $damages->windscreen_damage = $request->windscreen;
+            $damages->broken_missing = $request->broken_missing;
+            $damages->warning_lights_on_dashboard = $request->warning_lights;
+            $damages->service_record = $request->service_record;
+            $damages->main_dealer_services = $request->main_dealer;
+            $damages->independent_dealer_service = $request->independent_dealer;
+            $damages->save();
+
 
             $vehicle_feature_id =  implode(',', $request->vehicle_feature);
 
@@ -215,6 +241,8 @@ class ManageVehicleController extends Controller
 
         $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
         $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
+        $damages = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
+        
         $VehicleFeatures =  VehicleFeature::where('status',1)->get();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
         $SeatMaterials =  SeatMaterial::where('status',1)->get();
@@ -225,7 +253,7 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
-        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','seller','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage'));
+        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','seller','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage','damages'));
 
     }
     public function updateVehicle(Request $request,$id)
@@ -252,6 +280,16 @@ class ManageVehicleController extends Controller
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
+            'exterior_grade' => 'required',
+            'scratches' => 'required',
+            'dents' => 'required',
+            'paintwork' => 'required',
+            'windscreen' => 'required',
+            'broken_missing' => 'required',
+            'warning_lights' => 'required',
+            'service_record' => 'required',
+            'main_dealer' => 'required',
+            'independent_dealer' => 'required',
 
         ]);
         DB::beginTransaction();
@@ -324,8 +362,23 @@ class ManageVehicleController extends Controller
         $vehicleInformation->private_plate_id =  $request->private_plate;
         $vehicleInformation->finance_id =  $request->finance;
         $vehicleInformation->save();
-
-
+        
+        $damages = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
+        $damages->vehicle_id = $vehicle->id;
+        $damages->exterior_grade = $request->exterior_grade;
+        $damages->scratches_and_scuffs = $request->scratches;
+        $damages->dents = $request->dents;
+        $damages->paintwork_problems = $request->paintwork;
+        $damages->windscreen_damage = $request->windscreen;
+        $damages->broken_missing = $request->broken_missing;
+        $damages->warning_lights_on_dashboard = $request->warning_lights;
+        $damages->service_record = $request->service_record;
+        $damages->main_dealer_services = $request->main_dealer;
+        $damages->independent_dealer_service = $request->independent_dealer;
+        $damages->save();
+        
+        
+        
         $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
         if($request->file('image1')){
             if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->front))){

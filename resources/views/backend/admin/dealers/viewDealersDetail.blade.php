@@ -181,12 +181,21 @@
                     <tr>
                       <th width="30%">ID</th>
                       <td width="2%">:</td>
-                      <td><input type="file" name="dealer_identity_card" ></td>
+                      <td><input type="file" name="dealer_identity_card" >
+                        @if ($errors->has('dealer_identity_card'))
+                        <span class="text-danger mt-4">{{ $errors->first('dealer_identity_card') }}</span>
+                    @endif</td>
+                     
                     </tr>
                     <tr>
                         <th width="30%">Documents</th>
                         <td width="2%">:</td>
-                        <td><input type="file" name="dealer_documents" ></td>
+                        <td><input type="file" name="dealer_documents" >
+                          <br>
+                          @if ($errors->has('dealer_documents'))
+                          <span class="text-danger mt-2">{{ $errors->first('dealer_documents') }}</span>
+                      @endif</td>
+                        
                     </tr>
 
                   </table>
