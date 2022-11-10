@@ -30,15 +30,18 @@ class DealerDashboardController extends Controller
 
 
        // echo $interval;
-      echo   $liveSellVehicles[0]['start_vehicle_date']." ".$liveSellVehicles[0]['start_vehicle_time'];
-echo "<br>";
-      echo   $liveSellVehicles[0]['end_vehicle_date']." ".$liveSellVehicles[0]['end_vehicle_time'];
-
-      date_default_timezone_set("Asia/Karachi");
-      echo "The time is " . date('Y m d h:i:s a');
-       $date1 = new DateTime('2012-06-01 02:12:51');
-       $date2 = $date1->diff(new DateTime('2014-05-12 11:10:00'));
-    //    echo $date2->days.'Total days'."\n";
+      //echo   $liveSellVehicles[0]['start_vehicle_date']." ".$liveSellVehicles[0]['start_vehicle_time'];
+// echo "<br>";
+//       $a =  $liveSellVehicles[0]['end_vehicle_date']." ".$liveSellVehicles[0]['end_vehicle_time'];
+//echo $a;
+    //   date_default_timezone_set("Asia/Karachi");
+    //    $currentDateTime = date('Y-m-d h:i:s');
+    //   echo $currentDateTime;
+    //    $date1 = new DateTime($currentDateTime);
+    //    echo $date1;
+      // print_r($date1);
+      // $date2 = $date1->diff(new DateTime('2014-05-12 11:10:00'));
+       //echo $date2->days.'Total days'."\n";
     //    echo $date2->y.' years'."\n";
     //    echo $date2->m.' months'."\n";
     //    echo $date2->d.' days'."\n";
@@ -46,7 +49,7 @@ echo "<br>";
     //    echo $date2->i.' minutes'."\n";
     //    echo $date2->s.' seconds'."\n";
 
-        //die;
+        // die;
        return view('frontend.dealer.vehicle.liveSale',compact('countLiveSellVehicle','liveSellVehicles'));
 
     }
