@@ -64,13 +64,15 @@ echo "<br>";
 
     }
     public function test(Request $request){
+    //    dd($request->min,$request->max);
     // return $request->min." max ". $request->max ;
     $min = $request->min;
     $max = $request->max;
         //$filter = DB::table('vehicles')->whereBetween('vehicle_price',[$min, $max])->get();
         //return $filter;
-        $users = Vehicle::whereBetween('vehicle_price', [$request->min, $request->max])->with('vehicleInformation')
+        $users = Vehicle::where('vehicle_price', '>=', $min)->where('vehicle_price', '<=', $max)->with('vehicleInformation')
         ->with('VehicleImage')->get();
+        // dd($users);
         return $users;
       
     

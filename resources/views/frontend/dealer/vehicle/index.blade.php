@@ -50,7 +50,7 @@ div#loader {
                             <select name="makePro" id="makePro">
                                 <option value=""> Select Makes</option>
     							<option value="Audi"> Audi</option>
-    							<option value="Bentley"> Bentley</option
+    							<option value="Bentley"> Bentley</option>
     							<option value="Bmw"> Bmw</option>
                             </select>
                         </label>
@@ -59,8 +59,8 @@ div#loader {
                         <h4>Price</h4>
                         <div id="slider"></div><br/>
                         <label class="rangeCommon">
-                            <input type="text" class="js-range-slider" name="my_range" value="" id="slider-range" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
-                            <input type="number" maxlength="4" name="min" value="0" id="min" class="from"/>
+                            {{-- <input type="text" class="js-range-slider" name="my_range" value="" id="slider-range" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
+                            <input type="number" maxlength="4" name="min" value="0" id="min" class="from"/> --}}
                             <input type="number" maxlength="4" name="max" value="1000" id="max" class="to"/>
                             Range: <span id='range'></span>
                         </label>
@@ -68,7 +68,7 @@ div#loader {
                     <div class="filterIn">
                         <h4>Mileage</h4>
                         <label class="selectCommon selectSingle">
-                            <select name="mileAgePro" id="mileAgePro" multiple>
+                            <select name="mileAgePro" id="mileAgePro" >
                                 <option value=""> Select MileAge </option>
                                 <option value="848"> < 10,0000</option>
     							<option value="342"> < 50,0000</option>
@@ -167,7 +167,7 @@ div#loader {
                 <button>All</button>
                 <button>Live Sell</button>
                 <button>Buy It Now</button>
-                <h4>Showing  {{ $countAllVehicle }} vehicles</h4>
+                <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -240,6 +240,7 @@ $("#slider").slider({
     max: 80000,
     values: [ 22000, 25000 ],
     slide: function( event, ui ) {
+        $('.blur_action').css('filter','blur(3px)');
 
         // Get values
         var min = ui.values[0];
@@ -254,18 +255,24 @@ $("#slider").slider({
             beforeSend: function(){
                 /* Show image container */
                 $("#loader").show();
-    $('.blur_action').css('filter','blur(3px)');
+                $('.blur_action').css('filter','blur(3px)');
 
             },
             success: function(response){
+            $('.blur_action').css('filter','blur(0px)');
                 
             var resultData = response;
+            var count = resultData.length;
             
             var bodyData = '';
             var i=1;
-            $("#first").hide(); 
+            if(count > 0){
+                $("#first").hide();
+                $(".count").html("");
+                $(".count").html("Showing " +count+ " vehicles");
+                
             $.each(resultData,function(resultData,row){     
-                     
+                
                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
@@ -273,11 +280,19 @@ $("#slider").slider({
                 })
                 
 
-            },
+            }
+            else{
+                $(".count").html("");
+                $(".count").html("Showing " +count+ " vehicles");
+                $("#first").hide();
+            $("#filter-price").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
+        }
+        
+        },
+       
             complete:function(data){
     /* Hide image container */
     $("#loader").hide();
-    $('.blur_action').css('filter','blur(0px)');
 
    }
         });
