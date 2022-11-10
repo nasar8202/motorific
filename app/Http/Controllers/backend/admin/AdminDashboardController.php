@@ -32,7 +32,13 @@ class AdminDashboardController extends Controller
     }
     public function approveRequestDocuments(Request $request)
     {
+        $request->validate([
+            'dealer_identity_card' => 'required',
+            'dealer_documents' => 'required',
+            
 
+        ]);
+        // dd($request->all());
         $status = ['status' => 1];
         $user = User::where('id',$request->id)->first();
 
@@ -62,7 +68,7 @@ class AdminDashboardController extends Controller
         // Notification::send($user->email, new MyFirstNotification($details));
         $user->notify(new ApprovedDealerNotification($details));
 
-       return redirect()->route('approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
+       return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
     }
     public function approveDealer($id)
     {

@@ -3,11 +3,25 @@
 @section('section')
 <!-- form css -->
 <style>
+div#loader {
+    position: absolute;
+    left: 60%;
+    top: 50%;
+}
 
+/* section.sec-2.productPageTn .col-lg-4.col-md-4 {
+    filter: blur(3px);
+} */
 </style>
 
 <!-- MultiStep Form -->
+{{-- <div id='loader' >
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+  </div>
 
+</div> --}}
 <section class="sec-2 productPageTn">
 <div class="container">
     <div class="row">
@@ -166,10 +180,11 @@
                     </div>
                 </div>
                 <!-- BOX-1 -->
+                <div id="first">
                 @foreach ($allVehicles as $vehicle)
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-4 col-md-4 blur_action" >
                     <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
-                        <div class="box">
+                        <div class="box" id>
 
                             <div class="box-img">
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="180px" alt="">
@@ -192,10 +207,14 @@
                     </a>
                     <br>
                 </div>
-
                 @endforeach
+                </div>
+                <div class="col-lg-4 col-md-4 blur_action"  id="filter-price">
+                
+                    
+                </div>
 
-            </div>
+                
 
         </div>
     </div>
@@ -212,7 +231,8 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-
+    $('.blur_action').css('filter','blur(0px)');
+    // $('#loader').hide();
 // Initializing slider
 $("#slider").slider({
     range: true,
@@ -231,10 +251,35 @@ $("#slider").slider({
             url: 'test',
             type: 'get',
             data: {min:min,max:max},
-            success: function(response){
-console.log(response)
+            beforeSend: function(){
+                /* Show image container */
+                $("#loader").show();
+    $('.blur_action').css('filter','blur(3px)');
 
-            }
+            },
+            success: function(response){
+                
+            var resultData = response;
+            
+            var bodyData = '';
+            var i=1;
+            $("#first").hide(); 
+            $.each(resultData,function(resultData,row){     
+                     
+                    bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
+                    bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+                    bodyData+='</div></a>';
+                    $("#filter-price").html(bodyData); 
+                })
+                
+
+            },
+            complete:function(data){
+    /* Hide image container */
+    $("#loader").hide();
+    $('.blur_action').css('filter','blur(0px)');
+
+   }
         });
     }
 });

@@ -1471,6 +1471,13 @@ div.productsFiltersCol {
 label.checkboxCommon input {
     display: none;
 }
+.checkboxCommon input:checked + span {
+    color: #05eab5;
+    border-color: #05eab5;
+}
+
+
+
 label.checkboxCommon span {
     width: 100%;
     height: 100%;

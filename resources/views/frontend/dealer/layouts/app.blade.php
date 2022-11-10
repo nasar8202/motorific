@@ -589,11 +589,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ URL::asset('frontend/seller/assets/script.js') }}"></script>
-<<<<<<< HEAD
-
-=======
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
->>>>>>> 9cbf1453537ae5779477efbf5445d07c0f2f440c
+
 
     <!-- Step Form -->
      <script type="text/javascript">

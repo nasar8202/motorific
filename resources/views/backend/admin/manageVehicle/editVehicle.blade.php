@@ -391,6 +391,305 @@ p {
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
                                     @endif
                                     </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Interior</h6>
+                                        <div class="form-group">
+                                            
+                                            <input type="text"  class="form-control"
+                                                name="interior" value="{{$vehicleInformation->interior}}" placeholder="Eg : Full Leather, etc">
+                                        </div>
+                                        @if ($errors->has('interior'))
+                                        <span class="text-danger">{{ $errors->first('interior') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Body Type</h6>
+                                        <div class="form-group">
+                                           
+                                            <input type="text"  class="form-control"
+                                                name="body_type" value="{{$vehicleInformation->body_type}}" placeholder="Eg : Sedan,Coupe,etc">
+                                        </div>
+                                        @if ($errors->has('body_type'))
+                                        <span class="text-danger">{{ $errors->first('body_type') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Engine Size</h6>
+                                        <div class="form-group">
+                                           
+                                            <input type="text"  class="form-control"
+                                                name="engine_size" value="{{$vehicleInformation->engine_size}}" placeholder="Eg : 2700cc,3500cc,etc">
+                                        </div>
+                                        @if ($errors->has('engine_size'))
+                                        <span class="text-danger">{{ $errors->first('engine_size') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>HPI history check</h6>
+                                        <div class="form-group">
+                                            
+                                            <input type="text" value="{{$vehicleInformation->HPI_history_check}}"  class="form-control"
+                                                name="hpi" placeholder="Enter history check">
+                                        </div>
+                                        @if ($errors->has('hpi'))
+                                        <span class="text-danger">{{ $errors->first('hpi') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>VIN</h6>
+                                        <div class="form-group">
+                                            
+                                            <input type="text" value="{{$vehicleInformation->vin}}"  class="form-control"
+                                                name="vin" placeholder="Eg : ZFF82YNC000247970,etc">
+                                        </div>
+                                        @if ($errors->has('vin'))
+                                        <span class="text-danger">{{ $errors->first('vin') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>First Registeration Date</h6>
+                                        <div class="form-group">
+                                            
+                                            <input type="date" value="{{$vehicleInformation->first_registered}}" class="form-control"
+                                                name="register_date" placeholder="">
+                                        </div>
+                                        @if ($errors->has('register_date'))
+                                        <span class="text-danger">{{ $errors->first('register_date') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Keeper Start Date</h6>
+                                        <div class="form-group">
+                
+                                            <input type="date" value="{{$vehicleInformation->keeper_start_date}}" class="form-control"
+                                                name="keeper_date" placeholder="">
+                                        </div>
+                                        @if ($errors->has('keeper_date'))
+                                        <span class="text-danger">{{ $errors->first('keeper_date') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Last MOT Date</h6>
+                                        <div class="form-group">
+                
+                                            <input type="date" value="{{$vehicleInformation->last_mot_date}}" class="form-control"
+                                                name="mot_date" placeholder="">
+                                        </div>
+                                        @if ($errors->has('mot_date'))
+                                        <span class="text-danger">{{ $errors->first('mot_date') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Previous Owners</h6>
+                                        <div class="form-group">
+                                            
+                                            <input type="text" value="{{$vehicleInformation->previous_owners}}" class="form-control"
+                                                name="previous_owner" placeholder="how many previous owners are">
+                                        </div>
+                                        @if ($errors->has('previous_owner'))
+                                        <span class="text-danger">{{ $errors->first('previous_owner') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Seller Keeping Plate</h6>
+                                        <div class="form-group">
+                                            
+                                            <input type="text" value="{{$vehicleInformation->seller_keeping_plate}}" class="form-control"
+                                                name="keeping_plate" placeholder="yes or no">
+                                        </div>
+                                        @if ($errors->has('keeping_plate'))
+                                        <span class="text-danger">{{ $errors->first('keeping_plate') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Additional Information</h6>
+                                        <div class="form-group">
+                                            
+                                            <input type="text" value="{{$vehicleInformation->additional_information}}" class="form-control"
+                                                name="additional" placeholder="Enter Description">
+                                        </div>
+                                        @if ($errors->has('additional'))
+                                        <span class="text-danger">{{ $errors->first('additional') }}</span>
+                                    @endif
+                                    </div>
+                                    
+
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Condition And Damage</h4>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="card-body">
+                             <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Your Exterior Grade</h6>
+                                        <div class="form-group">
+                                            <input type="text" value="{{$damages->exterior_grade}}"  class="form-control"
+                                                name="exterior_grade" placeholder="Enter Exterior Grade">
+                                        </div>
+                                        @if ($errors->has('exterior_grade'))
+                                        <span class="text-danger">{{ $errors->first('exterior_grade') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Scratches and Scuffs</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="scratches" id="basicSelect">
+                                                <option disabled selected>Is It Your Car Have Scratches and Scuffs</option>
+                                                
+                                                @if($damages->scratches_and_scuffs == 'yes')
+                                                <option selected value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                @else
+                                                <option  value="yes">Yes</option>
+                                                <option selected value="no">No</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('scratches'))
+                                        <span class="text-danger">{{ $errors->first('scratches') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Dents</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="dents" id="basicSelect">
+                                                <option disabled selected>Is It Your Car Have Dents</option>
+                                                @if($damages->dents == 'yes')
+                                                <option selected value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                @else
+                                                <option  value="yes">Yes</option>
+                                                <option selected value="no">No</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('dents'))
+                                        <span class="text-danger">{{ $errors->first('dents') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Paintwork Problems</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="paintwork" id="basicSelect">
+                                                <option disabled selected>Is It Your Car Have Paintwork Problems</option>
+                                                @if($damages->paintwork_problems == 'yes')
+                                                <option selected value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                @else
+                                                <option  value="yes">Yes</option>
+                                                <option selected value="no">No</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('paintwork'))
+                                        <span class="text-danger">{{ $errors->first('paintwork') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Windscreen damage</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="windscreen" id="basicSelect">
+                                                <option disabled selected>Is It Your Car's Windscreen is damage</option>
+                                              
+                                                @if($damages->windscreen_damage == 'yes')
+                                                <option selected value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                @else
+                                                <option  value="yes">Yes</option>
+                                                <option selected value="no">No</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('windscreen'))
+                                        <span class="text-danger">{{ $errors->first('windscreen') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Broken/Missing lights, Mirrors, Trim or fittings</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="broken_missing" id="basicSelect">
+                                                <option disabled selected>Broken/Missing lights, Mirrors, Trim or fittings</option>
+                                                @if($damages->broken_missing == 'yes')
+                                                <option selected value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                @else
+                                                <option  value="yes">Yes</option>
+                                                <option selected value="no">No</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('broken_missing'))
+                                        <span class="text-danger">{{ $errors->first('broken_missing') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Warning Lights on dashboard</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="warning_lights" id="basicSelect">
+                                                <option disabled selected>Warning Lights on dashboard</option>
+                                                @if($damages->warning_lights_on_dashboard == 'yes')
+                                                <option selected value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                @else
+                                                <option  value="yes">Yes</option>
+                                                <option selected value="no">No</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('warning_lights'))
+                                        <span class="text-danger">{{ $errors->first('warning_lights') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Your Service record</h6>
+                                        <div class="form-group">
+                                            <input type="text"  class="form-control"
+                                                name="service_record" value="{{$damages->service_record}}" placeholder="Enter Service record">
+                                        </div>
+                                        @if ($errors->has('service_record'))
+                                        <span class="text-danger">{{ $errors->first('service_record') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Main dealer services</h6>
+                                        <div class="form-group">
+                                            <input type="number" id="email-id-column" class="form-control"
+                                                name="main_dealer" value="{{$damages->main_dealer_services}}" placeholder="Enter Main dealer services">
+                                        </div>
+                                        @if ($errors->has('main_dealer'))
+                                        <span class="text-danger">{{ $errors->first('main_dealer') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Independent dealer service</h6>
+                                        <div class="form-group">
+                                            <input type="number" id="email-id-column" class="form-control"
+                                                name="independent_dealer" value="{{$damages->independent_dealer_service}}" placeholder="Enter Independent dealer service">
+                                        </div>
+                                        @if ($errors->has('independent_dealer'))
+                                        <span class="text-danger">{{ $errors->first('independent_dealer') }}</span>
+                                    @endif
+                                    </div>
 
 
                                 </div>
