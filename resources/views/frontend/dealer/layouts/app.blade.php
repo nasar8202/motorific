@@ -524,7 +524,7 @@
             display: none;
         }
     </style>
-    	
+
 </head>
 
 <body>
@@ -540,7 +540,7 @@
 
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+@stack('child-scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
      @if(Session::has('success'))
@@ -583,13 +583,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
     <!-- Select 2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ URL::asset('frontend/seller/assets/script.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
     <!-- Step Form -->
      <script type="text/javascript">
@@ -697,12 +698,12 @@
             max = $range.data('max'),
             from,
             to;
-        
+
         var updateValues = function () {
             $from.prop("value", from);
             $to.prop("value", to);
         };
-        
+
         $range.ionRangeSlider({
             onChange: function (data) {
               from = data.from;
@@ -710,7 +711,7 @@
               updateValues();
             }
         });
-        
+
         range = $range.data("ionRangeSlider");
         var updateRange = function () {
             range.update({
@@ -718,7 +719,7 @@
                 to: to
             });
         };
-        
+
         $from.on("input", function () {
             from = +$(this).prop("value");
             if (from < min) {
@@ -727,10 +728,10 @@
             if (from > to) {
                 from = to;
             }
-            updateValues();    
+            updateValues();
             updateRange();
         });
-        
+
         $to.on("input", function () {
             to = +$(this).prop("value");
             if (to > max) {
@@ -739,10 +740,10 @@
             if (to < from) {
                 to = from;
             }
-            updateValues();    
+            updateValues();
             updateRange();
         });
-        
+
         // Single Select
         $('.selectSingle select').select2();
         $('.topRightFilter select').select2();

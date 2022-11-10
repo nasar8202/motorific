@@ -47,19 +47,21 @@
                     </div>
                     <div class="filterIn">
                         <h4>Price</h4>
+                        <div id="slider"></div><br/>
                         <label class="rangeCommon">
-                            <input type="text" class="js-range-slider" name="my_range" value="" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
-                            <input type="number" maxlength="4" value="0" class="from"/>
-                            <input type="number" maxlength="4" value="1000" class="to"/>
+                            <input type="text" class="js-range-slider" name="my_range" value="" id="slider-range" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
+                            <input type="number" maxlength="4" name="min" value="0" id="min" class="from"/>
+                            <input type="number" maxlength="4" name="max" value="1000" id="max" class="to"/>
+                            Range: <span id='range'></span>
                         </label>
                     </div>
                     <div class="filterIn">
                         <h4>Mileage</h4>
                         <label class="selectCommon selectSingle">
-                            <select name="mileAgePro" id="mileAgePro">
+                            <select name="mileAgePro" id="mileAgePro" multiple>
                                 <option value=""> Select MileAge </option>
-                                <option value="10,000"> < 10,0000</option>
-    							<option value="50,000"> < 50,0000</option>
+                                <option value="848"> < 10,0000</option>
+    							<option value="342"> < 50,0000</option>
     							<option value="100,000"> < 100,0000</option>
                             </select>
                         </label>
@@ -151,6 +153,7 @@
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
+
                 <h2>
                     Live Sell ends in 
                     <div id="timer">
@@ -160,6 +163,8 @@
                         <div id="seconds"></div> -->
                     </div>
                 </h2>
+
+         
                 <h4>Showing  {{ $countVehicle }} vehicles</h4>
             </div>
             <div class="row">
@@ -210,5 +215,42 @@
 </section>
 
 @endsection
+@push('child-scripts')
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
+<!-- Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+// Initializing slider
+$("#slider").slider({
+    range: true,
+    min: 20000,
+    max: 80000,
+    values: [ 22000, 25000 ],
+    slide: function( event, ui ) {
+
+        // Get values
+        var min = ui.values[0];
+        var max = ui.values[1];
+        $('#range').text(min+' - ' + max);
+
+        // AJAX request
+        $.ajax({
+            url: 'test',
+            type: 'get',
+            data: {min:min,max:max},
+            success: function(response){
+console.log(response)
+
+            }
+        });
+    }
+});
+});
+</script>
+@endpush
 
