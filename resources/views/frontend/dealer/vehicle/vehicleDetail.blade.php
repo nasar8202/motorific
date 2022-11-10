@@ -59,11 +59,11 @@
                             <h4><i class="fas fa-gift"></i> Specification</h4>
                             <ul>
                                 <li>Exterior <span> <i class="circleI" style="background:blue;"></i> {{$vehicle->vehicle_color}}</span></li>
-                                <li>Interior <span>Full Leather</span></li>
-                                <li>Body Type <span>Coupe</span></li>
+                                <li>Interior <span>{{$vehicle->vehicleInformation->interior}}</span></li>
+                                <li>Body Type <span>{{$vehicle->vehicleInformation->body_type}}</span></li>
                                 <li>Transmission <span>{{$vehicle->vehicle_type}}</span></li>
                                 <li>Fuel <span>{{$vehicle->vehicle_tank}}</span></li>
-                                <li>Engine Size <span>3855 cc</span></li>
+                                <li>Engine Size <span>{{$vehicle->vehicleInformation->engine_size}}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -71,17 +71,17 @@
                         <div class="bottomListTitle">
                             <h4><i class="far fa-copy"></i> Vehicle Details</h4>
                             <ul>
-                                <li>HPI history check <span><i class="fas fa-exclamation-triangle"></i> 2 alerts <a href="#">details</a></span></li>
+                                <li>HPI history check <span><i class="fas fa-exclamation-triangle"></i> {{$vehicle->vehicleInformation->HPI_history_check}}</span></li>
                                 <li>Registration <span>{{$vehicle->vehicle_registartion_number}}</span></li>
-                                <li>VIN <span>ZFF82YNC000247970</span></li>
-                                <li>First Registered<span>11/07/2019</span></li>
-                                <li>Keeper Start Date<span>16/07/2021</span></li>
-                                <li>Last MOT Date<span>21/06/2022</span></li>
-                                <li>Previous Owners<span>2</span></li>
+                                <li>VIN <span>{{$vehicle->vehicleInformation->vin}}</span></li>
+                                <li>First Registered<span>{{$vehicle->vehicleInformation->first_registered}}</span></li>
+                                <li>Keeper Start Date<span>{{$vehicle->vehicleInformation->keeper_start_date}}</span></li>
+                                <li>Last MOT Date<span>{{$vehicle->vehicleInformation->last_mot_date}}</span></li>
+                                <li>Previous Owners<span>{{$vehicle->vehicleInformation->previous_owners}}</span></li>
                                 <li>Number of Keys<span>{{$number_of_keys->number_of_key}}</span></li>
                                 <li>On Finance<span>{{$finance->title}}</span></li>
                                 <li>Private Plate<span>{{$privateplate->title}}</span></li>
-                                <li>Seller Keeping Plate<span>Yes</span></li>
+                                <li>Seller Keeping Plate<span>{{$vehicle->vehicleInformation->seller_keeping_plate}}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                                 <li>Broken/Missing lights, Mirrors, Trim or fittings <span>{{$damage->broken_missing}}</span></li>
                                 <li>Warning Lights on dashboard <span>{{$damage->warning_lights_on_dashboard}}</span></li>
                                 <li>Smoking in vehicle <span>{{$smooking->title}}</span></li>
-                                <li>Additional Information <span>Date Tested <br/> 21/06/2022 <br/> Monitor and repair if necessary offside front widescreen wiper blade defective(3,4(b)(i)) <br/> Reflected <br/> Original Reg: RN190EO</span></li>
+                                <li>Additional Information <span>{{$vehicle->vehicleInformation->additional_information}} <br/> 21/06/2022 <br/> Monitor and repair if necessary offside front widescreen wiper blade defective(3,4(b)(i)) <br/> Reflected <br/> Original Reg: RN190EO</span></li>
                                 <li>Service record <span>{{$damage->service_record}}</span></li>
                                 <li>Main dealer services <span>{{$damage->main_dealer_services}}</span></li>
                                 <li>Independent dealer service <span>{{$damage->independent_dealer_service}}</span></li>

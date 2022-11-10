@@ -389,10 +389,10 @@
                                         <div class="form-group">
                                             
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="Eg : Full Leather, etc">
+                                                name="interior" placeholder="Eg : Full Leather, etc">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('interior'))
+                                        <span class="text-danger">{{ $errors->first('interior') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -400,10 +400,10 @@
                                         <div class="form-group">
                                            
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="Eg : Sedan,Coupe,etc">
+                                                name="body_type" placeholder="Eg : Sedan,Coupe,etc">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('body_type'))
+                                        <span class="text-danger">{{ $errors->first('body_type') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -411,10 +411,10 @@
                                         <div class="form-group">
                                            
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="Eg : 2700cc,3500cc,etc">
+                                                name="engine_size" placeholder="Eg : 2700cc,3500cc,etc">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('engine_size'))
+                                        <span class="text-danger">{{ $errors->first('engine_size') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -422,10 +422,10 @@
                                         <div class="form-group">
                                             
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="Enter history check">
+                                                name="hpi" placeholder="Enter history check">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('hpi'))
+                                        <span class="text-danger">{{ $errors->first('hpi') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -433,10 +433,10 @@
                                         <div class="form-group">
                                             
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="Eg : ZFF82YNC000247970,etc">
+                                                name="vin" placeholder="Eg : ZFF82YNC000247970,etc">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('vin'))
+                                        <span class="text-danger">{{ $errors->first('vin') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -444,10 +444,10 @@
                                         <div class="form-group">
                                             
                                             <input type="date"  class="form-control"
-                                                name="location" placeholder="">
+                                                name="register_date" placeholder="">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('register_date'))
+                                        <span class="text-danger">{{ $errors->first('register_date') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -455,10 +455,10 @@
                                         <div class="form-group">
                 
                                             <input type="date"  class="form-control"
-                                                name="location" placeholder="">
+                                                name="keeper_date" placeholder="">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('keeper_date'))
+                                        <span class="text-danger">{{ $errors->first('keeper_date') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -466,10 +466,10 @@
                                         <div class="form-group">
                 
                                             <input type="date"  class="form-control"
-                                                name="location" placeholder="">
+                                                name="mot_date" placeholder="">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('mot_date'))
+                                        <span class="text-danger">{{ $errors->first('mot_date') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -477,10 +477,10 @@
                                         <div class="form-group">
                                             
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="how many previous owners are">
+                                                name="previous_owner" placeholder="how many previous owners are">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('previous_owner'))
+                                        <span class="text-danger">{{ $errors->first('previous_owner') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -488,10 +488,10 @@
                                         <div class="form-group">
                                             
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="yes or no">
+                                                name="keeping_plate" placeholder="yes or no">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('keeping_plate'))
+                                        <span class="text-danger">{{ $errors->first('keeping_plate') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-md-6 col-12">
@@ -499,10 +499,10 @@
                                         <div class="form-group">
                                             
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="Enter Description">
+                                                name="additional" placeholder="Enter Description">
                                         </div>
-                                        @if ($errors->has('location'))
-                                        <span class="text-danger">{{ $errors->first('location') }}</span>
+                                        @if ($errors->has('additional'))
+                                        <span class="text-danger">{{ $errors->first('additional') }}</span>
                                     @endif
                                     </div>
 

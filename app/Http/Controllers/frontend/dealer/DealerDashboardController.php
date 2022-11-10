@@ -64,18 +64,16 @@ echo "<br>";
 
     }
     public function test(Request $request){
-    return $request->min." max ". $request->max ;
+    // return $request->min." max ". $request->max ;
     $min = $request->min;
     $max = $request->max;
         //$filter = DB::table('vehicles')->whereBetween('vehicle_price',[$min, $max])->get();
         //return $filter;
-        $users = Vehicle::whereBetween('vehicle_price', [$request->min, $request->max])->get();
+        $users = Vehicle::whereBetween('vehicle_price', [$request->min, $request->max])->with('vehicleInformation')
+        ->with('VehicleImage')->get();
         return $users;
-        // $array = $request->search;
-        // $implode = implode(",",$array);
-
-        // $a = Vehicle::whereIn('vehicle_mileage', array($implode))->where('status',1)->get();
-        // return $a;
+      
+    
     }
     public function vehicleDetail($id)
     {

@@ -19,9 +19,9 @@ class AddEngineSizeToVehicleInformationTable extends Migration
             $table->string('engine_size')->nullable();
             $table->string('HPI_history_check')->nullable();
             $table->string('vin')->nullable();
-            $table->string('first_registered')->nullable();
-            $table->string('keeper_start_date')->nullable();
-            $table->string('last_mot_date')->nullable();
+            $table->date('first_registered')->format('d/m/Y')->nullable();
+            $table->date('keeper_start_date')->format('d/m/Y')->nullable();
+            $table->date('last_mot_date')->format('d/m/Y')->nullable();
             $table->string('previous_owners')->nullable();
             $table->string('seller_keeping_plate')->nullable();
             $table->string('additional_information')->nullable();

@@ -41,7 +41,7 @@ class ManageVehicleController extends Controller
     }
     public function StoreVehicle(Request $request)
     {
-
+        
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -142,7 +142,19 @@ class ManageVehicleController extends Controller
             $vehicleInformation->location =  $request->location;
             $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
             $vehicleInformation->private_plate_id =  $request->private_plate;
-            $vehicleInformation->finance_id =  $request->finance;
+           
+            $vehicleInformation->interior =  $request->interior;
+            $vehicleInformation->body_type =  $request->body_type;
+            $vehicleInformation->engine_size =  $request->engine_size;
+            $vehicleInformation->HPI_history_check =  $request->hpi;
+            $vehicleInformation->vin =  $request->vin;
+            $vehicleInformation->first_registered =  $request->register_date;
+            $vehicleInformation->keeper_start_date =  $request->keeper_date;
+            $vehicleInformation->last_mot_date =  $request->mot_date;
+            $vehicleInformation->previous_owners =  $request->previous_owner;
+            $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
+            $vehicleInformation->additional_information =  $request->additional;
+           
             $vehicleInformation->save();
 
 
@@ -290,6 +302,10 @@ class ManageVehicleController extends Controller
             'service_record' => 'required',
             'main_dealer' => 'required',
             'independent_dealer' => 'required',
+            'retail_price' => 'required',
+            'clean_price' => 'required',
+            'average_price' => 'required',
+            'hidden_price' => 'required',
 
         ]);
         DB::beginTransaction();
@@ -334,6 +350,8 @@ class ManageVehicleController extends Controller
         $vehicle->clean_price = $request->clean_price;
         $vehicle->average_price = $request->average_price;
         $vehicle->hidden_price = $request->hidden_price;
+                    $vehicle->status = 1;
+        
 
         $vehicle->save();
 
@@ -361,6 +379,19 @@ class ManageVehicleController extends Controller
         $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
         $vehicleInformation->private_plate_id =  $request->private_plate;
         $vehicleInformation->finance_id =  $request->finance;
+
+        $vehicleInformation->interior =  $request->interior;
+        $vehicleInformation->body_type =  $request->body_type;
+        $vehicleInformation->engine_size =  $request->engine_size;
+        $vehicleInformation->HPI_history_check =  $request->hpi;
+        $vehicleInformation->vin =  $request->vin;
+        $vehicleInformation->first_registered =  $request->register_date;
+        $vehicleInformation->keeper_start_date =  $request->keeper_date;
+        $vehicleInformation->last_mot_date =  $request->mot_date;
+        $vehicleInformation->previous_owners =  $request->previous_owner;
+        $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
+        $vehicleInformation->additional_information =  $request->additional;
+
         $vehicleInformation->save();
         
         $damages = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
