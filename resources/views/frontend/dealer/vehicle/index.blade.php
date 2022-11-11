@@ -214,8 +214,8 @@ div#filter-price {
             <div class="sec-2-txt pb-4">
                 <h2>Live Sell ends in 2 hrs</h2>
                 <div class="category-btn">
-                <a href="#">All</a>
-                <a href="#">Live Sell</a>
+                    <a href="{{ route('dealer.dashboard') }}">All </a>
+                <a href="{{ route('vehicle.liveSell') }}">Live Sell </a>
                 <a href="#">Buy It Now</a>
             </div>
                 <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
@@ -262,16 +262,16 @@ div#filter-price {
                 </div>
                 <div id="loop">
                 <div class="col-lg-3 col-md-3 blur_action"  id="filter-price">
-                
-                    
+
+
                 </div>
                 <div class=""  id="no-record">
-                
-                    
+
+
                 </div>
             </div>
 
-                
+
 
         </div>
     </div>
@@ -291,41 +291,41 @@ $(document).ready(function(){
     $( "#subm").click(function(){
 
     var makePro = $("#makePro").val();
-    var range = $("#range").text(); 
-    var mileAgePro = $("#mileAgePro").val(); 
-    var agePro = $("#agePro").val(); 
-    
-  
+    var range = $("#range").text();
+    var mileAgePro = $("#mileAgePro").val();
+    var agePro = $("#agePro").val();
+
+
         $.ajax({
-   
+
             url: 'test',
             type: 'post',
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {range:range,mileAgePro:mileAgePro,agePro:agePro},
-           
+
             success: function(response){
-                
+
             $('.blur_action').css('filter','blur(0px)');
             var resultData = response;
             // console.log(resultData)
             var bodyData = '';
             var count = resultData.length;
-            
+
             if(count > 0){
                 $("#first").hide();
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
-                
-            $.each(resultData,function(resultData,row){     
-                
+
+            $.each(resultData,function(resultData,row){
+
                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
-                    $("#filter-price").html(bodyData); 
+                    $("#filter-price").html(bodyData);
                 })
-                
+
 
             }
             else{
@@ -345,7 +345,7 @@ $(document).ready(function(){
 
             });
     });
-  
+
 
 
 
@@ -358,7 +358,7 @@ $("#slider").slider({
     max: 80000,
     values: [ 22000, 25000 ],
     slide: function( event, ui ) {
-       
+
 
         // Get values
         var min = ui.values[0];
@@ -366,7 +366,7 @@ $("#slider").slider({
         $('#range').text(min+'-' + max);
 
         // AJAX request
-       
+
     }
 });
 });
@@ -383,25 +383,25 @@ $("#slider").slider({
 //             },
 //             success: function(response){
 //             $('.blur_action').css('filter','blur(0px)');
-                
+
 //             var resultData = response;
 //             var count = resultData.length;
-            
+
 //             var bodyData = '';
 //             var i=1;
 //             if(count > 0){
 //                 $("#first").hide();
 //                 $(".count").html("");
 //                 $(".count").html("Showing " +count+ " vehicles");
-                
-//             $.each(resultData,function(resultData,row){     
-                
+
+//             $.each(resultData,function(resultData,row){
+
 //                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
 //                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
 //                     bodyData+='</div></a>';
-//                     $("#filter-price").html(bodyData); 
+//                     $("#filter-price").html(bodyData);
 //                 })
-                
+
 
 //             }
 //             else{
@@ -410,9 +410,9 @@ $("#slider").slider({
 //                 $("#first").hide();
 //             $("#filter-price").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
 //         }
-        
+
 //         },
-       
+
 //             complete:function(data){
 //     /* Hide image container */
 //     $("#loader").hide();
@@ -421,41 +421,41 @@ $("#slider").slider({
 //         });
 // end slider data ajax
 
-// milage ajax data start 
+// milage ajax data start
 // $("#mileAgePro").change(function(){
 //   var milage = this.value;
 //          $.ajax({
-   
+
 //             url: 'test',
 //             type: 'get',
 //             data: {milage,milage},
 //             beforeSend: function(){
 //                 /* Show image container */
-               
+
 //                 $('.blur_action').css('filter','blur(3px)');
 
 //             },
 //             success: function(response){
-              
+
 //             $('.blur_action').css('filter','blur(0px)');
 //             var resultData = response;
 //             console.log(resultData)
 //             var bodyData = '';
 //             var count = resultData.length;
-            
+
 //             if(count > 0){
 //                 $("#first").hide();
 //                 $(".count").html("");
 //                 $(".count").html("Showing " +count+ " vehicles");
-                
-//             $.each(resultData,function(resultData,row){     
-                
+
+//             $.each(resultData,function(resultData,row){
+
 //                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
 //                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
 //                     bodyData+='</div></a>';
-//                     $("#filter-price").html(bodyData); 
+//                     $("#filter-price").html(bodyData);
 //                 })
-                
+
 
 //             }
 //             else{

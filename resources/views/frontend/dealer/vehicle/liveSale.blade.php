@@ -3,8 +3,66 @@
 @section('section')
 <!-- form css -->
 <style>
+       div#loader {
+        position: absolute;
+        left: 60%;
+        top: 50%;
+    }
+    .col-lg-3.col-md-3.blur_action {
+        float: left;
+        width: 32%;
+        margin-left: 1%;
+        height: 360px;
+        flex: 0 0 32%;
+    }
+
+    .col-lg-3.col-md-3.blur_action h6 {
+        font-size: 15px;
+    }
+
+    .box {
+        height: 370px;
+    }
+
+    div#loop {
+        width: 100%;
+    }
+
+    .col-lg-3.col-md-3.blur_action a {
+        float: left;
+        width: 100%;
+        margin-left: 1%;
+        height: 360px;
+        flex: 0 0 41%;
+    }
+
+    div#filter-price {
+        display: flex;
+    }
+    .category-btn a {
+        color: black;
+        text-decoration: none;
+        transition: all ease 0.5s;
+        padding: 10px 20px;
+    }
+
+    .category-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .category-btn a:hover {
+        background: #05eab5;
+        color: white;
+        border-radius: 10px;
+    }
+    /* section.sec-2.productPageTn .col-lg-4.col-md-4 {
+        filter: blur(3px);
+    } */
 
 </style>
+
 
 <!-- MultiStep Form -->
 
@@ -45,9 +103,9 @@
                         <h4>Price</h4>
                         <div id="slider"></div><br/>
                         <label class="rangeCommon">
-                            <input type="text" class="js-range-slider" name="my_range" value="" id="slider-range" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
+                            {{-- <input type="text" class="js-range-slider" name="my_range" value="" id="slider-range" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
                             <input type="number" maxlength="4" name="min" value="0" id="min" class="from"/>
-                            <input type="number" maxlength="4" name="max" value="1000" id="max" class="to"/>
+                            <input type="number" maxlength="4" name="max" value="1000" id="max" class="to"/> --}}
                             Range: <span id='range'></span>
                         </label>
                     </div>
@@ -150,9 +208,11 @@
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
                 <h2>Live Sell ends in 2 hrs</h2>
-                <button>All</button>
-                <button>Live Sell</button>
-                <button>Buy It Now</button>
+                <div class="category-btn">
+                    <a href="{{ route('dealer.dashboard') }}">All </a>
+                <a href="{{ route('vehicle.liveSell') }}">Live Sell </a>
+                <a href="#">Buy It Now</a>
+                </div>
                 <h4>Showing  {{ $countLiveSellVehicle }} vehicles</h4>
             </div>
             <div class="row">

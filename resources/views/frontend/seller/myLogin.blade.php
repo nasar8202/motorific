@@ -1,6 +1,27 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Sell Login')
 @section('section')
+<style>
+    .dropdown {
+position: relative;
+display: inline-block;
+color:white
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+padding: 12px 16px;
+z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+    </style>
     <!-- HEADER -->
     <header>
         <div class="container-1600 d-flex justify-content-between pt-4">
@@ -19,6 +40,13 @@
                     <a href="#">
                         <li>Help</li>
                     </a>
+                    <div class="dropdown">
+                        <span>More</span>
+                        <div class="dropdown-content">
+                       <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                       <a href="{{ route('sellMyCar') }}">Sell My Car</a>
+                        </div>
+                    </div>
                 </ul>
             </div>
             <div class="head-btns  justify-content-between">

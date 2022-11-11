@@ -38,14 +38,14 @@ display: block;
                 <a href="#">
                     <li>Help</li>
                 </a>
-                
+
                 <div class="dropdown">
                     <span>More</span>
                     <div class="dropdown-content">
-                    <p>About Us</p>
-                    <p>Dealer</p>
+                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
-                  </div>
+                </div>
             </ul>
         </div>
 

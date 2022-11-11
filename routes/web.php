@@ -203,7 +203,7 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
-    Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dashboard');
+    Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::post('/test', [DealerDashboardController::class,'test'])->name('test');
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');

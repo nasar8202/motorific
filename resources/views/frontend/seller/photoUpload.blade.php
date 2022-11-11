@@ -1,6 +1,27 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Photo Upload | Motorific')
 @section('section')
+<style>
+    .dropdown {
+position: relative;
+display: inline-block;
+color:white
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+padding: 12px 16px;
+z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+    </style>
  <!-- HEADER -->
  <header>
     <div class="container-1600 d-flex justify-content-between pt-4">
@@ -19,6 +40,13 @@
                 <a href="#">
                     <li>Help</li>
                 </a>
+                <div class="dropdown">
+                    <span>More</span>
+                    <div class="dropdown-content">
+                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
+                    </div>
+                </div>
             </ul>
         </div>
         <div class="head-btns  justify-content-between">
@@ -154,31 +182,31 @@
                                                 <input type="checkbox" name="sat_nav" value="1" id="sat_nav" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Sat nav</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="panoramic_roof">
                                                 <input type="checkbox" name="panoramic_roof" value="2" id="panoramic_roof"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Panoramic roof</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="heated_seats">
                                                 <input type="checkbox" name="heated_seats" value="3" id="heated_seats"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Heated seats</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="parking_cam">
                                                 <input type="checkbox" name="parking_cam" value="2" id="parking_cam"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Rear parking camera</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="sound_system">
                                                 <input type="checkbox" name="sound_system" value="3" id="sound_system"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Upgraded sound system</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -203,42 +231,42 @@
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Cloth</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/cloth.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="interiorType-fauxleather">
                                                 <input type="radio" name="interiorType" value="Fauxleather" id="interiorType-fauxleather"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Faux leather</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/fauxLeather.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="interiorType-halfleather">
                                                 <input type="radio" name="interiorType" value="Halfleather" id="interiorType-halfleather"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Half leather</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="interiorType-halfsuede">
                                                 <input type="radio" name="interiorType" value="Cloth" id="interiorType-halfsuede"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Half suede</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/halfSuede.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="interiorType-leather">
                                                 <input type="radio" name="interiorType" value="Leather" id="interiorType-leather"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Leather</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/leather.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="interiorType-suede">
                                                 <input type="radio" name="interiorType" value="Suede" id="interiorType-suede"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Suede</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/suede.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -271,19 +299,19 @@
                                                 <input type="radio" name="keysCount" value="1" id="keysCount1" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>1 key</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="keysCount2">
                                                 <input type="radio" name="keysCount" value="2" id="keysCount2"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>2 key</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="keysCount3">
                                                 <input type="radio" name="keysCount" value="3" id="keysCount3"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>3 key</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -313,13 +341,13 @@
                                                 <input type="radio" name="hasToolsInBoot" value="Included" id="hasToolsInBoot-included" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Tool pack included</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="hasToolsInBoot-missing">
                                                 <input type="radio" name="hasToolsInBoot" value="Missing" id="hasToolsInBoot-missing"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Tool pack missing</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -352,19 +380,19 @@
                                                 <input type="radio" name="lockingWheelNut" value="Yes" id="lockingWheelNut-yes" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Locking wheel nut included</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="lockingWheelNut-no">
                                                 <input type="radio" name="lockingWheelNut" value="No" id="lockingWheelNut-no"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Locking wheel nut missing</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="lockingWheelNut-not_applicable">
                                                 <input type="radio" name="lockingWheelNut" value="Not Applicable" id="lockingWheelNut-not_applicable"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Wheels do not have locking nuts</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -397,13 +425,13 @@
                                                 <input type="radio" name="hasBeenSmokedIn" value="No" id="hasBeenSmokedIn-no" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Vehicle has not been smoked in</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="hasBeenSmokedIn-yes">
                                                 <input type="radio" name="hasBeenSmokedIn" value="Yes" id="hasBeenSmokedIn-yes"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Vehicle has been smoked in</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -433,13 +461,13 @@
                                                 <input type="radio" name="hasV5LogBook" value="True" id="hasV5LogBook-true" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>I can provide the V5C logbook once sold</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="hasV5LogBook-false">
                                                 <input type="radio" name="hasV5LogBook" value="False" id="hasV5LogBook-false"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>I’ve lost the V5C logbook</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -452,7 +480,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Modal on false Condition -->
                                 <div class="modal fade modalTN" id="v5Cfalse" tabindex="-1" role="dialog" aria-labelledby="V5CfalseTitle" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
@@ -527,13 +555,13 @@
                                                 <input type="radio" name="keeperType" value="Seller" id="radio-keeperType-seller" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Me</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="radio-keeperType-other">
                                                 <input type="radio" name="keeperType" value="Other" id="radio-keeperType-other"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Someone Else</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -560,14 +588,14 @@
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Normal registration plate</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateFalse.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="radio-hasPrivatePlate-true">
                                                 <input type="radio" name="hasPrivatePlate" value="True" id="radio-hasPrivatePlate-true"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Private plate</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" />
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -601,19 +629,19 @@
                                                 <input type="radio" name="keeperType" value="friend" id="radio-keeperType-familyOrFriend"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>A family member or friend</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="radio-keeperType-probate">
                                                 <input type="radio" name="keeperType" value="probate" id="radio-keeperType-probate"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>This is a probate sale</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="radio-keeperType-company">
                                                 <input type="radio" name="keeperType" value="company" id="radio-keeperType-company"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>It's a company vehicle or owned by a business</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -669,13 +697,13 @@
                                                 <input type="radio" name="keepPrivatePlate" value="true" id="radio-keepPrivatePlate-true" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Keeping it</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="radio-keepPrivatePlate-false">
                                                 <input type="radio" name="keepPrivatePlate" value="false" id="radio-keepPrivatePlate-false"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Not keeping it</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -692,7 +720,7 @@
                                         <button type="button" class="nxtBtn">NEXT</button>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <!--13-->
                             <div class="vehicleSteps ifnormalRegistrationPlate ifKeepingit ifNotKeepingit" data-id="Finance">
                                 <span class="checboxNum" style="display:none;">0</span>
@@ -705,13 +733,13 @@
                                                 <input type="radio" name="isVehicleOnFinance" value="true" id="radio-isVehicleOnFinance-true" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>On finance</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                             <label for="radio-isVehicleOnFinance-false">
                                                 <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Not on finance</p>
-                                                </div>    
+                                                </div>
                                             </label>
                                         </div>
                                     </div>
@@ -864,10 +892,10 @@
                                             			</tbody>
                                             		</table>
                                             	</div>
-                                            </div>        
+                                            </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -1063,7 +1091,7 @@
                }
            });
        });
-       
+
         //   On Hover Change Image in Profile Form 27-10-22
         $('.photo-up-sec-2-vi-btns label').on('mouseenter', function(){
             var imgLabel = $(this).find('.photo-up-sec-2-vi-btn > img').attr('src');
@@ -1071,13 +1099,13 @@
         });
         // 28-10-22
         $('button.nxtBtn').on('click', function(){
-            
+
             var vehicleSteps = $(this).closest('.vehicleSteps');
             var numChecked = $(vehicleSteps).find('.checboxNum').text();
             var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
             var numChecked1 = parseInt(numChecked);
             var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
-            
+
             if( numChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
@@ -1085,37 +1113,37 @@
                 $('#selectAnyRadio').modal('toggle');
             }
             else{
-                 $(vehicleSteps).removeClass('vehicleStepsActive'); 
+                 $(vehicleSteps).removeClass('vehicleStepsActive');
                  $(vehicleSteps).slideUp();
                  $(vehicleSteps).next().slideDown();
                  $(vehicleSteps).next().addClass('vehicleStepsActive');
             }
-                
+
         });
-        
+
         $('button.prevBtn').on('click', function(){
             $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
             $(this).closest('.vehicleSteps').slideUp();
             $(this).closest('.vehicleSteps').prev().slideDown();
             $(this).closest('.vehicleSteps').prev().addClass('vehicleStepsActive');
         });
-        
+
         $('.vehicleSteps .photo-up-sec-2-vi-btns input[type="radio"],.vehicleSteps .photo-up-sec-2-vi-btns input[type="checkbox"]').change(function(){
 
             var totalRadChecked = $(this).closest('.vehicleSteps').find('input[type="radio"]:checked').length;
             var totalChecked = $(this).closest('.vehicleSteps').find('input[type="checkbox"]:checked').length;
-            
+
             $(this).closest('.vehicleSteps').find('.checboxNum').text(totalRadChecked);
             $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked);
-            
-            var radioVal =  $(this).attr('id'); 
+
+            var radioVal =  $(this).attr('id');
                 console.log(radioVal);
                 // For Popup on False Condition
                 if( radioVal == 'hasV5LogBook-false'){
                     $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
                     $(this).closest('.vehicleSteps').find('.modalBtn').show();
                 }
-                else if( radioVal == 'hasV5LogBook-true'){ 
+                else if( radioVal == 'hasV5LogBook-true'){
                     $(this).closest('.vehicleSteps').find('.nxtBtn').show();
                     $(this).closest('.vehicleSteps').find('.modalBtn').hide();
                 }
@@ -1150,9 +1178,9 @@
                     $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
                     $(this).closest('.vehicleSteps').find('.nxtBtnWhoOwnsTheVehicleToPrivatePlate').show();
                 }
-            
+
         });
-        
+
         // When Click on Someone Else Button
         $('.forSomeoneElseBtn').on('click', function(){
                   $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
@@ -1167,7 +1195,7 @@
               $('.vehicleSteps[data-id="VehicleOwner"]').slideDown();
               $('.vehicleSteps[data-id="VehicleOwner"]').addClass('vehicleStepsActive');
         });
-        
+
         // When Click on Vehicle Owner Previous Button
         $('.prevBtnToV5Clogbook').on('click', function(){
               $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
@@ -1183,7 +1211,7 @@
             var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
             var numChecked1 = parseInt(numChecked);
             var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
-            
+
             if( numChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
@@ -1204,7 +1232,7 @@
             var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
             var numChecked1 = parseInt(numChecked);
             var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
-            
+
             if( numChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
@@ -1217,24 +1245,24 @@
                   $('.ifPrivatePlate').slideDown();
                   $('.ifPrivatePlate').addClass('vehicleStepsActive');
             }
-              
+
         });
 
-        //When Click on prevBtnToVehicleLocation from Name on V5C 
+        //When Click on prevBtnToVehicleLocation from Name on V5C
         $('.prevBtnToVehicleLocation').on('click', function(){
               $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
               $(this).closest('.vehicleSteps').slideUp();
               $('.vehicleSteps[data-id="VehicleLocation"]').slideDown();
               $('.vehicleSteps[data-id="VehicleLocation"]').addClass('vehicleStepsActive');
         });
-        //When Click on nxtBtnToPrivatePlate from Name on V5C 
+        //When Click on nxtBtnToPrivatePlate from Name on V5C
         $('.nxtBtnToPrivatePlate').on('click', function(){
             var vehicleSteps = $(this).closest('.vehicleSteps');
             var numChecked = $(vehicleSteps).find('.checboxNum').text();
             var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
             var numChecked1 = parseInt(numChecked);
             var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
-            
+
             if( numChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
@@ -1262,7 +1290,7 @@
             var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
             var numChecked1 = parseInt(numChecked);
             var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
-            
+
             if( numChecked1 < 1){
                 $('#selectAnyRadio').modal('toggle');
             }
@@ -1276,7 +1304,7 @@
                   $('.vehicleSteps[data-id="PrivatePlate"]').addClass('vehicleStepsActive');
             }
         });
-        
+
         // Summary Step
         $('.stepOpener').on('click', function(){
             var thisData = $(this).attr('data-title');
@@ -1285,29 +1313,29 @@
             $('.vehicleSteps[data-id="'+ thisData +'"]').slideDown();
             $('.vehicleSteps[data-id="'+ thisData +'"]').addClass('vehicleStepsActive');
         });
-        // Modal Open Close of Vehicle Form 
+        // Modal Open Close of Vehicle Form
         $('.modalBtn').on('click',function(){
-             $('#v5Cfalse').modal('toggle'); 
+             $('#v5Cfalse').modal('toggle');
         });
-        
+
         $('.modalTN .close').on('click',function(){
-             $(this).closest('.modal').modal('toggle'); 
+             $(this).closest('.modal').modal('toggle');
         });
-        
+
         // Images On Change
         $('.labelForFile').each(function(){
        var thisInpt = $(this).find('input');
        $(thisInpt).on('change', function(){
-          
+
           var file = $(thisInpt).get(0).files[0];
-     
+
             if(file){
                 var reader = new FileReader();
-     
+
                 reader.onload = function(){
                     $(thisInpt).closest('.labelForFile').find('img').attr("src", reader.result);
                 }
-     
+
                 reader.readAsDataURL(file);
             }
        });
