@@ -233,7 +233,7 @@ div#filter-price {
                 <!-- BOX-1 -->
                 <div id="first">
                 @foreach ($allVehicles as $vehicle)
-                <div class="col-lg-3 col-md-3 blur_action" >
+                <div class="col-lg-3 col-md-3 blur_action mb-5" >
                     <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
                         <div class="box" id>
 
@@ -265,7 +265,7 @@ div#filter-price {
 
 
                 </div>
-                <div class=""  id="no-record">
+                <div class=""  id="no-record" >
 
 
                 </div>
@@ -324,6 +324,7 @@ $(document).ready(function(){
                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
                     $("#filter-price").html(bodyData);
+                    $("#no-record").html('');
                 })
 
 
@@ -332,6 +333,7 @@ $(document).ready(function(){
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
+                $("#filter-price").html('');
             $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
             }
             },
