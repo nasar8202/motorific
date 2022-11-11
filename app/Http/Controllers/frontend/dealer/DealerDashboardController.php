@@ -67,15 +67,95 @@ class DealerDashboardController extends Controller
 
     }
     public function test(Request $request){
-    // return $request->min." max ". $request->max ;
-    $min = $request->min;
-    $max = $request->max;
+        switch($request != null) {
+        //    age milage and price filter combine case
+            case($request->agePro && $request->mileAgePro && $request->range ):
+                
+                $current_year = date("Y");
+                $total = $current_year - $request->agePro;
+                $range = explode('-',$request->range);
+                
+                $age_milage_price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('vehicle_mileage','<=',$request->mileAgePro)->
+                with('vehicleInformation')
+                ->with('VehicleImage')->get();
+               dd($age_milage_price_filter);
+                  return $age_milage_price_filter;
+              break;
+            // age and millage filter combine case
+            case($request->agePro && $request->mileAgePro ):
+                
+                $current_year = date("Y");
+                $total = $current_year - $request->agePro;
+                
+                $age_milage_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('vehicle_mileage','<=',$request->mileAgePro)->
+                with('vehicleInformation')
+                ->with('VehicleImage')->get();
+               
+                  return $age_milage_filter;
+              break;
+             // milage and price filter combine case
+             case($request->range && $request->mileAgePro ):
+               
+                $range = explode('-',$request->range);
+                $milage_price_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->
+                where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->with('vehicleInformation')
+                ->with('VehicleImage')->get();
+                
+                return $milage_price_filter;
+            break;
+            // price range filter case
+            case($request->range):
+             
+                $range = explode('-',$request->range);
+                $price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->with('vehicleInformation')
+                ->with('VehicleImage')->get();
+                return $price_filter;
+            break;
+            // milage range filter case
+            case($request->mileAgePro):
+               
+                $milage_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->with('vehicleInformation')
+                ->with('VehicleImage')->get();
+                return $milage_filter;
+            break;
+            case($request->agePro):
+              $current_year = date("Y");
+              $total = $current_year - $request->agePro;
+              
+              $age_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->with('vehicleInformation')
+              ->with('VehicleImage')->get();
+             
+                return $age_filter;
+            break;
+           
+                
+        }
+
+die();
+
+        // dd($request->all());
+        
+        dd($range[0]);
+        if($request->milage){
+            $milage = $request->milage;
+            $milage_filter = Vehicle::where('vehicle_mileage','<=', $milage)->with('vehicleInformation')
+            ->with('VehicleImage')->get();
+            return $milage_filter;
+        }
+        
+  if($request->min && $request->max){
+        $min = $request->min;
+        $max = $request->max;
         //$filter = DB::table('vehicles')->whereBetween('vehicle_price',[$min, $max])->get();
         //return $filter;
-        $users = Vehicle::whereBetween('vehicle_price', [$request->min, $request->max])->with('vehicleInformation')
+        $users = Vehicle::where('vehicle_price', '>=', $min)->where('vehicle_price', '<=', $max)->with('vehicleInformation')
         ->with('VehicleImage')->get();
+        // dd($users);
         return $users;
-      
+  }
     
     }
     public function vehicleDetail($id)
