@@ -1,6 +1,26 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Sell your car the with Motorific')
 @section('section')
+<style>
+    .dropdown {
+position: relative;
+display: inline-block;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+padding: 12px 16px;
+z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+</style>
 <header>
     <div class="container-1600 d-flex justify-content-between pt-4">
         <div class="logo-navlinks d-flex align-items-center">
@@ -18,6 +38,14 @@
                 <a href="#">
                     <li>Help</li>
                 </a>
+                
+                <div class="dropdown">
+                    <span>More</span>
+                    <div class="dropdown-content">
+                    <p>About Us</p>
+                    <p>Dealer</p>
+                    </div>
+                  </div>
             </ul>
         </div>
 

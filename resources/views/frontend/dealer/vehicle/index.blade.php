@@ -8,7 +8,55 @@ div#loader {
     left: 60%;
     top: 50%;
 }
+.col-lg-3.col-md-3.blur_action {
+    float: left;
+    width: 32%;
+    margin-left: 1%;
+    height: 360px;
+    flex: 0 0 32%;
+}
 
+.col-lg-3.col-md-3.blur_action h6 {
+    font-size: 15px;
+}
+
+.box {
+    height: 370px;
+}
+
+div#loop {
+    width: 100%;
+}
+
+.col-lg-3.col-md-3.blur_action a {
+    float: left;
+    width: 100%;
+    margin-left: 1%;
+    height: 360px;
+    flex: 0 0 41%;
+}
+
+div#filter-price {
+    display: flex;
+}
+.category-btn a {
+    color: black;
+    text-decoration: none;
+    transition: all ease 0.5s;
+    padding: 10px 20px;
+}
+
+.category-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-btn a:hover {
+    background: #05eab5;
+    color: white;
+    border-radius: 10px;
+}
 /* section.sec-2.productPageTn .col-lg-4.col-md-4 {
     filter: blur(3px);
 } */
@@ -27,7 +75,7 @@ div#loader {
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
             <div class="productsFilters">
-                <form>
+                <form  action="#">
                     <h2>Filters</h2>
                     <div class="filterIn">
                         <h4>Type</h4>
@@ -48,7 +96,7 @@ div#loader {
                         <h4>Makes</h4>
                         <label class="selectCommon selectSingle" >
                             <select name="makePro" id="makePro">
-                                <option value=""> Select Makes</option>
+                                <option disabled selected value=""> Select Makes</option>
     							<option value="Audi"> Audi</option>
     							<option value="Bentley"> Bentley</option>
     							<option value="Bmw"> Bmw</option>
@@ -69,18 +117,18 @@ div#loader {
                         <h4>Mileage</h4>
                         <label class="selectCommon selectSingle">
                             <select name="mileAgePro" id="mileAgePro" >
-                                <option value=""> Select MileAge </option>
-                                <option value="848"> < 10,0000</option>
-    							<option value="342"> < 50,0000</option>
-    							<option value="100,000"> < 100,0000</option>
+                                <option disabled selected value=""> Select MileAge </option>
+                                <option value="100000"> < 10,0000</option>
+    							<option value="500000"> < 50,0000</option>
+    							<option value="1000000"> < 100,0000</option>
                             </select>
                         </label>
                     </div>
                      <div class="filterIn">
                         <h4>Age</h4>
                         <label class="selectCommon selectSingle">
-                            <select name="agePro1" id="agePro1">
-                                <option value=""> Select Age </option>
+                            <select name="agePro1" id="agePro">
+                                <option selected disabled value=""> Select Age </option>
                                 <option value="10"> < 10</option>
     							<option value="50"> < 50</option>
     							<option value="100"> < 100</option>
@@ -158,15 +206,18 @@ div#loader {
                             </select>
                         </label>
                     </div>
+                    <button type="button" class="btn btn-primary" id="subm"> Filter</button>
                 </form>
             </div>
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
                 <h2>Live Sell ends in 2 hrs</h2>
-                <button>All</button>
-                <button>Live Sell</button>
-                <button>Buy It Now</button>
+                <div class="category-btn">
+                <a href="#">All</a>
+                <a href="#">Live Sell</a>
+                <a href="#">Buy It Now</a>
+            </div>
                 <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
             </div>
             <div class="row">
@@ -182,7 +233,7 @@ div#loader {
                 <!-- BOX-1 -->
                 <div id="first">
                 @foreach ($allVehicles as $vehicle)
-                <div class="col-lg-4 col-md-4 blur_action" >
+                <div class="col-lg-3 col-md-3 blur_action" >
                     <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
                         <div class="box" id>
 
@@ -209,10 +260,16 @@ div#loader {
                 </div>
                 @endforeach
                 </div>
-                <div class="col-lg-4 col-md-4 blur_action"  id="filter-price">
+                <div id="loop">
+                <div class="col-lg-3 col-md-3 blur_action"  id="filter-price">
                 
                     
                 </div>
+                <div class=""  id="no-record">
+                
+                    
+                </div>
+            </div>
 
                 
 
@@ -231,41 +288,31 @@ div#loader {
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.blur_action').css('filter','blur(0px)');
-    // $('#loader').hide();
-// Initializing slider
-$("#slider").slider({
-    range: true,
-    min: 20000,
-    max: 80000,
-    values: [ 22000, 25000 ],
-    slide: function( event, ui ) {
-        $('.blur_action').css('filter','blur(3px)');
+    $( "#subm").click(function(){
 
-        // Get values
-        var min = ui.values[0];
-        var max = ui.values[1];
-        $('#range').text(min+' - ' + max);
-
-        // AJAX request
+    var makePro = $("#makePro").val();
+    var range = $("#range").text(); 
+    var mileAgePro = $("#mileAgePro").val(); 
+    var agePro = $("#agePro").val(); 
+    
+  
         $.ajax({
+   
             url: 'test',
-            type: 'get',
-            data: {min:min,max:max},
-            beforeSend: function(){
-                /* Show image container */
-                $("#loader").show();
-                $('.blur_action').css('filter','blur(3px)');
-
+            type: 'post',
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
+            data: {range:range,mileAgePro:mileAgePro,agePro:agePro},
+           
             success: function(response){
-            $('.blur_action').css('filter','blur(0px)');
                 
+            $('.blur_action').css('filter','blur(0px)');
             var resultData = response;
+            // console.log(resultData)
+            var bodyData = '';
             var count = resultData.length;
             
-            var bodyData = '';
-            var i=1;
             if(count > 0){
                 $("#first").hide();
                 $(".count").html("");
@@ -285,20 +332,155 @@ $("#slider").slider({
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
-            $("#filter-price").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
-        }
-        
-        },
-       
-            complete:function(data){
-    /* Hide image container */
-    $("#loader").hide();
+            $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
+            }
+            },
 
-   }
-        });
+            complete:function(data){
+            /* Hide image container */
+            $("#loader").hide();
+
+            }
+
+
+            });
+    });
+  
+
+
+
+    $('.blur_action').css('filter','blur(0px)');
+    // $('#loader').hide();
+// Initializing slider
+$("#slider").slider({
+    range: true,
+    min: 20000,
+    max: 80000,
+    values: [ 22000, 25000 ],
+    slide: function( event, ui ) {
+       
+
+        // Get values
+        var min = ui.values[0];
+        var max = ui.values[1];
+        $('#range').text(min+'-' + max);
+
+        // AJAX request
+       
     }
 });
 });
+// ajax for slider data start
+// $.ajax({
+//             url: 'test',
+//             type: 'get',
+//             data: {min:min,max:max},
+//             beforeSend: function(){
+//                 /* Show image container */
+//                 $("#loader").show();
+//                 $('.blur_action').css('filter','blur(3px)');
+
+//             },
+//             success: function(response){
+//             $('.blur_action').css('filter','blur(0px)');
+                
+//             var resultData = response;
+//             var count = resultData.length;
+            
+//             var bodyData = '';
+//             var i=1;
+//             if(count > 0){
+//                 $("#first").hide();
+//                 $(".count").html("");
+//                 $(".count").html("Showing " +count+ " vehicles");
+                
+//             $.each(resultData,function(resultData,row){     
+                
+//                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
+//                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+//                     bodyData+='</div></a>';
+//                     $("#filter-price").html(bodyData); 
+//                 })
+                
+
+//             }
+//             else{
+//                 $(".count").html("");
+//                 $(".count").html("Showing " +count+ " vehicles");
+//                 $("#first").hide();
+//             $("#filter-price").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
+//         }
+        
+//         },
+       
+//             complete:function(data){
+//     /* Hide image container */
+//     $("#loader").hide();
+
+//    }
+//         });
+// end slider data ajax
+
+// milage ajax data start 
+// $("#mileAgePro").change(function(){
+//   var milage = this.value;
+//          $.ajax({
+   
+//             url: 'test',
+//             type: 'get',
+//             data: {milage,milage},
+//             beforeSend: function(){
+//                 /* Show image container */
+               
+//                 $('.blur_action').css('filter','blur(3px)');
+
+//             },
+//             success: function(response){
+              
+//             $('.blur_action').css('filter','blur(0px)');
+//             var resultData = response;
+//             console.log(resultData)
+//             var bodyData = '';
+//             var count = resultData.length;
+            
+//             if(count > 0){
+//                 $("#first").hide();
+//                 $(".count").html("");
+//                 $(".count").html("Showing " +count+ " vehicles");
+                
+//             $.each(resultData,function(resultData,row){     
+                
+//                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
+//                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+//                     bodyData+='</div></a>';
+//                     $("#filter-price").html(bodyData); 
+//                 })
+                
+
+//             }
+//             else{
+//                 $(".count").html("");
+//                 $(".count").html("Showing " +count+ " vehicles");
+//                 $("#first").hide();
+//             $("#filter-price").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
+//         }
+//         },
+
+//         complete:function(data){
+//     /* Hide image container */
+//     $("#loader").hide();
+
+//    }
+
+
+// });
+// });
+
+// end milage data ajax
+
 </script>
+
+
+
 @endpush
 
