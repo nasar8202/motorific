@@ -70,45 +70,45 @@ class DealerDashboardController extends Controller
         switch($request != null) {
         //    age milage and price filter combine case
             case($request->agePro && $request->mileAgePro && $request->range ):
-                
+
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
-                
+
                 $age_milage_price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                 ->where('vehicle_mileage','<=',$request->mileAgePro)->
                 with('vehicleInformation')
                 ->with('VehicleImage')->get();
-               dd($age_milage_price_filter);
+               //dd($age_milage_price_filter);
                   return $age_milage_price_filter;
               break;
             // age and millage filter combine case
             case($request->agePro && $request->mileAgePro ):
-                
+
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
-                
+
                 $age_milage_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                 ->where('vehicle_mileage','<=',$request->mileAgePro)->
                 with('vehicleInformation')
                 ->with('VehicleImage')->get();
-               
+
                   return $age_milage_filter;
               break;
              // milage and price filter combine case
              case($request->range && $request->mileAgePro ):
-               
+
                 $range = explode('-',$request->range);
                 $milage_price_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->
                 where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->with('vehicleInformation')
                 ->with('VehicleImage')->get();
-                
+
                 return $milage_price_filter;
             break;
             // price range filter case
             case($request->range):
-             
+
                 $range = explode('-',$request->range);
                 $price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->with('vehicleInformation')
                 ->with('VehicleImage')->get();
@@ -116,7 +116,7 @@ class DealerDashboardController extends Controller
             break;
             // milage range filter case
             case($request->mileAgePro):
-               
+
                 $milage_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                 return $milage_filter;
@@ -124,20 +124,20 @@ class DealerDashboardController extends Controller
             case($request->agePro):
               $current_year = date("Y");
               $total = $current_year - $request->agePro;
-              
+
               $age_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->with('vehicleInformation')
               ->with('VehicleImage')->get();
-             
+
                 return $age_filter;
             break;
-           
-                
+
+
         }
 
 die();
 
         // dd($request->all());
-        
+
         dd($range[0]);
         if($request->milage){
             $milage = $request->milage;
@@ -145,7 +145,7 @@ die();
             ->with('VehicleImage')->get();
             return $milage_filter;
         }
-        
+
   if($request->min && $request->max){
         $min = $request->min;
         $max = $request->max;
@@ -156,26 +156,26 @@ die();
         // dd($users);
         return $users;
   }
-    
+
     }
     public function vehicleDetail($id)
     {
         $vehicle = Vehicle::Where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
-        
+
         $vehicle_info = vehicleInformation::where('vehicle_id',$id)->first();
         $damage = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
 
-        
+
         $vehcile_info_feature_id = explode(',' ,$vehicle_info->vehicle_feature_id);
-        
+
         $number_of_keys = NumberOfKey::where('id',$vehicle_info->number_of_keys_id)->first();
         $finance = Finance::where('id',$vehicle_info->finance_id)->first();
         $privateplate = PrivatePlate::where('id',$vehicle_info->private_plate_id)->first();
         $smooking = Smoking::where('id',$vehicle_info->smooking_id)->first();
         $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
         $LockingWheelNut = LockingWheelNut::where('id',$vehicle_info->looking_wheel_nut_id)->first();
-      
-     
+
+
 
         return view('frontend.dealer.vehicle.vehicleDetail',compact('vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage'));
     }

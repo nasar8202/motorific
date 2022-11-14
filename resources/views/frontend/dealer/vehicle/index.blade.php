@@ -52,6 +52,7 @@ div#filter-price {
     justify-content: center;
 }
 
+.category-btn a.active,
 .category-btn a:hover {
     background: #05eab5;
     color: white;
@@ -214,8 +215,8 @@ div#filter-price {
             <div class="sec-2-txt pb-4">
                 <h2>Live Sell ends in 2 hrs</h2>
                 <div class="category-btn">
-                    <a href="{{ route('dealer.dashboard') }}">All </a>
-                <a href="{{ route('vehicle.liveSell') }}">Live Sell </a>
+                    <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
+                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('/dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
                 <a href="#">Buy It Now</a>
             </div>
                 <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
@@ -321,7 +322,7 @@ $(document).ready(function(){
             $.each(resultData,function(resultData,row){
 
                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
-                    bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+                    bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
                     $("#filter-price").html(bodyData);
                     $("#no-record").html('');
