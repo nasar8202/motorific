@@ -22,6 +22,7 @@ class CreateVehiclesTable extends Migration
             $table->string('vehicle_color')->nullable();
             $table->string('vehicle_type')->nullable();
             $table->string('vehicle_tank')->nullable();
+            $table->string('previous_owners')->nullable();
             $table->integer('vehicle_mileage')->nullable();
             $table->integer('vehicle_price')->nullable();
             $table->string('status')->default(1)->comment('1 = Active , 2 = Deactive');

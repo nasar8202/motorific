@@ -104,8 +104,8 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="country-floating">Car Mile Age</label>
-                                            <input type="text" id="country-floating" class="form-control"
+                                            <label for="country-floating">Car Year</label>
+                                            <input type="number" id="country-floating" class="form-control"
                                                 name="mile_age" placeholder="Vehicle Age">
                                         </div>
                                         @if ($errors->has('mile_age'))
@@ -145,7 +145,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="city-column">Vehicle Year</label>
-                                            <input type="text" id="city-column" class="form-control"
+                                            <input type="number" id="city-column" class="form-control"
                                                 placeholder="Vehicle Year" name="vehicle_year">
                                         </div>
                                         @if ($errors->has('vehicle_year'))
@@ -239,6 +239,22 @@
                                         <span class="text-danger">{{ $errors->first('vehicle_feature') }}</span>
                                     @endif
                                     </div>
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Select Vehicle Category</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="vehicle_category" id="basicSelect">
+                                                <option disabled selected>Select Vehicle Category</option>
+                                                @foreach($vehicleCategories as $vehicleCategorie)
+                                                    <option value="{{$vehicleCategorie->id}}">{{$vehicleCategorie->title}}</option>
+                                                   @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('vehicle_category'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_category') }}</span>
+                                    @endif
+                                    </div>
+                                    
                                     <div class="col-md-6 mb-4">
                                         <h6>Select Seat Material</h6>
 
@@ -476,7 +492,7 @@
                                         <h6>Previous Owners</h6>
                                         <div class="form-group">
                                             
-                                            <input type="text"  class="form-control"
+                                            <input type="number"  class="form-control"
                                                 name="previous_owner" placeholder="how many previous owners are">
                                         </div>
                                         @if ($errors->has('previous_owner'))

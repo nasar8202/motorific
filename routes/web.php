@@ -3,15 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
-use App\Http\Controllers\frontend\seller\FrontController;
-use App\Http\Controllers\frontend\seller\SellerDashboardController;
-use App\Http\Controllers\frontend\dealer\DealerDashboardController;
-use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
-
-use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\VehicleController;
-use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
+use App\Http\Controllers\frontend\seller\FrontController;
+use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
+use App\Http\Controllers\backend\admin\AdminDashboardController;
+
+use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
+use App\Http\Controllers\frontend\dealer\DealerDashboardController;
+use App\Http\Controllers\frontend\seller\SellerDashboardController;
+use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
+use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 
 /*
@@ -179,6 +181,18 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
     // end manage user
 
+
+    // vehcile categories
+    Route::get('/view-categories', [VehicleCategory::class,'viewCategories'])->name('viewCategories');
+    Route::get('/create-category', [VehicleCategory::class,'createCategoryForm'])->name('createCategoryForm');
+    Route::post('/add-category', [VehicleCategory::class,'storeCategories'])->name('storeCategories');
+    
+    Route::get('/delete-category/{id}', [VehicleCategory::class,'deleteCategory'])->name('deleteCategory');
+    Route::get('/edit-category/{id}', [VehicleCategory::class,'editCategory'])->name('editsCategoryForm');
+    Route::post('/update-category/{id}', [VehicleCategory::class,'updateCategories'])->name('updateCategories');
+    // end vehcile categories
+
+    
      // vehicle
      Route::get('/view-vehcile', [ManageVehicleController::class,'viewVehicle'])->name('viewVehicle');
      Route::get('/add-vehicle', [ManageVehicleController::class,'createVehicleForm'])->name('createVehicleForm');
@@ -204,7 +218,10 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
+    Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
+    Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
     Route::post('/test', [DealerDashboardController::class,'test'])->name('test');
+    Route::post('/dropdownfilter', [DealerDashboardController::class,'dropdownfilter'])->name('dropdownfilter');
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
 
