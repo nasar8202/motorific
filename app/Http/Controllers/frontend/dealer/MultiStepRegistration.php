@@ -29,7 +29,16 @@ class MultiStepRegistration extends Controller
 
         return view('frontend.dealer.step2',compact('register'));
     }
-
+    
+    public function ListingDetails(Request $request)
+    {
+        return view('frontend.dealer.ListingDetails.listing-details');
+    }
+    public function CreateAdvert(Request $request)
+    {
+        return view('frontend.dealer.CreateAdvert.create-advert');
+    }
+    
     public function createStep3(Request $request)
     {
         $register = $request->session()->get('register');

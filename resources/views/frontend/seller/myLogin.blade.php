@@ -2,10 +2,10 @@
 @section('title','Sell Login')
 @section('section')
 <style>
-    .dropdown {
-position: relative;
-display: inline-block;
-color:white
+.dropdown > span{
+    position: relative;
+    display: inline-block;
+    color:white;
 }
 
 .dropdown-content {

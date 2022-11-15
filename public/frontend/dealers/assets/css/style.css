@@ -1,0 +1,322 @@
+/*QA CSS Start */
+:root{
+    --f12: 12px;
+    --f14: 14px;
+    --f15: 15px;
+    --f16: 16px;
+    --f18: 18px;
+    --f20: 20px;
+    --f25: 25px;
+    --f40: 40px;
+    --f50: 50px;
+}
+
+/* FONTS CLASSES */
+.f-12{
+    font-size: var(--f12);
+}
+.f-14{
+    font-size: var(--f14);
+}
+.f-15{
+    font-size: var(--f15);
+}
+.f-16{
+    font-size: var(--f16);
+}
+.f-18{
+    font-size: var(--f18);
+}
+.f-20{
+    font-size: var(--f20);
+}
+.f-25{
+    font-size: var(--f25);
+}
+.f-40{
+    font-size: var(--f40);
+}
+.f-50{
+    font-size: var(--f50);
+}
+
+.c-gray{
+    color: #858585;
+}
+
+
+.mb-20{
+    margin-bottom: 20px;
+}
+
+section.section{
+    padding: 70px 0;
+}
+.label-main-text{
+    font-weight: 500;
+    margin: 0 0 10px;
+}
+.headingqa-2{
+    font-weight: 700;
+    color: #202543;
+    margin: 0 0 40px;
+}
+li.radio-option-box {
+    padding: 10px 30px;
+    background: #f0effb;
+    border-radius: 8px;
+    cursor: pointer;
+}
+li.radio-option-box * {
+    cursor: pointer;
+}
+li.radio-option-box:hover{
+    background: #cdccdd;
+}
+.label-qa{
+    /* font-size: var(--f18); */
+    font-weight: 400;
+}
+.inp-qa{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #7f7f7f;
+    color: #000;
+    border-radius: 12px;
+    outline: none;
+}
+.inp-qa::placeholder{
+    color: #a3a3a3;
+}
+.details-field-main{
+    margin: 0 0 25px;
+}
+
+.hide-inp{
+    width: 0;
+    height: 0;
+}
+.custom-radio-box label .radio-circle{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    position: relative;
+}
+.custom-radio-box label .radio-circle::before{
+    content: '';
+    width: 65%;
+    height: 65%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    background-color: #05eab5;
+    display: none;
+
+}
+.custom-radio-box input:checked + label .radio-circle::before{
+    display: block;
+}
+.dflex-gap10 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.custom-checkbox .checkbox-square{
+    display: inline-flex;
+    width: 35px;
+    height: 22px;
+    border: 1px solid #7f7f7f;
+    position: relative;
+    top: 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: #39c22b;
+}
+.custom-checkbox .checkbox-square i{
+    display: none;
+}
+.custom-checkbox input[type="checkbox"]:checked + label i{
+    display: block;
+}
+.confirmation-div{
+    margin: 50px 0;
+}
+
+.btn-qa1{
+    display: block;
+    font-weight: 500;
+    padding: 10px 20px;
+    color: #262b54;
+    background-color: #05eab5;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 2px solid #05eab5;
+    transition: all .5s ease-in-out;
+}
+.btn-qa1:hover{
+    background-color: #262b54;
+    border-color: #262b54;
+    color: #fff;
+}
+.bt-btns-main{
+    justify-content: space-between;
+}
+.btn-trans{
+    display: block;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #268fd9;
+    font-weight: 500;
+    transition: all .5s ease-in-out;
+}
+.btn-trans:hover{
+    color: #262b54;
+}
+
+.graybox{
+    background: #f2f2f2;
+    padding: 40px;
+    border-radius: 25px;
+}
+.description-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+.description-box .item-img {
+    width: 400px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.description-box .item-img img {
+    width: 100%;
+    height: 100%;
+}
+.description-box .item-descp{
+    font-weight: 500;
+}
+.item-features{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 8px;
+}
+.item-features li{
+    background-color: #cdcdda;
+    border-radius: 30px;
+    color: #000000;
+    font-size: var(--f12);
+    font-weight: 400;
+    padding: 6px 15px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+.item-features li:hover {
+    background-color: #1f2742;
+    color: #fff;
+}
+.novalid-txt{
+    font-weight: 500;
+    color: #858585;
+    margin: 20px 0 0;
+}
+.btn-qa1.btn-border-sm{
+    background-color: transparent;
+    border-color: #515576;
+    border-radius: 30px;
+}
+.btn-qa1.btn-border-sm:hover{
+    border-color: #05eab5;
+    color: #515576;
+}
+.btn-qa1.btn-filled-sm{
+    border-radius: 30px;
+}
+
+
+
+/* CREATE ADVERT PAGE CSS */
+.create-advert-sec{
+    position: relative;
+}
+.c-dull-green{
+    color: #029572;
+}
+.inp-round{
+    border-radius: 50px;
+    border-color: #000000;
+    max-width: 400px;
+    padding: 16px 30px;
+}
+.create-advert-sec .car-img{
+    display: block;
+    max-width: 35%;
+    object-fit: contain;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+}
+.create-advert-sec .car-img img{
+    position: relative;
+    z-index: 20;
+}
+
+
+
+
+.create-advert-sec::before {
+    content: '';
+    border-radius: 50%;
+    /* background-color: rgb(5, 234, 181); */
+    /* background: linear-gradient(169deg, rgb(5, 234, 181), transparent,transparent); */
+    background: linear-gradient(181deg, rgb(5, 234, 181),transparent);
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    filter: brightness(0.8);
+    z-index: 4;
+}
+
+.create-advert-sec::after {
+    content: '';
+    border-radius: 50%;
+    /* background-color: rgb(113, 111, 171); */
+    background: linear-gradient(128deg, rgb(113, 111, 171), transparent , transparent);
+    position: absolute;
+    /* width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: -5%;
+    filter: brightness(0.8);
+    z-index: 5; */
+    width: 550px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10%;
+    right: -5%;
+    filter: brightness(0.8);
+    z-index: 5;
+}
+
+/* Vehical Form  */
+.headingqa-3{
+    font-weight: 700;
+}

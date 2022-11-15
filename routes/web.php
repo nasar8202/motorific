@@ -44,6 +44,11 @@ Route::post('/store', [MultiStepRegistration::class,'store'])->name('store');
 
 Route::get('/dealer-login', [MultiStepRegistration::class, 'DealerLogin'])->name('DealerLogin');
 
+Route::get('/listing-details', [MultiStepRegistration::class, 'ListingDetails'])->name('ListingDetails');
+
+Route::get('/create-advert', [MultiStepRegistration::class, 'CreateAdvert'])->name('CreateAdvert');
+
+
 
 // end dealer login
 

@@ -2,25 +2,25 @@
 @section('title','Sell your car the with Motorific')
 @section('section')
 <style>
-    .dropdown {
-position: relative;
-display: inline-block;
-color:white
+.dropdown > span {
+    position: relative;
+    display: inline-block;
+    color:white
 }
-
 .dropdown-content {
-display: none;
-position: absolute;
-background-color: #f9f9f9;
-min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-padding: 12px 16px;
-z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-.dropdown:hover .dropdown-content {
-display: block;
-}
+
     </style>
     <!-- HEADER -->
     <header>

@@ -15,6 +15,14 @@
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
+    
+    
+    <!-- CUSTOM-CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('frontend/dealers/assets/css/style.css') }}">
+    <!-- RESPONSIVE-CSS -->
+    <link rel="stylesheet" href="{{ URL::asset('frontend/dealers/assets/css/responsive.css') }}">
+    
+    
     <!-- Select 2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <title>Motorific- @yield('title')</title>
