@@ -16,6 +16,7 @@ use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
+use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
@@ -29,6 +30,7 @@ class ManageVehicleController extends Controller
     {
         $VehicleFeatures =  VehicleFeature::where('status',1)->get();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
+        $vehicleCategories = vehicleCategories::all();
         $SeatMaterials =  SeatMaterial::where('status',1)->get();
         $ToolPacks =  ToolPack::where('status',1)->get();
         $LockingWheelNuts =  LockingWheelNut::where('status',1)->get();
@@ -37,7 +39,7 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
-        return view('backend.admin.manageVehicle.createVehicle',compact('VehicleFeatures','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances'));
+        return view('backend.admin.manageVehicle.createVehicle',compact('VehicleFeatures','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicleCategories'));
     }
     public function StoreVehicle(Request $request)
     {
@@ -62,6 +64,7 @@ class ManageVehicleController extends Controller
             'number_of_keys' => 'required',
             'tool_pack' => 'required',
             'wheel_nut' => 'required',
+            'vehicle_category'=>'required',
             'smoking' => 'required',
             'logbook' => 'required',
             'location' => 'required',
@@ -83,6 +86,7 @@ class ManageVehicleController extends Controller
             'image3' => 'required',
             'image4' => 'required',
             'image5' => 'required',
+            
 
         ]);
         DB::beginTransaction();
@@ -107,8 +111,10 @@ class ManageVehicleController extends Controller
             $vehicle->vehicle_color = $request->vehicle_color;
             $vehicle->vehicle_type = $request->vehicle_type;
             $vehicle->vehicle_tank = $request->vehicle_tank;
+            $vehicle->previous_owners =  $request->previous_owner;
             $vehicle->vehicle_mileage = $request->vehicle_mileage;
             $vehicle->vehicle_price = $request->vehicle_price;
+            $vehicle->vehicle_category = $request->vehicle_category;
             $vehicle->status = 0;
 
             $vehicle->save();
@@ -133,6 +139,7 @@ class ManageVehicleController extends Controller
             $vehicleInformation = new vehicleInformation;
             $vehicleInformation->vehicle_id = $vehicle->id;
             $vehicleInformation->vehicle_feature_id = $vehicle_feature_id ;
+            
             $vehicleInformation->seat_material_id =  $request->seat_material;
             $vehicleInformation->number_of_keys_id =  $request->number_of_keys;
             $vehicleInformation->tool_pack_id =  $request->tool_pack;
@@ -254,7 +261,7 @@ class ManageVehicleController extends Controller
         $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
         $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
         $damages = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
-        
+        $vehicleCategories = vehicleCategories::all();
         $VehicleFeatures =  VehicleFeature::where('status',1)->get();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
         $SeatMaterials =  SeatMaterial::where('status',1)->get();
@@ -265,7 +272,7 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
-        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','seller','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage','damages'));
+        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','seller','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage','damages','vehicleCategories'));
 
     }
     public function updateVehicle(Request $request,$id)
@@ -282,6 +289,7 @@ class ManageVehicleController extends Controller
             'vehicle_mileage' => 'required',
             'vehicle_price' => 'required',
             'vehicle_feature' => 'required',
+            'vehicle_category'=>'required',
             'seat_material' => 'required',
             'number_of_keys' => 'required',
             'tool_pack' => 'required',
@@ -335,8 +343,10 @@ class ManageVehicleController extends Controller
         $vehicle->vehicle_color = $request->vehicle_color;
         $vehicle->vehicle_type = $request->vehicle_type;
         $vehicle->vehicle_tank = $request->vehicle_tank;
+        $vehicle->previous_owners =  $request->previous_owner;
         $vehicle->vehicle_mileage = $request->vehicle_mileage;
         $vehicle->vehicle_price = $request->vehicle_price;
+        $vehicle->vehicle_category = $request->vehicle_category;
 
         // add time
         $vehicle->all_auction = $auction_date_time;

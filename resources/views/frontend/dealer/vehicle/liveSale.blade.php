@@ -52,7 +52,8 @@
         justify-content: center;
     }
 
-    .category-btn a:hover {
+    .category-btn a.active,
+.category-btn a:hover {
         background: #05eab5;
         color: white;
         border-radius: 10px;
@@ -209,9 +210,9 @@
             <div class="sec-2-txt pb-4">
                 <h2>Live Sell ends in 2 hrs</h2>
                 <div class="category-btn">
-                    <a href="{{ route('dealer.dashboard') }}">All </a>
-                <a href="{{ route('vehicle.liveSell') }}">Live Sell </a>
-                <a href="#">Buy It Now</a>
+                    <a href="{{ route('dealer.dashboard') }}" class="all {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
+                    <a href="{{ route('vehicle.liveSell') }}" class="live {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
+                    <a href="#">Buy It Now</a>
                 </div>
                 <h4>Showing  {{ $countLiveSellVehicle }} vehicles</h4>
             </div>

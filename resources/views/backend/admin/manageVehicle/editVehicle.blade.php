@@ -246,6 +246,22 @@ p {
                                         <span class="text-danger">{{ $errors->first('vehicle_feature') }}</span>
                                     @endif
                                     </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Select Vehicle Category</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="vehicle_category" id="basicSelect">
+                                                <option disabled selected>Select Vehicle Category</option>
+                                                @foreach($vehicleCategories as $vehicleCategorie)
+                                                    <option @if($vehicleCategorie->id == $vehicles->vehicle_category ) selected @endif value="{{$vehicleCategorie->id}}">{{$vehicleCategorie->title}}</option>
+                                                   @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('vehicle_category'))
+                                        <span class="text-danger">{{ $errors->first('vehicle_category') }}</span>
+                                    @endif
+                                    </div>
                                     <div class="col-md-6 mb-4">
                                         <h6>Select Seat Material</h6>
 

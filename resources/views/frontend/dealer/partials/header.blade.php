@@ -3,8 +3,8 @@
         <div class="logo-navlinks d-flex align-items-center">
             <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="">
             <ul class="navlinks mb-0 align-items-center">
-                <a href="#">
-                    <li>Browse Vehicles</li>
+                <a href="{{ route('dealer.dashboard') }}">
+                    <li >Browse Vehicles</li>
                 </a>
                 <a href="#">
                     <li>How It Works</li>

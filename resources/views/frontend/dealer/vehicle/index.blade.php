@@ -52,6 +52,7 @@ div#filter-price {
     justify-content: center;
 }
 
+.category-btn a.active,
 .category-btn a:hover {
     background: #05eab5;
     color: white;
@@ -75,24 +76,28 @@ div#filter-price {
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
             <div class="productsFilters">
-                <form  action="#">
-                    <h2>Filters</h2>
+                <h2>Filters</h2>
                     <div class="filterIn">
                         <h4>Type</h4>
                         <label class="checkboxCommon" for="typeAll">
-                            <input type="radio" name="typePro" value="All" id="typeAll"/>
-                            <span>All</span>
+                            <a href="{{route('dealer.dashboard')}}" id="typeAll" >All</a>
+                            {{-- <input type="radio" class="type"  name="typePro" value="All" id="typeAll"/>
+                            <span>All</span> --}}
                         </label>
                         <label class="checkboxCommon" for="typeCar">
-                            <input type="radio" name="typePro" value="Car" id="typeCar"/>
-                            <span>Car</span>
+                            <a href="{{route('onlyCars')}}" id="typeAll" >Cars</a>
+                            {{-- <input type="radio" class="type" name="typePro" value="Car" id="typeCar"/>
+                            <span>Car</span> --}}
                         </label>
                         <label class="checkboxCommon" for="typeVan">
-                            <input type="radio" name="typePro" value="Van" id="typeVan"/>
-                            <span>Van</span>
+                            <a href="{{route('onlyVans')}}"  >Vans</a>
+                            {{-- <input type="radio" class="type" name="typePro" value="Van" id="typeVan"/>
+                            <span>Van</span> --}}
                         </label>
                     </div>
-                    <div class="filterIn">
+                <form  action="#">
+                    
+                    {{-- <div class="filterIn">
                         <h4>Makes</h4>
                         <label class="selectCommon selectSingle" >
                             <select name="makePro" id="makePro">
@@ -102,7 +107,7 @@ div#filter-price {
     							<option value="Bmw"> Bmw</option>
                             </select>
                         </label>
-                    </div>
+                    </div> --}}
                     <div class="filterIn">
                         <h4>Price</h4>
                         <div id="slider"></div><br/>
@@ -139,13 +144,13 @@ div#filter-price {
                         <h4>Previous Owners</h4>
                         <label class="selectCommon selectSingle">
                             <select name="previousOwnersPro" id="previousOwnersPro">
-                                <option value=""> Select Previous Owners </option>
-                                <option value="Abc"> Abc</option>
-    							<option value="Xyz"> Xyz</option>
+                                <option selected disabled value=""> Select Previous Owners </option>
+                                <option value="1"> < 1 </option>
+    							<option value="5"> < 5</option>
                             </select>
                         </label>
                     </div>
-                    <div class="filterIn">
+                    {{-- <div class="filterIn">
                         <h4>Distance From SL1 2LX</h4>
                         <label class="selectCommon selectSingle">
                               <select name="SL12LX" id="SL12LX">
@@ -155,8 +160,8 @@ div#filter-price {
     							<option value="100,000"> < 100,0000</option>
                             </select>
                         </label>
-                    </div>
-                    <div class="filterIn">
+                    </div> --}}
+                    {{-- <div class="filterIn">
                         <h4>Exterior Grade</h4>
                         <label class="selectCommon selectSingle">
                             <select name="exteriorGrade" id="exteriorGrade">
@@ -165,18 +170,18 @@ div#filter-price {
     							<option value="2"> 2</option>
                             </select>
                         </label>
-                    </div>
+                    </div> --}}
                     <div class="filterIn">
                         <h4>Fuel Type</h4>
                         <label class="selectCommon selectSingle">
                             <select name="fuelType" id="fuelType">
-                                <option value=""> Select Fuel Type </option>
+                                <option selected disabled value=""> Select Fuel Type </option>
                                 <option value="diesel"> Diesel</option>
     							<option value="petrol"> Petrol</option>
                             </select>
                         </label>
                     </div>
-                    <div class="filterIn">
+                    {{-- <div class="filterIn">
                         <h4>Transmission</h4>
                         <label class="selectCommon selectSingle">
                             <select name="transmission" id="transmission">
@@ -185,8 +190,8 @@ div#filter-price {
     							<option value="2"> 2</option>
                             </select>
                         </label>
-                    </div>
-                    <div class="filterIn">
+                    </div> --}}
+                    {{-- <div class="filterIn">
                         <h4>Collection</h4>
                         <label class="selectCommon selectSingle">
                             <select name="collection" id="collection">
@@ -195,8 +200,8 @@ div#filter-price {
     							<option value="2"> 2</option>
                             </select>
                         </label>
-                    </div>
-                    <div class="filterIn">
+                    </div> --}}
+                    {{-- <div class="filterIn">
                         <h4>Additional Filters</h4>
                         <label class="selectCommon selectSingle">
                             <select name="additionalFilters" id="additionalFilters">
@@ -205,17 +210,17 @@ div#filter-price {
     							<option value="2"> 2</option>
                             </select>
                         </label>
-                    </div>
+                    </div> --}}
                     <button type="button" class="btn btn-primary" id="subm"> Filter</button>
                 </form>
             </div>
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
-                <h2>Live Sell ends in 2 hrs</h2>
+                <h2>Live Sell ends in <span id="counter"></span></h2>
                 <div class="category-btn">
-                    <a href="{{ route('dealer.dashboard') }}">All </a>
-                <a href="{{ route('vehicle.liveSell') }}">Live Sell </a>
+                    <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
+                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('/dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
                 <a href="#">Buy It Now</a>
             </div>
                 <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
@@ -223,7 +228,7 @@ div#filter-price {
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="topRightFilter">
-                        <select>
+                        <select id="dropdownfilter">
                             <option value="newest">Newest</option>
                             <option value="lowestPrice">Lowest Price</option>
                             <option value="highestPrice">Highest Price</option>
@@ -288,12 +293,25 @@ div#filter-price {
 
 <script type="text/javascript">
 $(document).ready(function(){
+    $('.type').on('click', function() {
+        var type = $(".type").val();
+        alert(type);
+});
+
+    $('#dropdownfilter').on('change', function() {
+        var dropdownfilter = $("#dropdownfilter").val();
+});
     $( "#subm").click(function(){
 
     var makePro = $("#makePro").val();
     var range = $("#range").text();
     var mileAgePro = $("#mileAgePro").val();
     var agePro = $("#agePro").val();
+    var previousOwnersPro = $("#previousOwnersPro").val();
+    var fuelType = $("#fuelType").val();
+   
+    
+    
 
 
         $.ajax({
@@ -303,7 +321,8 @@ $(document).ready(function(){
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            data: {range:range,mileAgePro:mileAgePro,agePro:agePro},
+            data: {range:range,mileAgePro:mileAgePro,agePro:agePro,
+                previousOwnersPro:previousOwnersPro,fuelType:fuelType},
 
             success: function(response){
 
@@ -319,9 +338,8 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ " vehicles");
 
             $.each(resultData,function(resultData,row){
-
                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
-                    bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+                    bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
                     $("#filter-price").html(bodyData);
                     $("#no-record").html('');

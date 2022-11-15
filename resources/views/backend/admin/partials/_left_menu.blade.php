@@ -93,6 +93,20 @@
 
                 </ul>
             </li>
+
+            <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Vehicle Category</span>
+                </a>
+                <ul class="submenu">
+                   
+                    <li class="submenu-item">
+                        <a href="{{route('viewCategories')}}">View Category</a>
+                    </li>
+
+                </ul>
+            </li>
         </ul>
     </li>
     <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
