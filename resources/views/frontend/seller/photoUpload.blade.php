@@ -148,7 +148,10 @@ display: block;
         </div>
 
         <div class="photo-up-sec-2-box-main">
+            <form method="POST" action="{{route('vehicleInformation')}}">
+                @csrf
             <div class="photo-up-sec-2-box">
+
                 <div class="photo-up-sec-2-box-txt">
                     <h4>Vehicle Information</h4>
                     <div class="photo-up-sec-2-box-personal-information">
@@ -162,7 +165,7 @@ display: block;
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-s-gr my-auto">
-                    <button onclick="myFunction2()">Start</button>
+                    <button type="button" onclick="myFunction2()">Start</button>
                 </div>
             </div>
 
@@ -178,13 +181,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="sat_nav">
-                                                <input type="checkbox" name="sat_nav" value="1" id="sat_nav" />
+                                            @foreach($VehicleFeature as $key=> $feature)
+                                            <label for="sat_nav-{{$key}}">
+                                                <input type="checkbox" name="vehicle_feature" value="{{$feature->id}}" id="sat_nav-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Sat nav</p>
+                                                    <p>{{$feature->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="panoramic_roof">
+                                            @endforeach
+                                            {{-- <label for="panoramic_roof">
                                                 <input type="checkbox" name="panoramic_roof" value="2" id="panoramic_roof"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Panoramic roof</p>
@@ -207,7 +212,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Upgraded sound system</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -226,14 +231,17 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="interiorType-cloth">
-                                                <input type="radio" name="interiorType" value="Cloth" id="interiorType-cloth" />
+                                            @foreach($SeatMaterials as $key=> $seat)
+                                            <label for="interiorType-cloth-{{$key}}">
+                                                <input type="radio" name="seat_material" value="{{$seat->id}}" id="interiorType-cloth-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Cloth</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/cloth.jpg')}}" />
+                                                    <p>{{$seat->title}}</p>
+                                                    <img src="{{ asset('materials/seat_material_iamges/'.$seat->image)}}" />
+                                                   
                                                 </div>
                                             </label>
-                                            <label for="interiorType-fauxleather">
+                                            @endforeach
+                                            {{-- <label for="interiorType-fauxleather">
                                                 <input type="radio" name="interiorType" value="Fauxleather" id="interiorType-fauxleather"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Faux leather</p>
@@ -267,14 +275,14 @@ display: block;
                                                     <p>Suede</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/suede.jpg')}}" />
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -295,13 +303,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="keysCount1">
-                                                <input type="radio" name="keysCount" value="1" id="keysCount1" />
+                                            @foreach($NumberOfKeys as $key=> $NumberOfKey)
+                                            <label for="keysCount1-{{$key}}">
+                                                <input type="radio" name="number_of_keys" value="{{$NumberOfKey->id}}" id="keysCount1-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>1 key</p>
+                                                    <p>{{$NumberOfKey->number_of_key}}</p>
                                                 </div>
                                             </label>
-                                            <label for="keysCount2">
+                                            @endforeach
+                                            {{-- <label for="keysCount2">
                                                 <input type="radio" name="keysCount" value="2" id="keysCount2"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>2 key</p>
@@ -312,7 +322,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>3 key</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -337,18 +347,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="hasToolsInBoot-included">
-                                                <input type="radio" name="hasToolsInBoot" value="Included" id="hasToolsInBoot-included" />
+                                            @foreach($ToolPacks as $key=> $tool)
+                                            <label for="hasToolsInBoot-included-{{$key}}">
+                                                <input type="radio" name="tool_pack" value="{{$tool->id}}" id="hasToolsInBoot-included-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Tool pack included</p>
+                                                    <p>{{$tool->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="hasToolsInBoot-missing">
+                                            @endforeach
+                                            {{-- <label for="hasToolsInBoot-missing">
                                                 <input type="radio" name="hasToolsInBoot" value="Missing" id="hasToolsInBoot-missing"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Tool pack missing</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -376,13 +388,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="lockingWheelNut-yes">
-                                                <input type="radio" name="lockingWheelNut" value="Yes" id="lockingWheelNut-yes" />
+                                            @foreach($LockingWheelNuts as $key=> $wheelnut)
+                                            <label for="lockingWheelNut-yes-{{$key}}">
+                                                <input type="radio" name="locking_wheel_nut" value="{{$wheelnut->id}}" id="lockingWheelNut-yes-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Locking wheel nut included</p>
+                                                    <p>{{$wheelnut->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="lockingWheelNut-no">
+                                            @endforeach
+                                            {{-- <label for="lockingWheelNut-no">
                                                 <input type="radio" name="lockingWheelNut" value="No" id="lockingWheelNut-no"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Locking wheel nut missing</p>
@@ -393,7 +407,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Wheels do not have locking nuts</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -421,18 +435,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="hasBeenSmokedIn-no">
-                                                <input type="radio" name="hasBeenSmokedIn" value="No" id="hasBeenSmokedIn-no" />
+                                            @foreach($Smokings as $key=> $smoking)
+                                            <label for="hasBeenSmokedIn-no-{{$key}}">
+                                                <input type="radio" name="smoked_in" value="{{$smoking->id}}" id="hasBeenSmokedIn-no-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Vehicle has not been smoked in</p>
+                                                    <p>{{$smoking->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="hasBeenSmokedIn-yes">
+                                            @endforeach
+                                            {{-- <label for="hasBeenSmokedIn-yes">
                                                 <input type="radio" name="hasBeenSmokedIn" value="Yes" id="hasBeenSmokedIn-yes"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Vehicle has been smoked in</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -457,18 +473,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="hasV5LogBook-true">
-                                                <input type="radio" name="hasV5LogBook" value="True" id="hasV5LogBook-true" />
+                                           @foreach($VCLogBooks as $key=> $VCLogBook)
+                                            <label for="hasV5LogBook-true-{{$key}}">
+                                                <input type="radio" name="log_book" value="{{$VCLogBook->id}}" id="hasV5LogBook-true-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>I can provide the V5C logbook once sold</p>
+                                                    <p>{{$VCLogBook->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="hasV5LogBook-false">
+                                            @endforeach
+                                            {{-- <label for="hasV5LogBook-false">
                                                 <input type="radio" name="hasV5LogBook" value="False" id="hasV5LogBook-false"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>I’ve lost the V5C logbook</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -530,7 +548,7 @@ display: block;
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
                                                 <span><p>Enter postcode or the first line of the address</p></span>
-                                                <input type="search" name="search-loc" value="" id="search-loc" placeholder="Vehicle location"/>
+                                                <input type="search" name="location" value="" id="search-loc" placeholder="Vehicle location"/>
                                             </label>
                                         </div>
                                     </div>
@@ -551,18 +569,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="radio-keeperType-seller">
-                                                <input type="radio" name="keeperType" value="Seller" id="radio-keeperType-seller" />
+                                            @foreach($VehicleOwners as $key=> $VehicleOwner)
+                                            <label for="radio-keeperType-seller-{{$key}}">
+                                                <input type="radio" name="vehicle_owner" value="{{$VehicleOwner->id}}" id="radio-keeperType-seller-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Me</p>
+                                                    <p>{{$VehicleOwner->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="radio-keeperType-other">
+                                            @endforeach
+                                            {{-- <label for="radio-keeperType-other">
                                                 <input type="radio" name="keeperType" value="Other" id="radio-keeperType-other"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Someone Else</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -583,27 +603,29 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="radio-hasPrivatePlate-false">
-                                                <input type="radio" name="hasPrivatePlate" value="False" id="radio-hasPrivatePlate-false"/>
+                                           @foreach($PrivatePlates as $key=> $PrivatePlate)
+                                            <label for="radio-hasPrivatePlate-false-{{$key}}">
+                                                <input type="radio" name="private_plate" value="{{$PrivatePlate->id}}" id="radio-hasPrivatePlate-false-{{$key}}"/>
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Normal registration plate</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateFalse.jpg')}}" />
+                                                    <p>{{$PrivatePlate->title}}</p>
+                                                    <img src="{{ asset('plates/private_plate_iamges/'.$PrivatePlate->image)}}" />
                                                 </div>
                                             </label>
-                                            <label for="radio-hasPrivatePlate-true">
+                                            @endforeach
+                                            {{-- <label for="radio-hasPrivatePlate-true">
                                                 <input type="radio" name="hasPrivatePlate" value="True" id="radio-hasPrivatePlate-true"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Private plate</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" />
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p></p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -625,13 +647,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="radio-keeperType-familyOrFriend">
-                                                <input type="radio" name="keeperType" value="friend" id="radio-keeperType-familyOrFriend"/>
+                                            @foreach($Finances as $key=> $Finance)
+                                            <label for="radio-keeperType-familyOrFriend-{{$key}}">
+                                                <input type="radio" name="finance" value="{{$Finance->id}}" id="radio-keeperType-familyOrFriend-{{$key}}"/>
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>A family member or friend</p>
+                                                    <p>{{$Finance->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="radio-keeperType-probate">
+                                            @endforeach
+                                            {{-- <label for="radio-keeperType-probate">
                                                 <input type="radio" name="keeperType" value="probate" id="radio-keeperType-probate"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>This is a probate sale</p>
@@ -642,7 +666,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>It's a company vehicle or owned by a business</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -915,7 +939,9 @@ display: block;
                     </div>
                 </form>
             </div>
-        </div>
+        
+        </form>
+    </div>
 
         <div class="photo-up-sec-2-box-main">
             <div class="photo-up-sec-2-box">
@@ -983,7 +1009,7 @@ display: block;
                                     </div>
                                     <input type="file" name="photo1" id="photo5" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" >
-                                </labe>
+                                </label>
                             </div>
                         </div>
                         <div class="col-lg-4">

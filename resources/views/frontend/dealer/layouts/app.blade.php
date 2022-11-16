@@ -788,7 +788,7 @@
         function makeTimer() {
 
             //var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
-            var endTime = new Date("7 November 2022 16:00:00 UTC+05:00");			
+            var endTime = new Date("7 November 2022 09:43:00 UTC+05:00");			
                 endTime = (Date.parse(endTime) / 1000);
 
                 var now = new Date();
@@ -806,8 +806,8 @@
                 if (seconds < "10") { seconds = "0" + seconds; }
                 
                 $("#counter").html(hours+":"+minutes+":"+seconds);
-                // $("#days").html(days);
-                // $("#hours").html(hours);
+                // $("#word").html('');
+                $("#word").html('Begins');
                 // $("#minutes").html(minutes);
                 // $("#seconds").html(seconds);		
 

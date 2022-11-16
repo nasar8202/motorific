@@ -217,7 +217,7 @@ div#filter-price {
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
-                <h2>Live Sell ends in <span id="counter"></span></h2>
+                <h2>Live Sell <span id="word"> ends </span> in <span id="counter"></span></h2>
                 <div class="category-btn">
                     <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
                 <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('/dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
@@ -229,6 +229,7 @@ div#filter-price {
                 <div class="col-lg-12 col-md-12">
                     <div class="topRightFilter">
                         <select id="dropdownfilter">
+                            <option selected disabled value="newest">Filter</option>
                             <option value="newest">Newest</option>
                             <option value="lowestPrice">Lowest Price</option>
                             <option value="highestPrice">Highest Price</option>
@@ -293,14 +294,62 @@ div#filter-price {
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.type').on('click', function() {
-        var type = $(".type").val();
-        alert(type);
-});
-
     $('#dropdownfilter').on('change', function() {
         var dropdownfilter = $("#dropdownfilter").val();
+      
+             $.ajax({
+
+            url: 'dropdownfilter',
+            type: 'post',
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {dropdownfilter:dropdownfilter},
+
+            success: function(response){
+
+            $('.blur_action').css('filter','blur(0px)');
+            var resultData = response;
+            // console.log(resultData)
+            var bodyData = '';
+            var count = resultData.length;
+
+            if(count > 0){
+                $("#first").hide();
+                $(".count").html("");
+                $(".count").html("Showing " +count+ " vehicles");
+
+            $.each(resultData,function(resultData,row){
+                    bodyData+='<a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
+                    bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+                    bodyData+='</div></a>';
+                    $("#filter-price").html(bodyData);
+                    $("#no-record").html('');
+                })
+
+
+            }
+            else{
+                $(".count").html("");
+                $(".count").html("Showing " +count+ " vehicles");
+                $("#first").hide();
+                $("#filter-price").html('');
+            $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
+            }
+            },
+
+            complete:function(data){
+            /* Hide image container */
+            $("#loader").hide();
+
+            }
+
+
+            });
+   
 });
+
+   
     $( "#subm").click(function(){
 
     var makePro = $("#makePro").val();
@@ -338,7 +387,7 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ " vehicles");
 
             $.each(resultData,function(resultData,row){
-                    bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
+                    bodyData+='<a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
                     bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
                     $("#filter-price").html(bodyData);

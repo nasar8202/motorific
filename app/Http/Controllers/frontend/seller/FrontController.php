@@ -2,9 +2,20 @@
 
 namespace App\Http\Controllers\frontend\seller;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Finance;
+use App\Models\Smoking;
+use App\Models\ToolPack;
+use App\Models\VCLogBook;
+use App\Models\NumberOfKey;
+use App\Models\PrivatePlate;
+use App\Models\SeatMaterial;
+use App\Models\VehicleOwner;
+use Illuminate\Http\Request;
+use App\Models\VehicleFeature;
+use App\Models\LockingWheelNut;
+use App\Http\Controllers\Controller;
+
 class FrontController extends Controller
 {
 
@@ -160,13 +171,31 @@ class FrontController extends Controller
     {
         return view('frontend.seller.index');
     }
+    
     public function valuation()
     {
         return view('frontend.seller.valuation');
     }
-    public function photoUpload()
+    public function vehicleInformation(Request $request)
     {
-        return view('frontend.seller.photoUpload');
+        dd($request->all());
+        $request->session()->put('lastName',$request->input('lastName'));
+        return view('frontend.seller.valuation');
+    }
+    public function photoUpload()
+    {   
+        $VehicleFeature = VehicleFeature::all();
+        $NumberOfKeys =  NumberOfKey::where('status',1)->get();
+        $SeatMaterials =  SeatMaterial::where('status',1)->get();
+        $ToolPacks =  ToolPack::where('status',1)->get();
+        $LockingWheelNuts =  LockingWheelNut::where('status',1)->get();
+        $Smokings =  Smoking::where('status',1)->get();
+        $VCLogBooks =  VCLogBook::where('status',1)->get();
+        $VehicleOwners =  VehicleOwner::where('status',1)->get();
+        $PrivatePlates =  PrivatePlate::where('status',1)->get();
+        $Finances =  Finance::where('status',1)->get();
+        
+        return view('frontend.seller.photoUpload',compact('VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances'));
     }
     public function registration()
     {

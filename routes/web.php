@@ -62,6 +62,7 @@ Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
 //Route::get('/usersss', [FrontController::class,'getUsers'])->name('usersss');
 Route::get('/photo-upload', [FrontController::class,'photoUpload'])->name('photoUpload');
+Route::post('/vehicle_information', [FrontController::class,'vehicleInformation'])->name('vehicleInformation');
 Route::get('/registration', [FrontController::class,'registration'])->name('registration');
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
 Route::get('/valuation', [FrontController::class,'valuation'])->name('valuation');
@@ -221,6 +222,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
     Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
     Route::post('/test', [DealerDashboardController::class,'test'])->name('test');
+    Route::post('/dropdown', [DealerDashboardController::class,'dropdown'])->name('dropdown');
     Route::post('/dropdownfilter', [DealerDashboardController::class,'dropdownfilter'])->name('dropdownfilter');
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
