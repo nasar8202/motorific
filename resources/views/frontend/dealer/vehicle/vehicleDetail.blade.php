@@ -107,7 +107,7 @@
                                 <li>Broken/Missing lights, Mirrors, Trim or fittings <span>{{$damage->broken_missing}}</span></li>
                                 <li>Warning Lights on dashboard <span>{{$damage->warning_lights_on_dashboard}}</span></li>
                                 <li>Smoking in vehicle <span>{{$smooking->title}}</span></li>
-                                <li>Additional Information <span>{{$vehicle->vehicleInformation->additional_information}} <br/> 21/06/2022 <br/> Monitor and repair if necessary offside front widescreen wiper blade defective(3,4(b)(i)) <br/> Reflected <br/> Original Reg: RN190EO</span></li>
+                                <li>Additional Information <span>{{$vehicle->vehicleInformation->additional_information}} </span></li>
                                 <li>Service record <span>{{$damage->service_record}}</span></li>
                                 <li>Main dealer services <span>{{$damage->main_dealer_services}}</span></li>
                                 <li>Independent dealer service <span>{{$damage->independent_dealer_service}}</span></li>

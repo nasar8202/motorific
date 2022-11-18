@@ -178,9 +178,43 @@ class FrontController extends Controller
     }
     public function vehicleInformation(Request $request)
     {
-        dd($request->all());
-        $request->session()->put('lastName',$request->input('lastName'));
-        return view('frontend.seller.valuation');
+        // dd($request->all());
+        // $feature = implode($request->the_value, ',');
+        
+        $request->session()->put('vehicle_feature',$request->the_value);
+        $request->session()->put('seat_material',$request->seatMaterial);
+        $request->session()->put('number_of_keys',$request->numberOfKeys);
+        $request->session()->put('tool_pack',$request->toolPack);
+        $request->session()->put('locking_wheel_nut',$request->wheelNut);
+        $request->session()->put('smoked_in',$request->smoking);
+        $request->session()->put('log_book',$request->logBook);
+        $request->session()->put('location',$request->location);
+        $request->session()->put('vehicle_owner',$request->vehicleOwner);
+        $request->session()->put('private_plate',$request->privatePlate);
+        $request->session()->put('finance',$request->finance);
+        
+        $feature = explode(',',$request->the_value);
+        foreach($feature as $f){
+            $VehicleFeature[] = VehicleFeature::where('id',$f)->first();
+        }
+        $SeatMaterials =  SeatMaterial::where('id',session()->get('seat_material'))->first();
+        $numberOfKeys =  NumberOfKey::where('id',session()->get('number_of_keys'))->first();
+        $ToolPack =  ToolPack::where('id',session()->get('tool_pack'))->first();
+        $LockingWheelNut =  LockingWheelNut::where('id',session()->get('locking_wheel_nut'))->first();
+        $Smokings =  Smoking::where('id',session()->get('smoked_in'))->first();
+        $VCLogBooks =  VCLogBook::where('id',session()->get('log_book'))->first();
+        $VehicleLocation = session()->get('location'); 
+        $VehicleOwners =  VehicleOwner::where('id',session()->get('vehicle_owner'))->first();
+        $PrivatePlates =  PrivatePlate::where('id',session()->get('private_plate'))->first();
+        $Finances =  Finance::where('id',session()->get('finance'))->first();
+
+
+
+        return ['VehicleFeature'=>$VehicleFeature,'SeatMaterials'=>$SeatMaterials,'NumberOfKeys'=>$numberOfKeys,
+        'ToolPack'=>$ToolPack,'LockingWheelNut'=>$LockingWheelNut,'Smokings'=>$Smokings,'VCLogBooks'=>$VCLogBooks,
+        'VehicleLocation'=>$VehicleLocation,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances];        
+    //  $request->session()->get('seat_material');
+        
     }
     public function photoUpload()
     {   
@@ -204,6 +238,12 @@ class FrontController extends Controller
     public function myLogin()
     {
         return view('frontend.seller.myLogin');
+    }
+
+    public function testlocation()
+    {
+        $clientIP = \Request::getClientIp(true);
+        dd($clientIP);
     }
     public function getUsers(Request $request)
     {
