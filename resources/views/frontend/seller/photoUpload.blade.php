@@ -181,15 +181,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            @if(session()->get('seat_material'))
+                                            @if(count((array)session()->get('vehicle_feature')) != 0)
                                             @php
                                             $a=explode(',',session()->get('vehicle_feature'));
                                             // dd($a);
                                             @endphp
-                                        @endif
+                                            @endif
                                             @foreach($VehicleFeature as $key=> $feature)
                                             <label for="sat_nav-{{$key}}">
-                                                <input type="checkbox" class="feature" @if (isset($feature)) {{in_array( $feature->id, $a) ? 'checked' : '' }} @endif name="vehicle_feature[]" value="{{$feature->id}}"  id="sat_nav-{{$key}}"/>
+                                                <input type="checkbox" class="feature" @if (isset($feature) && count((array)session()->get('vehicle_feature')) != 0) {{in_array( $feature->id, $a) ? 'checked' : '' }} @endif name="vehicle_feature[]" value="{{$feature->id}}"  id="sat_nav-{{$key}}"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>{{$feature->title}}</p>
                                                 </div>
