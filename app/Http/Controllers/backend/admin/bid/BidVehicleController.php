@@ -31,6 +31,8 @@ class BidVehicleController extends Controller
     public function singleBid($id)
   
     {
+       $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')->where('vehicle_id',$id)->get();
+      dd($bids);
         $bids = BidedVehicle::where('vehicle_id',$id)->get();
        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->where('id',$id)->first();
     //    dd($vehicles);
