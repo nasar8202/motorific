@@ -29,7 +29,6 @@
         <div class="card">
             <div class="card-header">
                 Bidding List
-                <a href="{{ route('createVehicleForm') }}"><span class="badge bg-primary" style="float: right">Create Vehicle</span></a>
             </div>
 
             <div class="card-body">
@@ -52,11 +51,11 @@
                         <tr>
 
                             <td>{{ $i++ }}</td>
-                            <td>{{ $bid->user_id}}</td>
-                            <td>{{ $bid->vehicle_id}}</td>
+                            <td>{{ $bid->vehicle_registartion_number}}</td>
+                            <td>{{ $bid->vehicle_name}}</td>
+                            <td>{{ $bid->name}}</td>
                             <td>{{ $bid->bid_price}}</td>
-                            <td>{{ $bid->vehicle_type}}</td>
-                            <td>{{ $bid->vehicle_tank}}</td>
+                            <td>{{ $bid->vehicle_price}}</td>
                             
                             
                         </tr>
