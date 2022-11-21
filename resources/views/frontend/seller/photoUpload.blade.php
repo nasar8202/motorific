@@ -1094,6 +1094,12 @@ display: block;
 @endsection
 @push('child-scripts')
 <script type="text/javascript">
+$('.vehicleStepsMain .vehicleSteps').each(function(){
+var totalRadChecked1 = $(this).closest('.vehicleSteps').find('input[type="radio"]:checked').length;
+var totalChecked1 = $(this).closest('.vehicleSteps').find('input[type="checkbox"]:checked').length;
+$(this).closest('.vehicleSteps').find('.checboxNum').text(totalRadChecked1);
+$(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked1);
+});
 $("#store").click(function(){
     var the_value;
 
