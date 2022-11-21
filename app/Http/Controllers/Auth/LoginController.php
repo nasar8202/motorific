@@ -40,7 +40,7 @@ class LoginController extends Controller
                 break;
 
              case 2:
-                 $this->redirectTo = '/';
+                 $this->redirectTo = '/seller/dashboard';
                  return $this->redirectTo;
                  break;
              case 3:

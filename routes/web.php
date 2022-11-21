@@ -13,9 +13,11 @@ use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
+use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 
+use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -203,13 +205,20 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
      Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
      // end vehcile
+
+
+          // bidding 
+     Route::get('/all-bidding-vehicle', [BidVehicleController::class,'allBiddingVehicle'])->name('allBiddingVehicle');
+     Route::get('/single-bid/{id}', [BidVehicleController::class,'singleBid'])->name('singleBid');
+
+     // end bidding
 });
 
 // end admin panel routes
 
 // start seller panel routes
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
-    Route::get('/', [SellerDashboardController::class,'seller'])->name('seller');
+    Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
 
 
 });
@@ -227,6 +236,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/dropdownfilter', [DealerDashboardController::class,'dropdownfilter'])->name('dropdownfilter');
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
+    Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
 
 });
 
