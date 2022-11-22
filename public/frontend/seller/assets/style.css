@@ -96,9 +96,9 @@ ul.navlinks {
     width: 48%;
     padding: 12px 0px;
     border-radius: 50px;
+    transition:all .3s linear 0s;
 }
-
-.head-btns button:nth-child(2) {
+.head-btns button:hover {
     background-color: #05eab5;
 }
 
@@ -1786,8 +1786,36 @@ i.circleI {
     letter-spacing: .5px;
     transition: all .5s linear 0s;
 }
-
 .reserveDetail form button:hover {
     background: #000;
     border-color:#000;
 }
+.logo-navlinks .dropdown a {
+    color: inherit;
+    border-bottom: 1px solid #e3e3e3;
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.logo-navlinks .dropdown a:last-child {
+    border: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.logo-navlinks .dropdown a:hover {
+    color: #05eab5;
+}
+/*11-12-13*/
+.head-btns button a {
+    display: block;
+}
+.head-btns button {
+    width: auto;
+    display: block;
+    min-width: 130px;
+    margin-left: 10px;
+}
+.head-btns {
+    width: auto;
+}
+
