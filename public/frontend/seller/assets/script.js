@@ -16,12 +16,21 @@ function myFunction() {
 function myFunction2() {
     var x = document.getElementById("myDIV2");
     $(x).slideToggle(); 
-  }
+ }
 
-  function myFunction3() {
+function myFunction3() {
     var x = document.getElementById("myDIV3");
     $(x).slideToggle();
-  }
+}
+function myFunction4() {
+    var x = document.getElementById("myDIV4");
+    $(x).slideToggle();
+}
+
+function myFunction5() {
+    var x = document.getElementById("myDIV5");
+    $(x).slideToggle();
+}
 
 
 

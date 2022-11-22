@@ -145,8 +145,132 @@ display: block;
                     </form>
                 </div>
             </div>
+            
         </div>
+        <div class="photo-up-sec-2-box-main">
+            <div class="photo-up-sec-2-box">
+                <div class="photo-up-sec-2-box-txt">
+                    <h4>Vehicle Information</h4>
+                </div>
+                <div class="photo-up-sec-2-box-btn clr-prp my-auto">
+                    <button onclick="myFunction4()">EDIT</button>
+                </div>
+            </div>
+            <div class="personal-info-main" id="myDIV4">
 
+                <div class="personal-info-form">
+                    <form class="rowFormTn"> 
+                        <div class="col-2Tn">
+                            <h4>Vehicle Registeration Number</h4>
+                            <input type="text" placeholder="Registeration Number" name="RegisterationNumber">    
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Name</h4>
+                            <input type="text" placeholder="Vehicle Name" name="VehicleName">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Year</h4>
+                            <input type="text" placeholder="Vehicle Year" name="VehicleYear">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Color</h4>
+                            <input type="text" placeholder="Vehicle Color" name="VehicleColor">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Type</h4>
+                            <input type="text" placeholder="Vehicle Type" name="VehicleType">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Tank</h4>
+                            <input type="text" placeholder="Vehicle Tank" name="VehicleTank">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Mileage</h4>
+                            <input type="text" placeholder="Vehicle Mileage" name="VehicleMileage">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Price</h4>
+                            <input type="text" placeholder="Vehicle Price" name="VehiclePrice">
+                        </div>
+                        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
+                            <button type="submit">CONFIRM</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="photo-up-sec-2-box-main">
+            <div class="photo-up-sec-2-box">
+                <div class="photo-up-sec-2-box-txt">
+                    <h4>Condition and Damage</h4>
+                </div>
+                <div class="photo-up-sec-2-box-btn clr-prp my-auto">
+                    <button onclick="myFunction5()">EDIT</button>
+                </div>
+            </div>
+            <div class="personal-info-main" id="myDIV5">
+
+                <div class="personal-info-form">
+                    <form class="rowFormTn"> 
+                        <div class="col-2Tn">
+                            <h4>Your Exterior Grade</h4>
+                            <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade">    
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Scratches and Scuffs</h4>
+                            <select name="scratchesandScuffs">
+                                <option>Is it Your car Have Scratches and Scuffs</option>
+                            </select>
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Dents</h4>
+                            <select name="dents">
+                                <option>Is it Your car have Dents</option>
+                            </select>
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Paintwork Problems</h4>
+                            <select name="paintworkProblems">
+                                <option>Is it Your car have Paintwork Problems</option>
+                            </select>
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Windscreen Damage</h4>
+                            <select name="WindscreenDamage">
+                                <option>Is it Your car's windscreen is damage</option>
+                            </select>
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Broken/Misisng Lights, Mirrors, Trim or fittings</h4>
+                            <select name="brokenMissing">
+                                <option>Broken/Misisng Lights, Mirrors, Trim or fittings</option>
+                            </select>
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Warning Lights on Dashboard</h4>
+                            <select name="WarningLights">
+                                <option>Warning Lights on Dashboard</option>
+                            </select>
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Your Service Record</h4>
+                            <input type="text" placeholder="Your Service Record" name="YourServiceRecord">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Main Dealer Services</h4>
+                            <input type="text" placeholder="Main Dealer Services" name="MainDealerServices">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Independent Dealer Service</h4>
+                            <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService">
+                        </div>
+                        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
+                            <button type="submit">CONFIRM</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="photo-up-sec-2-box-main">
             <form method="POST" action="{{route('vehicleInformation')}}">
                 @csrf
