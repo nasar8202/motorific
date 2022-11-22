@@ -27,4 +27,11 @@ class BidedVehicleController extends Controller
 
 
     }
+    public function cancelBid($id)
+    {
+        $cancelbid = BidedVehicle::where('id',$id)->first();
+        $cancelbid->delete();
+        return back()->with('error', 'Bid Cancel Succesfully');
+
+    }
 }
