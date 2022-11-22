@@ -47,35 +47,32 @@
 </section>
 
 
-
-<!-- PHOTO-UPLOAD-SECTION -->
-<section class="sec-7">
-    <div class="sec-7-bg-img sec-1-txt">
-        <div class="container-1151">
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter-sec" style="background-image: url({{ URL::asset('frontend/dealers/assets/image/newsletter-bg.png')}})">
+    <div>
+        <div class="container-1200">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="sec-7-box">
+                <div class="col-lg-6 col-md-8">
+                    <div class="newsletter-box">
                         <h4>What are you waiting for?</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                             ut
                             labore</p>
-                        <input class="mb-3" type="text" placeholder="Enter REG">
-                        <!-- <button>Value Your Car</button> -->
-                        <button class="btn-qa1 f-25">
+                        <input class="inp-qa f-20" type="text" placeholder="Enter REG" >
+                        <button type="button" class="btn-mts f-25">
                             Value Your Car
                         </button>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="sec-7-box">
+                <div class="col-lg-6 col-md-8">
+                    <div class="newsletter-box">
                         <h4>Newsletter</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                             ut
                             labore</p>
-                        <input class="mb-3" type="text">
-                        <!-- <button>SUBSCRIBE</button> -->
-                        <button class="btn-qa1 f-25">
+                        <input class="inp-qa f-20" type="text" placeholder="Enter REG">
+                        <button type="button" class="btn-mts f-25">
                             SUBSCRIBE
                         </button>
                     </div>
@@ -84,7 +81,6 @@
         </div>
     </div>
 </section>
-
 
     @endsection
 

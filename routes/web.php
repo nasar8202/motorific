@@ -11,6 +11,8 @@ use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
+use App\Http\Controllers\frontend\dealer\HowItWorksController;
+use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
@@ -26,7 +28,8 @@ use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/how-it-works', [HowItWorksController::class,'howItWorks'])->name('howItWorks');
+Route::get('/pricing', [PricingController::class,'pricing'])->name('pricing');
 // Route::get('/', function () {
 //     return view('auth.login');
 //  });
@@ -222,6 +225,7 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
+    
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
     Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
