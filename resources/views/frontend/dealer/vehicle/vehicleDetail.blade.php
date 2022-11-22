@@ -107,7 +107,7 @@
                                 <li>Broken/Missing lights, Mirrors, Trim or fittings <span>{{$damage->broken_missing}}</span></li>
                                 <li>Warning Lights on dashboard <span>{{$damage->warning_lights_on_dashboard}}</span></li>
                                 <li>Smoking in vehicle <span>{{$smooking->title}}</span></li>
-                                <li>Additional Information <span>{{$vehicle->vehicleInformation->additional_information}} <br/> 21/06/2022 <br/> Monitor and repair if necessary offside front widescreen wiper blade defective(3,4(b)(i)) <br/> Reflected <br/> Original Reg: RN190EO</span></li>
+                                <li>Additional Information <span>{{$vehicle->vehicleInformation->additional_information}} </span></li>
                                 <li>Service record <span>{{$damage->service_record}}</span></li>
                                 <li>Main dealer services <span>{{$damage->main_dealer_services}}</span></li>
                                 <li>Independent dealer service <span>{{$damage->independent_dealer_service}}</span></li>
@@ -172,13 +172,33 @@
                                 <li class="hidden">Average:<span> €{{$vehicle->average_price}} </span></li>
                                 <li >Live Salaes end <span>3h 53m 26s <a href="#">1 Bid</a></span></li>
                             </ul>
-                            <form>
+                            <?php
+                           $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->first();
+                            if($bid == null){
+                            
+                            ?>
+                            
+                            <form action="#">
                                 <div class="form-group">
                                     <label>Enter Maximum Bid</label>
-                                    <input type="number" name="bid" placeholder="€"/>
-                                    <button type="submit">Submit Bid</button>
+                                    <input type="number" name="bid" placeholder="€" class="bid_price" />
+                                    <input type="hidden" name="hidden_price" class="hidden_price" value="{{$vehicle->hidden_price}}" />
+                                    <input type="hidden" name="vehicle_id" class="vehicle_id" value="{{$vehicle->id}}" />
+                                    <div class="spinner-border"  style="margin-left: 150px; " role="status">
+                                        <span class="sr-only">Loading...</span>
+                                      </div>
+                                    <button type="button" class="bid">Submit Bid</button>
+                                    <span class="text-danger warning"></span>
+                                    <span class="text-danger error"></span>
                                 </div>
                             </form>
+                            <?php }
+                           else{
+
+                            
+                            ?>
+                            <span class="text-danger ">You Already Bid On This Vehicle</span>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -190,6 +210,59 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+    $(".spinner-border").hide();
+    $("form").submit(function(e){
+        e.preventDefault();
+    });
+    $(".bid").click(function(){
+        
+    var BidPrice = $(".bid_price").val();
+    var HiddenPrice = $(".hidden_price").val();
+    var VehicleId = $(".vehicle_id").val();
+    console.log(BidPrice,HiddenPrice);
+    // console.log(BidPrice <= HiddenPrice);
+    if(!(BidPrice <= HiddenPrice)){
+
+         $.ajax({
+
+            url: '{{route("bid")}}',
+            type: 'post',
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {BidPrice:BidPrice,HiddenPrice:HiddenPrice,VehicleId:VehicleId},
+
+            success: function(response){
+
+            var resultData = response;
+            console.log(resultData)
+            
+            if(resultData != null){
+                $(".spinner-border").show();
+                setTimeout(function() {
+                location.reload();
+            }, 1000);
+            toastr.success(resultData.success);
+            }
+            else{
+                $(".error").html('');
+        $(".error").html('Something Error');
+            }
+            
+            },
+
+
+
+            });
+   
+
+    }
+    else{
+        $(".warning").html('');
+        $(".warning").html('Your Bid Amount Is Not Matching The Vehicle Criteria');
+    }
+  });
+
     $(".hidden").hide();
   $("#dynamic-ar").click(function(){
     $(".hidden").toggle();

@@ -94,10 +94,24 @@ class DealerDashboardController extends Controller
     }
 
 
-    public function dropdownfilter()
+    public function dropdownfilter(Request $request)
     {
 
-            dd(1);
+       if($request->dropdownfilter == 'lowestPrice'){
+        $lowestVehicles = Vehicle::Where('status',1)->orderBy('vehicle_price', 'ASC')->with('vehicleInformation')->with('VehicleImage')->get();
+        return $lowestVehicles;
+      }
+       if($request->dropdownfilter == 'highestPrice'){
+        $highestVehicles = Vehicle::Where('status',1)->orderBy('vehicle_price', 'DESC')->with('vehicleInformation')->with('VehicleImage')->get();
+        return $highestVehicles;
+      }
+      else{
+        
+        $newestVehicles = Vehicle::Where('status',1)->orderBy('id', 'DESC')->with('vehicleInformation')->with('VehicleImage')->get();
+        return $newestVehicles;
+      }
+            
+       
 
     }
 

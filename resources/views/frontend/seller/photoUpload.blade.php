@@ -148,7 +148,10 @@ display: block;
         </div>
 
         <div class="photo-up-sec-2-box-main">
+            <form method="POST" action="{{route('vehicleInformation')}}">
+                @csrf
             <div class="photo-up-sec-2-box">
+
                 <div class="photo-up-sec-2-box-txt">
                     <h4>Vehicle Information</h4>
                     <div class="photo-up-sec-2-box-personal-information">
@@ -162,7 +165,7 @@ display: block;
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-s-gr my-auto">
-                    <button onclick="myFunction2()">Start</button>
+                    <button type="button" onclick="myFunction2()">Start</button>
                 </div>
             </div>
 
@@ -171,20 +174,28 @@ display: block;
                     <div class="photo-up-sec-2-vehicle-information">
                         <div class="vehicleStepsMain">
                             <!--0-->
-                            <div class="vehicleStepsActive vehicleSteps" dataid="VehicleFeatures">
+                            <div class="vehicleStepsActive vehicleSteps" data-id="VehicleFeatures">
                                 <span class="checkboxNum" style="display:none;">0</span>
                                 <h3>Vehicle features</h3>
                                 <p>Select the features your vehicle has.</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="sat_nav">
-                                                <input type="checkbox" name="sat_nav" value="1" id="sat_nav" />
+                                            @if(count((array)session()->get('vehicle_feature')) != 0)
+                                            @php
+                                            $a=explode(',',session()->get('vehicle_feature'));
+                                            // dd($a);
+                                            @endphp
+                                            @endif
+                                            @foreach($VehicleFeature as $key=> $feature)
+                                            <label for="sat_nav-{{$key}}">
+                                                <input type="checkbox" class="feature" @if (isset($feature) && count((array)session()->get('vehicle_feature')) != 0) {{in_array( $feature->id, $a) ? 'checked' : '' }} @endif name="vehicle_feature[]" value="{{$feature->id}}"  id="sat_nav-{{$key}}"/>
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Sat nav</p>
+                                                    <p>{{$feature->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="panoramic_roof">
+                                            @endforeach
+                                            {{-- <label for="panoramic_roof">
                                                 <input type="checkbox" name="panoramic_roof" value="2" id="panoramic_roof"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Panoramic roof</p>
@@ -207,7 +218,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Upgraded sound system</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -226,14 +237,17 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="interiorType-cloth">
-                                                <input type="radio" name="interiorType" value="Cloth" id="interiorType-cloth" />
+                                            @foreach($SeatMaterials as $key=> $seat)
+                                            <label for="interiorType-cloth-{{$key}}">
+                                                <input type="radio" name="seat_material" class="seatMaterial" value="{{$seat->id}}" @if($seat->id == session()->get('seat_material')) checked @endif  id="interiorType-cloth-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Cloth</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/cloth.jpg')}}" />
+                                                    <p>{{$seat->title}}</p>
+                                                    <img src="{{ asset('materials/seat_material_iamges/'.$seat->image)}}" />
+                                                   
                                                 </div>
                                             </label>
-                                            <label for="interiorType-fauxleather">
+                                            @endforeach
+                                            {{-- <label for="interiorType-fauxleather">
                                                 <input type="radio" name="interiorType" value="Fauxleather" id="interiorType-fauxleather"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Faux leather</p>
@@ -267,14 +281,14 @@ display: block;
                                                     <p>Suede</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/suede.jpg')}}" />
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -295,13 +309,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="keysCount1">
-                                                <input type="radio" name="keysCount" value="1" id="keysCount1" />
+                                            @foreach($NumberOfKeys as $key=> $NumberOfKey)
+                                            <label for="keysCount1-{{$key}}">
+                                                <input type="radio" name="number_of_keys" class="numberOfKeys" value="{{$NumberOfKey->id}}" @if($NumberOfKey->id == session()->get('number_of_keys')) checked @endif id="keysCount1-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>1 key</p>
+                                                    <p>{{$NumberOfKey->number_of_key}}</p>
                                                 </div>
                                             </label>
-                                            <label for="keysCount2">
+                                            @endforeach
+                                            {{-- <label for="keysCount2">
                                                 <input type="radio" name="keysCount" value="2" id="keysCount2"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>2 key</p>
@@ -312,7 +328,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>3 key</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -337,18 +353,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="hasToolsInBoot-included">
-                                                <input type="radio" name="hasToolsInBoot" value="Included" id="hasToolsInBoot-included" />
+                                            @foreach($ToolPacks as $key=> $tool)
+                                            <label for="hasToolsInBoot-included-{{$key}}">
+                                                <input type="radio" name="tool_pack" class="toolPack" value="{{$tool->id}}" @if($tool->id == session()->get('tool_pack')) checked @endif id="hasToolsInBoot-included-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Tool pack included</p>
+                                                    <p>{{$tool->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="hasToolsInBoot-missing">
+                                            @endforeach
+                                            {{-- <label for="hasToolsInBoot-missing">
                                                 <input type="radio" name="hasToolsInBoot" value="Missing" id="hasToolsInBoot-missing"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Tool pack missing</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -376,13 +394,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="lockingWheelNut-yes">
-                                                <input type="radio" name="lockingWheelNut" value="Yes" id="lockingWheelNut-yes" />
+                                            @foreach($LockingWheelNuts as $key=> $wheelnut)
+                                            <label for="lockingWheelNut-yes-{{$key}}">
+                                                <input type="radio" name="locking_wheel_nut" class="wheelNut" value="{{$wheelnut->id}}" @if($wheelnut->id == session()->get('locking_wheel_nut')) checked @endif id="lockingWheelNut-yes-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Locking wheel nut included</p>
+                                                    <p>{{$wheelnut->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="lockingWheelNut-no">
+                                            @endforeach
+                                            {{-- <label for="lockingWheelNut-no">
                                                 <input type="radio" name="lockingWheelNut" value="No" id="lockingWheelNut-no"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Locking wheel nut missing</p>
@@ -393,7 +413,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Wheels do not have locking nuts</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -421,18 +441,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="hasBeenSmokedIn-no">
-                                                <input type="radio" name="hasBeenSmokedIn" value="No" id="hasBeenSmokedIn-no" />
+                                            @foreach($Smokings as $key=> $smoking)
+                                            <label for="hasBeenSmokedIn-no-{{$key}}">
+                                                <input type="radio" name="smoked_in" class="smoking" value="{{$smoking->id}}" @if($smoking->id == session()->get('smoked_in')) checked @endif id="hasBeenSmokedIn-no-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Vehicle has not been smoked in</p>
+                                                    <p>{{$smoking->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="hasBeenSmokedIn-yes">
+                                            @endforeach
+                                            {{-- <label for="hasBeenSmokedIn-yes">
                                                 <input type="radio" name="hasBeenSmokedIn" value="Yes" id="hasBeenSmokedIn-yes"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Vehicle has been smoked in</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -457,18 +479,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="hasV5LogBook-true">
-                                                <input type="radio" name="hasV5LogBook" value="True" id="hasV5LogBook-true" />
+                                           @foreach($VCLogBooks as $key=> $VCLogBook)
+                                            <label for="hasV5LogBook-true-{{$key}}">
+                                                <input type="radio" name="log_book" class="logBook" value="{{$VCLogBook->id}}" @if($VCLogBook->id == session()->get('log_book')) checked @endif id="hasV5LogBook-true-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>I can provide the V5C logbook once sold</p>
+                                                    <p>{{$VCLogBook->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="hasV5LogBook-false">
+                                            @endforeach
+                                            {{-- <label for="hasV5LogBook-false">
                                                 <input type="radio" name="hasV5LogBook" value="False" id="hasV5LogBook-false"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>I’ve lost the V5C logbook</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -530,7 +554,7 @@ display: block;
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
                                                 <span><p>Enter postcode or the first line of the address</p></span>
-                                                <input type="search" name="search-loc" value="" id="search-loc" placeholder="Vehicle location"/>
+                                                <input type="search" name="location" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
                                             </label>
                                         </div>
                                     </div>
@@ -551,18 +575,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="radio-keeperType-seller">
-                                                <input type="radio" name="keeperType" value="Seller" id="radio-keeperType-seller" />
+                                            @foreach($VehicleOwners as $key=> $VehicleOwner)
+                                            <label for="radio-keeperType-seller-{{$key}}">
+                                                <input type="radio" name="vehicle_owner" class="vehicleOwner" value="{{$VehicleOwner->id}}" @if($VehicleOwner->id == session()->get('vehicle_owner')) checked @endif id="radio-keeperType-seller-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Me</p>
+                                                    <p>{{$VehicleOwner->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="radio-keeperType-other">
+                                            @endforeach
+                                            {{-- <label for="radio-keeperType-other">
                                                 <input type="radio" name="keeperType" value="Other" id="radio-keeperType-other"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Someone Else</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -583,27 +609,29 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="radio-hasPrivatePlate-false">
-                                                <input type="radio" name="hasPrivatePlate" value="False" id="radio-hasPrivatePlate-false"/>
+                                           @foreach($PrivatePlates as $key=> $PrivatePlate)
+                                            <label for="radio-hasPrivatePlate-false-{{$key}}">
+                                                <input type="radio" name="private_plate" class="privatePlate" value="{{$PrivatePlate->id}}" @if($PrivatePlate->id == session()->get('private_plate')) checked @endif id="radio-hasPrivatePlate-false-{{$key}}"/>
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Normal registration plate</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateFalse.jpg')}}" />
+                                                    <p>{{$PrivatePlate->title}}</p>
+                                                    <img src="{{ asset('plates/private_plate_iamges/'.$PrivatePlate->image)}}" />
                                                 </div>
                                             </label>
-                                            <label for="radio-hasPrivatePlate-true">
+                                            @endforeach
+                                            {{-- <label for="radio-hasPrivatePlate-true">
                                                 <input type="radio" name="hasPrivatePlate" value="True" id="radio-hasPrivatePlate-true"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Private plate</p>
                                                     <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" />
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p></p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -625,13 +653,15 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
-                                            <label for="radio-keeperType-familyOrFriend">
-                                                <input type="radio" name="keeperType" value="friend" id="radio-keeperType-familyOrFriend"/>
+                                            @foreach($Finances as $key=> $Finance)
+                                            <label for="radio-keeperType-familyOrFriend-{{$key}}">
+                                                <input type="radio" name="finance"  value="{{$Finance->id}}" @if($Finance->id == session()->get('finance')) checked @endif id="radio-keeperType-familyOrFriend-{{$key}}"/>
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>A family member or friend</p>
+                                                    <p>{{$Finance->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="radio-keeperType-probate">
+                                            @endforeach
+                                            {{-- <label for="radio-keeperType-probate">
                                                 <input type="radio" name="keeperType" value="probate" id="radio-keeperType-probate"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>This is a probate sale</p>
@@ -642,7 +672,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>It's a company vehicle or owned by a business</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -659,7 +689,7 @@ display: block;
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
                                         <button type="button" class="prevBtnToVehicleLocation">PREVIOUS</button>
                                         <button type="button" class="nxtBtn">NEXT</button>
-                                        <button type="button" class="nxtBtnWhoOwnsTheVehicleToPrivatePlate" style="display:none">NEXT</button>
+                                        <button type="button" class="nxtBtnWhoOwnsTheVehicleToPrivatePlate" style="display:none">NEXTgahdg</button>
                                     </div>
                                 </div>
                             </div>
@@ -729,18 +759,20 @@ display: block;
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                            <label for="radio-isVehicleOnFinance-true">
-                                                <input type="radio" name="isVehicleOnFinance" value="true" id="radio-isVehicleOnFinance-true" />
+                                           @foreach($Finances as $key=> $Finance)
+                                            <label for="radio-isVehicleOnFinance-true-{{$key}}">
+                                                <input type="radio"  name="finance" class="finance" value="{{$Finance->id}}" @if($Finance->id == session()->get('finance')) checked @endif id="radio-isVehicleOnFinance-true-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>On finance</p>
+                                                    <p>{{$Finance->title}}</p>
                                                 </div>
                                             </label>
-                                            <label for="radio-isVehicleOnFinance-false">
+                                            @endforeach
+                                            {{-- <label for="radio-isVehicleOnFinance-false">
                                                 <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>Not on finance</p>
                                                 </div>
-                                            </label>
+                                            </label> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -753,7 +785,7 @@ display: block;
                                 <div class="photo-up-sec-2-vi-bnch-btns">
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
                                         <button type="button" class="prevBtnFinaceToPrivatePlate">PREVIOUS</button>
-                                        <button type="button" class="nxtBtn">NEXT</button>
+                                        <button type="button" class="nxtBtn" id="store">NEXT</button>
                                     </div>
                                 </div>
                             </div>
@@ -769,12 +801,8 @@ display: block;
                                             		<tbody class="">
                                             			<tr class="SectionTable__withLink">
                                             				<td><span>Vehicle features</span></td>
-                                            				<td>
-                                            					<p>Sat nav</p>
-                                            					<p>Panoramic roof</p>
-                                            					<p>Heated seats</p>
-                                            					<p>Rear parking camera</p>
-                                            					<p>Upgraded sound system</p>
+                                            				<td id="vehicleFeaturefinal">
+                                            					<p>No Data Found</p>
                                             				</td>
                                             				<td>
                                             					<span class="stepOpener" data-title="VehicleFeatures" >
@@ -784,7 +812,7 @@ display: block;
                                             			</tr>
                                             			<tr class="SectionTable__withLink">
                                             				<td><span>Seat material</span></td>
-                                            				<td>Leather</td>
+                                            				<td id="seatMaterialFinal">No Data Found</td>
                                             				<td>
                                             					<span class="stepOpener" data-title="SeatMaterial" >
                                             						<i class="fa fa-pencil"></i>
@@ -793,7 +821,7 @@ display: block;
                                             			</tr>
                                             			<tr class="SectionTable__withLink">
                                             				<td><span>Number of keys</span></td>
-                                            				<td>3</td>
+                                            				<td id="NumberOfKeyFinal">No Data Found</td>
                                             				<td>
                                             					<span class="stepOpener" data-title="NumberOfKeys" >
                                             						<i class="fa fa-pencil"></i>
@@ -802,7 +830,7 @@ display: block;
                                             			</tr>
                                             			<tr class="SectionTable__withLink">
                                             				<td><span>Tool pack</span></td>
-                                            				<td>No</td>
+                                            				<td id="ToolPackFinal">No Data Found</td>
                                             				<td>
                                             					<span class="stepOpener" data-title="ToolPack" >
                                             						<i class="fa fa-pencil"></i>
@@ -811,7 +839,7 @@ display: block;
                                             			</tr>
                                             			<tr class="SectionTable__withLink">
                                             				<td><span>Locking wheel nut</span></td>
-                                            				<td>N/A</td>
+                                            				<td id="LockingWheelNutFinal">N/A</td>
                                             				<td>
                                             					<span class="stepOpener" data-title="LockingWheelNut" >
                                             						<i class="fa fa-pencil"></i>
@@ -820,7 +848,7 @@ display: block;
                                             			</tr>
                                             			<tr class="SectionTable__withLink">
                                             				<td><span>Smoking</span></td>
-                                            				<td>Yes</td>
+                                            				<td id="SmokingFinal" >N/A</td>
                                             				<td>
                                             					<span class="stepOpener" data-title="Smoking">
                                             						<i class="fa fa-pencil"></i>
@@ -835,7 +863,7 @@ display: block;
                                             			<tbody class="">
                                             				<tr class="SectionTable__withLink">
                                             					<td><span>V5C logbook</span></td>
-                                            						<td>Yes</td>
+                                            						<td id="LogbookFinal">N/A</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="V5CLogbook">
                                             							<i class="fa fa-pencil"></i>
@@ -846,7 +874,7 @@ display: block;
                                             					<td>
                                             						<span>Vehicle location</span>
                                             					</td>
-                                            						<td>–</td>
+                                            						<td id="VehicleLocationFinal">–</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="VehicleLocation">
                                             							<i class="fa fa-pencil"></i>
@@ -855,7 +883,7 @@ display: block;
                                             				</tr>
                                             				<tr class="SectionTable__withLink">
                                             					<td><span>Vehicle owner</span></td>
-                                            						<td>Me</td>
+                                            						<td id="VehicleOwnerFinal" >N/A</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="VehicleOwner">
                                             							<i class="fa fa-pencil"></i>
@@ -864,14 +892,14 @@ display: block;
                                             				</tr>
                                             				<tr class="SectionTable__withLink">
                                             					<td><span>Private plate</span></td>
-                                            						<td>Private plate</td>
+                                            						<td id="PrivatePlateFinal">N/A</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="PrivatePlate">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
                                             				</tr>
-                                            				<tr class="SectionTable__withLink">
+                                            				{{-- <tr class="SectionTable__withLink">
                                             					<td><span>Keeping the plate</span></td>
                                             						<td>Not keeping it</td>
                                             						<td>
@@ -879,10 +907,10 @@ display: block;
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
-                                            				</tr>
+                                            				</tr> --}}
                                             				<tr class="SectionTable__withLink">
                                             					<td><span>Finance</span></td>
-                                            						<td>Not on finance</td>
+                                            						<td id="FinanceFinal" >N/A</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="Finance">
                                             							<i class="fa fa-pencil"></i>
@@ -915,7 +943,9 @@ display: block;
                     </div>
                 </form>
             </div>
-        </div>
+        
+        </form>
+    </div>
 
         <div class="photo-up-sec-2-box-main">
             <div class="photo-up-sec-2-box">
@@ -983,7 +1013,7 @@ display: block;
                                     </div>
                                     <input type="file" name="photo1" id="photo5" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" >
-                                </labe>
+                                </label>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -1064,7 +1094,122 @@ display: block;
 @endsection
 @push('child-scripts')
 <script type="text/javascript">
+$('.vehicleStepsMain .vehicleSteps').each(function(){
+var totalRadChecked1 = $(this).closest('.vehicleSteps').find('input[type="radio"]:checked').length;
+var totalChecked1 = $(this).closest('.vehicleSteps').find('input[type="checkbox"]:checked').length;
+$(this).closest('.vehicleSteps').find('.checboxNum').text(totalRadChecked1);
+$(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked1);
+});
+$("#store").click(function(){
+    var the_value;
 
+    the_value = getChecklistItems();
+    var seatMaterial = $(".seatMaterial:checked").val();
+    var numberOfKeys = $(".numberOfKeys:checked").val();
+    var toolPack = $(".toolPack:checked").val();
+    var wheelNut = $(".wheelNut:checked").val();
+    var smoking = $(".smoking:checked").val();
+    var logBook = $(".logBook:checked").val();
+    var location = $(".location").val();
+    var vehicleOwner = $(".vehicleOwner:checked").val();
+    var privatePlate = $(".privatePlate:checked").val();
+    var finance = $(".finance:checked").val();
+    
+    console.log(the_value);
+    console.log(seatMaterial);
+    console.log(numberOfKeys);
+    console.log(toolPack);
+    console.log(wheelNut);
+    console.log(smoking);
+    console.log(logBook);
+    console.log(location);
+    console.log(vehicleOwner);
+    console.log(privatePlate);
+    console.log(finance);
+
+     $.ajax({
+
+            url: 'vehicle_information',
+            type: 'post',
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {the_value:the_value,seatMaterial:seatMaterial,numberOfKeys:numberOfKeys,
+                toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,
+                vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance
+            },
+
+            success: function(response){
+                // console.log("ghhhhh",response);
+                var vehicleResponse = response.VehicleFeature;
+                var vehicledata = '';
+                var SeatMaterialsResponse = response.SeatMaterials;
+               
+                var NumberOfKeyResponse = response.NumberOfKeys;
+                var ToolPackResponse = response.ToolPack;
+                var LockingWheelNut = response.LockingWheelNut;
+                var Smokings = response.Smokings;
+                var VCLogBooks = response.VCLogBooks;
+                var VehicleLocation = response.VehicleLocation;
+                var VehicleOwners = response.VehicleOwners;
+                var PrivatePlates = response.PrivatePlates;
+                var Finances = response.Finances;
+                // console.log(SeatMaterials.title);
+                $.each(vehicleResponse,function(vehicleResponse,row){
+                    vehicledata+='<p>'+row.title+'</p>';
+                    
+                    $("#vehicleFeaturefinal").html(vehicledata);
+                })
+                $("#seatMaterialFinal").html('');
+                $("#seatMaterialFinal").html(SeatMaterialsResponse.title);
+                
+                $("#NumberOfKeyFinal").html('');
+                $("#NumberOfKeyFinal").html(NumberOfKeyResponse.number_of_key);
+            
+                $("#ToolPackFinal").html('');
+                $("#ToolPackFinal").html(ToolPackResponse.title);
+
+                $("#LockingWheelNutFinal").html('');
+                $("#LockingWheelNutFinal").html(LockingWheelNut.title);
+
+                $("#SmokingFinal").html('');
+                $("#SmokingFinal").html(Smokings.title);
+
+                $("#LogbookFinal").html('');
+                $("#LogbookFinal").html(VCLogBooks.title);
+
+                $("#VehicleLocationFinal").html('');
+                $("#VehicleLocationFinal").html(VehicleLocation);
+
+                $("#VehicleOwnerFinal").html('');
+                $("#VehicleOwnerFinal").html(VehicleOwners.title);
+   
+                $("#PrivatePlateFinal").html('');
+                $("#PrivatePlateFinal").html(PrivatePlates.title);
+  
+                $("#FinanceFinal").html('');
+                $("#FinanceFinal").html(Finances.title);
+            },
+
+            
+
+
+            });
+   
+
+
+    function getChecklistItems() {
+    var result =
+        $("input[name='vehicle_feature[]']:checked").get();
+
+    var columns = $.map(result, function(element) {
+        return $(element).attr("value");
+    });
+
+    return columns.join(",");
+}
+
+});
     $("#myform").on("submit", function(e) {
            e.preventDefault(); // prevent the form submission
 

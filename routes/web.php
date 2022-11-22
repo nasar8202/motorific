@@ -15,9 +15,11 @@ use App\Http\Controllers\frontend\dealer\HowItWorksController;
 use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
+use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 
+use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +72,8 @@ Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
 //Route::get('/usersss', [FrontController::class,'getUsers'])->name('usersss');
 Route::get('/photo-upload', [FrontController::class,'photoUpload'])->name('photoUpload');
+Route::post('/vehicle_information', [FrontController::class,'vehicleInformation'])->name('vehicleInformation');
+Route::get('/test_location', [FrontController::class,'testlocation'])->name('testlocation');
 Route::get('/registration', [FrontController::class,'registration'])->name('registration');
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
 Route::get('/valuation', [FrontController::class,'valuation'])->name('valuation');
@@ -209,13 +213,20 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
      Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
      // end vehcile
+
+
+          // bidding 
+     Route::get('/all-bidding-vehicle', [BidVehicleController::class,'allBiddingVehicle'])->name('allBiddingVehicle');
+     Route::get('/single-bid/{id}', [BidVehicleController::class,'singleBid'])->name('singleBid');
+
+     // end bidding
 });
 
 // end admin panel routes
 
 // start seller panel routes
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
-    Route::get('/', [SellerDashboardController::class,'seller'])->name('seller');
+    Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
 
 
 });
@@ -230,9 +241,11 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
     Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
     Route::post('/test', [DealerDashboardController::class,'test'])->name('test');
+    Route::post('/dropdown', [DealerDashboardController::class,'dropdown'])->name('dropdown');
     Route::post('/dropdownfilter', [DealerDashboardController::class,'dropdownfilter'])->name('dropdownfilter');
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
+    Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
 
 });
 
