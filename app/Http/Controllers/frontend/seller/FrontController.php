@@ -14,6 +14,7 @@ use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
@@ -176,6 +177,7 @@ class FrontController extends Controller
     {
         return view('frontend.seller.valuation');
     }
+    //multistep question form submition code start
     public function vehicleInformation(Request $request)
     {
         // dd($request->all());
@@ -216,6 +218,25 @@ class FrontController extends Controller
     //  $request->session()->get('seat_material');
         
     }
+    
+     //multistep question form submition code end
+    public function addSellerVehicle(Request $request)
+    {
+        // dd($request->all());
+        // $feature = implode($request->the_value, ',');
+        
+        $request->session()->put('RegisterationNumber',$request->RegisterationNumber);
+        $request->session()->put('VehicleName',$request->VehicleName);
+        $request->session()->put('VehicleYear',$request->VehicleYear);
+        $request->session()->put('VehicleColor',$request->VehicleColor);
+        $request->session()->put('VehicleType',$request->VehicleType);
+        $request->session()->put('VehicleTank',$request->VehicleTank);
+        $request->session()->put('VehicleMileage',$request->VehicleMileage);
+        $request->session()->put('VehiclePrice',$request->VehiclePrice);
+        
+        return "true";
+        
+    }
     public function photoUpload()
     {   
         $VehicleFeature = VehicleFeature::all();
@@ -228,12 +249,25 @@ class FrontController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
+        $currentUser = Auth::user()->id;
+        $user = User::find($currentUser);
         
-        return view('frontend.seller.photoUpload',compact('VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances'));
+        
+        return view('frontend.seller.photoUpload',compact('VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
     }
     public function registration()
     {
         return view('frontend.seller.registration');
+    }
+
+    public function updateSeller(Request $request)
+    {
+        $seller = User::find($request->userId);
+        $seller->name = $request->name;
+        $seller->email = $request->email;
+        $seller->phone_number = $request->number;
+        $seller->update();
+        return $seller;
     }
     public function myLogin()
     {

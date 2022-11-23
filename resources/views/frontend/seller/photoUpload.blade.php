@@ -103,9 +103,10 @@ display: block;
                 <div class="photo-up-sec-2-box-txt">
                     <h4>Personal Information</h4>
                     <div class="photo-up-sec-2-box-personal-information">
-                        <p>Wasif</p>
-                        <p>sureshbca@gmail.com</p>
-                        <p>07735 772 373</p>
+                        <p class="ForUpdateError"></p>
+                        <p class="topName">{{$user->name}}</p>
+                        <p class="topEmail">{{$user->email}}</p>
+                        <p class="topNumber">{{$user->phone_number}}</p>
                     </div>
                     <div class="prf-complete d-flex align-items-center">
                         <div>
@@ -126,21 +127,23 @@ display: block;
                 </div>
 
                 <div class="personal-info-form">
-                    <form>
+                    <form action="#">
                         <div>
                             <h4>Full Name</h4>
-                            <input type="text" placeholder="Enter Name">
+                            <input type="text" placeholder="Enter Name" class="name" value="{{$user->name}}">
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <input type="email" placeholder="Enter E-mail">
+                            <input type="email" placeholder="Enter E-mail" class="email" value="{{$user->email}}">
                         </div>
                         <div>
                             <h4>Phone Number</h4>
-                            <input type="number" placeholder="Enter Phone">
+                            <input type="number" placeholder="Enter Phone" class="number" value="{{$user->phone_number}}">
+                            <input type="hidden"  class="userId" value="{{$user->id}}">
+                        
                         </div>
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
-                            <button type="submit">CONFIRM</button>
+                            <button type="button" id="updateInfo">CONFIRM</button>
                         </div>
                     </form>
                 </div>
@@ -150,7 +153,7 @@ display: block;
         <div class="photo-up-sec-2-box-main">
             <div class="photo-up-sec-2-box">
                 <div class="photo-up-sec-2-box-txt">
-                    <h4>Vehicle Information</h4>
+                    <h4>Vehicle's Details</h4>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-prp my-auto">
                     <button onclick="myFunction4()">EDIT</button>
@@ -159,41 +162,48 @@ display: block;
             <div class="personal-info-main" id="myDIV4">
 
                 <div class="personal-info-form">
-                    <form class="rowFormTn"> 
+                    <span class="alert alert-success temprorySubmit" style="display: none;"></span>
+                    <form class="rowFormTn" id="mainVehicleInfo"> 
+
                         <div class="col-2Tn">
                             <h4>Vehicle Registeration Number</h4>
-                            <input type="text" placeholder="Registeration Number" name="RegisterationNumber">    
+                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" value="{{session()->get('RegisterationNumber')}}">    
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Name</h4>
-                            <input type="text" placeholder="Vehicle Name" name="VehicleName">
+                            <input type="text" placeholder="Vehicle Name" class="VehicleName" value="{{session()->get('VehicleName')}}">
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Year</h4>
-                            <input type="text" placeholder="Vehicle Year" name="VehicleYear">
+                            <input type="text" placeholder="Vehicle Year" class="VehicleYear" value="{{session()->get('VehicleYear')}}">
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Color</h4>
-                            <input type="text" placeholder="Vehicle Color" name="VehicleColor">
+                            <input type="text" placeholder="Vehicle Color" class="VehicleColor" value="{{session()->get('VehicleColor')}}">
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Type</h4>
-                            <input type="text" placeholder="Vehicle Type" name="VehicleType">
+                            <input type="text" placeholder="Vehicle Type" class="VehicleType" value="{{session()->get('VehicleType')}}">
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Tank</h4>
-                            <input type="text" placeholder="Vehicle Tank" name="VehicleTank">
+                            <input type="text" placeholder="Vehicle Tank" class="VehicleTank" value="{{session()->get('VehicleTank')}}">
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Mileage</h4>
-                            <input type="text" placeholder="Vehicle Mileage" name="VehicleMileage">
+                            <input type="number" placeholder="Vehicle Mileage" class="VehicleMileage" value="{{session()->get('VehicleMileage')}}">
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Price</h4>
-                            <input type="text" placeholder="Vehicle Price" name="VehiclePrice">
+                            <input type="number" placeholder="Vehicle Price" class="VehiclePrice" value="{{session()->get('VehiclePrice')}}">
                         </div>
+                        
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
-                            <button type="submit">CONFIRM</button>
+                            <div class="spinner-border mt-2"  style="float: right;" role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>
+                              &nbsp;&nbsp;
+                            <button id="mainInfo" type="button">CONFIRM</button>
                         </div>
                     </form>
                 </div>
@@ -213,62 +223,133 @@ display: block;
                 <div class="personal-info-form">
                     <form class="rowFormTn"> 
                         <div class="col-2Tn">
+                            <h4>Interior</h4>
+                            <input type="text"  class="form-control"
+                            name="interior"  id="interior" placeholder="Eg : Full Leather, etc">  
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Body Type</h4>
+                            <input type="text"  class="form-control"
+                            name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"> 
+                        </div>
+                       
+                        <div class="col-2Tn">
+                            <h4>Engine Size</h4>
+                            <input type="text"  class="form-control"
+                            name="engine_size" id="engine_size" placeholder="Eg : 2700cc,3500cc,etc">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>HPI history check</h4>
+                            <input type="text"  class="form-control"
+                            name="hpi"    id="hpi" placeholder="Enter history check">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>VIN</h4>
+                            <input type="text"  class="form-control"
+                            name="vin"           id="vin" placeholder="Eg : ZFF82YNC000247970,etc">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>First Registeration Date</h4>
+                            <input type="date"  class="form-control"
+                            name="register_date" id="register_date" placeholder=""> 
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Keeper Start Date</h4>
+                            <input type="date"  class="form-control"
+                            name="keeper_date" id="keeper_date" placeholder="">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Last MOT Date</h4>
+                            <input type="date"  class="form-control"
+                            name="mot_date"    id="mot_date" placeholder="">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Previous Owners</h4>
+                            <input type="number"  class="form-control"
+                            name="previous_owner" id="previous_owner" placeholder="how many previous owners are">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Seller Keeping Plate</h4>
+                            <input type="text"  class="form-control"
+                            name="keeping_plate"  id="keeping_plate" placeholder="yes or no">
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Additional Information</h4>
+                            <input type="text"  class="form-control"
+                            name="additional"  id="additional" placeholder="Enter Description">
+                        </div>
+                        <div class="col-2Tn">
                             <h4>Your Exterior Grade</h4>
-                            <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade">    
+                            <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade" id="YourExteriorGrade">    
                         </div>
                         <div class="col-2Tn">
                             <h4>Scratches and Scuffs</h4>
                             <select name="scratchesandScuffs">
-                                <option>Is it Your car Have Scratches and Scuffs</option>
+                                <option disabled selected>Is it Your car Have Scratches and Scuffs</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div class="col-2Tn">
                             <h4>Dents</h4>
                             <select name="dents">
-                                <option>Is it Your car have Dents</option>
+                                <option disabled selected>Is it Your car have Dents</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div class="col-2Tn">
                             <h4>Paintwork Problems</h4>
                             <select name="paintworkProblems">
-                                <option>Is it Your car have Paintwork Problems</option>
+                                <option disabled selected>Is it Your car have Paintwork Problems</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div class="col-2Tn">
                             <h4>Windscreen Damage</h4>
                             <select name="WindscreenDamage">
-                                <option>Is it Your car's windscreen is damage</option>
+                                <option disabled selected>Is it Your car's windscreen is damage</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div class="col-2Tn">
                             <h4>Broken/Misisng Lights, Mirrors, Trim or fittings</h4>
                             <select name="brokenMissing">
-                                <option>Broken/Misisng Lights, Mirrors, Trim or fittings</option>
+                                <option disabled selected>Broken/Misisng Lights, Mirrors, Trim or fittings</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div class="col-2Tn">
                             <h4>Warning Lights on Dashboard</h4>
                             <select name="WarningLights">
-                                <option>Warning Lights on Dashboard</option>
+                                <option disabled selected>Warning Lights on Dashboard</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         <div class="col-2Tn">
                             <h4>Your Service Record</h4>
-                            <input type="text" placeholder="Your Service Record" name="YourServiceRecord">
+                            <input type="text" placeholder="Your Service Record" name="YourServiceRecord" id="YourServiceRecord">
                         </div>
                         <div class="col-2Tn">
                             <h4>Main Dealer Services</h4>
-                            <input type="text" placeholder="Main Dealer Services" name="MainDealerServices">
+                            <input type="text" placeholder="Main Dealer Services" name="MainDealerServices" id="MainDealerServices">
                         </div>
                         <div class="col-2Tn">
                             <h4>Independent Dealer Service</h4>
-                            <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService">
+                            <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService" id="IndependentDealerService">
                         </div>
-                        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
-                            <button type="submit">CONFIRM</button>
-                        </div>
-                    </form>
+                        <br>
+                        
                 </div>
+                <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
+                    <button class="damagesDatas" type="button">CONFIRM</button>
+                </div>
+                
+            </form>
             </div>
         </div>
         <div class="photo-up-sec-2-box-main">
@@ -1218,11 +1299,112 @@ display: block;
 @endsection
 @push('child-scripts')
 <script type="text/javascript">
+$(".spinner-border").hide();
+
 $('.vehicleStepsMain .vehicleSteps').each(function(){
 var totalRadChecked1 = $(this).closest('.vehicleSteps').find('input[type="radio"]:checked').length;
 var totalChecked1 = $(this).closest('.vehicleSteps').find('input[type="checkbox"]:checked').length;
 $(this).closest('.vehicleSteps').find('.checboxNum').text(totalRadChecked1);
 $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked1);
+});
+$(".damagesDatas").click(function(){
+   
+    var interior = $("#interior").val();
+    var bodyType = $("#body_type").val();
+    var engineSize = $("#engine_size").val();
+    var hpi = $("#hpi").val();
+    var vin = $("#vin").val();
+    var registerDate = $("#register_date").val();
+    var keeperDate = $("#keeper_date").val();
+    var motDate = $("#mot_date").val();
+    var previousOwner = $("#previous_owner").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+    var interior = $("#interior").val();
+
+    
+});
+
+$("#mainInfo").click(function(){
+    var RegisterationNumber = $(".RegisterationNumber").val();
+    var VehicleName = $(".VehicleName").val();
+    var VehicleYear = $(".VehicleYear").val();
+    var VehicleColor = $(".VehicleColor").val();
+    var VehicleType = $(".VehicleType").val();
+    var VehicleTank = $(".VehicleTank").val();
+    var VehicleMileage = $(".VehicleMileage").val();
+    var VehiclePrice = $(".VehiclePrice").val();
+    $.ajax({
+        
+        url:'{{route('addSellerVehicle')}}',
+          type: "post",
+          data: {RegisterationNumber:RegisterationNumber,VehicleName:VehicleName,VehicleYear:VehicleYear,VehicleColor:VehicleColor
+            ,VehicleType:VehicleType,VehicleTank:VehicleTank,VehicleMileage:VehicleMileage,VehiclePrice:VehiclePrice
+        },
+          
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          success: function(response) {
+
+            if(response == "true"){
+                $(".temprorySubmit").css("display","block");
+                $(".temprorySubmit").html("Your Data Is Submited For Temprory Time Now Move Onto Next Step");
+                $(".spinner-border").show();
+                setTimeout(function() {
+                location.reload();
+            }, 1500);
+            }
+            else{
+                $(".temprorySubmit").css("display","block");
+                $(".temprorySubmit").html("Something Error");
+            }
+       }
+      });
+
+});
+
+$("#updateInfo").click(function(){
+    var name = $(".name").val();
+    var email = $(".email").val();
+    var number = $(".number").val();
+    var userId = $(".userId").val();
+          $.ajax({
+        
+             url:'{{route('updateSeller')}}',
+               type: "post",
+               data: {name:name,email:email,number:number,userId:userId},
+               
+               headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+               success: function(response) {
+
+            if(response){
+             
+                $(".topName").text(response.name);
+              
+                $(".topEmail").text(response.email);
+               
+                $(".topNumber").text(response.phone_number);
+            } 
+            else{
+                $(".topName").html('');
+                $(".topEmail").html('');
+                $(".topNumber").html('');
+                $(".ForUpdateError").text("Something Error");
+            }
+            }
+           });
+    
+
 });
 $("#store").click(function(){
     var the_value;
