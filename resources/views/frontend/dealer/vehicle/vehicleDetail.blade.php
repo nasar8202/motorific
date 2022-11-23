@@ -173,7 +173,7 @@
                                 <li >Live Salaes end <span>3h 53m 26s <a href="#">1 Bid</a></span></li>
                             </ul>
                             <?php
-                           $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->first();
+                           $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
                             if($bid == null){
                             
                             ?>
@@ -197,7 +197,10 @@
 
                             
                             ?>
-                            <span class="text-danger ">You Already Bid On This Vehicle</span>
+                            <center><span class="text-danger ">You Already Bid On This Vehicle</span>
+                            </center>   
+                       <center><a href="{{route('cancelBid',$bid->id)}}" class="btn btn-danger btn-sm"> Cancel Bid</a>
+                       </center> 
                             <?php } ?>
                         </div>
                     </div>

@@ -11,6 +11,8 @@ use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
+use App\Http\Controllers\frontend\dealer\HowItWorksController;
+use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
@@ -28,7 +30,8 @@ use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/how-it-works', [HowItWorksController::class,'howItWorks'])->name('howItWorks');
+Route::get('/pricing', [PricingController::class,'pricing'])->name('pricing');
 // Route::get('/', function () {
 //     return view('auth.login');
 //  });
@@ -47,6 +50,11 @@ Route::post('/store', [MultiStepRegistration::class,'store'])->name('store');
 // start dealer login
 
 Route::get('/dealer-login', [MultiStepRegistration::class, 'DealerLogin'])->name('DealerLogin');
+
+Route::get('/listing-details', [MultiStepRegistration::class, 'ListingDetails'])->name('ListingDetails');
+
+Route::get('/create-advert', [MultiStepRegistration::class, 'CreateAdvert'])->name('CreateAdvert');
+
 
 
 // end dealer login
@@ -228,6 +236,7 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
+    
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
     Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
@@ -237,6 +246,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
+    Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
 
 });
 

@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
-
     <title>Motorific- @yield('title')</title>
 
 </head>

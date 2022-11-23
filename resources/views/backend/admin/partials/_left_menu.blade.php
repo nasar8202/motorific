@@ -124,12 +124,12 @@
             
         </ul>
     </li>
-    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
+    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('/admin/all-bidding-vehicle') || request()->IS('/admin/all-bidding-vehicle') ? 'active' : '') }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Bidded Vehicle</span>
         </a>
-        <ul class="submenu" style="display:{{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'block' : '') }}">
+        <ul class="submenu" style="display:{{ (Request::is('admin') || request()->IS('admin/view-vehcile') || request()->IS('admin/view-vehcile') ? 'block' : '') }}">
             <li class="submenu-item {{ request()->IS('admin/add-vehicle') ? 'active' : '' }}">
                 <a href="{{ route('allBiddingVehicle') }} ">View Bidded Vehicle</a>
             </li>

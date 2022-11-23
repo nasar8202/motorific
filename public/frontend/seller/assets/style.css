@@ -96,9 +96,9 @@ ul.navlinks {
     width: 48%;
     padding: 12px 0px;
     border-radius: 50px;
+    transition:all .3s linear 0s;
 }
-
-.head-btns button:nth-child(2) {
+.head-btns button:hover {
     background-color: #05eab5;
 }
 
@@ -1232,14 +1232,14 @@ section.photo-up-sec-2 {
     padding-left: 10px;
 }
 
-.personal-info-form form input {
+.personal-info-form form input,.personal-info-form form select {
     border: 2px solid #05eab5;
     border-radius: 50px;
     padding: 8px 20px;
     width: 30%;
     font-size: 15px;
 }
-.personal-info-form form input::placeholder{
+.personal-info-form form input::placeholder,.personal-info-form form select::placeholder{
     font-weight:700;
     color:black;
 }
@@ -1786,8 +1786,65 @@ i.circleI {
     letter-spacing: .5px;
     transition: all .5s linear 0s;
 }
-
 .reserveDetail form button:hover {
     background: #000;
     border-color:#000;
 }
+.logo-navlinks .dropdown a {
+    color: inherit;
+    border-bottom: 1px solid #e3e3e3;
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.logo-navlinks .dropdown a:last-child {
+    border: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.logo-navlinks .dropdown a:hover {
+    color: #05eab5;
+}
+/*11-12-13*/
+.head-btns button a {
+    display: block;
+}
+.head-btns button {
+    width: auto;
+    display: block;
+    min-width: 130px;
+    margin-left: 10px;
+}
+.head-btns {
+    width: auto;
+}
+/*22-11-22*/
+.rowFormTn {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+}
+.col-2Tn {
+    flex: 0 0 calc(50% - 15px);
+}
+.personal-info-form form .col-2Tn input,.personal-info-form form .col-2Tn select {
+    width: 100%;
+    flex: 0 0 100%;
+    display: block;
+    max-width: unset;
+}
+.personal-info-form form div.col-2Tn {
+    margin: 0;
+    margin-bottom: 24px;
+}
+.personal-info-form form div.col-2Tn:nth-child(odd) {
+    margin-right: 15px;
+}
+.personal-info-form form div.col-2Tn:nth-child(even) {
+    margin-left: 15px;
+}
+form.rowFormTn  .personal-info-form-btn.photo-up-sec-2-box-btn {
+    margin-left: auto;
+    margin-top: 10px;
+}
+
