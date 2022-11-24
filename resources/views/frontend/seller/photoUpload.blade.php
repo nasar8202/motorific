@@ -92,20 +92,22 @@ display: block;
 </section>
 
 <!-- PHOTO-UPLOAD-SECTION-1 -->
-<section class="photo-up-sec-2">
-    <div class="container-1151">
-        <div class="photo-up-sec-2-heading text-center">
-            <h3>Complete your profile steps to get your vehicle for sale</h3>
-        </div>
-
-        <div class="photo-up-sec-2-box-main">
-            <div class="photo-up-sec-2-box">
-                <div class="photo-up-sec-2-box-txt">
-                    <h4>Personal Information</h4>
-                    <div class="photo-up-sec-2-box-personal-information">
-                        <p class="ForUpdateError"></p>
-                        <p class="topName">{{$user->name}}</p>
-                        <p class="topEmail">{{$user->email}}</p>
+<form action="{{route('createVehicle')}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <section class="photo-up-sec-2">
+        <div class="container-1151">
+            <div class="photo-up-sec-2-heading text-center">
+                <h3>Complete your profile steps to get your vehicle for sale</h3>
+            </div>
+            
+            <div class="photo-up-sec-2-box-main">
+                <div class="photo-up-sec-2-box">
+                    <div class="photo-up-sec-2-box-txt">
+                        <h4>Personal Information</h4>
+                        <div class="photo-up-sec-2-box-personal-information">
+                            <p class="ForUpdateError"></p>
+                            <p class="topName">{{$user->name}}</p>
+                            <p class="topEmail">{{$user->email}}</p>
                         <p class="topNumber">{{$user->phone_number}}</p>
                     </div>
                     <div class="prf-complete d-flex align-items-center">
@@ -116,36 +118,36 @@ display: block;
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                    <button onclick="myFunction3()">EDIT</button>
+                    <button onclick="myFunction3()" type="button">EDIT</button>
                 </div>
             </div>
-
+            
             <div class="personal-info-main" id="myDIV3">
                 <div class="personal-info-heading">
                     <h3>Personal Information</h3>
                     <p>Here’s the contact information you’ve given us. Please make sure it’s correct so we can keep you up to date.</p>
                 </div>
-
+                
                 <div class="personal-info-form">
-                    <form action="#">
+                    <div class="form">
                         <div>
                             <h4>Full Name</h4>
-                            <input type="text" placeholder="Enter Name" class="name" value="{{$user->name}}">
+                            <input type="text" placeholder="Enter Name" class="name"  name="name" value="{{$user->name}}">
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <input type="email" placeholder="Enter E-mail" class="email" value="{{$user->email}}">
+                            <input type="email" placeholder="Enter E-mail" class="email" name="email" value="{{$user->email}}">
                         </div>
                         <div>
                             <h4>Phone Number</h4>
-                            <input type="number" placeholder="Enter Phone" class="number" value="{{$user->phone_number}}">
-                            <input type="hidden"  class="userId" value="{{$user->id}}">
+                            <input type="number" placeholder="Enter Phone" class="number" name="number" value="{{$user->phone_number}}">
+                            <input type="hidden"  class="userId" name="user_id" value="{{$user->id}}">
                         
                         </div>
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
                             <button type="button" id="updateInfo">CONFIRM</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             
@@ -163,53 +165,78 @@ display: block;
 
                 <div class="personal-info-form">
                     <span class="alert alert-success temprorySubmit" style="display: none;"></span>
-                    <form class="rowFormTn" id="mainVehicleInfo"> 
+                    <div class="form rowFormTn" id="mainVehicleInfo"> 
 
                         <div class="col-2Tn">
                             <h4>Vehicle Registeration Number</h4>
-                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" value="{{session()->get('RegisterationNumber')}}">    
+                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" name="RegisterationNumber" value="{{session()->get('RegisterationNumber')}}">    
+                            @if ($errors->has('RegisterationNumber'))
+                            <span class="text-danger">{{ $errors->first('RegisterationNumber') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Name</h4>
-                            <input type="text" placeholder="Vehicle Name" class="VehicleName" value="{{session()->get('VehicleName')}}">
+                            <input type="text" placeholder="Vehicle Name" class="VehicleName" name="VehicleName" value="{{session()->get('VehicleName')}}">
+                            @if ($errors->has('VehicleName'))
+                            <span class="text-danger">{{ $errors->first('VehicleName') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Year</h4>
-                            <input type="text" placeholder="Vehicle Year" class="VehicleYear" value="{{session()->get('VehicleYear')}}">
+                            <input type="text" placeholder="Vehicle Year" class="VehicleYear" name="VehicleYear" value="{{session()->get('VehicleYear')}}">
+                            @if ($errors->has('VehicleYear'))
+                            <span class="text-danger">{{ $errors->first('VehicleYear') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Color</h4>
-                            <input type="text" placeholder="Vehicle Color" class="VehicleColor" value="{{session()->get('VehicleColor')}}">
+                            <input type="text" placeholder="Vehicle Color" class="VehicleColor" name="VehicleColor" value="{{session()->get('VehicleColor')}}">
+                            @if ($errors->has('VehicleColor'))
+                            <span class="text-danger">{{ $errors->first('VehicleColor') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Type</h4>
-                            <input type="text" placeholder="Vehicle Type" class="VehicleType" value="{{session()->get('VehicleType')}}">
+                            <input type="text" placeholder="Vehicle Type" class="VehicleType" name="VehicleType" value="{{session()->get('VehicleType')}}">
+                            @if ($errors->has('VehicleType'))
+                            <span class="text-danger">{{ $errors->first('VehicleType') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Tank</h4>
-                            <input type="text" placeholder="Vehicle Tank" class="VehicleTank" value="{{session()->get('VehicleTank')}}">
+                            <input type="text" placeholder="Vehicle Tank" class="VehicleTank" name="VehicleTank" value="{{session()->get('VehicleTank')}}">
+                            @if ($errors->has('VehicleTank'))
+                            <span class="text-danger">{{ $errors->first('VehicleTank') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Mileage</h4>
-                            <input type="number" placeholder="Vehicle Mileage" class="VehicleMileage" value="{{session()->get('VehicleMileage')}}">
+                            <input type="number" placeholder="Vehicle Mileage" class="VehicleMileage" name="VehicleMileage" value="{{session()->get('VehicleMileage')}}">
+                            @if ($errors->has('VehicleMileage'))
+                            <span class="text-danger">{{ $errors->first('VehicleMileage') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Price</h4>
-                            <input type="number" placeholder="Vehicle Price" class="VehiclePrice" value="{{session()->get('VehiclePrice')}}">
+                            <input type="number" placeholder="Vehicle Price" class="VehiclePrice" name="VehiclePrice" value="{{session()->get('VehiclePrice')}}">
+                            @if ($errors->has('VehiclePrice'))
+                            <span class="text-danger">{{ $errors->first('VehiclePrice') }}</span>
+                        @endif
                         </div>
                         
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
-                            <div class="spinner-border mt-2"  style="float: right;" role="status">
+                            <div class="spinner-border mt-2 spinnerVehicle"  style="float: right;" role="status">
                                 <span class="sr-only">Loading...</span>
                               </div>
                               &nbsp;&nbsp;
                             <button id="mainInfo" type="button">CONFIRM</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="photo-up-sec-2-box-main">
+        <div class="photo-up-sec-2-box-main" id="damageSuccess">
+            <span class="alert alert-success temprorySubmitDamages"  style="display: none;"></span>
             <div class="photo-up-sec-2-box">
                 <div class="photo-up-sec-2-box-txt">
                     <h4>Condition and Damage</h4>
@@ -221,139 +248,251 @@ display: block;
             <div class="personal-info-main" id="myDIV5">
 
                 <div class="personal-info-form">
-                    <form class="rowFormTn"> 
+                    <div class="form rowFormTn"> 
                         <div class="col-2Tn">
                             <h4>Interior</h4>
                             <input type="text"  class="form-control"
-                            name="interior"  id="interior" placeholder="Eg : Full Leather, etc">  
+                            name="interior"  id="interior" placeholder="Eg : Full Leather, etc"  value="{{session()->get('interior')}}">  
+                            @if ($errors->has('interior'))
+                            <span class="text-danger">{{ $errors->first('interior') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Body Type</h4>
                             <input type="text"  class="form-control"
-                            name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"> 
+                            name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"  value="{{session()->get('bodyType')}}" > 
+                            @if ($errors->has('body_type'))
+                            <span class="text-danger">{{ $errors->first('body_type') }}</span>
+                        @endif
                         </div>
                        
                         <div class="col-2Tn">
                             <h4>Engine Size</h4>
                             <input type="text"  class="form-control"
-                            name="engine_size" id="engine_size" placeholder="Eg : 2700cc,3500cc,etc">
+                            name="engine_size" id="engine_size" placeholder="Eg : 2700cc,3500cc,etc"  value="{{session()->get('engineSize')}}">
+                            @if ($errors->has('engine_size'))
+                            <span class="text-danger">{{ $errors->first('engine_size') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>HPI history check</h4>
                             <input type="text"  class="form-control"
-                            name="hpi"    id="hpi" placeholder="Enter history check">
+                            name="hpi"    id="hpi" placeholder="Enter history check"  value="{{session()->get('hpi')}}">
+                            @if ($errors->has('hpi'))
+                            <span class="text-danger">{{ $errors->first('hpi') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>VIN</h4>
                             <input type="text"  class="form-control"
-                            name="vin"           id="vin" placeholder="Eg : ZFF82YNC000247970,etc">
+                            name="vin"           id="vin" placeholder="Eg : ZFF82YNC000247970,etc"  value="{{session()->get('vin')}}">
+                            @if ($errors->has('vin'))
+                            <span class="text-danger">{{ $errors->first('vin') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>First Registeration Date</h4>
                             <input type="date"  class="form-control"
-                            name="register_date" id="register_date" placeholder=""> 
+                            name="register_date" id="register_date" placeholder=""  value="{{session()->get('registerDate')}}"> 
+                            @if ($errors->has('register_date'))
+                            <span class="text-danger">{{ $errors->first('register_date') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Keeper Start Date</h4>
                             <input type="date"  class="form-control"
-                            name="keeper_date" id="keeper_date" placeholder="">
+                            name="keeper_date" id="keeper_date" placeholder=""  value="{{session()->get('keeperDate')}}">
+                            @if ($errors->has('keeper_date'))
+                            <span class="text-danger">{{ $errors->first('keeper_date') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Last MOT Date</h4>
                             <input type="date"  class="form-control"
-                            name="mot_date"    id="mot_date" placeholder="">
+                            name="mot_date"    id="mot_date" placeholder=""  value="{{session()->get('motDate')}}">
+                            @if ($errors->has('mot_date'))
+                            <span class="text-danger">{{ $errors->first('mot_date') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Previous Owners</h4>
                             <input type="number"  class="form-control"
-                            name="previous_owner" id="previous_owner" placeholder="how many previous owners are">
+                            name="previous_owner" id="previous_owner" placeholder="how many previous owners are"  value="{{session()->get('previousOwner')}}">
+                            @if ($errors->has('previous_owner'))
+                            <span class="text-danger">{{ $errors->first('previous_owner') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Seller Keeping Plate</h4>
                             <input type="text"  class="form-control"
-                            name="keeping_plate"  id="keeping_plate" placeholder="yes or no">
+                            name="keeping_plate"  id="keeping_plate" placeholder="yes or no"  value="{{session()->get('keepingPlate')}}">
+                            @if ($errors->has('keeping_plate'))
+                            <span class="text-danger">{{ $errors->first('keeping_plate') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Additional Information</h4>
                             <input type="text"  class="form-control"
-                            name="additional"  id="additional" placeholder="Enter Description">
+                            name="additional"  id="additional" placeholder="Enter Description"  value="{{session()->get('additional')}}">
+                            @if ($errors->has('additional'))
+                            <span class="text-danger">{{ $errors->first('additional') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Your Exterior Grade</h4>
-                            <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade" id="YourExteriorGrade">    
+                            <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade" id="YourExteriorGrade"  value="{{session()->get('YourExteriorGrade')}}">    
+                            @if ($errors->has('YourExteriorGrade'))
+                            <span class="text-danger">{{ $errors->first('YourExteriorGrade') }}</span>
+                        @endif
+                        </div>
+                        <div class="col-2Tn">
+                            <h4>Vehicle Category</h4>
+                            <select name="VehicleCategory" id="vehicle_category">
+                                <option disabled selected>Select Vehicle Type</option>
+                                @foreach($vehicleCategories as $vehicleCategorie)
+                                <option @if($vehicleCategorie->id ==session()->get('vehicleCategory') )  selected @endif value="{{$vehicleCategorie->id}}" >{{$vehicleCategorie->title}}</option>
+                                @endforeach           
+                               
+                            </select>
+                            @if ($errors->has('VehicleCategory'))
+                            <span class="text-danger">{{ $errors->first('VehicleCategory') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Scratches and Scuffs</h4>
-                            <select name="scratchesandScuffs">
+                            <select name="scratchesandScuffs" id="scrateches">
                                 <option disabled selected>Is it Your car Have Scratches and Scuffs</option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                                @if(session()->get('scrateches') == 'yes')
+                                                <option selected value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                @else
+                                                <option  value="yes">Yes</option>
+                                                <option selected value="no">No</option>
+                                                @endif 
+                               
                             </select>
+                            @if ($errors->has('scratchesandScuffs'))
+                            <span class="text-danger">{{ $errors->first('scratchesandScuffs') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Dents</h4>
-                            <select name="dents">
+                            <select name="dents" id="dents">
                                 <option disabled selected>Is it Your car have Dents</option>
-                                <option value="yes">Yes</option>
+                                @if(session()->get('dents') == 'yes')
+                                <option selected value="yes">Yes</option>
                                 <option value="no">No</option>
+                                @else
+                                <option  value="yes">Yes</option>
+                                <option selected value="no">No</option>
+                                @endif 
                             </select>
+                            @if ($errors->has('dents'))
+                            <span class="text-danger">{{ $errors->first('dents') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Paintwork Problems</h4>
-                            <select name="paintworkProblems">
+                            <select name="paintworkProblems" id="paintwork">
                                 <option disabled selected>Is it Your car have Paintwork Problems</option>
-                                <option value="yes">Yes</option>
+                                @if(session()->get('paintwork') == 'yes')
+                                <option selected value="yes">Yes</option>
                                 <option value="no">No</option>
+                                @else
+                                <option  value="yes">Yes</option>
+                                <option selected value="no">No</option>
+                                @endif 
                             </select>
+                            @if ($errors->has('paintworkProblems'))
+                            <span class="text-danger">{{ $errors->first('paintworkProblems') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Windscreen Damage</h4>
-                            <select name="WindscreenDamage">
+                            <select name="WindscreenDamage" id="windscreen">
                                 <option disabled selected>Is it Your car's windscreen is damage</option>
-                                <option value="yes">Yes</option>
+                                @if(session()->get('windscreen') == 'yes')
+                                <option selected value="yes">Yes</option>
                                 <option value="no">No</option>
+                                @else
+                                <option  value="yes">Yes</option>
+                                <option selected value="no">No</option>
+                                @endif 
                             </select>
+                            @if ($errors->has('WindscreenDamage'))
+                            <span class="text-danger">{{ $errors->first('WindscreenDamage') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Broken/Misisng Lights, Mirrors, Trim or fittings</h4>
-                            <select name="brokenMissing">
+                            <select name="brokenMissing" id="brokenmissing">
                                 <option disabled selected>Broken/Misisng Lights, Mirrors, Trim or fittings</option>
-                                <option value="yes">Yes</option>
+                                @if(session()->get('brokenmissing') == 'yes')
+                                <option selected value="yes">Yes</option>
                                 <option value="no">No</option>
+                                @else
+                                <option  value="yes">Yes</option>
+                                <option selected value="no">No</option>
+                                @endif 
                             </select>
+                            @if ($errors->has('brokenMissing'))
+                            <span class="text-danger">{{ $errors->first('brokenMissing') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Warning Lights on Dashboard</h4>
-                            <select name="WarningLights">
+                            <select name="WarningLights" id="warninglights">
                                 <option disabled selected>Warning Lights on Dashboard</option>
-                                <option value="yes">Yes</option>
+                                @if(session()->get('warninglights') == 'yes')
+                                <option selected value="yes">Yes</option>
                                 <option value="no">No</option>
+                                @else
+                                <option  value="yes">Yes</option>
+                                <option selected value="no">No</option>
+                                @endif 
                             </select>
+                            @if ($errors->has('WarningLights'))
+                            <span class="text-danger">{{ $errors->first('WarningLights') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Your Service Record</h4>
-                            <input type="text" placeholder="Your Service Record" name="YourServiceRecord" id="YourServiceRecord">
+                            <input type="text" placeholder="Your Service Record" name="YourServiceRecord" id="YourServiceRecord" value="{{session()->get('YourServiceRecord')}}">
+                            @if ($errors->has('YourServiceRecord'))
+                            <span class="text-danger">{{ $errors->first('YourServiceRecord') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Main Dealer Services</h4>
-                            <input type="text" placeholder="Main Dealer Services" name="MainDealerServices" id="MainDealerServices">
+                            <input type="text" placeholder="Main Dealer Services" name="MainDealerServices" id="MainDealerServices" value="{{session()->get('MainDealerServices')}}">
+                            @if ($errors->has('MainDealerServices'))
+                            <span class="text-danger">{{ $errors->first('MainDealerServices') }}</span>
+                        @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Independent Dealer Service</h4>
-                            <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService" id="IndependentDealerService">
+                            <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService" id="IndependentDealerService" value="{{session()->get('IndependentDealerService')}}">
+                            @if ($errors->has('IndependentDealerService'))
+                            <span class="text-danger">{{ $errors->first('IndependentDealerService') }}</span>
+                        @endif
                         </div>
                         <br>
                         
                 </div>
+               
                 <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
-                    <button class="damagesDatas" type="button">CONFIRM</button>
+                    <div class="spinner-border mt-2 spinnerDamages"   style="" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                      <br>
+                    <a href="#damageSuccess"><button class="damagesDatas" type="button">CONFIRM</button></a>
                 </div>
                 
-            </form>
+            </div>
             </div>
         </div>
         <div class="photo-up-sec-2-box-main">
-            <form method="POST" action="{{route('vehicleInformation')}}">
+            {{-- <form method="POST" action="{{route('vehicleInformation')}}"> --}}
                 @csrf
             <div class="photo-up-sec-2-box">
 
@@ -375,7 +514,7 @@ display: block;
             </div>
 
             <div class="photo-up-sec-2" id="myDIV2">
-                <form class="vehicleinformationForm">
+                {{-- <form class="vehicleinformationForm" > --}}
                     <div class="photo-up-sec-2-vehicle-information">
                         <div class="vehicleStepsMain">
                             <!--0-->
@@ -433,6 +572,9 @@ display: block;
                                         <button type="button" class="nxtBtn">NEXT</button>
                                     </div>
                                 </div>
+                                @if ($errors->has('vehicle_feature'))
+                                <span class="text-danger">{{ $errors->first('vehicle_feature') }}</span>
+                            @endif
                             </div>
                             <!--1-->
                             <div class="vehicleSteps" data-id="SeatMaterial">
@@ -488,7 +630,11 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
+                                        @if ($errors->has('seat_material'))
+                                        <span class="text-danger">{{ $errors->first('seat_material') }}</span>
+                                    @endif
                                     </div>
+
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
@@ -497,6 +643,7 @@ display: block;
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -535,12 +682,17 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
+                                        
                                     </div>
+                                    
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p>Please don't include any keys with problems, e.g. where the remote unlocking is broken.</p>
                                         </div>
                                     </div>
+                                    @if ($errors->has('number_of_keys'))
+                                        <span class="text-danger">{{ $errors->first('number_of_keys') }}</span>
+                                    @endif
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -573,6 +725,9 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
+                                        @if ($errors->has('tool_pack'))
+                                        <span class="text-danger">{{ $errors->first('tool_pack') }}</span>
+                                    @endif
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
@@ -629,6 +784,9 @@ display: block;
                                             </div>
                                         </div>
                                     </div>
+                                    @if ($errors->has('locking_wheel_nut'))
+                                        <span class="text-danger">{{ $errors->first('locking_wheel_nut') }}</span>
+                                    @endif
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -667,7 +825,11 @@ display: block;
                                             <p>This does not include vaping. If vehicle has been vaped in, then please select ‘Vehicle has not been smoked in’.</p>
                                         </div>
                                     </div>
+                                    @if ($errors->has('smoked_in'))
+                                        <span class="text-danger">{{ $errors->first('smoked_in') }}</span>
+                                    @endif
                                 </div>
+                                
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
@@ -707,6 +869,9 @@ display: block;
                                                 <img src="{{ URL::asset('frontend/seller/assets/image/V5C-logbook.avif')}}" alt="">
                                             </div>
                                         </div>
+                                        @if ($errors->has('log_book'))
+                                        <span class="text-danger">{{ $errors->first('log_book') }}</span>
+                                    @endif
                                     </div>
                                 </div>
 
@@ -763,6 +928,9 @@ display: block;
                                             </label>
                                         </div>
                                     </div>
+                                    @if ($errors->has('location'))
+                                    <span class="text-danger">{{ $errors->first('location') }}</span>
+                                @endif
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -796,6 +964,9 @@ display: block;
                                             </label> --}}
                                         </div>
                                     </div>
+                                    @if ($errors->has('vehicle_owner'))
+                                    <span class="text-danger">{{ $errors->first('vehicle_owner') }}</span>
+                                @endif
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -831,6 +1002,9 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
+                                        @if ($errors->has('private_plate'))
+                                    <span class="text-danger">{{ $errors->first('private_plate') }}</span>
+                                @endif
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
@@ -879,6 +1053,9 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
+                                        @if ($errors->has('finance'))
+                                        <span class="text-danger">{{ $errors->first('finance') }}</span>
+                                    @endif
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
@@ -979,6 +1156,9 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
+                                        @if ($errors->has('finance'))
+                                        <span class="text-danger">{{ $errors->first('finance') }}</span>
+                                    @endif
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
@@ -1146,10 +1326,10 @@ display: block;
                             </div>
                         </div>
                     </div>
-                </form>
+                {{-- </form> --}}
             </div>
         
-        </form>
+        {{-- </form> --}}
     </div>
 
         <div class="photo-up-sec-2-box-main">
@@ -1166,28 +1346,34 @@ display: block;
             </div>
 
             <div class="main-add-photos" id="myDIV">
-                <form>
+          
                     <div class="add-photos-inner row">
                         <div class="add-photos-box1 col-lg-6">
                             <label class="labelForFile" for="photo1">
                                 <div class="add-photos-numbering">
                                     <h3>1</h3>
                                 </div>
-                                <input type="file" name="photo1" id="photo1" />
+                                <input type="file" name="image1" id="photo1" />
                                 <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="" accept="image/*" >
                             </label>
+                            @if ($errors->has('image1'))
+                            <span class="text-danger">{{ $errors->first('image1') }}</span>
+                        @endif
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 ">
                             <div class="add-photos-box1">
                                 <label class="labelForFile" for="photo2">
                                     <div class="add-photos-numbering">
                                         <h3>2</h3>
                                     </div>
-                                    <input type="file" name="photo1" id="photo2" />
+                                    <input type="file" name="image2" id="photo2" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="" accept="image/*" >
                                 </label>
+                                @if ($errors->has('image2'))
+                                        <span class="text-danger">{{ $errors->first('image2') }}</span>
+                                    @endif
                             </div>
-                            <div class="add-photos-box1">
+                            {{-- <div class="add-photos-box1">
                                 <label class="labelForFile" for="photo3">
                                     <div class="add-photos-numbering">
                                         <h3>3</h3>
@@ -1195,7 +1381,7 @@ display: block;
                                     <input type="file" name="photo1" id="photo3" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-corner.png')}}" alt="" accept="image/*" >
                                 </label>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="add-p-bottom-row row">
@@ -1205,10 +1391,13 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>4</h3>
                                     </div>
-                                    <input type="file" name="photo1" id="photo4" />
+                                    <input type="file" name="image3" id="photo4" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" >
                                 </label>
                             </div>
+                            @if ($errors->has('image3'))
+                            <span class="text-danger">{{ $errors->first('image3') }}</span>
+                        @endif
                         </div>
                         <div class="col-lg-4">
                             <div class="add-photos-box1">
@@ -1216,10 +1405,13 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>5</h3>
                                     </div>
-                                    <input type="file" name="photo1" id="photo5" />
+                                    <input type="file" name="image4" id="photo5" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" >
                                 </label>
                             </div>
+                            @if ($errors->has('image4'))
+                            <span class="text-danger">{{ $errors->first('image4') }}</span>
+                        @endif
                         </div>
                         <div class="col-lg-4">
                             <div class="add-photos-box1">
@@ -1227,20 +1419,25 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>6</h3>
                                     </div>
-                                    <input type="file" name="photo1" id="photo6" />
+                                    <input type="file" name="image5" id="photo6" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="" accept="image/*" >
                                 </label>
                             </div>
+                            @if ($errors->has('image5'))
+                            <span class="text-danger">{{ $errors->first('image5') }}</span>
+                        @endif
                         </div>
                     </div>
                     <div class="photo-up-sec-2-btn photo-up-sec-2-box-btn text-center clr-s-gr">
-                        <button>Submit</button>
+                        <button type="submit">Submit</button>
                     </div>
-                </form>
+           
             </div>
         </div>
     </div>
 </section>
+
+</form>
 
 <!-- PHOTO-UPLOAD-SECTION-2 -->
 <section class="sec-7">
@@ -1299,7 +1496,9 @@ display: block;
 @endsection
 @push('child-scripts')
 <script type="text/javascript">
-$(".spinner-border").hide();
+$(".spinnerVehicle").hide();
+$(".spinnerDamages").hide();
+
 
 $('.vehicleStepsMain .vehicleSteps').each(function(){
 var totalRadChecked1 = $(this).closest('.vehicleSteps').find('input[type="radio"]:checked').length;
@@ -1307,6 +1506,14 @@ var totalChecked1 = $(this).closest('.vehicleSteps').find('input[type="checkbox"
 $(this).closest('.vehicleSteps').find('.checboxNum').text(totalRadChecked1);
 $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked1);
 });
+
+
+$(".createVehicle").click(function(){
+
+    let form =  $(this).closest('#multiwala');
+    console.log(form);
+});
+
 $(".damagesDatas").click(function(){
    
     var interior = $("#interior").val();
@@ -1318,18 +1525,53 @@ $(".damagesDatas").click(function(){
     var keeperDate = $("#keeper_date").val();
     var motDate = $("#mot_date").val();
     var previousOwner = $("#previous_owner").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
-    var interior = $("#interior").val();
+    var keepingPlate = $("#keeping_plate").val();
+    var additional = $("#additional").val();
+    var YourExteriorGrade = $("#YourExteriorGrade").val();
+    var vehicleCategory = $("#vehicle_category").val();
+    var scrateches = $("#scrateches").val();
+    var dents = $("#dents").val();
+    var paintwork = $("#paintwork").val();
+    var windscreen = $("#windscreen").val();
+    var brokenmissing = $("#brokenmissing").val();
+    var warninglights = $("#warninglights").val();
+    var YourServiceRecord = $("#YourServiceRecord").val();
+    var MainDealerServices = $("#MainDealerServices").val();
+    var IndependentDealerService = $("#IndependentDealerService").val();
+    $.ajax({
+        
+        url:'{{route('addConditionDamages')}}',
+          type: "post",
+          data: {interior:interior,bodyType:bodyType,engineSize:engineSize,hpi:hpi
+            ,vin:vin,registerDate:registerDate,keeperDate:keeperDate,motDate:motDate
+            ,previousOwner:previousOwner,keepingPlate:keepingPlate,additional:additional,YourExteriorGrade:YourExteriorGrade
+            ,vehicleCategory:vehicleCategory,scrateches:scrateches,dents:dents,paintwork:paintwork,windscreen:windscreen
+            ,brokenmissing:brokenmissing,warninglights:warninglights,YourServiceRecord:YourServiceRecord,MainDealerServices:MainDealerServices
+            ,IndependentDealerService:IndependentDealerService
+        },
+          
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          success: function(response) {
+            console.log(response);
+            if(response == "true"){
+                $(".temprorySubmitDamages").css("display","block");
+                $(".temprorySubmitDamages").html("Your Data Is Submited For Temprory Time Now Move Onto Next Step");
+                $(".spinnerDamages").show();
+                setTimeout(function() {
+                location.reload();
+            }, 1500);
+            }
+            else{
+                $(".temprorySubmitDamages").css("display","block");
+                $(".temprorySubmitDamages").html("Something Error");
+            }
+            
+       }
+      });
 
-    
+
 });
 
 $("#mainInfo").click(function(){
@@ -1357,7 +1599,7 @@ $("#mainInfo").click(function(){
             if(response == "true"){
                 $(".temprorySubmit").css("display","block");
                 $(".temprorySubmit").html("Your Data Is Submited For Temprory Time Now Move Onto Next Step");
-                $(".spinner-border").show();
+                $(".spinnerVehicle").show();
                 setTimeout(function() {
                 location.reload();
             }, 1500);
