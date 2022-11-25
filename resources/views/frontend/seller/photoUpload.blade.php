@@ -158,7 +158,7 @@ display: block;
                     <h4>Vehicle's Details</h4>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                    <button onclick="myFunction4()">EDIT</button>
+                    <button onclick="myFunction4()" type="button">EDIT</button>
                 </div>
             </div>
             <div class="personal-info-main" id="myDIV4">
@@ -242,7 +242,7 @@ display: block;
                     <h4>Condition and Damage</h4>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                    <button onclick="myFunction5()">EDIT</button>
+                    <button onclick="myFunction5()" type="button">EDIT</button>
                 </div>
             </div>
             <div class="personal-info-main" id="myDIV5">
