@@ -247,7 +247,12 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
     Route::get('/add-vehicle-to-sell', [DealerDashboardController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
     Route::get('/bids-and-offers', [DealerDashboardController::class,'BidsAndOffers'])->name('dealer.BidsAndOffers');
+    Route::get('/active-bids-vehicle', [DealerDashboardController::class,'ActiveBiddedVehicle'])->name('bids.ActiveBiddedVehicle');
+    Route::get('/under-offers-bids-vehicle', [DealerDashboardController::class,'UnderBiddedOfferVehicle'])->name('bids.UnderBiddedOfferVehicle');
+    Route::get('/didnot-offers-bids-vehicle', [DealerDashboardController::class,'DidnotWinBiddedVehicle'])->name('bids.DidnotWinBiddedVehicle');
     Route::get('/purchases-vehicles', [DealerDashboardController::class,'PurchasesVehicle'])->name('dealer.PurchasesVehicle');
+    Route::get('/completed-purchases-vehicles', [DealerDashboardController::class,'CompletedBiddedVehicle'])->name('bids.CompletedBiddedVehicle');
+    Route::get('/cancelled-purchases-vehicles', [DealerDashboardController::class,'CancelledBiddedOfferVehicle'])->name('bids.CancelledBiddedOfferVehicle');
 
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
