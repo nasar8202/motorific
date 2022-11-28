@@ -5,21 +5,22 @@ use App\Http\Controllers\Auth\LoginController;
 
 use App\Http\Controllers\backend\admin\VehicleController;
 use App\Http\Controllers\frontend\seller\FrontController;
+use App\Http\Controllers\frontend\dealer\PricingController;
+use App\Http\Controllers\frontend\dealer\HowItWorksController;
+
 use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 use App\Http\Controllers\backend\admin\AdminDashboardController;
-
+use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
-use App\Http\Controllers\frontend\dealer\HowItWorksController;
-use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
-use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 
-use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
+use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
+use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,7 +73,11 @@ Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
 //Route::get('/usersss', [FrontController::class,'getUsers'])->name('usersss');
 Route::get('/photo-upload', [FrontController::class,'photoUpload'])->name('photoUpload');
+Route::post('/add-seller-vehicle', [FrontController::class,'addSellerVehicle'])->name('addSellerVehicle');
+Route::post('/add-condition-and-damages', [FrontController::class,'addConditionDamages'])->name('addConditionDamages');
 Route::post('/vehicle_information', [FrontController::class,'vehicleInformation'])->name('vehicleInformation');
+Route::post('/create-vehicle', [FrontController::class,'createVehicle'])->name('createVehicle');
+Route::post('/update-seller', [FrontController::class,'updateSeller'])->name('updateSeller');
 Route::get('/test_location', [FrontController::class,'testlocation'])->name('testlocation');
 Route::get('/registration', [FrontController::class,'registration'])->name('registration');
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
@@ -91,6 +96,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::get('/approved-dealers-list', [AdminDashboardController::class,'approvedDealersByAdmin'])->name('dealer.approvedDealersByAdmin');
     Route::get('/block-dealers-list', [AdminDashboardController::class,'blockDealersByAdmin'])->name('dealer.blockDealersByAdmin');
+    Route::get('/view-new-vehicle', [AdminDashboardController::class,'viewSellerVehicle'])->name('viewSellerVehicle');
+    Route::get('/view-seller-deatils/{id}', [SellerVehicleController::class,'viewSellerDetails'])->name('viewSellerDetails');
+    Route::get('/view-vehicle-deatils/{id}', [SellerVehicleController::class,'vehicleDetails'])->name('vehicleDetails');
+    Route::get('/approve-vehicle/{id}', [SellerVehicleController::class,'approveVehicle'])->name('approveVehicle');
 
     // vehicle
     Route::get('/view-vehicle-features', [VehicleController::class,'ViewVehicleFeatures'])->name('ViewVehicleFeatures');

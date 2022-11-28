@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\backend\admin;
 
+use Notification;
 use App\Models\User;
 use App\Models\Dealer;
+use App\Models\Vehicle;
 use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Http\Controllers\Controller;
-use Notification;
-use App\Notifications\ApprovedDealerNotification;
 use App\Notifications\RejectDealerNotification;
+use App\Notifications\ApprovedDealerNotification;
 
 class AdminDashboardController extends Controller
 {
@@ -134,5 +135,11 @@ class AdminDashboardController extends Controller
          return view('backend.admin.dealers.blockDealersByAdmin',compact('blockDealersByAdmin'));
      }
      // end block dealer by admin
+
+     public function viewSellerVehicle()
+     {
+        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->where('status',0)->get();
+         return view('backend.admin.sellerVehicle.viewNewVehicle',compact('vehicles'));
+     }
 
 }
