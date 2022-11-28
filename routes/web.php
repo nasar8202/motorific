@@ -235,8 +235,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
 // start seller panel routes
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
-    Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
-
+Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
+Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehicles'])->name('acceptedVehicles');
+Route::get('/bids-on-my-vehicles/{id}', [SellerDashboardController::class,'bidsOnVehicles'])->name('bidsOnVehicles');
+Route::get('/my-profile', [SellerDashboardController::class,'myProfile'])->name('myProfile');
+Route::post('/update-my-profile/{id}', [SellerDashboardController::class,'updateMyProfile'])->name('updateMyProfile');
+Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updateMyPassword'])->name('updateMyPassword');
 
 });
 
