@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script>
-    
+
    <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
-    
-    
+
+
     <!-- CUSTOM-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/dealers/assets/css/style.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/dealers/assets/css/responsive.css') }}">
-    
-    
+
+
     <!-- Select 2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <title>Motorific- @yield('title')</title>
@@ -599,8 +599,8 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ URL::asset('frontend/seller/assets/script.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    
-    
+
+
     <!-- CUSTOM-JS -->
     <script type="text/javascript" src="{{ URL::asset('frontend/dealers/assets/js/custom.js') }}"></script>
 
@@ -617,7 +617,7 @@
                 allowClear: true,
                 tags: true
             });
-            
+
 
 
             var current_fs, next_fs, previous_fs; //fieldsets
@@ -800,8 +800,8 @@
         // Timer
         function makeTimer() {
 
-            //var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
-            var endTime = new Date("7 November 2022 09:43:00 UTC+05:00");			
+            //var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");
+            var endTime = new Date("7 November 2022 09:43:00 UTC+05:00");
                 endTime = (Date.parse(endTime) / 1000);
 
                 var now = new Date();
@@ -809,7 +809,7 @@
 
                 var timeLeft = endTime - now;
 
-                var days = Math.floor(timeLeft / 86400); 
+                var days = Math.floor(timeLeft / 86400);
                 var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
                 var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
                 var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -817,12 +817,12 @@
                 if (hours < "10") { hours = "0" + hours; }
                 if (minutes < "10") { minutes = "0" + minutes; }
                 if (seconds < "10") { seconds = "0" + seconds; }
-                
+
                 $("#counter").html(hours+":"+minutes+":"+seconds);
                 // $("#word").html('');
                 $("#word").html('Begins');
                 // $("#minutes").html(minutes);
-                // $("#seconds").html(seconds);		
+                // $("#seconds").html(seconds);
 
         }
 

@@ -198,13 +198,13 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/view-categories', [VehicleCategory::class,'viewCategories'])->name('viewCategories');
     Route::get('/create-category', [VehicleCategory::class,'createCategoryForm'])->name('createCategoryForm');
     Route::post('/add-category', [VehicleCategory::class,'storeCategories'])->name('storeCategories');
-    
+
     Route::get('/delete-category/{id}', [VehicleCategory::class,'deleteCategory'])->name('deleteCategory');
     Route::get('/edit-category/{id}', [VehicleCategory::class,'editCategory'])->name('editsCategoryForm');
     Route::post('/update-category/{id}', [VehicleCategory::class,'updateCategories'])->name('updateCategories');
     // end vehcile categories
 
-    
+
      // vehicle
      Route::get('/view-vehcile', [ManageVehicleController::class,'viewVehicle'])->name('viewVehicle');
      Route::get('/add-vehicle', [ManageVehicleController::class,'createVehicleForm'])->name('createVehicleForm');
@@ -215,7 +215,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      // end vehcile
 
 
-          // bidding 
+          // bidding
      Route::get('/all-bidding-vehicle', [BidVehicleController::class,'allBiddingVehicle'])->name('allBiddingVehicle');
      Route::get('/single-bid/{id}', [BidVehicleController::class,'singleBid'])->name('singleBid');
 
@@ -236,7 +236,10 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
-    
+    Route::get('/add-vehicle-to-sell', [DealerDashboardController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
+    Route::get('/bids-and-offers', [DealerDashboardController::class,'BidsAndOffers'])->name('dealer.BidsAndOffers');
+    Route::get('/purchases-vehicles', [DealerDashboardController::class,'PurchasesVehicle'])->name('dealer.PurchasesVehicle');
+
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
     Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
