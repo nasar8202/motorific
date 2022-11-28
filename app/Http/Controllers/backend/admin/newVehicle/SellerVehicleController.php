@@ -27,8 +27,8 @@ class SellerVehicleController extends Controller
     public function approveVehicle($id)
     {
        $vehicles = Vehicle::where('id',$id)->first();
-      $vehicles->status = 1;
-      $vehicles->save();
+        $vehicles->status = 1;
+        $vehicles->save();
         return redirect()->route('viewSellerVehicle')->with('success', 'Vehicle Approved Successfully!');
     }
 }
