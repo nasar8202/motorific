@@ -61,6 +61,57 @@ class DealerDashboardController extends Controller
 
     }
 
+    public function ActiveBiddedVehicle()
+    {
+        $user_id = Auth::user()->id;
+
+        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
+
+                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
+                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
+                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
+                                ->where('users.id',$user_id)->get();
+// dd($bids);
+        $countBids = count($bids);
+
+        return view('frontend.dealer.bids.ActiveBiddedVehicle',compact('bids','countBids'));
+
+    }
+
+    public function UnderBiddedOfferVehicle()
+    {
+        $user_id = Auth::user()->id;
+
+        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
+
+                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
+                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
+                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
+                                ->where('users.id',$user_id)->get();
+// dd($bids);
+        $countBids = count($bids);
+
+        return view('frontend.dealer.bids.UnderBiddedOfferVehicle',compact('bids','countBids'));
+
+    }
+
+    public function DidnotWinBiddedVehicle()
+    {
+        $user_id = Auth::user()->id;
+
+        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
+
+                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
+                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
+                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
+                                ->where('users.id',$user_id)->get();
+// dd($bids);
+        $countBids = count($bids);
+
+        return view('frontend.dealer.bids.DidnotWinBiddedVehicle',compact('bids','countBids'));
+
+    }
+
     public function PurchasesVehicle()
     {
         $user_id = Auth::user()->id;
@@ -76,6 +127,40 @@ class DealerDashboardController extends Controller
             $countBids = count($bids);
 
         return view('frontend.dealer.vehicle.PurchasesVehicle',compact('bids','countBids'));
+
+    }
+    public function CompletedBiddedVehicle()
+    {
+        $user_id = Auth::user()->id;
+
+        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
+
+                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
+                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
+                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
+                                ->where('users.id',$user_id)
+                                ->where('vehicles.status','2')
+                                ->get();
+            $countBids = count($bids);
+
+        return view('frontend.dealer.vehicle.CompletedBiddedVehicle',compact('bids','countBids'));
+
+    }
+    public function CancelledBiddedOfferVehicle()
+    {
+        $user_id = Auth::user()->id;
+
+        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
+
+                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
+                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
+                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
+                                ->where('users.id',$user_id)
+                                ->where('vehicles.status','2')
+                                ->get();
+            $countBids = count($bids);
+
+        return view('frontend.dealer.vehicle.CancelledBiddedOfferVehicle',compact('bids','countBids'));
 
     }
     public function onlyCars()
