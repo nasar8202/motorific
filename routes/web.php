@@ -13,12 +13,13 @@ use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
+use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
-use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 
+use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 /*
@@ -229,6 +230,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/single-bid/{id}', [BidVehicleController::class,'singleBid'])->name('singleBid');
 
      // end bidding
+
+     //live sell
+     Route::get('/live-sell', [LiveSellController::class,'liveSell'])->name('liveSell');
+     Route::post('/update-time/{id}', [LiveSellController::class,'updateTime'])->name('updateTime');
+
+     //end live sell
 });
 
 // end admin panel routes

@@ -9,6 +9,7 @@ use App\Models\Vehicle;
 use App\Models\ToolPack;
 use App\Models\VCLogBook;
 use App\Models\NumberOfKey;
+use App\Models\LiveSaleTime;
 use App\Models\PrivatePlate;
 use App\Models\SeatMaterial;
 use App\Models\VehicleImage;
@@ -272,7 +273,8 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
-        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','seller','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage','damages','vehicleCategories'));
+        $liveselltime = LiveSaleTime::first();
+        return view('backend.admin.manageVehicle.editVehicle',compact('VehicleFeatures','seller','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','vehicles','vehicleInformation','VehicleImage','damages','vehicleCategories','liveselltime'));
 
     }
     public function updateVehicle(Request $request,$id)
