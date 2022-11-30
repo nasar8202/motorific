@@ -88,29 +88,29 @@
             </div>
     </div>
 {{-- @dd(Request::route()->getName()) --}}
-    @if(\Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.dehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing')
+    @if(\Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.vehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing')
 
     <div class="container-1200">
         <div class="row">
             <div class="col-lg-12">
                 <ul class="header-submenu d-flex">
                     <li>
-                        <a href="{{ route('dealer.addVehicleToSellFromDealer') }}" class="{{ Request::route()->getName() == 'dealer.addVehicleToSellFromDealer'  ? 'active' : 'disabled'}}">
+                        <a href="{{ route('dealer.addVehicleToSellFromDealer') }}" class="{{ Request::route()->getName() == 'dealer.addVehicleToSellFromDealer'  ? 'active' : ''}}">
                                 Vehicle Lookup
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('dealer.mediaCondition') }}" class="{{ Request::route()->getName() == 'dealer.mediaCondition'  ? 'active' : 'disabled' }} ">
+                        <a href="{{ route('dealer.mediaCondition') }}" class="{{ Request::route()->getName() == 'dealer.mediaCondition'  ? 'active' : '' }} ">
                                 Media & Condition
                         </a>
                     </li>
                     <li>
-                        <a  href="{{ route('dealer.dehicleAndDetails') }}" class="{{ Request::route()->getName() == 'dealer.dehicleAndDetails'  ? 'active' : 'disabled' }} ">
+                        <a  href="{{ route('dealer.vehicleAndDetails') }}" class="{{ Request::route()->getName() == 'dealer.vehicleAndDetails'  ? 'active' : '' }} ">
                                 Vehicle & Details
                         </a>
                     </li>
                     <li>
-                        <a  href="{{ route('dealer.vehicleListing') }}" class="{{ Request::route()->getName() == 'dealer.vehicleListing'  ? 'active' : 'disabled' }} ">
+                        <a  href="{{ route('dealer.vehicleListing') }}" class="{{ Request::route()->getName() == 'dealer.vehicleListing'  ? 'active' : '' }} ">
                                 Listing Details
                         </a>
                     </li>
