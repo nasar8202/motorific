@@ -137,7 +137,7 @@
             
         </ul>
     </li>
-    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('/admin/all-bidding-vehicle') || request()->IS('/admin/all-bidding-vehicle') ? 'active' : '') }} ">
+    {{-- <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('/admin/all-bidding-vehicle') || request()->IS('/admin/all-bidding-vehicle') ? 'active' : '') }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Seller Vehicles</span>
@@ -149,7 +149,7 @@
             
             
         </ul>
-    </li>
+    </li> --}}
     <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
         <a href="{{route('liveSell')}}" class='sidebar-link'>
             <i class="bi bi-stack"></i>

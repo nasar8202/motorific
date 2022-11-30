@@ -689,7 +689,7 @@ p {
                                     <div class="col-md-6 mb-4">
                                         <h6>Main dealer services</h6>
                                         <div class="form-group">
-                                            <input type="number" id="email-id-column" class="form-control"
+                                            <input type="text" id="email-id-column" class="form-control"
                                                 name="main_dealer" value="{{$damages->main_dealer_services}}" placeholder="Enter Main dealer services">
                                         </div>
                                         @if ($errors->has('main_dealer'))
@@ -699,7 +699,7 @@ p {
                                     <div class="col-md-6 mb-4">
                                         <h6>Independent dealer service</h6>
                                         <div class="form-group">
-                                            <input type="number" id="email-id-column" class="form-control"
+                                            <input type="text" id="email-id-column" class="form-control"
                                                 name="independent_dealer" value="{{$damages->independent_dealer_service}}" placeholder="Enter Independent dealer service">
                                         </div>
                                         @if ($errors->has('independent_dealer'))

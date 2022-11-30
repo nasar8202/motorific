@@ -43,8 +43,9 @@
                             <th>Vehicle Type</th>
                             <th>Vehicle Tank</th>
                             <th>Vehicle Price</th>
-                            <th>Image</th>
                             <th>Status</th>
+                            <th>Image</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +62,11 @@
                             <td>{{ $vehicle->vehicle_type}}</td>
                             <td>{{ $vehicle->vehicle_tank}}</td>
                             <td>{{ $vehicle->vehicle_price}}</td>
+                            @if($vehicle->status == 0)
+                            <td class=""><span class="badge badge-info"> Pending </span></td>
+                            @else
+                            <td class=""><span class="badge badge-success"> Accepted </span></td>
+                            @endif
                             <td>
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
