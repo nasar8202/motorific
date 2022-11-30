@@ -14,6 +14,7 @@ use App\Models\SeatMaterial;
 use App\Models\VehicleImage;
 use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
+use App\Models\DealerVehicle;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
 use App\Models\vehicleCategories;
@@ -748,6 +749,15 @@ die();
     {
 
         return view('frontend.dealer.dashboard');
+
+    }
+    public function dealerToDealer()
+    {
+        $allVehicles = DealerVehicle::Where('status',1)->get();
+
+        $countAllVehicle = count($allVehicles);
+        
+        return view('frontend.dealer.vehicle.dealerToDealer',compact('allVehicles','countAllVehicle'));
 
     }
 }

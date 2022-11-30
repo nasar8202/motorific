@@ -222,7 +222,7 @@ div#filter-price {
                     <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
                 <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('/dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
                 <a href="#">Buy It Now</a>
-                <a href="{{route('dealerToDealer')}}">Dealer To Dealer</a>
+                <a href="{{route('dealerToDealer')}}" class="abcd {{ request()->IS('dealer/dealer-to-dealer') ? 'active' : '' }}">Dealer To Dealer</a>
             </div>
                 <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
             </div>
@@ -239,7 +239,7 @@ div#filter-price {
                 </div>
                 <!-- BOX-1 -->
                 <div id="first">
-                @foreach ($allVehicles as $vehicle)
+                @forelse ($allVehicles as $vehicle)
                 <div class="col-lg-3 col-md-3 blur_action mb-5" >
                     <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
                         <div class="box" id>
@@ -265,7 +265,9 @@ div#filter-price {
                     </a>
                     <br>
                 </div>
-                @endforeach
+                @empty
+                <h4>No Vehicle Found</h4>
+                @endforelse
                 </div>
                 <div id="loop">
                 <div class="col-lg-3 col-md-3 blur_action"  id="filter-price">

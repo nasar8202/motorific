@@ -14,6 +14,7 @@ class CreateDealerAdvertVehicleDetailsTable extends Migration
     public function up()
     {
         Schema::create('dealer_advert_vehicle_details', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('dealer_vehicle_id')->nullable();
             $table->string('listing_type')->nullable();
             $table->string('stand_in_value')->nullable();
