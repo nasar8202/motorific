@@ -44,41 +44,41 @@
 
                             <label for="image_1" class="custom-gallery-upload">
                                 <input type="file" name="image_1" id="image_1" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img1.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_1'))}}" alt="car image" >
 
                             </label>
 
                             <label for="image_2" class="custom-gallery-upload">
                                 <input type="file" name="image_2" id="image_2" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img2.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_2'))}}" alt="car image" >
                             </label>
                             <label for="image_3" class="custom-gallery-upload">
                                 <input type="file" name="image_3" id="image_3" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img3.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_3'))}}" alt="car image" >
                             </label>
                             <label for="image_4" class="custom-gallery-upload">
                                 <input type="file" name="image_4" id="image_4" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img4.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_4'))}}" alt="car image" >
                             </label>
                             <label for="image_5" class="custom-gallery-upload">
                                 <input type="file" name="image_5" id="image_5" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img5.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_5'))}}" alt="car image" >
                             </label>
                             <label for="image_6" class="custom-gallery-upload">
                                 <input type="file" name="image_6" id="image_6" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img6.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_6'))}}" alt="car image" >
                             </label>
                             <label for="image_7" class="custom-gallery-upload">
                                 <input type="file" name="image_7" id="image_7" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img7.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_7'))}}" alt="car image" >
                             </label>
                             <label for="image_8" class="custom-gallery-upload">
                                 <input type="file" name="image_8" id="image_8" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img8.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_8'))}}" alt="car image" >
                             </label>
                             <label for="image_9" class="custom-gallery-upload">
                                 <input type="file" name="image_9" id="image_9" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img9.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('image_9'))}}" alt="car image" >
                             </label>
                             @if ($errors->has('image_1'))
                             <span class="text-danger">{{ $errors->first('image_1') }}</span>
@@ -116,23 +116,23 @@
                         <div class="gallery-upload-main">
                             <label for="interior_image_1" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_1" id="interior_image_1" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img10.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('interior_image_1'))}}" alt="car image" >
                             </label>
                             <label for="interior_image_2" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_2" id="interior_image_2" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img11.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('interior_image_2'))}}" alt="car image" >
                             </label>
                             <label for="interior_image_3" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_3" id="interior_image_3" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img12.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('interior_image_3'))}}" alt="car image" >
                             </label>
                             <label for="interior_image_4" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_4" id="interior_image_4" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img13.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('interior_image_4'))}}" alt="car image" >
                             </label>
                             <label for="interior_image_5" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_5" id="interior_image_5" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img14.png')}}" alt="car image" >
+                                <img src="{{ URL::asset('/uploads/dealerVehicles/'.request()->session()->get('interior_image_5'))}}" alt="car image" >
                             </label>
                             @if ($errors->has('interior_image_1'))
                             <span class="text-danger">{{ $errors->first('interior_image_1') }}</span>
@@ -157,7 +157,7 @@
 
                     <div class="mt-40">
                         <label for="condition_damage" class="label-main-text f-20"> Condition / Damage </label>
-                        <textarea class="textarea-qa" name="condition_damage" id="condition_damage" cols="30" rows="10"></textarea>
+                        <textarea class="textarea-qa" name="condition_damage" id="condition_damage" cols="30" rows="10" >{{ request()->session()->get('condition_damage') }}</textarea>
                     </div>
                     @if ($errors->has('condition_damage'))
                     <span class="text-danger">{{ $errors->first('condition_damage') }}</span>
@@ -168,7 +168,7 @@
 
                             <div class="upload-img-box sm-graybox upload-video-box">
                                 <p class="f-18 c-dull-gray mb-0">Paste URL</p>
-                                <input class="inp-qa inp-round" name="condition_damage_url" type="text">
+                                <input class="inp-qa inp-round" name="condition_damage_url" type="text" value="{{ request()->session()->get('condition_damage_url') }}">
                             </div>
 
                             {{-- <div class="upload-img-box sm-graybox upload-video-box">
@@ -194,7 +194,7 @@
                             <ul class="list-unstyled d-flex gap-4 mb-0">
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="existing_condition_report" id="existing_condition_report_yes" value="yes" >
+                                        <input class="hide-inp" type="radio" name="existing_condition_report" id="existing_condition_report_yes" value="yes"  @if(request()->session()->get('existing_condition_report_yes') == 'yes') checked @endif >
                                         <label class="dflex-gap10" for="existing_condition_report_yes">
                                             <span class="radio-circle"></span>
                                             <span>Yes</span>
@@ -203,7 +203,7 @@
                                 </li>
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="existing_condition_report" id="existing_condition_report_no" value="no">
+                                        <input class="hide-inp" type="radio" name="existing_condition_report" id="existing_condition_report_no" value="no" @if(request()->session()->get('existing_condition_report_yes') == 'no') checked @endif>
                                         <label class="dflex-gap10" for="existing_condition_report_no">
                                             <span class="radio-circle"></span>
                                             <span>No</span>
@@ -218,7 +218,7 @@
                             <ul class="list-unstyled d-flex gap-4 mb-0">
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_yes" value="yes">
+                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_yes" value="yes" @if(request()->session()->get('any_damage_checked') == 'yes') checked @endif>
                                         <label class="dflex-gap10" for="any_damage_checked_yes">
                                             <span class="radio-circle"></span>
                                             <span>Yes</span>
@@ -227,7 +227,7 @@
                                 </li>
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_no" value="no">
+                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_no" value="no" @if(request()->session()->get('any_damage_checked') == 'no') checked @endif>
                                         <label class="dflex-gap10" for="any_damage_checked_no">
                                             <span class="radio-circle"></span>
                                             <span>No</span>
@@ -426,7 +426,7 @@
 
                         <div class="mt-40">
                             <label for="advert_description" class="label-main-text f-20"> Advert description </label>
-                            <textarea class="textarea-qa" name="advert_description" id="advert_description" cols="30" rows="10"></textarea>
+                            <textarea class="textarea-qa" name="advert_description" id="advert_description" cols="30" rows="10">{{ request()->session()->get('advert_description') }}</textarea>
                             <p class="dflexBt f-18 mt-1">
                                 <span class="c-blue">Need help?</span>
                                 <span class="c-gray">1500 characters left</span>
@@ -437,7 +437,7 @@
                         @endif
                         <div class="mt-40">
                             <label for="attention_grabber" class="label-main-text f-20"> Attention Grabber </label>
-                            <textarea class="textarea-qa textarea-qa-sm" name="attention_grabber" id="attention_grabber" cols="30" rows="10"></textarea>
+                            <textarea class="textarea-qa textarea-qa-sm" name="attention_grabber" id="attention_grabber" cols="30" rows="10">{{ request()->session()->get('attention_grabber') }}</textarea>
                             <p class="f-18 c-gray text-right mt-1">
                                 30 characters left
                             </p>
@@ -452,7 +452,7 @@
                                     <label for="" class="d-block">Nearside Front</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="nearside_front" >
+                                            <input type="number" name="nearside_front" value="{{ request()->session()->get('nearside_front') }}">
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
@@ -470,7 +470,7 @@
                                     <label for="" class="d-block">Nearside Rear</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="nearside_rear" >
+                                            <input type="number" name="nearside_rear"  value="{{ request()->session()->get('nearside_rear') }}">
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
@@ -490,7 +490,7 @@
                                     <label for="" class="d-block">Offside Front</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="offside_front" >
+                                            <input type="number" name="offside_front" value="{{ request()->session()->get('offside_front') }}" >
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
@@ -508,7 +508,7 @@
                                     <label for="" class="d-block">Offside Rear</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="offside_rear" >
+                                            <input type="number" name="offside_rear" value="{{ request()->session()->get('offside_rear') }}">
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
