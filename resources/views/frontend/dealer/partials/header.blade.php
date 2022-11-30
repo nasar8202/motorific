@@ -1,4 +1,10 @@
-
+<style>
+    a.disabled {
+          pointer-events: none;
+          cursor: default;
+          opacity: .6;
+        }
+</style>
 <header class="header">
     <!--<h2 class="logo-text">motorific</h2>-->
     <div class="container-1200 position-relative">
@@ -81,33 +87,36 @@
                 </div>
             </div>
     </div>
+{{-- @dd(Request::route()->getName()) --}}
+    @if(\Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.dehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing')
 
     <div class="container-1200">
-        <!--<div class="row">-->
-        <!--    <div class="col-lg-12">-->
-        <!--        <ul class="header-submenu d-flex">-->
-        <!--            <li>-->
-        <!--                <a href="javascript:void(0)">-->
-        <!--                        Vehicle Lookup-->
-        <!--                </a>-->
-        <!--            </li>-->
-        <!--            <li>-->
-        <!--                <a href="javascript:void(0)">-->
-        <!--                        Media & Condition-->
-        <!--                </a>-->
-        <!--            </li>-->
-        <!--            <li>-->
-        <!--                <a class="active" href="javascript:void(0)">-->
-        <!--                        Vehicle & Details-->
-        <!--                </a>-->
-        <!--            </li>-->
-        <!--            <li>-->
-        <!--                <a  href="javascript:void(0)">-->
-        <!--                        Listing Details-->
-        <!--                </a>-->
-        <!--            </li>-->
-        <!--        </ul>-->
-        <!--    </div>-->
-        <!--</div>-->
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="header-submenu d-flex">
+                    <li>
+                        <a href="{{ route('dealer.addVehicleToSellFromDealer') }}" class="{{ Request::route()->getName() == 'dealer.addVehicleToSellFromDealer'  ? 'active' : 'disabled'}}">
+                                Vehicle Lookup
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dealer.mediaCondition') }}" class="{{ Request::route()->getName() == 'dealer.mediaCondition'  ? 'active' : 'disabled' }} ">
+                                Media & Condition
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="{{ route('dealer.dehicleAndDetails') }}" class="{{ Request::route()->getName() == 'dealer.dehicleAndDetails'  ? 'active' : 'disabled' }} ">
+                                Vehicle & Details
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="{{ route('dealer.vehicleListing') }}" class="{{ Request::route()->getName() == 'dealer.vehicleListing'  ? 'active' : 'disabled' }} ">
+                                Listing Details
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+    @endif
 </header>

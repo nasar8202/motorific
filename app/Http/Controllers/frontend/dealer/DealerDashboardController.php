@@ -8,6 +8,7 @@ use App\Models\Vehicle;
 use App\Models\ToolPack;
 use App\Models\VCLogBook;
 use App\Models\NumberOfKey;
+use App\Models\BidedVehicle;
 use App\Models\PrivatePlate;
 use App\Models\SeatMaterial;
 use App\Models\VehicleImage;
@@ -21,8 +22,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
-use App\Models\BidedVehicle;
 
 class DealerDashboardController extends Controller
 {
@@ -38,12 +39,14 @@ class DealerDashboardController extends Controller
 
     }
 
-    public function addVehicleToSellFromDealer()
-    {
+    // public function addVehicleToSellFromDealer()
+    // {
 
-        return view('frontend.dealer.CreateAdvert.create-advert');
+    //     return view('frontend.dealer.CreateAdvert.create-advert');
 
-    }
+    // }
+
+
     public function BidsAndOffers()
     {
         $user_id = Auth::user()->id;

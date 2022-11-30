@@ -18,6 +18,7 @@ use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
+use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
 
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
@@ -256,7 +257,7 @@ Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updat
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
-    Route::get('/add-vehicle-to-sell', [DealerDashboardController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
+
     Route::get('/bids-and-offers', [DealerDashboardController::class,'BidsAndOffers'])->name('dealer.BidsAndOffers');
     Route::get('/active-bids-vehicle', [DealerDashboardController::class,'ActiveBiddedVehicle'])->name('bids.ActiveBiddedVehicle');
     Route::get('/under-offers-bids-vehicle', [DealerDashboardController::class,'UnderBiddedOfferVehicle'])->name('bids.UnderBiddedOfferVehicle');
@@ -275,6 +276,17 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
     Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
+
+    //
+    Route::get('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
+    Route::post('/add-vehicle-to-sell-post', [AddDealerVehicleController::class,'addVehicleToSellFromDealerPost'])->name('dealer.addVehicleToSellFromDealerPost');
+    Route::get('/media-condition', [AddDealerVehicleController::class, 'mediaCondition'])->name('dealer.mediaCondition');
+    Route::post('/media-condition-post', [AddDealerVehicleController::class, 'mediaConditionPost'])->name('dealer.mediaConditionPost');
+    Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'dehicleAndDetails'])->name('dealer.dehicleAndDetails');
+    //Route::post('/vehicle-and-details-post', [AddDealerVehicleController::class, 'dehicleAndDetailsPost'])->name('dealer.dehicleAndDetailsPost');
+    Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
+    Route::get('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
+
 
 });
 
