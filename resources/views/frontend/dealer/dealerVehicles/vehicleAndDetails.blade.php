@@ -16,7 +16,7 @@
         <!-- BOX-1 -->
         <div class="col-lg-6 col-md-8">
 
-            <form action="{{ route('dealer.vehicleListing') }}" method="POST">
+            <form action="{{ route('dealer.vehicleAndDetailsPost') }}" method="POST">
                 @csrf
                     <h2 class="headingqa-2 f-40 mb-2">Vehicle Media</h2>
                     {{-- <h3 class="headingqa-3 f-20 c-gray mb-20">Vehicle Photos</h3>

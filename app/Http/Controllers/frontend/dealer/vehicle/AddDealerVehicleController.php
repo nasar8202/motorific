@@ -16,16 +16,16 @@ class AddDealerVehicleController extends Controller
     public function addVehicleToSellFromDealerPost(Request $request)
     {
 
-        Session::put('vehicle_registartion_number', $request->vehicle_registartion_number);
-        Session::put('vehicle_mileage', $request->vehicle_mileage);
         $validatedData = $request->validate([
             'vehicle_registartion_number' => 'required',
             'vehicle_mileage' => 'required|numeric',
-
         ]);
-        $request->validate([
-            'RegisterationNumber' => 'required',
-            'VehicleName' => 'required'  ]);
+        Session::put('vehicle_registartion_number', $request->vehicle_registartion_number);
+        Session::put('vehicle_mileage', $request->vehicle_mileage);
+
+        // $request->validate([
+        //     'RegisterationNumber' => 'required',
+        //     'VehicleName' => 'required'  ]);
         return view('frontend.dealer.dealerVehicles.mediaCondition');
     }
 
@@ -40,23 +40,37 @@ class AddDealerVehicleController extends Controller
 
     public function mediaConditionPost(Request $request)
     {
+        // dd($request->all());
+        $request->validate([
+            'listing_type' => 'required',
+            'stand_in_value' => 'required',
+            'vat' => 'required',
+            'confirm' => 'required',
 
+        ]);
+        Session::put('listing_type', $request->listing_type);
+        Session::put('stand_in_value', $request->stand_in_value);
+        Session::put('vat', $request->vat);
+        Session::put('confirm', $request->confirm);
 
-        dd(Session::get('vehicle_registartion_number'));
-        return view('frontend.dealer.dealerVehicles.dehicleAndDetails');
+        return view('frontend.dealer.dealerVehicles.vehicleAndDetails');
 
     }
 
 
+    public function vehicleAndDetails()
+    {
+        return view('frontend.dealer.dealerVehicles.vehicleAndDetails');
+    }
 
-    public function dehicleAndDetailsPost(Request $request)
+    public function vehicleAndDetailsPost(Request $request)
     {
             Session::put('listing_type', $request->listing_type);
             Session::put('stand_in_value', $request->stand_in_value);
             Session::put('vat', $request->vat);
             Session::put('confirm', $request->confirm);
-            //dd(Session::get('listing_type'));
-        return view('frontend.dealer.dealerVehicles.dehicleAndDetails');
+
+        return view('frontend.dealer.dealerVehicles.vehicleAndDetails');
     }
     public function vehicleListing(Request $request)
     {

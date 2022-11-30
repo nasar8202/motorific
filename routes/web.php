@@ -280,12 +280,12 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
 
     //
     Route::get('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
-    Route::post('/add-vehicle-to-sell-post', [AddDealerVehicleController::class,'addVehicleToSellFromDealerPost'])->name('dealer.addVehicleToSellFromDealerPost');
+    Route::post('/add-vehicle-to-sell-submit', [AddDealerVehicleController::class,'addVehicleToSellFromDealerPost'])->name('dealer.addVehicleToSellFromDealerPost');
     Route::get('/media-condition', [AddDealerVehicleController::class, 'mediaCondition'])->name('dealer.mediaCondition');
-    Route::post('/media-condition-post', [AddDealerVehicleController::class, 'mediaConditionPost'])->name('dealer.mediaConditionPost');
-    Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'dehicleAndDetails'])->name('dealer.dehicleAndDetails');
-    //Route::post('/vehicle-and-details-post', [AddDealerVehicleController::class, 'dehicleAndDetailsPost'])->name('dealer.dehicleAndDetailsPost');
-    Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
+    Route::post('/media-condition-submit', [AddDealerVehicleController::class, 'mediaConditionPost'])->name('dealer.mediaConditionPost');
+    Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetails'])->name('dealer.vehicleAndDetails');
+    Route::post('/vehicle-and-details-submit', [AddDealerVehicleController::class, 'vehicleAndDetailsPost'])->name('dealer.vehicleAndDetailsPost');
+    Route::post('/vehicle-listing-submit', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
     Route::get('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
 
 

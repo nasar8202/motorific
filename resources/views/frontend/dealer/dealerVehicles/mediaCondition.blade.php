@@ -42,13 +42,20 @@
                                         </label>
                                     </div>
                                 </li>
+
                             </ul>
+                            @if ($errors->has('listing_type'))
+                            <span class="text-danger">{{ $errors->first('listing_type') }}</span>
+                            @endif
                         </div>
                     </div>
 
                     <div class="details-field-main">
                         <label class="label-main-text f-20"> Stand in value </label>
                         <input class="inp-qa f-20" type="text" placeholder="0" name="stand_in_value" >
+                        @if ($errors->has('stand_in_value'))
+                        <span class="text-danger">{{ $errors->first('stand_in_value') }}</span>
+                        @endif
                     </div>
 
                     <div class="details-field-main mb-0">
@@ -74,6 +81,9 @@
                                     </div>
                                 </li>
                             </ul>
+                            @if ($errors->has('vat'))
+                            <span class="text-danger">{{ $errors->first('vat') }}</span>
+                            @endif
                         </div>
                     </div>
 
@@ -90,6 +100,9 @@
                                 </span>
                             </label>
                         </div>
+                        @if ($errors->has('confirm'))
+                        <span class="text-danger">{{ $errors->first('confirm') }}</span>
+                        @endif
                     </div>
 
                     {{-- <div>
@@ -99,9 +112,9 @@
                     </div> --}}
 
                     <div class="bt-btns-main d-flex">
-                        <button type="button" class="btn-trans">
+                        <button type="button" class="btn-trans step4-back-btn">
                             <i class="fa-solid fa-arrow-left-long"></i>
-                            <a href="{{ route('dealer.addVehicleToSellFromDealer') }}" class="btn btn-danger pull-right">Previous</a>
+                            <span>Go Back</span>
                         </button>
 
                         <button type="submit" class="btn-trans step1-btn-save">
