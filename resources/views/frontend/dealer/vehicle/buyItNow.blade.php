@@ -220,11 +220,11 @@ div#filter-price {
                 <h2>Live Sell <span id="word"> ends </span> in <span id="counter"></span></h2>
                 <div class="category-btn">
                     <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
-                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('/dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
-                <a href="{{route('buyItNow')}}">Buy It Now</a>
-                <a href="{{route('dealerToDealer')}}" class="abcd {{ request()->IS('dealer/dealer-to-dealer') ? 'active' : '' }}">Dealer To Dealer</a>
+                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
+                <a href="{{route('buyItNow')}}" class="abcd {{ request()->IS('dealer/buy-it-now') ? 'active' : '' }}">Buy It Now</a>
+                <a href="{{route('dealerToDealer')}}">Dealer To Dealer</a>
             </div>
-                <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
+                <h4 class="count">Showing  {{ $countbuyItNoVehicle }} vehicles</h4>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -239,7 +239,7 @@ div#filter-price {
                 </div>
                 <!-- BOX-1 -->
                 <div id="first">
-                @forelse ($allVehicles as $vehicle)
+                @forelse ($buyItNowVehicles as $vehicle)
                 <div class="col-lg-3 col-md-3 blur_action mb-5" >
                     <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
                         <div class="box" id>
@@ -266,7 +266,7 @@ div#filter-price {
                     <br>
                 </div>
                 @empty
-                <h4>No Vehicle Found</h4>
+                <h1>No Vehicle Found</h1>
                 @endforelse
                 </div>
                 <div id="loop">

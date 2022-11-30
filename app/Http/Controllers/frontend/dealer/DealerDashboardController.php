@@ -194,8 +194,8 @@ class DealerDashboardController extends Controller
     public function liveSell()
     {
 
-        $liveSellVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->get();
-        $countLiveSellVehicle = Vehicle::where('status',1)->where('all_auction','!=' , "all" )->orWhereNull('all_auction')->count();
+        $liveSellVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction',null )->get();
+        $countLiveSellVehicle = Vehicle::where('status',1)->where('all_auction',null )->count();
 
 
 
@@ -758,6 +758,15 @@ die();
         $countAllVehicle = count($allVehicles);
         
         return view('frontend.dealer.vehicle.dealerToDealer',compact('allVehicles','countAllVehicle'));
+
+    }
+    public function buyItNow()
+    {
+        $buyItNowVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all' )->get();
+        $countbuyItNoVehicle = Vehicle::where('status',1)->where('all_auction','all' )->count();
+
+
+        return view('frontend.dealer.vehicle.buyItNow',compact('buyItNowVehicles','countbuyItNoVehicle'));
 
     }
 }
