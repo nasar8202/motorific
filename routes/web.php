@@ -13,13 +13,14 @@ use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
+use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
-use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 
+use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 /*
@@ -230,14 +231,24 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/single-bid/{id}', [BidVehicleController::class,'singleBid'])->name('singleBid');
 
      // end bidding
+
+     //live sell
+     Route::get('/live-sell', [LiveSellController::class,'liveSell'])->name('liveSell');
+     Route::post('/update-time/{id}', [LiveSellController::class,'updateTime'])->name('updateTime');
+
+     //end live sell
 });
 
 // end admin panel routes
 
 // start seller panel routes
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
-    Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
-
+Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
+Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehicles'])->name('acceptedVehicles');
+Route::get('/bids-on-my-vehicles/{id}', [SellerDashboardController::class,'bidsOnVehicles'])->name('bidsOnVehicles');
+Route::get('/my-profile', [SellerDashboardController::class,'myProfile'])->name('myProfile');
+Route::post('/update-my-profile/{id}', [SellerDashboardController::class,'updateMyProfile'])->name('updateMyProfile');
+Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updateMyPassword'])->name('updateMyPassword');
 
 });
 
