@@ -16,7 +16,7 @@
         <!-- BOX-1 -->
         <div class="col-lg-6 col-md-8">
 
-            <form action="{{ route('dealer.vehicleAndDetailsPost') }}" method="POST">
+            <form action="{{ route('dealer.vehicleAndDetailsPost') }}"  method="POST" enctype="multipart/form-data">
                 @csrf
                     <h2 class="headingqa-2 f-40 mb-2">Vehicle Media</h2>
                     {{-- <h3 class="headingqa-3 f-20 c-gray mb-20">Vehicle Photos</h3>
@@ -41,10 +41,13 @@
                     <div class="mt-40">
                         <p class="gallery-top-text mb-10 f-18">Exterior</p>
                         <div class="gallery-upload-main">
+
                             <label for="image_1" class="custom-gallery-upload">
                                 <input type="file" name="image_1" id="image_1" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img1.png')}}" alt="car image" >
+
                             </label>
+
                             <label for="image_2" class="custom-gallery-upload">
                                 <input type="file" name="image_2" id="image_2" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img2.png')}}" alt="car image" >
@@ -77,7 +80,35 @@
                                 <input type="file" name="image_9" id="image_9" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img9.png')}}" alt="car image" >
                             </label>
+                            @if ($errors->has('image_1'))
+                            <span class="text-danger">{{ $errors->first('image_1') }}</span>
+                            @endif
+                            @if ($errors->has('image_2'))
+                            <span class="text-danger">{{ $errors->first('image_2') }}</span>
+                            @endif
+                            @if ($errors->has('image_3'))
+                            <span class="text-danger">{{ $errors->first('image_3') }}</span>
+                            @endif
+                            @if ($errors->has('image_4'))
+                            <span class="text-danger">{{ $errors->first('image_4') }}</span>
+                            @endif
+                            @if ($errors->has('image_5'))
+                            <span class="text-danger">{{ $errors->first('image_5') }}</span>
+                            @endif
+                            @if ($errors->has('image_6'))
+                            <span class="text-danger">{{ $errors->first('image_6') }}</span>
+                            @endif
+                            @if ($errors->has('image_7'))
+                            <span class="text-danger">{{ $errors->first('image_7') }}</span>
+                            @endif
+                            @if ($errors->has('image_8'))
+                            <span class="text-danger">{{ $errors->first('image_8') }}</span>
+                            @endif
+                            @if ($errors->has('image_9'))
+                            <span class="text-danger">{{ $errors->first('image_9') }}</span>
+                            @endif
                         </div>
+
                     </div>
 
                     <div class="mt-40">
@@ -103,14 +134,34 @@
                                 <input type="file" name="interior_image_5" id="interior_image_5" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('frontend/dealers/assets/image/gallery-img14.png')}}" alt="car image" >
                             </label>
+                            @if ($errors->has('interior_image_1'))
+                            <span class="text-danger">{{ $errors->first('interior_image_1') }}</span>
+                            @endif
+                            @if ($errors->has('interior_image_2'))
+                            <span class="text-danger">{{ $errors->first('interior_image_2') }}</span>
+                            @endif
+                            @if ($errors->has('interior_image_3'))
+                            <span class="text-danger">{{ $errors->first('interior_image_3') }}</span>
+                            @endif
+                            @if ($errors->has('interior_image_4'))
+                            <span class="text-danger">{{ $errors->first('interior_image_4') }}</span>
+                            @endif
+                            @if ($errors->has('interior_image_5'))
+                            <span class="text-danger">{{ $errors->first('interior_image_5') }}</span>
+                            @endif
+
+
                         </div>
+
                     </div>
 
                     <div class="mt-40">
                         <label for="condition_damage" class="label-main-text f-20"> Condition / Damage </label>
                         <textarea class="textarea-qa" name="condition_damage" id="condition_damage" cols="30" rows="10"></textarea>
                     </div>
-
+                    @if ($errors->has('condition_damage'))
+                    <span class="text-danger">{{ $errors->first('condition_damage') }}</span>
+                    @endif
                     <div class="mt-40">
                         <label for="condition_damage_url" class="label-main-text f-20"> Condition / Damage </label>
                         <div class="video-box-main">
@@ -132,7 +183,9 @@
 
                         </div>
                     </div>
-
+                    @if ($errors->has('condition_damage_url'))
+                    <span class="text-danger">{{ $errors->first('condition_damage_url') }}</span>
+                    @endif
                     <div class="vehicle-condition-main mt-40">
                         <h2 class="headingqa-2 f-40">Vehicle Condition</h2>
 
@@ -158,7 +211,9 @@
                                     </div>
                                 </li>
                             </ul>
-
+                            @if ($errors->has('existing_condition_report'))
+                            <span class="text-danger">{{ $errors->first('existing_condition_report') }}</span>
+                            @endif
                             <p class="label-main-text f-20"> Is there any damage on your vehicle? </p>
                             <ul class="list-unstyled d-flex gap-4 mb-0">
                                 <li class="radio-option-box">
@@ -180,7 +235,9 @@
                                     </div>
                                 </li>
                             </ul>
-
+                            @if ($errors->has('any_damage_checked'))
+                            <span class="text-danger">{{ $errors->first('any_damage_checked') }}</span>
+                            @endif
                             {{-- <p class="purple-box">
                                 Drag the damaged icons below on the affected areas of the vehicle.
                             </p> --}}
@@ -375,7 +432,9 @@
                                 <span class="c-gray">1500 characters left</span>
                             </p>
                         </div>
-
+                        @if ($errors->has('advert_description'))
+                        <span class="text-danger">{{ $errors->first('advert_description') }}</span>
+                        @endif
                         <div class="mt-40">
                             <label for="attention_grabber" class="label-main-text f-20"> Attention Grabber </label>
                             <textarea class="textarea-qa textarea-qa-sm" name="attention_grabber" id="attention_grabber" cols="30" rows="10"></textarea>
@@ -383,7 +442,9 @@
                                 30 characters left
                             </p>
                         </div>
-
+                        @if ($errors->has('attention_grabber'))
+                        <span class="text-danger">{{ $errors->first('attention_grabber') }}</span>
+                        @endif
                         <div class="mt-40">
                             <h2 class="headingqa-4 f-40">Tyre tread depths</h2>
                             <div class="d-flex gap-40">
@@ -391,7 +452,7 @@
                                     <label for="" class="d-block">Nearside Front</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="nearside_front" value="0">
+                                            <input type="number" name="nearside_front" >
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
@@ -400,12 +461,16 @@
                                             <button type="button" onclick="decrement(this)" > <i class="fa-solid fa-angle-down"></i> </button>
                                         </div>
                                     </div>
+                                    @if ($errors->has('nearside_front'))
+                                    <span class="text-danger">{{ $errors->first('nearside_front') }}</span>
+                                    @endif
                                 </div>
+
                                 <div class="counter-main">
                                     <label for="" class="d-block">Nearside Rear</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="nearside_rear" value="0">
+                                            <input type="number" name="nearside_rear" >
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
@@ -414,14 +479,18 @@
                                             <button type="button" onclick="decrement(this)" > <i class="fa-solid fa-angle-down"></i> </button>
                                         </div>
                                     </div>
+                                    @if ($errors->has('nearside_rear'))
+                                    <span class="text-danger">{{ $errors->first('nearside_rear') }}</span>
+                                    @endif
                                 </div>
+
                             </div>
                             <div class="d-flex gap-40">
                                 <div class="counter-main">
                                     <label for="" class="d-block">Offside Front</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="offside_front" value="0">
+                                            <input type="number" name="offside_front" >
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
@@ -430,12 +499,16 @@
                                             <button type="button" onclick="decrement(this)" > <i class="fa-solid fa-angle-down"></i> </button>
                                         </div>
                                     </div>
+                                    @if ($errors->has('offside_front'))
+                                    <span class="text-danger">{{ $errors->first('offside_front') }}</span>
+                                    @endif
                                 </div>
+
                                 <div class="counter-main">
                                     <label for="" class="d-block">Offside Rear</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="offside_rear" value="0">
+                                            <input type="number" name="offside_rear" >
                                             <span class="count">0</span>
                                             <span class="unit">mm</span>
                                         </div>
@@ -444,8 +517,13 @@
                                             <button type="button" onclick="decrement(this)" > <i class="fa-solid fa-angle-down"></i> </button>
                                         </div>
                                     </div>
+                                    @if ($errors->has('offside_rear'))
+                                        <span class="text-danger">{{ $errors->first('offside_rear') }}</span>
+                                    @endif
                                 </div>
+
                             </div>
+
                         </div>
 
                         {{-- <div class="mt-40">

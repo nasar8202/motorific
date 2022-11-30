@@ -16,8 +16,8 @@
         <!-- BOX-1 -->
         <div class="col-lg-6 col-md-8">
 
-            <form action="">
-
+            <form action="{{ route('dealer.vehicleListingPost') }}" method="POST">
+                @csrf
                 <h2 class="headingqa-2 f-40 ">Vehicle History</h2>
 
                 <div>
@@ -43,11 +43,18 @@
                             </div>
                         </li>
                     </ul>
+                    @if ($errors->has('keys'))
+                    <span class="text-danger">{{ $errors->first('keys') }}</span>
+                    @endif
+
                 </div>
 
                 <div class="mt-40">
                     <label class="label-main-text f-20" for="previous_owners"> Previous Owners </label>
-                    <input class="inp-qa f-20" type="text" placeholder="0" id="previous_owners">
+                    <input class="inp-qa f-20" type="text" placeholder="0" name="previous_owners" id="previous_owners">
+                    @if ($errors->has('previous_owners'))
+                    <span class="text-danger">{{ $errors->first('previous_owners') }}</span>
+                    @endif
                 </div>
 
                 <div class="mt-40">
@@ -62,6 +69,7 @@
                                 </label>
                             </div>
                         </li>
+
                         <li class="radio-option-box">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="service_history_title" id="full_frnachise_history" value="Full franchise history">
@@ -81,6 +89,7 @@
                                 </label>
                             </div>
                         </li>
+
                         <li class="radio-option-box">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="service_history_title" id="no_history" value="No history">
@@ -90,7 +99,11 @@
                                 </label>
                             </div>
                         </li>
+
                     </ul>
+                    @if ($errors->has('service_history_title'))
+                    <span class="text-danger">{{ $errors->first('service_history_title') }}</span>
+                    @endif
                 </div>
 
                 <div class="mt-40">
@@ -117,7 +130,10 @@
 
                 <div class="mt-40">
                     <label class="label-main-text f-20" for="mileage"> Mileage </label>
-                    <input class="inp-qa f-20" type="text" placeholder="0" id="mileage">
+                    <input class="inp-qa f-20" type="text" placeholder="0" id="mileage" name="mileage">
+                    @if ($errors->has('mileage'))
+                    <span class="text-danger">{{ $errors->first('mileage') }}</span>
+                    @endif
                 </div>
 
                 <div class="mt-40">
@@ -142,6 +158,9 @@
                             </div>
                         </li>
                     </ul>
+                    @if ($errors->has('v5_status'))
+                    <span class="text-danger">{{ $errors->first('v5_status') }}</span>
+                    @endif
                 </div>
 
                 <div class="mt-40">
@@ -166,10 +185,13 @@
                             </div>
                         </li>
                     </ul>
+                    @if ($errors->has('origin'))
+                    <span class="text-danger">{{ $errors->first('origin') }}</span>
+                    @endif
                 </div>
 
 
-                <div class="purple-box dflex-gap10">
+                {{-- <div class="purple-box dflex-gap10">
                     <span class="error-icon">
                         <img src="{{ URL::asset('frontend/dealers/assets/image/error-icon.png')}}" alt="Add" class="img-fluid">
                     </span>
@@ -178,7 +200,7 @@
                         sources. Please note that it is your responsiblity to
                         amend any  incorrect spec.
                     </span>
-                </div>
+                </div> --}}
 
                 {{-- <div class="mt-40">
                     <label class="label-main-text f-20" for="search_spec_step4"> Search for spec </label>
@@ -216,6 +238,9 @@
                             </option>
                         </select>
                     </label>
+                    @if ($errors->has('interior'))
+                    <span class="text-danger">{{ $errors->first('interior') }}</span>
+                    @endif
                 </div>
 
 
@@ -234,6 +259,9 @@
                             </option>
                         </select>
                     </label>
+                    @if ($errors->has('exterior'))
+                    <span class="text-danger">{{ $errors->first('exterior') }}</span>
+                    @endif
                 </div>
 
 
@@ -252,6 +280,9 @@
                             </option>
                         </select>
                     </label>
+                    @if ($errors->has('audio_and_communications'))
+                    <span class="text-danger">{{ $errors->first('audio_and_communications') }}</span>
+                    @endif
                 </div>
 
 
@@ -270,6 +301,9 @@
                             </option>
                         </select>
                     </label>
+                    @if ($errors->has('drivers_assistance'))
+                    <span class="text-danger">{{ $errors->first('drivers_assistance') }}</span>
+                    @endif
                 </div>
 
 
@@ -409,7 +443,9 @@
                         </label>
                     </li>
                 </ul>
-
+                @if ($errors->has('checkbox_questions'))
+                <span class="text-danger">{{ $errors->first('checkbox_questions') }}</span>
+                @endif
 
                 <div class="mt-40">
                     <label class="multi-select-qa" for="illumination">
@@ -426,6 +462,9 @@
                             </option>
                         </select>
                     </label>
+                    @if ($errors->has('illumination'))
+                    <span class="text-danger">{{ $errors->first('illumination') }}</span>
+                    @endif
                 </div>
 
                 <div class="mt-10">
@@ -443,6 +482,9 @@
                             </option>
                         </select>
                     </label>
+                    @if ($errors->has('performance'))
+                    <span class="text-danger">{{ $errors->first('performance') }}</span>
+                    @endif
                 </div>
 
                 <div class="mt-10">
@@ -460,6 +502,9 @@
                             </option>
                         </select>
                     </label>
+                    @if ($errors->has('safety_and_security'))
+                    <span class="text-danger">{{ $errors->first('safety_and_security') }}</span>
+                    @endif
                 </div>
 
 
@@ -471,7 +516,7 @@
                             <i class="fa-solid fa-arrow-left-long"></i>
                             <span>Go Back</span>
                         </button>
-                        <button type="button" class="btn-trans step4-btn-save">
+                        <button type="submit" class="btn-trans step4-btn-save">
                             Save for Now
                         </button>
                     </div>
