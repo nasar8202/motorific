@@ -95,23 +95,23 @@
             <div class="col-lg-12">
                 <ul class="header-submenu d-flex">
                     <li>
-                        <a href="{{ route('dealer.addVehicleToSellFromDealer') }}" class="{{ Request::route()->getName() == 'dealer.addVehicleToSellFromDealer'  ? 'active' : ''}}">
+                        <a href="{{ route('dealer.addVehicleToSellFromDealer') }}" class="{{ Request::route()->getName() == 'dealer.addVehicleToSellFromDealer'  ? 'active' : 'disabled'}}">
                                 Vehicle Lookup
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('dealer.mediaCondition') }}" class="{{ Request::route()->getName() == 'dealer.mediaCondition'  ? 'active' : '' }} ">
+                        <a href="{{ route('dealer.mediaCondition') }}" class="{{ Request::route()->getName() == 'dealer.mediaCondition'  ? 'active' : 'disabled' }} ">
                                 Media & Condition
                         </a>
                     </li>
                     <li>
-                        <a  href="{{ route('dealer.vehicleAndDetails') }}" class="{{ Request::route()->getName() == 'dealer.vehicleAndDetails'  ? 'active' : '' }} ">
-                                Vehicle & Details
+                        <a  href="{{ route('dealer.vehicleListing') }}" class="{{ Request::route()->getName() == 'dealer.vehicleListing'  ? 'active' : 'disabled' }} ">
+                                Listing Details
                         </a>
                     </li>
                     <li>
-                        <a  href="{{ route('dealer.vehicleListing') }}" class="{{ Request::route()->getName() == 'dealer.vehicleListing'  ? 'active' : '' }} ">
-                                Listing Details
+                        <a  href="{{ route('dealer.vehicleAndDetails') }}" class="{{ Request::route()->getName() == 'dealer.vehicleAndDetails'  ? 'active' : 'disabled' }} ">
+                                Vehicle & Details
                         </a>
                     </li>
                 </ul>

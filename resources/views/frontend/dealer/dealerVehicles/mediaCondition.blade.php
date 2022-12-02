@@ -89,7 +89,7 @@
 
                     <div class="details-field-main confirmation-div">
                         <div class="custom-checkbox d-flex my-4">
-                            <input class="hide-inp" type="checkbox" name="confirm"  id="confirm_tac" @if(request()->session()->get('confirm') == true) checked @endif />
+                            <input class="hide-inp" type="checkbox" name="confirm" value="1" id="confirm_tac" @if(request()->session()->get('confirm') == 1) checked @endif />
                             <label class="dflex-gap10 align-items-start" for="confirm_tac">
                                 <span class="checkbox-square f-15">
                                     <i class="fa-solid fa-check"></i>
@@ -114,7 +114,7 @@
                     <div class="bt-btns-main d-flex">
                         <button type="button" class="btn-trans step4-back-btn">
                             <i class="fa-solid fa-arrow-left-long"></i>
-                            <span>Go Back</span>
+                            <span><a href="{{route('dealer.addVehicleToSellFromDealer')}}">Go Back</a></span>
                         </button>
 
                         <button type="submit" class="btn-trans step1-btn-save">
