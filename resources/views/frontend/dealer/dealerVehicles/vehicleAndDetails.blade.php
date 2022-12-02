@@ -536,9 +536,9 @@
                                 <i class="fa-solid fa-arrow-left-long"></i>
                                 <span><a href="{{route('dealer.vehicleListing')}}">Go Back</a></span>
                             </button>
-                            <button type="submit" class="btn-trans step2-btn-save">
+                            {{-- <button type="submit" class="btn-trans step2-btn-save">
                                 Save for Now
-                            </button>
+                            </button> --}}
                         </div>
 
                     </div>
@@ -571,11 +571,11 @@
                     <p class="novalid-txt f-14">NO Valid MOT</p>
                 </div>
             </div>
-            {{-- <div class="d-flex gap-2 justify-content-end mt-4">
-                <button type="button" class="btn-qa1 f-16 btn-border-sm">Save Advert</button>
-                <button type="button" class="btn-qa1 f-16 btn-filled-sm">Publish Advert</button>
-            </div> --}}
-       
+            <div class="d-flex gap-2 justify-content-end mt-4">
+                {{-- <button type="button" class="btn-qa1 f-16 btn-border-sm">Save Advert</button> --}}
+                <button type="submit" class="btn-qa1 f-16 btn-filled-sm">Publish Advert</button>
+            </div>
+
         </form>
     </div>
 

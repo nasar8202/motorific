@@ -5,7 +5,14 @@
      <div class="filterIn">
 
         <div class="filterIn">
-            <button type="button" class="btn btn-info text-white" data-bs-toggle="collapse" data-bs-target="#Bids_and_offers">Bids And Offers</button>
+            <button type="button" class="btn-qa" data-bs-toggle="collapse" data-bs-target="#Bids_and_offers">
+                <span>
+                    Bids And Offers
+                </span>
+                <span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </span>
+            </button>
             <div id="Bids_and_offers" class="collapse">
                 <br>
                 <p><a href="{{ route('bids.ActiveBiddedVehicle') }}" class="active">Active</a></p><br>
@@ -15,7 +22,12 @@
         </div>
     </div>
     <div class="filterIn">
-        <button type="button" class="btn btn-info text-white" data-bs-toggle="collapse" data-bs-target="#purchases">Purchases</button>
+        <button type="button" class="btn-qa" data-bs-toggle="collapse" data-bs-target="#purchases">
+            <span>Purchases</span>
+            <span>
+                <i class="fa-solid fa-angle-down"></i>
+            </span>
+        </button>
             <div id="purchases" class="collapse">
                 <br>
                 <p><a href="{{ route('bids.CompletedBiddedVehicle') }}">Completed</a></p><br>

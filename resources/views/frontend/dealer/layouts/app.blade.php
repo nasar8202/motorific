@@ -532,6 +532,27 @@
         select.js-select2.companyType + span {
             display: none;
         }
+
+        button.btn-qa {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            color: #fff;
+            background: #202543;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px 20px;
+            text-align: left;
+        }
+        button.btn-qa span:last-child{
+            transform: rotate(0deg);
+        }
+
+        button.btn-qa:not(.collapsed) span:last-child{
+            transform: rotate(180deg);
+        }
     </style>
 
 </head>

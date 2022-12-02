@@ -24,7 +24,7 @@
                     <h2 class="headingqa-2 f-50">Create Advert for <span class="d-block">which Vehicle?</span> </h2>
                     <div class="details-field-main">
                         <label class="label-main-text f-18"> What is your vehicle registration or VIN number? </label>
-                        <input class="inp-qa inp-round" name="vehicle_registartion_number" type="text" value="{{ request()->session()->get('vehicle_registartion_number') }}" >
+                        <input class="inp-qa inp-round" name="vehicle_registartion_number" type="text" value=" {{  request()->session()->get('vehicle_registartion_number') }}" >
                         @if ($errors->has('vehicle_registartion_number'))
                         <span class="text-danger">{{ $errors->first('vehicle_registartion_number') }}</span>
                         @endif

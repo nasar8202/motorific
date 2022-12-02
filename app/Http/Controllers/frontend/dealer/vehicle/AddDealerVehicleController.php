@@ -132,7 +132,7 @@ class AddDealerVehicleController extends Controller
             $dealer_vehicle_history->illumination = session()->get('illumination');
             $dealer_vehicle_history->performance = session()->get('performance');
             $dealer_vehicle_history->safety_and_security = session()->get('safety_and_security');
-            $dealer_vehicle_history->save();            
+            $dealer_vehicle_history->save();
 
             $dealer_vehicle_media = new DealerVehicleMedia;
             $dealer_vehicle_media->dealer_vehicle_id = $dealers_vehicle->id;
@@ -147,7 +147,7 @@ class AddDealerVehicleController extends Controller
             $dealer_vehicle_media->offside_front = $request->offside_front;
             $dealer_vehicle_media->offside_rear = $request->offside_rear;
             $dealer_vehicle_media->save();
-            
+
             $image_1 = time() . '_' . $request->file('image_1')->getClientOriginalName();
             $request->file('image_1')->move(public_path() . '/uploads/dealerVehicles/', $image_1);
 
@@ -279,7 +279,7 @@ class AddDealerVehicleController extends Controller
             Session::put('performance', $performance);
             $safety_and_security = implode(',',$request->safety_and_security);
             Session::put('safety_and_security', $safety_and_security);
-            
+
         return redirect()->route('dealer.vehicleAndDetails');
 
     }

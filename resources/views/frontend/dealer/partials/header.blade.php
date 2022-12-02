@@ -12,16 +12,16 @@
         <div class="row header-nav-row">
             <div class="col-lg-9 desktop-header">
                 <div class="header-nav dflex-gap10">
-
+                    @if(\Request::route()->getName() == 'dealer.dashboard' || \Request::route()->getName() == 'howItWorks' || \Request::route()->getName() == 'pricing' || \Request::route()->getName() == 'onlyCars' || \Request::route()->getName() == 'onlyVans' || \Request::route()->getName() == 'vehicle.vehicleDetail' || \Request::route()->getName() == 'vehicle.liveSell' || \Request::route()->getName() == 'buyItNow' || \Request::route()->getName() == 'dealerToDealer' || \Request::route()->getName() == 'dealersVehicleDetail' || \Request::route()->getName() == 'dealer.BidsAndOffers' || \Request::route()->getName() == 'bids.ActiveBiddedVehicle' || \Request::route()->getName() == 'bids.UnderBiddedOfferVehicle' || \Request::route()->getName() == 'bids.DidnotWinBiddedVehicle' || \Request::route()->getName() == 'dealer.PurchasesVehicle' || \Request::route()->getName() == 'bids.CompletedBiddedVehicle' || \Request::route()->getName() == 'bids.CancelledBiddedOfferVehicle' || \Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.vehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing')
                     <nav>
                         <ul>
                             <li>
-                                <a class="active" href="{{route('dealer.dashboard')}}">
+                                <a  class="{{ Request::route()->getName() == 'dealer.dashboard'  ? 'active' : ''}}" href="{{route('dealer.dashboard')}}">
                                        Browse vehicles
                                 </a>
                             </li>
                             <li>
-                                <a class="" href="{{route('howItWorks')}}">
+                                <a href="{{route('howItWorks')}}" class="{{ Request::route()->getName() == 'howItWorks'  ? 'active' : ''}}">
                                         How it works
                                 </a>
                             </li>
@@ -31,12 +31,13 @@
                             <!--    </a>-->
                             <!--</li>-->
                             <li>
-                                <a class="" href="{{route('pricing')}}">
+                                <a  href="{{route('pricing')}}" class="{{ Request::route()->getName() == 'pricing'  ? 'active' : ''}}">
                                         Pricing
                                 </a>
                             </li>
                         </ul>
                     </nav>
+                    @endif
                 </div>
             </div>
             <div class="col-lg-3 desktop-header">
