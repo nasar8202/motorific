@@ -276,6 +276,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
     Route::get('/buy-it-now', [DealerDashboardController::class,'buyItNow'])->name('buyItNow');
     Route::get('/dealer-to-dealer', [DealerDashboardController::class,'dealerToDealer'])->name('dealerToDealer');
+    Route::get('/dealer-vehicle-detail/{id}', [DealerDashboardController::class,'dealersVehicleDetail'])->name('dealersVehicleDetail');
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
     Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
 

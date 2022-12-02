@@ -241,11 +241,11 @@ div#filter-price {
                 <div id="first">
                 @forelse ($allVehicles as $vehicle)
                 <div class="col-lg-3 col-md-3 blur_action mb-5" >
-                    <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}">
+                    <a href="{{ route('dealersVehicleDetail',[$vehicle->id]) }}">
                         <div class="box" id>
 
                             <div class="box-img">
-                                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}" width="180px" alt="">
+                                <img src="{{ asset('/uploads/DealerVehicles/'.$vehicle->DealerVehicleExterior->image_1 ?? "") }}" width="180px" alt="">
                             </div>
                             <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
                             <div class="d-flex justify-content-between">

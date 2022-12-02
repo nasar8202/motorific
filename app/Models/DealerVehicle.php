@@ -2,10 +2,50 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\DealerVehicleMedia;
+use App\Models\DealerVehicleHistory;
+use App\Models\DealerVehicleExterior;
+use App\Models\DealerVehicleInterior;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DealerAdvertVehicleDetail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DealerVehicle extends Model
 {
     use HasFactory;
+    public function DealerAdvertVehicleDetail()
+
+    {
+
+        return $this->hasOne(DealerAdvertVehicleDetail::class,'dealer_vehicle_id','id');
+
+    }
+    public function DealerVehicleExterior()
+
+    {
+
+        return $this->hasOne(DealerVehicleExterior::class,'dealer_vehicle_id','id');
+
+    }
+    public function DealerVehicleHistory()
+
+    {
+
+        return $this->hasOne(DealerVehicleHistory::class,'dealer_vehicle_id','id');
+
+    }
+    public function DealerVehicleInterior()
+
+    {
+
+        return $this->hasOne(DealerVehicleInterior::class,'dealer_vehicle_id','id');
+
+    }
+    public function DealerVehicleMedia()
+
+    {
+
+        return $this->hasOne(DealerVehicleMedia::class,'dealer_vehicle_id','id');
+
+    }
 }

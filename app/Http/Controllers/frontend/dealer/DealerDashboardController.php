@@ -753,12 +753,20 @@ die();
     }
     public function dealerToDealer()
     {
-        $allVehicles = DealerVehicle::Where('status',1)->get();
-
+        $allVehicles = DealerVehicle::Where('status',1)
+        ->with('DealerAdvertVehicleDetail')
+        ->with('DealerVehicleExterior')
+        ->with('DealerVehicleHistory')
+        ->with('DealerVehicleInterior')
+        ->with('DealerVehicleMedia')
+        ->get();
         $countAllVehicle = count($allVehicles);
         
         return view('frontend.dealer.vehicle.dealerToDealer',compact('allVehicles','countAllVehicle'));
 
+    }
+    public function dealersVehicleDetail($id){
+        dd($id);
     }
     public function buyItNow()
     {
