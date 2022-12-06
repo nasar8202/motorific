@@ -12,6 +12,7 @@ use App\Models\DealerVehicleHistory;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
+use App\Models\DealerVehicleTyres;
 use Illuminate\Support\Facades\Session;
 use App\Models\DealerAdvertVehicleDetail;
 
@@ -72,33 +73,21 @@ class AddDealerVehicleController extends Controller
 
     public function vehicleAndDetailsPost(Request $request)
     {
-        $request->validate([
-            'image_1' => 'required',
-            'image_2' => 'required',
-            'image_3' => 'required',
-            'image_4' => 'required',
-            'image_5' => 'required',
-            'image_6' => 'required',
-            'image_7' => 'required',
-            'image_8' => 'required',
-            'image_9' => 'required',
-            'interior_image_1' => 'required',
-            'interior_image_2' => 'required',
-            'interior_image_3' => 'required',
-            'interior_image_4' => 'required',
-            'interior_image_5' => 'required',
-            'condition_damage' => 'required',
-            'condition_damage_url' => 'required',
-            'existing_condition_report' => 'required',
-            'any_damage_checked' => 'required',
-            'advert_description' => 'required',
-            'attention_grabber' => 'required',
-            'nearside_front' => 'required',
-            'nearside_rear' => 'required',
-            'offside_front' => 'required',
-            'offside_rear' => 'required',
+        // $request->validate([
+        //     'image_1' => 'required',
+        //     'interior_image_1' => 'required',
+        //     'condition_damage' => 'required',
+        //     'condition_damage_url' => 'required',
+        //     'existing_condition_report' => 'required',
+        //     'any_damage_checked' => 'required',
+        //     'advert_description' => 'required',
+        //     'attention_grabber' => 'required',
+        //     'nearside_front' => 'required',
+        //     'nearside_rear' => 'required',
+        //     'offside_front' => 'required',
+        //     'offside_rear' => 'required',
 
-        ]);
+        // ]);
 
         DB::beginTransaction();
         try{
@@ -145,14 +134,40 @@ class AddDealerVehicleController extends Controller
             $dealer_vehicle_history->mileage = session()->get('mileage');
             $dealer_vehicle_history->v5_status = session()->get('v5_status');
             $dealer_vehicle_history->origin = session()->get('origin');
-            $dealer_vehicle_history->interior = session()->get('interior');
-            $dealer_vehicle_history->exterior = session()->get('exterior');
-            $dealer_vehicle_history->audio_and_communications = session()->get('audio_and_communications');
-            $dealer_vehicle_history->drivers_assistance = session()->get('drivers_assistance');
-            $dealer_vehicle_history->checkbox_questions = session()->get('checkbox_questions');
-            $dealer_vehicle_history->illumination = session()->get('illumination');
-            $dealer_vehicle_history->performance = session()->get('performance');
-            $dealer_vehicle_history->safety_and_security = session()->get('safety_and_security');
+            if(!empty(session()->get('interior'))){
+                $dealer_vehicle_history->interior = session()->get('interior');
+            }
+            // $dealer_vehicle_history->exterior = session()->get('exterior');
+            if(!empty(session()->get('exterior'))){
+                $dealer_vehicle_history->exterior = session()->get('exterior');
+            }
+            if(!empty(session()->get('audio_and_communications'))){
+                $dealer_vehicle_history->audio_and_communications = session()->get('audio_and_communications');
+            }
+            // $dealer_vehicle_history->exterior = session()->get('exterior');
+            if(!empty(session()->get('drivers_assistance'))){
+                $dealer_vehicle_history->drivers_assistance = session()->get('drivers_assistance');
+            }
+            if(!empty(session()->get('checkbox_questions'))){
+                $dealer_vehicle_history->checkbox_questions = session()->get('checkbox_questions');
+            }
+            // $dealer_vehicle_history->exterior = session()->get('exterior');
+            if(!empty(session()->get('illumination'))){
+                $dealer_vehicle_history->illumination = session()->get('illumination');
+            }
+            if(!empty(session()->get('performance'))){
+                $dealer_vehicle_history->performance = session()->get('performance');
+            }
+            // $dealer_vehicle_history->exterior = session()->get('exterior');
+            if(!empty(session()->get('safety_and_security'))){
+                $dealer_vehicle_history->safety_and_security = session()->get('safety_and_security');
+            }
+            // $dealer_vehicle_history->audio_and_communications = session()->get('audio_and_communications');
+            // $dealer_vehicle_history->drivers_assistance = session()->get('drivers_assistance');
+            // $dealer_vehicle_history->checkbox_questions = session()->get('checkbox_questions');
+            // $dealer_vehicle_history->illumination = session()->get('illumination');
+            // $dealer_vehicle_history->performance = session()->get('performance');
+            // $dealer_vehicle_history->safety_and_security = session()->get('safety_and_security');
             $dealer_vehicle_history->save();
 
             $dealer_vehicle_media = new DealerVehicleMedia;
@@ -168,73 +183,46 @@ class AddDealerVehicleController extends Controller
             $dealer_vehicle_media->offside_front = $request->offside_front;
             $dealer_vehicle_media->offside_rear = $request->offside_rear;
             $dealer_vehicle_media->save();
+            // dd($request->image_1);
+            // die();
+            foreach($request->image_1 as $exterior_images){
+                
+            $image_1 = time() . '_' . $exterior_images->getClientOriginalName();
+            $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
 
-            $image_1 = time() . '_' . $request->file('image_1')->getClientOriginalName();
-            $request->file('image_1')->move(public_path() . '/uploads/dealerVehicles/', $image_1);
-
-            $image_2 = time() . '_' . $request->file('image_2')->getClientOriginalName();
-            $request->file('image_2')->move(public_path() . '/uploads/dealerVehicles/', $image_2);
-
-            $image_3 = time() . '_' . $request->file('image_3')->getClientOriginalName();
-            $request->file('image_3')->move(public_path() . '/uploads/dealerVehicles/', $image_3);
-
-            $image_4 = time() . '_' . $request->file('image_4')->getClientOriginalName();
-            $request->file('image_4')->move(public_path() . '/uploads/dealerVehicles/', $image_4);
-
-            $image_5 = time() . '_' . $request->file('image_5')->getClientOriginalName();
-            $request->file('image_5')->move(public_path() . '/uploads/dealerVehicles/', $image_5);
-
-            $image_6 = time() . '_' . $request->file('image_6')->getClientOriginalName();
-            $request->file('image_6')->move(public_path() . '/uploads/dealerVehicles/', $image_6);
-
-            $image_7 = time() . '_' . $request->file('image_7')->getClientOriginalName();
-            $request->file('image_7')->move(public_path() . '/uploads/dealerVehicles/', $image_7);
-
-            $image_8 = time() . '_' . $request->file('image_8')->getClientOriginalName();
-            $request->file('image_8')->move(public_path() . '/uploads/dealerVehicles/', $image_8);
-
-            $image_9 = time() . '_' . $request->file('image_9')->getClientOriginalName();
-            $request->file('image_9')->move(public_path() . '/uploads/dealerVehicles/', $image_9);
 
             $dealer_vehicle_exterior = new DealerVehicleExterior;
             $dealer_vehicle_exterior->dealer_vehicle_id = $dealers_vehicle->id ;
-            $dealer_vehicle_exterior->image_1 = $image_1;
-            $dealer_vehicle_exterior->image_2 = $image_2;
-            $dealer_vehicle_exterior->image_3 = $image_3;
-            $dealer_vehicle_exterior->image_4 = $image_4;
-            $dealer_vehicle_exterior->image_5 = $image_5;
-            $dealer_vehicle_exterior->image_6 = $image_6;
-            $dealer_vehicle_exterior->image_7 = $image_7;
-            $dealer_vehicle_exterior->image_8 = $image_8;
-            $dealer_vehicle_exterior->image_9 = $image_9;
+            $dealer_vehicle_exterior->exterior_image = $image_1;
             $dealer_vehicle_exterior->save();
+            }
+            
+            foreach($request->interior_image_1 as $interior_image){
+            $interior_image_1 = time() . '_' . $interior_image->getClientOriginalName();
+            $interior_image->move(public_path() . '/uploads/dealerVehicles/interior/', $interior_image_1);
 
 
-            $interior_image_1 = time() . '_' . $request->file('interior_image_1')->getClientOriginalName();
-            $request->file('interior_image_1')->move(public_path() . '/uploads/dealerVehicles/', $interior_image_1);
-
-            $interior_image_2 = time() . '_' . $request->file('interior_image_2')->getClientOriginalName();
-            $request->file('interior_image_2')->move(public_path() . '/uploads/dealerVehicles/', $interior_image_2);
-
-            $interior_image_3 = time() . '_' . $request->file('interior_image_3')->getClientOriginalName();
-            $request->file('interior_image_3')->move(public_path() . '/uploads/dealerVehicles/', $interior_image_3);
-
-            $interior_image_4 = time() . '_' . $request->file('interior_image_4')->getClientOriginalName();
-            $request->file('interior_image_4')->move(public_path() . '/uploads/dealerVehicles/', $interior_image_4);
-
-            $interior_image_5 = time() . '_' . $request->file('interior_image_5')->getClientOriginalName();
-            $request->file('interior_image_5')->move(public_path() . '/uploads/dealerVehicles/', $interior_image_5);
 
             $dealer_vehicle_interior = new DealerVehicleInterior;
             $dealer_vehicle_interior->dealer_vehicle_id = $dealers_vehicle->id;
-            $dealer_vehicle_interior->image_1 = $interior_image_1;
-            $dealer_vehicle_interior->image_2 = $interior_image_2;
-            $dealer_vehicle_interior->image_3 = $interior_image_3;
-            $dealer_vehicle_interior->image_4 = $interior_image_4;
-            $dealer_vehicle_interior->image_5 = $interior_image_5;
+            $dealer_vehicle_interior->interior_image = $interior_image_1;
             $dealer_vehicle_interior->save();
             //$image_1 = Session::get('image_1');
+            }
 
+
+            foreach($request->tyre_image as $interior_image){
+                $tyre_image = time() . '_' . $interior_image->getClientOriginalName();
+                $interior_image->move(public_path() . '/uploads/dealerVehicles/tyres/', $tyre_image);
+    
+    
+    
+                $dealer_Vehicle_Tyres = new DealerVehicleTyres;
+                $dealer_Vehicle_Tyres->dealer_vehicle_id = $dealers_vehicle->id;
+                $dealer_Vehicle_Tyres->tyre_image = $tyre_image;
+                $dealer_Vehicle_Tyres->save();
+                //$image_1 = Session::get('image_1');
+                }
 
 
 
@@ -248,7 +236,7 @@ class AddDealerVehicleController extends Controller
             }
             DB::commit();
 
-            return redirect()->route('dealer.dashboard')->with('success', 'Vehicle Updated  Successfully!');
+            return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully!');
     }
     public function vehicleListing(Request $request)
     {
@@ -266,14 +254,14 @@ class AddDealerVehicleController extends Controller
             'mileage' => 'required',
             'v5_status' => 'required',
             'origin' => 'required',
-            'interior' => 'required',
-            'exterior' => 'required',
-            'audio_and_communications' => 'required',
-            'drivers_assistance' => 'required',
-            'checkbox_questions' => 'required',
-            'illumination' => 'required',
-            'performance' => 'required',
-            'safety_and_security' => 'required',
+            // 'interior' => 'required',
+            // 'exterior' => 'required',
+            // 'audio_and_communications' => 'required',
+            // 'drivers_assistance' => 'required',
+            // 'checkbox_questions' => 'required',
+            // 'illumination' => 'required',
+            // 'performance' => 'required',
+            // 'safety_and_security' => 'required',
 
 
         ]);
@@ -283,23 +271,45 @@ class AddDealerVehicleController extends Controller
             Session::put('mileage', $request->mileage);
             Session::put('v5_status', $request->v5_status);
             Session::put('origin', $request->origin);
-            $interior = implode(',',$request->interior);
-            Session::put('interior', $interior);
-            $exterior = implode(',',$request->exterior);
-            Session::put('exterior', $exterior);
-            $audio_and_communications = implode(',',$request->audio_and_communications);
-            Session::put('audio_and_communications', $audio_and_communications);
-            $drivers_assistance = implode(',',$request->drivers_assistance);
-            Session::put('drivers_assistance', $drivers_assistance);
-
-            $checkbox_questions = implode(',',$request->checkbox_questions);
-            Session::put('checkbox_questions', $checkbox_questions);
-            $illumination = implode(',',$request->illumination);
+           
+            if(!empty($request->interior)){
+                $interior = implode(',',$request->interior);
+                Session::put('interior', $interior);
+            }
+            
+            if(!empty($request->exterior)){
+                $exterior = implode(',',$request->exterior);
+                Session::put('exterior', $exterior);
+            }
+            // Session::put('exterior', $exterior);
+            if(!empty($request->audio_and_communications)){
+                $audio_and_communications = implode(',',$request->audio_and_communications);
+                Session::put('audio_and_communications', $audio_and_communications);
+            }
+            if(!empty($request->drivers_assistance)){
+                $drivers_assistance = implode(',',$request->drivers_assistance);
+                Session::put('drivers_assistance', $drivers_assistance);
+            }
+            if(!empty($request->checkbox_questions)){
+                $checkbox_questions = implode(',',$request->checkbox_questions);
+                Session::put('checkbox_questions', $checkbox_questions);
+            }
+            
+            
+            if(!empty($request->illumination)){
+                $illumination = implode(',',$request->illumination);
             Session::put('illumination', $illumination);
-            $performance = implode(',',$request->performance);
-            Session::put('performance', $performance);
-            $safety_and_security = implode(',',$request->safety_and_security);
-            Session::put('safety_and_security', $safety_and_security);
+            }
+            if(!empty($request->performance)){
+                $performance = implode(',',$request->performance);
+                Session::put('performance', $performance);
+            }
+            if(!empty($request->safety_and_security)){
+                $safety_and_security = implode(',',$request->safety_and_security);
+                Session::put('safety_and_security', $safety_and_security);
+            }
+           
+            
 
         return redirect()->route('dealer.vehicleAndDetails');
 

@@ -16,11 +16,8 @@ class CreateDealerVehicleInteriorsTable extends Migration
         Schema::create('dealer_vehicle_interiors', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('dealer_vehicle_id')->nullable();
-            $table->string('image_1')->nullable();
-            $table->string('image_2')->nullable();
-            $table->string('image_3')->nullable();
-            $table->string('image_4')->nullable();
-            $table->string('image_5')->nullable();
+            $table->string('interior_image')->nullable();
+          
             $table->string('status')->default(1)->comment('1 = Active , 2 = Deactive');
             $table->timestamps();
             $table->softDeletes();

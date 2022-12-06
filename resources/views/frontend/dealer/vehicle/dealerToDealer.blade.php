@@ -245,7 +245,7 @@ div#filter-price {
                         <div class="box" id>
 
                             <div class="box-img">
-                                <img src="{{ asset('/uploads/DealerVehicles/'.$vehicle->DealerVehicleExterior->image_1 ?? "") }}" width="180px" alt="">
+                                <img src="{{ asset('/uploads/DealerVehicles/exterior/'.$vehicle->DealerVehicleExterior[0]->exterior_image ?? "") }}" width="180px" alt="">
                             </div>
                             <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
                             <div class="d-flex justify-content-between">
