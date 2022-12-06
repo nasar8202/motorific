@@ -105,6 +105,27 @@ class AddDealerVehicleController extends Controller
             $dealer_advert_vehicle->confirm = session()->get('confirm');
             $dealer_advert_vehicle->save();
 
+            // Session::forget('vehicle_registartion_number');
+            // Session::forget('vehicle_mileage');
+            // Session::forget('listing_type');
+            // Session::forget('stand_in_value');
+            // Session::forget('vat');
+            // Session::forget('confirm');
+            // Session::forget('keys');
+            // Session::forget('previous_owners');
+            // Session::forget('service_history_title');
+            // Session::forget('mileage');
+            // Session::forget('v5_status');
+            // Session::forget('origin');
+            // Session::forget('interior');
+            // Session::forget('exterior');
+            // Session::forget('audio_and_communications');
+            // Session::forget('drivers_assistance');
+            // Session::forget('checkbox_questions');
+            // Session::forget('illumination');
+            // Session::forget('performance');
+            // Session::forget('safety_and_security');
+
             $dealer_vehicle_history = new DealerVehicleHistory;
             $dealer_vehicle_history->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_vehicle_history->keys = session()->get('keys');

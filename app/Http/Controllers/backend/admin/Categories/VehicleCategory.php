@@ -6,23 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\vehicleCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Vehicle;
 
 class VehicleCategory extends Controller
 {
     public function viewCategories()
     {
-        
+
         $categories = vehicleCategories::all();
         return view('backend.admin.categories.viewCategories',compact('categories'));
     }
-    
+
     public function createCategoryForm()
     {
-        
+
         return view('backend.admin.categories.createCategories');
     }
 
-    
+
 
     public function storeCategories(Request $request)
     {
@@ -49,8 +50,14 @@ class VehicleCategory extends Controller
 
     public function deleteCategory($id)
     {
+        $vehicleInformation = Vehicle::where('vehicle_category', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewCategories')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         vehicleCategories::where('id',$id)->delete();
         return redirect()->route('viewCategories')->with('error', 'Vehicle Category Deleted  Successfully!');
+        }
     }
 
     public function editCategory($id)
