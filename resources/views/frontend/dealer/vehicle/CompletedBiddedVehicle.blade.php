@@ -32,6 +32,7 @@
                     </div>
                     <br>
                     <div class="row">
+                     
                         @forelse ($bids as $bid)
                         <div class="col-sm-4" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $bid->front) }}" width="300px" height="200px"></div>
                         <div class="col-sm-8" style="padding: 10px">
@@ -49,7 +50,7 @@
                                     <div class="collapse" id="myCollapse">
                                         <div class="card card-body " style="width: 40%;float: right;" >
                                             <ul>
-                                                <li><a href="{{route('sellerDetailPage')}}"> Seller's Details</a></li><br>
+                                                <li><a href="{{route('sellerDetails',$bid->id)}}"> Seller's Details</a></li><br>
                                                 <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li>
                                             </ul>
                                         </div>

@@ -18,11 +18,12 @@ use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
-use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
-
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
+
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
+use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
+use App\Http\Controllers\frontend\dealer\dealerCharges\DealerChargesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -290,8 +291,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');
 
-    Route::get('/seller-details', [AddDealerVehicleController::class, 'vehicleListing'])->name('sellerDetailPage');
-    Route::get('/delivery-details', [AddDealerVehicleController::class, 'vehicleListing'])->name('deliveryDetailPage');
+    Route::get('/seller-details/{id}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
+    Route::get('/delivery-details', [DealerChargesController::class, 'vehicleListing'])->name('deliveryDetailPage');
 
 
 });
