@@ -35,10 +35,27 @@
                         @forelse ($bids as $bid)
                         <div class="col-sm-4" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $bid->front) }}" width="300px" height="200px"></div>
                         <div class="col-sm-8" style="padding: 10px">
-                            <h1 style="font-size: 20px"><span style="background-color:yellow;border-radius:45px;padding:7px">{{ $bid->vehicle_registartion_number }}</span></h1>
+                            <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $bid->vehicle_registartion_number }}</span></h1>
                             <br><p>{{ $bid->vehicle_name }}</p><br>
                             <span>Max Bid:{{ $bid->bid_price }}</span>
                             <span style="padding-left: 60px;">{{ $bid->created_at->format('m/d/Y') }}</span>
+                            <span style="padding-left: 200px;">
+                               
+                                        <!-- Trigger Buttons HTML -->
+                                       
+                                        <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse">...</button>
+                                   
+                                    <!-- Collapsible Element HTML -->
+                                    <div class="collapse" id="myCollapse">
+                                        <div class="card card-body " style="width: 40%;float: right;" >
+                                            <ul>
+                                                <li><a href="{{route('sellerDetailPage')}}"> Seller's Details</a></li><br>
+                                                <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                
+                            </span>
 
                         </div>
                         @empty

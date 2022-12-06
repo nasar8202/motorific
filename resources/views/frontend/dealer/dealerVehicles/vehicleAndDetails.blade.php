@@ -43,12 +43,12 @@
                         <div class="gallery-upload-main">
 
                             <label for="image_1" class="custom-gallery-upload">
-                                <input type="file" name="image_1" id="image_1" class="hide-inp" onchange="getFileName(this)">
+                                <input type="file" name="image_1[]" id="image_1" multiple class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" alt="car image" >
 
                             </label>
 
-                            <label for="image_2" class="custom-gallery-upload">
+                            {{-- <label for="image_2" class="custom-gallery-upload">
                                 <input type="file" name="image_2" id="image_2" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img2.png')}}" alt="car image" >
                             </label>
@@ -79,11 +79,11 @@
                             <label for="image_9" class="custom-gallery-upload">
                                 <input type="file" name="image_9" id="image_9" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img9.png')}}" alt="car image" >
-                            </label>
+                            </label> --}}
                             @if ($errors->has('image_1'))
                             <span class="text-danger">{{ $errors->first('image_1') }}</span>
                             @endif
-                            @if ($errors->has('image_2'))
+                            {{-- @if ($errors->has('image_2'))
                             <span class="text-danger">{{ $errors->first('image_2') }}</span>
                             @endif
                             @if ($errors->has('image_3'))
@@ -106,7 +106,7 @@
                             @endif
                             @if ($errors->has('image_9'))
                             <span class="text-danger">{{ $errors->first('image_9') }}</span>
-                            @endif
+                            @endif --}}
                         </div>
 
                     </div>
@@ -115,10 +115,10 @@
                         <p class="gallery-top-text mb-10 f-18">Interior</p>
                         <div class="gallery-upload-main">
                             <label for="interior_image_1" class="custom-gallery-upload">
-                                <input type="file" name="interior_image_1" id="interior_image_1" class="hide-inp" onchange="getFileName(this)">
+                                <input type="file" name="interior_image_1[]" multiple id="interior_image_1" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}" alt="car image" >
                             </label>
-                            <label for="interior_image_2" class="custom-gallery-upload">
+                            {{-- <label for="interior_image_2" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_2" id="interior_image_2" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img11.png')}}" alt="car image" >
                             </label>
@@ -133,11 +133,11 @@
                             <label for="interior_image_5" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_5" id="interior_image_5" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img14.png')}}" alt="car image" >
-                            </label>
+                            </label> --}}
                             @if ($errors->has('interior_image_1'))
                             <span class="text-danger">{{ $errors->first('interior_image_1') }}</span>
                             @endif
-                            @if ($errors->has('interior_image_2'))
+                            {{-- @if ($errors->has('interior_image_2'))
                             <span class="text-danger">{{ $errors->first('interior_image_2') }}</span>
                             @endif
                             @if ($errors->has('interior_image_3'))
@@ -148,7 +148,7 @@
                             @endif
                             @if ($errors->has('interior_image_5'))
                             <span class="text-danger">{{ $errors->first('interior_image_5') }}</span>
-                            @endif
+                            @endif --}}
 
 
                         </div>
@@ -447,6 +447,48 @@
                         @endif
                         <div class="mt-40">
                             <h2 class="headingqa-4 f-40">Tyre tread depths</h2>
+                           
+                                <p class="gallery-top-text mb-10 f-18">Interior</p>
+                                <div class="gallery-upload-main">
+                                    <label for="tyre_image" class="custom-gallery-upload">
+                                        <input type="file" name="tyre_image[]" multiple id="tyre_image" class="hide-inp" onchange="getFileName(this)">
+                                        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}" alt="car image" >
+                                    </label>
+                                    {{-- <label for="interior_image_2" class="custom-gallery-upload">
+                                        <input type="file" name="interior_image_2" id="interior_image_2" class="hide-inp" onchange="getFileName(this)">
+                                        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img11.png')}}" alt="car image" >
+                                    </label>
+                                    <label for="interior_image_3" class="custom-gallery-upload">
+                                        <input type="file" name="interior_image_3" id="interior_image_3" class="hide-inp" onchange="getFileName(this)">
+                                        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img12.png')}}" alt="car image" >
+                                    </label>
+                                    <label for="interior_image_4" class="custom-gallery-upload">
+                                        <input type="file" name="interior_image_4" id="interior_image_4" class="hide-inp" onchange="getFileName(this)">
+                                        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img13.png')}}" alt="car image" >
+                                    </label>
+                                    <label for="interior_image_5" class="custom-gallery-upload">
+                                        <input type="file" name="interior_image_5" id="interior_image_5" class="hide-inp" onchange="getFileName(this)">
+                                        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img14.png')}}" alt="car image" >
+                                    </label> --}}
+                                    {{-- @if ($errors->has('interior_image_1'))
+                                    <span class="text-danger">{{ $errors->first('interior_image_1') }}</span>
+                                    @endif --}}
+                                    {{-- @if ($errors->has('interior_image_2'))
+                                    <span class="text-danger">{{ $errors->first('interior_image_2') }}</span>
+                                    @endif
+                                    @if ($errors->has('interior_image_3'))
+                                    <span class="text-danger">{{ $errors->first('interior_image_3') }}</span>
+                                    @endif
+                                    @if ($errors->has('interior_image_4'))
+                                    <span class="text-danger">{{ $errors->first('interior_image_4') }}</span>
+                                    @endif
+                                    @if ($errors->has('interior_image_5'))
+                                    <span class="text-danger">{{ $errors->first('interior_image_5') }}</span>
+                                    @endif --}}
+        
+        
+                                </div>
+        
                             <div class="d-flex gap-40">
                                 <div class="counter-main">
                                     <label for="" class="d-block">Nearside Front</label>

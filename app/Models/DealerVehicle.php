@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\DealerVehicleMedia;
+use App\Models\DealerVehicleTyres;
 use App\Models\DealerVehicleHistory;
 use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
@@ -24,7 +25,7 @@ class DealerVehicle extends Model
 
     {
 
-        return $this->hasOne(DealerVehicleExterior::class,'dealer_vehicle_id','id');
+        return $this->hasMany(DealerVehicleExterior::class,'dealer_vehicle_id','id');
 
     }
     public function DealerVehicleHistory()
@@ -38,7 +39,7 @@ class DealerVehicle extends Model
 
     {
 
-        return $this->hasOne(DealerVehicleInterior::class,'dealer_vehicle_id','id');
+        return $this->hasMany(DealerVehicleInterior::class,'dealer_vehicle_id','id');
 
     }
     public function DealerVehicleMedia()
@@ -46,6 +47,13 @@ class DealerVehicle extends Model
     {
 
         return $this->hasOne(DealerVehicleMedia::class,'dealer_vehicle_id','id');
+
+    }
+    public function DealerVehicleTyre()
+
+    {
+
+        return $this->hasMany(DealerVehicleTyres::class,'dealer_vehicle_id','id');
 
     }
 }

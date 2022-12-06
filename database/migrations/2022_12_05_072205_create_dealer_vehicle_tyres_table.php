@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDealerVehicleExteriorsTable extends Migration
+class CreateDealerVehicleTyresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateDealerVehicleExteriorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dealer_vehicle_exteriors', function (Blueprint $table) {
+        Schema::create('dealer_vehicle_tyres', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('dealer_vehicle_id')->nullable();
-            $table->string('exterior_image')->nullable();
-           
-            $table->string('status')->default(1)->comment('1 = Active , 2 = Deactive');
+            $table->string('tyre_image')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +28,6 @@ class CreateDealerVehicleExteriorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dealer_vehicle_exteriors');
+        Schema::dropIfExists('dealer_vehicle_tyres');
     }
 }
