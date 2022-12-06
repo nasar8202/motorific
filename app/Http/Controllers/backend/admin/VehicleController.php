@@ -15,6 +15,8 @@ use App\Models\VehicleOwner;
 use App\Models\Finance;
 use App\Models\PrivatePlate;
 use DB;
+use App\Models\vehicleInformation;
+
 class VehicleController extends Controller
 {
 
@@ -148,7 +150,7 @@ class VehicleController extends Controller
                     $data['image']->move(public_path() . '/materials/seat_material_iamges/', $seat_material_iamges);
 
 
-                    
+
                     $seatMaterial = new SeatMaterial();
                     $seatMaterial->image = $seat_material_iamges;
                     $seatMaterial->title = $data['title'];
@@ -221,7 +223,7 @@ class VehicleController extends Controller
         }
         DB::commit();
         return redirect()->route('viewFinance')->with('success', 'Finance added  Successfully!');
-        
+
     }
     public function storeNumberOfKeys(Request $request)
     {
@@ -596,48 +598,103 @@ class VehicleController extends Controller
 
     }
 
-    public function deleteVehicle($id)
+    public function deleteVehicleFeature($id)
     {
-        VehicleFeature::where('id',$id)->delete();
-        return redirect()->route('ViewVehicleFeatures')->with('error', 'Vehicle Feature Deleted  Successfully!');
+        $vehicleInformation = vehicleInformation::whereRaw('FIND_IN_SET(?, vehicle_feature_id)', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('ViewVehicleFeatures')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
+
+            VehicleFeature::where('id',$id)->delete();
+            return redirect()->route('ViewVehicleFeatures')->with('error', 'Vehicle Feature Deleted  Successfully!');
+        }
+
     }
     public function deleteKey($id)
     {
+        $vehicleInformation = vehicleInformation::where('number_of_keys_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('ViewNumberOfkeys')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         NumberOfKey::where('id',$id)->delete();
         return redirect()->route('ViewNumberOfkeys')->with('error', 'Key  Deleted  Successfully!');
+        }
     }
     public function deleteToolPack($id)
     {
+        $vehicleInformation = vehicleInformation::where('tool_pack_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('ViewToolPack')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         ToolPack::where('id',$id)->delete();
         return redirect()->route('ViewToolPack')->with('error', 'Tool Kit  Deleted  Successfully!');
+        }
     }
     public function deleteWheelNut($id)
     {
+        $vehicleInformation = vehicleInformation::where('looking_wheel_nut_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewWheelNut')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         LockingWheelNut::where('id',$id)->delete();
         return redirect()->route('viewWheelNut')->with('error', 'Wheel Nut Question  Deleted  Successfully!');
+        }
     }
     public function deleteSmooking($id)
     {
+        $vehicleInformation = vehicleInformation::where('smooking_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewSmooking')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         Smoking::where('id',$id)->delete();
         return redirect()->route('viewSmooking')->with('error', 'Smooking Question  Deleted  Successfully!');
+        }
     }
     public function deleteLogBook($id)
     {
+        $vehicleInformation = vehicleInformation::where('logbook_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewlogbook')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         VCLogBook::where('id',$id)->delete();
         return redirect()->route('viewlogbook')->with('error', 'LogBook Question  Deleted  Successfully!');
+        }
     }
     public function deleteFinance($id)
     {
+        $vehicleInformation = vehicleInformation::where('finance_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewFinance')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         Finance::where('id',$id)->delete();
         return redirect()->route('viewFinance')->with('error', 'Finance  Deleted  Successfully!');
+        }
     }
     public function deleteVehcileOwner($id)
     {
+        $vehicleInformation = vehicleInformation::where('vehicle_owner_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewVehicalOwner')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         VehicleOwner::where('id',$id)->delete();
         return redirect()->route('viewVehicalOwner')->with('error', 'Vehical Owner Question  Deleted  Successfully!');
+        }
     }
     public function deletePrivatePlate($id)
     {
+        $vehicleInformation = vehicleInformation::where('private_plate_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewPrivatePlate')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         $SeatMaterial = PrivatePlate::where('id',$id)->first();
         if(isset($SeatMaterial))
         {
@@ -655,8 +712,14 @@ class VehicleController extends Controller
 
         return redirect()->route('viewPrivatePlate')->with('error', 'Private Plate Deleted  Successfully!');
     }
+    }
     public function deleteSeatMaterial($id)
     {
+        $vehicleInformation = vehicleInformation::where('seat_material_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('ViewSeatMaterials')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
         $SeatMaterial = SeatMaterial::where('id',$id)->first();
         if(isset($SeatMaterial))
         {
@@ -673,6 +736,7 @@ class VehicleController extends Controller
         }
 
         return redirect()->route('ViewSeatMaterials')->with('error', 'Seat Material Deleted  Successfully!');
+    }
     }
 
 

@@ -51,7 +51,7 @@
                             <td>{{ $VehicleFeature->title }}</td>
                             <td>
                                 <a href="{{ route('vehicleFeature.edit',$VehicleFeature->id) }}"><span class="badge bg-success">Edit</span></a>
-                                <a href="{{ route('deleteVehicle',$VehicleFeature->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                <a href="{{ route('deleteVehicleFeature',$VehicleFeature->id) }}"><span class="badge bg-danger">Delete</span></a>
                             </td>
                         </tr>
                         @endforeach

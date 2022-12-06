@@ -109,7 +109,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/store-vehicle-feature', [VehicleController::class, 'store'])->name('addVehicleFeature');
     Route::get('/edit-vehicle-feature/{id}', [VehicleController::class,'editVehicleFeatureForm'])->name('vehicleFeature.edit');
     Route::post('/update-vehicle-feature/{id}', [VehicleController::class,'editVehicleFeature'])->name('editVehicleFeature');
-    Route::get('/delete-vehicle/{id}', [VehicleController::class,'deleteVehicle'])->name('deleteVehicle');
+    Route::get('/delete-vehicle-feature/{id}', [VehicleController::class,'deleteVehicleFeature'])->name('deleteVehicleFeature');
     // end vehicle
 
     // seat material
