@@ -24,6 +24,7 @@ use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
 use App\Http\Controllers\frontend\dealer\dealerCharges\DealerChargesController;
+use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -238,6 +239,14 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::post('/update-time/{id}', [LiveSellController::class,'updateTime'])->name('updateTime');
 
      //end live sell
+
+     //show dealer card detail start
+
+     Route::get('/show-card-details', [AdminDealerChargesController::class,'cardDetailsShowAdmin'])->name('cardDetailsShowAdmin');
+     Route::get('/dealer-details-from-charges/{id}', [AdminDealerChargesController::class,'viewDealerDetailsFromCharges'])->name('viewDealerDetailsFromCharges');
+     Route::get('/dealer-details-accepted/{id}', [AdminDealerChargesController::class,'cardDetailsAccept'])->name('cardDetailsAccept');
+    
+     //show dealer card detail end
 });
 
 // end admin panel routes
