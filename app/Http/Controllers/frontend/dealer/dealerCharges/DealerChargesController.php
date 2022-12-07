@@ -15,7 +15,8 @@ class DealerChargesController extends Controller
     {
       
         $user_id = Auth::user()->id;
-       $charges =  DealerWinningCharges::find($user_id);
+       $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
+       
      
         if($charges == null){
             return redirect()->route('cardDetails')->with('error','First You Need To Pay');
@@ -49,7 +50,8 @@ class DealerChargesController extends Controller
      $chargesDetails->card_number = $request->card_num;
      $chargesDetails->card_holder_name = $request->name;
      $chargesDetails->card_expiry_date = $request->exp;
+     $chargesDetails->status = 0;
      $chargesDetails->save();
-     return redirect()->route('CompletedBiddedVehicle')->with('success','Your Details Is Submitted , Admin Will Contact You As Soon As Possible');
+     return redirect()->route('bids.CompletedBiddedVehicle')->with('success','Your Details Is Submitted , Admin Will Contact You As Soon As Possible');
     }
 }
