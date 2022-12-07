@@ -275,9 +275,12 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/dropdown', [DealerDashboardController::class,'dropdown'])->name('dropdown');
     Route::post('/dropdownfilter', [DealerDashboardController::class,'dropdownfilter'])->name('dropdownfilter');
     Route::post('/dropdownfilterforlivesell', [DealerDashboardController::class,'dropdownfilterforlivesell'])->name('dropdownfilterforlivesell');
+    Route::post('/buyItNowVehicledDropdownfilter', [DealerDashboardController::class,'buyItNowVehicledDropdownfilter'])->name('buyItNowVehicledDropdownfilter');
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
     Route::get('/buy-it-now', [DealerDashboardController::class,'buyItNow'])->name('buyItNow');
+    Route::post('/buyItNowVehicle', [DealerDashboardController::class,'buyItNowVehicle'])->name('buyItNowVehicle');
+    Route::post('/dealerToDealerVehicleFilter', [DealerDashboardController::class,'dealerToDealerVehicleFilter'])->name('dealerToDealerVehicleFilter');
     Route::get('/dealer-to-dealer', [DealerDashboardController::class,'dealerToDealer'])->name('dealerToDealer');
     Route::get('/dealer-vehicle-detail/{id}', [DealerDashboardController::class,'dealersVehicleDetail'])->name('dealersVehicleDetail');
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');

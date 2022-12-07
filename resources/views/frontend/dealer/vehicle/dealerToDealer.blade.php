@@ -96,7 +96,7 @@ div#filter-price {
                         </label>
                     </div>
                 <form  action="#">
-                    
+
                     {{-- <div class="filterIn">
                         <h4>Makes</h4>
                         <label class="selectCommon selectSingle" >
@@ -299,7 +299,7 @@ div#filter-price {
 $(document).ready(function(){
     $('#dropdownfilter').on('change', function() {
         var dropdownfilter = $("#dropdownfilter").val();
-      
+
              $.ajax({
 
             url: 'dropdownfilter',
@@ -349,10 +349,10 @@ $(document).ready(function(){
 
 
             });
-   
+
 });
 
-   
+
     $( "#subm").click(function(){
 
     var makePro = $("#makePro").val();
@@ -361,14 +361,14 @@ $(document).ready(function(){
     var agePro = $("#agePro").val();
     var previousOwnersPro = $("#previousOwnersPro").val();
     var fuelType = $("#fuelType").val();
-   
-    
-    
+
+
+
 
 
         $.ajax({
 
-            url: 'test',
+            url: 'dealerToDealerVehicleFilter',
             type: 'post',
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
