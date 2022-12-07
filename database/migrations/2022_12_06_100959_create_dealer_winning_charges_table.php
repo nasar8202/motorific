@@ -17,6 +17,7 @@ class CreateDealerWinningChargesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('card_number')->nullable();
+            $table->string('card_holder_name')->nullable();
             $table->string('card_expiry_date')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
