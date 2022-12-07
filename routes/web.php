@@ -292,6 +292,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');
 
     Route::get('/seller-details/{id}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
+    Route::get('/card-details', [DealerChargesController::class, 'cardDetails'])->name('cardDetails');
+    Route::post('/card-details-create', [DealerChargesController::class, 'cardDetailsCreate'])->name('cardDetailsCreate');
     Route::get('/delivery-details', [DealerChargesController::class, 'vehicleListing'])->name('deliveryDetailPage');
 
 
