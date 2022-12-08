@@ -96,7 +96,7 @@ div#filter-price {
                         </label>
                     </div>
                 <form  action="#">
-                    
+
                     {{-- <div class="filterIn">
                         <h4>Makes</h4>
                         <label class="selectCommon selectSingle" >
@@ -299,10 +299,10 @@ div#filter-price {
 $(document).ready(function(){
     $('#dropdownfilter').on('change', function() {
         var dropdownfilter = $("#dropdownfilter").val();
-      
+
              $.ajax({
 
-            url: 'dropdownfilter',
+            url: 'buyItNowVehicledDropdownfilter',
             type: 'post',
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -349,10 +349,10 @@ $(document).ready(function(){
 
 
             });
-   
+
 });
 
-   
+
     $( "#subm").click(function(){
 
     var makePro = $("#makePro").val();
@@ -361,14 +361,14 @@ $(document).ready(function(){
     var agePro = $("#agePro").val();
     var previousOwnersPro = $("#previousOwnersPro").val();
     var fuelType = $("#fuelType").val();
-   
-    
-    
+
+
+
 
 
         $.ajax({
 
-            url: 'test',
+            url: '{{route("buyItNowVehicle")}}',
             type: 'post',
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -391,7 +391,7 @@ $(document).ready(function(){
 
             $.each(resultData,function(resultData,row){
                     bodyData+='<a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
-                    bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+                    bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
                     $("#filter-price").html(bodyData);
                     $("#no-record").html('');

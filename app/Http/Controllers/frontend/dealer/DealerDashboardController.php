@@ -136,7 +136,7 @@ class DealerDashboardController extends Controller
     public function CompletedBiddedVehicle()
     {
         $user_id = Auth::user()->id;
-        
+
         $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
 
                                 ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
@@ -145,7 +145,7 @@ class DealerDashboardController extends Controller
                                 ->where('users.id',$user_id)
                                 ->where('vehicles.status','1')
                                 ->get();
-                               
+
             $countBids = count($bids);
 
         return view('frontend.dealer.vehicle.CompletedBiddedVehicle',compact('bids','countBids'));
@@ -266,6 +266,22 @@ class DealerDashboardController extends Controller
 
 
     }
+    public function buyItNowVehicledDropdownfilter(Request $request)
+    {
+        if($request->dropdownfilter == 'lowestPrice'){
+            $lowestVehicles = Vehicle::Where(['status'=>1,'all_auction'=>'all'])->orderBy('vehicle_price', 'ASC')->with('vehicleInformation')->with('VehicleImage')->get();
+            return $lowestVehicles;
+          }
+           if($request->dropdownfilter == 'highestPrice'){
+            $highestVehicles = Vehicle::Where(['status'=>1,'all_auction'=>'all'])->orderBy('vehicle_price', 'DESC')->with('vehicleInformation')->with('VehicleImage')->get();
+            return $highestVehicles;
+          }
+          else{
+
+            $newestVehicles = Vehicle::Where(['status'=>1,'all_auction'=>'all'])->orderBy('id', 'DESC')->with('vehicleInformation')->with('VehicleImage')->get();
+            return $newestVehicles;
+          }
+    }
     public function filterLiveSell(Request $request)
     {
             $current_year = date("Y");
@@ -286,6 +302,7 @@ class DealerDashboardController extends Controller
             $query_string_second_part[] = " AND v.all_auction IS NULL";
             $query_string_second_part[] = " AND v.deleted_at IS NULL";
             $query_string_second_part[] = " AND vimg.deleted_at IS NULL";
+
             $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type, v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price, v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard FROM vehicles AS v JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
             JOIN vehicle_images AS vimg ON vimg.vehicle_id = v.id WHERE ";
             $query_string_third_part = ' ORDER BY v.id';
@@ -294,6 +311,35 @@ class DealerDashboardController extends Controller
             $query_string = $query_string_First_Part.$query_string_second_part.$query_string_third_part;
             $liveSellFilter = DB::select(DB::raw($query_string));
           return $liveSellFilter;
+    }
+    public function  dealerToDealerVehicleFilter(Request $request)
+    {
+        $current_year = date("Y");
+            $total = $current_year - $request->agePro;
+            $range = explode('-',$request->range);
+
+            $previous_owners = $request->previous_owners;
+            $mileAgePro = $request->mileAgePro;
+            $fuelType = $request->fuelType;
+            if(!empty($request->range)) $query_string_second_part[] = " AND v.vehicle_price >= '$range[0]'";
+            if(!empty($request->range)) $query_string_second_part[] = " AND v.vehicle_price <= '$range[1]'";
+            if(!empty($request->mileAgePro)) $query_string_second_part[] = " AND v.vehicle_mileage <= '$mileAgePro'";
+            if(!empty($previous_owners)) $query_string_second_part[] = " AND v.previous_owners <= '$previous_owners'";
+            if(!empty($fuelType)) $query_string_second_part[] = " AND v.vehicle_tank = '$fuelType'";
+            if(!empty($request->agePro)) $query_string_second_part[] = " AND v.vehicle_year >= '$total'";
+            if(!empty($request->agePro)) $query_string_second_part[] = " AND v.vehicle_year <= '$current_year'";
+            $query_string_second_part[] = " AND v.status = '1'";
+            $query_string_second_part[] = " AND v.deleted_at IS NULL";
+            $query_string_second_part[] = " AND vimg.deleted_at IS NULL";
+
+            $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type, v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price,  v.retail_price, v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vextImg.exterior_image,veintImg.vextImg,vi.location,vi.interior,vi.body_type,vi.engine_size,vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard FROM dealer_vehicles AS v JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
+            JOIN dealer_vehicle_exteriors AS vextImg ON vextImg.dealer_vehicle_id = v.id JOIN dealer_vehicle_interiors AS veintImg ON veintImg.dealer_vehicle_id = v.id WHERE ";
+            $query_string_third_part = ' ORDER BY v.id';
+            $query_string_second_part= implode(" ", $query_string_second_part);
+            $query_string_second_part=  preg_replace("/AND/", " ", $query_string_second_part, 1);
+            $query_string = $query_string_First_Part.$query_string_second_part.$query_string_third_part;
+            $dealerToDealerVehicleFilter = DB::select(DB::raw($query_string));
+          return $dealerToDealerVehicleFilter;
     }
     public function test(Request $request){
 
@@ -836,6 +882,36 @@ die();
 
         return view('frontend.dealer.vehicle.buyItNow',compact('buyItNowVehicles','countbuyItNoVehicle'));
 
+    }
+
+    public function buyItNowVehicle(Request $request)
+    {
+        $current_year = date("Y");
+        $total = $current_year - $request->agePro;
+        $range = explode('-',$request->range);
+
+        $previous_owners = $request->previous_owners;
+        $mileAgePro = $request->mileAgePro;
+        $fuelType = $request->fuelType;
+        if(!empty($request->range)) $query_string_second_part[] = " AND v.vehicle_price >= '$range[0]'";
+        if(!empty($request->range)) $query_string_second_part[] = " AND v.vehicle_price <= '$range[1]'";
+        if(!empty($request->mileAgePro)) $query_string_second_part[] = " AND v.vehicle_mileage <= '$mileAgePro'";
+        if(!empty($previous_owners)) $query_string_second_part[] = " AND v.previous_owners <= '$previous_owners'";
+        if(!empty($fuelType)) $query_string_second_part[] = " AND v.vehicle_tank = '$fuelType'";
+        if(!empty($request->agePro)) $query_string_second_part[] = " AND v.vehicle_year >= '$total'";
+        if(!empty($request->agePro)) $query_string_second_part[] = " AND v.vehicle_year <= '$current_year'";
+        $query_string_second_part[] = " AND v.status = '1'";
+        $query_string_second_part[] = " AND v.all_auction ='all'";
+        $query_string_second_part[] = " AND v.deleted_at IS NULL";
+        $query_string_second_part[] = " AND vimg.deleted_at IS NULL";
+        $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type, v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price, v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard FROM vehicles AS v JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
+        JOIN vehicle_images AS vimg ON vimg.vehicle_id = v.id WHERE ";
+        $query_string_third_part = ' ORDER BY v.id';
+        $query_string_second_part= implode(" ", $query_string_second_part);
+        $query_string_second_part=  preg_replace("/AND/", " ", $query_string_second_part, 1);
+        $query_string = $query_string_First_Part.$query_string_second_part.$query_string_third_part;
+        $liveSellFilter = DB::select(DB::raw($query_string));
+      return $liveSellFilter;
     }
 }
 
