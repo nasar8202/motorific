@@ -11,7 +11,8 @@ class AdminDealerChargesController extends Controller
 {
     public function cardDetailsShowAdmin()
     {
-        $dealerCardDetails = DealerWinningCharges::get();
+        $dealerCardDetails = DealerWinningCharges::with('Vehicle')->with('user')->get();
+        
         return view('backend.admin.dealerCharges.dealerCharges',compact('dealerCardDetails'));
     }
     public function viewDealerDetailsFromCharges($id)
@@ -20,11 +21,11 @@ class AdminDealerChargesController extends Controller
 
         return view('backend.admin.dealerCharges.viewDealersDetail',compact('dealers'));
     }
-    public function cardDetailsAccept($id)
-    {
-        $dealerCardDetails = DealerWinningCharges::find($id);
-        $dealerCardDetails->status = 1;
-        $dealerCardDetails->save();
-        return redirect()->back()->with('success','You Approved This Dealer As A Paid Dealer');
-    }
+    // public function cardDetailsAccept($id)
+    // {
+    //     $dealerCardDetails = DealerWinningCharges::find($id);
+    //     $dealerCardDetails->status = 1;
+    //     $dealerCardDetails->save();
+    //     return redirect()->back()->with('success','You Approved This Dealer As A Paid Dealer');
+    // }
 }

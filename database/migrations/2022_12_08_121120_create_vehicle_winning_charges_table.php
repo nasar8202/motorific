@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDealerWinningChargesTable extends Migration
+class CreateVehicleWinningChargesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateDealerWinningChargesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dealer_winning_charges', function (Blueprint $table) {
+        Schema::create('vehicle_winning_charges', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('vehicle_id')->nullable();
-            $table->string('stripe_payment')->nullable();
+            $table->string('price_from')->nullable();
+            $table->string('price_to')->nullable();
+            $table->string('fee')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +30,6 @@ class CreateDealerWinningChargesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dealer_winning_charges');
+        Schema::dropIfExists('vehicle_winning_charges');
     }
 }

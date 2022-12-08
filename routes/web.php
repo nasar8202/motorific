@@ -18,11 +18,12 @@ use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
-use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 
+use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
+use App\Http\Controllers\backend\admin\vehicleCharges\PricingChargesController;
 use App\Http\Controllers\frontend\dealer\dealerCharges\DealerChargesController;
 use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesController;
 /*
@@ -247,6 +248,11 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/dealer-details-accepted/{id}', [AdminDealerChargesController::class,'cardDetailsAccept'])->name('cardDetailsAccept');
     
      //show dealer card detail end
+
+     //pricing start
+     Route::get('/pricing-view', [PricingChargesController::class,'viewPricing'])->name('viewPricing');
+    
+     //end pricning
 });
 
 // end admin panel routes
@@ -306,7 +312,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/card-details', [DealerChargesController::class, 'cardDetails'])->name('cardDetails');
     Route::post('/card-details-create', [DealerChargesController::class, 'cardDetailsCreate'])->name('cardDetailsCreate');
     Route::get('/delivery-details', [DealerChargesController::class, 'vehicleListing'])->name('deliveryDetailPage');
-
+    Route::post('/stripe-payment', [DealerChargesController::class,'stripePayment'])->name('stripePayment');
+    
 
 });
 

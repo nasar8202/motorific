@@ -33,9 +33,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Card Holder Name</th>
-                            <th>Card Number</th>
-                            <th>Card Expiry Date</th>
+                            <th>User Name</th>
+                            <th>Vehicle Regitseration</th>
+                            <th>Charges Fee Paid</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -48,15 +48,15 @@
                         <tr>
 
                             <td>{{ $i++ }}</td>
-                            <td>{{ $details->card_holder_name}}</td>
-                            <td>{{ $details->card_number}}</td>
-                            <td>{{ $details->card_expiry_date}}</td>
+                            <td>{{ $details->user->name}}</td>
+                            <td>{{ $details->vehicle->vehicle_registartion_number}}</td>
+                            <td>{{ $details->vehicle_charges}}</td>
                             <td>@if($details->status == 0)<span class="badge badge-danger">Not Paid</span>
                                 @else<span class="badge badge-success">Paid</span>
                                 @endif</td>
                             <td>
-                                <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success">Paid Completed ✓</span></a>
-                            <br>
+                                {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success">Paid Completed ✓</span></a>
+                            <br> --}}
                                 <a title="view dealer detail for contact with dealer" href="{{ route('viewDealerDetailsFromCharges',$details->user_id) }}"><span class="badge bg-info mt-4">View Dealer Deatils</span></a>
                             
                             </td>
