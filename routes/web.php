@@ -245,7 +245,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/show-card-details', [AdminDealerChargesController::class,'cardDetailsShowAdmin'])->name('cardDetailsShowAdmin');
      Route::get('/dealer-details-from-charges/{id}', [AdminDealerChargesController::class,'viewDealerDetailsFromCharges'])->name('viewDealerDetailsFromCharges');
      Route::get('/dealer-details-accepted/{id}', [AdminDealerChargesController::class,'cardDetailsAccept'])->name('cardDetailsAccept');
-    
+
      //show dealer card detail end
 });
 
