@@ -2,122 +2,120 @@
 @section('title','Sell your car the with Motorific')
 @section('section')
 <!-- form css -->
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-
-.container-full{
-background: linear-gradient(to right, #c7c3c3 52%,#202543 53%,#202543 100%);
-font-family: 'Roboto', sans-serif;
-}
-
-.card{
-	border: none;
-	max-width: 450px;
-	border-radius: 15px;
-	margin: 150px 0 150px;
-	padding: 35px;
-	padding-bottom: 20px!important;
-}
-.heading{
-	color: #C1C1C1;
-	font-size: 14px;
-	font-weight: 500;
-}
-img{
-	transform: translate(160px,-10px);
-}
-img:hover{
-    cursor: pointer;
-}
-.text-warning{
-	font-size: 12px;
-	font-weight: 500;
-	color: #edb537!important;
-}
-#cno{
-	transform: translateY(-10px);
-}
-input{
-	border-bottom: 1.5px solid #E8E5D2!important;
-	font-weight: bold;
-	border-radius: 0;
-	border: 0;
-
-}
-.form-group input:focus{
-	border: 0;
-	outline: 0;
-}
-.col-sm-5{
-	padding-left: 90px;
-}
-.btn{
-	background: #F3A002!important;
-	border: none;
-	border-radius: 30px;
-}
-.btn:focus{
-    box-shadow: none;
-}
-</style>
 <div class="topPadingPage">
     <center><b>Motorific</b> 
     <p>You Need To Pay 80$ Charge To Buy From This Platform</p>
 </center>
-    <div class="container-full">
-        <div class="container-fluid">
-            <div class="row d-flex justify-content-center">
-                <div class="col-sm-12">
-                    <div class="card mx-auto">
-                        <p class="heading">PAYMENT DETAILS</p>
-                            <form class="card-details " action="{{route('cardDetailsCreate')}}" method="POST">
-                                @csrf
-                                <div class="form-group mb-0">
-                                        <p class="text-warning mb-0">Card Number</p> 
-                                          <input type="text" name="card_num" placeholder="1234 5678 9012 3457" size="16" id="cno" minlength="16" maxlength="16">
-                                        <img src="https://img.icons8.com/color/48/000000/visa.png" width="64px" height="60px" />
-                                        <br>
-                                        @if ($errors->has('card_num'))
-                                        <span class="text-danger">{{ $errors->first('card_num') }}</span>
-                                    @endif
-                                    </div>
-        
-                                <div class="form-group">
-                                    <p class="text-warning mb-0">Cardholder's Name</p> <input type="text" name="name" placeholder="Name" size="17">
-                                    <br>
-                                    @if ($errors->has('name'))
-                                    <span class="text-danger">{{ $errors->first('name') }}</span>
-                                @endif
+</div>
+<div class="container">
+      
+    @php
+    $stripe_key = 'pk_test_51L6BbmHh7DA7fp0Jmuouwc2S6BYw0nxzU7DQ1ReEbtzSxgZ9noLLm2tQKpvTSHVsbkem8FzrNuFG54WThtLTwB8X00Es15AMHg';
+    @endphp
+    <div class="container" style="margin-top:10%;margin-bottom:10%">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+             
+                <div class="card">
+                    <form action="{{route('stripePayment')}}"  method="post" id="payment-form">
+                        @csrf                    
+                        <div class="form-group">
+                            <div class="card-header">
+                                <input type="hidden" name="vehicleId" value="{{$id}}">
+                                
+                                <label for="card-element">
+                                    Enter your credit card information
+                                </label>
+                            </div>
+                            <div class="card-body">
+                                <div id="card-element">
+                                    <!-- A Stripe Element will be inserted here. -->
                                 </div>
-                                <div class="form-group pt-2">
-                                    <div class="row d-flex">
-                                        <div class="col-sm-4">
-                                            <p class="text-warning mb-0">Expiration</p>
-                                            <input type="text" name="exp" placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7">
-                                            <br>
-                                            @if ($errors->has('exp'))
-                                        <span class="text-danger">{{ $errors->first('exp') }}</span>
-                                    @endif
-                                        </div>
-                                        <div class="col-sm-3">
-                                        </div>
-                                        <div class="col-sm-5 pt-0">
-                                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-right px-3 py-2"></i></button>
-                                        </div>
-                                    </div>
-                                </div>		
-                            </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
+                                
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                          <button
+                          id="card-button"
+                          name="pay"
+                          value="1"
+                          class="btn btn-dark"
+                          type="submit"
+                          data-secret="{{$intent}}"
+                          > Pay With Stripe</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
     <br>
-</main>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+var style = {
+    base: {
+        color: '#32325d',
+        lineHeight: '18px',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
+        }
+    },
+    invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+    }
+};
 
+const stripe = Stripe('{{ $stripe_key }}', { locale: 'en' }); // Create a Stripe client.
+const elements = stripe.elements(); // Create an instance of Elements.
+const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
+const cardButton = document.getElementById('card-button');
+const clientSecret = cardButton.dataset.secret;
+
+cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
+
+// Handle real-time validation errors from the card Element.
+cardElement.addEventListener('change', function(event) {
+    var displayError = document.getElementById('card-errors');
+    if (event.error) {
+        displayError.textContent = event.error.message;
+    } else {
+        displayError.textContent = '';
+    }
+});
+
+// Handle form submission.
+var form = document.getElementById('payment-form');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    stripe.handleCardPayment(clientSecret, cardElement, {
+        payment_method_data: {
+            //billing_details: { name: cardHolderName.value }
+        }
+    })
+    .then(function(result) {
+        console.log(result);
+        if (result.error) {
+            // Inform the user if there was an error.
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+        } else {
+            console.log(result);
+            form.submit();
+        }
+    });
+});
+</script>
 @endsection
 
 
