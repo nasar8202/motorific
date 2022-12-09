@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\DealerWinningCharges;
 use Illuminate\Support\Facades\Auth;
+use App\Models\VehicleWinningCharges;
 
 class DealerChargesController extends Controller
 {
@@ -20,6 +21,12 @@ class DealerChargesController extends Controller
         $user_id = Auth::user()->id;
        $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
        $pricing = BidedVehicle::where('vehicle_id',$id)->first();
+    //    dd($pricing->bid_price);
+       $charges_fee = VehicleWinningCharges::where('status',1)
+       ->where('price_to','>=',$pricing->bid_price)
+       ->where('price_from','<=',$pricing->bid_price)
+       ->orderBy('id',"DESC")->first();
+       
        $user_email =Auth::user()->email;
      
         if($charges == null){
@@ -32,7 +39,7 @@ class DealerChargesController extends Controller
             
             // // dump(gettype($amount_all));
             // // dd(gettype($amount_all));
-            $amount =(int)100* $pricing->bid_price;
+            $amount =(int)100* $charges_fee->fee;
             
             $payment_intent = PaymentIntent::create([
                 'description' => 'Stripe Test Payment',
@@ -68,7 +75,7 @@ class DealerChargesController extends Controller
      $chargesDetails->stripe_payment = 'completed';
      $chargesDetails->status = 1;
      $chargesDetails->save();
-     return redirect()->route('bids.CompletedBiddedVehicle')->with('success','Your Details Is Submitted , Admin Will Contact You As Soon As Possible');
+     return redirect()->route('bids.CompletedBiddedVehicle')->with('success','Your Payment Successfully Completed');
   
     }
 

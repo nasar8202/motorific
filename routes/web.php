@@ -251,7 +251,11 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
      //pricing start
      Route::get('/pricing-view', [PricingChargesController::class,'viewPricing'])->name('viewPricing');
-    
+     Route::get('/pricing-edit/{id}', [PricingChargesController::class,'pricingEdit'])->name('pricingEdit');
+     Route::post('/pricing-create', [PricingChargesController::class,'pricingCreate'])->name('pricingCreate');
+     Route::get('/pricing-delete/{id}', [PricingChargesController::class,'pricingDelete'])->name('pricingDelete');
+     
+     Route::post('/pricing-create/{id}', [PricingChargesController::class,'pricingUpdate'])->name('pricingUpdate');
      //end pricning
 });
 
