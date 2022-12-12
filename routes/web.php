@@ -12,12 +12,16 @@ use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
+use App\Http\Controllers\backend\admin\orderRequest\OrderRequestController;
+
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
+
+use App\Http\Controllers\frontend\dealer\orderRequest\OrderVehicleRequestController;
 
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
@@ -257,7 +261,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      
      Route::post('/pricing-create/{id}', [PricingChargesController::class,'pricingUpdate'])->name('pricingUpdate');
      //end pricning
-});
+
+     //request order price
+     Route::get('/order-request', [OrderRequestController::class,'orderRequest'])->name('orderRequest');
+    
+
+    });
 
 // end admin panel routes
 
@@ -304,7 +313,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/dealer-vehicle-detail/{id}', [DealerDashboardController::class,'dealersVehicleDetail'])->name('dealersVehicleDetail');
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
     Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
-
+    Route::post('/order-vehicle-request', [OrderVehicleRequestControllers::class,'vehicleRequest'])->name('vehicleRequest');
     //
     Route::get('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
     Route::post('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealerPost'])->name('dealer.addVehicleToSellFromDealerPost');

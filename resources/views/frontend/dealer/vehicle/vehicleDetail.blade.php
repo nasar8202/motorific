@@ -178,7 +178,7 @@
                             
                             ?>
                             
-                            <form action="#">
+                            <form method="POST" action="{{route('vehicleRequest')}}" >
                                 <div class="form-group">
                                     <label>Enter Maximum Bid</label>
                                     <input type="number" name="bid" placeholder="€" class="bid_price" />
@@ -187,7 +187,11 @@
                                     <div class="spinner-border"  style="margin-left: 150px; " role="status">
                                         <span class="sr-only">Loading...</span>
                                       </div>
-                                    <button type="button" class="bid">Submit Bid</button>
+                                      @if($vehicle->all_auction == 'all')
+                                      <button type="submit" >Request Price</button>
+                                      @else
+                                      <button type="button" class="bid">Submit Bid</button>
+                                      @endif
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
                                 </div>
