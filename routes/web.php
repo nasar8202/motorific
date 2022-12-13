@@ -264,6 +264,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
      //request order price
      Route::get('/order-request', [OrderRequestController::class,'orderRequest'])->name('orderRequest');
+     Route::get('/order-user-detail/{id}', [OrderRequestController::class,'orderdUserDetail'])->name('orderdUserDetail');
+     Route::get('/order-vehicle-detail/{id}', [OrderRequestController::class,'orderdVehicleDetail'])->name('orderdVehicleDetail');
+     Route::get('/approve-order/{id}', [OrderRequestController::class,'approveOrderd'])->name('approveOrderd');
     
 
     });
@@ -314,6 +317,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
     Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
     Route::post('/order-vehicle-request', [OrderVehicleRequestControllers::class,'vehicleRequest'])->name('vehicleRequest');
+    
     //
     Route::get('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
     Route::post('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealerPost'])->name('dealer.addVehicleToSellFromDealerPost');

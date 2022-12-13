@@ -50,12 +50,14 @@
                         <tr>
 
                             <td>{{ $i++ }}</td>
-                            <td>{{ $order->vehicle_registartion_number}}</td>
-                            <td>{{ $order->vehicle_name}}</td>
-                            <td>{{ $order->vehicle_year}}</td>
-                            <td>{{ $order->vehicle_type}}</td>
-                            <td><a class="badge badge-success">User Details </a>
-                            <a class="badge badge-success">Vehicle Details </a></td>
+                            <td>{{ $order->user->name}}</td>
+                            <td>{{ $order->vehicle->vehicle_name}}</td>
+                            <td>{{ $order->request_price}}</td>
+                            <td>@if($order->status == 0) <span class="badge badge-danger">Not Accepted</span>@endif</td>
+                            <td><a class="badge badge-success" href="{{route('orderdUserDetail',$order->user_id)}}">User Details </a>
+                            <a class="badge badge-success" href="{{route('orderdVehicleDetail',$order->vehicle_id)}}" >Vehicle Details </a>
+                            <a class="badge badge-info" href="{{route('approveOrderd',$order->id)}}" >Approve Order Request </a>
+                        </td>
                             
                         </tr>
                         @empty

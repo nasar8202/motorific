@@ -28,8 +28,6 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Vehicles List
-                <a href="{{ route('createVehicleForm') }}"><span class="badge bg-primary" style="float: right">Create Vehicle</span></a>
             </div>
 
             <div class="card-body">
