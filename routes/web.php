@@ -283,7 +283,8 @@ Route::post('/update-my-profile/{id}', [SellerDashboardController::class,'update
 Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updateMyPassword'])->name('updateMyPassword');
 
 });
-
+Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetails'])->name('dealer.vehicleAndDetails');
+    
 // end seller panel routes
 
 // start seller panel routes
@@ -316,14 +317,13 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/dealer-vehicle-detail/{id}', [DealerDashboardController::class,'dealersVehicleDetail'])->name('dealersVehicleDetail');
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
     Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
-    Route::post('/order-vehicle-request', [OrderVehicleRequestControllers::class,'vehicleRequest'])->name('vehicleRequest');
+    Route::post('/order-vehicle-request', [OrderVehicleRequestController::class,'vehicleRequest'])->name('vehicleRequest');
     
     //
     Route::get('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
     Route::post('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealerPost'])->name('dealer.addVehicleToSellFromDealerPost');
     Route::get('/media-condition', [AddDealerVehicleController::class, 'mediaCondition'])->name('dealer.mediaCondition');
     Route::post('/media-condition', [AddDealerVehicleController::class, 'mediaConditionPost'])->name('dealer.mediaConditionPost');
-    Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetails'])->name('dealer.vehicleAndDetails');
     Route::post('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetailsPost'])->name('dealer.vehicleAndDetailsPost');
     Route::get('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');

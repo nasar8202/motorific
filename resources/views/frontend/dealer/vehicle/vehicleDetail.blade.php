@@ -226,7 +226,8 @@
     $(".requestVehicle").click(function(){
         var BidPrice = $(".bid_price").val();
         var VehicleId = $(".vehicle_id").val();
-        if(BidPrice != null){
+        var HiddenPrice = $(".hidden_price").val();
+        if(!(BidPrice <= HiddenPrice)){
              $.ajax({
 
             url: '{{route("vehicleRequest")}}',
@@ -259,6 +260,10 @@
 
             });
         }
+        else{
+        $(".warning").html('');
+        $(".warning").html('Your Requested Amount Is Not Matching The Vehicle Criteria');
+    }
     });
         
     $(".bid").click(function(){
