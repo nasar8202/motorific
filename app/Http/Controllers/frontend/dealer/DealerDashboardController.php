@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend\dealer;
 
+use DB;
 use App\Models\Finance;
 use App\Models\Smoking;
 use App\Models\Vehicle;
@@ -19,13 +20,14 @@ use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
+use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
-use DB;
+
 class DealerDashboardController extends Controller
 {
     public function index()
@@ -835,10 +837,11 @@ die();
         $smooking = Smoking::where('id',$vehicle_info->smooking_id)->first();
         $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
         $LockingWheelNut = LockingWheelNut::where('id',$vehicle_info->looking_wheel_nut_id)->first();
+        $order = OrderVehicleRequest::where('vehicle_id',$vehicle->id)->orderBy('request_price','DESC')->first();
+             
 
 
-
-        return view('frontend.dealer.vehicle.vehicleDetail',compact('vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage'));
+        return view('frontend.dealer.vehicle.vehicleDetail',compact('vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
     }
     public function dashboard()
     {
