@@ -24,7 +24,12 @@
         <th>Fee (+VAT)</th>
       </tr>
     </thead>
-    <tbody><tr><td>£0</td><td>£4,999</td><td>£225</td></tr><tr><td>£5,000</td><td>£9,999</td><td>£245</td></tr><tr><td>£10,000</td><td>£14,999</td><td>£295</td></tr><tr><td>£15,000</td><td>£19,999</td><td>£345</td></tr><tr><td>£20,000</td><td>£29,999</td><td>£395</td></tr><tr><td>£30,000</td><td>£39,999</td><td>£445</td></tr><tr><td>£40,000</td><td>£49,999</td><td>£495</td></tr><tr><td>£50,000</td><td>£99,999</td><td>£745</td></tr><tr><td>£100,000+</td><td></td><td>£995</td></tr></tbody>
+    <tbody>
+    @forelse($charges as $charge)
+    <tr><td>£{{$charge->price_from}}</td><td>£{{$charge->price_to}}</td><td>£{{$charge->fee}}</td></tr>
+    @empty
+    @endforelse
+    </tbody>
   </table>
 </div>
 </section>
