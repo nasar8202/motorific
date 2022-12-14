@@ -178,7 +178,7 @@
                             
                             ?>
                             
-                            <form action="#">
+                            <form  action="#" >
                                 <div class="form-group">
                                     <label>Enter Maximum Bid</label>
                                     <input type="number" name="bid" placeholder="€" class="bid_price" />
@@ -187,7 +187,11 @@
                                     <div class="spinner-border"  style="margin-left: 150px; " role="status">
                                         <span class="sr-only">Loading...</span>
                                       </div>
-                                    <button type="button" class="bid">Submit Bid</button>
+                                      @if($vehicle->all_auction == 'all')
+                                      <button type="button" class="requestVehicle" >Request Price</button>
+                                      @else
+                                      <button type="button" class="bid">Submit Bid</button>
+                                      @endif
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
                                 </div>
@@ -219,6 +223,44 @@
     $("form").submit(function(e){
         e.preventDefault();
     });
+    $(".requestVehicle").click(function(){
+        var BidPrice = $(".bid_price").val();
+        var VehicleId = $(".vehicle_id").val();
+        if(BidPrice != null){
+             $.ajax({
+
+            url: '{{route("vehicleRequest")}}',
+            type: 'post',
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {BidPrice:BidPrice,VehicleId:VehicleId},
+
+            success: function(response){
+                
+            var resultData = response;
+            console.log(resultData)
+            
+            if(resultData != null){
+                $(".spinner-border").show();
+                setTimeout(function() {
+                location.reload();
+            }, 1000);
+            toastr.success(resultData.success);
+            }
+            else{
+                $(".error").html('');
+        $(".error").html('Something Error');
+            }
+            
+            },
+
+
+
+            });
+        }
+    });
+        
     $(".bid").click(function(){
         
     var BidPrice = $(".bid_price").val();
