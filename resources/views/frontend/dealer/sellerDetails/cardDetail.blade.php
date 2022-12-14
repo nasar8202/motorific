@@ -22,6 +22,7 @@
                         <div class="form-group">
                             <div class="card-header">
                                 <input type="hidden" name="vehicleId" value="{{$id}}">
+                                <input type="hidden" name="amount" value="{{$charges_payment}}">
                                 
                                 <label for="card-element">
                                     Enter your credit card information

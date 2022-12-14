@@ -39,7 +39,8 @@ class DealerChargesController extends Controller
             
             // // dump(gettype($amount_all));
             // // dd(gettype($amount_all));
-            $amount =(int)100* $charges_fee->fee;
+            $charges_payment = $charges_fee->fee;
+            $amount =(int)100* $charges_payment;
             
             $payment_intent = PaymentIntent::create([
                 'description' => 'Stripe Test Payment',
@@ -49,7 +50,7 @@ class DealerChargesController extends Controller
                 'payment_method_types' => ['card'],
             ]);
             $intent = $payment_intent->client_secret;
-            return view('frontend.dealer.sellerDetails.cardDetail',compact('intent','id'))->with('error','First You Need To Pay');
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('intent','id','charges_payment'))->with('error','First You Need To Pay');
            
         }
         else{
@@ -72,6 +73,7 @@ class DealerChargesController extends Controller
      $user_id = Auth::user()->id;
      $chargesDetails->user_id = $user_id;
      $chargesDetails->vehicle_id = $request->vehicleId;
+     $chargesDetails->vehicle_charges = $request->amount;
      $chargesDetails->stripe_payment = 'completed';
      $chargesDetails->status = 1;
      $chargesDetails->save();
