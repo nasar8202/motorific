@@ -3,6 +3,13 @@
 @section('section')
 <!-- form css -->
 <style>
+/*custom font*/
+
+
+
+
+
+
 
 </style>
 
@@ -626,6 +633,955 @@
 </div>
 </section>
 
+<section class="step-form-sec">
+    <div class="container-1200">
+        <!--interior -->
+        <div class="step-main-wrap">
+            <!--<div id="svg_wrap"></div>-->
+            <h1 class="step-main-head">Interior Information</h1>
+            <section class="step-wrapper">
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Dashboard</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/dashboard.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Passenger Side Interior</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/passenger-side.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+    
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Driver Side Interior</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/driver-side.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Floor</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/floor.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Ceiling</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/ceiling.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Boot</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/boot.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Rear Windscreen</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/rear-windscreen.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Passenger Seat</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/passenger-seat.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Driver Seat</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/driver-seat.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Rear Seats</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/rear-seat.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <div class="step-button-wrap">
+                    <div class="step-button" id="prev">&larr; Previous</div>
+                    <div class="step-button" id="next">Next &rarr;</div>
+                </div>
+  
+            </section>
+            <!--<div class="button" id="submit">Agree and send application</div>-->
+        </div>
+        <!--exterior -->
+        <div class="step-main-wrap">
+            <div id="svg_wrap_ext"></div>
+            <h1 class="step-main-head">Exterior Information</h1>
+            <section class="step-wrapper">
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Front Door Left</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-left.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Back Door Left</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-left.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Front Door Right</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-right.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Back Door Right</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-right.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Top</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/top.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Bonut</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/bonut.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Front</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Back</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <div class="step-button-wrap">
+                    <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
+                    <div class="step-button-ext" id="next-ext">Next &rarr;</div>
+                </div>
+  
+            </section>
+            <!--<div class="button" id="submit">Agree and send application</div>-->
+        </div>
+    </div>
+</section>
+
 
 
 <!-- NEWSLETTER SECTION -->
@@ -663,6 +1619,8 @@
 </div>
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<script src="{}"></script>-->
 
 @endsection
 

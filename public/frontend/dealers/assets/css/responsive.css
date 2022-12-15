@@ -5,6 +5,34 @@
     .btn-mts{
         min-width: 140px;
     }
+    .step-main-wrap {
+    padding: 20px 40px;
+}
+
+h1.step-main-head {
+    font-size: 28px;
+}
+
+h2.part-heading {
+    font-size: 27px;
+    margin-bottom: 30px;
+}
+
+section.step-wrapper {
+}
+
+ul.parts-content li span {
+    font-size: 16px;
+}
+
+.step-button-wrap {
+    margin-top: 40px;
+}
+
+.step-img img {
+    max-width: 280px;
+}
+
 }
 
 
@@ -231,6 +259,39 @@ section.create-advert-sec.section {
 .header-btns {
     transform: none;
 }
+h1.step-main-head {
+    font-size: 24px;
+}
+
+.step-main-wrap {
+    padding: 30px;
+    border-radius: 15px;
+}
+
+h2.part-heading {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+ul.parts-content li span {
+    font-size: 13px;
+    padding: 9px 20px;
+}
+
+ul.parts-content li {
+    margin-bottom: 5px;
+}
+
+.step-img img {
+    max-width: 210px;
+}
+
+.step-button, .step-button-ext {
+    font-size: 12px;
+    padding: 7px 0px;
+    width: 130px;
+}
+
 
 }
 @media (max-width: 767px) {
@@ -272,6 +333,9 @@ section.sec-8 {
     max-width: 28%;
     right: 5%;
     bottom: 2%;
+}
+.step-img {
+    margin-top: 30px;
 }
 }
 
@@ -348,4 +412,42 @@ section.create-advert-sec.section {
 .newsletter-box .inp-qa {
     max-width:100%;
 }
+.step-main-wrap {
+    padding: 20px 15px;
+    border-radius: 10px;
+}
+
+h1.step-main-head {
+    font-size: 20px;
+    text-align: center;
+}
+
+h2.part-heading {
+    text-align: center;
+    font-size: 17px;
+}
+
+section.step-wrapper {
+    padding: 22px 18px;
+    border-radius: 10px;
+}
+
+ul.parts-content li span {
+    font-size: 12px;
+}
+
+.step-img img {
+    max-width: 190px;
+}
+
+.step-img {
+    margin-top: 20px;
+}
+
+.step-button, .step-button-ext {
+    font-size: 10px;
+    padding: 6px 0px;
+    width: 100px;
+}
+
 }

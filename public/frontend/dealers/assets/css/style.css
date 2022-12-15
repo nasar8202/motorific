@@ -973,3 +973,115 @@ span.error-icon {
     padding: 15px 20px;
     min-width: 180px;
 }
+/*hamza css */
+div#svg_wrap, .step-button.disabled, .step-button-ext.disabled {
+    display: none;
+}
+h1.step-main-head {
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+    text-transform: capitalize;
+}
+.step-main-wrap {
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    padding: 20px 50px;
+    margin-bottom: 15px;
+}
+section.step-wrapper {
+    margin-top: 30px;
+    background-color: white;
+    width: 100%;
+    border-radius: 20px;
+    padding: 30px 40px;
+    position: relative;
+}
+h2.part-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+ul.parts-content li span {
+    display: block;
+    position: relative;
+    border: 2px solid #7977a2;
+    padding: 15px 20px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 18px;
+    color: #7977a2;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+}
+
+ul.parts-content li {
+    margin-bottom: 7px;
+    position: relative;
+}
+ul.parts-content li label {
+    display: block;
+}
+ul.parts-content li span:before {
+    content: '';
+    position: absolute;
+    background: #7977a2;
+    width: 490px;
+    height: 149px;
+    top: -48px;
+    right: -485px;
+    transform: rotate(10deg);
+    transition: 0.5s ease-in-out;
+    z-index: -1;
+}
+
+ul.parts-content li span:hover:before {
+    right: calc(-11px);
+    width: calc(100% + 22px);
+}
+
+ul.parts-content li span:hover {
+    color: #fff;
+}
+ul.parts-content li input:checked + span:before {
+    background: #05eab5;
+}
+ul.parts-content li input:checked + span {
+    border-color: #05eab5;
+}
+.step-img img {
+    width: 100%;
+    max-width: 310px;
+}
+
+.step-img {
+    text-align: center;
+}
+
+.step-button, .step-button-ext {
+    font-size: 15px;
+    font-weight: 700;
+    width: 150px;
+    border-radius: 50px;
+    padding: 10px 0px;
+    border: 2px solid #05eab5;
+    background-color: transparent;
+    color: #05eab5;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.step-button-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    align-items: center;
+}
+div#next, div#next-ext {
+    background: #05eab5;
+    color: #fff;
+}
+/*hamza css */
