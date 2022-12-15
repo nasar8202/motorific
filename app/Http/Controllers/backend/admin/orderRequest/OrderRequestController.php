@@ -36,6 +36,9 @@ class OrderRequestController extends Controller
         $orders = OrderVehicleRequest::where('id',$id)->first();
         $orders->status = 1;
         $orders->save();
+      $ordered_vehicle = Vehicle::where('id',$orders->vehicle->id)->first();
+      $ordered_vehicle->status = 2 ;
+      $ordered_vehicle->save();
         return redirect()->back()->with('success', 'Order Approved Successfully!');
     
         

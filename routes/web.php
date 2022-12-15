@@ -298,7 +298,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/purchases-vehicles', [DealerDashboardController::class,'PurchasesVehicle'])->name('dealer.PurchasesVehicle');
     Route::get('/completed-purchases-vehicles', [DealerDashboardController::class,'CompletedBiddedVehicle'])->name('bids.CompletedBiddedVehicle');
     Route::get('/cancelled-purchases-vehicles', [DealerDashboardController::class,'CancelledBiddedOfferVehicle'])->name('bids.CancelledBiddedOfferVehicle');
-
+    Route::get('/completed-requested-vehicles', [DealerDashboardController::class,'CompletedRequestedVehicle'])->name('CompletedRequestedVehicle');
+   
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
     Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
@@ -331,9 +332,10 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');
 
     Route::get('/seller-details/{id}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
+    Route::get('/seller-requested-details/{id}', [DealerChargesController::class, 'sellerRequestedDetails'])->name('sellerRequestedDetails');
     Route::get('/card-details', [DealerChargesController::class, 'cardDetails'])->name('cardDetails');
     Route::post('/card-details-create', [DealerChargesController::class, 'cardDetailsCreate'])->name('cardDetailsCreate');
-    Route::get('/delivery-details', [DealerChargesController::class, 'vehicleListing'])->name('deliveryDetailPage');
+    Route::get('/delivery-details', [DealerChargesController::class, 'deliveryDetailPage'])->name('deliveryDetailPage');
     Route::post('/stripe-payment', [DealerChargesController::class,'stripePayment'])->name('stripePayment');
     
 

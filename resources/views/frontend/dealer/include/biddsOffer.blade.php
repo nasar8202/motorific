@@ -31,6 +31,7 @@
             <div id="purchases" class="collapse">
                 <br>
                 <p><a href="{{ route('bids.CompletedBiddedVehicle') }}">Completed</a></p><br>
+                <p><a href="{{ route('CompletedRequestedVehicle') }}">Completed Requested Vehicle</a></p><br>
                 <p><a href="{{ route('bids.CancelledBiddedOfferVehicle') }}">Cancelled</a></p><br>
 
             </div>
