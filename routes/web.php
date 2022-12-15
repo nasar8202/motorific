@@ -250,7 +250,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/show-card-details', [AdminDealerChargesController::class,'cardDetailsShowAdmin'])->name('cardDetailsShowAdmin');
      Route::get('/dealer-details-from-charges/{id}', [AdminDealerChargesController::class,'viewDealerDetailsFromCharges'])->name('viewDealerDetailsFromCharges');
      Route::get('/dealer-details-accepted/{id}', [AdminDealerChargesController::class,'cardDetailsAccept'])->name('cardDetailsAccept');
-    
+
      //show dealer card detail end
 
      //pricing start
@@ -318,6 +318,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/bid_vehcile', [BidedVehicleController::class,'bid'])->name('bid');
     Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
     Route::post('/order-vehicle-request', [OrderVehicleRequestController::class,'vehicleRequest'])->name('vehicleRequest');
+    Route::get('/cancel-request/{id}', [OrderVehicleRequestController::class,'cancelRequest'])->name('cancelRequest');
+    Route::post('/update-my-amount', [OrderVehicleRequestController::class,'updateAmount'])->name('updateAmount');
     
     //
     Route::get('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
