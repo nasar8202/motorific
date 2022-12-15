@@ -621,7 +621,7 @@
     <script src="{{ URL::asset('frontend/seller/assets/script.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-
+    <!--<scipt src="{{ URL::asset('frontend/dealers/assets/js/jquery.steps.min.js') }}"></scipt>-->
     <!-- CUSTOM-JS -->
     <script type="text/javascript" src="{{ URL::asset('frontend/dealers/assets/js/custom.js') }}"></script>
 
