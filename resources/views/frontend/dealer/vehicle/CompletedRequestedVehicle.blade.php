@@ -34,8 +34,8 @@
                     <div class="row">
                      
                         @forelse ($Orders as $Order)
-                        <div class="col-sm-4" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $Order->vehicle->VehicleImage->front) }}" width="300px" height="200px"></div>
-                        <div class="col-sm-8" style="padding: 10px">
+                        <a href="{{route('completedVehicleDetails',$Order->vehicle->id)}}"><div class="col-sm-4" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $Order->vehicle->VehicleImage->front) }}" width="300px" height="200px"></div>
+                        </a><div class="col-sm-8" style="padding: 10px">
                             <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $Order->vehicle->vehicle_registartion_number }}</span></h1>
                             <br><p>{{ $Order->vehicle->vehicle_name }}</p><br>
                             <span>Requested Price:{{ $Order->request_price }}</span>

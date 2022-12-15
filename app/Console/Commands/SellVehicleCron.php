@@ -54,7 +54,7 @@ class SellVehicleCron extends Command
             {
                 foreach($vehicles as $vehicle)
                 {
-                    $vehicle->status = 1;
+                    $vehicle->status = 2;
                     $vehicle->save();
                     // print_r($vehicle);
                     // die();
