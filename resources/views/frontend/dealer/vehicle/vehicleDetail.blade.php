@@ -166,15 +166,21 @@
                         <div class="reserveDetail">
                             <ul >
                                 <li>Reserve Price: <span>€{{$vehicle->vehicle_price}}</span></li>
+                                @if($vehicle->all_auction == 'all')
+                                <li >Higesht Offer<span> <a href="#">@if(isset($order->request_price)) {{$order->request_price}}@endif</a></span></li>
+                                @else
+                                <li >Live Salaes end <span>3h 53m 26s <a href="#">1 Bid</a></span></li>
+                                @endif
                                 <li >valuation <span><i class="fas fa-chevron-down" id="dynamic-ar"></i></span></li>
                                 <li class="hidden">Retail:<span> €{{$vehicle->retail_price}} </span></li>
                                 <li class="hidden">Clean:<span> €{{$vehicle->clean_price}} </span></li>
                                 <li class="hidden">Average:<span> €{{$vehicle->average_price}} </span></li>
-                                <li >Live Salaes end <span>3h 53m 26s <a href="#">1 Bid</a></span></li>
                             </ul>
                             <?php
                            $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
-                            if($bid == null){
+                           $order = App\Models\OrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
+                            
+                           if($bid == null && $order == null){
                             
                             ?>
                             
@@ -194,19 +200,40 @@
                                       @endif
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
+                                
                                 </div>
                             </form>
                             <?php }
                            else{
-
                             
                             ?>
+                            @if(isset($order))
+                            <center><span class="text-danger ">You Already Request On This Vehicle</span>
+                            </center>  
+                            <input type="hidden" name="hidden_price" class="hidden_price" value="{{$vehicle->hidden_price}}" />
+                                     
+                            <center><span class="text-danger ">Your Request Price Is <span class="userRequestedPrice" > {{$order->request_price}} </span></span>
+                            </center>   
+                            <center><a data-id="{{$order->id}}" class="btn btn-success btn-sm updatePrice"> Update My Price</a>
+                            <a href="{{route('cancelRequest',$order->id)}}" class="btn btn-danger btn-sm"> Cancel My Request</a>
+                            
+                        </center>   
+                        <br>    
+                        <div class="input-group mb-3 requestPrice ">
+                            <input type="number" class="form-control updatePriceInput" value="" placeholder="€" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary updateAmount" type="button">Update</button>
+                            </div>
+                          </div>
+                          <span class="text-danger same"></span>
+                            @else
                             <center><span class="text-danger ">You Already Bid On This Vehicle</span>
                             </center>   
                             <center><span class="text-danger ">Your Bid Price Is {{$bid->bid_price}}</span>
                             </center>   
-                       <center><a href="{{route('cancelBid',$bid->id)}}" class="btn btn-danger btn-sm"> Cancel Bid</a>
-                       </center> 
+                            <center><a href="{{route('cancelBid',$bid->id)}}" class="btn btn-danger btn-sm"> Cancel Bid</a>
+                            </center> 
+                            @endif
                             <?php } ?>
                         </div>
                     </div>
@@ -220,6 +247,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $(".spinner-border").hide();
+    $(".requestPrice").hide();
     $("form").submit(function(e){
         e.preventDefault();
     });
@@ -318,6 +346,73 @@
     $(".hidden").hide();
   $("#dynamic-ar").click(function(){
     $(".hidden").toggle();
+  });
+
+
+  $(".updatePrice").click(function(){
+    var HiddenPrice = $(".hidden_price").val();
+    console.log(HiddenPrice); 
+    var id = $(".updatePrice").data("id");
+    $(".requestPrice").show();
+    
+    var userRequestedPrice = $(".userRequestedPrice").text();
+    console.log(userRequestedPrice);
+    var a = $(".updatePriceInput").value === userRequestedPrice;
+    
+    $(".updateAmount").click(function(){
+        var updateAmountPrice = $(".updatePriceInput").val(); 
+       if(updateAmountPrice < HiddenPrice) {
+   
+        $(".same").html('');
+        $(".same").html('Your Requested Amount is low');
+      
+
+        }
+        else if(updateAmountPrice == parseInt(userRequestedPrice)) {
+            $(".same").html('');
+        $(".same").html('Your Requested Amount is same');
+            console.log('else if');
+        }
+       else{
+      
+          $.ajax({
+
+            url: '{{route("updateAmount")}}',
+            type: 'post',
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {updateAmountPrice:updateAmountPrice,id:id},
+
+            success: function(response){
+
+            var resultData = response;
+            console.log(resultData)
+            
+            if(resultData != null){
+                $(".spinner-border").show();
+                setTimeout(function() {
+                location.reload();
+            }, 1000);
+            toastr.success(resultData.success);
+            $(".same").html('');
+            }
+            else{
+                $(".error").html('');
+        $(".error").html('Something Error');
+            }
+            
+            },
+
+
+
+            });
+
+   
+        }
+        
+    });
+
   });
 });
 </script>
