@@ -946,5 +946,29 @@ die();
         $liveSellFilter = DB::select(DB::raw($query_string));
       return $liveSellFilter;
     }
+
+    public function completedVehicleDetails($id)
+    {
+      $vehicle = Vehicle::Where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
+
+      $vehicle_info = vehicleInformation::where('vehicle_id',$id)->first();
+      $damage = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
+
+
+      $vehcile_info_feature_id = explode(',' ,$vehicle_info->vehicle_feature_id);
+
+      $number_of_keys = NumberOfKey::where('id',$vehicle_info->number_of_keys_id)->first();
+      $finance = Finance::where('id',$vehicle_info->finance_id)->first();
+      $privateplate = PrivatePlate::where('id',$vehicle_info->private_plate_id)->first();
+      $smooking = Smoking::where('id',$vehicle_info->smooking_id)->first();
+      $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
+      $LockingWheelNut = LockingWheelNut::where('id',$vehicle_info->looking_wheel_nut_id)->first();
+      $order = OrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',Auth::user()->id)->orderBy('request_price','DESC')->first();
+           
+
+      return view('frontend.dealer.vehicle.completedVehicleDetail',compact('vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
+  
+
+    }
 }
 
