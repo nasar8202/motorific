@@ -97,7 +97,7 @@
                                       <h5>{{$allVehicles->vehicle_name}}</h5>
                                       <p>{{$allVehicles->vehicle_year}} . {{$allVehicles->vehicle_mileage}} . {{$allVehicles->vehicle_tank}} . {{$allVehicles->vehicle_type}}</p>
                                     </div>
-                                    <button type="button" class="bid">View Delivery Option</button>
+                                    <button type="button" >View Delivery Option</button>
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
                                 </div>
@@ -114,67 +114,7 @@
 </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".spinner-border").hide();
-    $("form").submit(function(e){
-        e.preventDefault();
-    });
-    $(".bid").click(function(){
-        
-    var BidPrice = $(".bid_price").val();
-    var HiddenPrice = $(".hidden_price").val();
-    var VehicleId = $(".vehicle_id").val();
-    console.log(BidPrice,HiddenPrice);
-    // console.log(BidPrice <= HiddenPrice);
-    if(!(BidPrice <= HiddenPrice)){
 
-         $.ajax({
-
-            url: '{{route("bid")}}',
-            type: 'post',
-            headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: {BidPrice:BidPrice,HiddenPrice:HiddenPrice,VehicleId:VehicleId},
-
-            success: function(response){
-
-            var resultData = response;
-            console.log(resultData)
-            
-            if(resultData != null){
-                $(".spinner-border").show();
-                setTimeout(function() {
-                location.reload();
-            }, 1000);
-            toastr.success(resultData.success);
-            }
-            else{
-                $(".error").html('');
-        $(".error").html('Something Error');
-            }
-            
-            },
-
-
-
-            });
-   
-
-    }
-    else{
-        $(".warning").html('');
-        $(".warning").html('Your Bid Amount Is Not Matching The Vehicle Criteria');
-    }
-  });
-
-    $(".hidden").hide();
-  $("#dynamic-ar").click(function(){
-    $(".hidden").toggle();
-  });
-});
-</script>
 @endsection
 
 

@@ -153,6 +153,15 @@ class DealerDashboardController extends Controller
         return view('frontend.dealer.vehicle.CompletedBiddedVehicle',compact('bids','countBids'));
 
     }
+    public function CompletedRequestedVehicle()
+    {
+      $user_id = Auth::user()->id;
+      $Orders = OrderVehicleRequest::where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.VehicleImage')->get();
+      $countOrder = count($Orders);
+
+        return view('frontend.dealer.vehicle.CompletedRequestedVehicle',compact('Orders','countOrder'));
+
+    }
     public function CancelledBiddedOfferVehicle()
     {
         $user_id = Auth::user()->id;
