@@ -299,6 +299,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/completed-purchases-vehicles', [DealerDashboardController::class,'CompletedBiddedVehicle'])->name('bids.CompletedBiddedVehicle');
     Route::get('/cancelled-purchases-vehicles', [DealerDashboardController::class,'CancelledBiddedOfferVehicle'])->name('bids.CancelledBiddedOfferVehicle');
     Route::get('/completed-requested-vehicles', [DealerDashboardController::class,'CompletedRequestedVehicle'])->name('CompletedRequestedVehicle');
+    Route::get('/canceled-requested-vehicles', [DealerDashboardController::class,'CancelRequestedVehicle'])->name('CancelRequestedVehicle');
    
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
@@ -341,7 +342,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/delivery-details', [DealerChargesController::class, 'deliveryDetailPage'])->name('deliveryDetailPage');
     Route::post('/stripe-payment', [DealerChargesController::class,'stripePayment'])->name('stripePayment');
     
-
+    Route::post('/review-cancelation', [DealerChargesController::class,'reviewForCancel'])->name('reviewForCancel');
+    
 });
 
 // end seller panel routes

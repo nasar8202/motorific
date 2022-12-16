@@ -31,7 +31,20 @@
                         </div>
                     </div> --}}
                     <div class="bottomList">
-                        
+                        <button class="btn btn-info">Update Requested Price</button>
+                        <button class="btn btn-danger cancelRequest">Cancel My Request</button>
+                        <div class="form-group mt-4 reviewSection">
+                            <form method="POST" action="{{route('reviewForCancel')}}">
+                                @csrf
+                            <span>Why You Want To Cancel This Vehicle ?</span>
+                            <input type="hidden" name="vehicle_id" value="{{$allVehicles->id}}">
+                            <input type="hidden" name="user_id" value="{{$current}}">
+                            pricing
+                            <input type="hidden" name="order_id" value="{{$pricing->id}}">
+                            <textarea class="form-control" name="reviews" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>  
+                    </form>    
+                    </div>
                     </div>
                     {{-- <div class="bottomList">
                         <div class="bottomListTitle">
@@ -114,7 +127,13 @@
 </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script>
+    $(".reviewSection").hide();
+    $(".cancelRequest").click(function(){
+      
+        $(".reviewSection").show();
+    });
+</script>
 @endsection
 
 

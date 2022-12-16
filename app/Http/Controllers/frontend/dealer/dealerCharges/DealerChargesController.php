@@ -13,7 +13,9 @@ use App\Http\Controllers\Controller;
 use App\Models\DealerWinningCharges;
 use Illuminate\Support\Facades\Auth;
 use App\Models\VehicleWinningCharges;
+use App\Models\CanceledRequestReviews;
 
+use DB;
 class DealerChargesController extends Controller
 {
     public function sellerDetails($id)
@@ -102,8 +104,10 @@ class DealerChargesController extends Controller
             $allVehicles = Vehicle::Where('status',2)->where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
       
             $user = User::where('id',$allVehicles->user_id)->first();
-      
-        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles'));
+            $pricing = OrderVehicleRequest::where('vehicle_id',$id)->first();
+            $current = Auth::user()->id;
+            
+        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','pricing','current'));
         }
     }
 
@@ -127,8 +131,30 @@ class DealerChargesController extends Controller
   
     }
 
-    public function deliveryDetailPage()
+    public function reviewForCancel(Request $request)
     {
-
+        DB::beginTransaction();
+        try{
+        $cancel = new CanceledRequestReviews;
+        $cancel->user_id = $request->user_id;
+        $cancel->vehicle_id = $request->vehicle_id;
+        $cancel->order_requests_id = $request->order_id;
+        $cancel->reviews = $request->reviews;
+        $cancel->status = 1;
+        $cancel->save();
+        $pricing = OrderVehicleRequest::where('id',$request->order_id)->first();
+        $pricing->status = 2;
+        $pricing->save();
+        }catch(\Exception $e)
+        {
+        DB::rollback();
+       //return $e;
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
+         DB::commit();
+         return redirect()->route('CompletedRequestedVehicle')->with('success','Request Cancel Successfully');
+       
     }
 }

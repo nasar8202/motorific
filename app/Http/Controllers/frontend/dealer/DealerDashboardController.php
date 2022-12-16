@@ -25,6 +25,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
 
@@ -157,9 +158,21 @@ class DealerDashboardController extends Controller
     {
       $user_id = Auth::user()->id;
       $Orders = OrderVehicleRequest::where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.VehicleImage')->get();
+      
       $countOrder = count($Orders);
 
         return view('frontend.dealer.vehicle.CompletedRequestedVehicle',compact('Orders','countOrder'));
+
+    }
+    public function CancelRequestedVehicle()
+    {
+      
+      $user_id = Auth::user()->id;
+      $canceled = CanceledRequestReviews::where('status',1)->where('user_id',$user_id)->with('user')->with('order')->with('vehicle.VehicleImage')->get();
+
+      $countcanceled = count($canceled);
+
+        return view('frontend.dealer.vehicle.CancelledRequestedVehicle',compact('canceled','countcanceled'));
 
     }
     public function CancelledBiddedOfferVehicle()
