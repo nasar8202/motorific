@@ -28,7 +28,7 @@
                         <label for="usr">Search Purchases Vehcle:</label>
                         <input type="text" placeholder="Search in Complete" class="form-control" id="usr">
                         <br>
-                        <p>1<span style="margin: 5px">Results</span></p>
+                        <p>{{$countOrder}}<span style="margin: 5px">Results</span></p>
                     </div>
                     <br>
                     <div class="row">
