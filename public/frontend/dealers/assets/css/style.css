@@ -1085,3 +1085,46 @@ div#next, div#next-ext {
     color: #fff;
 }
 /*hamza css */
+
+
+
+/*usama*/
+.vec-box {
+    background: #3f3f3f;
+    color: white;
+}
+
+.vec-box h1 {
+    background: #ffe900;
+    width: 200px;
+    margin-top: 20px;
+}
+.vec-box {
+    height: 150px;
+        margin-bottom: 10px;
+}
+
+.vec-box img {
+    height: 150px;
+}
+
+.vec-box button.btn.btn-primary.ms-4 {
+    background: transparent;
+    border: none;
+    font-size: 31px;
+    padding: 0;
+}
+.vec-box .card.card-body {
+ 
+    background: #202543;
+}
+
+.vec-box .card.card-body ul li a {
+    color: white;
+    text-decoration: none;
+}
+.filterIn p a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}

@@ -128,15 +128,15 @@ display: block;
                         <br>
                         <div class="row">
                             @forelse ($allVehicles as $allVehicle)
-                            <div class="col-sm-4" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $allVehicle->VehicleImage->front) }}" width="300px" height="200px"></div>
-                            <div class="col-sm-8" style="padding: 10px">
-                                <h1 style="font-size: 20px"><span style="background-color:yellow;border-radius:45px;padding:7px">{{ $allVehicle->vehicle_registartion_number }}</span></h1>
-                                <br><p>{{ $allVehicle->vehicle_name }}</p><br>
+                            <div class="col-sm-4 vec-box p-0" ><img src="{{ asset('/vehicles/vehicles_images/'. $allVehicle->VehicleImage->front) }}" width="300px" height="200px"></div>
+                            <div class="col-sm-8 vec-box p-0" >
+                                <h1 style="font-size: 20px"><span>{{ $allVehicle->vehicle_registartion_number }}</span></h1>
+                                <p>{{ $allVehicle->vehicle_name }}</p>
                                <div class=" justify-content-between align-items-center d-flex">
                                 <span>Price: {{ $allVehicle->vehicle_price }}</span>
                                 <span style="padding-left: 60px;">{{ $allVehicle->created_at->format('m/d/Y') }}</span>
-                                <a href="{{route('bidsOnVehicles',$allVehicle->id)}}" class="btn btn-primary mb-4">Bids On My Vehicle</span></a>
-                                <br>
+                                <a href="{{route('bidsOnVehicles',$allVehicle->id)}}" class="btn btn-primary ">Bids On My Vehicle</span></a>
+                             
                                 @if($allVehicle->status == 0)
                                 <span class="alert alert-danger ">Not Accepeted</span>
                             @else

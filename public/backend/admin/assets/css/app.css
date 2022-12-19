@@ -1278,3 +1278,7 @@ a {
     background-color: rgb(67, 94, 190);
     color: #fff;
 }
+.sidebar-wrapper .menu li::marker {
+    display: none;
+    font-size: 0;
+}

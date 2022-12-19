@@ -34,20 +34,20 @@
                     <div class="row">
                      
                         @forelse ($Orders as $Order)
-                        <a href="{{route('completedVehicleDetails',$Order->vehicle->id)}}"><div class="col-sm-4" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $Order->vehicle->VehicleImage->front) }}" width="300px" height="200px"></div>
-                        </a><div class="col-sm-8" style="padding: 10px">
+                       <div class="col-sm-4 vec-box p-0" style="padding: 10px;"> <a href="{{route('completedVehicleDetails',$Order->vehicle->id)}}"><img src="{{ asset('/vehicles/vehicles_images/'. $Order->vehicle->VehicleImage->front) }}" width="300px" height="200px">  </a></div>
+                      <div class="col-sm-8 vec-box p-0" style="padding: 10px">
                             <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $Order->vehicle->vehicle_registartion_number }}</span></h1>
-                            <br><p>{{ $Order->vehicle->vehicle_name }}</p><br>
+                      <p>{{ $Order->vehicle->vehicle_name }}</p>
                             <span>Requested Price:{{ $Order->request_price }}</span>
                             <span style="padding-left: 60px;">{{ $Order->created_at->format('m/d/Y') }}</span>
                             <span style="padding-left: 200px;">
                                
                                         <!-- Trigger Buttons HTML -->
                                        
-                                        <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse">...</button>
+                                        <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$Order->id}}">...</button>
                                    
                                     <!-- Collapsible Element HTML -->
-                                    <div class="collapse" id="myCollapse">
+                                    <div class="collapse" id="myCollapse{{$Order->id}}">
                                         <div class="card card-body " style="width: 40%;float: right;" >
                                             <ul>
                                                 <li><a href="{{route('sellerRequestedDetails',$Order->vehicle->id)}}"> Seller's Details</a></li><br>

@@ -1847,4 +1847,48 @@ form.rowFormTn  .personal-info-form-btn.photo-up-sec-2-box-btn {
     margin-left: auto;
     margin-top: 10px;
 }
+/*usama*/
+.vec-box {
+    background: #3f3f3f;
+    color: white;
+}
 
+.vec-box h1 {
+    background: #ffe900;
+    width: 200px;
+    margin-top: 20px;
+}
+.vec-box {
+    height: 170px;
+        margin-bottom: 10px;
+}
+
+.vec-box img {
+    height: 170px;
+}
+
+.vec-box button.btn.btn-primary.ms-4 {
+    background: transparent;
+    border: none;
+    font-size: 31px;
+    padding: 0;
+}
+.vec-box .card.card-body {
+ 
+    background: #202543;
+}
+
+.vec-box .card.card-body ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.vec-box  span.alert.alert-success {
+       margin-bottom: 0;
+    background: transparent;
+    color: white;
+    margin-right: 10px;
+}
+.filterIn a {
+    text-decoration: none;
+}

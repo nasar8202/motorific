@@ -270,7 +270,7 @@ div#filter-price {
                 @endforelse
                 </div>
                 <div id="loop">
-                <div class="col-lg-3 col-md-3 blur_action"  id="filter-price">
+                <div class="col-lg-3 col-md-3 blur_action mb-5"  id="filter-price">
 
 
                 </div>

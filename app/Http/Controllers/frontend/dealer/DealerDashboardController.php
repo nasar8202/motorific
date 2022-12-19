@@ -185,7 +185,7 @@ class DealerDashboardController extends Controller
                                 ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
                                 ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
                                 ->where('users.id',$user_id)
-                                ->where('vehicles.status','2')
+                                ->where('vehicles.status','1')
                                 ->get();
             $countBids = count($bids);
 
