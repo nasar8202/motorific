@@ -6,15 +6,17 @@ use Exception;
 use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
 use App\Models\DealerVehicleMedia;
+use App\Models\DealerVehicleTyres;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\DealerVehicleHistory;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
-use App\Models\DealerVehicleTyres;
 use Illuminate\Support\Facades\Session;
 use App\Models\DealerAdvertVehicleDetail;
+use App\Models\DealerVehicleExteriorDetails;
+use App\Models\DealerVehicleInteriorDetails;
 
 class AddDealerVehicleController extends Controller
 {
@@ -73,6 +75,7 @@ class AddDealerVehicleController extends Controller
 
     public function vehicleAndDetailsPost(Request $request)
     {
+        // dd($request->all());
         // $request->validate([
         //     'image_1' => 'required',
         //     'interior_image_1' => 'required',
@@ -224,11 +227,38 @@ class AddDealerVehicleController extends Controller
                 //$image_1 = Session::get('image_1');
                 }
 
+            if($request->damage_any == 'yes'){    
+            $dealer_interior_detail = new DealerVehicleInteriorDetails;
+            $dealer_interior_detail->dealer_vehicle_id = $dealers_vehicle->id;
+            $dealer_interior_detail->dashboard = $request->dashboard;
+            $dealer_interior_detail->passenger_side_interior = $request->passenger_side_interior;
+            $dealer_interior_detail->driver_side_interior = $request->driver_side_interior;
+            $dealer_interior_detail->floor = $request->floor;
+            $dealer_interior_detail->ceiling = $request->ceiling;
+            $dealer_interior_detail->boot = $request->boot;
+            $dealer_interior_detail->rear_windscreen = $request->rear_windscreen;
+            $dealer_interior_detail->passenger_seat = $request->passenger_seat;
+            $dealer_interior_detail->driver_seat = $request->driver_seat;
+            $dealer_interior_detail->rear_seats = $request->rear_seats;
+            $dealer_interior_detail->save();
 
 
-            }catch(Exception $e)
+            $dealer_exterior_detail = new DealerVehicleExteriorDetails;
+            $dealer_exterior_detail->dealer_vehicle_id = $dealers_vehicle->id;
+            $dealer_exterior_detail->front_door_left = $request->front_door_left;
+            $dealer_exterior_detail->back_door_left = $request->back_door_left;
+            $dealer_exterior_detail->front_door_right = $request->front_door_right;
+            $dealer_exterior_detail->back_door_right = $request->back_door_right;
+            $dealer_exterior_detail->top = $request->top;
+            $dealer_exterior_detail->bonut = $request->bonut;
+            $dealer_exterior_detail->front = $request->front;
+            $dealer_exterior_detail->back = $request->back;
+            $dealer_exterior_detail->save();
+        }
+
+            }
+            catch(Exception $e)
             {
-                return $e;
                 DB::rollback();
                 return Redirect()->back()
                     ->with('error',$e->getMessage() )

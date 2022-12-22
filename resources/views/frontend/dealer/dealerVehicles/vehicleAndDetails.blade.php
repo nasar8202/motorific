@@ -289,67 +289,67 @@
 
                                         <div class="txt-chkboxs-main d-flex flex-wrap">
                                             <label class="txt-chkbox-custom" for="exterior_b">
-                                                <input class="hide-inp" type="checkbox" name="exterior_b" id="exterior_b" value="B" >
+                                                <input class="hide-inp" type="radio" name="exterior_b" id="exterior_b" value="B" >
                                                 <span class="f-14">B</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_bd">
-                                                <input class="hide-inp" type="checkbox" name="exterior_bd" id="exterior_bd" value="BD" >
+                                                <input class="hide-inp" type="radio" name="exterior_bd" id="exterior_bd" value="BD" >
                                                 <span class="f-14">BD</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_c">
-                                                <input class="hide-inp" type="checkbox" name="exterior_c" id="exterior_c" value="C" >
+                                                <input class="hide-inp" type="radio" name="exterior_c" id="exterior_c" value="C" >
                                                 <span class="f-14">C</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_cr">
-                                                <input class="hide-inp" type="checkbox" name="exterior_cr" id="exterior_cr" value="CR" >
+                                                <input class="hide-inp" type="radio" name="exterior_cr" id="exterior_cr" value="CR" >
                                                 <span class="f-14">CR</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_d">
-                                                <input class="hide-inp" type="checkbox" name="exterior_d" id="exterior_d" value="d" >
+                                                <input class="hide-inp" type="radio" name="exterior_d" id="exterior_d" value="d" >
                                                 <span class="f-14">d</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_dl">
-                                                <input class="hide-inp" type="checkbox" name="exterior_dl" id="exterior_dl" value="DL" >
+                                                <input class="hide-inp" type="radio" name="exterior_dl" id="exterior_dl" value="DL" >
                                                 <span class="f-14">DL</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_f">
-                                                <input class="hide-inp" type="checkbox" name="exterior_f" id="exterior_f" value="f" >
+                                                <input class="hide-inp" type="radio" name="exterior_f" id="exterior_f" value="f" >
                                                 <span class="f-14">F</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_mc">
-                                                <input class="hide-inp" type="checkbox" name="exterior_mc" id="exterior_mc" value="mc" >
+                                                <input class="hide-inp" type="radio" name="exterior_mc" id="exterior_mc" value="mc" >
                                                 <span class="f-14">MC</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_oc">
-                                                <input class="hide-inp" type="checkbox" name="exterior_oc" id="exterior_oc" value="oc" >
+                                                <input class="hide-inp" type="radio" name="exterior_oc" id="exterior_oc" value="oc" >
                                                 <span class="f-14">OC</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_pr">
-                                                <input class="hide-inp" type="checkbox" name="exterior_pr" id="exterior_pr" value="pr" >
+                                                <input class="hide-inp" type="radio" name="exterior_pr" id="exterior_pr" value="pr" >
                                                 <span class="f-14">PR</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_r">
-                                                <input class="hide-inp" type="checkbox" name="exterior_r" id="exterior_r" value="r" >
+                                                <input class="hide-inp" type="radio" name="exterior_r" id="exterior_r" value="r" >
                                                 <span class="f-14">R</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_sc">
-                                                <input class="hide-inp" type="checkbox" name="exterior_sc" id="exterior_sc" value="sc" >
+                                                <input class="hide-inp" type="radio" name="exterior_sc" id="exterior_sc" value="sc" >
                                                 <span class="f-14">sc</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_s">
-                                                <input class="hide-inp" type="checkbox" name="exterior_s" id="exterior_s" value="s" >
+                                                <input class="hide-inp" type="radio" name="exterior_s" id="exterior_s" value="s" >
                                                 <span class="f-14">s</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_sl">
-                                                <input class="hide-inp" type="checkbox" name="exterior_sl" id="exterior_sl" value="sl" >
+                                                <input class="hide-inp" type="radio" name="exterior_sl" id="exterior_sl" value="sl" >
                                                 <span class="f-14">sl</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_ws">
-                                                <input class="hide-inp" type="checkbox" name="exterior_ws" id="exterior_ws" value="ws" >
+                                                <input class="hide-inp" type="radio" name="exterior_ws" id="exterior_ws" value="ws" >
                                                 <span class="f-14">ws</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="exterior_o">
-                                                <input class="hide-inp" type="checkbox" name="exterior_o" id="exterior_o" value="o" >
+                                                <input class="hide-inp" type="radio" name="exterior_o" id="exterior_o" value="o" >
                                                 <span class="f-14">o</span>
                                             </label>
                                         </div>
@@ -360,67 +360,67 @@
 
                                         <div class="txt-chkboxs-main d-flex flex-wrap">
                                             <label class="txt-chkbox-custom" for="interior_b">
-                                                <input class="hide-inp" type="checkbox" name="interior_b" id="interior_b" value="B" >
+                                                <input class="hide-inp" type="radio" name="interior_b" id="interior_b" value="B" >
                                                 <span class="f-14">B</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_bd">
-                                                <input class="hide-inp" type="checkbox" name="interior_bd" id="interior_bd" value="BD" >
+                                                <input class="hide-inp" type="radio" name="interior_bd" id="interior_bd" value="BD" >
                                                 <span class="f-14">BD</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_c">
-                                                <input class="hide-inp" type="checkbox" name="interior_c" id="interior_c" value="C" >
+                                                <input class="hide-inp" type="radio" name="interior_c" id="interior_c" value="C" >
                                                 <span class="f-14">C</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_cr">
-                                                <input class="hide-inp" type="checkbox" name="interior_cr" id="interior_cr" value="CR" >
+                                                <input class="hide-inp" type="radio" name="interior_cr" id="interior_cr" value="CR" >
                                                 <span class="f-14">CR</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_d">
-                                                <input class="hide-inp" type="checkbox" name="interior_d" id="interior_d" value="d" >
+                                                <input class="hide-inp" type="radio" name="interior_d" id="interior_d" value="d" >
                                                 <span class="f-14">d</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_dl">
-                                                <input class="hide-inp" type="checkbox" name="interior_dl" id="interior_dl" value="DL" >
+                                                <input class="hide-inp" type="radio" name="interior_dl" id="interior_dl" value="DL" >
                                                 <span class="f-14">DL</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_f">
-                                                <input class="hide-inp" type="checkbox" name="interior_f" id="interior_f" value="f" >
+                                                <input class="hide-inp" type="radio" name="interior_f" id="interior_f" value="f" >
                                                 <span class="f-14">F</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_mc">
-                                                <input class="hide-inp" type="checkbox" name="interior_mc" id="interior_mc" value="mc" >
+                                                <input class="hide-inp" type="radio" name="interior_mc" id="interior_mc" value="mc" >
                                                 <span class="f-14">MC</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_oc">
-                                                <input class="hide-inp" type="checkbox" name="interior_oc" id="interior_oc" value="oc" >
+                                                <input class="hide-inp" type="radio" name="interior_oc" id="interior_oc" value="oc" >
                                                 <span class="f-14">OC</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_pr">
-                                                <input class="hide-inp" type="checkbox" name="interior_pr" id="interior_pr" value="pr" >
+                                                <input class="hide-inp" type="radio" name="interior_pr" id="interior_pr" value="pr" >
                                                 <span class="f-14">PR</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_r">
-                                                <input class="hide-inp" type="checkbox" name="interior_r" id="interior_r" value="r" >
+                                                <input class="hide-inp" type="radio" name="interior_r" id="interior_r" value="r" >
                                                 <span class="f-14">R</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_sc">
-                                                <input class="hide-inp" type="checkbox" name="interior_sc" id="interior_sc" value="sc" >
+                                                <input class="hide-inp" type="radio" name="interior_sc" id="interior_sc" value="sc" >
                                                 <span class="f-14">sc</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_s">
-                                                <input class="hide-inp" type="checkbox" name="interior_s" id="interior_s" value="s" >
+                                                <input class="hide-inp" type="radio" name="interior_s" id="interior_s" value="s" >
                                                 <span class="f-14">s</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_sl">
-                                                <input class="hide-inp" type="checkbox" name="interior_sl" id="interior_sl" value="sl" >
+                                                <input class="hide-inp" type="radio" name="interior_sl" id="interior_sl" value="sl" >
                                                 <span class="f-14">sl</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_ws">
-                                                <input class="hide-inp" type="checkbox" name="interior_ws" id="interior_ws" value="ws" >
+                                                <input class="hide-inp" type="radio" name="interior_ws" id="interior_ws" value="ws" >
                                                 <span class="f-14">ws</span>
                                             </label>
                                             <label class="txt-chkbox-custom" for="interior_o">
-                                                <input class="hide-inp" type="checkbox" name="interior_o" id="interior_o" value="o" >
+                                                <input class="hide-inp" type="radio" name="interior_o" id="interior_o" value="o" >
                                                 <span class="f-14">o</span>
                                             </label>
                                         </div>
@@ -625,17 +625,28 @@
                 <button type="submit" class="btn-qa1 f-16 btn-filled-sm">Publish Advert</button>
             </div>
 
-        </form>
     </div>
 
     </div>
 
 </div>
 </section>
-
+    <span>Do you have any damage on this vehicle</span><br>
+    <input class="" type="radio" name="damage_any" id="any_damage_checked_yes" value="yes" @if(request()->session()->get('any_damage_checked') == '1') checked @endif>
+    <label class="dflex-gap10" for="any_damage_checked_yes">
+        <span class="radio-circle"></span>
+        <span>Yes</span>
+    </label> 
+    <input class="" type="radio" name="damage_any" id="any_damage_checked_yes" value="no" @if(request()->session()->get('any_damage_checked') == '1') checked @endif>
+    <label class="dflex-gap10" for="any_damage_checked_yes">
+        <span class="radio-circle"></span>
+        <span>No</span>
+    </label>                            
 <section class="step-form-sec">
+    
     <div class="container-1200">
         <!--interior -->
+        
         <div class="step-main-wrap">
             <!--<div id="svg_wrap"></div>-->
             <h1 class="step-main-head">Interior Information</h1>
@@ -648,37 +659,37 @@
                             <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Stained" hidden>
                                     <span>Stained (ST)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Torn/Ripped" hidden>
                                     <span>Torn / Ripped (T)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Warn" hidden>
                                     <span>Warn (W)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Dirty" hidden>
                                     <span>Dirty (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Broken/Damage"  hidden>
                                     <span>Broken / Damage (BD)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Bumt" hidden>
                                     <span>Bumt (B)</span>
                                 </label>
                             </li>
@@ -699,37 +710,37 @@
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Stained" hidden>
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Torn/Ripped" hidden>
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Warn" hidden>
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Dirty" hidden>
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Broken/Damage"  hidden>
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" class="step-list-check" hidden>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Bumt" hidden>
                                         <span>Bumt (B)</span>
                                     </label>
                                 </li>
@@ -749,43 +760,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Driver Side Interior</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -800,43 +811,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Floor</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -851,43 +862,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Ceiling</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -902,43 +913,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Boot</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -953,43 +964,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Rear Windscreen</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -1004,43 +1015,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Passenger Seat</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -1055,43 +1066,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Driver Seat</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -1106,43 +1117,43 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Rear Seats</h2>
                             <ul class="parts-content">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Stained (ST)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Torn / Ripped (T)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Warn (W)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Dirty (D)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Broken / Damage (BD)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
-                                    <span>Bumt (B)</span>
-                                </label>
-                            </li>
-                        </ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Stained" hidden>
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Torn/Ripped" hidden>
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Warn" hidden>
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Dirty" hidden>
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Broken/Damage"  hidden>
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Bumt" hidden>
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
@@ -1154,7 +1165,7 @@
         
                 <div class="step-button-wrap">
                     <div class="step-button" id="prev">&larr; Previous</div>
-                    <div class="step-button" id="next">Next &rarr;</div>
+                    <div class="step-button nxtBtn" id="next" >Next &rarr;</div>
                 </div>
   
             </section>
@@ -1173,37 +1184,37 @@
                             <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="front_door_left" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1223,37 +1234,37 @@
                             <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="back_door_left" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1271,39 +1282,39 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Front Door Right</h2>
                             <ul class="parts-content">
-                            <li>
+                           <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="front_door_right" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1321,39 +1332,39 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Back Door Right</h2>
                            <ul class="parts-content">
-                            <li>
+                           <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="back_door_right" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1374,37 +1385,37 @@
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="top" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1425,37 +1436,37 @@
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="bonut" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1476,37 +1487,37 @@
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="front" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1527,37 +1538,37 @@
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio" name="back" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1581,6 +1592,8 @@
         </div>
     </div>
 </section>
+
+</form>
 
 
 
@@ -1618,6 +1631,58 @@
     </div>
 </div>
 </section>
+
+
+<!--Alert Modal-->
+<button type="button" class="alertModalOn" data-bs-toggle="modal" data-bs-target="#selectAnyRadio" style="display:none;">Launch static backdrop modal</button>
+<div class="modal fade modalTN" id="selectAnyRadio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="selectAnyRadioLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="Modal__component">
+        	<h3>Alert!</h3>
+        	<article class="">
+        		<i class="fa fa-info-circle" aria-hidden="true"></i>
+        		<p>Please Select Atleast One Option</p>
+        	</article>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+     $('button.nxtBtn').on('click', function(){
+
+var vehicleSteps = $(this).closest('.vehicleSteps');
+var numChecked = $(vehicleSteps).find('.checboxNum').text();
+var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
+var numChecked1 = parseInt(numChecked);
+var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+
+if( numChecked1 < 1){
+    $('#selectAnyRadio').modal('toggle');
+}
+else if( numcheckBoxChecked1 < 1){
+    $('#selectAnyRadio').modal('toggle');
+}
+else{
+     $(vehicleSteps).removeClass('vehicleStepsActive');
+     $(vehicleSteps).slideUp();
+     $(vehicleSteps).next().slideDown();
+     $(vehicleSteps).next().addClass('vehicleStepsActive');
+}
+
+});
+
+
+
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!--<script src="{}"></script>-->
