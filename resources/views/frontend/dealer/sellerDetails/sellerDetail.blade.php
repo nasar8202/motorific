@@ -31,7 +31,7 @@
                         </div>
                     </div> --}}
                     <div class="bottomList">
-                        <button class="btn btn-info">Update Requested Price</button>
+                        <button class="btn btn-info meeting">Schedule A Meeting</button>
                         <button class="btn btn-danger cancelRequest">Cancel My Request</button>
                         <div class="form-group mt-4 reviewSection">
                             <form method="POST" action="{{route('reviewForCancel')}}">
@@ -45,6 +45,16 @@
                         <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>  
                     </form>    
                     </div>
+
+                    <div class="form-group mt-4 meetingDiv">
+                        <form method="POST" action="{{route('reviewForCancel')}}">
+                            @csrf
+                        <span>Schedule Your Date With Seller ?</span>
+                   
+                        <input type="date" class="form-control mt-4" name="vehicle_id" value="{{$allVehicles->id}}">
+                        <br><button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>  
+                </form>    
+                </div>
                     </div>
                     {{-- <div class="bottomList">
                         <div class="bottomListTitle">
@@ -129,10 +139,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(".reviewSection").hide();
+    $(".meetingDiv").hide();
     $(".cancelRequest").click(function(){
-      
+        $(".meetingDiv").hide();
         $(".reviewSection").show();
     });
+    $(".meeting").click(function(){
+        $(".reviewSection").hide();
+      $(".meetingDiv").show();
+  });
 </script>
 @endsection
 

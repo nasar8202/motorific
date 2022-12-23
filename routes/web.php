@@ -265,6 +265,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      //request order price
      Route::get('/order-request', [OrderRequestController::class,'orderRequest'])->name('orderRequest');
      Route::get('/order-user-detail/{id}', [OrderRequestController::class,'orderdUserDetail'])->name('orderdUserDetail');
+     Route::get('/order-seller-detail/{id}', [OrderRequestController::class,'orderdSellerDetail'])->name('orderdSellerDetail');
+     Route::post('/approve-order-admin-updated', [OrderRequestController::class,'approveOrderdWithAdminUpdated'])->name('approveOrderdWithAdminUpdated');
+     
      Route::get('/order-vehicle-detail/{id}', [OrderRequestController::class,'orderdVehicleDetail'])->name('orderdVehicleDetail');
      Route::get('/approve-order/{id}', [OrderRequestController::class,'approveOrderd'])->name('approveOrderd');
     
