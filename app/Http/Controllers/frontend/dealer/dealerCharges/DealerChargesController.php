@@ -165,4 +165,13 @@ class DealerChargesController extends Controller
          return redirect()->route('CompletedRequestedVehicle')->with('success','Request Cancel Successfully');
        
     }
+    public function scheduleMeeting(Request $request)
+    {
+        $meeting = OrderVehicleRequest::where('id',$request->order_id)->first();
+        $meeting->meeting_date_time = $request->date_time;
+        $meeting->save();
+        return redirect()->route('CompletedRequestedVehicle')->with('success','Meeting Has Been Schedule');
+     
+    }
+    
 }

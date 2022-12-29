@@ -10,11 +10,18 @@ use App\Models\Vehicle;
 class OrderRequestController extends Controller
 {
     public function orderRequest(){
-    $orders = OrderVehicleRequest::where('status',0)->with('user')->with('vehicle')->get();
+    $orders = OrderVehicleRequest::with('user')->with('vehicle')->get();
     
     return view('backend.admin.orderVehicleRequests.requestsVehicle',compact('orders'));
 
     }
+
+    public function orderRequestMeeting(Request $request){
+      
+      $orders = OrderVehicleRequest::where('id',$request->id)->with('user')->with('vehicle')->first();
+      return $orders;
+  
+      }
     public function orderdUserDetail($id){
       
         $dealers = User::where('id',$id)->with('userDetails')->first();

@@ -54,15 +54,24 @@
                             <td>{{ $order->user->name}}</td>
                             <td>{{ $order->vehicle->vehicle_name}}</td>
                             <td class="requestedPrice">{{ $order->request_price}}</td>
-                            <td>@if($order->status == 0) <span class="badge badge-danger">Not Accepted</span>@endif</td>
+                            <td>@if($order->status == 0) <span class="badge badge-danger">Not Accepted</span>
+                                @else <span class="badge badge-success">Accepted</span>
+                                @endif</td>
                             <td><a class="badge badge-success" href="{{route('orderdUserDetail',$order->user_id)}}">Dealer Details </a>
                             <a class="badge badge-success" href="{{route('orderdVehicleDetail',$order->vehicle_id)}}" >Vehicle Details </a>
                             <a class="badge badge-success" href="{{route('orderdSellerDetail',$order->vehicle->user_id)}}" >Seller Details </a>
+                            @if($order->status == 0)
                             <a class="badge badge-info" href="{{route('approveOrderd',$order->id)}}" >Approve Order Request </a>
                             <button type="button" class="btn btn-sm mt-2 btn-outline-primary block price" data-bs-toggle="modal"
                             data-bs-target="#default"  data-id="{{$order->id}}">
                             Update Price
                         </button>
+                        @else
+                        <button type="button" class="btn btn-sm mt-2  btn btn-outline-dark meeting"
+                        data-bs-toggle="modal" data-bs-target="#dark" data-id="{{$order->id}}">
+                        View Meeting Status
+                         </button>
+                        @endif
                         </td>
                             
                         </tr>
@@ -110,6 +119,44 @@
                                         </div>
                                     </div>
 </div>
+<div class="modal fade text-left" id="dark" tabindex="-1"
+             role="dialog" aria-labelledby="myModalLabel150"                 
+                       aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+       role="document">
+     <div class="modal-content">
+          <div class="modal-header bg-dark white">
+             <span class="modal-title" id="myModalLabel150">
+                Meeting Status
+             </span>
+             <button type="button" class="close"
+                 data-bs-dismiss="modal" aria-label="Close">
+                 <i data-feather="x"></i>
+              </button>
+          </div>
+         <div class="modal-body">
+             <h6>Dealer Meeting Date</h6>
+             <span class="date"></span>
+             <br>
+             <h6>Seller Reviews</h6>
+             <span class="reviews"></span>
+         </div>
+          <div class="modal-footer">
+               <button type="button"
+                  class="btn btn-light-secondary"
+                 data-bs-dismiss="modal">
+                <i class="bx bx-x d-block d-sm-none"></i>
+                <span class="d-none d-sm-block">Close</span>
+              </button>
+             <button type="button" class="btn btn-dark ml-1"
+                   data-bs-dismiss="modal">
+        <i class="bx bx-check d-block d-sm-none"></i>
+        <span class="d-none d-sm-block">Accept</span>
+        </button>
+    </div>
+        </div>
+         </div>
+    </div>
 @endsection
 @push('child-scripts')
 <script>
@@ -134,6 +181,42 @@ $(document).ready(function(){
         }
         });
     });
+
+    $('.meeting').on('click', function() {
+
+        var id = $('.meeting').attr("data-id");
+         $.ajax({
+
+            url: '{{route("orderRequestMeeting")}}',
+            type: 'get',
+            
+            data: {id:id},
+
+            success: function(response){
+                
+                if(response.meeting_status == null){
+                    $(".reviews").html("No Status Has Been Given By Seller"); 
+                }
+                else{
+                    $(".reviews").html(response.meeting_status); 
+                }
+                if(response.meeting_date_time == null){
+                    $(".date").html("No Meeting Has Been Scehdule");  
+                    
+                }
+                else{
+                    $(".date").html(response.meeting_date_time); 
+                }
+
+
+           
+            },
+
+
+
+            });
+    
+});
 });
 </script>
 

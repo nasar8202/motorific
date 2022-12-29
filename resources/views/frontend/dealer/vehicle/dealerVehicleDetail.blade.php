@@ -120,6 +120,38 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="bottomList">
+                        <div class="bottomListTitle">
+                            <h4><i class="fas fa-bolt"></i>Interior Information</h4>
+                            <ul>
+                                <li>Dashboard<span>{{$vehicle->DealerVehicleInteriorDetails->dashboard ?? 'No Damage' }}</span></li>
+                                <li>Passenger Side Interior <span>{{$vehicle->DealerVehicleInteriorDetails->passenger_side_interior ?? 'No Damage'}}</span></li>
+                                <li>Driver Side Interior<span>{{$vehicle->DealerVehicleInteriorDetails->driver_side_interior ?? 'No Damage'}}</span></li>
+                                <li>Floor<span>{{$vehicle->DealerVehicleInteriorDetails->floor ?? 'No Damage'}}</span></li>
+                                <li>Ceiling <span>{{$vehicle->DealerVehicleInteriorDetails->ceiling ?? 'No Damage'}}</span></li>
+                                <li>Boot<span>{{$vehicle->DealerVehicleInteriorDetails->boot ?? 'No Damage'}}</span></li>
+                                <li>Rear Windscreen<span>{{$vehicle->DealerVehicleInteriorDetails->rear_windscreen ?? 'No Damage'}}</span></li>
+                                <li>Passenger Seat<span>{{$vehicle->DealerVehicleInteriorDetails->passenger_seat ?? 'No Damage'}}</span></li>
+                                <li>Driver Seat <span>{{$vehicle->DealerVehicleInteriorDetails->driver_seat ?? 'No Damage'}} </span></li>
+                                <li>Rear Seats<span>{{$vehicle->DealerVehicleInteriorDetails->rear_seats ?? 'No Damage'}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bottomList">
+                        <div class="bottomListTitle">
+                            <h4><i class="fas fa-bolt"></i>Exterior Information</h4>
+                            <ul>
+                                <li>Front Door Left<span>{{$vehicle->DealerVehicleExteriorDetails->front_door_left ?? 'No Damage' }}</span></li>
+                                <li>Back Door Left <span>{{$vehicle->DealerVehicleExteriorDetails->back_door_left ?? 'No Damage'}}</span></li>
+                                <li>Front Door Right<span>{{$vehicle->DealerVehicleExteriorDetails->front_door_right ?? 'No Damage'}}</span></li>
+                                <li>Back Door Right<span>{{$vehicle->DealerVehicleExteriorDetails->back_door_right	 ?? 'No Damage'}}</span></li>
+                                <li>Top <span>{{$vehicle->DealerVehicleExteriorDetails->top ?? 'No Damage'}}</span></li>
+                                <li>Bonut<span>{{$vehicle->DealerVehicleExteriorDetails->bonut ?? 'No Damage'}}</span></li>
+                                <li>Front<span>{{$vehicle->DealerVehicleExteriorDetails->front ?? 'No Damage'}}</span></li>
+                                <li>Back<span>{{$vehicle->DealerVehicleExteriorDetails->back ?? 'No Damage'}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
                     {{-- <div class="bottomList">
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-circle-notch"></i> Wheels and Tyres</h4>
