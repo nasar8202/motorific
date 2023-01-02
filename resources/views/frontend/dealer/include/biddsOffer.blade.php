@@ -37,5 +37,18 @@
 
             </div>
     </div>
+    <div class="filterIn">
+        <button type="button" class="btn-qa" data-bs-toggle="collapse" data-bs-target="#vehicles">
+            <span>Vehicles</span>
+            <span>
+                <i class="fa-solid fa-angle-down"></i>
+            </span>
+        </button>
+            <div id="vehicles" class="collapse">
+                <br>
+                <p><a href="{{ route('myVehicles') }}"> My Vehicles</a></p><br>
+
+            </div>
+    </div>
 
 </form>

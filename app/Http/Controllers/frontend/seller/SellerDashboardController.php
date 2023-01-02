@@ -39,9 +39,15 @@ class SellerDashboardController extends Controller
     {
         
         $orders = OrderVehicleRequest::where('vehicle_id',$id)->with('vehicle')->with('user')->orderBy('request_price','DESC')->get();
-        //    dd($order);
-        return view('frontend.seller.ordersOnMyVehicles',compact('orders'));
-
+           if($orders == null){
+             
+               return redirect()->back()->with('success', 'You Dont Have Any Orders !');
+            }
+            else{
+                
+                return view('frontend.seller.ordersOnMyVehicles',compact('orders'));
+        
+            }
     }
     public function meetingStatus(Request $request)
     {

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\DealerVehicleHistory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
 use Illuminate\Support\Facades\Session;
@@ -28,14 +29,35 @@ class AddDealerVehicleController extends Controller
     }
     public function addVehicleToSellFromDealerPost(Request $request)
     {
-
+        // dd($request->all());
         $validatedData = $request->validate([
             'vehicle_registartion_number' => 'required',
             'vehicle_mileage' => 'required|numeric',
         ]);
+        $registeration = trim($request->vehicle_registartion_number,' ');
+       
+        $res= Http::withHeaders([
+            'accept' => 'application/json',
+            'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        ])
+        ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+        ->json();
+        if($res['success'] === 'false'){
+            return back()->with('error','Record not found');
+        }
+        $res = $res['result'];
         Session::put('vehicle_registartion_number', $request->vehicle_registartion_number);
         Session::put('vehicle_mileage', $request->vehicle_mileage);
 
+        $fullname = $res['basic_vehicle_info']['manufacturer_desc'].' '.$res['basic_vehicle_info']['derivative_desc'];
+       
+        Session::put('vehicle_year', $res['basic_vehicle_info']['first_registration_date']);
+        // Session::put('vehicle_company', $res['basic_vehicle_info']['manufacturer_desc']);
+        Session::put('vehicle_name', $fullname);
+       
+        Session::put('vehicle_color', $res['basic_vehicle_info']['colour']);
+        Session::put('vehicle_body', $res['basic_vehicle_info']['autotrader_body_type_desc']);
+        Session::put('vehicle_transmission', $res['basic_vehicle_info']['autotrader_transmission_desc']);
         return redirect()->route('dealer.mediaCondition');
     }
 
@@ -76,28 +98,35 @@ class AddDealerVehicleController extends Controller
     public function vehicleAndDetailsPost(Request $request)
     {
         // dd($request->all());
-        // $request->validate([
-        //     'image_1' => 'required',
-        //     'interior_image_1' => 'required',
-        //     'condition_damage' => 'required',
-        //     'condition_damage_url' => 'required',
-        //     'existing_condition_report' => 'required',
-        //     'any_damage_checked' => 'required',
-        //     'advert_description' => 'required',
-        //     'attention_grabber' => 'required',
-        //     'nearside_front' => 'required',
-        //     'nearside_rear' => 'required',
-        //     'offside_front' => 'required',
-        //     'offside_rear' => 'required',
+        $request->validate([
+            'image_1' => 'required',
+            'interior_image_1' => 'required',
+            'condition_damage' => 'required',
+            'condition_damage_url' => 'required',
+            'existing_condition_report' => 'required',
+            'any_damage_checked' => 'required',
+            'advert_description' => 'required',
+            'attention_grabber' => 'required',
+            'nearside_front' => 'required',
+            'nearside_rear' => 'required',
+            'offside_front' => 'required',
+            'offside_rear' => 'required',
+            'tyre_image' => 'required',
 
-        // ]);
+        ]);
 
         DB::beginTransaction();
         try{
             $dealers_vehicle = new DealerVehicle;
             $dealers_vehicle->user_id = Auth::user()->id;
             $dealers_vehicle->vehicle_registartion_number = session()->get('vehicle_registartion_number');
+            $dealers_vehicle->vehicle_name = session()->get('vehicle_name');
+            $dealers_vehicle->vehicle_year = session()->get('vehicle_year');
+            $dealers_vehicle->vehicle_color = session()->get('vehicle_color');
+            $dealers_vehicle->vehicle_type = session()->get('vehicle_body');
+            $dealers_vehicle->vehicle_tank = session()->get('vehicle_transmission');
             $dealers_vehicle->vehicle_mileage = session()->get('vehicle_mileage');
+            $dealers_vehicle->status = 0;
             $dealers_vehicle->save();
 
             $dealer_advert_vehicle = new DealerAdvertVehicleDetail;
@@ -213,7 +242,7 @@ class AddDealerVehicleController extends Controller
             //$image_1 = Session::get('image_1');
             }
 
-
+            
             foreach($request->tyre_image as $interior_image){
                 $tyre_image = time() . '_' . $interior_image->getClientOriginalName();
                 $interior_image->move(public_path() . '/uploads/dealerVehicles/tyres/', $tyre_image);

@@ -50,14 +50,14 @@
                         </p>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1735296.3457931995!2d-2.163602670085061!3d53.0821386019051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487661882e969811%3A0xb25284f05eccc5c2!2sMarlow%2C%20UK!5e0!3m2!1sen!2s!4v1667457325449!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <div class="features bottomList">
+                    {{-- <div class="features bottomList">
                         <div class="bottomListTitle">
                             <h4><i class="fa-light fa-file-check"></i> Features</h4>
                             <ul>
                              
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     {{-- <div class="bottomList mainSpec">
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-gift"></i> Specification</h4>
@@ -214,11 +214,13 @@
                                 <li >Live Salaes end <span>3h 53m 26s <a href="#">1 Bid</a></span></li>
                             </ul>
                             <?php
-                           $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
+                           $bid = App\Models\DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
                             if($bid == null){
                             
                             ?>
-                            
+                            @if($vehicle->user_id == Auth::user()->id)
+                            <h2 class="text text-danger  p-2">This Is Your Own Vehicle</h2>
+                            @else
                             <form action="#">
                                 <div class="form-group">
                                     <label>Enter Maximum Bid</label>
@@ -233,6 +235,7 @@
                                     <span class="text-danger error"></span>
                                 </div>
                             </form>
+                            @endif
                             <?php }
                            else{
 
@@ -242,7 +245,7 @@
                             </center>   
                             <center><span class="text-danger ">Your Bid Price Is {{$bid->bid_price}}</span>
                             </center>   
-                       <center><a href="{{route('cancelBid',$bid->id)}}" class="btn btn-danger btn-sm"> Cancel Bid</a>
+                       <center><a href="{{route('cancelDealerRequest',$bid->id)}}" class="btn btn-danger btn-sm"> Cancel Bid</a>
                        </center> 
                             <?php } ?>
                         </div>
@@ -271,7 +274,7 @@
 
          $.ajax({
 
-            url: '{{route("bid")}}',
+            url: '{{route("orderVehicleRequest")}}',
             type: 'post',
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

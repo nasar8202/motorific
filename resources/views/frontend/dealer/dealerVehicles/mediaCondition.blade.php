@@ -19,7 +19,7 @@
             <div class="advert-details-form step1 show">
                 <form action="{{ route('dealer.mediaConditionPost') }}" method="POST">
                     @csrf
-                    <h2 class="headingqa-2 f-40">Advert details</h2>
+                    <h2 class="headingqa-2 f-40">Adverasdt details</h2>
                     <div class="details-field-main">
                         <p class="label-main-text f-20"> Listing type </p>
                         <div>
@@ -136,20 +136,19 @@
                 </div>
                 <div>
                     <h3 class="item-descp f-18">
-                        Citroen Dispatch 1.6 Blue HDi 1000
-                        Enterprise M Panel  Van 6dr Diesel
-                        Manual MWB Euro 6 (s/s)
+                 
+                        {{ request()->session()->get('vehicle_name') }}
                     </h3>
                     <ul class="item-features">
-                        <li> LC18KKJ </li>
-                        <li> 2018(18) </li>
-                        <li> Panel Van </li>
-                        <li> 59.000 miles </li>
-                        <li> Manual </li>
-                        <li> V5 available </li>
-                        <li> FInal Price Plus VAT </li>
+                        <li> {{ request()->session()->get('vehicle_registartion_number') }}</li>
+                        <li> {{ request()->session()->get('vehicle_year') }}</li>
+                        <li>{{ request()->session()->get('vehicle_color') }}</li>
+                        <li> {{ request()->session()->get('vehicle_body') }}</li>
+                        <li>{{ request()->session()->get('vehicle_mileage') }}</li>
+                        <li> {{ request()->session()->get('vehicle_transmission') }}</li>
+                      
                     </ul>
-                    <p class="novalid-txt f-14">NO Valid MOT</p>
+     
                 </div>
             </div>
             {{-- <div class="d-flex gap-2 justify-content-end mt-4">

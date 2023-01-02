@@ -135,17 +135,64 @@ display: block;
                                 @forelse($orders as $key=>$order)
                                 <tr>
                             
-                                <td>{{1+$key}}</td>
+                                <td>{{$key + 1}}</td>
                                 <td>{{$order->vehicle->vehicle_name}}</td>
                                 <td>{{$order->vehicle->vehicle_price}}</td>
                                 <td>{{$order->user->name}}</td>
                                 <td>{{$order->request_price}}</td>
                                 @if($order->status == 1)
                                 <td><span class="btn btn-warning">Solded User</span>
-                                    <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-outline-primary block " data-bs-toggle="modal"
                                     data-bs-target="#default">
                                     View Meeting
                                 </button>
+                                <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel1">Your Meeting Schedule</h5>
+                                            <button type="button" class="close rounded-pill"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <span>Your Meeting Date And Time </span>
+                                        
+                                          <b>@if($order->meeting_date_time == null)
+                                           No Meeting Has Been Schedule Yet
+                                           @else
+                                           {{$order->meeting_date_time}}
+                                       @endif
+                                       </b>
+                                          <br>
+                                          <form class="mt-4" method="POST" action="{{route('meetingStatus')}}">
+                                           @csrf
+                                           <span>Tell Us Your Meeting Status ?</span>
+                                           <input type="hidden"  name="id" value="{{$order->id}}">
+                                           <select class="form-control " name="status" required>
+                                               <option disabled selected>Select Status</option>
+                                               <option value="Pending">Pending</option>
+                                               <option value="Completed">Completed</option>
+                                               <option value="No Response From Dealer">No Response From Dealer</option>
+                                           </select>
+                                         
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn" data-bs-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Close</span>
+                                            </button>
+                                            <button type="disable" class="btn btn-primary ml-1 {{$order->meeting_date_time ?? 'disabled'}}">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Update</span>
+                                            </button>
+                                           </form>
+                                        </div>
+                                    </div>
+                                </div>
+                               </div>
                                     @else
                                
                                     <span class="btn btn-info">Not Sold User</span>
@@ -171,7 +218,7 @@ display: block;
     </section>
 
  <!--Basic Modal -->
- <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+ {{-- <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
  aria-labelledby="myModalLabel1" aria-hidden="true">
  <div class="modal-dialog modal-dialog-scrollable" role="document">
      <div class="modal-content">
@@ -184,7 +231,8 @@ display: block;
          </div>
          <div class="modal-body">
            <span>Your Meeting Date And Time </span>
-           <b>@if($order->meeting_date_time == null)
+         
+           <b>@if($orders->meeting_date_time == null)
             No Meeting Has Been Schedule Yet
             @else
             {{$order->meeting_date_time}}
@@ -194,7 +242,7 @@ display: block;
            <form class="mt-4" method="POST" action="{{route('meetingStatus')}}">
             @csrf
             <span>Tell Us Your Meeting Status ?</span>
-            <input type="hidden"  name="id" value="{{$order->id}}">
+            <input type="hidden"  name="id" value="{{$orders->id}}">
             <select class="form-control " name="status" required>
                 <option disabled selected>Select Status</option>
                 <option value="Pending">Pending</option>
@@ -208,7 +256,7 @@ display: block;
                  <i class="bx bx-x d-block d-sm-none"></i>
                  <span class="d-none d-sm-block">Close</span>
              </button>
-             <button type="disable" class="btn btn-primary ml-1 {{$order->meeting_date_time ?? 'disabled'}}">
+             <button type="disable" class="btn btn-primary ml-1 {{$orders->meeting_date_time ?? 'disabled'}}">
                  <i class="bx bx-check d-block d-sm-none"></i>
                  <span class="d-none d-sm-block">Update</span>
              </button>
@@ -216,7 +264,7 @@ display: block;
          </div>
      </div>
  </div>
-</div>
+</div> --}}
 
 
 

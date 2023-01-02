@@ -35,6 +35,7 @@ class DealerVehicleController extends Controller
 
         ]);
         $vehicle = DealerVehicle::where('id',$id)->first();
+        $vehicle->vehicle_price = $request->retail_price;
         $vehicle->retail_price = $request->retail_price;
         $vehicle->clean_price = $request->clean_price;
         $vehicle->average_price = $request->average_price;
@@ -88,7 +89,7 @@ class DealerVehicleController extends Controller
     }
 
         foreach($DealerVehicleInterior as $Interior){
-        if(file_exists(public_path("/uploads/DealerVehicles/interior/".$Interior->interior_image))){
+          if(file_exists(public_path("/uploads/DealerVehicles/interior/".$Interior->interior_image))){
             unlink(public_path("/uploads/DealerVehicles/interior/".$Interior->interior_image));
           }
           $Interior->delete();
@@ -108,7 +109,8 @@ class DealerVehicleController extends Controller
 
          
 
-    }catch(\Exception $e)
+    }
+    catch(\Exception $e)
     {
         DB::rollback();
         return Redirect()->back()
