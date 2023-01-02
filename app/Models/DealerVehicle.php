@@ -9,6 +9,8 @@ use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\DealerAdvertVehicleDetail;
+use App\Models\DealerVehicleExteriorDetails;
+use App\Models\DealerVehicleInteriorDetails;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DealerVehicle extends Model
@@ -56,4 +58,19 @@ class DealerVehicle extends Model
         return $this->hasMany(DealerVehicleTyres::class,'dealer_vehicle_id','id');
 
     }
+     public function DealerVehicleInteriorDetails()
+
+    {
+
+        return $this->hasOne(DealerVehicleInteriorDetails::class,'dealer_vehicle_id','id');
+
+    }
+    public function DealerVehicleExteriorDetails()
+
+    {
+
+        return $this->hasOne(DealerVehicleExteriorDetails::class,'dealer_vehicle_id','id');
+
+    }
+    
 }

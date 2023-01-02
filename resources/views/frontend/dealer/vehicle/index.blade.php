@@ -269,11 +269,7 @@ div#filter-price {
                 <h1>No Vehicle Found</h1>
                 @endforelse
                 </div>
-                <div id="loop">
-                <div class="col-lg-3 col-md-3 blur_action mb-5"  id="filter-price">
-
-
-                </div>
+                <div id="loop" class="filter-price">
                 <div class=""  id="no-record" >
 
 
@@ -323,10 +319,10 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ " vehicles");
 
             $.each(resultData,function(resultData,row){
-                    bodyData+='<a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
+                    bodyData+='<div class="col-lg-3 col-md-3 blur_action mb-5"><a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
                     bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
-                    bodyData+='</div></a>';
-                    $("#filter-price").html(bodyData);
+                    bodyData+='</div></a></div>';
+                    $(".filter-price").html(bodyData);
                     $("#no-record").html('');
                 })
 
@@ -336,7 +332,7 @@ $(document).ready(function(){
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
-                $("#filter-price").html('');
+                $(".filter-price").html('');
             $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
             }
             },
@@ -390,10 +386,10 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ " vehicles");
 
             $.each(resultData,function(resultData,row){
-                    bodyData+='<a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
+                    bodyData+='<div class="col-lg-3 col-md-3 blur_action mb-5"><a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
                     bodyData+='<div class="box-img"><img  src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
-                    bodyData+='</div></a>';
-                    $("#filter-price").html(bodyData);
+                    bodyData+='</div></a></div>';
+                    $(".filter-price").html(bodyData);
                     $("#no-record").html('');
                 })
 
@@ -403,7 +399,7 @@ $(document).ready(function(){
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
-                $("#filter-price").html('');
+                $(".filter-price").html('');
             $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
             }
             },

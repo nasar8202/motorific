@@ -21,6 +21,7 @@ use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use App\Models\vehicleConditionAndDamage;
 
 class FrontController extends Controller
@@ -432,8 +433,8 @@ class FrontController extends Controller
 
     }
 
-    public function photoUpload()
-    {   
+    public function photoUpload(Request $request)
+    {
         $vehicleCategories = vehicleCategories::all();
         $VehicleFeature = VehicleFeature::all();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
@@ -447,9 +448,28 @@ class FrontController extends Controller
         $Finances =  Finance::where('status',1)->get();
         $currentUser = Auth::user()->id;
         $user = User::find($currentUser);
-        
-        
-        return view('frontend.seller.photoUpload',compact('vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
+        $registeration = trim($request->registeration,' ');
+        $res= Http::withHeaders([
+            'accept' => 'application/json',
+            'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        ])
+        ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+        ->json();
+        if($res['success'] === 'false'){
+            return back()->with('error','Record not found');
+        }
+        $res = $res['result'];
+        $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
+        $date = $res['basic_vehicle_info']['first_registration_date'];
+        $check_millage = $request->millage;
+        $milage= Http::withHeaders([
+            'accept' => 'application/json',
+            'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        ])
+        ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
+        ->json();
+        $milage = $milage['result'];
+        return view('frontend.seller.photoUpload',compact('milage','check_millage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
     }
     public function registration()
     {
@@ -470,10 +490,20 @@ class FrontController extends Controller
         return view('frontend.seller.myLogin');
     }
 
-    public function testlocation()
+    public function testlocation(Request $request)
     {
-        $clientIP = \Request::getClientIp(true);
-        dd($clientIP);
+        $registeration = trim($request->registeration,' ');
+    $res= Http::withHeaders([
+        'accept' => 'application/json',
+        'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+    ])
+    ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+    ->json();
+    // $user = Auth::user();
+
+    return response()->json($res);
+   
+
     }
     public function getUsers(Request $request)
     {

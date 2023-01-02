@@ -39,6 +39,9 @@
                             <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $Order->vehicle->vehicle_registartion_number }}</span></h1>
                       <p>{{ $Order->vehicle->vehicle_name }}</p>
                             <span>Requested Price:{{ $Order->request_price }}</span>
+                           <br> @if($Order->admin_updated_status == 1)
+                            <small>Your Price Was Updated By Admin</small>
+                            @endif
                             <span style="padding-left: 60px;">{{ $Order->created_at->format('m/d/Y') }}</span>
                             <span style="padding-left: 200px;">
                                
