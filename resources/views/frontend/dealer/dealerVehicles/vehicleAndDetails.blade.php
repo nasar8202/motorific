@@ -644,8 +644,15 @@
     
     <div class="container-1200">
         <!--interior -->
-        
-        <div class="step-main-wrap">
+        <div class="step-main-1">
+            <div class="parts-hide-show">
+                <form>
+                    <p>Do you have any damage on this vehicle</p>
+                    <label><input type="radio" name="yes" class="parts-yes"> Yes</label>
+                    <label><input type="radio" name="yes" class="parts-no" checked> No</label>
+                </form>
+            </div>
+            <div class="step-main-wrap ">
             <!--<div id="svg_wrap"></div>-->
             <h1 class="step-main-head">Interior Information</h1>
             <section class="step-wrapper">
@@ -655,6 +662,7 @@
                         <div class="col-md-6">
                             <h2 class="part-heading">Dashboard</h2>
                             <ul class="parts-content">
+                                <span class="checkboxNum" style="display:none;">0</span>
                             <li>
                                 <label>
                                     <input type="radio" class="step-list-check" name="dashboard" value="Stained" hidden>
@@ -1169,8 +1177,17 @@
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
         </div>
+        </div>
         <!--exterior -->
-        <div class="step-main-wrap">
+        <div class="step-main-2">
+             <div class="parts-hide-show">
+                <form>
+                    <p>Do you have any damage on this vehicle</p>
+                    <label><input type="radio" name="yes" class="parts-yes"> Yes</label>
+                    <label><input type="radio" name="yes" class="parts-no" checked> No</label>
+                </form>
+            </div>
+            <div class="step-main-wrap">
             <div id="svg_wrap_ext"></div>
             <h1 class="step-main-head">Exterior Information</h1>
             <section class="step-wrapper">
@@ -1588,6 +1605,7 @@
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
         </div>
+        </div>
     </div>
 </section>
 
@@ -1632,12 +1650,12 @@
 
 
 <!--Alert Modal-->
-<button type="button" class="alertModalOn" data-bs-toggle="modal" data-bs-target="#selectAnyRadio" style="display:none;">Launch static backdrop modal</button>
+<!--<button type="button" class="alertModalOn" data-bs-toggle="modal" data-bs-target="#selectAnyRadio">Launch static backdrop modal</button>-->
 <div class="modal fade modalTN" id="selectAnyRadio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="selectAnyRadioLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -1654,36 +1672,11 @@
     </div>
   </div>
 </div>
-<script>
-     $('button.nxtBtn').on('click', function(){
 
-var vehicleSteps = $(this).closest('.vehicleSteps');
-var numChecked = $(vehicleSteps).find('.checboxNum').text();
-var numcheckBoxChecked = $(vehicleSteps).find('.checkboxNum').text();
-var numChecked1 = parseInt(numChecked);
-var numcheckBoxChecked1 = parseInt(numcheckBoxChecked);
+     
 
-if( numChecked1 < 1){
-    $('#selectAnyRadio').modal('toggle');
-}
-else if( numcheckBoxChecked1 < 1){
-    $('#selectAnyRadio').modal('toggle');
-}
-else{
-     $(vehicleSteps).removeClass('vehicleStepsActive');
-     $(vehicleSteps).slideUp();
-     $(vehicleSteps).next().slideDown();
-     $(vehicleSteps).next().addClass('vehicleStepsActive');
-}
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
 
-});
-
-
-
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!--<script src="{}"></script>-->
 
 @endsection
 
