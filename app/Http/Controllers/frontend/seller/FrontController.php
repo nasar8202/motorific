@@ -492,6 +492,11 @@ class FrontController extends Controller
 
     public function testlocation(Request $request)
     {
+        
+        if(isset(Auth::user()->id)==null){
+            return response()->json('0');
+        }
+        else{
         $registeration = trim($request->registeration,' ');
     $res= Http::withHeaders([
         'accept' => 'application/json',
@@ -502,7 +507,7 @@ class FrontController extends Controller
     // $user = Auth::user();
 
     return response()->json($res);
-   
+}
 
     }
     public function getUsers(Request $request)
