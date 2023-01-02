@@ -1128,3 +1128,31 @@ div#next, div#next-ext {
     color: black;
     font-weight: 600;
 }
+.parts-hide-show p {
+    font-weight: 500;
+    margin: 0 0 10px;
+    font-size: var(--f20);
+}
+
+.parts-hide-show input {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    outline: 1px solid #000;
+    outline-offset: 3px;
+    margin-right: 5px;
+}
+
+.parts-hide-show label {
+    font-size: 18px;
+    margin-left: 50px;
+}
+
+.parts-hide-show {
+    margin-bottom: 20px;
+}
+
+.parts-hide-show input:checked {
+    background: #05eab5;
+}
