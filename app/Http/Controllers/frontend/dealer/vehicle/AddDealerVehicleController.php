@@ -271,7 +271,8 @@ class AddDealerVehicleController extends Controller
             $dealer_interior_detail->rear_seats = $request->rear_seats;
             $dealer_interior_detail->save();
 
-
+            }
+            if($request->damage_any == 'damage_any_second'){ 
             $dealer_exterior_detail = new DealerVehicleExteriorDetails;
             $dealer_exterior_detail->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_exterior_detail->front_door_left = $request->front_door_left;

@@ -629,7 +629,7 @@
 
 </div>
 </section>
-    <span>Do you have any damage on this vehicle</span><br>
+    {{-- <span>Do you have any damage on this vehicle</span><br>
     <input class="" type="radio" name="damage_any" id="any_damage_checked_yes" value="yes" @if(request()->session()->get('any_damage_checked') == '1') checked @endif>
     <label class="dflex-gap10" for="any_damage_checked_yes">
         <span class="radio-circle"></span>
@@ -639,7 +639,7 @@
     <label class="dflex-gap10" for="any_damage_checked_yes">
         <span class="radio-circle"></span>
         <span>No</span>
-    </label>                            
+    </label>                             --}}
 <section class="step-form-sec">
     
     <div class="container-1200">
@@ -648,8 +648,8 @@
             <div class="parts-hide-show">
                 <form>
                     <p>Do you have any damage on this vehicle</p>
-                    <label><input type="radio" name="yes" class="parts-yes"> Yes</label>
-                    <label><input type="radio" name="yes" class="parts-no" checked> No</label>
+                    <label><input type="radio" name="damage_any" value="yes" class="parts-yes"> Yes</label>
+                    <label><input type="radio" name="damage_any" value="no"  class="parts-no" checked> No</label>
                 </form>
             </div>
             <div class="step-main-wrap ">
@@ -1183,8 +1183,8 @@
              <div class="parts-hide-show">
                 <form>
                     <p>Do you have any damage on this vehicle</p>
-                    <label><input type="radio" name="yes" class="parts-yes"> Yes</label>
-                    <label><input type="radio" name="yes" class="parts-no" checked> No</label>
+                    <label><input type="radio"  name="damage_any_second" value="yes" class="parts-yes"> Yes</label>
+                    <label><input type="radio" name="damage_any_second" value="no" class="parts-no" checked> No</label>
                 </form>
             </div>
             <div class="step-main-wrap">
