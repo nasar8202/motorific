@@ -1,6 +1,11 @@
 /node_modules
 /public/hot
 /public/storage
+/public/dealers
+/public/materials
+/public/plates
+/public/uploads
+/public/vehicles
 /storage/*.key
 /vendor
 .env
