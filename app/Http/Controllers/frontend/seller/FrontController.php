@@ -435,6 +435,13 @@ class FrontController extends Controller
 
     public function photoUpload(Request $request)
     {
+        $data = $request;
+    $logging_cond = Auth::user();
+    if(!isset($logging_cond)){
+        return view('frontend.seller.registration',compact('data'));
+    }
+        $currentUser = Auth::user()->id;
+
         $vehicleCategories = vehicleCategories::all();
         $VehicleFeature = VehicleFeature::all();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
@@ -446,16 +453,15 @@ class FrontController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
-        $currentUser = Auth::user()->id;
         $user = User::find($currentUser);
         $registeration = trim($request->registeration,' ');
-        $res= Http::withHeaders([
+        $res = Http::withHeaders([
             'accept' => 'application/json',
             'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
         ])
         ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
         ->json();
-        if($res['success'] === 'false'){
+        if($res['success'] == 'false'){
             return back()->with('error','Record not found');
         }
         $res = $res['result'];
@@ -493,10 +499,10 @@ class FrontController extends Controller
     public function testlocation(Request $request)
     {
         
-        if(isset(Auth::user()->id)==null){
-            return response()->json('0');
-        }
-        else{
+        // if(isset(Auth::user()->id)==null){
+        //     return response()->json('0');
+        // }
+        // else{
         $registeration = trim($request->registeration,' ');
     $res= Http::withHeaders([
         'accept' => 'application/json',
@@ -507,7 +513,7 @@ class FrontController extends Controller
     // $user = Auth::user();
 
     return response()->json($res);
-}
+// }
 
     }
     public function getUsers(Request $request)

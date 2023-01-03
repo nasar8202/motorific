@@ -3,26 +3,27 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\backend\admin\VehicleController;
 use App\Http\Controllers\frontend\seller\FrontController;
 use App\Http\Controllers\frontend\dealer\PricingController;
-use App\Http\Controllers\frontend\dealer\HowItWorksController;
 
+use App\Http\Controllers\frontend\dealer\HowItWorksController;
 use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
-use App\Http\Controllers\backend\admin\userdetails\UserController;
 
+use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
+
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
-
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 use App\Http\Controllers\backend\admin\orderRequest\OrderRequestController;
 use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
@@ -82,6 +83,7 @@ Route::get('/create-advert', [MultiStepRegistration::class, 'CreateAdvert'])->na
 
 Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
+Route::post('/create_user', [RegisterController::class,'create_user'])->name('create_user');
 //Route::get('/usersss', [FrontController::class,'getUsers'])->name('usersss');
 Route::get('/photo-upload', [FrontController::class,'photoUpload'])->name('photoUpload');
 Route::post('/add-seller-vehicle', [FrontController::class,'addSellerVehicle'])->name('addSellerVehicle');
@@ -93,7 +95,7 @@ Route::get('/test_location', [FrontController::class,'testlocation'])->name('tes
 Route::get('/registration', [FrontController::class,'registration'])->name('registration');
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
 Route::get('/valuation', [FrontController::class,'valuation'])->name('valuation');
-// Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
+Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
 
 
 // start admin panel routes
@@ -298,7 +300,7 @@ Route::get('/my-profile', [SellerDashboardController::class,'myProfile'])->name(
 Route::post('/update-my-profile/{id}', [SellerDashboardController::class,'updateMyProfile'])->name('updateMyProfile');
 Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updateMyPassword'])->name('updateMyPassword');
 
-Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
+// Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
 });
 
 // end seller panel routes
