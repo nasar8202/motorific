@@ -498,14 +498,14 @@ display: block;
                     $('.found').show();
                     $('.registeration').val(registeration);
                 }
-                else if(response == 0){
+                // else if(response == 0){
                     
-                    $('.show_error').show();
-                    $('.show_error').text('First You Login')
-                    setTimeout(function(){ 
-                    window.location.href = "{{ route('myLogin')}}";
-                },1000);
-                }
+                //     $('.show_error').show();
+                //     $('.show_error').text('First You Login')
+                //     setTimeout(function(){ 
+                //     window.location.href = "{{ route('registration')}}";
+                // },1000);
+                // }
                 else{
                     $('.show_error').show();
                     $('.show_error').text('Record Not Found')

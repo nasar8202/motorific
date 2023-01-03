@@ -97,22 +97,26 @@
 
         <div class="container-700">
             <div class="form-main text-center">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="post" action="{{ route('create_user') }}">
                     @csrf
                     <div>
-
+                        @if(isset($data))
+                        <input type="hidden" name="millage" value="{{$data->millage}}">
+                        <input type="hidden" name="registeration" value="{{$data->registeration}}">
+                        <input type="hidden" name="registeration_with_pass" value="yes">
+                        @endif  
                         <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <input type="password" placeholder="password" name="password" class="@error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
+                        {{-- <input type="password" placeholder="password" name="password" class="@error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div>
                         <input type="text" placeholder="Full Name" name="name" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
