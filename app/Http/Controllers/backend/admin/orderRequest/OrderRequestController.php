@@ -50,6 +50,11 @@ class OrderRequestController extends Controller
      }
      public function approveOrderdWithAdminUpdated(Request $request){
       // dd($request->all());
+      $request->validate([
+        'updatedPrice' => 'required',
+        
+       
+    ]);
       $orders = OrderVehicleRequest::where('id',$request->orderId)->first();
       $orders->request_price = $request->updatedPrice;
       $orders->status = 1;

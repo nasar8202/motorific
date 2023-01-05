@@ -11,14 +11,16 @@ use Stripe\PaymentIntent;
 use App\Models\CardDetails;
 use App\Models\BidedVehicle;
 use Illuminate\Http\Request;
+use App\Models\DealerVehicle;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
-use App\Models\DealerWinningCharges;
 
+use App\Models\DealerWinningCharges;
 use Illuminate\Support\Facades\Auth;
 use App\Models\VehicleWinningCharges;
 use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
+use App\Models\DealersOrderVehicleRequest;
 
 class DealerChargesController extends Controller
 {
@@ -172,6 +174,35 @@ class DealerChargesController extends Controller
         $meeting->save();
         return redirect()->route('CompletedRequestedVehicle')->with('success','Meeting Has Been Schedule');
      
+    }
+    public function ownerDealerRequestedDetails($id)
+    {
+        $user_id = Auth::user()->id;
+       $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
+       $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->first();
+        //   dd($pricing);
+       $charges_fee = VehicleWinningCharges::where('status',1)
+       ->where('price_to','>=',$pricing->request_price)
+       ->where('price_from','<=',$pricing->request_price)
+       ->orderBy('id',"DESC")->first();
+      
+        if($charges == null){
+            $charges_payment = $charges_fee->fee;
+
+            
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id'))->with('error','First You Need To Pay');
+           
+        }
+        else{
+            $allVehicles = DealerVehicle::Where('status',2)->where('id',$id)->with('DealerVehicleHistory')->with('DealerVehicleExterior')->first();
+      
+            $user = User::where('id',$allVehicles->user_id)->first();
+            $current = Auth::user()->id;
+            $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
+            
+            
+        return view('frontend.dealer.sellerDetails.ownerDealerDetail',compact('user','allVehicles','pricing','current'));
+        }
     }
     
 }

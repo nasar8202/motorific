@@ -57,11 +57,11 @@
                             <td>@if($order->status == 0) <span class="badge badge-danger">Not Accepted</span>
                                 @else <span class="badge badge-success">Accepted</span>
                                 @endif</td>
-                            <td><a class="badge badge-success" href="{{route('orderdUserDetail',$order->user_id)}}">Dealer Details </a>
-                            <a class="badge badge-success" href="{{route('orderdVehicleDetail',$order->vehicle_id)}}" >Vehicle Details </a>
-                            <a class="badge badge-success" href="{{route('orderdSellerDetail',$order->vehicle->user_id)}}" >Seller Details </a>
+                            <td><a class="badge badge-success" href="{{route('orderdDealerDetail',$order->user_id)}}">Orderd Dealer Details </a>
+                            <a class="badge badge-success" href="{{route('dealersOrderdVehicleDetail',$order->vehicle_id)}}" >Vehicle Details </a>
+                            <a class="badge badge-success" href="{{route('vehicleOwnerDetails',$order->vehicle->user_id)}}" >Vehicle Owner's Details </a>
                             @if($order->status == 0)
-                            <a class="badge badge-info" href="{{route('approveOrderd',$order->id)}}" >Approve Order Request </a>
+                            <a class="badge badge-info" href="{{route('approveDealersOrder',$order->id)}}" >Approve Order Request </a>
                             <button type="button" class="btn btn-sm mt-2 btn-outline-primary block price" data-bs-toggle="modal"
                             data-bs-target="#default"  data-id="{{$order->id}}">
                             Update Price
@@ -96,14 +96,12 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{route('approveOrderdWithAdminUpdated')}}" method="POST">
+                                                    <form action="{{route('approveDealersOrderdWithAdminUpdated')}}" method="POST">
                                                         @csrf
                                                     <input class="form-control" type="number" id="newPrice" name="updatedPrice" placeholder="Enter Your Updated Price">
                                                     <span id="warn" class="text text-danger"></span>
                                                     <input class="form-control" type="hidden" id="orderId" name="orderId" value="" >
-                                                    @if ($errors->has('updatedPrice'))
-                                                    <span class="text-danger">{{ $errors->first('updatedPrice') }}</span>
-                                                    @endif
+                                               
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn" data-bs-dismiss="modal">

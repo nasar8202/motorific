@@ -1,28 +1,29 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\backend\admin\VehicleController;
 use App\Http\Controllers\frontend\seller\FrontController;
-use App\Http\Controllers\frontend\dealer\PricingController;
 
+use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\dealer\HowItWorksController;
 use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
-use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 
+use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
+
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
-
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 use App\Http\Controllers\backend\admin\orderRequest\OrderRequestController;
@@ -33,6 +34,7 @@ use App\Http\Controllers\frontend\dealer\dealerCharges\DealerChargesController;
 use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesController;
 use App\Http\Controllers\frontend\dealer\orderRequest\OrderVehicleRequestController;
 use App\Http\Controllers\frontend\dealer\dealerOrderRequest\DealerOrderRequestController;
+use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehicleRequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -285,6 +287,16 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     
 
     //end dealer vehicle
+
+    //dealer order vehicle request
+    Route::get('/dealer-order-vehicle-request', [DealerOrderVehicleRequestController::class,'viewDealerOrderVehicle'])->name('viewDealerOrderVehicle');
+    Route::get('/orderd-dealer-detail/{id}', [DealerOrderVehicleRequestController::class,'orderdDealerDetail'])->name('orderdDealerDetail');
+    Route::get('/dealers-orderd-vehicle-detail/{id}', [DealerOrderVehicleRequestController::class,'dealersOrderdVehicleDetail'])->name('dealersOrderdVehicleDetail');
+    Route::get('/vehicle-owner-detail/{id}', [DealerOrderVehicleRequestController::class,'vehicleOwnerDetails'])->name('vehicleOwnerDetails');
+    Route::get('/approve-dealers-order/{id}', [DealerOrderVehicleRequestController::class,'approveDealersOrder'])->name('approveDealersOrder');
+    Route::post('/approve-dealers-order-admin-updated', [DealerOrderVehicleRequestController::class,'approveDealersOrderdWithAdminUpdated'])->name('approveDealersOrderdWithAdminUpdated');
+    
+    //end dealer order vehicle request
     });
 
 // end admin panel routes
@@ -335,6 +347,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/buy-it-now', [DealerDashboardController::class,'buyItNow'])->name('buyItNow');
     
     Route::get('/completed-vehicle-detail/{id}', [DealerDashboardController::class,'completedVehicleDetails'])->name('completedVehicleDetails');
+    Route::get('/completed-dealer-vehicle-detail/{id}', [DealerDashboardController::class,'completedDealersVehicleDetail'])->name('completedDealersVehicleDetail');
     
     Route::post('/buyItNowVehicle', [DealerDashboardController::class,'buyItNowVehicle'])->name('buyItNowVehicle');
     Route::post('/dealerToDealerVehicleFilter', [DealerDashboardController::class,'dealerToDealerVehicleFilter'])->name('dealerToDealerVehicleFilter');
@@ -359,6 +372,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     
     Route::get('/seller-details/{id}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
     Route::get('/seller-requested-details/{id}', [DealerChargesController::class, 'sellerRequestedDetails'])->name('sellerRequestedDetails');
+    Route::get('/dealer-owner-requested-details/{id}', [DealerChargesController::class, 'ownerDealerRequestedDetails'])->name('ownerDealerRequestedDetails');
+    
     Route::get('/card-details', [DealerChargesController::class, 'cardDetails'])->name('cardDetails');
     Route::post('/card-details-create', [DealerChargesController::class, 'cardDetailsCreate'])->name('cardDetailsCreate');
     Route::get('/delivery-details', [DealerChargesController::class, 'deliveryDetailPage'])->name('deliveryDetailPage');

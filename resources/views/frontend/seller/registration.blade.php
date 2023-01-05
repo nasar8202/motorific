@@ -135,7 +135,7 @@
                     </div>
                     <br>
                     <div>
-                        <input type="number" placeholder="Postcode" name="post_code" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}">
+                        <input type="text" placeholder="Postcode" name="post_code" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}">
                         @error('post_code')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

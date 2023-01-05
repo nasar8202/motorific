@@ -158,7 +158,7 @@ class RegisterController extends Controller
         //     $abc = Auth::attempt(['email' => $user->email, 'password' => $password]);
             // dd($user);
         $details = [
-            'greeting' => 'Hi ' . $user->name,
+            'greeting' => $user->name,
             'email'=>$user->email,
             'body' => $password ,
             'body1' => $user->post_code,
