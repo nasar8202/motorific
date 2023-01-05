@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
+use App\Models\DealersOrderVehicleRequest;
 
 class DealerDashboardController extends Controller
 {
@@ -158,10 +159,28 @@ class DealerDashboardController extends Controller
     {
       $user_id = Auth::user()->id;
       $Orders = OrderVehicleRequest::where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.VehicleImage')->get();
-      
       $countOrder = count($Orders);
+      $dealerOrders = DealersOrderVehicleRequest::where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.DealerVehicleExterior')->get();
+      
+      $countDealerOrder = count($dealerOrders);
+      return view('frontend.dealer.vehicle.CompletedRequestedVehicle',compact('Orders','countOrder','dealerOrders','countDealerOrder'));
 
-        return view('frontend.dealer.vehicle.CompletedRequestedVehicle',compact('Orders','countOrder'));
+    }
+    
+    public function myVehicles()
+    {
+      $user_id = Auth::user()->id;
+      $vehicles = DealerVehicle::Where('status',1)->where('user_id',$user_id)
+      ->with('DealerAdvertVehicleDetail')
+      ->with('DealerVehicleExterior')
+      ->with('DealerVehicleHistory')
+      ->with('DealerVehicleInterior')
+      ->with('DealerVehicleMedia')
+      ->with('DealerVehicleTyre')
+      ->get();
+      $vehiclesCount = count($vehicles);
+
+        return view('frontend.dealer.vehicle.myVehicle',compact('vehicles','vehiclesCount'));
 
     }
     public function CancelRequestedVehicle()
@@ -983,5 +1002,20 @@ die();
   
 
     }
+    public function completedDealersVehicleDetail($id){
+      $vehicle = DealerVehicle::Where('status',2)->where('id',$id)
+      ->with('DealerAdvertVehicleDetail')
+      ->with('DealerVehicleExterior')
+      ->with('DealerVehicleHistory')
+      ->with('DealerVehicleInterior')
+      ->with('DealerVehicleMedia')
+      ->with('DealerVehicleTyre')
+      ->first();
+      // dd($vehicle);
+      $order = DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',Auth::user()->id)->orderBy('request_price','DESC')->first();
+           
+
+      return view('frontend.dealer.vehicle.completedDealerVehicleDetail',compact('vehicle','order'));
+  }
 }
 

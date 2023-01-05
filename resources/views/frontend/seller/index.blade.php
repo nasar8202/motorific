@@ -109,10 +109,19 @@ display: block;
                 <h2>Sell your car the
                     with <span>Motorific</span></h2>
                 <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
-                <form   method="post" id="myform">
-                    <input type="text" name="id" id="id" placeholder="Enter REG">
-                    <button type="submit">Value Your Car</button>
+                <form class="millage_area" method="get" action="{{route('photoUpload')}}" >
+                    <span class="text text-success mt-4 found" >Vehicle Is Found <i class="fa-solid fa-check"></i></span>
+                    <br>
+                    <input type="text" name="millage"  placeholder="Enter Millage">
+                    <input type="hidden" name="registeration" class="registeration" value="">
+                    <button type="submit" >Continue</button>
                 </form>
+                <div class="check_area">
+                   
+                    <input type="text" name="registeration" id="registeration"  placeholder="Enter REG">
+                    <span class="text-danger show_error"></span>
+                    <button type="button" id="check_registeration" >Value Your Car</button>
+                </div>
             </div>
             <div class="sec-1-img col-lg-6">
                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
@@ -466,32 +475,43 @@ display: block;
 @endsection
 @push('child-scripts')
 <script type="text/javascript">
-
-    $("#myform").on("submit", function(e) {
+        $('.millage_area').hide();
+        $('.show_error').hide();
+        // $('.found').hide();
+    $("#check_registeration").on("click", function(e) {
+        var registeration = $("#registeration").val();
            e.preventDefault(); // prevent the form submission
 
            $.ajax({
-               type: "post",
+               type: "get",
                dataType: 'JSON',
-               url: '{{ route('users') }}',
-               data: $('#myform').serialize(), // serialize all form inputs
-               headers: {
-                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+               url: '{{ route('testlocation') }}',
+               data: {registeration,registeration},
+             
                success: function(response) {
-
-                if(response.success=='success')
-                {
-                     $("#vehicle_registration_details").html('<div class="container-1151"><div class="row"><div class="sec-1-txt col-lg-6"><h2>'+response.users.name+' <span>Motorific</span></h2><p>'+response.users.email+'</p><form id="myForm">@csrf Confirm mileage<input type="text" id="id" name="vehicle_registration_no" value="111" placeholder="Enter REG"><button id="submitid" type="submit" >Continue</button></form></div><div class="sec-1-img col-lg-6"><img src="{{ URL::asset("frontend/seller/assets/image/sec-1-vector.png") }}" alt=""></div><div id="title"></div></div></div>');
-                     $("#vehicle_registration").hide();
-                     window.history.pushState({"html":"abcdefg"},"", "mileage");
-                }else{
-                    console.log("some thing wrong")
+                console.log(response);
+                
+                if(response.success == 'true'){
+                    $('.show_error').hide();
+                    $('.check_area').hide();
+                    $('.millage_area').show();
+                    $('.found').show();
+                    $('.registeration').val(registeration);
                 }
-               },
-               error: function(data) {
-                   console.log(data)
-               }
+                // else if(response == 0){
+                    
+                //     $('.show_error').show();
+                //     $('.show_error').text('First You Login')
+                //     setTimeout(function(){ 
+                //     window.location.href = "{{ route('registration')}}";
+                // },1000);
+                // }
+                else{
+                    $('.show_error').show();
+                    $('.show_error').text('Record Not Found')
+                }
+            }
+              
            });
        });
 </script>

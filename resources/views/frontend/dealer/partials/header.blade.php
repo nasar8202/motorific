@@ -65,6 +65,9 @@
                         <a class="dropdown-item" href="{{ route('dealer.addVehicleToSellFromDealer') }}">
                             {{ __('Add Vehicle To Sell') }}
                         </a>
+                        <a class="dropdown-item" href="{{ route('myVehicles') }}">
+                            {{ __('My Vehicles') }}
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

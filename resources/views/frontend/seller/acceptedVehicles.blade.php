@@ -135,8 +135,11 @@ display: block;
                                <div class=" justify-content-between align-items-center d-flex">
                                 <span>Price: {{ $allVehicle->vehicle_price }}</span>
                                 <span style="padding-left: 60px;">{{ $allVehicle->created_at->format('m/d/Y') }}</span>
+                                @if($allVehicle->all_auction == null)
                                 <a href="{{route('bidsOnVehicles',$allVehicle->id)}}" class="btn btn-primary ">Bids On My Vehicle</span></a>
-                             
+                                @else
+                                <a href="{{route('ordersOnVehicles',$allVehicle->id)}}" class="btn btn-primary ">Orders On My Vehicle</span></a>
+                                @endif
                                 @if($allVehicle->status == 0)
                                 <span class="alert alert-danger ">Not Accepeted</span>
                             @else

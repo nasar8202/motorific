@@ -69,19 +69,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-stack"></i>
-                    <span>Manage User </span>
-                </a>
-                <ul class="submenu">
-                    <li class="submenu-item">
-                        <a href="{{route('viewUsers')}}">User Detail</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li class="sidebar-item  has-sub">
+           
+            {{-- <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
                     <span>Pictures </span>
@@ -92,7 +81,7 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -109,6 +98,18 @@
             </li>
         </ul>
     </li>
+    <li class="sidebar-item  has-sub">
+        <a href="#" class='sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-user') ) ? 'active open' : '' }}'>
+            <i class="bi bi-stack"></i>
+            <span>Sellers </span>
+        </a>
+        <ul class="submenu">
+            <li class="submenu-item">
+                <a href="{{route('viewUsers')}}">All Sellers</a>
+            </li>
+
+        </ul>
+    </li>
     <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
@@ -123,6 +124,13 @@
             </li>
             
         </ul>
+    </li>
+    <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
+        <a href="{{route('viewDealerVehicle')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Dealer's Vehicle</span>
+        </a>
+       
     </li>
     <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('/admin/all-bidding-vehicle') || request()->IS('/admin/all-bidding-vehicle') ? 'active' : '') }} ">
         <a href="#" class='sidebar-link'>
@@ -178,6 +186,15 @@
             <span>Order Vehicle Request</span>
         </a>
        
+    </li>
+    <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
+        
+        <a href="{{route('viewDealerOrderVehicle')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Order Vehicle Request <small>Dealer To Dealer Vehicles</small></span>
+            
+            
+        </a>
     </li>
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\BidedVehicle;
 use Illuminate\Http\Request;
+use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,6 +34,30 @@ class SellerDashboardController extends Controller
        
         return view('frontend.seller.bidsOnMyVehicles',compact('bids'));
 
+    }
+    public function ordersOnVehicles($id)
+    {
+        
+        $orders = OrderVehicleRequest::where('vehicle_id',$id)->with('vehicle')->with('user')->orderBy('request_price','DESC')->get();
+           if($orders == null){
+             
+               return redirect()->back()->with('success', 'You Dont Have Any Orders !');
+            }
+            else{
+                
+                return view('frontend.seller.ordersOnMyVehicles',compact('orders'));
+        
+            }
+    }
+    public function meetingStatus(Request $request)
+    {
+        $meetingStatus = OrderVehicleRequest::where('id',$request->id)->first();
+        
+        $meetingStatus->meeting_status = $request->status;
+        $meetingStatus->save();
+        
+        return redirect()->back()->with('success', 'Meeting Status Updated Successfully!');
+        
     }
     public function myProfile()
     {

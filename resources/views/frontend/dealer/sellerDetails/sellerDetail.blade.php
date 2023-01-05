@@ -31,7 +31,7 @@
                         </div>
                     </div> --}}
                     <div class="bottomList">
-                        <button class="btn btn-info">Update Requested Price</button>
+                        <button class="btn btn-info meeting">Schedule A Meeting</button>
                         <button class="btn btn-danger cancelRequest">Cancel My Request</button>
                         <div class="form-group mt-4 reviewSection">
                             <form method="POST" action="{{route('reviewForCancel')}}">
@@ -45,6 +45,29 @@
                         <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>  
                     </form>    
                     </div>
+
+                    <div class="form-group mt-4 meetingDiv">
+                        <form method="POST" action="{{route('scheduleMeeting')}}">
+                            @csrf
+                        @if(Auth::user()->id == $pricing->user_id)
+                        @if($pricing->meeting_date_time == null)
+                        
+                        <span>Schedule Your Date With Seller ?</span>
+                        <input type="hidden" name="order_id" value="{{$pricing->id}}">
+                        <input type="datetime-local" class="form-control mt-4" name="date_time" required >
+                        <br><button type="submit" class="btn btn-info mt-4 float-left">Schedule Meeting</button> 
+                        
+                        @else
+                        <span> Your Meeting Is Already Set On <b>{{$pricing->meeting_date_time}}</b></span>
+                        <br>
+                        <small>If You Want To Rescedule.</small>
+                        <input type="hidden" name="order_id" value="{{$pricing->id}}">
+                        <input type="datetime-local" class="form-control mt-4" name="date_time"  required >
+                        <br><button type="submit" class="btn btn-info mt-4 float-left">Reschedule Meeting</button> 
+                        @endif
+                        @endif
+                </form>    
+                </div>
                     </div>
                     {{-- <div class="bottomList">
                         <div class="bottomListTitle">
@@ -129,10 +152,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(".reviewSection").hide();
+    $(".meetingDiv").hide();
     $(".cancelRequest").click(function(){
-      
+        $(".meetingDiv").hide();
         $(".reviewSection").show();
     });
+    $(".meeting").click(function(){
+        $(".reviewSection").hide();
+      $(".meetingDiv").show();
+  });
 </script>
 @endsection
 

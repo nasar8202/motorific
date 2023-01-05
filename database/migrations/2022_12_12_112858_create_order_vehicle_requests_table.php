@@ -19,6 +19,10 @@ class CreateOrderVehicleRequestsTable extends Migration
             $table->string('vehicle_id')->nullable();
             $table->string('request_price')->nullable();
             $table->string('status')->nullable();
+            $table->string('admin_updated_status')->nullable();
+            $table->timestamp('meeting_date_time')->nullable();
+            $table->string('meeting_status')->nullable();
+            $table->string('other_description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

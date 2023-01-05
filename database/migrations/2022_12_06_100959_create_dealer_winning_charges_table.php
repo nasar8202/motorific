@@ -17,7 +17,7 @@ class CreateDealerWinningChargesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('vehicle_id')->nullable();
-            $table->string('stripe_payment')->nullable();
+            $table->string('vehicle_charges')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();

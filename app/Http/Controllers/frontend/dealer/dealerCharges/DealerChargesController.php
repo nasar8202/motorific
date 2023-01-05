@@ -2,28 +2,52 @@
 
 namespace App\Http\Controllers\frontend\dealer\dealerCharges;
 
+use DB;
+use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\User;
 use App\Models\Vehicle;
 use Stripe\PaymentIntent;
+use App\Models\CardDetails;
 use App\Models\BidedVehicle;
 use Illuminate\Http\Request;
+use App\Models\DealerVehicle;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
+
 use App\Models\DealerWinningCharges;
 use Illuminate\Support\Facades\Auth;
 use App\Models\VehicleWinningCharges;
 use App\Models\CanceledRequestReviews;
+use Illuminate\Support\Facades\Session;
+use App\Models\DealersOrderVehicleRequest;
 
-use DB;
 class DealerChargesController extends Controller
 {
+    public function stripePost(Request $request)
+    {
+        dd($request->all());
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+        Charge::create ([
+                "amount" => 100 * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Test payment from itsolutionstuff.com." 
+        ]);
+      
+        Session::flash('success', 'Payment successful!');
+              
+        return back();
+    }
+
     public function sellerDetails($id)
     {
       
         $user_id = Auth::user()->id;
        $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
-       $pricing = BidedVehicle::where('vehicle_id',$id)->first();
+       $pricing = BidedVehicle::where('vehicle_id',$id)->where('user_id',$user_id)->first();
+      
     //    dd($pricing->bid_price);
        $charges_fee = VehicleWinningCharges::where('status',1)
        ->where('price_to','>=',$pricing->bid_price)
@@ -34,33 +58,17 @@ class DealerChargesController extends Controller
      
         if($charges == null){
 
-            Stripe::setApiKey('sk_test_51L6BbmHh7DA7fp0JBVYZphgLBNOStcNsdKyockhG7OdGCpfL8eBETqsN3XniEjRPGFuc8C272ORCR1YsFcKi2clz00ilFXOFCW');
-            
-       
-            // $amount_all = cleanNumber($pricing->bid_price);
-            // $myNumber = (str_replace(',', '', $order_subtotal));
-            
-            // // dump(gettype($amount_all));
-            // // dd(gettype($amount_all));
             $charges_payment = $charges_fee->fee;
-            $amount =(int)100* $charges_payment;
-            
-            $payment_intent = PaymentIntent::create([
-                'description' => 'Stripe Test Payment',
-                'amount' => $amount,
-                'currency' => 'GBP',
-                'description' => $user_email,
-                'payment_method_types' => ['card'],
-            ]);
-            $intent = $payment_intent->client_secret;
-            return view('frontend.dealer.sellerDetails.cardDetail',compact('intent','id','charges_payment'))->with('error','First You Need To Pay');
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment'))->with('error','First You Need To Pay');
            
         }
         else{
             $allVehicles = Vehicle::Where('status',1)->where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
        $user = User::where('id',$allVehicles->user_id)->first();
-      
-        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles'));
+       $current = Auth::user()->id;
+       $pricing = BidedVehicle::where('vehicle_id',$id)->where('user_id',$current)->first();
+     
+        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','current','pricing'));
         }
     }
     public function sellerRequestedDetails($id)
@@ -74,38 +82,21 @@ class DealerChargesController extends Controller
        ->where('price_to','>=',$pricing->request_price)
        ->where('price_from','<=',$pricing->request_price)
        ->orderBy('id',"DESC")->first();
-       $user_email =Auth::user()->email;
        
         if($charges == null){
-
-            Stripe::setApiKey('sk_test_51L6BbmHh7DA7fp0JBVYZphgLBNOStcNsdKyockhG7OdGCpfL8eBETqsN3XniEjRPGFuc8C272ORCR1YsFcKi2clz00ilFXOFCW');
-            
-       
-            // $amount_all = cleanNumber($pricing->bid_price);
-            // $myNumber = (str_replace(',', '', $order_subtotal));
-            
-            // // dump(gettype($amount_all));
-            // // dd(gettype($amount_all));
             $charges_payment = $charges_fee->fee;
-            $amount =(int)100* $charges_payment;
+
             
-            $payment_intent = PaymentIntent::create([
-                'description' => 'Stripe Test Payment',
-                'amount' => $amount,
-                'currency' => 'GBP',
-                'description' => $user_email,
-                'payment_method_types' => ['card'],
-            ]);
-            $intent = $payment_intent->client_secret;
-            return view('frontend.dealer.sellerDetails.cardDetail',compact('intent','id','charges_payment'))->with('error','First You Need To Pay');
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id'))->with('error','First You Need To Pay');
            
         }
         else{
             $allVehicles = Vehicle::Where('status',2)->where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
       
             $user = User::where('id',$allVehicles->user_id)->first();
-            $pricing = OrderVehicleRequest::where('vehicle_id',$id)->first();
             $current = Auth::user()->id;
+            $pricing = OrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
+            
             
         return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','pricing','current'));
         }
@@ -119,14 +110,33 @@ class DealerChargesController extends Controller
     public function stripePayment(Request $request)
     {
       
+      $user_email =Auth::user()->email;
+      $amount =(int)100* $request->amount;
+      Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+      Charge::create ([
+              "amount" => $amount,
+              "currency" => "gbp",
+              "source" => $request->stripeToken,
+              "description" => $user_email 
+      ]);
+    
      $chargesDetails = new DealerWinningCharges;
      $user_id = Auth::user()->id;
      $chargesDetails->user_id = $user_id;
      $chargesDetails->vehicle_id = $request->vehicleId;
-     $chargesDetails->vehicle_charges = $request->amount;
-     $chargesDetails->stripe_payment = 'completed';
+     $chargesDetails->vehicle_charges = $amount;
      $chargesDetails->status = 1;
      $chargesDetails->save();
+     $cardDetails = new CardDetails;
+     $cardDetails->user_id = $user_id;
+     $cardDetails->name_on_card = $request->name_on_card;
+     $cardDetails->card_number = $request->card_number;
+     $cardDetails->cvc = $request->cvc;
+     $cardDetails->expiration_month = $request->expiration_month;
+     $cardDetails->expiration_year = $request->expiration_year;
+     $cardDetails->status = 1;
+     $cardDetails->save();
      return redirect()->route('bids.CompletedBiddedVehicle')->with('success','Your Payment Successfully Completed');
   
     }
@@ -157,4 +167,42 @@ class DealerChargesController extends Controller
          return redirect()->route('CompletedRequestedVehicle')->with('success','Request Cancel Successfully');
        
     }
+    public function scheduleMeeting(Request $request)
+    {
+        $meeting = OrderVehicleRequest::where('id',$request->order_id)->first();
+        $meeting->meeting_date_time = $request->date_time;
+        $meeting->save();
+        return redirect()->route('CompletedRequestedVehicle')->with('success','Meeting Has Been Schedule');
+     
+    }
+    public function ownerDealerRequestedDetails($id)
+    {
+        $user_id = Auth::user()->id;
+       $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
+       $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->first();
+        //   dd($pricing);
+       $charges_fee = VehicleWinningCharges::where('status',1)
+       ->where('price_to','>=',$pricing->request_price)
+       ->where('price_from','<=',$pricing->request_price)
+       ->orderBy('id',"DESC")->first();
+      
+        if($charges == null){
+            $charges_payment = $charges_fee->fee;
+
+            
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id'))->with('error','First You Need To Pay');
+           
+        }
+        else{
+            $allVehicles = DealerVehicle::Where('status',2)->where('id',$id)->with('DealerVehicleHistory')->with('DealerVehicleExterior')->first();
+      
+            $user = User::where('id',$allVehicles->user_id)->first();
+            $current = Auth::user()->id;
+            $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
+            
+            
+        return view('frontend.dealer.sellerDetails.ownerDealerDetail',compact('user','allVehicles','pricing','current'));
+        }
+    }
+    
 }
