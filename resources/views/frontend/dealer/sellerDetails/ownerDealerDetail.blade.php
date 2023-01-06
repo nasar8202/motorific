@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="form-group mt-4 meetingDiv">
-                        <form method="POST" action="{{route('scheduleMeeting')}}">
+                        <form method="POST" action="{{route('ownerScheduleMeeting')}}">
                             @csrf
                         @if(Auth::user()->id == $pricing->user_id)
                         @if($pricing->meeting_date_time == null)

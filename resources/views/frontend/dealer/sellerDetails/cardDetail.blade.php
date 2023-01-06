@@ -31,6 +31,7 @@
                 <input type="hidden" name="vehicleId" value="{{$id}}">
                 <input type="hidden" name="amount" value="{{$charges_payment}}">
                 <input type="hidden" name="user_id" value="{{$user_id}}">
+                <input type="hidden" name="role" value="{{$role}}">
                 
                 <div class='form-row row'>
                     <div class='col-xs-12 form-group required'>

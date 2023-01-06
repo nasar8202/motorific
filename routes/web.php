@@ -371,8 +371,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');
     
     Route::get('/seller-details/{id}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
-    Route::get('/seller-requested-details/{id}', [DealerChargesController::class, 'sellerRequestedDetails'])->name('sellerRequestedDetails');
-    Route::get('/dealer-owner-requested-details/{id}', [DealerChargesController::class, 'ownerDealerRequestedDetails'])->name('ownerDealerRequestedDetails');
+    Route::get('/seller-requested-details/{slug}/{id}', [DealerChargesController::class, 'sellerRequestedDetails'])->name('sellerRequestedDetails');
+    Route::get('/dealer-owner-requested-details/{slug}/{id}', [DealerChargesController::class, 'ownerDealerRequestedDetails'])->name('ownerDealerRequestedDetails');
     
     Route::get('/card-details', [DealerChargesController::class, 'cardDetails'])->name('cardDetails');
     Route::post('/card-details-create', [DealerChargesController::class, 'cardDetailsCreate'])->name('cardDetailsCreate');
@@ -383,6 +383,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
 
     Route::post('/review-cancelation', [DealerChargesController::class,'reviewForCancel'])->name('reviewForCancel');
     Route::post('/schedule-meeting', [DealerChargesController::class,'scheduleMeeting'])->name('scheduleMeeting');
+    Route::post('/owner-schedule-meeting', [DealerChargesController::class,'ownerScheduleMeeting'])->name('ownerScheduleMeeting');
     
 });
 
