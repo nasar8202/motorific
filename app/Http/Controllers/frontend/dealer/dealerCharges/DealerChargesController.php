@@ -192,7 +192,9 @@ class DealerChargesController extends Controller
         $role = $slug;
         
         $user_id = Auth::user()->id;
+        
        $charges =  DealerWinningCharges::where('user_id',$user_id)->where('vehicle_id',$id)->first();
+       
        $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->first();
         //   dd($pricing);
        $charges_fee = VehicleWinningCharges::where('status',1)

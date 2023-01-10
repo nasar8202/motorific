@@ -332,6 +332,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/completed-requested-vehicles', [DealerDashboardController::class,'CompletedRequestedVehicle'])->name('CompletedRequestedVehicle');
     Route::get('/canceled-requested-vehicles', [DealerDashboardController::class,'CancelRequestedVehicle'])->name('CancelRequestedVehicle');
     Route::get('/my-vehicles', [DealerDashboardController::class,'myVehicles'])->name('myVehicles');
+    Route::get('/order-on-my-vehicles/{id}', [DealerDashboardController::class,'orderOnMyVehicle'])->name('orderOnMyVehicle');
+    Route::post('/dealer-meeting-status', [DealerDashboardController::class,'dealerMeetingStatus'])->name('dealerMeetingStatus');
     
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
