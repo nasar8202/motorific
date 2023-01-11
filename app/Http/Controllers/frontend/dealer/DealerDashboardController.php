@@ -203,17 +203,18 @@ class DealerDashboardController extends Controller
     {
       
       $user_id = Auth::user()->id;
-      $canceled = CanceledRequestReviews::where('status',1)->where('user_id',$user_id)->with('user')->with('order')->with('vehicle.VehicleImage')->get();
-
+      $canceled = CanceledRequestReviews::where('dealer_vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('order')->with('vehicle.VehicleImage')->get();
+      $canceledDealer = CanceledRequestReviews::where('vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('dealerOrder')->with('dealerVehicle.DealerVehicleExterior')->get();
+      
       $countcanceled = count($canceled);
 
-        return view('frontend.dealer.vehicle.CancelledRequestedVehicle',compact('canceled','countcanceled'));
+        return view('frontend.dealer.vehicle.CancelledRequestedVehicle',compact('canceled','countcanceled','canceledDealer'));
 
     }
     public function CancelledBiddedOfferVehicle()
     {
         $user_id = Auth::user()->id;
-
+      
         $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
 
                                 ->join('users', 'users.id', '=', 'bided_vehicles.user_id')

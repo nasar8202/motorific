@@ -168,7 +168,7 @@
                                 <li>Sold For :<span>€{{$order->request_price}}</span></li>
                                 <li>Date Sold :<span>{{$order->updated_at}}</span></li>
                                <li><button class="btn btn-info w-100">Book Delivery</button></li>
-                               <li><a href="{{route('sellerRequestedDetails',$vehicle->id)}}" class="btn btn-outline-dark w-100">View Seller's Detail</a></li>
+                               {{-- <li><a href="{{route('sellerRequestedDetails',['slug'=>"sealer",'id'=>$vehicle->id])}}" class="btn btn-outline-dark w-100">View Seller's Detail</a></li> --}}
                             </ul>
                            
                             

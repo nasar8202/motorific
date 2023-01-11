@@ -99,7 +99,7 @@ class DealerChargesController extends Controller
             $pricing = OrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
             
             
-        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','pricing','current'));
+        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','role','pricing','current'));
         }
     }
 
@@ -146,19 +146,34 @@ class DealerChargesController extends Controller
     }
 
     public function reviewForCancel(Request $request)
-    {
+    {   
+
         DB::beginTransaction();
         try{
         $cancel = new CanceledRequestReviews;
         $cancel->user_id = $request->user_id;
+        if($request->role == 'dealer'){
+        $cancel->dealer_vehicle_id = $request->vehicle_id;   
+        }
+        else{
         $cancel->vehicle_id = $request->vehicle_id;
+        }
         $cancel->order_requests_id = $request->order_id;
         $cancel->reviews = $request->reviews;
         $cancel->status = 1;
         $cancel->save();
+        if($request->role == 'seller'){
+        
         $pricing = OrderVehicleRequest::where('id',$request->order_id)->first();
         $pricing->status = 2;
         $pricing->save();
+        }
+        else{
+        
+        $pricing = DealersOrderVehicleRequest::where('id',$request->order_id)->first();
+        $pricing->status = 2;
+        $pricing->save(); 
+        }
         }catch(\Exception $e)
         {
         DB::rollback();
@@ -217,7 +232,7 @@ class DealerChargesController extends Controller
             $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
             
             
-        return view('frontend.dealer.sellerDetails.ownerDealerDetail',compact('user','allVehicles','pricing','current'));
+        return view('frontend.dealer.sellerDetails.ownerDealerDetail',compact('user','allVehicles','pricing','current','role'));
         }
     }
     

@@ -15,14 +15,15 @@ use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
+use App\Http\Controllers\backend\admin\meetings\MeetingController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
+
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
-
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
@@ -271,6 +272,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      //request order price
      Route::get('/order-request', [OrderRequestController::class,'orderRequest'])->name('orderRequest');
      Route::get('/order-request-meeting', [OrderRequestController::class,'orderRequestMeeting'])->name('orderRequestMeeting');
+     Route::get('/dealer-order-request-meeting', [OrderRequestController::class,'dealerOrderRequestMeeting'])->name('dealerOrderRequestMeeting');
      Route::get('/order-user-detail/{id}', [OrderRequestController::class,'orderdUserDetail'])->name('orderdUserDetail');
      Route::get('/order-seller-detail/{id}', [OrderRequestController::class,'orderdSellerDetail'])->name('orderdSellerDetail');
      Route::post('/approve-order-admin-updated', [OrderRequestController::class,'approveOrderdWithAdminUpdated'])->name('approveOrderdWithAdminUpdated');
@@ -297,6 +299,11 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/approve-dealers-order-admin-updated', [DealerOrderVehicleRequestController::class,'approveDealersOrderdWithAdminUpdated'])->name('approveDealersOrderdWithAdminUpdated');
     
     //end dealer order vehicle request
+    //start meetings
+
+    Route::get('/view-meeting', [MeetingController::class,'viewMeeting'])->name('viewMeeting');
+    //end meetings
+
     });
 
 // end admin panel routes
