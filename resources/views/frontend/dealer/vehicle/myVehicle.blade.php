@@ -58,7 +58,7 @@
                                     <div class="collapse" id="myCollapse{{$vehicle->id}}">
                                         <div class="card card-body " style="width: 40%;float: right;" >
                                             <ul>
-                                                <li><a href=""> Orders On Vehicle</a></li>
+                                                <li><a href="{{route('orderOnMyVehicle',$vehicle->id)}}"> Orders On Vehicle</a></li>
                                             </ul>
                                         </div>
                                     </div>

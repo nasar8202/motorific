@@ -30,7 +30,7 @@ class FrontController extends Controller
     public function createStep1(Request $request)
     {
         $register = $request->session()->get('register');
-
+        
         return view('frontend.dealer.step1',compact('register'));
     }
 
@@ -435,6 +435,9 @@ class FrontController extends Controller
 
     public function photoUpload(Request $request)
     {
+        $request->validate([
+            'millage' => 'required',
+      ]);
         $data = $request;
     $logging_cond = Auth::user();
     if(!isset($logging_cond)){

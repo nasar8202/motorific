@@ -170,7 +170,7 @@ class DealerDashboardController extends Controller
     public function myVehicles()
     {
       $user_id = Auth::user()->id;
-      $vehicles = DealerVehicle::Where('status',1)->where('user_id',$user_id)
+      $vehicles = DealerVehicle::where('user_id',$user_id)
       ->with('DealerAdvertVehicleDetail')
       ->with('DealerVehicleExterior')
       ->with('DealerVehicleHistory')
@@ -183,6 +183,22 @@ class DealerDashboardController extends Controller
         return view('frontend.dealer.vehicle.myVehicle',compact('vehicles','vehiclesCount'));
 
     }
+    public function orderOnMyVehicle($id)
+    {
+       $orders =  DealersOrderVehicleRequest::where('vehicle_id',$id)->get();
+      
+        return view('frontend.dealer.vehicle.ordersOnMyVehicle',compact('orders'));
+
+    }
+    public function dealerMeetingStatus(Request $request)
+    {
+      $meetingStatus = DealersOrderVehicleRequest::where('id',$request->id)->first();
+        
+      $meetingStatus->meeting_status = $request->status;
+      $meetingStatus->save();
+      
+      return redirect()->back()->with('success', 'Meeting Status Updated Successfully!');
+     }
     public function CancelRequestedVehicle()
     {
       
