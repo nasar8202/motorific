@@ -241,3 +241,52 @@ jQuery('.parts-yes').click(function(){
 });
 
 // hamza js 
+
+
+
+
+// Multiple Files Upload Show
+
+
+
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init, false);
+	
+	function init() {
+		document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		if(filesArr.length > 4){
+		  //  document.write("Select Upto 4 images only");
+		  $(".upload-img-wraper").append(" <p  class='upload-imgErros'>❛❛ Select Upto 4 images Only. ❜❜ </p>");
+		}
+		else{
+		    filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+	
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				// var html = "<div class='image-box'><img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/></div>";
+				var html = "<div class='image-box'><img src=\"" + e.target.result + "\"></div>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+			
+    		});
+		}
+		
+		console.log('filesArr ', filesArr.length);
+		
+	}

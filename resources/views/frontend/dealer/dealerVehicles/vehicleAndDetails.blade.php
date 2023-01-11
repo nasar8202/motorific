@@ -47,10 +47,84 @@
 
                     <div class="mt-40">
                         <p class="gallery-top-text mb-10 f-18">Exterior</p>
+                        
+                        <!--Custom Code Testing-->
+                        <!--<input type="file" id="files" class="upload-img-btn" name="files" class="" multiple="" accept="image/*">-->
+                        <!--<div id="selectedFiles" class="upload-img-wraper"></div>-->
+                        <!--End-->
+                        
+                        <!--<div class="gallery-upload-main">-->
+
+                        <!--    <label for="image_1" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_1[]" id="image_1" multiple class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" alt="car image" >-->
+
+                        <!--    </label>-->
+
+                        <!--    {{-- <label for="image_2" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_2" id="image_2" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img2.png')}}" alt="car image" >-->
+                        <!--    </label>-->
+                        <!--    <label for="image_3" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_3" id="image_3" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img3.png')}}" alt="car image" >-->
+                        <!--    </label>-->
+                        <!--    <label for="image_4" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_4" id="image_4" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img4.png')}}" alt="car image" >-->
+                        <!--    </label>-->
+                        <!--    <label for="image_5" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_5" id="image_5" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img5.png')}}" alt="car image" >-->
+                        <!--    </label>-->
+                        <!--    <label for="image_6" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_6" id="image_6" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img6.png')}}" alt="car image" >-->
+                        <!--    </label>-->
+                        <!--    <label for="image_7" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_7" id="image_7" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img7.png')}}" alt="car image" >-->
+                        <!--    </label>-->
+                        <!--    <label for="image_8" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_8" id="image_8" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img8.png')}}" alt="car image" >-->
+                        <!--    </label>-->
+                        <!--    <label for="image_9" class="custom-gallery-upload">-->
+                        <!--        <input type="file" name="image_9" id="image_9" class="hide-inp" onchange="getFileName(this)">-->
+                        <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img9.png')}}" alt="car image" >-->
+                        <!--    </label> --}}-->
+                        <!--    @if ($errors->has('image_1'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_1') }}</span>-->
+                        <!--    @endif-->
+                        <!--    {{-- @if ($errors->has('image_2'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_2') }}</span>-->
+                        <!--    @endif-->
+                        <!--    @if ($errors->has('image_3'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_3') }}</span>-->
+                        <!--    @endif-->
+                        <!--    @if ($errors->has('image_4'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_4') }}</span>-->
+                        <!--    @endif-->
+                        <!--    @if ($errors->has('image_5'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_5') }}</span>-->
+                        <!--    @endif-->
+                        <!--    @if ($errors->has('image_6'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_6') }}</span>-->
+                        <!--    @endif-->
+                        <!--    @if ($errors->has('image_7'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_7') }}</span>-->
+                        <!--    @endif-->
+                        <!--    @if ($errors->has('image_8'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_8') }}</span>-->
+                        <!--    @endif-->
+                        <!--    @if ($errors->has('image_9'))-->
+                        <!--    <span class="text-danger">{{ $errors->first('image_9') }}</span>-->
+                        <!--    @endif --}}-->
+                        <!--</div>-->
                         <div class="gallery-upload-main">
 
                             <label for="image_1" class="custom-gallery-upload">
-                                <input type="file" name="image_1[]" id="image_1" multiple class="hide-inp" onchange="getFileName(this)">
+                                <input type="file" name="image_1[]" id="image_1" multiple class="hide-inp" onchange="getFileName(this)" accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" alt="car image" >
 
                             </label>
@@ -1173,6 +1247,8 @@
                     <div class="step-button" id="prev">&larr; Previous</div>
                     <div class="step-button nxtBtn" id="next" >Next &rarr;</div>
                 </div>
+                
+                <p class="pt-4">If you have no damage then continue next.</p>
   
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
@@ -1601,6 +1677,8 @@
                     <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
                     <div class="step-button-ext" id="next-ext">Next &rarr;</div>
                 </div>
+                
+                <p class="pt-4">If you have no damage then continue next.</p>
   
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
