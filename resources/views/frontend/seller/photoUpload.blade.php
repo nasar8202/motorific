@@ -266,262 +266,1236 @@ display: block;
                 </div>
             </div>
         </div>
-        <div class="photo-up-sec-2-box-main" id="damageSuccess">
-            <span class="alert alert-success temprorySubmitDamages"  style="display: none;"></span>
-            <div class="photo-up-sec-2-box">
-                <div class="photo-up-sec-2-box-txt">
-                    <h4>Condition and Damage</h4>
-                </div>
-                <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                    <button onclick="myFunction5()" type="button">EDIT</button>
-                </div>
-            </div>
-            <div class="personal-info-main" id="myDIV5">
+        <!--<div class="photo-up-sec-2-box-main" id="damageSuccess">-->
+        <!--    <span class="alert alert-success temprorySubmitDamages"  style="display: none;"></span>-->
+        <!--    <div class="photo-up-sec-2-box">-->
+        <!--        <div class="photo-up-sec-2-box-txt">-->
+        <!--            <h4>Condition and Damage</h4>-->
+        <!--        </div>-->
+        <!--        <div class="photo-up-sec-2-box-btn clr-prp my-auto">-->
+        <!--            <button onclick="myFunction5()" type="button">EDIT</button>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--    <div class="personal-info-main" id="myDIV5">-->
 
-                <div class="personal-info-form">
-                    <div class="form rowFormTn"> 
-                        <div class="col-2Tn">
-                            <h4>Interior</h4>
-                            <input type="text"  class="form-control"
-                            name="interior"  id="interior" placeholder="Eg : Full Leather, etc"  value="{{session()->get('interior')}}">  
-                            @if ($errors->has('interior'))
-                            <span class="text-danger">{{ $errors->first('interior') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Body Type</h4>
-                            <input type="text" readonly class="form-control"
-                            name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"  value="{{$res['basic_vehicle_info']['autotrader_body_type_desc']}}" > 
-                            @if ($errors->has('body_type'))
-                            <span class="text-danger">{{ $errors->first('body_type') }}</span>
-                        @endif
-                        </div>
+        <!--        <div class="personal-info-form">-->
+        <!--            <div class="form rowFormTn"> -->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Interior</h4>-->
+        <!--                    <input type="text"  class="form-control"-->
+        <!--                    name="interior"  id="interior" placeholder="Eg : Full Leather, etc"  value="{{session()->get('interior')}}">  -->
+        <!--                    @if ($errors->has('interior'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('interior') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Body Type</h4>-->
+        <!--                    <input type="text" readonly class="form-control"-->
+        <!--                    name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"  value="{{$res['basic_vehicle_info']['autotrader_body_type_desc']}}" > -->
+        <!--                    @if ($errors->has('body_type'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('body_type') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
                        
-                        <div class="col-2Tn">
-                            <h4>Engine Size</h4>
-                            <input type="text"  class="form-control"
-                            name="engine_size" readonly id="engine_size" placeholder="Eg : 2700cc,3500cc,etc"  value="{{$res['engine_data']['engine_capacity_cc']}}">
-                            @if ($errors->has('engine_size'))
-                            <span class="text-danger">{{ $errors->first('engine_size') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>HPI history check</h4>
-                            <input type="text"  class="form-control"
-                            name="hpi"    id="hpi" placeholder="Enter history check"  value="{{session()->get('hpi')}}">
-                            @if ($errors->has('hpi'))
-                            <span class="text-danger">{{ $errors->first('hpi') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>VIN</h4>
-                            <input type="text"  class="form-control"
-                            name="vin"           id="vin" placeholder="Eg : ZFF82YNC000247970,etc"  value="{{session()->get('vin')}}">
-                            @if ($errors->has('vin'))
-                            <span class="text-danger">{{ $errors->first('vin') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>First Registeration Date</h4>
-                            <input type="date"  class="form-control"
-                            name="register_date" readonly id="register_date" placeholder=""  value="{{$res['basic_vehicle_info']['first_registration_date']}}"> 
-                            @if ($errors->has('register_date'))
-                            <span class="text-danger">{{ $errors->first('register_date') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Keeper Start Date</h4>
-                            <input type="date"  class="form-control"
-                            name="keeper_date" id="keeper_date" placeholder=""  value="{{session()->get('keeperDate')}}">
-                            @if ($errors->has('keeper_date'))
-                            <span class="text-danger">{{ $errors->first('keeper_date') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Last MOT Date</h4>
-                            <input type="date"  class="form-control"
-                            name="mot_date"    id="mot_date" placeholder=""  value="{{session()->get('motDate')}}">
-                            @if ($errors->has('mot_date'))
-                            <span class="text-danger">{{ $errors->first('mot_date') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Previous Owners</h4>
-                            <input type="number"  class="form-control"
-                            name="previous_owner" readonly id="previous_owner" placeholder="how many previous owners are"   value="{{$res['basic_vehicle_check']['number_previous_keepers']}}">
-                            @if ($errors->has('previous_owner'))
-                            <span class="text-danger">{{ $errors->first('previous_owner') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Seller Keeping Plate</h4>
-                            <input type="text"  class="form-control"
-                            name="keeping_plate"  id="keeping_plate" placeholder="yes or no"  value="{{session()->get('keepingPlate')}}">
-                            @if ($errors->has('keeping_plate'))
-                            <span class="text-danger">{{ $errors->first('keeping_plate') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Additional Information</h4>
-                            <input type="text"  class="form-control"
-                            name="additional"  id="additional" placeholder="Enter Description"  value="{{session()->get('additional')}}">
-                            @if ($errors->has('additional'))
-                            <span class="text-danger">{{ $errors->first('additional') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Your Exterior Grade</h4>
-                            <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade" id="YourExteriorGrade"  value="{{session()->get('YourExteriorGrade')}}">    
-                            @if ($errors->has('YourExteriorGrade'))
-                            <span class="text-danger">{{ $errors->first('YourExteriorGrade') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Vehicle Category</h4>
-                            <select name="VehicleCategory" id="vehicle_category">
-                                <option disabled selected>Select Vehicle Type</option>
-                                @foreach($vehicleCategories as $vehicleCategorie)
-                                <option @if($vehicleCategorie->id ==session()->get('vehicleCategory') )  selected @endif value="{{$vehicleCategorie->id}}" >{{$vehicleCategorie->title}}</option>
-                                @endforeach           
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Engine Size</h4>-->
+        <!--                    <input type="text"  class="form-control"-->
+        <!--                    name="engine_size" readonly id="engine_size" placeholder="Eg : 2700cc,3500cc,etc"  value="{{$res['engine_data']['engine_capacity_cc']}}">-->
+        <!--                    @if ($errors->has('engine_size'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('engine_size') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>HPI history check</h4>-->
+        <!--                    <input type="text"  class="form-control"-->
+        <!--                    name="hpi"    id="hpi" placeholder="Enter history check"  value="{{session()->get('hpi')}}">-->
+        <!--                    @if ($errors->has('hpi'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('hpi') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>VIN</h4>-->
+        <!--                    <input type="text"  class="form-control"-->
+        <!--                    name="vin"           id="vin" placeholder="Eg : ZFF82YNC000247970,etc"  value="{{session()->get('vin')}}">-->
+        <!--                    @if ($errors->has('vin'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('vin') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>First Registeration Date</h4>-->
+        <!--                    <input type="date"  class="form-control"-->
+        <!--                    name="register_date" readonly id="register_date" placeholder=""  value="{{$res['basic_vehicle_info']['first_registration_date']}}"> -->
+        <!--                    @if ($errors->has('register_date'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('register_date') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Keeper Start Date</h4>-->
+        <!--                    <input type="date"  class="form-control"-->
+        <!--                    name="keeper_date" id="keeper_date" placeholder=""  value="{{session()->get('keeperDate')}}">-->
+        <!--                    @if ($errors->has('keeper_date'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('keeper_date') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Last MOT Date</h4>-->
+        <!--                    <input type="date"  class="form-control"-->
+        <!--                    name="mot_date"    id="mot_date" placeholder=""  value="{{session()->get('motDate')}}">-->
+        <!--                    @if ($errors->has('mot_date'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('mot_date') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Previous Owners</h4>-->
+        <!--                    <input type="number"  class="form-control"-->
+        <!--                    name="previous_owner" readonly id="previous_owner" placeholder="how many previous owners are"   value="{{$res['basic_vehicle_check']['number_previous_keepers']}}">-->
+        <!--                    @if ($errors->has('previous_owner'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('previous_owner') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Seller Keeping Plate</h4>-->
+        <!--                    <input type="text"  class="form-control"-->
+        <!--                    name="keeping_plate"  id="keeping_plate" placeholder="yes or no"  value="{{session()->get('keepingPlate')}}">-->
+        <!--                    @if ($errors->has('keeping_plate'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('keeping_plate') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Additional Information</h4>-->
+        <!--                    <input type="text"  class="form-control"-->
+        <!--                    name="additional"  id="additional" placeholder="Enter Description"  value="{{session()->get('additional')}}">-->
+        <!--                    @if ($errors->has('additional'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('additional') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Your Exterior Grade</h4>-->
+        <!--                    <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade" id="YourExteriorGrade"  value="{{session()->get('YourExteriorGrade')}}">    -->
+        <!--                    @if ($errors->has('YourExteriorGrade'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('YourExteriorGrade') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Vehicle Category</h4>-->
+        <!--                    <select name="VehicleCategory" id="vehicle_category">-->
+        <!--                        <option disabled selected>Select Vehicle Type</option>-->
+        <!--                        @foreach($vehicleCategories as $vehicleCategorie)-->
+        <!--                        <option @if($vehicleCategorie->id ==session()->get('vehicleCategory') )  selected @endif value="{{$vehicleCategorie->id}}" >{{$vehicleCategorie->title}}</option>-->
+        <!--                        @endforeach           -->
                                
-                            </select>
-                            @if ($errors->has('VehicleCategory'))
-                            <span class="text-danger">{{ $errors->first('VehicleCategory') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Scratches and Scuffs</h4>
-                            <select name="scratchesandScuffs" id="scrateches">
-                                <option disabled selected>Is it Your car Have Scratches and Scuffs</option>
-                                @if(session()->get('scrateches') == 'yes')
-                                                <option selected value="yes">Yes</option>
-                                                <option value="no">No</option>
-                                                @else
-                                                <option  value="yes">Yes</option>
-                                                <option selected value="no">No</option>
-                                                @endif 
+        <!--                    </select>-->
+        <!--                    @if ($errors->has('VehicleCategory'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('VehicleCategory') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Scratches and Scuffs</h4>-->
+        <!--                    <select name="scratchesandScuffs" id="scrateches">-->
+        <!--                        <option disabled selected>Is it Your car Have Scratches and Scuffs</option>-->
+        <!--                        @if(session()->get('scrateches') == 'yes')-->
+        <!--                                        <option selected value="yes">Yes</option>-->
+        <!--                                        <option value="no">No</option>-->
+        <!--                                        @else-->
+        <!--                                        <option  value="yes">Yes</option>-->
+        <!--                                        <option selected value="no">No</option>-->
+        <!--                                        @endif -->
                                
-                            </select>
-                            @if ($errors->has('scratchesandScuffs'))
-                            <span class="text-danger">{{ $errors->first('scratchesandScuffs') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Dents</h4>
-                            <select name="dents" id="dents">
-                                <option disabled selected>Is it Your car have Dents</option>
-                                @if(session()->get('dents') == 'yes')
-                                <option selected value="yes">Yes</option>
-                                <option value="no">No</option>
-                                @else
-                                <option  value="yes">Yes</option>
-                                <option selected value="no">No</option>
-                                @endif 
-                            </select>
-                            @if ($errors->has('dents'))
-                            <span class="text-danger">{{ $errors->first('dents') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Paintwork Problems</h4>
-                            <select name="paintworkProblems" id="paintwork">
-                                <option disabled selected>Is it Your car have Paintwork Problems</option>
-                                @if(session()->get('paintwork') == 'yes')
-                                <option selected value="yes">Yes</option>
-                                <option value="no">No</option>
-                                @else
-                                <option  value="yes">Yes</option>
-                                <option selected value="no">No</option>
-                                @endif 
-                            </select>
-                            @if ($errors->has('paintworkProblems'))
-                            <span class="text-danger">{{ $errors->first('paintworkProblems') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Windscreen Damage</h4>
-                            <select name="WindscreenDamage" id="windscreen">
-                                <option disabled selected>Is it Your car's windscreen is damage</option>
-                                @if(session()->get('windscreen') == 'yes')
-                                <option selected value="yes">Yes</option>
-                                <option value="no">No</option>
-                                @else
-                                <option  value="yes">Yes</option>
-                                <option selected value="no">No</option>
-                                @endif 
-                            </select>
-                            @if ($errors->has('WindscreenDamage'))
-                            <span class="text-danger">{{ $errors->first('WindscreenDamage') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Broken/Misisng Lights, Mirrors, Trim or fittings</h4>
-                            <select name="brokenMissing" id="brokenmissing">
-                                <option disabled selected>Broken/Misisng Lights, Mirrors, Trim or fittings</option>
-                                @if(session()->get('brokenmissing') == 'yes')
-                                <option selected value="yes">Yes</option>
-                                <option value="no">No</option>
-                                @else
-                                <option  value="yes">Yes</option>
-                                <option selected value="no">No</option>
-                                @endif 
-                            </select>
-                            @if ($errors->has('brokenMissing'))
-                            <span class="text-danger">{{ $errors->first('brokenMissing') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Warning Lights on Dashboard</h4>
-                            <select name="WarningLights" id="warninglights">
-                                <option disabled selected>Warning Lights on Dashboard</option>
-                                @if(session()->get('warninglights') == 'yes')
-                                <option selected value="yes">Yes</option>
-                                <option value="no">No</option>
-                                @else
-                                <option  value="yes">Yes</option>
-                                <option selected value="no">No</option>
-                                @endif 
-                            </select>
-                            @if ($errors->has('WarningLights'))
-                            <span class="text-danger">{{ $errors->first('WarningLights') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Your Service Record</h4>
-                            <input type="text" placeholder="Your Service Record" name="YourServiceRecord" id="YourServiceRecord" value="{{session()->get('YourServiceRecord')}}">
-                            @if ($errors->has('YourServiceRecord'))
-                            <span class="text-danger">{{ $errors->first('YourServiceRecord') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Main Dealer Services</h4>
-                            <input type="text" placeholder="Main Dealer Services" name="MainDealerServices" id="MainDealerServices" value="{{session()->get('MainDealerServices')}}">
-                            @if ($errors->has('MainDealerServices'))
-                            <span class="text-danger">{{ $errors->first('MainDealerServices') }}</span>
-                        @endif
-                        </div>
-                        <div class="col-2Tn">
-                            <h4>Independent Dealer Service</h4>
-                            <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService" id="IndependentDealerService" value="{{session()->get('IndependentDealerService')}}">
-                            @if ($errors->has('IndependentDealerService'))
-                            <span class="text-danger">{{ $errors->first('IndependentDealerService') }}</span>
-                        @endif
-                        </div>
-                        <br>
+        <!--                    </select>-->
+        <!--                    @if ($errors->has('scratchesandScuffs'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('scratchesandScuffs') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Dents</h4>-->
+        <!--                    <select name="dents" id="dents">-->
+        <!--                        <option disabled selected>Is it Your car have Dents</option>-->
+        <!--                        @if(session()->get('dents') == 'yes')-->
+        <!--                        <option selected value="yes">Yes</option>-->
+        <!--                        <option value="no">No</option>-->
+        <!--                        @else-->
+        <!--                        <option  value="yes">Yes</option>-->
+        <!--                        <option selected value="no">No</option>-->
+        <!--                        @endif -->
+        <!--                    </select>-->
+        <!--                    @if ($errors->has('dents'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('dents') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Paintwork Problems</h4>-->
+        <!--                    <select name="paintworkProblems" id="paintwork">-->
+        <!--                        <option disabled selected>Is it Your car have Paintwork Problems</option>-->
+        <!--                        @if(session()->get('paintwork') == 'yes')-->
+        <!--                        <option selected value="yes">Yes</option>-->
+        <!--                        <option value="no">No</option>-->
+        <!--                        @else-->
+        <!--                        <option  value="yes">Yes</option>-->
+        <!--                        <option selected value="no">No</option>-->
+        <!--                        @endif -->
+        <!--                    </select>-->
+        <!--                    @if ($errors->has('paintworkProblems'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('paintworkProblems') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Windscreen Damage</h4>-->
+        <!--                    <select name="WindscreenDamage" id="windscreen">-->
+        <!--                        <option disabled selected>Is it Your car's windscreen is damage</option>-->
+        <!--                        @if(session()->get('windscreen') == 'yes')-->
+        <!--                        <option selected value="yes">Yes</option>-->
+        <!--                        <option value="no">No</option>-->
+        <!--                        @else-->
+        <!--                        <option  value="yes">Yes</option>-->
+        <!--                        <option selected value="no">No</option>-->
+        <!--                        @endif -->
+        <!--                    </select>-->
+        <!--                    @if ($errors->has('WindscreenDamage'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('WindscreenDamage') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Broken/Misisng Lights, Mirrors, Trim or fittings</h4>-->
+        <!--                    <select name="brokenMissing" id="brokenmissing">-->
+        <!--                        <option disabled selected>Broken/Misisng Lights, Mirrors, Trim or fittings</option>-->
+        <!--                        @if(session()->get('brokenmissing') == 'yes')-->
+        <!--                        <option selected value="yes">Yes</option>-->
+        <!--                        <option value="no">No</option>-->
+        <!--                        @else-->
+        <!--                        <option  value="yes">Yes</option>-->
+        <!--                        <option selected value="no">No</option>-->
+        <!--                        @endif -->
+        <!--                    </select>-->
+        <!--                    @if ($errors->has('brokenMissing'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('brokenMissing') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Warning Lights on Dashboard</h4>-->
+        <!--                    <select name="WarningLights" id="warninglights">-->
+        <!--                        <option disabled selected>Warning Lights on Dashboard</option>-->
+        <!--                        @if(session()->get('warninglights') == 'yes')-->
+        <!--                        <option selected value="yes">Yes</option>-->
+        <!--                        <option value="no">No</option>-->
+        <!--                        @else-->
+        <!--                        <option  value="yes">Yes</option>-->
+        <!--                        <option selected value="no">No</option>-->
+        <!--                        @endif -->
+        <!--                    </select>-->
+        <!--                    @if ($errors->has('WarningLights'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('WarningLights') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Your Service Record</h4>-->
+        <!--                    <input type="text" placeholder="Your Service Record" name="YourServiceRecord" id="YourServiceRecord" value="{{session()->get('YourServiceRecord')}}">-->
+        <!--                    @if ($errors->has('YourServiceRecord'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('YourServiceRecord') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Main Dealer Services</h4>-->
+        <!--                    <input type="text" placeholder="Main Dealer Services" name="MainDealerServices" id="MainDealerServices" value="{{session()->get('MainDealerServices')}}">-->
+        <!--                    @if ($errors->has('MainDealerServices'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('MainDealerServices') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <div class="col-2Tn">-->
+        <!--                    <h4>Independent Dealer Service</h4>-->
+        <!--                    <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService" id="IndependentDealerService" value="{{session()->get('IndependentDealerService')}}">-->
+        <!--                    @if ($errors->has('IndependentDealerService'))-->
+        <!--                    <span class="text-danger">{{ $errors->first('IndependentDealerService') }}</span>-->
+        <!--                @endif-->
+        <!--                </div>-->
+        <!--                <br>-->
                         
-                </div>
+        <!--        </div>-->
                
-                <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
-                    <div class="spinner-border mt-2 spinnerDamages"   style="" role="status">
-                        <span class="sr-only">Loading...</span>
-                      </div>
-                      <br>
-                    <a href="#damageSuccess"><button class="damagesDatas" type="button">CONFIRM</button></a>
+        <!--        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">-->
+        <!--            <div class="spinner-border mt-2 spinnerDamages"   style="" role="status">-->
+        <!--                <span class="sr-only">Loading...</span>-->
+        <!--              </div>-->
+        <!--              <br>-->
+        <!--            <a href="#damageSuccess"><button class="damagesDatas" type="button">CONFIRM</button></a>-->
+        <!--        </div>-->
+                
+        <!--    </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+        
+        
+        <!--Interior Information Form-->
+        <section class="step-form-sec">
+    
+    <div class="container-1200">
+        <!--interior -->
+        <div class="step-main-1">
+            
+            <div class="step-main-wrap photo-upload" style="">
+            <!--<div id="svg_wrap"></div>-->
+            <h1 class="step-main-head">Interior Information</h1>
+            <section class="step-wrapper">
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Dashboard</h2>
+                            <ul class="parts-content">
+                                <span class="checkboxNum" style="display:none;">0</span>
+                            <li>
+                                <label>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Stained" hidden="">
+                                    <span>Stained (ST)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Torn/Ripped" hidden="">
+                                    <span>Torn / Ripped (T)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Warn" hidden="">
+                                    <span>Warn (W)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Dirty" hidden="">
+                                    <span>Dirty (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Broken/Damage" hidden="">
+                                    <span>Broken / Damage (BD)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Bumt" hidden="">
+                                    <span>Bumt (B)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/dashboard.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="step-sec" style="transform: translateX(0px);">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Passenger Side Interior</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passenger-side.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+    
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Driver Side Interior</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driver-side.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Floor</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="floor" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/floor.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Ceiling</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/ceiling.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Boot</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="boot" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/boot.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Rear Windscreen</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/rear-windscreen.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Passenger Seat</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passenger-seat.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Driver Seat</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driver-seat.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Rear Seats</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Bumt" hidden="">
+                                        <span>Bumt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/rear-seat.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <div class="step-button-wrap">
+                    <div class="step-button" id="prev">← Previous</div>
+                    <div class="step-button nxtBtn" id="next">Next →</div>
                 </div>
                 
-            </div>
-            </div>
+                <p class="pt-4">If you have no damage then continue next.</p>
+  
+            </section>
+            <!--<div class="button" id="submit">Agree and send application</div>-->
         </div>
+        </div>
+        <!--exterior -->
+        <div class="step-main-2">
+            <!-- <div class="parts-hide-show">-->
+            <!--    <form>-->
+            <!--        <p>Do you have any damage on this vehicle</p>-->
+            <!--        <label><input type="radio"  name="damage_any_second" value="yes" class="parts-yes"> Yes</label>-->
+            <!--        <label><input type="radio" name="damage_any_second" value="no" class="parts-no" checked> No</label>-->
+            <!--    </form>-->
+            <!--</div>-->
+            <div class="step-main-wrap photo-upload">
+            <div id="svg_wrap_ext"></div>
+            <h1 class="step-main-head">Exterior Information</h1>
+            <section class="step-wrapper">
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Front Door Left</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="radio" name="front_door_left" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_left" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_left" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_left" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_left" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_left" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-left.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Back Door Left</h2>
+                            <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="radio" name="back_door_left" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_left" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_left" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_left" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_left" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_left" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-left.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Front Door Right</h2>
+                            <ul class="parts-content">
+                           <li>
+                                <label>
+                                    <input type="radio" name="front_door_right" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_right" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_right" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_right" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_right" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front_door_right" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-right.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Back Door Right</h2>
+                           <ul class="parts-content">
+                           <li>
+                                <label>
+                                    <input type="radio" name="back_door_right" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_right" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_right" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_right" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_right" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back_door_right" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-right.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Top</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="radio" name="top" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="top" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="top" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="top" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="top" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="top" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/top.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Bonut</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="radio" name="bonut" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="bonut" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="bonut" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="bonut" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="bonut" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="bonut" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/bonut.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Front</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="radio" name="front" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="front" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Back</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="radio" name="back" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <div class="step-button-wrap">
+                    <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
+                    <div class="step-button-ext" id="next-ext">Next &rarr;</div>
+                </div>
+                
+                <p class="pt-4">If you have no damage then continue next.</p>
+  
+            </section>
+            <!--<div class="button" id="submit">Agree and send application</div>-->
+        </div>
+        </div>
+        
+    </div>
+</section>
+        
+        
+        <!--End-->
+        
         <div class="photo-up-sec-2-box-main">
             {{-- <form method="POST" action="{{route('vehicleInformation')}}"> --}}
                 @csrf
