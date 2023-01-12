@@ -115,9 +115,7 @@ display: block;
                     <input type="text" name="millage"  placeholder="Enter Millage">
                     <input type="hidden" name="registeration" class="registeration" value="">
                     <button type="submit" >Continue</button>
-                    @if ($errors->has('millage'))
-                                    <span class="text-danger">{{ $errors->first('millage') }}</span>
-                                    @endif
+                  
                 </form>
                 <div class="check_area">
                    
@@ -125,6 +123,9 @@ display: block;
                     <span class="text-danger show_error"></span>
                     <button type="button" id="check_registeration" >Value Your Car</button>
                 </div>
+                @if ($errors->has('millage'))
+                <span class="text-danger">{{ $errors->first('millage') }}</span>
+                @endif
             </div>
             <div class="sec-1-img col-lg-6">
                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">

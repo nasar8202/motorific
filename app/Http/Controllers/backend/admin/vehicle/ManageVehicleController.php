@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\backend\admin\vehicle;
 
-use DB;
 use App\Models\Finance;
 use App\Models\Smoking;
 use App\Models\Vehicle;
@@ -17,15 +16,16 @@ use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
+use App\Models\VehicleExterior;
+use App\Models\VehicleInterior;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\vehicleConditionAndDamage;
-use App\Models\VehicleExterior;
-use App\Models\VehicleInterior;
 
 class ManageVehicleController extends Controller
 {

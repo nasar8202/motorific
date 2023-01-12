@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
 use App\Models\User;
 use App\Models\Finance;
 use App\Models\Smoking;
@@ -19,7 +18,9 @@ use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
 use App\Models\vehicleCategories;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use App\Providers\RouteServiceProvider;
@@ -140,7 +141,8 @@ class RegisterController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
-
+        try{
+            
         $password = Str::random(10);
          $user = new User;
          $user->name = $request->name;
@@ -216,5 +218,12 @@ class RegisterController extends Controller
                 return redirect()->route('seller')->with('success','Register Successfully!');
             }
         }
+    }catch(\Exception $e)
+    {
+       //return $e;
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
     }
 }
