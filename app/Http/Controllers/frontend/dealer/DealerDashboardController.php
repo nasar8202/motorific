@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
+use App\Models\VehicleExterior;
+use App\Models\VehicleInterior;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
 use App\Models\OrderVehicleRequest;
@@ -906,7 +908,8 @@ die();
 
         $vehicle_info = vehicleInformation::where('vehicle_id',$id)->first();
         $damage = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
-
+        $exterior = VehicleExterior::where('vehicle_id',$id)->first();
+        $interior = VehicleInterior::where('vehicle_id',$id)->first();
 
         $vehcile_info_feature_id = explode(',' ,$vehicle_info->vehicle_feature_id);
 
@@ -920,7 +923,7 @@ die();
              
 
 
-        return view('frontend.dealer.vehicle.vehicleDetail',compact('vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
+        return view('frontend.dealer.vehicle.vehicleDetail',compact('exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
     }
     public function dashboard()
     {

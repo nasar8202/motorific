@@ -215,6 +215,355 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
+                        <h4 class="card-title">Interior Damages</h4>
+                    </div>
+                    <div class="card-content">
+                      <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h6>Dashboard</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="dashboard" id="basicSelect">
+                                        <option disabled selected>Select Dashboard Damage</option>
+                                        <option value="Stained"  >Stained (ST)</option>
+                                        <option value="Torn/Ripped" >Torn / Ripped (T)</option>
+                                        <option value="Warn"   >Warn (W)</option>
+                                        <option value="Dirty" >Dirty (D)</option>
+                                        <option value="Broken/Damage"  >Broken / Damage (BD)</option>
+                                        <option value="Bumt" >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('dashboard'))
+                                <span class="text-danger">{{ $errors->first('dashboard') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Passenger Side Interior</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="passenger_side_interior" id="basicSelect">
+                                        <option disabled selected>Select passenger side interior</option>
+                                        <option value="Stained"  >Stained (ST)</option>
+                                        <option value="Torn/Ripped"  >Torn / Ripped (T)</option>
+                                        <option value="Warn"   >Warn (W)</option>
+                                        <option value="Dirty" >Dirty (D)</option>
+                                        <option value="Broken/Damage"  >Broken / Damage (BD)</option>
+                                        <option value="Bumt" >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('passenger_side_interior'))
+                                <span class="text-danger">{{ $errors->first('passenger_side_interior') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Driver Side Interior</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="driver_side_interior" id="basicSelect">
+                                        <option disabled selected>Select driver side interior</option>
+                                        <option value="Stained"   >Stained (ST)</option>
+                                        <option value="Torn/Ripped"  >Torn / Ripped (T)</option>
+                                        <option value="Warn"   >Warn (W)</option>
+                                        <option value="Dirty" >Dirty (D)</option>
+                                        <option value="Broken/Damage"   >Broken / Damage (BD)</option>
+                                        <option value="Bumt"  >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('driver_side_interior'))
+                                <span class="text-danger">{{ $errors->first('driver_side_interior') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Floor</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="floor" id="basicSelect">
+                                        <option disabled selected>Select floor </option>
+                                        <option value="Stained"   >Stained (ST)</option>
+                                        <option value="Torn/Ripped"   >Torn / Ripped (T)</option>
+                                        <option value="Warn"    >Warn (W)</option>
+                                        <option value="Dirty"  >Dirty (D)</option>
+                                        <option value="Broken/Damage"  >Broken / Damage (BD)</option>
+                                        <option value="Bumt"  >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('floor'))
+                                <span class="text-danger">{{ $errors->first('floor') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Ceiling</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="ceiling" id="basicSelect">
+                                        <option disabled selected>Select ceiling </option>
+                                        <option value="Stained" >Stained (ST)</option>
+                                        <option value="Torn/Ripped" >Torn / Ripped (T)</option>
+                                        <option value="Warn"  >Warn (W)</option>
+                                        <option value="Dirty"  selected >Dirty (D)</option>
+                                        <option value="Broken/Damage" >Broken / Damage (BD)</option>
+                                        <option value="Bumt"  selected >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('ceiling'))
+                                <span class="text-danger">{{ $errors->first('ceiling') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Boot</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="boot" id="basicSelect">
+                                        <option disabled selected>Select boot </option>
+                                        <option value="Stained" >Stained (ST)</option>
+                                        <option value="Torn/Ripped" >Torn / Ripped (T)</option>
+                                        <option value="Warn" >Warn (W)</option>
+                                        <option value="Dirty" >Dirty (D)</option>
+                                        <option value="Broken/Damage" >Broken / Damage (BD)</option>
+                                        <option value="Bumt" >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('boot'))
+                                <span class="text-danger">{{ $errors->first('boot') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Rear Windscreen</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="rear_windscreen" id="basicSelect">
+                                        <option disabled selected>Select rear windscreen </option>
+                                        <option value="Stained" Stained')>Stained (ST)</option>
+                                        <option value="Torn/Ripped"  >Torn / Ripped (T)</option>
+                                        <option value="Warn"   >Warn (W)</option>
+                                        <option value="Dirty">Dirty (D)</option>
+                                        <option value="Broken/Damage" >Broken / Damage (BD)</option>
+                                        <option value="Bumt" >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('rear_windscreen'))
+                                <span class="text-danger">{{ $errors->first('rear_windscreen') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Passenger Seat</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="passenger_seat" id="basicSelect">
+                                        <option disabled selected>Select passenger seat </option>
+                                        <option value="Stained"  >Stained (ST)</option>
+                                        <option value="Torn/Ripped"   >Torn / Ripped (T)</option>
+                                        <option value="Warn"   >Warn (W)</option>
+                                        <option value="Dirty" >Dirty (D)</option>
+                                        <option value="Broken/Damage"  >Broken / Damage (BD)</option>
+                                        <option value="Bumt" >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('passenger_seat'))
+                                <span class="text-danger">{{ $errors->first('passenger_seat') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Driver Seat</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="driver_seat" id="basicSelect">
+                                        <option disabled selected>Select driver seat </option>
+                                        
+                                        <option value="Stained"   >Stained (ST)</option>
+                                        <option value="Torn/Ripped" >Torn / Ripped (T)</option>
+                                        <option value="Warn"  >Warn (W)</option>
+                                        <option value="Dirty" >Dirty (D)</option>
+                                        <option value="Broken/Damage" >Broken / Damage (BD)</option>
+                                        <option value="Bumt" >Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('driver_seat'))
+                                <span class="text-danger">{{ $errors->first('driver_seat') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Rear Seat</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="rear_seats" id="basicSelect">
+                                        <option disabled selected>Select rear seats </option>
+                                        <option value="Stained"  >Stained (ST)</option>
+                                        <option value="Torn/Ripped"  >Torn / Ripped (T)</option>
+                                        <option value="Warn"   >Warn (W)</option>
+                                        <option value="Dirty" >Dirty (D)</option>
+                                        <option value="Broken/Damage"  >Broken / Damage (BD)</option>
+                                        <option value="Bumt">Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('rear_seats'))
+                                <span class="text-danger">{{ $errors->first('rear_seats') }}</span>
+                            @endif
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Exterior Damages</h4>
+                    </div>
+                    <div class="card-content">
+                      <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h6>Front Door Left</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="front_door_left" id="basicSelect">
+                                        <option disabled selected>Select Front Door Left Damage</option>
+                                        <option value="Dent" >Dent (D)</option>
+                                        <option value="Broken" >Broken (B)</option>
+                                        <option value="Chips"   >Chips (CH)</option>
+                                        <option value="Crack/Rust">Crack / Rust (CR)</option>
+                                        <option value="Scratch" >Scratch (S)</option>
+                                        <option value="Wheel Scuff" >Wheel Scuff (WS)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('front_door_left'))
+                                <span class="text-danger">{{ $errors->first('front_door_left') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>back door left</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="back_door_left" id="basicSelect">
+                                        <option disabled selected>Select back door left </option>
+                                        <option value="Dent" >Dent (D)</option>
+                                        <option value="Broken">Broken (B)</option>
+                                        <option value="Chips"  >Chips (CH)</option>
+                                        <option value="Crack/Rust" >Crack / Rust (CR)</option>
+                                        <option value="Scratch" >Scratch (S)</option>
+                                        <option value="Wheel Scuff">Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('back_door_left'))
+                                <span class="text-danger">{{ $errors->first('back_door_left') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Front Door Right</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="front_door_right" id="basicSelect">
+                                        <option disabled selected>Select Front Door Right </option>
+                                        <option value="Dent"  >Dent (D)</option>
+                                        <option value="Broken"   >Broken (B)</option>
+                                        <option value="Chips"    >Chips (CH)</option>
+                                        <option value="Crack/Rust" >Crack / Rust (CR)</option>
+                                        <option value="Scratch"   >Scratch (S)</option>
+                                        <option value="Wheel Scuff"  >Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('front_door_right'))
+                                <span class="text-danger">{{ $errors->first('front_door_right') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Back Door Right</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="back_door_right" id="basicSelect">
+                                        <option disabled selected>Select back door right </option>
+                                        <option value="Dent" >Dent (D)</option>
+                                        <option value="Broken" >Broken (B)</option>
+                                        <option value="Chips"   >Chips (CH)</option>
+                                        <option value="Crack/Rust" >Crack / Rust (CR)</option>
+                                        <option value="Scratch">Scratch (S)</option>
+                                        <option value="Wheel Scuff">Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('back_door_right'))
+                                <span class="text-danger">{{ $errors->first('back_door_right') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Top</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="top" id="basicSelect">
+                                        <option disabled selected>Select Top </option>
+                                        <option value="Dent" >Dent (D)</option>
+                                        <option value="Broken">Broken (B)</option>
+                                        <option value="Chips" >Chips (CH)</option>
+                                        <option value="Crack/Rust">Crack / Rust (CR)</option>
+                                        <option value="Scratch" >Scratch (S)</option>
+                                        <option value="Wheel Scuff">Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('top'))
+                                <span class="text-danger">{{ $errors->first('top') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>Bonut</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="bonut" id="basicSelect">
+                                        <option disabled selected>Select Bonut </option>
+                                        <option value="Dent"  >Dent (D)</option>
+                                        <option value="Broken" >Broken (B)</option>
+                                        <option value="Chips" >Chips (CH)</option>
+                                        <option value="Crack/Rust" >Crack / Rust (CR)</option>
+                                        <option value="Scratch">Scratch (S)</option>
+                                        <option value="Wheel Scuff" >Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('bonut'))
+                                <span class="text-danger">{{ $errors->first('bonut') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>front</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="front" id="basicSelect">
+                                        <option disabled selected>Select front </option>
+                                        <option value="Dent">Dent (D)</option>
+                                        <option value="Broken"  >Broken (B)</option>
+                                        <option value="Chips" >Chips (CH)</option>
+                                        <option value="Crack/Rust" >Crack / Rust (CR)</option>
+                                        <option value="Scratch"  >Scratch (S)</option>
+                                        <option value="Wheel Scuff" >Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('front'))
+                                <span class="text-danger">{{ $errors->first('front') }}</span>
+                            @endif
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6>back</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="back" id="basicSelect">
+                                        <option disabled selected>Select back </option>
+                                        <option value="Dent"  >Dent (D)</option>
+                                        <option value="Broken" >Broken (B)</option>
+                                        <option value="Chips"  >Chips (CH)</option>
+                                        <option value="Crack/Rust" >Crack / Rust (CR)</option>
+                                        <option value="Scratch" >Scratch (S)</option>
+                                        <option value="Wheel Scuff" >Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('back'))
+                                <span class="text-danger">{{ $errors->first('back') }}</span>
+                            @endif
+                            </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
                         <h4 class="card-title">Vehicle features</h4>
                     </div>
 
@@ -400,7 +749,7 @@
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6 col-12">
+                                    {{-- <div class="col-md-6 col-12">
                                         <h6>Interior</h6>
                                         <div class="form-group">
                                             
@@ -520,7 +869,7 @@
                                         @if ($errors->has('additional'))
                                         <span class="text-danger">{{ $errors->first('additional') }}</span>
                                     @endif
-                                    </div>
+                                    </div> --}}
 
 
                                 </div>
@@ -531,7 +880,8 @@
             </div>
         </div>
     </section>
-    <section id="multiple-column-form">
+   
+    {{-- <section id="multiple-column-form">
         <div class="row match-height">
             <div class="col-12">
                 <div class="card">
@@ -676,7 +1026,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section id="multiple-column-form">
         <div class="row match-height">
             <div class="col-12">
