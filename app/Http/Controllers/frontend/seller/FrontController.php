@@ -465,6 +465,7 @@ class FrontController extends Controller
         $request->validate([
             'millage' => 'required',
       ]);
+      try{
         $data = $request;
     $logging_cond = Auth::user();
     if(!isset($logging_cond)){
@@ -505,6 +506,13 @@ class FrontController extends Controller
         ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
         ->json();
         $milage = $milage['result'];
+    }catch(\Exception $e)
+    {
+       //return $e;
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
         return view('frontend.seller.photoUpload',compact('milage','check_millage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
     }
     public function registration()

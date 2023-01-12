@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\frontend\dealer\dealerCharges;
 
-use DB;
 use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\User;
@@ -12,6 +11,7 @@ use App\Models\CardDetails;
 use App\Models\BidedVehicle;
 use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
+use Illuminate\Support\Facades\DB;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 
@@ -73,6 +73,7 @@ class DealerChargesController extends Controller
     }
     public function sellerRequestedDetails($slug,$id)
     {   
+       try{
         $role = $slug;
       
         $user_id = Auth::user()->id;
@@ -101,6 +102,13 @@ class DealerChargesController extends Controller
             
         return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','role','pricing','current'));
         }
+    }catch(\Exception $e)
+    {
+       //return $e;
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
     }
 
     public function cardDetails()
@@ -110,6 +118,7 @@ class DealerChargesController extends Controller
     }
     public function stripePayment(Request $request)
     {
+        try{
       $user_email =Auth::user()->email;
       $amount =(int)100* $request->amount;
       Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -142,7 +151,14 @@ class DealerChargesController extends Controller
      $cardDetails->status = 1;
      $cardDetails->save();
      return redirect()->route('bids.CompletedBiddedVehicle')->with('success','Your Payment Successfully Completed');
-  
+    }
+    catch(\Exception $e)
+    {
+       //return $e;
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
     }
 
     public function reviewForCancel(Request $request)
@@ -204,6 +220,7 @@ class DealerChargesController extends Controller
     }
     public function ownerDealerRequestedDetails($slug,$id)
     {
+      try{
         $role = $slug;
         
         $user_id = Auth::user()->id;
@@ -234,6 +251,13 @@ class DealerChargesController extends Controller
             
         return view('frontend.dealer.sellerDetails.ownerDealerDetail',compact('user','allVehicles','pricing','current','role'));
         }
+    }catch(\Exception $e)
+    {
+       //return $e;
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
     }
     
 }
