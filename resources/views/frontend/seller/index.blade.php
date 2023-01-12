@@ -22,7 +22,7 @@ display: block;
 }
 </style>
 <header>
-    <div class="container-1600 d-flex justify-content-between pt-4">
+    <div class="container-1600 d-flex justify-content-between pt-4" >
         <div class="logo-navlinks d-flex align-items-center">
             <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt=""></a>
             <ul class="navlinks mb-0 align-items-center">
@@ -115,6 +115,9 @@ display: block;
                     <input type="text" name="millage"  placeholder="Enter Millage">
                     <input type="hidden" name="registeration" class="registeration" value="">
                     <button type="submit" >Continue</button>
+                    @if ($errors->has('millage'))
+                                    <span class="text-danger">{{ $errors->first('millage') }}</span>
+                                    @endif
                 </form>
                 <div class="check_area">
                    

@@ -37,9 +37,11 @@
                             <form method="POST" action="{{route('reviewForCancel')}}">
                                 @csrf
                             <span>Why You Want To Cancel This Vehicle ?</span>
+                            
                             <input type="hidden" name="vehicle_id" value="{{$allVehicles->id}}">
                             <input type="hidden" name="user_id" value="{{$current}}">
-                            pricing
+                            <input type="hidden" name="role" value="{{$role}}">
+                            
                             <input type="hidden" name="order_id" value="{{$pricing->id}}">
                             <textarea class="form-control" name="reviews" id="exampleFormControlTextarea1" rows="3"></textarea>
                         <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>  
@@ -47,7 +49,7 @@
                     </div>
 
                     <div class="form-group mt-4 meetingDiv">
-                        <form method="POST" action="{{route('scheduleMeeting')}}">
+                        <form method="POST" action="{{route('ownerScheduleMeeting')}}">
                             @csrf
                         @if(Auth::user()->id == $pricing->user_id)
                         @if($pricing->meeting_date_time == null)

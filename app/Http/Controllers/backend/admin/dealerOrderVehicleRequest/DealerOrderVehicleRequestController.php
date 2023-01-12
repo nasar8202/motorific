@@ -49,13 +49,18 @@ class DealerOrderVehicleRequestController extends Controller
     public function approveDealersOrder($id){
         
         $orders = DealersOrderVehicleRequest::where('id',$id)->first();
+        $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle->id)->first();
+        if($ordered_vehicle->status == 2){
+          
+        return redirect()->back()->with('warning', 'This Order Is Already Assing To Another!');
+        }
+        else{
         $orders->status = 1;
         $orders->save();
-      $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle->id)->first();
       $ordered_vehicle->status = 2 ;
       $ordered_vehicle->save();
         return redirect()->back()->with('success', 'Order Approved Successfully!');
-    
+      }
         
     }
     public function approveDealersOrderdWithAdminUpdated(Request $request){
@@ -66,13 +71,19 @@ class DealerOrderVehicleRequestController extends Controller
          
       ]);
         $orders = DealersOrderVehicleRequest::where('id',$request->orderId)->first();
+        $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle_id)->first();
+        if($ordered_vehicle->status == 2){
+          
+          return redirect()->back()->with('warning', 'This Order Is Already Assing To Another!');
+          }
+          else{
         $orders->request_price = $request->updatedPrice;
         $orders->status = 1;
         $orders->admin_updated_status = 1;
         $orders->save();
-      $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle_id)->first();
       $ordered_vehicle->status = 2 ;
       $ordered_vehicle->save();
+          }
         return redirect()->back()->with('success', 'Order Approved And Updated Successfully!');
     
         

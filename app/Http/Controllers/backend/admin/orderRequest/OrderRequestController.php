@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\backend\admin\orderRequest;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\OrderVehicleRequest;
 use App\Models\User;
 use App\Models\Vehicle;
+use Illuminate\Http\Request;
+use App\Models\OrderVehicleRequest;
+use App\Http\Controllers\Controller;
+use App\Models\DealersOrderVehicleRequest;
+
 class OrderRequestController extends Controller
 {
     public function orderRequest(){
@@ -16,6 +18,12 @@ class OrderRequestController extends Controller
 
     }
 
+    public function dealerOrderRequestMeeting(Request $request){
+      
+      $orders = DealersOrderVehicleRequest::where('id',$request->id)->with('user')->with('vehicle')->first();
+      return $orders;
+  
+    }
     public function orderRequestMeeting(Request $request){
       
       $orders = OrderVehicleRequest::where('id',$request->id)->with('user')->with('vehicle')->first();

@@ -16,6 +16,8 @@ use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
+use App\Models\VehicleExterior;
+use App\Models\VehicleInterior;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +32,7 @@ class FrontController extends Controller
     public function createStep1(Request $request)
     {
         $register = $request->session()->get('register');
-
+        
         return view('frontend.dealer.step1',compact('register'));
     }
 
@@ -282,47 +284,47 @@ class FrontController extends Controller
     public function createVehicle(Request $request)
     {   
         $request->validate([
-            'RegisterationNumber' => 'required',
-            'VehicleName' => 'required',
-            'VehicleYear' => 'required',
-            'VehicleColor' => 'required',
-            'VehicleType' => 'required',
-            'VehicleTank' => 'required',
-            'VehicleMileage' => 'required',
-            'VehiclePrice' => 'required',
-            'vehicle_feature' => 'required',
-            'seat_material' => 'required',
-            'number_of_keys' => 'required',
-            'tool_pack' => 'required',
-            'locking_wheel_nut' => 'required',
-            'VehicleCategory'=>'required',
-            'smoked_in' => 'required',
-            'log_book' => 'required',
-            'location' => 'required',
-            'vehicle_owner' => 'required',
-            'private_plate' => 'required',
-            'finance' => 'required',
-            'YourExteriorGrade' => 'required',
-            'scratchesandScuffs' => 'required',
-            'dents' => 'required',
-            'paintworkProblems' => 'required',
-            'WindscreenDamage' => 'required',
-            'brokenMissing' => 'required',
-            'WarningLights' => 'required',
-            'YourServiceRecord' => 'required',
-            'MainDealerServices' => 'required',
-            'IndependentDealerService' => 'required',
-            'interior' => 'required',
-            'body_type' => 'required',
-            'engine_size' => 'required',
-            'hpi' => 'required',
-            'vin' => 'required',
-            'register_date' => 'required',
-            'keeper_date' => 'required',
-            'mot_date' => 'required',
-            'previous_owner' => 'required',
-            'keeping_plate' => 'required',
-            'additional' => 'required',
+            // 'RegisterationNumber' => 'required',
+            // 'VehicleName' => 'required',
+            // 'VehicleYear' => 'required',
+            // 'VehicleColor' => 'required',
+            // 'VehicleType' => 'required',
+            // 'VehicleTank' => 'required',
+            // 'VehicleMileage' => 'required',
+            // 'VehiclePrice' => 'required',
+            // 'vehicle_feature' => 'required',
+            // 'seat_material' => 'required',
+            // 'number_of_keys' => 'required',
+            // 'tool_pack' => 'required',
+            // 'locking_wheel_nut' => 'required',
+            // 'VehicleCategory'=>'required',
+            // 'smoked_in' => 'required',
+            // 'log_book' => 'required',
+            // 'location' => 'required',
+            // 'vehicle_owner' => 'required',
+            // 'private_plate' => 'required',
+            // 'finance' => 'required',
+            // 'YourExteriorGrade' => 'required',
+            // 'scratchesandScuffs' => 'required',
+            // 'dents' => 'required',
+            // 'paintworkProblems' => 'required',
+            // 'WindscreenDamage' => 'required',
+            // 'brokenMissing' => 'required',
+            // 'WarningLights' => 'required',
+            // 'YourServiceRecord' => 'required',
+            // 'MainDealerServices' => 'required',
+            // 'IndependentDealerService' => 'required',
+            // 'interior' => 'required',
+            // 'body_type' => 'required',
+            // 'engine_size' => 'required',
+            // 'hpi' => 'required',
+            // 'vin' => 'required',
+            // 'register_date' => 'required',
+            // 'keeper_date' => 'required',
+            // 'mot_date' => 'required',
+            // 'previous_owner' => 'required',
+            // 'keeping_plate' => 'required',
+            // 'additional' => 'required',
             'image1' => 'required',
             'image2' => 'required',
             'image3' => 'required',
@@ -351,19 +353,44 @@ class FrontController extends Controller
 
             $vehicle->save();
 
-            $damages = new vehicleConditionAndDamage;
-            $damages->vehicle_id = $vehicle->id;
-            $damages->exterior_grade = $request->YourExteriorGrade;
-            $damages->scratches_and_scuffs = $request->scratchesandScuffs;
-            $damages->dents = $request->dents;
-            $damages->paintwork_problems = $request->paintworkProblems;
-            $damages->windscreen_damage = $request->WindscreenDamage;
-            $damages->broken_missing = $request->brokenMissing;
-            $damages->warning_lights_on_dashboard = $request->WarningLights;
-            $damages->service_record = $request->YourServiceRecord;
-            $damages->main_dealer_services = $request->MainDealerServices;
-            $damages->independent_dealer_service = $request->IndependentDealerService;
-            $damages->save();
+
+            $interior_detail = new VehicleInterior;
+            $interior_detail->vehicle_id = $vehicle->id;
+            $interior_detail->dashboard = $request->dashboard;
+            $interior_detail->passenger_side_interior = $request->passenger_side_interior;
+            $interior_detail->driver_side_interior = $request->driver_side_interior;
+            $interior_detail->floor = $request->floor;
+            $interior_detail->ceiling = $request->ceiling;
+            $interior_detail->boot = $request->boot;
+            $interior_detail->rear_windscreen = $request->rear_windscreen;
+            $interior_detail->passenger_seat = $request->passenger_seat;
+            $interior_detail->driver_seat = $request->driver_seat;
+            $interior_detail->rear_seats = $request->rear_seats;
+            $interior_detail->save();
+            $exterior_detail = new VehicleExterior;
+            $exterior_detail->vehicle_id = $vehicle->id;
+            $exterior_detail->front_door_left = $request->front_door_left;
+            $exterior_detail->back_door_left = $request->back_door_left;
+            $exterior_detail->front_door_right = $request->front_door_right;
+            $exterior_detail->back_door_right = $request->back_door_right;
+            $exterior_detail->top = $request->top;
+            $exterior_detail->bonut = $request->bonut;
+            $exterior_detail->front = $request->front;
+            $exterior_detail->back = $request->back;
+            $exterior_detail->save();
+            // $damages = new vehicleConditionAndDamage;
+            // $damages->vehicle_id = $vehicle->id;
+            // $damages->exterior_grade = $request->YourExteriorGrade;
+            // $damages->scratches_and_scuffs = $request->scratchesandScuffs;
+            // $damages->dents = $request->dents;
+            // $damages->paintwork_problems = $request->paintworkProblems;
+            // $damages->windscreen_damage = $request->WindscreenDamage;
+            // $damages->broken_missing = $request->brokenMissing;
+            // $damages->warning_lights_on_dashboard = $request->WarningLights;
+            // $damages->service_record = $request->YourServiceRecord;
+            // $damages->main_dealer_services = $request->MainDealerServices;
+            // $damages->independent_dealer_service = $request->IndependentDealerService;
+            // $damages->save();
 
 
             $vehicle_feature_id =  implode(',', $request->vehicle_feature);
@@ -383,17 +410,17 @@ class FrontController extends Controller
             $vehicleInformation->private_plate_id =  $request->private_plate;
             $vehicleInformation->finance_id =  $request->finance;
            
-            $vehicleInformation->interior =  $request->interior;
-            $vehicleInformation->body_type =  $request->body_type;
-            $vehicleInformation->engine_size =  $request->engine_size;
-            $vehicleInformation->HPI_history_check =  $request->hpi;
-            $vehicleInformation->vin =  $request->vin;
-            $vehicleInformation->first_registered =  $request->register_date;
-            $vehicleInformation->keeper_start_date =  $request->keeper_date;
-            $vehicleInformation->last_mot_date =  $request->mot_date;
-            $vehicleInformation->previous_owners =  $request->previous_owner;
-            $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
-            $vehicleInformation->additional_information =  $request->additional;
+            // $vehicleInformation->interior =  $request->interior;
+            // $vehicleInformation->body_type =  $request->body_type;
+            // $vehicleInformation->engine_size =  $request->engine_size;
+            // $vehicleInformation->HPI_history_check =  $request->hpi;
+            // $vehicleInformation->vin =  $request->vin;
+            // $vehicleInformation->first_registered =  $request->register_date;
+            // $vehicleInformation->keeper_start_date =  $request->keeper_date;
+            // $vehicleInformation->last_mot_date =  $request->mot_date;
+            // $vehicleInformation->previous_owners =  $request->previous_owner;
+            // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
+            // $vehicleInformation->additional_information =  $request->additional;
            
             $vehicleInformation->save();
 
@@ -435,6 +462,9 @@ class FrontController extends Controller
 
     public function photoUpload(Request $request)
     {
+        $request->validate([
+            'millage' => 'required',
+      ]);
         $data = $request;
     $logging_cond = Auth::user();
     if(!isset($logging_cond)){

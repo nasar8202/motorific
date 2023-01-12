@@ -71,13 +71,14 @@ class DealerChargesController extends Controller
         return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','current','pricing'));
         }
     }
-    public function sellerRequestedDetails($id)
-    {
+    public function sellerRequestedDetails($slug,$id)
+    {   
+        $role = $slug;
       
         $user_id = Auth::user()->id;
-       $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
-       $pricing = OrderVehicleRequest::where('vehicle_id',$id)->first();
-        //   dd($pricing);
+        $charges =  DealerWinningCharges::where('user_id',$user_id)->where('vehicle_id',$id)->first();
+        $pricing = OrderVehicleRequest::where('vehicle_id',$id)->first();
+        
        $charges_fee = VehicleWinningCharges::where('status',1)
        ->where('price_to','>=',$pricing->request_price)
        ->where('price_from','<=',$pricing->request_price)
@@ -87,7 +88,7 @@ class DealerChargesController extends Controller
             $charges_payment = $charges_fee->fee;
 
             
-            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id'))->with('error','First You Need To Pay');
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id','role'))->with('error','First You Need To Pay');
            
         }
         else{
@@ -98,7 +99,7 @@ class DealerChargesController extends Controller
             $pricing = OrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
             
             
-        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','pricing','current'));
+        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','role','pricing','current'));
         }
     }
 
@@ -109,7 +110,6 @@ class DealerChargesController extends Controller
     }
     public function stripePayment(Request $request)
     {
-      
       $user_email =Auth::user()->email;
       $amount =(int)100* $request->amount;
       Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -124,7 +124,11 @@ class DealerChargesController extends Controller
      $chargesDetails = new DealerWinningCharges;
      $user_id = Auth::user()->id;
      $chargesDetails->user_id = $user_id;
+     if($request->role == 'dealer'){
+      $chargesDetails->dealer_vehicle_id = $request->vehicleId;
+     }else{
      $chargesDetails->vehicle_id = $request->vehicleId;
+     }
      $chargesDetails->vehicle_charges = $amount;
      $chargesDetails->status = 1;
      $chargesDetails->save();
@@ -142,19 +146,34 @@ class DealerChargesController extends Controller
     }
 
     public function reviewForCancel(Request $request)
-    {
+    {   
+
         DB::beginTransaction();
         try{
         $cancel = new CanceledRequestReviews;
         $cancel->user_id = $request->user_id;
+        if($request->role == 'dealer'){
+        $cancel->dealer_vehicle_id = $request->vehicle_id;   
+        }
+        else{
         $cancel->vehicle_id = $request->vehicle_id;
+        }
         $cancel->order_requests_id = $request->order_id;
         $cancel->reviews = $request->reviews;
         $cancel->status = 1;
         $cancel->save();
+        if($request->role == 'seller'){
+        
         $pricing = OrderVehicleRequest::where('id',$request->order_id)->first();
         $pricing->status = 2;
         $pricing->save();
+        }
+        else{
+        
+        $pricing = DealersOrderVehicleRequest::where('id',$request->order_id)->first();
+        $pricing->status = 2;
+        $pricing->save(); 
+        }
         }catch(\Exception $e)
         {
         DB::rollback();
@@ -175,10 +194,22 @@ class DealerChargesController extends Controller
         return redirect()->route('CompletedRequestedVehicle')->with('success','Meeting Has Been Schedule');
      
     }
-    public function ownerDealerRequestedDetails($id)
+    public function ownerScheduleMeeting(Request $request)
     {
+        $meeting = DealersOrderVehicleRequest::where('id',$request->order_id)->first();
+        $meeting->meeting_date_time = $request->date_time;
+        $meeting->save();
+        return redirect()->route('CompletedRequestedVehicle')->with('success','Meeting Has Been Schedule');
+     
+    }
+    public function ownerDealerRequestedDetails($slug,$id)
+    {
+        $role = $slug;
+        
         $user_id = Auth::user()->id;
-       $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
+        
+       $charges =  DealerWinningCharges::where('user_id',$user_id)->where('vehicle_id',$id)->first();
+       
        $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->first();
         //   dd($pricing);
        $charges_fee = VehicleWinningCharges::where('status',1)
@@ -190,7 +221,7 @@ class DealerChargesController extends Controller
             $charges_payment = $charges_fee->fee;
 
             
-            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id'))->with('error','First You Need To Pay');
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id','role'))->with('error','First You Need To Pay');
            
         }
         else{
@@ -201,7 +232,7 @@ class DealerChargesController extends Controller
             $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
             
             
-        return view('frontend.dealer.sellerDetails.ownerDealerDetail',compact('user','allVehicles','pricing','current'));
+        return view('frontend.dealer.sellerDetails.ownerDealerDetail',compact('user','allVehicles','pricing','current','role'));
         }
     }
     

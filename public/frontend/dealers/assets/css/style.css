@@ -416,6 +416,7 @@ header.header {
 .description-box .item-img img {
     width: 100%;
     height: 100%;
+    object-fit:cover;
 }
 .description-box .item-descp{
     font-weight: 500;
@@ -1156,3 +1157,50 @@ div#next, div#next-ext {
 .parts-hide-show input:checked {
     background: #05eab5;
 }
+
+
+/*Css By As*/
+.upload-img-btn {
+    position: relative;
+    visibility: hidden;
+}
+
+.upload-img-btn:before {
+    content: '';
+    visibility: visible;
+    width: 95px;
+    height: 95px;
+    background: url(https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/gallery-img1.png);
+    display: block;
+    border-radius: 10px;
+    background-size: 100% 100%;
+}
+
+.upload-img-wraper {
+    display: flex;
+    align-items: center;
+    grid-gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.upload-img-wraper .image-box {
+    max-width: 90px;
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px #f1f1f1;
+}
+
+.upload-img-wraper .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.upload-img-wraper p.upload-imgErros {
+    color: #e11414;
+    font-weight: 600;
+}
+/*End*/

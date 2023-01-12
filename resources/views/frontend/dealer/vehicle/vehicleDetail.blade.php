@@ -58,12 +58,12 @@
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-gift"></i> Specification</h4>
                             <ul>
-                                <li>Exterior <span> <i class="circleI" style="background:blue;"></i> {{$vehicle->vehicle_color}}</span></li>
-                                <li>Interior <span>{{$vehicle->vehicleInformation->interior}}</span></li>
-                                <li>Body Type <span>{{$vehicle->vehicleInformation->body_type}}</span></li>
-                                <li>Transmission <span>{{$vehicle->vehicle_type}}</span></li>
+                                {{-- <li>Exterior <span> <i class="circleI" style="background:blue;"></i> {{$vehicle->vehicle_color}}</span></li> --}}
+                                {{-- <li>Interior <span>{{$vehicle->vehicleInformation->interior}}</span></li> --}}
+                                {{-- <li>Body Type <span>{{$vehicle->vehicleInformation->body_type}}</span></li> --}}
+                                {{-- <li>Transmission <span>{{$vehicle->vehicle_type}}</span></li> --}}
                                 <li>Fuel <span>{{$vehicle->vehicle_tank}}</span></li>
-                                <li>Engine Size <span>{{$vehicle->vehicleInformation->engine_size}}</span></li>
+                                {{-- <li>Engine Size <span>{{$vehicle->vehicleInformation->engine_size}}</span></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -71,17 +71,17 @@
                         <div class="bottomListTitle">
                             <h4><i class="far fa-copy"></i> Vehicle Details</h4>
                             <ul>
-                                <li>HPI history check <span><i class="fas fa-exclamation-triangle"></i> {{$vehicle->vehicleInformation->HPI_history_check}}</span></li>
+                                {{-- <li>HPI history check <span><i class="fas fa-exclamation-triangle"></i> {{$vehicle->vehicleInformation->HPI_history_check}}</span></li>
                                 <li>Registration <span>{{$vehicle->vehicle_registartion_number}}</span></li>
                                 <li>VIN <span>{{$vehicle->vehicleInformation->vin}}</span></li>
                                 <li>First Registered<span>{{$vehicle->vehicleInformation->first_registered}}</span></li>
                                 <li>Keeper Start Date<span>{{$vehicle->vehicleInformation->keeper_start_date}}</span></li>
                                 <li>Last MOT Date<span>{{$vehicle->vehicleInformation->last_mot_date}}</span></li>
-                                <li>Previous Owners<span>{{$vehicle->vehicleInformation->previous_owners}}</span></li>
+                                <li>Previous Owners<span>{{$vehicle->vehicleInformation->previous_owners}}</span></li> --}}
                                 <li>Number of Keys<span>{{$number_of_keys->number_of_key}}</span></li>
                                 <li>On Finance<span>{{$finance->title}}</span></li>
                                 <li>Private Plate<span>{{$privateplate->title}}</span></li>
-                                <li>Seller Keeping Plate<span>{{$vehicle->vehicleInformation->seller_keeping_plate}}</span></li>
+                                {{-- <li>Seller Keeping Plate<span>{{$vehicle->vehicleInformation->seller_keeping_plate}}</span></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                             </ul>
                         </div>
                     </div> --}}
-                    <div class="bottomList">
+                    {{-- <div class="bottomList">
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-bolt"></i> Condition and damage</h4>
                             <ul>
@@ -111,6 +111,38 @@
                                 <li>Service record <span>{{$damage->service_record}}</span></li>
                                 <li>Main dealer services <span>{{$damage->main_dealer_services}}</span></li>
                                 <li>Independent dealer service <span>{{$damage->independent_dealer_service}}</span></li>
+                            </ul>
+                        </div>
+                    </div> --}}
+                    <div class="bottomList">
+                        <div class="bottomListTitle">
+                            <h4><i class="fas fa-bolt"></i>Interior Information</h4>
+                            <ul>
+                                <li>Dashboard<span>{{$interior->dashboard ?? 'No Damage' }}</span></li>
+                                <li>Passenger Side Interior <span>{{$interior->passenger_side_interior ?? 'No Damage'}}</span></li>
+                                <li>Driver Side Interior<span>{{$interior->driver_side_interior ?? 'No Damage'}}</span></li>
+                                <li>Floor<span>{{$interior->floor ?? 'No Damage'}}</span></li>
+                                <li>Ceiling <span>{{$interior->ceiling ?? 'No Damage'}}</span></li>
+                                <li>Boot<span>{{$interior->boot ?? 'No Damage'}}</span></li>
+                                <li>Rear Windscreen<span>{{$interior->rear_windscreen ?? 'No Damage'}}</span></li>
+                                <li>Passenger Seat<span>{{$interior->passenger_seat ?? 'No Damage'}}</span></li>
+                                <li>Driver Seat <span>{{$interior->driver_seat ?? 'No Damage'}} </span></li>
+                                <li>Rear Seats<span>{{$interior->rear_seats ?? 'No Damage'}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bottomList">
+                        <div class="bottomListTitle">
+                            <h4><i class="fas fa-bolt"></i>Exterior Information</h4>
+                            <ul>
+                                <li>Front Door Left<span>{{$exterior->front_door_left ?? 'No Damage' }}</span></li>
+                                <li>Back Door Left <span>{{$exterior->back_door_left ?? 'No Damage'}}</span></li>
+                                <li>Front Door Right<span>{{$exterior->front_door_right ?? 'No Damage'}}</span></li>
+                                <li>Back Door Right<span>{{$exterior->back_door_right	 ?? 'No Damage'}}</span></li>
+                                <li>Top <span>{{$exterior->top ?? 'No Damage'}}</span></li>
+                                <li>Bonut<span>{{$exterior->bonut ?? 'No Damage'}}</span></li>
+                                <li>Front<span>{{$exterior->front ?? 'No Damage'}}</span></li>
+                                <li>Back<span>{{$exterior->back ?? 'No Damage'}}</span></li>
                             </ul>
                         </div>
                     </div>

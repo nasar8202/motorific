@@ -187,7 +187,7 @@ $(document).ready(function(){
         var id = $('.meeting').attr("data-id");
          $.ajax({
 
-            url: '{{route("orderRequestMeeting")}}',
+            url: '{{route("dealerOrderRequestMeeting")}}',
             type: 'get',
             
             data: {id:id},

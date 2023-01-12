@@ -53,7 +53,7 @@
                                     <div class="collapse" id="myCollapse{{$Order->id}}">
                                         <div class="card card-body " style="width: 40%;float: right;" >
                                             <ul>
-                                                <li><a href="{{route('sellerRequestedDetails',$Order->vehicle->id)}}"> Seller's Details</a></li>
+                                                <li><a href="{{route('sellerRequestedDetails',['slug'=>"seller",'id'=>$Order->vehicle->id])}}"> Seller's Details</a></li>
                                                 {{-- <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li> --}}
                                             </ul>
                                         </div>
@@ -71,6 +71,7 @@
                     <div class="row">
                         <h4>Completed Dealers To Dealer Vehicle</h4>
                            @forelse ($dealerOrders as $dealerOrder)
+                           {{-- @dd($dealerOrder) --}}
                           <div class="col-sm-4 vec-box p-0" style="padding: 10px;"> <a href="{{route('completedDealersVehicleDetail',$dealerOrder->vehicle->id)}}"><img src="{{ asset('uploads/dealerVehicles/exterior/'. $dealerOrder->vehicle->DealerVehicleExterior[0]->exterior_image) }}" width="300px" height="200px">  </a></div>
                          <div class="col-sm-8 vec-box p-0" style="padding: 10px">
                                <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $dealerOrder->vehicle->vehicle_registartion_number }}</span></h1>
@@ -90,7 +91,7 @@
                                        <div class="collapse" id="myCollapse{{$dealerOrder->id}}">
                                            <div class="card card-body " style="width: 40%;float: right;" >
                                                <ul>
-                                                   <li><a href="{{route('ownerDealerRequestedDetails',$dealerOrder->vehicle->id)}}"> Seller's Details</a></li>
+                                                   <li><a href="{{route('ownerDealerRequestedDetails',['slug'=>"dealer",'id'=>$dealerOrder->vehicle->id])}}"> Seller's Details</a></li>
                                                    {{-- <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li> --}}
                                                </ul>
                                            </div>

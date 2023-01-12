@@ -196,6 +196,15 @@
             
         </a>
     </li>
+    {{-- <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
+        
+        <a href="{{route('viewMeeting')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Meetings </span>
+            
+            
+        </a>
+    </li> --}}
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>
             <div class="icon dripicons-exit"></div>

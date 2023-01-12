@@ -17,6 +17,7 @@ class CreateCanceledRequestReviewsTable extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('vehicle_id')->nullable();
+            $table->string('dealer_vehicle_id')->nullable();
             $table->string('order_requests_id')->nullable();
             $table->longText('reviews')->nullable();
             $table->string('status')->nullable();

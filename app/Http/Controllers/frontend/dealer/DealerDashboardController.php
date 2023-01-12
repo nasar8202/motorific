@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
 use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
+use App\Models\VehicleExterior;
+use App\Models\VehicleInterior;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
 use App\Models\OrderVehicleRequest;
@@ -170,7 +172,7 @@ class DealerDashboardController extends Controller
     public function myVehicles()
     {
       $user_id = Auth::user()->id;
-      $vehicles = DealerVehicle::Where('status',1)->where('user_id',$user_id)
+      $vehicles = DealerVehicle::where('user_id',$user_id)
       ->with('DealerAdvertVehicleDetail')
       ->with('DealerVehicleExterior')
       ->with('DealerVehicleHistory')
@@ -183,21 +185,38 @@ class DealerDashboardController extends Controller
         return view('frontend.dealer.vehicle.myVehicle',compact('vehicles','vehiclesCount'));
 
     }
+    public function orderOnMyVehicle($id)
+    {
+       $orders =  DealersOrderVehicleRequest::where('vehicle_id',$id)->get();
+      
+        return view('frontend.dealer.vehicle.ordersOnMyVehicle',compact('orders'));
+
+    }
+    public function dealerMeetingStatus(Request $request)
+    {
+      $meetingStatus = DealersOrderVehicleRequest::where('id',$request->id)->first();
+        
+      $meetingStatus->meeting_status = $request->status;
+      $meetingStatus->save();
+      
+      return redirect()->back()->with('success', 'Meeting Status Updated Successfully!');
+     }
     public function CancelRequestedVehicle()
     {
       
       $user_id = Auth::user()->id;
-      $canceled = CanceledRequestReviews::where('status',1)->where('user_id',$user_id)->with('user')->with('order')->with('vehicle.VehicleImage')->get();
-
+      $canceled = CanceledRequestReviews::where('dealer_vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('order')->with('vehicle.VehicleImage')->get();
+      $canceledDealer = CanceledRequestReviews::where('vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('dealerOrder')->with('dealerVehicle.DealerVehicleExterior')->get();
+      
       $countcanceled = count($canceled);
 
-        return view('frontend.dealer.vehicle.CancelledRequestedVehicle',compact('canceled','countcanceled'));
+        return view('frontend.dealer.vehicle.CancelledRequestedVehicle',compact('canceled','countcanceled','canceledDealer'));
 
     }
     public function CancelledBiddedOfferVehicle()
     {
         $user_id = Auth::user()->id;
-
+      
         $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
 
                                 ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
@@ -889,7 +908,8 @@ die();
 
         $vehicle_info = vehicleInformation::where('vehicle_id',$id)->first();
         $damage = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
-
+        $exterior = VehicleExterior::where('vehicle_id',$id)->first();
+        $interior = VehicleInterior::where('vehicle_id',$id)->first();
 
         $vehcile_info_feature_id = explode(',' ,$vehicle_info->vehicle_feature_id);
 
@@ -903,7 +923,7 @@ die();
              
 
 
-        return view('frontend.dealer.vehicle.vehicleDetail',compact('vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
+        return view('frontend.dealer.vehicle.vehicleDetail',compact('exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
     }
     public function dashboard()
     {
