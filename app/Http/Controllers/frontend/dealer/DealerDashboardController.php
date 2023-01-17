@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\frontend\dealer;
 
-use DB;
 use App\Models\Finance;
 use App\Models\Smoking;
 use App\Models\Vehicle;
@@ -22,6 +21,7 @@ use App\Models\VehicleExterior;
 use App\Models\VehicleInterior;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
+use Illuminate\Support\Facades\DB;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
@@ -443,6 +443,7 @@ class DealerDashboardController extends Controller
             ->where('previous_owners', '<=', $request->previousOwnersPro)
             ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
             ->where('vehicle_tank',$request->fuelType)
+            ->where('status',1)
             ->with('vehicleInformation')
             ->with('VehicleImage')->get();
            //dd($age_milage_price_filter);
@@ -462,6 +463,7 @@ class DealerDashboardController extends Controller
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                //dd($age_milage_price_filter);
@@ -481,6 +483,7 @@ class DealerDashboardController extends Controller
                     ->where('vehicle_price', '<=', $range[1])
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
                    //dd($fuel_age_milage_price_filter);
@@ -499,11 +502,32 @@ class DealerDashboardController extends Controller
                     ->where('previous_owners', '<=', $request->previousOwnersPro)
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
                    //dd($fuel_age_milage_price_filter);
                       return $fuel_age_milage_owner_filter;
                  break;
+                 
+                 //new
+                 case($request->fuelType &&  $request->range && $request->previousOwnersPro && $request->agePro ):
+
+                  $current_year = date("Y");
+                  $total = $current_year - $request->agePro;
+                  $range = explode('-',$request->range);
+
+                  $fuel_age_range_owner_filter = Vehicle::where('vehicle_tank',$request->fuelType)
+                  ->where('previous_owners', '<=', $request->previousOwnersPro)
+                  ->where('vehicle_price', '>=', $range[0])
+                  ->where('vehicle_price', '<=', $range[1])
+                  ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                  ->where('status',1)
+                  ->with('vehicleInformation')
+                  ->with('VehicleImage')->get();
+                 //dd($fuel_age_milage_price_filter);  
+                 return $fuel_age_range_owner_filter;
+                    
+               break;
 
 
         //    age milage and price filter combine case
@@ -515,8 +539,9 @@ class DealerDashboardController extends Controller
 
                 $age_milage_price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
-                ->where('vehicle_mileage','<=',$request->mileAgePro)->
-                with('vehicleInformation')
+                ->where('vehicle_mileage','<=',$request->mileAgePro)
+                ->where('status',1)
+                ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                //dd($age_milage_price_filter);
                   return $age_milage_price_filter;
@@ -532,6 +557,7 @@ class DealerDashboardController extends Controller
                 ->where('vehicle_price', '<=', $range[1])
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                //dd($age_milage_price_filter);
@@ -550,6 +576,7 @@ class DealerDashboardController extends Controller
                 ->where('vehicle_price', '<=', $range[1])
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                //dd($age_milage_price_filter);
@@ -567,6 +594,7 @@ class DealerDashboardController extends Controller
                 $owner_milage_price_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                //dd($age_milage_price_filter);
@@ -583,6 +611,7 @@ class DealerDashboardController extends Controller
                     $fuel_owner_age_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                     ->where('previous_owners', '<=', $request->previousOwnersPro)
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
 
@@ -598,6 +627,7 @@ class DealerDashboardController extends Controller
                     $fuel_owner_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('previous_owners', '<=', $request->previousOwnersPro)
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
 
@@ -614,6 +644,7 @@ class DealerDashboardController extends Controller
                         ->where('vehicle_price', '>=', $range[0])
                         ->where('vehicle_price', '<=', $range[1])
                         ->where('previous_owners', '<=', $request->previousOwnersPro)
+                        ->where('status',1)
                         ->with('vehicleInformation')
                         ->with('VehicleImage')->get();
 
@@ -630,6 +661,7 @@ class DealerDashboardController extends Controller
                         $fuel_owner_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                         ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                         ->where('vehicle_mileage','<=',$request->mileAgePro)
+                        ->where('status',1)
                         ->with('vehicleInformation')
                         ->with('VehicleImage')->get();
 
@@ -648,6 +680,7 @@ class DealerDashboardController extends Controller
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                     ->where('vehicle_price', '>=', $range[0])
                     ->where('vehicle_price', '<=', $range[1])
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
 
@@ -664,6 +697,7 @@ class DealerDashboardController extends Controller
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('vehicle_price', '>=', $range[0])
                     ->where('vehicle_price', '<=', $range[1])
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
 
@@ -679,8 +713,9 @@ class DealerDashboardController extends Controller
                 $total = $current_year - $request->agePro;
 
                 $age_milage_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
-                ->where('vehicle_mileage','<=',$request->mileAgePro)->
-                with('vehicleInformation')
+                ->where('vehicle_mileage','<=',$request->mileAgePro)
+                ->where('status',1)
+                ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
                   return $age_milage_filter;
@@ -693,8 +728,9 @@ class DealerDashboardController extends Controller
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
                 $age_price_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
-                ->where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->
-                with('vehicleInformation')
+                ->where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                ->where('status',1)
+                ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
                   return $age_price_filter;
@@ -706,7 +742,9 @@ class DealerDashboardController extends Controller
 
                 $range = explode('-',$request->range);
                 $milage_price_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->
-                where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->with('vehicleInformation')
+                where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                ->where('status',1)
+                ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
                 return $milage_price_filter;
@@ -719,6 +757,7 @@ class DealerDashboardController extends Controller
 
                     $previous_milage_filter =Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
 
@@ -735,6 +774,7 @@ class DealerDashboardController extends Controller
                 $previous_age_filter =Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('vehicle_year', '>=', $total)
                 ->where('vehicle_year', '<=', $current_year)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
@@ -750,6 +790,7 @@ class DealerDashboardController extends Controller
                 $previous_price_filter =Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('vehicle_price', '>=', $range[0])
                 ->where('vehicle_price', '<=', $range[1])
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
@@ -764,6 +805,7 @@ class DealerDashboardController extends Controller
 
                 $fuel_owner_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
@@ -779,6 +821,7 @@ class DealerDashboardController extends Controller
                 $fuel_age_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('vehicle_year', '>=', $total)
                 ->where('vehicle_year', '<=', $current_year)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
@@ -794,6 +837,7 @@ class DealerDashboardController extends Controller
 
                 $fuel_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
@@ -809,6 +853,7 @@ class DealerDashboardController extends Controller
 
                     $fuel_price_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                     ->where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                    ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->get();
 
@@ -821,7 +866,7 @@ class DealerDashboardController extends Controller
             case($request->range):
 
                 $range = explode('-',$request->range);
-                $price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->with('vehicleInformation')
+                $price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->where('status',1)->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                 return $price_filter;
             break;
@@ -830,7 +875,7 @@ class DealerDashboardController extends Controller
             // milage range filter case
             case($request->mileAgePro):
 
-                $milage_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->with('vehicleInformation')
+                $milage_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->where('status',1)->with('vehicleInformation')
                 ->with('VehicleImage')->get();
                 return $milage_filter;
             break;
@@ -840,7 +885,7 @@ class DealerDashboardController extends Controller
               $current_year = date("Y");
               $total = $current_year - $request->agePro;
 
-              $age_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->with('vehicleInformation')
+              $age_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->where('status',1)->with('vehicleInformation')
               ->with('VehicleImage')->get();
 
                 return $age_filter;
@@ -852,6 +897,7 @@ class DealerDashboardController extends Controller
 
 
                 $previous_owners = Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
@@ -868,6 +914,7 @@ class DealerDashboardController extends Controller
 
 
                 $fuel_type = Vehicle::where('vehicle_tank',$request->fuelType)
+                ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->get();
 
@@ -882,7 +929,7 @@ die();
 
         // dd($request->all());
 
-        dd($range[0]);
+        // dd($range[0]);
         if($request->milage){
             $milage = $request->milage;
             $milage_filter = Vehicle::where('vehicle_mileage','<=', $milage)->with('vehicleInformation')
@@ -1036,6 +1083,16 @@ die();
            
 
       return view('frontend.dealer.vehicle.completedDealerVehicleDetail',compact('vehicle','order'));
+    }
+    public function didNotWinSearch(Request $request){
+    // dd($request->all());
+    $user_id = Auth::user()->id;
+
+    $bids = BidedVehicle::where('user_id',$user_id)->get();
+    foreach($bids as $bid){
+      $vehicle[] = Vehicle::where('id',$bid->vehicle_id)->Where('status',1)->Where('vehicle_name', 'like', '%' . $request->search . '%')->orWhere('vehicle_registartion_number', 'like', '%' . $request->search . '%')->with('vehicleInformation')->with('bid')->with('VehicleImage')->first();
+    }
+    return array_unique($vehicle);
   }
 }
 
