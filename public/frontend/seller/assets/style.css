@@ -725,6 +725,7 @@ section.sec-8 {
     background: url(image/PU-sec-1.png);
     background-repeat: no-repeat;
     background-position: right;
+    background-size: cover;
     width: 100%;
     height: 100%;
     top: 0;
@@ -1248,6 +1249,7 @@ section.photo-up-sec-2 {
 }
 .personal-info-form-btn{
     margin-top:50px;
+    
 }
 .personal-info-form-btn button {
     width: auto;
@@ -1791,7 +1793,7 @@ i.circleI {
     border-color:#000;
 }
 .logo-navlinks .dropdown a {
-    color: inherit;
+    color: #000;
     border-bottom: 1px solid #e3e3e3;
     display: block;
     padding-bottom: 5px;
@@ -1891,6 +1893,7 @@ form.rowFormTn  .personal-info-form-btn.photo-up-sec-2-box-btn {
 }
 .filterIn a {
     text-decoration: none;
+    color: #000;
 }
 
 /*hamza css */
@@ -2007,4 +2010,19 @@ div#next, div#next-ext {
     background: #05eab5;
     color: #fff;
 }
+header .nav-link, header .nav-link:hover {
+    color: #fff;
+}
+
+.photo-up-sec-1 h1 {
+    color: #fff;
+}
+.sec-7-bg-img input:focus {
+    outline: none;
+}
+header .nav-link:focus, .nav-link:hover {
+    color: #fff;
+}
+
 /*hamza css */
+

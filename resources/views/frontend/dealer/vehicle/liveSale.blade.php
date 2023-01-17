@@ -71,7 +71,7 @@ div#filter-price {
   </div>
 
 </div> --}}
-<section class="sec-2 productPageTn">
+<section class="sec-2 productPageTn hm-live-sell">
     
     <input type="hidden" id="path" value="{{ asset('')}}">
 <div class="container">

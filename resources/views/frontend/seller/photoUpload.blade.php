@@ -175,7 +175,7 @@ display: block;
                             <input type="hidden"  class="userId" name="user_id" value="{{$user->id}}">
                         
                         </div>
-                        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
+                        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr">
                             <button type="button" id="updateInfo">CONFIRM</button>
                         </div>
                     </div>
