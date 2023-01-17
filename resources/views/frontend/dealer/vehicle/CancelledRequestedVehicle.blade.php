@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
-                        <label for="usr">Search Purchases Vehcle:</label>
-                        <input type="text" placeholder="Search in Complete" class="form-control" id="usr">
+                        {{-- <label for="usr">Search Purchases Vehcle:</label>
+                        <input type="text" placeholder="Search in Complete" class="form-control" id="usr"> --}}
                         <br>
                         <p>{{ $countcanceled  }}<span style="margin: 5px">Results</span></p>
                     </div>

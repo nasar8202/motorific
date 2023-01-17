@@ -369,7 +369,11 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/update-my-amount', [OrderVehicleRequestController::class,'updateAmount'])->name('updateAmount');
     Route::post('/dealer-vehicle-request', [DealerOrderRequestController::class,'orderVehicleRequest'])->name('orderVehicleRequest');
     Route::get('/dealer-vehicle-request-cancel/{id}', [DealerOrderRequestController::class,'cancelDealerRequest'])->name('cancelDealerRequest');
+    //search routes
+    Route::get('/did-not-win-search', [DealerDashboardController::class,'didNotWinSearch'])->name('didNotWinSearch');
     
+
+
     //
     Route::get('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealer'])->name('dealer.addVehicleToSellFromDealer');
     Route::post('/add-vehicle-to-sell', [AddDealerVehicleController::class,'addVehicleToSellFromDealerPost'])->name('dealer.addVehicleToSellFromDealerPost');

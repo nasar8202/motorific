@@ -2,15 +2,16 @@
 
 namespace App\Console\Commands;
 
-use Mail;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\BidedVehicle;
+use App\Models\VehicleImage;
 use Illuminate\Console\Command;
 use App\Mail\WinnerBiddedPerson;
 use Illuminate\Support\Facades\DB;
-use App\Models\VehicleImage;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class SellVehicleCron extends Command
 {
@@ -87,7 +88,7 @@ class SellVehicleCron extends Command
             }
 
         }else{
-               \Log::info("error1");
+               Log::info("error1");
            }
 
 

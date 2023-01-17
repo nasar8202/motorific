@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\BidedVehicle;
 use App\Models\vehicleInformation;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\vehicleConditionAndDamage;
@@ -35,6 +36,13 @@ class Vehicle extends Model
     {
 
         return $this->hasOne(vehicleConditionAndDamage::class,'vehicle_id','id');
+
+    }
+    public function bid()
+
+    {
+
+        return $this->hasOne(BidedVehicle::class,'vehicle_id','id');
 
     }
 }
