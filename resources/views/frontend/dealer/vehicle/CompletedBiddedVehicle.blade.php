@@ -50,7 +50,7 @@
                                     <div class="collapse" id="myCollapse{{$bid->id}}">
                                         <div class="card card-body " style="width: 40%;float: right;" >
                                             <ul>
-                                                <li><a href="{{route('sellerDetails',$bid->id)}}"> Seller's Details</a></li><br>
+                                                <li><a href="{{route('sellerDetails',['slug'=>"seller",'id'=>$bid->id])}}"> Seller's Details</a></li><br>
                                                 <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li>
                                             </ul>
                                         </div>

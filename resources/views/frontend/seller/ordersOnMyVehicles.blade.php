@@ -193,11 +193,11 @@ display: block;
                                     </div>
                                 </div>
                                </div>
+                            </td>
                                     @else
                                
-                                    <span class="btn btn-info">Not Sold User</span>
-                                 </td>
-                                 @endif
+                                 <td>   <span class="btn btn-info">Not Sold User</span>
+                                 </td>@endif
                                 @empty
                                 <td>No Order Found On This Vehicle</td>
                               

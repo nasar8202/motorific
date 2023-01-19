@@ -17,6 +17,13 @@ class DealerWinningCharges extends Model
         return $this->hasOne(Vehicle::class,'id','vehicle_id');
 
     }
+    public function dealerVehicle()
+
+    {
+
+        return $this->hasOne(dealerVehicle::class,'id','dealer_vehicle_id');
+
+    }
     public function User()
 
     {

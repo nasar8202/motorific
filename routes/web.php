@@ -243,7 +243,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
           // bidding
      Route::get('/all-bidding-vehicle', [BidVehicleController::class,'allBiddingVehicle'])->name('allBiddingVehicle');
      Route::get('/single-bid/{id}', [BidVehicleController::class,'singleBid'])->name('singleBid');
-
+     Route::get('/bid-meeting', [BidVehicleController::class,'bidMeeting'])->name('bidMeeting');
+     Route::get('/approve-bid/{id}', [BidVehicleController::class,'approveBid'])->name('approveBid');
      // end bidding
 
      //live sell
@@ -257,7 +258,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/show-card-details', [AdminDealerChargesController::class,'cardDetailsShowAdmin'])->name('cardDetailsShowAdmin');
      Route::get('/dealer-details-from-charges/{id}', [AdminDealerChargesController::class,'viewDealerDetailsFromCharges'])->name('viewDealerDetailsFromCharges');
      Route::get('/dealer-details-accepted/{id}', [AdminDealerChargesController::class,'cardDetailsAccept'])->name('cardDetailsAccept');
-
+     Route::get('/dealer-card-details/{id}', [AdminDealerChargesController::class,'dealerCardDetails'])->name('dealerCardDetails');
      //show dealer card detail end
 
      //pricing start
@@ -315,6 +316,7 @@ Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehi
 Route::get('/bids-on-my-vehicles/{id}', [SellerDashboardController::class,'bidsOnVehicles'])->name('bidsOnVehicles');
 Route::get('/orders-on-my-vehicles/{id}', [SellerDashboardController::class,'ordersOnVehicles'])->name('ordersOnVehicles');
 Route::post('/meeting-status', [SellerDashboardController::class,'meetingStatus'])->name('meetingStatus');
+Route::post('/meeting-bid-status', [SellerDashboardController::class,'meetingBidStatus'])->name('meetingBidStatus');
 Route::get('/my-profile', [SellerDashboardController::class,'myProfile'])->name('myProfile');
 Route::post('/update-my-profile/{id}', [SellerDashboardController::class,'updateMyProfile'])->name('updateMyProfile');
 Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updateMyPassword'])->name('updateMyPassword');
@@ -383,7 +385,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');
     
-    Route::get('/seller-details/{id}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
+    Route::get('/seller-details/{bided}/{id}/{slug}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
     Route::get('/seller-requested-details/{slug}/{id}', [DealerChargesController::class, 'sellerRequestedDetails'])->name('sellerRequestedDetails');
     Route::get('/dealer-owner-requested-details/{slug}/{id}', [DealerChargesController::class, 'ownerDealerRequestedDetails'])->name('ownerDealerRequestedDetails');
     

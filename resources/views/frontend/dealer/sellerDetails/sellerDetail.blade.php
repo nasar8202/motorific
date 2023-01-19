@@ -41,7 +41,8 @@
                             <input type="hidden" name="user_id" value="{{$current}}">
                             <input type="hidden" name="role" value="{{$role}}">
                             
-                            <input type="hidden" name="order_id" value="{{$pricing->id}}">
+                            <input type="hidden" name="bided" value="{{$bided ??''}}">
+                                                        <input type="hidden" name="order_id" value="{{$pricing->id}}">
                             <textarea class="form-control" name="reviews" id="exampleFormControlTextarea1" rows="3"></textarea>
                         <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>  
                     </form>    
@@ -55,6 +56,7 @@
                         
                         <span>Schedule Your Date With Seller ?</span>
                         <input type="hidden" name="order_id" value="{{$pricing->id}}">
+                        <input type="hidden" name="bided" value="{{$bided ??''}}">
                         <input type="datetime-local" class="form-control mt-4" name="date_time" required >
                         <br><button type="submit" class="btn btn-info mt-4 float-left">Schedule Meeting</button> 
                         

@@ -108,7 +108,7 @@ display: block;
         <p> {{$res['basic_vehicle_info']['derivative_desc']}}</p>
         <div class="chart">
             <ul>
-                <li>{{$res['basic_vehicle_info']['first_registration_date']}}</li>
+                <li>{{date("Y",strtotime($res['basic_vehicle_info']['first_registration_date']))}}</li>
                 <li>{{$check_millage}} Millage</li>
                 <li>{{$res['basic_vehicle_info']['colour']}}</li>
                 <li>{{$res['basic_vehicle_info']['autotrader_body_type_desc']}}</li>
@@ -173,7 +173,7 @@ display: block;
                             <h4>Phone Number</h4>
                             <input type="number" placeholder="Enter Phone" class="number" name="number" value="{{$user->phone_number}}">
                             <input type="hidden"  class="userId" name="user_id" value="{{$user->id}}">
-                        
+                            
                         </div>
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
                             <button type="button" id="updateInfo">CONFIRM</button>
@@ -214,7 +214,7 @@ display: block;
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Year</h4>
-                            <input type="text" placeholder="Vehicle Year" class="VehicleYear" name="VehicleYear" value="{{$res['basic_vehicle_info']['first_registration_date']}}">
+                            <input type="year" placeholder="Vehicle Year" class="VehicleYear" name="VehicleYear" value="{{date("Y",strtotime($res['basic_vehicle_info']['first_registration_date']))}}">
                             @if ($errors->has('VehicleYear'))
                             <span class="text-danger">{{ $errors->first('VehicleYear') }}</span>
                         @endif
@@ -249,7 +249,8 @@ display: block;
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Price</h4>
-                            <input type="number" placeholder="Vehicle Price" class="VehiclePrice" name="VehiclePrice" value="{{$milage['retail_valuation']}}">
+                            
+                            <input type="number" placeholder="Vehicle Price" class="VehiclePrice" name="VehiclePrice" value="{{$milage['retail_valuation'] ?? 0}}">
                             @if ($errors->has('VehiclePrice'))
                             <span class="text-danger">{{ $errors->first('VehiclePrice') }}</span>
                         @endif
