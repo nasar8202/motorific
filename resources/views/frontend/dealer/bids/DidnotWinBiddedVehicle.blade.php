@@ -13,7 +13,7 @@
 <!-- MultiStep Form -->
 <input type="hidden" id="path" value="{{ asset('')}}">
 
-<section class="sec-2 productPageTn">
+<section class="sec-2 productPageTn requested-vehicles">
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">

@@ -12,7 +12,7 @@
 
 <!-- MultiStep Form -->
 
-<section class="sec-2 productPageTn">
+<section class="sec-2 productPageTn requested-vehicles">
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
@@ -31,11 +31,11 @@
                         <p>{{ $countBids  }} <span style="margin: 5px">Results</span></p>
                     </div>
                     <br>
-                    <div class="row">
+                    <div class="row vec-box">
                         @forelse ($bids as $bid)
-                        <div class="col-sm-4" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $bid->front) }}" width="300px" height="200px"></div>
-                        <div class="col-sm-8" style="padding: 10px">
-                            <h1 style="font-size: 20px"><span style="background-color:yellow;border-radius:45px;padding:7px">{{ $bid->vehicle_registartion_number }}</span></h1>
+                        <div class="col-sm-4" style="padding: 0px;"><img src="{{ asset('/vehicles/vehicles_images/'. $bid->front) }}" width="300px" height="200px"></div>
+                        <div class="col-sm-8" style="padding: 0px">
+                            <h1 style="font-size: 20px"><span>{{ $bid->vehicle_registartion_number }}</span></h1>
                             <br><p>{{ $bid->vehicle_name }}</p><br>
                             <span>Max Bid:{{ $bid->bid_price }}</span>
                             <span style="padding-left: 60px;">{{ $bid->created_at->format('m/d/Y') }}</span>

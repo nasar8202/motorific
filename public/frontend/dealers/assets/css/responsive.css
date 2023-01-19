@@ -113,6 +113,33 @@ ul.parts-content li span {
     .graybox {
         padding: 20px;
     }
+    /**/
+    div#first .col-lg-3.col-md-3.blur_action {
+    float: left;
+    width: 49%;
+    margin-left: 1%;
+    height: 320px;
+    flex: 0 0 32%;
+}
+div#first .box {
+    padding: 10px 25px;
+    height: 340px;
+}
+    div#loop .col-lg-3.col-md-3.blur_action {
+    float: left;
+    width: 49%;
+    margin-left: 1%;
+    height: 320px;
+    flex: 0 0 32%;
+}
+div#loop .box {
+    padding: 10px 25px;
+    height: 340px;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+
+    padding-left: 20px !important;
+}
 }
 
 @media only screen and (max-width: 1167px) {
@@ -190,6 +217,7 @@ ul.parts-content li span {
     }
     .mob-header-nav{
         padding-right: 0px;
+            z-index: 9999999999;
     }
     .container-1200 {
     width: 90%;
@@ -291,8 +319,44 @@ ul.parts-content li {
     padding: 7px 0px;
     width: 130px;
 }
-
-
+/**/
+.container {
+    max-width: 90vw;
+}
+.filterIn .selectCommon span.select2.select2-container {
+    margin: 0;
+    width: 100% !important;
+}
+div.productsFiltersCol {
+    padding-right: 10px;
+}
+.filterIn label.checkboxCommon {
+    width: 45px;
+    height: auto;
+}
+header.header {
+    padding: 10px 0 80px;
+}
+div#first .box {
+    padding: 10px 25px;
+    height: 390px;
+}
+div#first .col-lg-3.col-md-3.blur_action {
+    height: 360px;
+  
+}
+div#loop .box {
+    padding: 10px 25px;
+    height: 390px;
+}
+div#loop .col-lg-3.col-md-3.blur_action {
+    height: 360px;
+  
+}
+.requested-vehicles .card.card-body {
+    width: 70% !important;
+    text-align: center;
+}
 }
 @media (max-width: 767px) {
 
@@ -337,11 +401,49 @@ section.sec-8 {
 .step-img {
     margin-top: 30px;
 }
+/**/
+section.sec-2.productPageTn {
+    padding-top: 50px;
+}
+.topRightFilter span.select2.select2-container.select2-container--default {
+    width: 230px !important;
+}
+.productsFilters {
+    margin-bottom: 20px;
+}
+section.sec-2.productPageTn .category-btn {
+    margin: 20px 0;
+}
+div#first .col-lg-3.col-md-3.blur_action {
+
+    width: 100%;
+    margin-left: 0%;
+    height: 350px;
+
+}
+div#first .box {
+    padding: 10px 15px;
+    height: 380px;
+}
+div#loop .col-lg-3.col-md-3.blur_action {
+
+    width: 100%;
+    margin-left: 0%;
+    height: 350px;
+
+}
+div#loop .box {
+    padding: 10px 15px;
+    height: 380px;
+}
+
 }
 
 
 @media (max-width: 575px) {
-    
+    .category-btn {
+    flex-flow: wrap;
+}
     .header-submenu a {
     font-size: 11px;
     padding: 10px 13px;
