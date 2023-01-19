@@ -449,6 +449,27 @@ section.sec-4 {
     padding-top: 70px;
 }
 
+/**/
+section.sec-2.productPageTn a.btn.btn-primary {
+    font-size: 13px;
+        padding: 7px 3px !important;
+}
+
+section.sec-2.productPageTn span.alert.alert-success {
+    font-size: 15px;
+    padding: 7px 3px !important;
+}
+.vec-box img {
+
+    padding-right: 10px;
+    width: 100%;
+}
+.productsFilters h2 {
+    font-size: 38px;
+
+}
+
+
 }
 /* 992 */
 @media (max-width:1200px){
@@ -456,10 +477,12 @@ section.sec-4 {
     .logo-navlinks img {
        max-width: 130px;
     }
-
+section.sec-2.productPageTn span {
+    padding-left: 0px !important;
+}
     ul.navlinks {
         padding-left: 15px;
-        gap: 20px;
+        gap: 15px;
     }
 
     .navlinks a li {
@@ -471,12 +494,12 @@ section.sec-4 {
     }
 
     .head-btns {
-           width: 28%;
+           width: auto;
 
     }
 
     .head-btns button {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .sec-1-txt p {
@@ -841,21 +864,27 @@ section.photo-up-sec-2 {
 /* 768 */
 @media (max-width:991px){
     .head-btns {
-        width: 25%;
+        /* width: 25%; */
     }
+    .sec-5-txt .container-1151 {
+    max-width: 78vw;
+}
+.add-photos-box1 {
+    margin-bottom: 15px;
+}
 
     .head-btns button {
             padding: 7px 0px;
-    min-width: 90px;
+    min-width: 80px;
     margin-left: 5px;
     height: auto;
     min-height: auto;
     }
 
     section.sec-1::after {
-        background-size: 100%;
-        width: 56%;
-        height: 37%;
+        background-size: cover;
+        width: 58%;
+        height: 93%;
     }
 
     .sec-1-txt p {
@@ -873,8 +902,10 @@ section.photo-up-sec-2 {
     }
 
     .sec-1-img img {
-        padding-top: 30px;
-        max-width: 100%;
+        /* padding-top: 30px; */
+        /* max-width: 100%; */
+        z-index: 999999999999999999999;
+        display: block;
     }
 
     .sec-2-txt p {
@@ -1030,12 +1061,10 @@ section.photo-up-sec-2 {
     .sec-6-heading{
         text-align: center;
     }
-
-    .sec-7-box {
-        padding: 15px 15px;
-        width: 280px;
-    }
-
+.sec-7-box {
+    padding: 15px 15px;
+    width: 100%;
+}
     .sec-7-box h4 {
         font-size: 15px;
     }
@@ -1176,8 +1205,25 @@ ul.parts-content li span {
 section.sec-8 {
     padding-top: 30px;
 }
+.sec-6-main-box p {
+    margin-right: 30px;
+}
+.productsFilters h2 {
+    font-size: 31px;
+}
+.col-sm-4.vec-box.p-0 {
+    width: 100%;
+    margin-bottom: 0;
+}
 
+.col-sm-8.vec-box.p-0 {
+    width: 100%;
+    padding-left: 20px !important;
+}
 
+.vec-box img {
+    padding-right: 0px;
+}
 }
 
 /* 320 */
@@ -1544,13 +1590,101 @@ section.sec-8 {
         padding-right: 0px;
         border-right: none;
     }
+    /* osama css */
+    .section.sec-2 .box-img img {
+    width: 100%;
+}
+.sec-3-txt p {
+    margin: 0 auto;
+}
+
+.sec-3-txt h6 {
+    margin: 0 auto;
+}
+
+.sec-4-txt h4 {
+    text-align: center;
+}
+
+.sec-4-txt p {
+    text-align: center;
+}
+
+section.sec-4 {
+    padding-top: 0px;
+}
+
+.sec-5-txt h5 {
+    text-align: center;
+}
+
+.main-footer {
+    justify-content: center;
+    align-items: center;
+}
+
+.main-footer .product ul {
+    text-align: center;
+}
+
+.footer-sub ul {
+    text-align: center;
+}
+
+.main-footer .footer-sub h5 {
+    text-align: center;
+}
+
+.main-footer .contact div p {
+    text-align: center;
+}
+
+.howitwork-main.col-lg-3.col-md-3 {
+    display: flex;
+    left: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#vehicle_registration_details {
+     padding-top: 0px;
+      padding-bottom: 0px;
+}
+.sec-6-main-box p {
+    margin-right: 0px;
+}
+.productPageTn + section.sec-8 .footer-sub{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+   .container {
+    width: 90vw;
+} 
+.productsFiltersCol + div {
+    padding-left: 20px;
+}
+.productsFiltersCol:before {
+
+    height: calc(100%);
+    width: 0px;
+
+}
+.productPageTn {
+    padding-bottom: 70px;
+}
+.box-img img {
+    width: 100%;
+}
 }
 
 @media (max-width: 575px) {
     .chart ul {
     flex-wrap: wrap;
 }
-
+.sec-4-box-sec-1, .sec-4-box-sec-2 {
+    flex: 0 0 100%;
+    max-width: calc(100% - 0px);
+}
 .chart ul li {
     font-size: 11px;
 }
@@ -1604,6 +1738,16 @@ h2.part-heading {
     font-size: 11px;
     width: 100px;
     padding: 4px 0px;
+}
+/**/
+section.sec-2.productPageTn .justify-content-between.align-items-center.d-flex {
+    display: block !important;
+    padding-bottom: 20px;
+}
+
+section.sec-2.productPageTn .vec-box {
+    height: auto;
+    padding-left: 10px !important;
 }
 
 }

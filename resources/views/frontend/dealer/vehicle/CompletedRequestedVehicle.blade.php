@@ -12,7 +12,7 @@
 
 <!-- MultiStep Form -->
 
-<section class="sec-2 productPageTn">
+<section class="sec-2 productPageTn requested-vehicles">
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
@@ -85,10 +85,10 @@
                                   
                                            <!-- Trigger Buttons HTML -->
                                           
-                                           <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$dealerOrder->id}}">...</button>
+                                           <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapsedealer{{$dealerOrder->id}}">...</button>
                                       
                                        <!-- Collapsible Element HTML -->
-                                       <div class="collapse" id="myCollapse{{$dealerOrder->id}}">
+                                       <div class="collapse" id="myCollapsedealer{{$dealerOrder->id}}">
                                            <div class="card card-body " style="width: 40%;float: right;" >
                                                <ul>
                                                    <li><a href="{{route('ownerDealerRequestedDetails',['slug'=>"dealer",'id'=>$dealerOrder->vehicle->id])}}"> Seller's Details</a></li>

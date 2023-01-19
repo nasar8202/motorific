@@ -300,7 +300,7 @@
     font-size: 1.2rem;
 }
 .card .card-body {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 .card .card-heading {
     color: #555;
@@ -765,8 +765,8 @@
     display: none;
 }
 .sidebar-wrapper .menu {
-    margin-top: 2rem;
-    padding: 0 2rem;
+    margin-top: 1rem;
+    padding: 0 1rem;
     font-weight: 600;
 }
 .sidebar-wrapper .menu .sidebar-title {
