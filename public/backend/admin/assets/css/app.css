@@ -1282,3 +1282,42 @@ a {
     display: none;
     font-size: 0;
 }
+
+
+
+
+
+@media only screen and (max-width:1400px){
+    .dataTable-table {
+    font-size: 13px;
+}
+}
+
+
+
+@media only screen and (max-width:767px){
+.dataTable-dropdown {
+    float: initial;
+    margin-bottom: 15px;
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
