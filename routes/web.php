@@ -99,6 +99,8 @@ Route::get('/registration', [FrontController::class,'registration'])->name('regi
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
 Route::get('/valuation', [FrontController::class,'valuation'])->name('valuation');
 Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
+Route::get('/forgot-password-page', [FrontController::class,'forgotPassPage'])->name('forgotPassPage');
+Route::post('/forgot-password', [FrontController::class,'forgotPass'])->name('forgotPass');
 
 
 // start admin panel routes
@@ -111,6 +113,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/view-dealer-details/{id}', [AdminDashboardController::class,'viewDealerDetails'])->name('viewDealerDetails');
 
     Route::get('/approved-dealers-list', [AdminDashboardController::class,'approvedDealersByAdmin'])->name('dealer.approvedDealersByAdmin');
+    Route::get('/dealers-purchase/{id}', [AdminDashboardController::class,'dealersPurchase'])->name('dealersPurchase');
     Route::get('/block-dealers-list', [AdminDashboardController::class,'blockDealersByAdmin'])->name('dealer.blockDealersByAdmin');
     Route::get('/view-new-vehicle', [AdminDashboardController::class,'viewSellerVehicle'])->name('viewSellerVehicle');
     Route::get('/view-seller-deatils/{id}', [SellerVehicleController::class,'viewSellerDetails'])->name('viewSellerDetails');
@@ -237,6 +240,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/edit-vehicle/{id}', [ManageVehicleController::class,'editVehicle'])->name('editVehicle');
      Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
      Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
+     Route::get('/approve-vehicle/{id}', [ManageVehicleController::class,'approveVehicle'])->name('approveVehicle');
      // end vehcile
 
 

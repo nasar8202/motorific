@@ -73,6 +73,7 @@
                             <td>
                                 <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge bg-success">View Details</span></a>
                                 <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                <a href="{{ route('approveVehicle',$vehicle->id) }}"><span class="badge bg-success">Approve</span></a>
                             </td>
                         </tr>
                         @endforeach

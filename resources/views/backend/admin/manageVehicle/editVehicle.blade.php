@@ -222,16 +222,15 @@ p {
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <h6>Dashboard</h6>
-
                                 <div class="form-group">
                                     <select class="form-select" name="dashboard" id="basicSelect">
                                         <option disabled selected>Select Dashboard Damage</option>
-                                        <option value="Stained" @if($interior->dashboard == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->dashboard == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->dashboard == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->dashboard == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->dashboard == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->dashboard == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->dashboard) && $interior->dashboard == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->dashboard) && $interior->dashboard == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->dashboard) && $interior->dashboard == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->dashboard) && $interior->dashboard == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->dashboard) && $interior->dashboard == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->dashboard) && $interior->dashboard == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('dashboard'))
@@ -244,12 +243,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="passenger_side_interior" id="basicSelect">
                                         <option disabled selected>Select passenger side interior</option>
-                                        <option value="Stained" @if($interior->passenger_side_interior == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->passenger_side_interior == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->passenger_side_interior == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->passenger_side_interior == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->passenger_side_interior == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->passenger_side_interior == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->passenger_side_interior) && $interior->passenger_side_interior == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->passenger_side_interior) && $interior->passenger_side_interior == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->passenger_side_interior) && $interior->passenger_side_interior == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->passenger_side_interior) && $interior->passenger_side_interior == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->passenger_side_interior) && $interior->passenger_side_interior == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->passenger_side_interior) && $interior->passenger_side_interior == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('passenger_side_interior'))
@@ -262,12 +261,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="driver_side_interior" id="basicSelect">
                                         <option disabled selected>Select driver side interior</option>
-                                        <option value="Stained" @if($interior->driver_side_interior == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->driver_side_interior == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->driver_side_interior == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->driver_side_interior == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->driver_side_interior == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->driver_side_interior == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->driver_side_interior) && $interior->driver_side_interior == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->driver_side_interior) && $interior->driver_side_interior == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->driver_side_interior) && $interior->driver_side_interior == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->driver_side_interior) && $interior->driver_side_interior == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->driver_side_interior) && $interior->driver_side_interior == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->driver_side_interior) && $interior->driver_side_interior == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('driver_side_interior'))
@@ -280,12 +279,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="floor" id="basicSelect">
                                         <option disabled selected>Select floor </option>
-                                        <option value="Stained" @if($interior->floor == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->floor == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->floor == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->floor == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->floor == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->floor == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->floor) && $interior->floor == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->floor) && $interior->floor == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->floor) && $interior->floor == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->floor) && $interior->floor == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->floor) && $interior->floor == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->floor) && $interior->floor == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('floor'))
@@ -298,12 +297,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="ceiling" id="basicSelect">
                                         <option disabled selected>Select ceiling </option>
-                                        <option value="Stained" @if($interior->ceiling == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->ceiling == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->ceiling == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->ceiling == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->ceiling == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->ceiling == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->ceiling) && $interior->ceiling == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->ceiling) && $interior->ceiling == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->ceiling) && $interior->ceiling == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->ceiling) && $interior->ceiling == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->ceiling) && $interior->ceiling == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->ceiling) && $interior->ceiling == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('ceiling'))
@@ -316,12 +315,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="boot" id="basicSelect">
                                         <option disabled selected>Select boot </option>
-                                        <option value="Stained" @if($interior->boot == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->boot == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->boot == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->boot == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->boot == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->boot == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->boot) && $interior->boot == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->boot) && $interior->boot == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->boot) && $interior->boot == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->boot) && $interior->boot == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->boot) && $interior->boot == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->boot) && $interior->boot == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('boot'))
@@ -334,12 +333,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="rear_windscreen" id="basicSelect">
                                         <option disabled selected>Select rear windscreen </option>
-                                        <option value="Stained" @if($interior->rear_windscreen == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->rear_windscreen == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->rear_windscreen == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->rear_windscreen == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->rear_windscreen == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->rear_windscreen == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->rear_windscreen) && $interior->rear_windscreen == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->rear_windscreen) && $interior->rear_windscreen == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->rear_windscreen) && $interior->rear_windscreen == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->rear_windscreen) && $interior->rear_windscreen == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->rear_windscreen) && $interior->rear_windscreen == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->rear_windscreen) && $interior->rear_windscreen == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('rear_windscreen'))
@@ -352,12 +351,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="passenger_seat" id="basicSelect">
                                         <option disabled selected>Select passenger seat </option>
-                                        <option value="Stained" @if($interior->passenger_seat == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->passenger_seat == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->passenger_seat == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->passenger_seat == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->passenger_seat == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->passenger_seat == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->passenger_seat) && $interior->passenger_seat == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->passenger_seat) && $interior->passenger_seat == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->passenger_seat) && $interior->passenger_seat == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->passenger_seat) && $interior->passenger_seat == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->passenger_seat) && $interior->passenger_seat == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->passenger_seat) && $interior->passenger_seat == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('passenger_seat'))
@@ -371,12 +370,12 @@ p {
                                     <select class="form-select" name="driver_seat" id="basicSelect">
                                         <option disabled selected>Select driver seat </option>
                                         
-                                        <option value="Stained" @if($interior->driver_seat == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->driver_seat == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->driver_seat == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->driver_seat == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->driver_seat == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->driver_seat == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->driver_seat) && $interior->driver_seat == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->driver_seat) && $interior->driver_seat == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->driver_seat) && $interior->driver_seat == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->driver_seat) && $interior->driver_seat == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->driver_seat) && $interior->driver_seat == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->driver_seat) && $interior->driver_seat == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('driver_seat'))
@@ -389,12 +388,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="rear_seats" id="basicSelect">
                                         <option disabled selected>Select rear seats </option>
-                                        <option value="Stained" @if($interior->rear_seats == 'Stained') selected @endif >Stained (ST)</option>
-                                        <option value="Torn/Ripped" @if($interior->rear_seats == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
-                                        <option value="Warn"  @if($interior->rear_seats == 'Warn') selected @endif >Warn (W)</option>
-                                        <option value="Dirty" @if($interior->rear_seats == 'Dirty') selected @endif>Dirty (D)</option>
-                                        <option value="Broken/Damage" @if($interior->rear_seats == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
-                                        <option value="Bumt" @if($interior->rear_seats == 'Bumt') selected @endif>Bumt (B)</option>
+                                        <option value="Stained" @if(isset($interior->rear_seats) && $interior->rear_seats == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->rear_seats) && $interior->rear_seats == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->rear_seats) && $interior->rear_seats == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->rear_seats) && $interior->rear_seats == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->rear_seats) && $interior->rear_seats == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->rear_seats) && $interior->rear_seats == 'Bumt') selected @endif>Bumt (B)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('rear_seats'))
@@ -422,12 +421,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="front_door_left" id="basicSelect">
                                         <option disabled selected>Select Front Door Left Damage</option>
-                                        <option value="Dent" @if($exterior->front_door_left == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->front_door_left == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->front_door_left == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->front_door_left == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->front_door_left == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->front_door_left == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option>
+                                        <option value="Dent" @if(isset($exterior->front_door_left) && $exterior->front_door_left == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->front_door_left) && $exterior->front_door_left == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->front_door_left) && $exterior->front_door_left == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->front_door_left) && $exterior->front_door_left == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->front_door_left) && $exterior->front_door_left == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->front_door_left) && $exterior->front_door_left == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('front_door_left'))
@@ -440,12 +439,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="back_door_left" id="basicSelect">
                                         <option disabled selected>Select back door left </option>
-                                        <option value="Dent" @if($exterior->back_door_left == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->back_door_left == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->back_door_left == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->back_door_left == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->back_door_left == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->back_door_left == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                        <option value="Dent" @if(isset($exterior->back_door_left) && $exterior->back_door_left == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->back_door_left) && $exterior->back_door_left == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->back_door_left) && $exterior->back_door_left == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->back_door_left) && $exterior->back_door_left == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->back_door_left) && $exterior->back_door_left == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->back_door_left) && $exterior->back_door_left == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
                                 </div>
                                 @if ($errors->has('back_door_left'))
                                 <span class="text-danger">{{ $errors->first('back_door_left') }}</span>
@@ -457,12 +456,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="front_door_right" id="basicSelect">
                                         <option disabled selected>Select Front Door Right </option>
-                                        <option value="Dent" @if($exterior->front_door_right == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->front_door_right == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->front_door_right == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->front_door_right == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->front_door_right == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->front_door_right == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                        <option value="Dent" @if(isset($exterior->front_door_right) && $exterior->front_door_right == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->front_door_right) && $exterior->front_door_right == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->front_door_right) && $exterior->front_door_right == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->front_door_right) && $exterior->front_door_right == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->front_door_right) && $exterior->front_door_right == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->front_door_right) && $exterior->front_door_right == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
                                 </div>
                                 @if ($errors->has('front_door_right'))
                                 <span class="text-danger">{{ $errors->first('front_door_right') }}</span>
@@ -474,12 +473,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="back_door_right" id="basicSelect">
                                         <option disabled selected>Select back door right </option>
-                                        <option value="Dent" @if($exterior->back_door_right == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->back_door_right == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->back_door_right == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->back_door_right == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->back_door_right == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->back_door_right == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                        <option value="Dent" @if(isset($exterior->back_door_right) && $exterior->back_door_right == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->back_door_right) && $exterior->back_door_right == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->back_door_right) && $exterior->back_door_right == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->back_door_right) && $exterior->back_door_right == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->back_door_right) && $exterior->back_door_right == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->back_door_right) && $exterior->back_door_right == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
                                 </div>
                                 @if ($errors->has('back_door_right'))
                                 <span class="text-danger">{{ $errors->first('back_door_right') }}</span>
@@ -491,12 +490,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="top" id="basicSelect">
                                         <option disabled selected>Select Top </option>
-                                        <option value="Dent" @if($exterior->top == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->top == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->top == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->top == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->top == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->top == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                        <option value="Dent" @if(isset($exterior->top) && $exterior->top == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->top) && $exterior->top == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->top) && $exterior->top == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->top) && $exterior->top == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->top) && $exterior->top == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->top) && $exterior->top == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
                                 </div>
                                 @if ($errors->has('top'))
                                 <span class="text-danger">{{ $errors->first('top') }}</span>
@@ -508,12 +507,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="bonut" id="basicSelect">
                                         <option disabled selected>Select Bonut </option>
-                                        <option value="Dent" @if($exterior->bonut == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->bonut == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->bonut == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->bonut == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->bonut == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->bonut == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                        <option value="Dent" @if(isset($exterior->bonut) && $exterior->bonut == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->bonut) && $exterior->bonut == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->bonut) && $exterior->bonut == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->bonut) && $exterior->bonut == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->bonut) && $exterior->bonut == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->bonut) && $exterior->bonut == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
                                 </div>
                                 @if ($errors->has('bonut'))
                                 <span class="text-danger">{{ $errors->first('bonut') }}</span>
@@ -525,12 +524,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="front" id="basicSelect">
                                         <option disabled selected>Select front </option>
-                                        <option value="Dent" @if($exterior->front == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->front == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->front == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->front == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->front == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->front == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                        <option value="Dent" @if(isset($exterior->front) && $exterior->front == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->front) && $exterior->front == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->front) && $exterior->front == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->front) && $exterior->front == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->front) && $exterior->front == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->front) && $exterior->front == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
                                 </div>
                                 @if ($errors->has('front'))
                                 <span class="text-danger">{{ $errors->first('front') }}</span>
@@ -542,12 +541,12 @@ p {
                                 <div class="form-group">
                                     <select class="form-select" name="back" id="basicSelect">
                                         <option disabled selected>Select back </option>
-                                        <option value="Dent" @if($exterior->back == 'Dent') selected @endif >Dent (D)</option>
-                                        <option value="Broken" @if($exterior->back == 'Broken') selected @endif >Broken (B)</option>
-                                        <option value="Chips"  @if($exterior->back == 'Chips') selected @endif >Chips (CH)</option>
-                                        <option value="Crack/Rust" @if($exterior->back == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
-                                        <option value="Scratch" @if($exterior->back == 'Scratch') selected @endif >Scratch (S)</option>
-                                        <option value="Wheel Scuff" @if($exterior->back == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                        <option value="Dent" @if(isset($exterior->back) && $exterior->back == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->back) && $exterior->back == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->back) && $exterior->back == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->back) && $exterior->back == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->back) && $exterior->back == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->back) && $exterior->back == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
                                 </div>
                                 @if ($errors->has('back'))
                                 <span class="text-danger">{{ $errors->first('back') }}</span>

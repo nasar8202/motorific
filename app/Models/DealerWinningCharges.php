@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Vehicle;
+use App\Models\DealerVehicle;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -21,7 +22,7 @@ class DealerWinningCharges extends Model
 
     {
 
-        return $this->hasOne(dealerVehicle::class,'id','dealer_vehicle_id');
+        return $this->hasOne(DealerVehicle::class,'id','dealer_vehicle_id');
 
     }
     public function User()
