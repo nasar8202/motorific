@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend\admin\dealerOrderVehicleRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
+use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 use App\Models\DealersOrderVehicleRequest;
 
@@ -88,5 +89,12 @@ class DealerOrderVehicleRequestController extends Controller
     
         
     }
+    public function unassignReq($id){
+      
+      $unassign_bid = OrderVehicleRequest::where('id',$id)->first();
+      $unassign_bid->status = 0 ;
+      $unassign_bid->save();
+      return redirect()->back()->with('success', 'Bid Unassign Successfully!');
+   }      
         
 }

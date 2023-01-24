@@ -61,12 +61,14 @@
                             <a class="badge badge-success" href="{{route('orderdVehicleDetail',$order->vehicle_id)}}" >Vehicle Details </a>
                             <a class="badge badge-success" href="{{route('orderdSellerDetail',$order->vehicle->user_id)}}" >Seller Details </a>
                             @if($order->status == 0)
-                            <a class="badge badge-info" href="{{route('approveBid',$order->id)}}" >Approve Bid </a>
+                            <a class="badge badge-info" href="{{route('approveBid',['id'=>$order->id,'vid'=>$order->vehicle->id])}}" >Approve Bid </a>
                             <button type="button" class="btn btn-sm mt-2 btn-outline-primary block price" data-bs-toggle="modal"
                             data-bs-target="#default"  data-id="{{$order->id}}">
                             Update Price
                         </button>
                         @else
+                        <a class="badge badge-danger" href="{{route('unassignBid',$order->id)}}" >Unassign Bid</a>
+                       
                         <button type="button" class="btn btn-sm mt-2  btn btn-outline-dark meeting"
                         data-bs-toggle="modal" data-bs-target="#dark" data-id="{{$order->id}}">
                         View Meeting Status
@@ -96,7 +98,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{route('approveOrderdWithAdminUpdated')}}" method="POST">
+                                                    <form action="{{route('approveBidWithAdminUpdated')}}" method="POST">
                                                         @csrf
                                                     <input class="form-control" type="number" id="newPrice" name="updatedPrice" placeholder="Enter Your Updated Price">
                                                     <span id="warn" class="text text-danger"></span>

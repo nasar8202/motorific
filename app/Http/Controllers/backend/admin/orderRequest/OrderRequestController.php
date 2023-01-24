@@ -64,26 +64,57 @@ class OrderRequestController extends Controller
        
     ]);
       $orders = OrderVehicleRequest::where('id',$request->orderId)->first();
-      $orders->request_price = $request->updatedPrice;
-      $orders->status = 1;
-      $orders->admin_updated_status = 1;
-      $orders->save();
-    $ordered_vehicle = Vehicle::where('id',$orders->vehicle_id)->first();
-    $ordered_vehicle->status = 2 ;
-    $ordered_vehicle->save();
-      return redirect()->back()->with('success', 'Order Approved And Updated Successfully!');
-  
+      $vehicles = OrderVehicleRequest::where('vehicle_id',$orders->vehicle_id)->get();
+      foreach($vehicles as $ord){
+        if($ord->status == 1){
+        return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');        
+      }
+      else{
+        $orders->request_price = $request->updatedPrice;
+        $orders->status = 1;
+        $orders->admin_updated_status = 1;
+        $orders->save();
+        $ordered_vehicle = Vehicle::where('id',$orders->vehicle_id)->first();
+        $ordered_vehicle->status = 2 ;
+        $ordered_vehicle->save();
+        return redirect()->back()->with('success', 'Request Approved And Updated Successfully!');
+      }
+    }
       
        }
-     public function approveOrderd($id){
+     public function approveOrderd($id,$vId){
+      
+      $orders = OrderVehicleRequest::where('vehicle_id',$vId)->get();
+      foreach($orders as $ord){
+        if($ord->status == 1){
+        return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');        
+      }
+    
+      else{
         $orders = OrderVehicleRequest::where('id',$id)->first();
         $orders->status = 1;
         $orders->save();
       $ordered_vehicle = Vehicle::where('id',$orders->vehicle->id)->first();
       $ordered_vehicle->status = 2 ;
       $ordered_vehicle->save();
-        return redirect()->back()->with('success', 'Order Approved Successfully!');
+        return redirect()->back()->with('success', 'Bid Approved Successfully!');
     
+      }
+    }    
         
-        }
+    
+  }
+
+  public function unassignReq($id){
+      
+      $unassign_req = OrderVehicleRequest::where('id',$id)->first();
+      if($unassign_req->meeting_status == 'Completed'){
+        return redirect()->back()->with('warning', 'This Vehicle Sold Successfully! , You Cant Make Changes ');
+      }
+      else{
+      $unassign_req->status = 0 ;
+      $unassign_req->save();
+      return redirect()->back()->with('success', 'Request Unassign Successfully!');
+    }
+    }             
 }

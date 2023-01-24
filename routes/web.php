@@ -247,8 +247,11 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
           // bidding
      Route::get('/all-bidding-vehicle', [BidVehicleController::class,'allBiddingVehicle'])->name('allBiddingVehicle');
      Route::get('/single-bid/{id}', [BidVehicleController::class,'singleBid'])->name('singleBid');
+     Route::get('/unassign-bid/{id}', [BidVehicleController::class,'unassignBid'])->name('unassignBid');
      Route::get('/bid-meeting', [BidVehicleController::class,'bidMeeting'])->name('bidMeeting');
-     Route::get('/approve-bid/{id}', [BidVehicleController::class,'approveBid'])->name('approveBid');
+     Route::get('/approve-bid/{id}/{vid}', [BidVehicleController::class,'approveBid'])->name('approveBid');
+     Route::post('/approve-bid-admin-updated', [BidVehicleController::class,'approveBidWithAdminUpdated'])->name('approveBidWithAdminUpdated');
+     
      // end bidding
 
      //live sell
@@ -282,7 +285,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/order-seller-detail/{id}', [OrderRequestController::class,'orderdSellerDetail'])->name('orderdSellerDetail');
      Route::post('/approve-order-admin-updated', [OrderRequestController::class,'approveOrderdWithAdminUpdated'])->name('approveOrderdWithAdminUpdated');
      Route::get('/order-vehicle-detail/{id}', [OrderRequestController::class,'orderdVehicleDetail'])->name('orderdVehicleDetail');
-     Route::get('/approve-order/{id}', [OrderRequestController::class,'approveOrderd'])->name('approveOrderd');
+     Route::get('/approve-order/{id}/{vId}', [OrderRequestController::class,'approveOrderd'])->name('approveOrderd');
+     Route::get('/unassign-req/{id}', [OrderRequestController::class,'unassignReq'])->name('unassignReq');
     //end request order
     
     //dealer vehicle

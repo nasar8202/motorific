@@ -97,9 +97,8 @@ class AddDealerVehicleController extends Controller
 
     public function vehicleAndDetailsPost(Request $request)
     {
-        // dd($request->all());
         $request->validate([
-            'image_1' => 'required',
+            'image_1' => 'required|mimes:jpeg,png,jpg,|max:1024',
             'interior_image_1' => 'required',
             'condition_damage' => 'required',
             'condition_damage_url' => 'required',
@@ -114,6 +113,7 @@ class AddDealerVehicleController extends Controller
             'tyre_image' => 'required',
 
         ]);
+        
 
         DB::beginTransaction();
         try{
