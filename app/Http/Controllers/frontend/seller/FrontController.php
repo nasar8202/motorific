@@ -26,13 +26,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Models\vehicleConditionAndDamage;
 
+use Carbon\Carbon;
+use Mail;
+use Hash;
+use Illuminate\Support\Str;
+
 class FrontController extends Controller
 {
 
     public function createStep1(Request $request)
     {
         $register = $request->session()->get('register');
-        
+
         return view('frontend.dealer.step1',compact('register'));
     }
 
@@ -181,7 +186,7 @@ class FrontController extends Controller
     {
         return view('frontend.seller.index');
     }
-    
+
     public function valuation()
     {
         return view('frontend.seller.valuation');
@@ -191,7 +196,7 @@ class FrontController extends Controller
     {
         // dd($request->all());
         // $feature = implode($request->the_value, ',');
-        
+
         $request->session()->put('vehicle_feature',$request->the_value);
         $request->session()->put('seat_material',$request->seatMaterial);
         $request->session()->put('number_of_keys',$request->numberOfKeys);
@@ -203,7 +208,7 @@ class FrontController extends Controller
         $request->session()->put('vehicle_owner',$request->vehicleOwner);
         $request->session()->put('private_plate',$request->privatePlate);
         $request->session()->put('finance',$request->finance);
-        
+
         $feature = explode(',',$request->the_value);
         foreach($feature as $f){
             $VehicleFeature[] = VehicleFeature::where('id',$f)->first();
@@ -214,7 +219,7 @@ class FrontController extends Controller
         $LockingWheelNut =  LockingWheelNut::where('id',session()->get('locking_wheel_nut'))->first();
         $Smokings =  Smoking::where('id',session()->get('smoked_in'))->first();
         $VCLogBooks =  VCLogBook::where('id',session()->get('log_book'))->first();
-        $VehicleLocation = session()->get('location'); 
+        $VehicleLocation = session()->get('location');
         $VehicleOwners =  VehicleOwner::where('id',session()->get('vehicle_owner'))->first();
         $PrivatePlates =  PrivatePlate::where('id',session()->get('private_plate'))->first();
         $Finances =  Finance::where('id',session()->get('finance'))->first();
@@ -223,18 +228,18 @@ class FrontController extends Controller
 
         return ['VehicleFeature'=>$VehicleFeature,'SeatMaterials'=>$SeatMaterials,'NumberOfKeys'=>$numberOfKeys,
         'ToolPack'=>$ToolPack,'LockingWheelNut'=>$LockingWheelNut,'Smokings'=>$Smokings,'VCLogBooks'=>$VCLogBooks,
-        'VehicleLocation'=>$VehicleLocation,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances];        
+        'VehicleLocation'=>$VehicleLocation,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances];
     //  $request->session()->get('seat_material');
-        
+
     }
-    
+
      //multistep question form submition code end
      //multistep main vehicle submission code start
     public function addSellerVehicle(Request $request)
     {
         // dd($request->all());
         // $feature = implode($request->the_value, ',');
-        
+
         $request->session()->put('RegisterationNumber',$request->RegisterationNumber);
         $request->session()->put('VehicleName',$request->VehicleName);
         $request->session()->put('VehicleYear',$request->VehicleYear);
@@ -243,15 +248,15 @@ class FrontController extends Controller
         $request->session()->put('VehicleTank',$request->VehicleTank);
         $request->session()->put('VehicleMileage',$request->VehicleMileage);
         $request->session()->put('VehiclePrice',$request->VehiclePrice);
-        
+
         return "true";
-        
+
     }
     //multistep main vehicle submission code end
     //multipstep condition and damages code start
     public function addConditionDamages(Request $request)
     {
-        
+
         $request->session()->put('interior',$request->interior);
         $request->session()->put('bodyType',$request->bodyType);
         $request->session()->put('engineSize',$request->engineSize);
@@ -276,13 +281,13 @@ class FrontController extends Controller
         $request->session()->put('IndependentDealerService',$request->IndependentDealerService);
 
         return "true";
-        
+
     }
     //multipstep condition and damages code end
 
 
     public function createVehicle(Request $request)
-    {   
+    {
         $request->validate([
             // 'RegisterationNumber' => 'required',
             // 'VehicleName' => 'required',
@@ -330,7 +335,7 @@ class FrontController extends Controller
             'image3' => 'required|mimes:jpeg,png,jpg,|size:50000',
             'image4' => 'required|mimes:jpeg,png,jpg,|size:50000',
             'image5' => 'required|mimes:jpeg,png,jpg,|size:50000',
-            
+
 
         ]);
         DB::beginTransaction();
@@ -398,7 +403,7 @@ class FrontController extends Controller
             $vehicleInformation = new vehicleInformation;
             $vehicleInformation->vehicle_id = $vehicle->id;
             $vehicleInformation->vehicle_feature_id = $vehicle_feature_id ;
-            
+
             $vehicleInformation->seat_material_id =  $request->seat_material;
             $vehicleInformation->number_of_keys_id =  $request->number_of_keys;
             $vehicleInformation->tool_pack_id =  $request->tool_pack;
@@ -409,7 +414,7 @@ class FrontController extends Controller
             $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
             $vehicleInformation->private_plate_id =  $request->private_plate;
             $vehicleInformation->finance_id =  $request->finance;
-           
+
             // $vehicleInformation->interior =  $request->interior;
             // $vehicleInformation->body_type =  $request->body_type;
             // $vehicleInformation->engine_size =  $request->engine_size;
@@ -421,7 +426,7 @@ class FrontController extends Controller
             // $vehicleInformation->previous_owners =  $request->previous_owner;
             // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
             // $vehicleInformation->additional_information =  $request->additional;
-           
+
             $vehicleInformation->save();
 
 
@@ -536,7 +541,7 @@ class FrontController extends Controller
 
     public function testlocation(Request $request)
     {
-        
+
         // if(isset(Auth::user()->id)==null){
         //     return response()->json('0');
         // }
@@ -574,11 +579,11 @@ class FrontController extends Controller
     public function forgotPassPage()
     {
         return view('frontend.seller.forgotPassword');
-        
+
     }
     public function forgotPass(Request $request)
     {
-        $user = User::where('email',$request->email)->first();
+        //$user = User::where('email',$request->email)->first();
 
         // $details = [
         //     'greeting' => 'Hi ' . $user->name,
@@ -592,5 +597,62 @@ class FrontController extends Controller
         // // Notification::send($user->email, new MyFirstNotification($details));
         // $user->notify(new ApprovedDealerNotification($details));
 
+        $request->validate([
+            'email' => 'required|email|exists:users',
+        ]);
+
+        $token = Str::random(64);
+
+        DB::table('password_resets')->insert([
+            'email' => $request->email,
+            'token' => $token,
+            'created_at' => Carbon::now()
+          ]);
+
+        Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
+            $message->to($request->email);
+            $message->subject('Reset Password');
+        });
+
+        return back()->with('success', 'We have e-mailed your password reset link!');
+
     }
+
+    public function showResetPasswordForm($token)
+    {
+        $email =  DB::table('password_resets')
+        ->where([
+          'token' => $token
+        ])
+        ->first();
+
+        return view('frontend.seller.forgetPasswordLink', ['token' => $token,'email'=>$email->email]);
+    }
+
+    public function submitResetPasswordForm(Request $request)
+      {
+          $request->validate([
+              'email' => 'required|email|exists:users',
+              'password' => 'required|string|min:6|confirmed',
+              'password_confirmation' => 'required'
+          ]);
+
+          $updatePassword = DB::table('password_resets')
+                              ->where([
+                                'email' => $request->email,
+                                'token' => $request->token
+                              ])
+                              ->first();
+
+          if(!$updatePassword){
+              return back()->withInput()->with('error', 'Invalid token!');
+          }
+
+          $user = User::where('email', $request->email)
+                      ->update(['password' => Hash::make($request->password)]);
+
+          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+
+          return redirect('/seller-login')->with('success', 'Your password has been changed!');
+      }
 }
