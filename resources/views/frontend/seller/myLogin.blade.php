@@ -120,6 +120,7 @@ display: block;
                         <button>CONTINUE</button>
                     </div>
                 </form>
+                <a href="{{route('forgotPassPage')}}">Forgot Your Password ?</a>
             </div>
         </div>
     </div>

@@ -33,7 +33,7 @@
                         <p>{{$vehicle->vehicle_color}}.<span>{{$vehicle->vehicle_year}}</span><span>.</span>{{$vehicle->vehicle_mileage}}<span>.</span>{{$vehicle->vehicle_tank}}<span>.</span>{{$vehicle->vehicle_type}}</p>
                     </div>
                     <div class="mapAndText">
-                        <p><strong>Collection:</strong> Available immediately</p>
+                        {{-- <p><strong>Collection:</strong> Available immediately</p> --}}
                         <p><strong>Location:</strong> {{$vehicle->vehicleInformation->location}} (9 miles away)
                         
                         
@@ -81,6 +81,9 @@
                                 <li>Number of Keys<span>{{$number_of_keys->number_of_key}}</span></li>
                                 <li>On Finance<span>{{$finance->title}}</span></li>
                                 <li>Private Plate<span>{{$privateplate->title}}</span></li>
+                                <li>Smooking<span>{{$smooking->title}}</span></li>
+                                <li>Tool Pack<span>{{$toolpack->title}}</span></li>
+                                <li>Locking Wheel Nut<span>{{$LockingWheelNut->title}}</span></li>
                                 {{-- <li>Seller Keeping Plate<span>{{$vehicle->vehicleInformation->seller_keeping_plate}}</span></li> --}}
                             </ul>
                         </div>

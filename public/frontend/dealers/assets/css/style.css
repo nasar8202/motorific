@@ -1203,4 +1203,74 @@ div#next, div#next-ext {
     color: #e11414;
     font-weight: 600;
 }
+
+/**/
+div#first .box {
+    padding: 10px 25px;
+    height: 450px;
+}
+
+div#first .box-img {
+    width: 100%;
+    height: 150px;
+}
+
+div#first .box-img img {
+    width: 100%;
+    height: 100%;
+}
+div#first .box p {
+    margin-bottom: 13px;
+}
+div#first .col-lg-3.col-md-3.blur_action {
+        height: 430px;
+}
+.col-lg-3.col-md-3.blur_action a {
+    text-decoration: none;
+}
+/**/
+div#loop .box {
+    padding: 10px 25px;
+    height: 450px;
+}
+
+div#loop .box-img {
+    width: 100%;
+    height: 150px;
+}
+
+div#loop .box-img img {
+    width: 100%;
+    height: 100%;
+}
+div#loop .box p {
+    margin-bottom: 13px;
+}
+div#loop .col-lg-3.col-md-3.blur_action {
+        height: 430px;
+}
+
+/**/
+
+section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
+    overflow-x: initial;
+}
+.requested-vehicles .vec-box {
+    height: auto;
+    margin-bottom: 10px;
+}
+.requested-vehicles  .vec-box img {
+    height: 100%;
+}
+.requested-vehicles .vec-box {
+    background: #202543cc;
+    color: white;
+}
+.requested-vehicles .vec-box h1 {
+    background: #202543;
+
+}
+.requested-vehicles .vec-box img {
+    padding-right: 10px;
+}
 /*End*/

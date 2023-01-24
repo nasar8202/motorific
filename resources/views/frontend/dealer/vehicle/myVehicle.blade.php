@@ -12,7 +12,7 @@
 
 <!-- MultiStep Form -->
 
-<section class="sec-2 productPageTn">
+<section class="sec-2 productPageTn requested-vehicles">
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
-                        <label for="usr">Search My Vehcle:</label>
-                        <input type="text" placeholder="Search in Complete" class="form-control" id="usr">
+                        {{-- <label for="usr">Search My Vehcle:</label>
+                        <input type="text" placeholder="Search in Complete" class="form-control" id="usr"> --}}
                         <br>
                         <p>{{ $vehiclesCount  }}<span style="margin: 5px">Results</span></p>
                     </div>

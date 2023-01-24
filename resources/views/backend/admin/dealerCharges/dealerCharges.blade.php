@@ -57,7 +57,27 @@
                             <td>
                                 {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success">Paid Completed ✓</span></a>
                             <br> --}}
-                                <a title="view dealer detail for contact with dealer" href="{{ route('viewDealerDetailsFromCharges',$details->user_id) }}"><span class="badge bg-info mt-4">View Dealer Deatils</span></a>
+                                <a href="{{ route('viewDealerDetailsFromCharges',$details->user_id) }}"><span class="badge bg-info mt-4">View Dealer Deatils</span></a>
+                                <a href="{{ route('dealerCardDetails',$details->user_id) }}"><span class="badge bg-info mt-4">View Dealer's Card Deatils</span></a>
+                            
+                            </td>
+                        </tr>
+                        @endforeach
+                        @foreach ($dealervehicleCardDetails as $dealervehicleCard)
+                        <tr>
+
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $dealervehicleCard->user->name}}</td>
+                            <td>{{ $dealervehicleCard->dealerVehicle->vehicle_registartion_number}}</td>
+                            <td>{{ $dealervehicleCard->vehicle_charges}}</td>
+                            <td>@if($dealervehicleCard->status == 0)<span class="badge badge-danger">Not Paid</span>
+                                @else<span class="badge badge-success">Paid</span>
+                                @endif</td>
+                            <td>
+                                {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success">Paid Completed ✓</span></a>
+                            <br> --}}
+                                <a href="{{ route('viewDealerDetailsFromCharges',$dealervehicleCard->user_id) }}"><span class="badge bg-info mt-4">View Dealer Deatils</span></a>
+                                <a href="{{ route('dealerCardDetails',$dealervehicleCard->user_id) }}"><span class="badge bg-info mt-4">View Dealer's Card Deatils</span></a>
                             
                             </td>
                         </tr>

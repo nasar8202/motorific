@@ -175,8 +175,8 @@ class RegisterController extends Controller
         dispatch(new SellerDetail($details));
         // Notification::send($user->email, new MyFirstNotification($details));
         // $user->notify(new SellerDetailsNotification($details));
-        if (Auth::attempt($credentials)) {
         if($request->registeration_with_pass == "yes"){
+        if (Auth::attempt($credentials)) {
                 $currentUser = Auth::user()->id;
 
         $vehicleCategories = vehicleCategories::all();
@@ -217,6 +217,9 @@ class RegisterController extends Controller
             else{
                 return redirect()->route('seller')->with('success','Register Successfully!');
             }
+        }
+        else{
+            return redirect()->route('myLogin')->with('success','Register Successfully. Check Your Email For Password To Login!');
         }
     }catch(\Exception $e)
     {

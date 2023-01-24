@@ -28,11 +28,9 @@ class SellerDashboardController extends Controller
     }
     public function bidsOnVehicles($id)
     {
-       $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
-
-       ->join('users', 'users.id', '=', 'bided_vehicles.user_id')->where('vehicle_id',$id)->orderBy('bid_price','DESC')->get();
+       $orders = BidedVehicle::with('vehicle')->with('user')->where('vehicle_id',$id)->orderBy('bid_price','DESC')->get();
        
-        return view('frontend.seller.bidsOnMyVehicles',compact('bids'));
+        return view('frontend.seller.bidsOnMyVehicles',compact('orders'));
 
     }
     public function ordersOnVehicles($id)
@@ -52,6 +50,16 @@ class SellerDashboardController extends Controller
     public function meetingStatus(Request $request)
     {
         $meetingStatus = OrderVehicleRequest::where('id',$request->id)->first();
+        
+        $meetingStatus->meeting_status = $request->status;
+        $meetingStatus->save();
+        
+        return redirect()->back()->with('success', 'Meeting Status Updated Successfully!');
+        
+    }
+    public function meetingBidStatus(Request $request)
+    {    
+        $meetingStatus = BidedVehicle::where('id',$request->id)->first();
         
         $meetingStatus->meeting_status = $request->status;
         $meetingStatus->save();

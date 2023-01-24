@@ -391,7 +391,7 @@ class ManageVehicleController extends Controller
         $vehicle->clean_price = $request->clean_price;
         $vehicle->average_price = $request->average_price;
         $vehicle->hidden_price = $request->hidden_price;
-                    $vehicle->status = 1;
+                    $vehicle->status = 0;
         
 
         $vehicle->save();
@@ -535,5 +535,25 @@ class ManageVehicleController extends Controller
 
 
 
+    }
+    public function approveVehicle($id){
+        $vehicle = Vehicle::find($id);
+        if($vehicle->all_auction == 'all'){
+            $vehicle->status = 1;
+            $vehicle->save();
+            return redirect()->route('viewVehicle')->with('success', 'Vehicle Updated  Successfully!');
+        }
+        elseif($vehicle->all_auction == null && $vehicle->retail_price != null){
+            $vehicle->status = 1;
+            $vehicle->save();
+            return redirect()->route('viewVehicle')->with('success', 'Vehicle Updated  Successfully!');
+        }
+        elseif($vehicle->status == 1){
+            return redirect()->route('viewVehicle')->with('alert', 'Your Vehicle Is Already Approve!');
+            
+        }
+        else{
+            return redirect()->route('viewVehicle')->with('alert', 'First Update Vehicle Prices!');
+        }
     }
 }

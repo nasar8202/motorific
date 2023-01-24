@@ -325,11 +325,11 @@ class FrontController extends Controller
             // 'previous_owner' => 'required',
             // 'keeping_plate' => 'required',
             // 'additional' => 'required',
-            'image1' => 'required',
-            'image2' => 'required',
-            'image3' => 'required',
-            'image4' => 'required',
-            'image5' => 'required',
+            'image1' => 'required|mimes:jpeg,png,jpg,|size:50000',
+            'image2' => 'required|mimes:jpeg,png,jpg,|size:50000',
+            'image3' => 'required|mimes:jpeg,png,jpg,|size:50000',
+            'image4' => 'required|mimes:jpeg,png,jpg,|size:50000',
+            'image5' => 'required|mimes:jpeg,png,jpg,|size:50000',
             
 
         ]);
@@ -463,7 +463,7 @@ class FrontController extends Controller
     public function photoUpload(Request $request)
     {
         $request->validate([
-            'millage' => 'required',
+            'millage' => 'required|numeric|min:1000',
       ]);
       try{
         $data = $request;
@@ -570,5 +570,27 @@ class FrontController extends Controller
         // }else{
         //     return response()->json(['success'=>'error']);
         // }
+    }
+    public function forgotPassPage()
+    {
+        return view('frontend.seller.forgotPassword');
+        
+    }
+    public function forgotPass(Request $request)
+    {
+        $user = User::where('email',$request->email)->first();
+
+        // $details = [
+        //     'greeting' => 'Hi ' . $user->name,
+        //     'body' => 'Your Request Has Been Approved',
+        //     'thanks' => 'Thank you for using Motorfic.com ',
+        //     'actionText' => 'Login',
+        //     'actionURL' => url('/register-step-1'),
+        //     'order_id' => 101
+        // ];
+
+        // // Notification::send($user->email, new MyFirstNotification($details));
+        // $user->notify(new ApprovedDealerNotification($details));
+
     }
 }

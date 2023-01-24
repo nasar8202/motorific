@@ -12,14 +12,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Dealers</h3>
-                <p class="text-subtitle text-muted">View All Approved Dealer List</p>
+                <h3>Dealers Purchase</h3>
+                <p class="text-subtitle text-muted">View All Dealers Purchases List</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Approved Dealers</li>
+                        <li class="breadcrumb-item active" aria-current="page">Dealers Purchases </li>
                     </ol>
                 </nav>
             </div>
@@ -28,36 +28,34 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Approved Dealer List
+                Dealers Purchases List
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Phone Number</th>
-                            <th>Company Name</th>
-                            <th>Position</th>
+                            <th>Dealer Name</th>
+                            <th>Vehicle Reg Number</th>
+                            <th>Vehicle Name</th>
+                            <th>Vehicle Price</th>
+                            <th>Vehicle Charges</th>
                            
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($approvedDealersByAdmin as $dealer)
+                        @forelse ($purchase as $dealer)
                         <tr>
-                            <td>{{ $dealer->name }}</td>
-                            <td>{{ $dealer->email }}</td>
-                            <td>{{ $dealer->phone_number }}</td>
-                            <td>{{ $dealer->company_name }}</td>
-                            <td>{{ $dealer->position }}</td>
+                            <td>{{ $dealer->user->name }}</td>
+                            <td>{{ $dealer->vehicle->vehicle_registartion_number }}</td>
+                            <td>{{ $dealer->vehicle->vehicle_name }}</td>
+                            <td>{{ $dealer->vehicle->vehicle_price }}</td>
+                            <td>{{ $dealer->vehicle_charges }}</td>
                             
-                            <td>
-                                <a href="{{route('dealersPurchase',$dealer->id)}}"><span class="badge bg-success">View Dealer Purchases</span></a>
-                            </td>
+                           
                         </tr>
-
-                        @endforeach
+                        @empty
+                        <td colspan="6">No Purchase Found</td>
+                        @endforelse
 
 
                     </tbody>

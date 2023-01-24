@@ -41,34 +41,35 @@ class DealerChargesController extends Controller
         return back();
     }
 
-    public function sellerDetails($id)
+    public function sellerDetails($bided,$id,$slug)
     {
-      
+        $bided = $bided;
+        $role = $slug;
         $user_id = Auth::user()->id;
-       $charges =  DealerWinningCharges::where('user_id',$user_id)->first();
+       $charges =  DealerWinningCharges::where('user_id',$user_id)->where('vehicle_id',$id)->first();
+       
        $pricing = BidedVehicle::where('vehicle_id',$id)->where('user_id',$user_id)->first();
       
-    //    dd($pricing->bid_price);
        $charges_fee = VehicleWinningCharges::where('status',1)
        ->where('price_to','>=',$pricing->bid_price)
        ->where('price_from','<=',$pricing->bid_price)
        ->orderBy('id',"DESC")->first();
        
-       $user_email =Auth::user()->email;
-     
+       
         if($charges == null){
 
             $charges_payment = $charges_fee->fee;
-            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment'))->with('error','First You Need To Pay');
+            return view('frontend.dealer.sellerDetails.cardDetail',compact('id','charges_payment','user_id','role','bided'))->with('error','First You Need To Pay');
            
         }
         else{
-            $allVehicles = Vehicle::Where('status',1)->where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
-       $user = User::where('id',$allVehicles->user_id)->first();
+            $allVehicles = Vehicle::Where('status',2)->where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
+       
+            $user = User::where('id',$allVehicles->user_id)->first();
        $current = Auth::user()->id;
        $pricing = BidedVehicle::where('vehicle_id',$id)->where('user_id',$current)->first();
      
-        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','allVehicles','current','pricing'));
+        return view('frontend.dealer.sellerDetails.sellerDetail',compact('user','role','allVehicles','current','pricing','bided'));
         }
     }
     public function sellerRequestedDetails($slug,$id)
@@ -94,7 +95,7 @@ class DealerChargesController extends Controller
         }
         else{
             $allVehicles = Vehicle::Where('status',2)->where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
-      
+            
             $user = User::where('id',$allVehicles->user_id)->first();
             $current = Auth::user()->id;
             $pricing = OrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
@@ -150,7 +151,7 @@ class DealerChargesController extends Controller
      $cardDetails->expiration_year = $request->expiration_year;
      $cardDetails->status = 1;
      $cardDetails->save();
-     return redirect()->route('bids.CompletedBiddedVehicle')->with('success','Your Payment Successfully Completed');
+     return redirect()->route('bids.ActiveBiddedVehicle')->with('success','Your Payment Successfully Completed');
     }
     catch(\Exception $e)
     {
@@ -163,33 +164,46 @@ class DealerChargesController extends Controller
 
     public function reviewForCancel(Request $request)
     {   
-
         DB::beginTransaction();
         try{
-        $cancel = new CanceledRequestReviews;
-        $cancel->user_id = $request->user_id;
-        if($request->role == 'dealer'){
-        $cancel->dealer_vehicle_id = $request->vehicle_id;   
+            
+            if($request->role == 'dealer'){
+            $cancel = new CanceledRequestReviews;
+            $cancel->user_id = $request->user_id;
+            $cancel->dealer_vehicle_id = $request->vehicle_id;   
+            $cancel->order_requests_id = $request->order_id;
+            $cancel->reviews = $request->reviews;
+            $cancel->status = 1;
+            $cancel->save();
+            $pricing = DealersOrderVehicleRequest::where('id',$request->order_id)->first();
+            $pricing->status = 2;
+            $pricing->save();     
+    }
+        elseif($request->role == 'seller' && $request->bided == 'bided'){
+            $cancel = new CanceledRequestReviews;
+            $cancel->user_id = $request->user_id;
+            $cancel->vehicle_id = $request->vehicle_id;
+            $cancel->biding_id = $request->order_id;
+            $cancel->reviews = $request->reviews;
+            $cancel->status = 1;
+            $cancel->save();
+            $pricing = BidedVehicle::where('id',$request->order_id)->first();
+            $pricing->status = 2;
+            $pricing->save();
         }
         else{
-        $cancel->vehicle_id = $request->vehicle_id;
+            $cancel = new CanceledRequestReviews;
+            $cancel->user_id = $request->user_id;
+            $cancel->vehicle_id = $request->vehicle_id;
+            $cancel->order_requests_id = $request->order_id;
+            $cancel->reviews = $request->reviews;
+            $cancel->status = 1;
+            $cancel->save();
+            $pricing = OrderVehicleRequest::where('id',$request->order_id)->first();
+            $pricing->status = 2;
+            $pricing->save();
         }
-        $cancel->order_requests_id = $request->order_id;
-        $cancel->reviews = $request->reviews;
-        $cancel->status = 1;
-        $cancel->save();
-        if($request->role == 'seller'){
-        
-        $pricing = OrderVehicleRequest::where('id',$request->order_id)->first();
-        $pricing->status = 2;
-        $pricing->save();
-        }
-        else{
-        
-        $pricing = DealersOrderVehicleRequest::where('id',$request->order_id)->first();
-        $pricing->status = 2;
-        $pricing->save(); 
-        }
+    
         }catch(\Exception $e)
         {
         DB::rollback();
@@ -204,11 +218,19 @@ class DealerChargesController extends Controller
     }
     public function scheduleMeeting(Request $request)
     {
+        if($request->bided == 'bided'){
+            $meeting = BidedVehicle::where('id',$request->order_id)->first();
+            $meeting->meeting_date_time = $request->date_time;
+            $meeting->save();
+            return redirect()->route('CompletedRequestedVehicle')->with('success','Meeting Has Been Schedule');
+                
+        }
+        else{
         $meeting = OrderVehicleRequest::where('id',$request->order_id)->first();
         $meeting->meeting_date_time = $request->date_time;
         $meeting->save();
         return redirect()->route('CompletedRequestedVehicle')->with('success','Meeting Has Been Schedule');
-     
+    }
     }
     public function ownerScheduleMeeting(Request $request)
     {

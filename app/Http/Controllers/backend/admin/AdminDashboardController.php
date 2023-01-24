@@ -10,6 +10,7 @@ use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Http\Controllers\Controller;
+use App\Models\DealerWinningCharges;
 use App\Notifications\RejectDealerNotification;
 use App\Notifications\ApprovedDealerNotification;
 
@@ -120,9 +121,16 @@ class AdminDashboardController extends Controller
     // start approved dealer by admin
     public function approvedDealersByAdmin()
     {
-        $approvedDealersByAdmin = User::where('status',1)->orderBy('id', 'DESC')->get();
+        $approvedDealersByAdmin = User::where('status',1)->where('role_id',3)->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.dealers.approvedDealersByAdmin',compact('approvedDealersByAdmin'));
+    }
+    public function dealersPurchase($id)
+    {
+        
+        $purchase = DealerWinningCharges::with('user')->with('Vehicle')->where('user_id',$id)->where('status','1')->get();
+        
+        return view('backend.admin.dealers.dealersPurchase',compact('purchase'));
     }
     // end approved dealer by admin
 

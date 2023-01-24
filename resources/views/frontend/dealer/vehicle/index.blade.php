@@ -425,9 +425,9 @@ $(document).ready(function(){
 // Initializing slider
 $("#slider").slider({
     range: true,
-    min: 20000,
-    max: 80000,
-    values: [ 22000, 25000 ],
+    min: 1000,
+    max: 100000,
+    values: [ 1000, 2000 ],
     slide: function( event, ui ) {
 
 
