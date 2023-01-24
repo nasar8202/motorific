@@ -99,8 +99,17 @@ Route::get('/registration', [FrontController::class,'registration'])->name('regi
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
 Route::get('/valuation', [FrontController::class,'valuation'])->name('valuation');
 Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
-Route::get('/forgot-password-page', [FrontController::class,'forgotPassPage'])->name('forgotPassPage');
+
+Route::get('/forgot-password', [FrontController::class,'forgotPassPage'])->name('forgotPassPage');
 Route::post('/forgot-password', [FrontController::class,'forgotPass'])->name('forgotPass');
+Route::get('reset-password/{token}', [FrontController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [FrontController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+
+// Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+// Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+// Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+// Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
 // start admin panel routes
@@ -273,7 +282,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/pricing-edit/{id}', [PricingChargesController::class,'pricingEdit'])->name('pricingEdit');
      Route::post('/pricing-create', [PricingChargesController::class,'pricingCreate'])->name('pricingCreate');
      Route::get('/pricing-delete/{id}', [PricingChargesController::class,'pricingDelete'])->name('pricingDelete');
-     
+
      Route::post('/pricing-create/{id}', [PricingChargesController::class,'pricingUpdate'])->name('pricingUpdate');
      //end pricning
 
@@ -288,14 +297,14 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/approve-order/{id}/{vId}', [OrderRequestController::class,'approveOrderd'])->name('approveOrderd');
      Route::get('/unassign-req/{id}', [OrderRequestController::class,'unassignReq'])->name('unassignReq');
     //end request order
-    
+
     //dealer vehicle
-    
+
     Route::get('/dealer-vehicle', [DealerVehicleController::class,'viewDealerVehicle'])->name('viewDealerVehicle');
     Route::post('/dealer-vehicle-update-price/{id}', [DealerVehicleController::class,'dealerVehicleUpdatePrice'])->name('dealerVehicleUpdatePrice');
     Route::get('/dealer-vehicle-detail/{id}', [DealerVehicleController::class,'viewDealerVehicleDetail'])->name('viewDealerVehicleDetail');
     Route::get('/dealer-vehicle-delete/{id}', [DealerVehicleController::class,'deleteDealerVehicle'])->name('deleteDealerVehicle');
-    
+
 
     //end dealer vehicle
 
@@ -306,7 +315,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/vehicle-owner-detail/{id}', [DealerOrderVehicleRequestController::class,'vehicleOwnerDetails'])->name('vehicleOwnerDetails');
     Route::get('/approve-dealers-order/{id}', [DealerOrderVehicleRequestController::class,'approveDealersOrder'])->name('approveDealersOrder');
     Route::post('/approve-dealers-order-admin-updated', [DealerOrderVehicleRequestController::class,'approveDealersOrderdWithAdminUpdated'])->name('approveDealersOrderdWithAdminUpdated');
-    
+
     //end dealer order vehicle request
     //start meetings
 
@@ -334,11 +343,11 @@ Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updat
 
 // end seller panel routes
 Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetails'])->name('dealer.vehicleAndDetails');
-    
+
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
-    
+
     Route::get('/bids-and-offers', [DealerDashboardController::class,'BidsAndOffers'])->name('dealer.BidsAndOffers');
     Route::get('/active-bids-vehicle', [DealerDashboardController::class,'ActiveBiddedVehicle'])->name('bids.ActiveBiddedVehicle');
     Route::get('/under-offers-bids-vehicle', [DealerDashboardController::class,'UnderBiddedOfferVehicle'])->name('bids.UnderBiddedOfferVehicle');
@@ -351,7 +360,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/my-vehicles', [DealerDashboardController::class,'myVehicles'])->name('myVehicles');
     Route::get('/order-on-my-vehicles/{id}', [DealerDashboardController::class,'orderOnMyVehicle'])->name('orderOnMyVehicle');
     Route::post('/dealer-meeting-status', [DealerDashboardController::class,'dealerMeetingStatus'])->name('dealerMeetingStatus');
-    
+
     Route::get('/dashboard', [DealerDashboardController::class,'index'])->name('dealer.dashboard');
     Route::get('/onlyCars', [DealerDashboardController::class,'onlyCars'])->name('onlyCars');
     Route::get('/onlyVans', [DealerDashboardController::class,'onlyVans'])->name('onlyVans');
@@ -364,10 +373,10 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
     Route::get('/buy-it-now', [DealerDashboardController::class,'buyItNow'])->name('buyItNow');
-    
+
     Route::get('/completed-vehicle-detail/{id}', [DealerDashboardController::class,'completedVehicleDetails'])->name('completedVehicleDetails');
     Route::get('/completed-dealer-vehicle-detail/{id}', [DealerDashboardController::class,'completedDealersVehicleDetail'])->name('completedDealersVehicleDetail');
-    
+
     Route::post('/buyItNowVehicle', [DealerDashboardController::class,'buyItNowVehicle'])->name('buyItNowVehicle');
     Route::post('/dealerToDealerVehicleFilter', [DealerDashboardController::class,'dealerToDealerVehicleFilter'])->name('dealerToDealerVehicleFilter');
     Route::get('/dealer-to-dealer', [DealerDashboardController::class,'dealerToDealer'])->name('dealerToDealer');
@@ -381,7 +390,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/dealer-vehicle-request-cancel/{id}', [DealerOrderRequestController::class,'cancelDealerRequest'])->name('cancelDealerRequest');
     //search routes
     Route::get('/did-not-win-search', [DealerDashboardController::class,'didNotWinSearch'])->name('didNotWinSearch');
-    
+
 
 
     //
@@ -392,11 +401,11 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetailsPost'])->name('dealer.vehicleAndDetailsPost');
     Route::get('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');
-    
+
     Route::get('/seller-details/{bided}/{id}/{slug}', [DealerChargesController::class, 'sellerDetails'])->name('sellerDetails');
     Route::get('/seller-requested-details/{slug}/{id}', [DealerChargesController::class, 'sellerRequestedDetails'])->name('sellerRequestedDetails');
     Route::get('/dealer-owner-requested-details/{slug}/{id}', [DealerChargesController::class, 'ownerDealerRequestedDetails'])->name('ownerDealerRequestedDetails');
-    
+
     Route::get('/card-details', [DealerChargesController::class, 'cardDetails'])->name('cardDetails');
     Route::post('/card-details-create', [DealerChargesController::class, 'cardDetailsCreate'])->name('cardDetailsCreate');
     Route::get('/delivery-details', [DealerChargesController::class, 'deliveryDetailPage'])->name('deliveryDetailPage');
@@ -407,7 +416,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/review-cancelation', [DealerChargesController::class,'reviewForCancel'])->name('reviewForCancel');
     Route::post('/schedule-meeting', [DealerChargesController::class,'scheduleMeeting'])->name('scheduleMeeting');
     Route::post('/owner-schedule-meeting', [DealerChargesController::class,'ownerScheduleMeeting'])->name('ownerScheduleMeeting');
-    
+
 });
 
 // end seller panel routes

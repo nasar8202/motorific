@@ -29,11 +29,11 @@
         <div class="card">
             <div class="card-header">
 
-                <a href="{{ route('createFinanceForm') }}"><span class="badge bg-primary" style="float: right">Add Finance </span></a>
+                <a href="{{ route('createFinanceForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Add Finance </span></a>
             </div>
 
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>

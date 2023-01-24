@@ -31,7 +31,7 @@
                 Approved Dealer List
             </div>
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped dealers-list" id="table1">
                     <thead>
                         <tr>
                             <th>Full Name</th>

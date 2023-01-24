@@ -1,0 +1,149 @@
+.cvf_btn span{
+    padding: 8px 20px;
+}
+footer.footer_copyright p {
+    margin-bottom: 0;
+}
+@media(max-width:1750px){
+    
+}
+
+@media(max-width:1599px){
+    
+    .prof-stats .card .stats-icon  {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 6px;
+        float: none;
+    }
+    
+    .prof-stats .card .stats-icon i {
+        font-size: 22px;
+    }
+    .prof-stats .card .card-body h6 {
+        font-size: 14px;
+    }
+    .dealers-list tbody td {
+        font-size: 14px;
+    }
+    .dealers-list thead th {
+        font-size: 15px;
+    }
+    .tables_admin_data tbody td img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+
+}
+
+@media(max-width:1439px){
+    .prof-stats .card .card-body {
+        padding: 30px 15px !important;
+    }
+    .prof-stats .card .card-body h6 {
+        font-size: 12px;
+    }
+    
+    .prof-stats .card .stats-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .prof-stats .card .stats-icon i {
+        font-size: 16px;
+    }
+    .dealers-list {
+        white-space:nowrap;
+    }
+    .dealers-list tbody td {
+        font-size: 13px;
+    }
+
+}
+
+@media(max-width:992px){
+    .approved-dealers {
+    white-space: nowrap;
+}
+
+.approved-dealers thead a {
+    padding-right: 20px;
+}
+
+}
+
+@media(max-width:991px){
+    .tables_admin_data tbody td img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media(max-width:767px){
+    .admin_dashboard #sidebar{
+        background: red;
+        height: 100vh;
+        position: fixed;
+        z-index: 999;
+    }
+    .prof-stats .card .card-body h6 {
+        font-size: 13px;
+}
+.prof-stats .card {
+    margin-bottom: 24px;
+}
+footer.footer_copyright {
+    position: static;
+}
+footer.footer_copyright p{
+    margin-bottom:0;
+    font-size: 14px;
+}
+.admin_dashboard .dataTable-info {
+    font-size: 13px;
+}
+.tables_admin_data {
+    white-space: nowrap;
+}
+.tables_admin_data tbody td img {
+    width: 60px;
+    height: 60px;
+}
+.tables_admin_data a.dataTable-sorter {
+    padding-right: 20px;
+}
+
+}
+
+@media(max-width:480px){
+    .prof-stats .row .col-6{
+        width:100%;
+    }
+    .prof-stats .card {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    .prof-stats .card .card-body {
+        width: 100%;
+    }
+    .prof-stats .card .stats-icon {
+        margin: 0 auto 10px auto;
+    }
+    .dealers-table thead th {
+        white-space: nowrap;
+    }
+    .dealers-table thead th a:before,
+    .dealers-table thead th a:after{
+        display:none;
+    }
+    .cvf_btn span {
+        float: none !important;
+        width: 100%;
+        padding: 8px 0;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+
+}

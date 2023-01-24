@@ -31,7 +31,7 @@
                 Block Dealer List
             </div>
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped approved-dealers" id="table1">
                     <thead>
                         <tr>
                             <th>Full Name</th>

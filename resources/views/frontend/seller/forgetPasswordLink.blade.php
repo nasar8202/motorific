@@ -91,31 +91,60 @@ display: block;
     <!-- REGISTRATION-FORM -->
     <div class="registration-form">
         <div class="reg-form-heading">
-            <h3>Enter Your Email To Get Your Password</h3>
+            <h3>Reset Password</h3>
             {{-- <p>It will take 60 seconds</p> --}}
         </div>
-
         <div class="container-700">
             <div class="form-main text-center">
-                <form method="POST" action="{{ route('forgotPass') }}">
-                    @csrf
-                    <div>
+                <div>
 
-                        <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
 
-                    </div>
+                            <form action="{{ route('reset.password.post') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="token" value="{{ $token }}">
+
+                                <div>
+
+                                        <input type="text" id="email_address" placeholder="E-mail" value="{{ $email }}"  name="email" required autofocus>
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
+
+                                </div>
+
+                                <br>
+                                <div>
+
+                                        <input type="password" id="password" placeholder="password"  name="password" required autofocus>
+                                        @if ($errors->has('password'))
+                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                        @endif
+
+                                </div>
+
+                                <br>
+                                <div>
+
+                                        <input type="password" id="password-confirm" placeholder="confirm password"  name="password_confirmation" required autofocus>
+                                        @if ($errors->has('password_confirmation'))
+                                            <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                        @endif
+
+                                </div>
+
+                                <br>
+                                <div >
+                                    <button type="submit" class="btn btn-primary">
+                                        Reset Password
+                                    </button>
+                                </div>
 
                     <br>
-                    <div>
-                        <button type="submit"> Send Password Reset Link</button>
-                    </div>
-                </form>
-                <a href="{{route('myLogin')}}">Login</a>
+
+                    <br>
+                            </form>
+
+
             </div>
         </div>
     </div>
