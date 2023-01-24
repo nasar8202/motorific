@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/css/app.css')}}">
     <link rel="shortcut icon" href="{{URL::asset('backend/admin/assets/images/favicon.svg')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/simple-datatables/style.css')}}">
+    <!--Responsive Css-->
+    <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/css/responsive.css')}}">
 
 
 
@@ -50,7 +52,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="admin_dashboard">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
@@ -72,7 +74,7 @@
         </div>
         <div id="main">
            @yield('secton')
-            <footer>
+            <footer class="footer_copyright">
                 @include('backend.admin.partials._footer')
             </footer>
         </div>

@@ -29,11 +29,11 @@
         <div class="card">
             <div class="card-header">
                 Vehicles List
-                <a href="{{ route('createToolPackForm') }}"><span class="badge bg-primary" style="float: right">Add Tool Kit </span></a>
+                <a href="{{ route('createToolPackForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Add Tool Kit </span></a>
             </div>
 
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>
