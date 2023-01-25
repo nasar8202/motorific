@@ -29,7 +29,7 @@
         <div class="card">
             <div class="card-header">
                 
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                <button type="button" class="btn btn-outline-primary add_btn" data-bs-toggle="modal"
                 data-bs-target="#inlineForm">
                 Add New Pricing
             </button>
@@ -37,7 +37,7 @@
             
 
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -114,12 +114,12 @@ role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary"
+                <button type="button" class="btn btn-light-secondary btn-modal"
                     data-bs-dismiss="modal">
                     <i class="bx bx-x d-block d-sm-none"></i>
                     <span class="d-none d-sm-block">Close</span>
                 </button>
-                <button type="submit" class="btn btn-primary ml-1"
+                <button type="submit" class="btn btn-primary ml-1 btn-modal"
                     >
                     <span class="d-none d-sm-block">Submit</span>
                 </button>

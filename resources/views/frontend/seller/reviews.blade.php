@@ -102,85 +102,25 @@ display: block;
 
 <!-- SECTION-1 -->
 
-<section class="sec-1" id="vehicle_registration_details"></section>
-<!-- SECTION-2 -->
-
-<section class="sec-2">
+<section class="sec-1" id="vehicle_registration">
     <div class="container-1151">
-
         <div class="row">
-
-            <!-- BOX-1 -->
-            <div class="col-lg-12 col-md-12">
-                <div class="box">
-                    <h4>Reviews</h4>
-
-            </div>
-
-
-
-        </div>
-
-        <div class="how-work">
-            <h3>How it works</h3>
-        </div>
-        <div class="row">
-            <div class="howitwork-main col-lg-3 col-md-3">
-                <div class="step-nmbr">
-                    <h5>1</h5>
-                </div>
-                <div class="how-work-img">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/car.png') }}" alt="">
-                    <div class="line-sec-2">
-                    </div>
-                </div>
-                <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
-            </div>
-
-            <div class="howitwork-main col-lg-3 col-md-3">
-                <div class="step-nmbr">
-                    <h5>2</h5>
-                </div>
-                <div class="how-work-img d-flex align-items-center">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/megaphone.png') }}" alt="">
-                    <div class="line-sec-2">
-                    </div>
-                </div>
-                <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
-            </div>
-
-            <div class="howitwork-main col-lg-3 col-md-3">
-                <div class="step-nmbr">
-                    <h5>3</h5>
-                </div>
-                <div class="how-work-img">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/price.png') }}" alt="">
-                    <div class="line-sec-2">
-                    </div>
-                </div>
-                <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
-            </div>
-
-            <div class="howitwork-main col-lg-3 col-md-3">
-                <div class="step-nmbr">
-                    <h5>4</h5>
-                </div>
-                <div class="how-work-img">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
-                </div>
-                <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
-            </div>
-        </div>
-        <div class="sec-2-btns text-center">
+            <div class="sec-1-txt col-lg-6">
+                <h2>Sell your car the
+                    with <span>Motorific</span></h2>
+                <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
             
+            </div>
+            <div class="sec-1-img col-lg-6">
+                <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
+            </div>
         </div>
     </div>
 </section>
-
+<!-- SECTION-2 -->
+ <div class="container-1151">
+     
+  </div>     
 <!-- SECTION-3 -->
 
 

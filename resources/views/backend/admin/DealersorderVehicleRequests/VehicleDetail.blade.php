@@ -31,7 +31,7 @@
             </div>
 
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>Registartion Number</th>
@@ -49,15 +49,15 @@
                             
                             <td>{{ $vehicles->vehicle_type}}</td>
                             
-                            <td>{{ $vehicles->vehicle_price}} <i class="fa-solid fa-check"></i></td>
+                            <td>{{ $vehicles->vehicle_price}} <i class="fa fa-check-circle" aria-hidden="true" style="color:#1bc002;"></i></td>
                         </tr>
                   
                     </tbody>
                 </table>
             </div>
 
-            <div class="card-body">
-                <table class="table table-striped" id="table1">
+            <div class="card-body table_wraper">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>Vehicle Year</th>
@@ -84,8 +84,8 @@
                 </table>
             </div>
 
-            <div class="card-body">
-                <table class="table table-striped" id="table1">
+            <div class="card-body table_wraper">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>keys</th>
@@ -110,7 +110,7 @@
                 </table>
             </div>
         </div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <h5>Exterior Images</h5>
         @forelse($vehicles->DealerVehicleExterior as $images)

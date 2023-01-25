@@ -31,7 +31,7 @@
             </div>
 
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>Registartion Number</th>
@@ -49,15 +49,15 @@
                             
                             <td>{{ $vehicles->vehicle_type}}</td>
                             
-                            <td>{{ $vehicles->vehicle_price}} <i class="fa-solid fa-check"></i></td>
+                            <td>{{ $vehicles->vehicle_price}} <i class="fa fa-check-circle" aria-hidden="true" style="color:#1bc002;"></i></td>
                         </tr>
                   
                     </tbody>
                 </table>
             </div>
 
-            <div class="card-body">
-                <table class="table table-striped" id="table1">
+            <div class="card-body table_wraper">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>Vehicle Year</th>
@@ -84,8 +84,8 @@
                 </table>
             </div>
 
-            <div class="card-body">
-                <table class="table table-striped" id="table1">
+            <div class="card-body table_wraper">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>Body Type</th>
@@ -110,37 +110,47 @@
                 </table>
             </div>
         </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
+<div class="container-fluid">
+    <div class="row car_img_wraper">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <h5>Front Picture</h5>
             <img class="img-fluid" src="{{ asset('/vehicles/vehicles_images/'.$vehicles->VehicleImage->front) }}" >
                             
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <h5>Corner Picture</h5>
             <img class="img-fluid" src="{{ asset('/vehicles/vehicles_images/'.$vehicles->VehicleImage->passenger_rare_side_corner) }}"  >
                             
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <h5>Back Picture</h5>
             <img class="img-fluid" src="{{ asset('/vehicles/vehicles_images/'.$vehicles->VehicleImage->driver_rare_side_corner) }}"  >
                             
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <h5>Interior Picture</h5>
             <img class="img-fluid" src="{{ asset('/vehicles/vehicles_images/'.$vehicles->VehicleImage->interior_front) }}" >
                             
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <h5>Side Picture</h5>
             <img class="img-fluid" src="{{ asset('/vehicles/vehicles_images/'.$vehicles->VehicleImage->dashboard) }}"  >
                             
         </div>
-       
     </div>
+    <!--<div class="row">-->
+    <!--    <div class="col-md-3">-->
+    <!--        <h5>Interior Picture</h5>-->
+    <!--        <img class="img-fluid" src="{{ asset('/vehicles/vehicles_images/'.$vehicles->VehicleImage->interior_front) }}" >-->
+                            
+    <!--    </div>-->
+    <!--    <div class="col-md-3">-->
+    <!--        <h5>Side Picture</h5>-->
+    <!--        <img class="img-fluid" src="{{ asset('/vehicles/vehicles_images/'.$vehicles->VehicleImage->dashboard) }}"  >-->
+                            
+    <!--    </div>-->
+       
+    <!--</div>-->
     </div>
 
     </section>
