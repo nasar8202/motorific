@@ -126,8 +126,9 @@ display: block;
           <span> <i class="fa fa-star"></i></span>
             <span> <i class="fa fa-star"></i></span>
               <span> <i class="fa fa-star"></i></span>
-                <span> <i class="fa fa-star"></i></span>
+                <span> <i class="fas fa-star-half"></i></span>
          </div>
+ 
   </div>     
 <!-- SECTION-3 -->
 

@@ -2150,4 +2150,29 @@ h3.overview-section__heading {
     font-size: 1.5rem;
     margin-top: 15px;
 }
+.exelent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.exelent span {
+    background: #05eab5;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exelent span i {
+    font-size: 19px;
+    background: transparent;
+    font-weight: bolder;
+    color: white;
+}
+
+.exelent span:last-child {
+}
 

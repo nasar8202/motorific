@@ -133,7 +133,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/view-new-vehicle', [AdminDashboardController::class,'viewSellerVehicle'])->name('viewSellerVehicle');
     Route::get('/view-seller-deatils/{id}', [SellerVehicleController::class,'viewSellerDetails'])->name('viewSellerDetails');
     Route::get('/view-vehicle-deatils/{id}', [SellerVehicleController::class,'vehicleDetails'])->name('vehicleDetails');
-    Route::get('/approve-vehicle/{id}', [SellerVehicleController::class,'approveVehicle'])->name('approveVehicle');
+    Route::get('/approve-seller-vehicle/{id}', [SellerVehicleController::class,'approveSellerVehicle'])->name('approveSellerVehicle');
+    Route::get('/deactivate-seller-vehicle/{id}', [SellerVehicleController::class,'deactivateSellerVehicle'])->name('deactivateSellerVehicle');
 
     // vehicle
     Route::get('/view-vehicle-features', [VehicleController::class,'ViewVehicleFeatures'])->name('ViewVehicleFeatures');

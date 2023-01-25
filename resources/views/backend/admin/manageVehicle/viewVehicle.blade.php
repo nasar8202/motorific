@@ -73,7 +73,12 @@
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
                             <td>
-                                <a href="{{ route('approveVehicle',$vehicle->id) }}"><span class="badge bg-success">Approve</span></a>
+                                @if($vehicle->status == 0)
+                                <a href="{{ route('approveSellerVehicle',$vehicle->id) }}"><span class="badge bg-success">Approve</span></a>
+                                @elseif($vehicle->status == 1)
+                                <a href="{{ route('deactivateSellerVehicle',$vehicle->id) }}"><span class="badge bg-danger">Deactivate</span></a>
+                                
+                                @endif
                                 <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge bg-success">View Details</span></a>
                                 <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge bg-danger">Delete</span></a>
                             </td>
