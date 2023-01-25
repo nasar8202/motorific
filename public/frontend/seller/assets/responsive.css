@@ -866,6 +866,18 @@ section.photo-up-sec-2 {
     .head-btns {
         /* width: 25%; */
     }
+    .overview-section {
+
+    width: calc(50% - 24px);
+    margin-right: 12px;
+    margin-left: 12px;
+    padding: 28px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
     .sec-5-txt .container-1151 {
     max-width: 78vw;
 }
@@ -1690,6 +1702,16 @@ section.sec-4 {
     bottom: -6px;
  
 }
+.car-selling__benefits-list {
+    display: block;
+}
+
+.car-selling__benefits-list-item {
+    width: calc(100% - 24px);
+}
+.overview-section {
+    flex: 0 0 0 0;
+    width: calc(100% - 24px);}
 }
 
 @media (max-width: 575px) {

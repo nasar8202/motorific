@@ -39,13 +39,22 @@ display: block;
                     <li>Help</li>
                 </a>
 
+                @auth
+
+                @endauth
+
+                @guest
                 <div class="dropdown">
                     <span>More</span>
                     <div class="dropdown-content">
-                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
+                @endguest
             </ul>
         </div>
 
@@ -102,13 +111,20 @@ display: block;
 
 <!-- SECTION-1 -->
 
-<section class="sec-1" id="vehicle_registration_details"></section>
-<!-- SECTION-2 -->
-
-<section class="sec-2">
+<section class="sec-1" id="vehicle_registration">
     <div class="container-1151">
-
         <div class="row">
+<<<<<<< HEAD
+            <div class="sec-1-txt col-lg-6">
+                <h2>Sell your car the
+                    with <span>Motorific</span></h2>
+                <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
+            
+            </div>
+            <div class="sec-1-img col-lg-6">
+                <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
+            </div>
+=======
 
             <!-- BOX-1 -->
             <div class="col-lg-12 col-md-12">
@@ -176,11 +192,15 @@ display: block;
             </div>
         </div>
         <div class="sec-2-btns text-center">
-            
+
+>>>>>>> 4a167123562926db224a0cb8bba96bb5efc6ab84
         </div>
     </div>
 </section>
-
+<!-- SECTION-2 -->
+ <div class="container-1151">
+     
+  </div>     
 <!-- SECTION-3 -->
 
 

@@ -2065,3 +2065,89 @@ table.table.table-striped {
 .form-main form .row.signup-input div input {
     width: 100%;
 }
+
+/*how it work*/
+.car-selling__benefits-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+.car-selling__benefits-list-item {
+    flex: 0 0 auto;
+    width: calc(50% - 24px);
+    margin-right: 12px;
+    margin-left: 12px;
+    position: relative;
+    list-style: none;
+}
+.list-icon__item::before {
+    background-size: 24px 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -24px;
+    border-radius: 100%;
+    background-size: contain;
+    margin-right: 0px;
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: #05eab5;
+    top: 4px;
+}
+.car-selling__benefits-list-item::marker {
+  display:none;
+}
+
+
+h4.car-selling__benefits-list-item-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+p.car-selling__benefits-list-item-desc {
+    width: 86%;
+}
+
+.car-selling__benefits {padding-bottom: 100px;}
+
+/**/
+.overview-sections {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+.overview-section {
+    flex: 0 0 auto;
+    width: calc(33.3333333333% - 24px);
+    margin-right: 12px;
+    margin-left: 12px;
+    padding: 28px;
+}
+.overview-section {
+    background-color: #f2f2f2;
+    text-align: center;
+    border-radius: 12px;
+    padding: 16px;
+}
+.inline-icon--medium {
+    width: 32px;
+    height: 32px;
+}
+.overview-section__icon .inline-icon {
+    stroke: blue;
+}
+.inline-icon {
+    stroke-width: 2px;
+    fill: none;
+    stroke: none;
+    color: transparent;
+
+}
+h3.overview-section__heading {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+

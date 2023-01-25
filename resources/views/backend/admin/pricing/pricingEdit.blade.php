@@ -63,12 +63,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary"
+                        <button type="button" class="btn btn-light-secondary btn-modal"
                             data-bs-dismiss="modal">
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Close</span>
                         </button>
-                        <button type="submit" class="btn btn-primary ml-1"
+                        <button type="submit" class="btn btn-primary ml-1 btn-modal"
                             >
                             <span class="d-none d-sm-block">Submit</span>
                         </button>

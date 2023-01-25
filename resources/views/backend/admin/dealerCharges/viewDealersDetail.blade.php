@@ -77,9 +77,9 @@
           <div class="card shadow-sm">
             <div class="card-header bg-transparent text-center">
               <img class="profile_img" src="{{URL::asset('backend\admin\assets\images\dealerprofile\man.png')}}" alt="">
-              <h3>{{$dealers->name}}</h3>
+              <h3 class="text-capitalize">{{$dealers->name}}</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body profile_detail">
               <p class="mb-0"><strong class="pr-1">Email :</strong>{{$dealers->email}}</p>
               <p class="mb-0"><strong class="pr-1">Phone Number :</strong>{{$dealers->phone_number}}</p>
             </div>
@@ -93,10 +93,10 @@
             <input type="hidden" name="id" value="{{ $dealers->id }}">
             <div class="card shadow-sm">
                 <div class="card-header bg-transparent border-0">
-                  <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                  <h3 class="mb-0 profile_info"><i class="far fa-clone pr-1"></i>General Information</h3>
                 </div>
-                <div class="card-body pt-0">
-                  <table class="table table-bordered">
+                <div class="card-body pt-0 table_wraper">
+                  <table class="table table-bordered tables_admin_data">
                     <tr>
                       <th width="30%">Address</th>
                       <td width="2%">:</td>
