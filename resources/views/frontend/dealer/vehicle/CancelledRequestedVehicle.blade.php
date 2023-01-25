@@ -54,7 +54,7 @@
                         <!--    <span>Your reviews : {{ $cancel->reviews }}</span>-->
                         <!--</div>-->
                         @empty
-                        <div class="col-sm-12">No Purchases Vehicle Found!</div>
+                        <div class="col-sm-12">No Canceled Vehicle Found!</div>
 
                         @endforelse
 
@@ -82,7 +82,7 @@
                         <!--    <span>Your reviews : {{ $dealercanceled->reviews }}</span>-->
                         <!--</div>-->
                         @empty
-                        <div class="col-sm-12">No Purchases Vehicle Found!</div>
+                        <div class="col-sm-12">No Canceled Vehicle Found!</div>
 
                         @endforelse
 

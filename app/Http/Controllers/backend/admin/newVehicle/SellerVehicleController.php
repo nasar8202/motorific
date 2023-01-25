@@ -24,11 +24,25 @@ class SellerVehicleController extends Controller
       
         return view('backend.admin.sellerVehicle.vehicleDetail',compact('vehicles'));
     }
-    public function approveVehicle($id)
+    public function approveSellerVehicle($id)
     {
+        
        $vehicles = Vehicle::where('id',$id)->first();
+       if($vehicles->hidden_price == null){
+        return redirect()->back()->with('warning', 'First Fill Out Vehicle Prices!');
+    
+    }
         $vehicles->status = 1;
         $vehicles->save();
-        return redirect()->route('viewSellerVehicle')->with('success', 'Vehicle Approved Successfully!');
+        return redirect()->route('viewVehicle')->with('success', 'Vehicle Approved Successfully!');
+    }
+    public function deactivateSellerVehicle($id)
+    {
+        
+       $vehicles = Vehicle::where('id',$id)->first();
+     
+        $vehicles->status = 0;
+        $vehicles->save();
+        return redirect()->route('viewVehicle')->with('error', 'Vehicle Deativate Successfully!');
     }
 }
