@@ -29,10 +29,10 @@ display: block;
                 <a href="{{ route('sellMyCar') }}">
                     <li>Sell My Car</li>
                 </a>
-                <a href="#">
+                <a href="{{ route('howItWorksforSeller') }}">
                     <li>How It Works</li>
                 </a>
-                <a href="#">
+                <a href="{{ route('reviews') }}">
                     <li>Reviews</li>
                 </a>
                 <a href="#">
@@ -115,10 +115,10 @@ display: block;
                     <input type="text" name="millage"  placeholder="Enter Millage" >
                     <input type="hidden" name="registeration" class="registeration" value="">
                     <button type="submit" >Continue</button>
-                  
+
                 </form>
                 <div class="check_area">
-                   
+
                     <input type="text" name="registeration" id="registeration"  placeholder="Enter REG">
                     <span class="text-danger show_error"></span>
                     <button type="button" id="check_registeration" >Value Your Car</button>
@@ -491,10 +491,10 @@ display: block;
                dataType: 'JSON',
                url: '{{ route('testlocation') }}',
                data: {registeration,registeration},
-             
+
                success: function(response) {
                 console.log(response);
-                
+
                 if(response.success == 'true'){
                     $('.show_error').hide();
                     $('.check_area').hide();
@@ -503,10 +503,10 @@ display: block;
                     $('.registeration').val(registeration);
                 }
                 // else if(response == 0){
-                    
+
                 //     $('.show_error').show();
                 //     $('.show_error').text('First You Login')
-                //     setTimeout(function(){ 
+                //     setTimeout(function(){
                 //     window.location.href = "{{ route('registration')}}";
                 // },1000);
                 // }
@@ -515,7 +515,7 @@ display: block;
                     $('.show_error').text('Record Not Found')
                 }
             }
-              
+
            });
        });
 </script>

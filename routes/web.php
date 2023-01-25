@@ -46,6 +46,12 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 | contains the "web" middleware group. Now create something great!
 |
 */
+// how it works for dealer
+Route::get('/how-it-work', [HowItWorksController::class,'howItWorksforSeller'])->name('howItWorksforSeller');
+Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews');
+
+
+// how it works for dealer
 Route::get('/how-it-works', [HowItWorksController::class,'howItWorks'])->name('howItWorks');
 Route::get('/pricing', [PricingController::class,'pricing'])->name('pricing');
 // Route::get('/', function () {
@@ -260,7 +266,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/bid-meeting', [BidVehicleController::class,'bidMeeting'])->name('bidMeeting');
      Route::get('/approve-bid/{id}/{vid}', [BidVehicleController::class,'approveBid'])->name('approveBid');
      Route::post('/approve-bid-admin-updated', [BidVehicleController::class,'approveBidWithAdminUpdated'])->name('approveBidWithAdminUpdated');
-     
+
      // end bidding
 
      //live sell

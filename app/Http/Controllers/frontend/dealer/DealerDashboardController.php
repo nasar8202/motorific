@@ -92,9 +92,9 @@ class DealerDashboardController extends Controller
       $time = $mytime->toTimeString();
       $date =  $mydate->toDateString();
        $sale_Time = LiveSaleTime::first();
-      
+
        if($time <= $sale_Time->end_time ){
-       
+
         $user_id = Auth::user()->id;
 
         $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
@@ -105,13 +105,13 @@ class DealerDashboardController extends Controller
                                 ->where('users.id',$user_id)->where('vehicles.end_vehicle_date',$date)->get();
 // dd($bids);
         $countBids = count($bids);
-   
+
         return view('frontend.dealer.bids.UnderBiddedOfferVehicle',compact('bids','countBids'));
       } else{
         return view('frontend.dealer.bids.UnderBiddedOfferVehicle');
-      
+
         }
-    
+
       }
     public function DidnotWinBiddedVehicle()
     {
@@ -171,12 +171,12 @@ class DealerDashboardController extends Controller
       $Orders = OrderVehicleRequest::where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.VehicleImage')->get();
       $countOrder = count($Orders);
       $dealerOrders = DealersOrderVehicleRequest::where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.DealerVehicleExterior')->get();
-      
+
       $countDealerOrder = count($dealerOrders);
       return view('frontend.dealer.vehicle.CompletedRequestedVehicle',compact('Orders','countOrder','dealerOrders','countDealerOrder'));
 
     }
-    
+
     public function myVehicles()
     {
       $user_id = Auth::user()->id;
@@ -196,26 +196,26 @@ class DealerDashboardController extends Controller
     public function orderOnMyVehicle($id)
     {
        $orders =  DealersOrderVehicleRequest::where('vehicle_id',$id)->get();
-      
+
         return view('frontend.dealer.vehicle.ordersOnMyVehicle',compact('orders'));
 
     }
     public function dealerMeetingStatus(Request $request)
     {
       $meetingStatus = DealersOrderVehicleRequest::where('id',$request->id)->first();
-        
+
       $meetingStatus->meeting_status = $request->status;
       $meetingStatus->save();
-      
+
       return redirect()->back()->with('success', 'Meeting Status Updated Successfully!');
      }
     public function CancelRequestedVehicle()
     {
-      
+
       $user_id = Auth::user()->id;
       $canceled = CanceledRequestReviews::where('dealer_vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('order')->with('vehicle.VehicleImage')->get();
       $canceledDealer = CanceledRequestReviews::where('vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('dealerOrder')->with('dealerVehicle.DealerVehicleExterior')->get();
-      
+
       $countcanceled = count($canceled);
 
         return view('frontend.dealer.vehicle.CancelledRequestedVehicle',compact('canceled','countcanceled','canceledDealer'));
@@ -224,7 +224,7 @@ class DealerDashboardController extends Controller
     public function CancelledBiddedOfferVehicle()
     {
         $user_id = Auth::user()->id;
-      
+
         $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
 
                                 ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
@@ -376,6 +376,7 @@ class DealerDashboardController extends Controller
             $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type, v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price, v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard FROM vehicles AS v JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
             JOIN vehicle_images AS vimg ON vimg.vehicle_id = v.id WHERE ";
             $query_string_third_part = ' ORDER BY v.id';
+
             $query_string_second_part= implode(" ", $query_string_second_part);
             $query_string_second_part=  preg_replace("/AND/", " ", $query_string_second_part, 1);
             $query_string = $query_string_First_Part.$query_string_second_part.$query_string_third_part;
@@ -405,12 +406,12 @@ class DealerDashboardController extends Controller
             $query_string_second_part[] = " AND dvmedia.deleted_at IS NULL";
             $query_string_second_part[] = " AND dvhistory.deleted_at IS NULL";
 
-            $query_string_First_Part= "SELECT vd.vehicle_registartion_number,vd.vehicle_name, vd.vehicle_year,vd.vehicle_color, vd.vehicle_type,vd.vehicle_type,vd.previous_owners, vd.vehicle_tank,vd.previous_owners, vd.vehicle_mileage, vd.vehicle_price,  vd.retail_price,  vd.status,
+            $query_string_First_Part= "SELECT vd.id,vd.vehicle_registartion_number,vd.vehicle_name, vd.vehicle_year,vd.vehicle_color, vd.vehicle_type,vd.vehicle_type,vd.previous_owners, vd.vehicle_tank,vd.previous_owners, vd.vehicle_mileage, vd.vehicle_price,  vd.retail_price,  vd.status,
              vextImg.exterior_image,veintImg.interior_image,dvhistory.keys,dvhistory.previous_owners,dvhistory.service_history_title,dvhistory.mileage,dvhistory.v5_status,dvhistory.origin,dvhistory.interior,dvhistory.exterior,dvhistory.audio_and_communications,dvhistory.drivers_assistance,
              dvhistory.checkbox_questions,dvhistory.performance,dvhistory.safety_and_security,dvmedia.condition_damage,dvmedia.condition_damage_url,dvmedia.existing_condition_report
              ,dvmedia.any_damage_checked,dvmedia.any_damage_on_your_vehicle,dvmedia.advert_description,dvmedia.attention_grabber,dvmedia.nearside_rear,dvmedia.nearside_front,
              dvmedia.offside_front,dvmedia.offside_rear
-             FROM dealer_vehicles AS vd
+            FROM dealer_vehicles AS vd
             join dealer_vehicle_histories AS dvhistory ON dvhistory.dealer_vehicle_id = vd.id
             Join dealer_vehicle_media As dvmedia ON dvmedia.dealer_vehicle_id = vd.id
             JOIN dealer_vehicle_exteriors AS vextImg ON vextImg.dealer_vehicle_id = vd.id
@@ -426,7 +427,7 @@ class DealerDashboardController extends Controller
             $query_string_second_part= implode(" ", $query_string_second_part);
             $query_string_second_part=  preg_replace("/AND/", " ", $query_string_second_part, 1);
             $query_string = $query_string_First_Part.$query_string_second_part.$query_string_third_part;
-            // dd($query_string);
+             //dd($query_string);
             $dealerToDealerVehicleFilter = DB::select(DB::raw($query_string));
 
 
@@ -516,7 +517,7 @@ class DealerDashboardController extends Controller
                    //dd($fuel_age_milage_price_filter);
                       return $fuel_age_milage_owner_filter;
                  break;
-                 
+
                  //new
                  case($request->fuelType &&  $request->range && $request->previousOwnersPro && $request->agePro ):
 
@@ -532,9 +533,9 @@ class DealerDashboardController extends Controller
                   ->where('status',1)
                   ->with('vehicleInformation')
                   ->with('VehicleImage')->get();
-                 //dd($fuel_age_milage_price_filter);  
+                 //dd($fuel_age_milage_price_filter);
                  return $fuel_age_range_owner_filter;
-                    
+
                break;
 
 
@@ -975,7 +976,7 @@ die();
         $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
         $LockingWheelNut = LockingWheelNut::where('id',$vehicle_info->looking_wheel_nut_id)->first();
         $order = OrderVehicleRequest::where('vehicle_id',$vehicle->id)->orderBy('request_price','DESC')->first();
-             
+
 
 
         return view('frontend.dealer.vehicle.vehicleDetail',compact('exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
@@ -1071,10 +1072,10 @@ die();
       $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
       $LockingWheelNut = LockingWheelNut::where('id',$vehicle_info->looking_wheel_nut_id)->first();
       $order = OrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',Auth::user()->id)->orderBy('request_price','DESC')->first();
-           
+
 
       return view('frontend.dealer.vehicle.completedVehicleDetail',compact('vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
-  
+
 
     }
     public function completedDealersVehicleDetail($id){
@@ -1088,7 +1089,7 @@ die();
       ->first();
       // dd($vehicle);
       $order = DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',Auth::user()->id)->orderBy('request_price','DESC')->first();
-           
+
 
       return view('frontend.dealer.vehicle.completedDealerVehicleDetail',compact('vehicle','order'));
     }

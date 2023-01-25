@@ -65,8 +65,6 @@ class SellVehicleCron extends Command
                  ->first(['id','status','vehicle_id','user_id', DB::raw('max(bid_price) as max_bid_price')]);
                 if($BidedVehicle == null || $BidedVehicle != null){
 
-
-
                        if($BidedVehicle == null){
                                 $vehicle->status = 0;
                                 $vehicle->save();
@@ -75,21 +73,21 @@ class SellVehicleCron extends Command
                                 $BidedVehicle->save();
 
 
-                            $user= User::find($BidedVehicle->user_id);
-                            $vehicleImage= VehicleImage::where('vehicle_id',$vehicle->id)->first();
+                                $user= User::find($BidedVehicle->user_id);
+                                $vehicleImage= VehicleImage::where('vehicle_id',$vehicle->id)->first();
 
-                            $data = ([
-                                        'name' => $user->name,
-                                        'email' => $user->email,
+                                $data = ([
+                                            'name' => $user->name,
+                                            'email' => $user->email,
                                             'bidded_price'=>$BidedVehicle->max_bid_price,
                                             'vehicle_registration'=>$vehicle->vehicle_registartion_number,
                                             'vehicle_name'=>$vehicle->vehicle_name,
                                             'vehicle_mileage'=>$vehicle->vehicle_mileage,
                                             'front'=>$vehicleImage->front
                                         ]);
-                                   $vehicle->status = 2;
-                                   $vehicle->save();
-                            Mail::to($user->email)->send(new WinnerBiddedPerson($data));
+                                $vehicle->status = 2;
+                                $vehicle->save();
+                                Mail::to($user->email)->send(new WinnerBiddedPerson($data));
                        }
                 }
 
