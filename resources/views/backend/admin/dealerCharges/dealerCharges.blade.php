@@ -29,7 +29,7 @@
         <div class="card">
          
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -55,10 +55,10 @@
                                 @else<span class="badge badge-success">Paid</span>
                                 @endif</td>
                             <td>
-                                {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success">Paid Completed ✓</span></a>
+                                {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success my-2">Paid Completed ✓</span></a>
                             <br> --}}
-                                <a href="{{ route('viewDealerDetailsFromCharges',$details->user_id) }}"><span class="badge bg-info mt-4">View Dealer Deatils</span></a>
-                                <a href="{{ route('dealerCardDetails',$details->user_id) }}"><span class="badge bg-info mt-4">View Dealer's Card Deatils</span></a>
+                                <a href="{{ route('viewDealerDetailsFromCharges',$details->user_id) }}"><span class="badge bg-info my-2">View Dealer Deatils</span></a>
+                                <a href="{{ route('dealerCardDetails',$details->user_id) }}"><span class="badge bg-info my-2">View Dealer's Card Deatils</span></a>
                             
                             </td>
                         </tr>
@@ -74,10 +74,10 @@
                                 @else<span class="badge badge-success">Paid</span>
                                 @endif</td>
                             <td>
-                                {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success">Paid Completed ✓</span></a>
+                                {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success my-2">Paid Completed ✓</span></a>
                             <br> --}}
-                                <a href="{{ route('viewDealerDetailsFromCharges',$dealervehicleCard->user_id) }}"><span class="badge bg-info mt-4">View Dealer Deatils</span></a>
-                                <a href="{{ route('dealerCardDetails',$dealervehicleCard->user_id) }}"><span class="badge bg-info mt-4">View Dealer's Card Deatils</span></a>
+                                <a href="{{ route('viewDealerDetailsFromCharges',$dealervehicleCard->user_id) }}"><span class="badge bg-info">View Dealer Deatils</span></a>
+                                <a href="{{ route('dealerCardDetails',$dealervehicleCard->user_id) }}"><span class="badge bg-info my-2">View Dealer's Card Deatils</span></a>
                             
                             </td>
                         </tr>

@@ -2043,3 +2043,25 @@ table.table.table-striped {
 }
 /*hamza css */
 
+.registration-form .form-main.text-center div {
+    position: relative;
+}
+
+.registration-form .form-main.text-center div span {
+    position: absolute;
+    bottom: -16px;
+    width: 100%;
+    left: 0;
+}
+.mar-remov {
+    margin-top: 20px !important;
+}
+.registration-form .form-main.text-center div {
+    padding-bottom: 10px;
+}
+.form-main.text-center.forgot-form span.set-pass {
+    position: relative !important;
+}
+.form-main form .row.signup-input div input {
+    width: 100%;
+}
