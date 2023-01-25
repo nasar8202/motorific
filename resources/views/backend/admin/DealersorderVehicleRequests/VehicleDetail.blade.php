@@ -111,7 +111,7 @@
             </div>
         </div>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row car_img_wraper">
         <h5>Exterior Images</h5>
         @forelse($vehicles->DealerVehicleExterior as $images)
         <div class="col-md-4">

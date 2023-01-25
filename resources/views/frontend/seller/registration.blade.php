@@ -40,13 +40,22 @@
                     <a href="#">
                         <li>Help</li>
                     </a>
-                    <div class="dropdown">
-                        <span>More</span>
-                        <div class="dropdown-content">
-                       <a href="{{ route('DealerLogin') }}">For Dealers</a>
-                       <a href="{{ route('sellMyCar') }}">Sell My Car</a>
-                        </div>
+                    @auth
+
+                @endauth
+
+                @guest
+                <div class="dropdown">
+                    <span>More</span>
+                    <div class="dropdown-content">
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
+                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
+                </div>
+                @endguest
                 </ul>
             </div>
             <div class="head-btns  justify-content-between">
@@ -100,13 +109,13 @@
                 <form method="post" action="{{ route('create_user') }}">
                     @csrf
                     <div class="row signup-input">
-                            <div class="col-lg-12 col-md-12">    
+                            <div class="col-lg-12 col-md-12">
                                     <div>
                                         @if(isset($data))
                                     <input type="hidden" name="millage" value="{{$data->millage}}">
                                     <input type="hidden" name="registeration" value="{{$data->registeration}}">
                                     <input type="hidden" name="registeration_with_pass" value="yes">
-                                    @endif  
+                                    @endif
                                     <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -120,9 +129,9 @@
                                         </span>
                                     @enderror --}}
                                       </div>
-                        
+
                             </div>
-                            <div class="col-lg-6 col-md-6 "> 
+                            <div class="col-lg-6 col-md-6 ">
                                 <div>
                                     <input type="text" placeholder="Full Name" name="name" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
                                     @error('name')
@@ -132,8 +141,8 @@
                                     @enderror
                                 </div>
                             </div>
-                                
-                            <div class="col-lg-6 col-md-6"> 
+
+                            <div class="col-lg-6 col-md-6">
                                     <div class="mar-remov">
                                      <input type="number" placeholder="Phone" name="phone_number" class="@error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}">
                                     @error('phone_number')
@@ -143,7 +152,7 @@
                                     @enderror
                                     </div>
                             </div>
-                            <div class="col-lg-6 col-md-6"> 
+                            <div class="col-lg-6 col-md-6">
                             <div>
                              <input type="text" placeholder="Postcode" name="post_code" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}">
                         @error('post_code')
@@ -153,7 +162,7 @@
                         @enderror
                             </div>
                             </div>
-                            <div class="col-lg-6 col-md-6"> 
+                            <div class="col-lg-6 col-md-6">
                             <div>
                                 <input type="number" placeholder="Car Mileage" name="mile_age" class="@error('mile_age') is-invalid @enderror" name="mile_age" value="{{ old('mile_age') }}">
                         @error('mile_age')
@@ -164,14 +173,14 @@
                         </div>
                             </div>
                 </div>
-               
-                   
-                  
-                
+
+
+
+
                     <div>
                         <button>CONTINUE</button>
                     </div>
-                 
+
                 </form>
             </div>
         </div>

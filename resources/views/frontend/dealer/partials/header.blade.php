@@ -4,11 +4,15 @@
           cursor: default;
           opacity: .6;
         }
+        .logo-text a{
+            text-decoration: none;
+            color: white
+        }
 </style>
 <header class="header">
     <!--<h2 class="logo-text">motorific</h2>-->
     <div class="container-1200 position-relative">
-        <h2 class="logo-text">motorific</h2>
+        <h2 class="logo-text"><a  href="{{route('index')}}">motorific</a></h2>
         <div class="row header-nav-row">
             <div class="col-lg-9 desktop-header">
                 <div class="header-nav dflex-gap10">

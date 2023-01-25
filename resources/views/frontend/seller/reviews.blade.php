@@ -39,13 +39,22 @@ display: block;
                     <li>Help</li>
                 </a>
 
+                @auth
+
+                @endauth
+
+                @guest
                 <div class="dropdown">
                     <span>More</span>
                     <div class="dropdown-content">
-                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
+                @endguest
             </ul>
         </div>
 
@@ -105,6 +114,7 @@ display: block;
 <section class="sec-1" id="vehicle_registration">
     <div class="container-1151">
         <div class="row">
+<<<<<<< HEAD
             <div class="sec-1-txt col-lg-6">
                 <h2>Sell your car the
                     with <span>Motorific</span></h2>
@@ -114,6 +124,76 @@ display: block;
             <div class="sec-1-img col-lg-6">
                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
             </div>
+=======
+
+            <!-- BOX-1 -->
+            <div class="col-lg-12 col-md-12">
+                <div class="box">
+                    <h4>Reviews</h4>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="how-work">
+            <h3>How it works</h3>
+        </div>
+        <div class="row">
+            <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="step-nmbr">
+                    <h5>1</h5>
+                </div>
+                <div class="how-work-img">
+                    <img src="{{ URL::asset('frontend/seller/assets/image/car.png') }}" alt="">
+                    <div class="line-sec-2">
+                    </div>
+                </div>
+                <h4>Profile your car</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+            </div>
+
+            <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="step-nmbr">
+                    <h5>2</h5>
+                </div>
+                <div class="how-work-img d-flex align-items-center">
+                    <img src="{{ URL::asset('frontend/seller/assets/image/megaphone.png') }}" alt="">
+                    <div class="line-sec-2">
+                    </div>
+                </div>
+                <h4>Profile your car</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+            </div>
+
+            <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="step-nmbr">
+                    <h5>3</h5>
+                </div>
+                <div class="how-work-img">
+                    <img src="{{ URL::asset('frontend/seller/assets/image/price.png') }}" alt="">
+                    <div class="line-sec-2">
+                    </div>
+                </div>
+                <h4>Profile your car</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+            </div>
+
+            <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="step-nmbr">
+                    <h5>4</h5>
+                </div>
+                <div class="how-work-img">
+                    <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
+                </div>
+                <h4>Profile your car</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+            </div>
+        </div>
+        <div class="sec-2-btns text-center">
+
+>>>>>>> 4a167123562926db224a0cb8bba96bb5efc6ab84
         </div>
     </div>
 </section>
