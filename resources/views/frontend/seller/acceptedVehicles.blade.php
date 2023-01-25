@@ -43,13 +43,22 @@ display: block;
                     <li>Help</li>
                 </a>
 
+                @auth
+
+                @endauth
+
+                @guest
                 <div class="dropdown">
                     <span>More</span>
                     <div class="dropdown-content">
-                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
+                @endguest
             </ul>
         </div>
 
@@ -64,7 +73,7 @@ display: block;
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
-                    
+
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="">My Account</a>
@@ -74,12 +83,12 @@ display: block;
                             {{ __('Logout') }}
                         </a>
 
-                        
+
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                        
+
                     </div>
 
             @endguest
@@ -108,14 +117,14 @@ display: block;
 <section class="sec-2 productPageTn">
     <div class="container">
         <div class="row">
-           
+
             <div class="col-lg-3 col-md-3 productsFiltersCol">
                 <div class="productsFilters">
                    @include('frontend.seller.partials.myAccountSidebar')
                 </div>
             </div>
             <div class="col-lg-9 col-md-9">
-    
+
                 <div class="row">
                     <h4>Your Accepted Vehicles</h4>
                     <br>
@@ -143,22 +152,22 @@ display: block;
                                 @if($allVehicle->status == 0)
                                 <span class="alert alert-danger ">Not Accepeted</span>
                             @else
-                            
+
                             <span class="alert alert-success ">Accepeted</span>
-                            @endif   
+                            @endif
                             </div>
                             </div>
                             @empty
                             <div class="col-sm-12">No Purchases Vehicle Found!</div>
-    
+
                             @endforelse
-    
+
                         </div>
                     </div>
                     <!-- BOX-1 -->
-    
+
                 </div>
-    
+
             </div>
         </div>
     </div>

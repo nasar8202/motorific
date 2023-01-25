@@ -40,13 +40,22 @@ display: block;
                 <a href="#">
                     <li>Help</li>
                 </a>
+                @auth
+
+                @endauth
+
+                @guest
                 <div class="dropdown">
                     <span>More</span>
                     <div class="dropdown-content">
-                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
+                @endguest
             </ul>
         </div>
         <div class="head-btns  justify-content-between">
@@ -130,7 +139,7 @@ display: block;
             <div class="photo-up-sec-2-heading text-center">
                 <h3>Complete your profile steps to get your vehicle for sale</h3>
             </div>
-            
+
             <div class="photo-up-sec-2-box-main">
                 <div class="photo-up-sec-2-box">
                     <div class="photo-up-sec-2-box-txt">
@@ -152,13 +161,13 @@ display: block;
                     <button onclick="myFunction3()" type="button">EDIT</button>
                 </div>
             </div>
-            
+
             <div class="personal-info-main" id="myDIV3">
                 <div class="personal-info-heading">
                     <h3>Personal Information</h3>
                     <p>Here’s the contact information you’ve given us. Please make sure it’s correct so we can keep you up to date.</p>
                 </div>
-                
+
                 <div class="personal-info-form">
                     <div class="form">
                         <div>
@@ -173,7 +182,7 @@ display: block;
                             <h4>Phone Number</h4>
                             <input type="number" placeholder="Enter Phone" class="number" name="number" value="{{$user->phone_number}}">
                             <input type="hidden"  class="userId" name="user_id" value="{{$user->id}}">
-                            
+
                         </div>
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr">
                             <button type="button" id="updateInfo">CONFIRM</button>
@@ -181,7 +190,7 @@ display: block;
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="photo-up-sec-2-box-main d-none">
             <div class="photo-up-sec-2-box">
@@ -196,11 +205,11 @@ display: block;
 
                 <div class="personal-info-form">
                     <span class="alert alert-success temprorySubmit" style="display: none;"></span>
-                    <div class="form rowFormTn" id="mainVehicleInfo"> 
+                    <div class="form rowFormTn" id="mainVehicleInfo">
 
                         <div class="col-2Tn">
                             <h4>Vehicle Registeration Number</h4>
-                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" name="RegisterationNumber" value="{{$res['basic_vehicle_info']['vehicle_registration_mark']}}">    
+                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" name="RegisterationNumber" value="{{$res['basic_vehicle_info']['vehicle_registration_mark']}}">
                             @if ($errors->has('RegisterationNumber'))
                             <span class="text-danger">{{ $errors->first('RegisterationNumber') }}</span>
                         @endif
@@ -249,13 +258,13 @@ display: block;
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Price</h4>
-                            
+
                             <input type="number" placeholder="Vehicle Price" class="VehiclePrice" name="VehiclePrice" value="{{$milage['retail_valuation'] ?? 0}}">
                             @if ($errors->has('VehiclePrice'))
                             <span class="text-danger">{{ $errors->first('VehiclePrice') }}</span>
                         @endif
                         </div>
-                        
+
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
                             <div class="spinner-border mt-2 spinnerVehicle"  style="float: right;" role="status">
                                 <span class="sr-only">Loading...</span>
@@ -297,7 +306,7 @@ display: block;
         <!--                    <span class="text-danger">{{ $errors->first('body_type') }}</span>-->
         <!--                @endif-->
         <!--                </div>-->
-                       
+
         <!--                <div class="col-2Tn">-->
         <!--                    <h4>Engine Size</h4>-->
         <!--                    <input type="text"  class="form-control"-->
@@ -384,7 +393,7 @@ display: block;
         <!--                        @foreach($vehicleCategories as $vehicleCategorie)-->
         <!--                        <option @if($vehicleCategorie->id ==session()->get('vehicleCategory') )  selected @endif value="{{$vehicleCategorie->id}}" >{{$vehicleCategorie->title}}</option>-->
         <!--                        @endforeach           -->
-                               
+
         <!--                    </select>-->
         <!--                    @if ($errors->has('VehicleCategory'))-->
         <!--                    <span class="text-danger">{{ $errors->first('VehicleCategory') }}</span>-->
@@ -401,7 +410,7 @@ display: block;
         <!--                                        <option  value="yes">Yes</option>-->
         <!--                                        <option selected value="no">No</option>-->
         <!--                                        @endif -->
-                               
+
         <!--                    </select>-->
         <!--                    @if ($errors->has('scratchesandScuffs'))-->
         <!--                    <span class="text-danger">{{ $errors->first('scratchesandScuffs') }}</span>-->
@@ -509,9 +518,9 @@ display: block;
         <!--                @endif-->
         <!--                </div>-->
         <!--                <br>-->
-                        
+
         <!--        </div>-->
-               
+
         <!--        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">-->
         <!--            <div class="spinner-border mt-2 spinnerDamages"   style="" role="status">-->
         <!--                <span class="sr-only">Loading...</span>-->
@@ -519,24 +528,24 @@ display: block;
         <!--              <br>-->
         <!--            <a href="#damageSuccess"><button class="damagesDatas" type="button">CONFIRM</button></a>-->
         <!--        </div>-->
-                
+
         <!--    </div>-->
         <!--    </div>-->
         <!--</div>-->
-        
-        
+
+
         <!--Interior Information Form-->
         <section class="step-form-sec">
-    
+
     <div class="container-1200">
         <!--interior -->
         <div class="step-main-1">
-            
+
             <div class="step-main-wrap photo-upload" style="">
             <!--<div id="svg_wrap"></div>-->
             <h1 class="step-main-head">Interior Information</h1>
             <section class="step-wrapper">
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -588,7 +597,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-    
+
                 <section class="step-sec" style="transform: translateX(0px);">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -638,9 +647,9 @@ display: block;
                             </div>
                         </div>
                     </div>
-                    
+
                 </section>
-    
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -691,7 +700,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-    
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -742,7 +751,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-    
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -793,7 +802,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -844,7 +853,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -895,7 +904,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -946,7 +955,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -997,7 +1006,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1048,14 +1057,14 @@ display: block;
                         </div>
                     </div>
                 </section>
-        
+
                 <div class="step-button-wrap">
                     <div class="step-button" id="prev">← Previous</div>
                     <div class="step-button nxtBtn" id="next">Next →</div>
                 </div>
-                
+
                 <p class="pt-4">If you have no damage then continue next.</p>
-  
+
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
         </div>
@@ -1073,7 +1082,7 @@ display: block;
             <div id="svg_wrap_ext"></div>
             <h1 class="step-main-head">Exterior Information</h1>
             <section class="step-wrapper">
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1274,7 +1283,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1325,7 +1334,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1376,7 +1385,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1427,7 +1436,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1478,25 +1487,25 @@ display: block;
                         </div>
                     </div>
                 </section>
-    
+
                 <div class="step-button-wrap">
                     <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
                     <div class="step-button-ext" id="next-ext">Next &rarr;</div>
                 </div>
-                
+
                 <p class="pt-4">If you have no damage then continue next.</p>
-  
+
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
         </div>
         </div>
-        
+
     </div>
 </section>
-        
-        
+
+
         <!--End-->
-        
+
         <div class="photo-up-sec-2-box-main">
             {{-- <form method="POST" action="{{route('vehicleInformation')}}"> --}}
                 @csrf
@@ -1596,7 +1605,7 @@ display: block;
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>{{$seat->title}}</p>
                                                     <img src="{{ asset('materials/seat_material_iamges/'.$seat->image)}}" />
-                                                   
+
                                                 </div>
                                             </label>
                                             @endforeach
@@ -1649,7 +1658,7 @@ display: block;
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -1688,9 +1697,9 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
-                                        
+
                                     </div>
-                                    
+
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p>Please don't include any keys with problems, e.g. where the remote unlocking is broken.</p>
@@ -1835,7 +1844,7 @@ display: block;
                                         <span class="text-danger">{{ $errors->first('smoked_in') }}</span>
                                     @endif
                                 </div>
-                                
+
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
@@ -2334,7 +2343,7 @@ display: block;
                     </div>
                 {{-- </form> --}}
             </div>
-        
+
         {{-- </form> --}}
     </div>
 
@@ -2352,7 +2361,7 @@ display: block;
             </div>
 
             <div class="main-add-photos" id="myDIV">
-          
+
                     <div class="add-photos-inner row">
                         <div class="add-photos-box1 col-lg-6">
                             <label class="labelForFile" for="photo1">
@@ -2437,7 +2446,7 @@ display: block;
                     <div class="photo-up-sec-2-btn photo-up-sec-2-box-btn text-center clr-s-gr">
                         <button type="submit">Submit</button>
                     </div>
-           
+
             </div>
         </div>
     </div>
@@ -2521,7 +2530,7 @@ $(".createVehicle").click(function(){
 });
 
 $(".damagesDatas").click(function(){
-   
+
     var interior = $("#interior").val();
     var bodyType = $("#body_type").val();
     var engineSize = $("#engine_size").val();
@@ -2545,7 +2554,7 @@ $(".damagesDatas").click(function(){
     var MainDealerServices = $("#MainDealerServices").val();
     var IndependentDealerService = $("#IndependentDealerService").val();
     $.ajax({
-        
+
         url:'{{route('addConditionDamages')}}',
           type: "post",
           data: {interior:interior,bodyType:bodyType,engineSize:engineSize,hpi:hpi
@@ -2555,7 +2564,7 @@ $(".damagesDatas").click(function(){
             ,brokenmissing:brokenmissing,warninglights:warninglights,YourServiceRecord:YourServiceRecord,MainDealerServices:MainDealerServices
             ,IndependentDealerService:IndependentDealerService
         },
-          
+
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
@@ -2573,7 +2582,7 @@ $(".damagesDatas").click(function(){
                 $(".temprorySubmitDamages").css("display","block");
                 $(".temprorySubmitDamages").html("Something Error");
             }
-            
+
        }
       });
 
@@ -2590,13 +2599,13 @@ $("#mainInfo").click(function(){
     var VehicleMileage = $(".VehicleMileage").val();
     var VehiclePrice = $(".VehiclePrice").val();
     $.ajax({
-        
+
         url:'{{route('addSellerVehicle')}}',
           type: "post",
           data: {RegisterationNumber:RegisterationNumber,VehicleName:VehicleName,VehicleYear:VehicleYear,VehicleColor:VehicleColor
             ,VehicleType:VehicleType,VehicleTank:VehicleTank,VehicleMileage:VehicleMileage,VehiclePrice:VehiclePrice
         },
-          
+
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
@@ -2625,24 +2634,24 @@ $("#updateInfo").click(function(){
     var number = $(".number").val();
     var userId = $(".userId").val();
           $.ajax({
-        
+
              url:'{{route('updateSeller')}}',
                type: "post",
                data: {name:name,email:email,number:number,userId:userId},
-               
+
                headers: {
                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
                success: function(response) {
 
             if(response){
-             
+
                 $(".topName").text(response.name);
-              
+
                 $(".topEmail").text(response.email);
-               
+
                 $(".topNumber").text(response.phone_number);
-            } 
+            }
             else{
                 $(".topName").html('');
                 $(".topEmail").html('');
@@ -2651,7 +2660,7 @@ $("#updateInfo").click(function(){
             }
             }
            });
-    
+
 
 });
 $("#store").click(function(){
@@ -2668,7 +2677,7 @@ $("#store").click(function(){
     var vehicleOwner = $(".vehicleOwner:checked").val();
     var privatePlate = $(".privatePlate:checked").val();
     var finance = $(".finance:checked").val();
-    
+
     console.log(the_value);
     console.log(seatMaterial);
     console.log(numberOfKeys);
@@ -2698,7 +2707,7 @@ $("#store").click(function(){
                 var vehicleResponse = response.VehicleFeature;
                 var vehicledata = '';
                 var SeatMaterialsResponse = response.SeatMaterials;
-               
+
                 var NumberOfKeyResponse = response.NumberOfKeys;
                 var ToolPackResponse = response.ToolPack;
                 var LockingWheelNut = response.LockingWheelNut;
@@ -2711,15 +2720,15 @@ $("#store").click(function(){
                 // console.log(SeatMaterials.title);
                 $.each(vehicleResponse,function(vehicleResponse,row){
                     vehicledata+='<p>'+row.title+'</p>';
-                    
+
                     $("#vehicleFeaturefinal").html(vehicledata);
                 })
                 $("#seatMaterialFinal").html('');
                 $("#seatMaterialFinal").html(SeatMaterialsResponse.title);
-                
+
                 $("#NumberOfKeyFinal").html('');
                 $("#NumberOfKeyFinal").html(NumberOfKeyResponse.number_of_key);
-            
+
                 $("#ToolPackFinal").html('');
                 $("#ToolPackFinal").html(ToolPackResponse.title);
 
@@ -2737,19 +2746,19 @@ $("#store").click(function(){
 
                 $("#VehicleOwnerFinal").html('');
                 $("#VehicleOwnerFinal").html(VehicleOwners.title);
-   
+
                 $("#PrivatePlateFinal").html('');
                 $("#PrivatePlateFinal").html(PrivatePlates.title);
-  
+
                 $("#FinanceFinal").html('');
                 $("#FinanceFinal").html(Finances.title);
             },
 
-            
+
 
 
             });
-   
+
 
 
     function getChecklistItems() {

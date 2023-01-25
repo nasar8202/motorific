@@ -43,13 +43,22 @@ display: block;
                     <li>Help</li>
                 </a>
 
+                @auth
+
+                @endauth
+
+                @guest
                 <div class="dropdown">
                     <span>More</span>
                     <div class="dropdown-content">
-                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
+                @endguest
             </ul>
         </div>
 
@@ -64,7 +73,7 @@ display: block;
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
-                    
+
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="">My Account</a>
@@ -74,12 +83,12 @@ display: block;
                             {{ __('Logout') }}
                         </a>
 
-                        
+
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                        
+
                     </div>
 
             @endguest
@@ -108,14 +117,14 @@ display: block;
 <section class="sec-2 productPageTn">
     <div class="container">
         <div class="row">
-           
+
             <div class="col-lg-3 col-md-3 productsFiltersCol">
                 <div class="productsFilters">
                    @include('frontend.seller.partials.myAccountSidebar')
                 </div>
             </div>
             <div class="col-lg-9 col-md-9">
-    
+
                 <div class="row">
                     <h4>Bids On This  Vehicle</h4>
                     <br>
@@ -134,7 +143,7 @@ display: block;
                             <tbody>
                                 @forelse($orders as $key=>$order)
                                 <tr>
-                            
+
                                 <td>{{$key + 1}}</td>
                                 <td>{{$order->vehicle->vehicle_name}}</td>
                                 <td>{{$order->vehicle->vehicle_price}}</td>
@@ -159,7 +168,7 @@ display: block;
                                         </div>
                                         <div class="modal-body">
                                           <span>Your Meeting Date And Time </span>
-                                        
+
                                           <b>@if($order->meeting_date_time == null)
                                            No Meeting Has Been Schedule Yet
                                            @else
@@ -177,7 +186,7 @@ display: block;
                                                <option value="Completed">Completed</option>
                                                <option value="No Response From Dealer">No Response From Dealer</option>
                                            </select>
-                                         
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn" data-bs-dismiss="modal">
@@ -195,24 +204,24 @@ display: block;
                                </div>
                             </td>
                                     @else
-                               
+
                                  <td>   <span class="btn btn-info">Not Sold User</span>
                                  </td>
                                     @endif
                                 @empty
                                 <td>No Order Found On This Vehicle</td>
-                              
+
                             </tr>
-                            @endforelse 
+                            @endforelse
                             </tbody>
                           </table>
                         <br>
-                       
+
                     </div>
                     <!-- BOX-1 -->
-    
+
                 </div>
-    
+
             </div>
         </div>
     </div>
