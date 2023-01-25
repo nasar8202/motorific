@@ -92,6 +92,9 @@ a.action_btn:nth-child(2) {
     .tables_admin_data tbody td{
         font-size:13px;
     }
+    .car_img_wraper img {
+        height: 170px;
+    }
 
 }
 

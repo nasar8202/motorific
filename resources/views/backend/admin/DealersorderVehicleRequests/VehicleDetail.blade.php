@@ -114,7 +114,7 @@
     <div class="row car_img_wraper">
         <h5>Exterior Images</h5>
         @forelse($vehicles->DealerVehicleExterior as $images)
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <img class="img-fluid" src="{{ asset('uploads/dealerVehicles/exterior/'.$images->exterior_image) }}" >
                             
         </div>
@@ -122,10 +122,10 @@
         @endforelse
      
     </div>
-    <div class="row">
+    <div class="row car_img_wraper">
         <h5>Interior Images</h5>
         @forelse($vehicles->DealerVehicleInterior as $imagesinterior)
-        <div class="col-md-4">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <img class="img-fluid" src="{{ asset('uploads/dealerVehicles/interior/'.$imagesinterior->interior_image) }}" >
                             
         </div>

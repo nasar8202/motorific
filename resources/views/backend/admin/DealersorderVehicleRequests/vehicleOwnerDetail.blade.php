@@ -45,7 +45,7 @@
                         <tr>
 
                             <td>{{ $seller->name}}</td>
-                            <td><a href="mailto:">{{ $seller->email}}</a></td>
+                            <td><a href="mailto:{{ $seller->email}}">{{ $seller->email}}</a></td>
                             
                             <td><a href="callto:">{{ $seller->phone_number}}</a></td>
                             
