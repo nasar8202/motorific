@@ -220,8 +220,8 @@ class AddDealerVehicleController extends Controller
             foreach($request->image_1 as $exterior_images){
 
             $image_1 = time() . '_' . $exterior_images->getClientOriginalName();
-$a =             $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
-dd($a);
+$exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
+
 
             $dealer_vehicle_exterior = new DealerVehicleExterior;
             $dealer_vehicle_exterior->dealer_vehicle_id = $dealers_vehicle->id ;
