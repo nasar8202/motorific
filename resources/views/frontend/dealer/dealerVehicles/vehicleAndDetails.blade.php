@@ -23,7 +23,7 @@
         <!-- BOX-1 -->
         <div class="col-lg-6 col-md-8">
 
-            <form action="{{ route('dealer.vehicleAndDetailsPost') }}"  method="POST" enctype="multipart/form-data">
+            <form action="{{ route('dealer.vehicleAndDetailsPost') }}"  method="POST" accept-charset="utf-8" enctype="multipart/form-data">
                 @csrf
                     <h2 class="headingqa-2 f-40 mb-2">Vehicle Media</h2>
                     {{-- <h3 class="headingqa-3 f-20 c-gray mb-20">Vehicle Photos</h3>
@@ -47,12 +47,12 @@
 
                     <div class="mt-40">
                         <p class="gallery-top-text mb-10 f-18">Exterior</p>
-                        
+
                         <!--Custom Code Testing-->
                         <!--<input type="file" id="files" class="upload-img-btn" name="files" class="" multiple="" accept="image/*">-->
                         <!--<div id="selectedFiles" class="upload-img-wraper"></div>-->
                         <!--End-->
-                        
+
                         <!--<div class="gallery-upload-main">-->
 
                         <!--    <label for="image_1" class="custom-gallery-upload">-->
@@ -238,7 +238,7 @@
 
                     <div class="mt-40">
                         <label for="condition_damage" class="label-main-text f-20"> Condition / Damage </label>
-                        <textarea class="textarea-qa" name="condition_damage" id="condition_damage" cols="30" rows="10" >{{ request()->session()->get('condition_damage') }}</textarea>
+                        <textarea class="textarea-qa" name="condition_damage" id="condition_damage" cols="30" rows="10"  >{{ old('condition_damage') ??request()->session()->get('condition_damage') }}</textarea>
                     </div>
                     @if ($errors->has('condition_damage'))
                     <span class="text-danger">{{ $errors->first('condition_damage') }}</span>
@@ -249,7 +249,7 @@
 
                             <div class="upload-img-box sm-graybox upload-video-box">
                                 <p class="f-18 c-dull-gray mb-0">Paste URL</p>
-                                <input class="inp-qa inp-round" name="condition_damage_url" type="text" value="{{ request()->session()->get('condition_damage_url') }}">
+                                <input class="inp-qa inp-round"  name="condition_damage_url" type="text" value="{{ old('condition_damage_url') ?? request()->session()->get('condition_damage_url') }}">
                             </div>
 
                             {{-- <div class="upload-img-box sm-graybox upload-video-box">
@@ -507,7 +507,7 @@
 
                         <div class="mt-40">
                             <label for="advert_description" class="label-main-text f-20"> Advert description </label>
-                            <textarea class="textarea-qa" name="advert_description" id="advert_description" cols="30" rows="10">{{ request()->session()->get('advert_description') }}</textarea>
+                            <textarea class="textarea-qa" name="advert_description" id="advert_description" cols="30" rows="10">{{old('advert_description') ?? request()->session()->get('advert_description') }}</textarea>
                             <p class="dflexBt f-18 mt-1">
                                 <span class="c-blue">Need help?</span>
                                 <span class="c-gray">1500 characters left</span>
@@ -518,7 +518,7 @@
                         @endif
                         <div class="mt-40">
                             <label for="attention_grabber" class="label-main-text f-20"> Attention Grabber </label>
-                            <textarea class="textarea-qa textarea-qa-sm" name="attention_grabber" id="attention_grabber" cols="30" rows="10">{{ request()->session()->get('attention_grabber') }}</textarea>
+                            <textarea class="textarea-qa textarea-qa-sm" name="attention_grabber" id="attention_grabber" cols="30" rows="10">{{ old('attention_grabber') ?? request()->session()->get('attention_grabber') }}</textarea>
                             <p class="f-18 c-gray text-right mt-1">
                                 30 characters left
                             </p>
@@ -528,7 +528,7 @@
                         @endif
                         <div class="mt-40">
                             <h2 class="headingqa-4 f-40">Tyre tread depths</h2>
-                           
+
                                 <p class="gallery-top-text mb-10 f-18">Interior</p>
                                 <div class="gallery-upload-main">
                                     <label for="tyre_image" class="custom-gallery-upload">
@@ -566,17 +566,17 @@
                                     @if ($errors->has('interior_image_5'))
                                     <span class="text-danger">{{ $errors->first('interior_image_5') }}</span>
                                     @endif --}}
-        
-        
+
+
                                 </div>
-        
+
                             <div class="d-flex gap-40">
                                 <div class="counter-main">
                                     <label for="" class="d-block">Nearside Front</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="nearside_front" value="{{ request()->session()->get('nearside_front') }}">
-                                            <span class="count">@if(request()->session()->get('nearside_front')) {{request()->session()->get('nearside_front')}} @else 0 @endif</span>
+                                            <input type="number" name="nearside_front" value="{{  request()->session()->get('nearside_front') }}">
+                                            <span class="count">@if(request()->session()->get('nearside_front')) {{  request()->session()->get('nearside_front')}} @else 0 @endif</span>
                                             <span class="unit">mm</span>
                                         </div>
                                         <div class="counter-btns">
@@ -593,8 +593,8 @@
                                     <label for="" class="d-block">Nearside Rear</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="nearside_rear"  value="{{ request()->session()->get('nearside_rear') }}">
-                                            <span class="count">@if(request()->session()->get('nearside_rear')) {{request()->session()->get('nearside_rear')}} @else 0 @endif</span>
+                                            <input type="number" name="nearside_rear"  value="{{  request()->session()->get('nearside_rear') }}">
+                                            <span class="count">@if(request()->session()->get('nearside_rear')) {{  request()->session()->get('nearside_rear')}} @else 0 @endif</span>
                                             <span class="unit">mm</span>
                                         </div>
                                         <div class="counter-btns">
@@ -614,7 +614,7 @@
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
                                             <input type="number" name="offside_front" value="{{ request()->session()->get('offside_front') }}" >
-                                            <span class="count">@if(request()->session()->get('offside_front')) {{request()->session()->get('offside_front')}} @else 0 @endif</span>
+                                            <span class="count">@if(request()->session()->get('offside_front')) {{  request()->session()->get('offside_front')}} @else 0 @endif</span>
                                             <span class="unit">mm</span>
                                         </div>
                                         <div class="counter-btns">
@@ -631,8 +631,8 @@
                                     <label for="" class="d-block">Offside Rear</label>
                                     <div class="counter-with-unit">
                                         <div class="counter-inp">
-                                            <input type="number" name="offside_rear" value="{{ request()->session()->get('offside_rear') }}">
-                                            <span class="count">@if(request()->session()->get('offside_rear')) {{request()->session()->get('offside_rear')}} @else 0 @endif</span>
+                                            <input type="number" name="offside_rear" value="{{  request()->session()->get('offside_rear') }}">
+                                            <span class="count">@if(request()->session()->get('offside_rear')) {{  request()->session()->get('offside_rear')}} @else 0 @endif</span>
                                             <span class="unit">mm</span>
                                         </div>
                                         <div class="counter-btns">
@@ -678,7 +678,7 @@
                 </div>
                 <div>
                     <h3 class="item-descp f-18">
-                      
+
                         {{ request()->session()->get('vehicle_name') }}
                     </h3>
                     <ul class="item-features">
@@ -688,7 +688,7 @@
                         <li> {{ request()->session()->get('vehicle_body') }}</li>
                         <li>{{ request()->session()->get('vehicle_mileage') }}</li>
                         <li> {{ request()->session()->get('vehicle_transmission') }}</li>
-                      
+
                     </ul>
                 </div>
             </div>
@@ -708,14 +708,14 @@
     <label class="dflex-gap10" for="any_damage_checked_yes">
         <span class="radio-circle"></span>
         <span>Yes</span>
-    </label> 
+    </label>
     <input class="" type="radio" name="damage_any" id="any_damage_checked_yes" value="no" @if(request()->session()->get('any_damage_checked') == '1') checked @endif>
     <label class="dflex-gap10" for="any_damage_checked_yes">
         <span class="radio-circle"></span>
         <span>No</span>
     </label>                             --}}
 <section class="step-form-sec">
-    
+
     <div class="container-1200">
         <!--interior -->
         <div class="step-main-1">
@@ -730,7 +730,7 @@
             <!--<div id="svg_wrap"></div>-->
             <h1 class="step-main-head">Interior Information</h1>
             <section class="step-wrapper">
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -782,7 +782,7 @@
                         </div>
                     </div>
                 </section>
-    
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -832,9 +832,9 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </section>
-    
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -885,7 +885,7 @@
                         </div>
                     </div>
                 </section>
-    
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -936,7 +936,7 @@
                         </div>
                     </div>
                 </section>
-    
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -987,7 +987,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1038,7 +1038,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1089,7 +1089,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1140,7 +1140,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1191,7 +1191,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1242,14 +1242,14 @@
                         </div>
                     </div>
                 </section>
-        
+
                 <div class="step-button-wrap">
                     <div class="step-button" id="prev">&larr; Previous</div>
                     <div class="step-button nxtBtn" id="next" >Next &rarr;</div>
                 </div>
-                
+
                 <p class="pt-4">If you have no damage then continue next.</p>
-  
+
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
         </div>
@@ -1267,7 +1267,7 @@
             <div id="svg_wrap_ext"></div>
             <h1 class="step-main-head">Exterior Information</h1>
             <section class="step-wrapper">
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1468,7 +1468,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1519,7 +1519,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1570,7 +1570,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1621,7 +1621,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -1672,14 +1672,14 @@
                         </div>
                     </div>
                 </section>
-    
+
                 <div class="step-button-wrap">
                     <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
                     <div class="step-button-ext" id="next-ext">Next &rarr;</div>
                 </div>
-                
+
                 <p class="pt-4">If you have no damage then continue next.</p>
-  
+
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
         </div>
@@ -1751,7 +1751,7 @@
   </div>
 </div>
 
-     
+
 
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
 

@@ -1675,6 +1675,21 @@ section.sec-4 {
 .box-img img {
     width: 100%;
 }
+.form-main form .row.signup-input div:nth-child(2) {
+    margin: 0 !important;
+}
+.form-main form .row.signup-input .mar-remov {
+    margin-top: 0px !important;
+}
+.form-main form .row.signup-input div input {
+
+    margin-bottom: 10px;
+}
+.form-main form .row.signup-input div span {
+ 
+    bottom: -6px;
+ 
+}
 }
 
 @media (max-width: 575px) {

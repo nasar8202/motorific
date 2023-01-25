@@ -26,7 +26,7 @@ p {
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>View And Update Dealer's Vehicle Details</h3>
+                <h3 class="fs-head">View And Update Dealer's Vehicle Details</h3>
                 <p class="text-subtitle text-muted">View And Update Dealer's Vehicle Details</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -40,17 +40,17 @@ p {
         </div>
     </div>
   
- <div class="row">
+ <div class="row dealer_vehicle_images">
      
      @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
      
-     <div class="col-md-3">
+     <div class="col-md-3 col-sm-6">
                     <img width="400px" height="200px" src="{{ asset('/uploads/DealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
-              
+              </div>
                 @empty
                 @endforelse
                 @forelse($vehicle->DealerVehicleInterior as $interiorimage)
-          
+          <div class="col-md-3 col-sm-6">
                     <img width="400px" height="200px" src="{{ asset('/uploads/DealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
                 </div>
                 @empty
@@ -74,7 +74,7 @@ p {
                 <i class="fa-regular fa-star"></i>
             </div>
             <div class="titleVehicle">
-                <h2>{{$vehicle->vehicle_name}}</h2>
+                <h2 class="fs-head">{{$vehicle->vehicle_name}}</h2>
                 <p>{{$vehicle->vehicle_color}}.<span>{{$vehicle->vehicle_year}}</span><span>.</span>{{$vehicle->vehicle_mileage}}<span>.</span>{{$vehicle->vehicle_tank}}<span>.</span>{{$vehicle->vehicle_type}}</p>
             </div>
             <div class="mapAndText">
@@ -199,10 +199,12 @@ p {
             </div> --}}
             <div class="vehicleDetailGal">
                 <h4>Wheels</h4>
-                <div class="vehicleDetailGalrepeatMain">
+                <div class="vehicleDetailGalrepeatMain row dealer_vehicle_images">
                     @forelse($vehicle->DealerVehicleTyre as $wheel)
-                    <div class="imgVehicle">
-                        <img  width="400px" height="200px"  src="{{ asset('/uploads/DealerVehicles/tyres/'.$wheel->tyre_image ?? "") }}" alt="">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="imgVehicle">
+                            <img  width="400px" height="200px"  src="{{ asset('/uploads/DealerVehicles/tyres/'.$wheel->tyre_image ?? "") }}" alt="">
+                        </div>
                     </div>
                     @empty
                     @endforelse
@@ -239,7 +241,7 @@ p {
     </div>
     <br>
     <section id="multiple-column-form" class="mt-4">
-        <div class="row match-height">
+        <div class="row match-height vehicle_form">
             <form class="form" method="post" action="{{route('dealerVehicleUpdatePrice',$vehicle->id)}}" >
                 @csrf
             <div class="col-12">
@@ -256,7 +258,7 @@ p {
                                 <div class="card-body">
 
                                         <div class="row">
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="retail_price">Vehicle Detail Price </label>
                                                     <input type="number" id="retail_price" value=""  class="form-control"
@@ -267,7 +269,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('retail_price') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="clean_price">Vehicle Clean Price </label>
                                                     <input type="number" id="clean_price" value=""  class="form-control"
@@ -278,7 +280,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('clean_price') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="average_price">Vehicle Average Price </label>
                                                     <input type="number" id="average_price" value=""  class="form-control"
@@ -289,7 +291,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('average_price') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="hidden_price">Vehicle Hidden Price </label>
                                                     <input type="number" id="hidden_price" value=""  class="form-control"

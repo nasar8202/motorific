@@ -29,7 +29,7 @@
         <div class="card">
          
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data"  id="table1">
                     <thead>
                         <tr>
                             <th>Name On Card</th>

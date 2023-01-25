@@ -35,7 +35,7 @@ class AddDealerVehicleController extends Controller
             'vehicle_mileage' => 'required|numeric',
         ]);
         $registeration = trim($request->vehicle_registartion_number,' ');
-       
+
         $res= Http::withHeaders([
             'accept' => 'application/json',
             'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
@@ -50,11 +50,11 @@ class AddDealerVehicleController extends Controller
         Session::put('vehicle_mileage', $request->vehicle_mileage);
 
         $fullname = $res['basic_vehicle_info']['manufacturer_desc'].' '.$res['basic_vehicle_info']['derivative_desc'];
-       
+
         Session::put('vehicle_year', $res['basic_vehicle_info']['first_registration_date']);
         // Session::put('vehicle_company', $res['basic_vehicle_info']['manufacturer_desc']);
         Session::put('vehicle_name', $fullname);
-       
+
         Session::put('vehicle_color', $res['basic_vehicle_info']['colour']);
         Session::put('vehicle_body', $res['basic_vehicle_info']['autotrader_body_type_desc']);
         Session::put('vehicle_transmission', $res['basic_vehicle_info']['autotrader_transmission_desc']);
@@ -98,7 +98,7 @@ class AddDealerVehicleController extends Controller
     public function vehicleAndDetailsPost(Request $request)
     {
         $request->validate([
-            'image_1' => 'required|mimes:jpeg,png,jpg,|max:1024',
+            'image_1' => 'required',
             'interior_image_1' => 'required',
             'condition_damage' => 'required',
             'condition_damage_url' => 'required',
@@ -113,7 +113,7 @@ class AddDealerVehicleController extends Controller
             'tyre_image' => 'required',
 
         ]);
-        
+
 
         DB::beginTransaction();
         try{
@@ -218,17 +218,17 @@ class AddDealerVehicleController extends Controller
             // dd($request->image_1);
             // die();
             foreach($request->image_1 as $exterior_images){
-                
-            $image_1 = time() . '_' . $exterior_images->getClientOriginalName();
-            $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
 
+            $image_1 = time() . '_' . $exterior_images->getClientOriginalName();
+$a =             $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
+dd($a);
 
             $dealer_vehicle_exterior = new DealerVehicleExterior;
             $dealer_vehicle_exterior->dealer_vehicle_id = $dealers_vehicle->id ;
             $dealer_vehicle_exterior->exterior_image = $image_1;
             $dealer_vehicle_exterior->save();
             }
-            
+
             foreach($request->interior_image_1 as $interior_image){
             $interior_image_1 = time() . '_' . $interior_image->getClientOriginalName();
             $interior_image->move(public_path() . '/uploads/dealerVehicles/interior/', $interior_image_1);
@@ -242,13 +242,13 @@ class AddDealerVehicleController extends Controller
             //$image_1 = Session::get('image_1');
             }
 
-            
+
             foreach($request->tyre_image as $interior_image){
                 $tyre_image = time() . '_' . $interior_image->getClientOriginalName();
                 $interior_image->move(public_path() . '/uploads/dealerVehicles/tyres/', $tyre_image);
-    
-    
-    
+
+
+
                 $dealer_Vehicle_Tyres = new DealerVehicleTyres;
                 $dealer_Vehicle_Tyres->dealer_vehicle_id = $dealers_vehicle->id;
                 $dealer_Vehicle_Tyres->tyre_image = $tyre_image;
@@ -256,7 +256,7 @@ class AddDealerVehicleController extends Controller
                 //$image_1 = Session::get('image_1');
                 }
 
-            if($request->damage_any == 'yes'){    
+            if($request->damage_any == 'yes'){
             $dealer_interior_detail = new DealerVehicleInteriorDetails;
             $dealer_interior_detail->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_interior_detail->dashboard = $request->dashboard;
@@ -272,7 +272,7 @@ class AddDealerVehicleController extends Controller
             $dealer_interior_detail->save();
 
             }
-            if($request->damage_any == 'damage_any_second'){ 
+            if($request->damage_any == 'damage_any_second'){
             $dealer_exterior_detail = new DealerVehicleExteriorDetails;
             $dealer_exterior_detail->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_exterior_detail->front_door_left = $request->front_door_left;
@@ -331,12 +331,12 @@ class AddDealerVehicleController extends Controller
             Session::put('mileage', $request->mileage);
             Session::put('v5_status', $request->v5_status);
             Session::put('origin', $request->origin);
-           
+
             if(!empty($request->interior)){
                 $interior = implode(',',$request->interior);
                 Session::put('interior', $interior);
             }
-            
+
             if(!empty($request->exterior)){
                 $exterior = implode(',',$request->exterior);
                 Session::put('exterior', $exterior);
@@ -354,8 +354,8 @@ class AddDealerVehicleController extends Controller
                 $checkbox_questions = implode(',',$request->checkbox_questions);
                 Session::put('checkbox_questions', $checkbox_questions);
             }
-            
-            
+
+
             if(!empty($request->illumination)){
                 $illumination = implode(',',$request->illumination);
             Session::put('illumination', $illumination);
@@ -368,8 +368,8 @@ class AddDealerVehicleController extends Controller
                 $safety_and_security = implode(',',$request->safety_and_security);
                 Session::put('safety_and_security', $safety_and_security);
             }
-           
-            
+
+
 
         return redirect()->route('dealer.vehicleAndDetails');
 
