@@ -32,11 +32,7 @@ display: block;
                 <a href="{{ route('howItWorksforSeller') }}">
                     <li>How It Works</li>
                 </a>
-<<<<<<< HEAD
                 <a href="{{ route('reviews') }}">
-=======
-                <a href="Review.blade.php">
->>>>>>> 175cabb6cfb1aaf0cc21da8a7dc348196b054612
                     <li>Reviews</li>
                 </a>
                 <a href="#">
