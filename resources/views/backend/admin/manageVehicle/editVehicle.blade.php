@@ -1171,6 +1171,7 @@ p {
                  </div>
 
                 </div>
+                @if($vehicles->vehicle_availability == null)
                 <div class="row match-height">
                     <div class="col-12">
                         <div class="card">
@@ -1312,6 +1313,11 @@ p {
                     <button type="reset"
                         class="btn btn-light-secondary me-1 mb-1">Reset</button>
                 </div>
+                @else
+                <div class="col-12 d-flex justify-content-end">
+              <span class="text text-danger">You Cant Make Any Changes Of Sold Vehicles</span>
+                </div>
+                @endif
             </div>
 
         </div>

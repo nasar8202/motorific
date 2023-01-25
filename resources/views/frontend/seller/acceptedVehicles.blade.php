@@ -61,7 +61,7 @@ display: block;
             @endif
             @else
 
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a style="color: black" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
                     
@@ -117,14 +117,14 @@ display: block;
             <div class="col-lg-9 col-md-9">
     
                 <div class="row">
-                    <h4>Your Accepted Vehicles</h4>
+                    <h4>Your Vehicles</h4>
                     <br>
                     <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="usr">Search Purchases Vehcle:</label>
                             <input type="text" placeholder="Search in Complete" class="form-control" id="usr">
                             <br>
-                        </div>
+                        </div> --}}
                         <br>
                         <div class="row">
                             @forelse ($allVehicles as $allVehicle)
@@ -142,12 +142,16 @@ display: block;
                                 @endif
                                 @if($allVehicle->status == 0)
                                 <span class="alert alert-danger ">Not Accepeted</span>
+                            @elseif($allVehicle->status == 2)
+                            <span class="alert alert-success ">Deactivated</span>
                             @else
-                            
                             <span class="alert alert-success ">Accepeted</span>
                             @endif   
                             </div>
-                            </div>
+                           <a href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
+                           </a>  
+                        </div>
+                            
                             @empty
                             <div class="col-sm-12">No Purchases Vehicle Found!</div>
     

@@ -84,6 +84,23 @@ class DealerDashboardController extends Controller
         return view('frontend.dealer.bids.ActiveBiddedVehicle',compact('bids','countBids'));
 
     }
+    public function markAsSoldDealerVehicle($id)
+    {
+      $allVehicles = DealerVehicle::Where('id',$id)->first();
+        if($allVehicles->vehicle_availability == 'sold'){
+            
+        return redirect()->back()->with('warning', 'You Already Set This Vehicle To Sold');
+        }
+        else{
+        $allVehicles->status = 2;
+        $allVehicles->vehicle_availability = 'sold';
+        $allVehicles->save();
+        
+        return redirect()->back()->with('success', 'Vehicle Status Set To Sold Successfully');
+
+    }
+  }
+
 
     public function UnderBiddedOfferVehicle()
     {

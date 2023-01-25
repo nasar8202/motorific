@@ -44,7 +44,11 @@
                             @else
                             <span class="badge badge-danger">Pending </span>
                             @endif
+                            
                             <span style="padding-left: 60px;">{{ $vehicle->created_at->format('m/d/Y') }}</span>
+                            <br>
+                            <a href="{{route('markAsSoldDealerVehicle',$vehicle->id)}}">Marks As Sold ?</a>
+                          
                             <span style="padding-left: 200px;">
                                
                                         <!-- Trigger Buttons HTML -->

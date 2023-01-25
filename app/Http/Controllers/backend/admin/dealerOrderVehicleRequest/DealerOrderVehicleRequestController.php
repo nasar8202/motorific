@@ -47,21 +47,25 @@ class DealerOrderVehicleRequestController extends Controller
         return view('backend.admin.DealersorderVehicleRequests.vehicleOwnerDetail',compact('seller'));
     
     }  
-    public function approveDealersOrder($id){
+    public function approveDealersOrder($id,$vId){
         
+      $orders = DealersOrderVehicleRequest::where('vehicle_id',$vId)->get();
+      foreach($orders as $ord){
+        if($ord->status == 1){
+        return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');        
+      }
+    
+      else{
         $orders = DealersOrderVehicleRequest::where('id',$id)->first();
-        $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle->id)->first();
-        if($ordered_vehicle->status == 2){
-          
-        return redirect()->back()->with('warning', 'This Order Is Already Assing To Another!');
-        }
-        else{
         $orders->status = 1;
         $orders->save();
+      $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle->id)->first();
       $ordered_vehicle->status = 2 ;
       $ordered_vehicle->save();
-        return redirect()->back()->with('success', 'Order Approved Successfully!');
+        return redirect()->back()->with('success', 'Request Approved Successfully!');
+    
       }
+    }    
         
     }
     public function approveDealersOrderdWithAdminUpdated(Request $request){
@@ -72,29 +76,39 @@ class DealerOrderVehicleRequestController extends Controller
          
       ]);
         $orders = DealersOrderVehicleRequest::where('id',$request->orderId)->first();
-        $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle_id)->first();
-        if($ordered_vehicle->status == 2){
-          
-          return redirect()->back()->with('warning', 'This Order Is Already Assing To Another!');
-          }
-          else{
-        $orders->request_price = $request->updatedPrice;
-        $orders->status = 1;
-        $orders->admin_updated_status = 1;
-        $orders->save();
-      $ordered_vehicle->status = 2 ;
-      $ordered_vehicle->save();
-          }
+        $vehicles = DealersOrderVehicleRequest::where('vehicle_id',$orders->vehicle_id)->get();
+        foreach($vehicles as $ord){
+          if($ord->status == 1){
+          return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');        
+        }
+        else{
+          $orders->request_price = $request->updatedPrice;
+          $orders->status = 1;
+          $orders->admin_updated_status = 1;
+          $orders->save();
+          $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle_id)->first();
+          $ordered_vehicle->status = 2 ;
+          $ordered_vehicle->save();
+          return redirect()->back()->with('success', 'Request Approved And Updated Successfully!');
+        }
+      }
         return redirect()->back()->with('success', 'Order Approved And Updated Successfully!');
     
         
     }
-    public function unassignReq($id){
+    public function unassignDealerReq($id){
       
-      $unassign_bid = OrderVehicleRequest::where('id',$id)->first();
+      $unassign_bid = DealersOrderVehicleRequest::where('id',$id)->first();
+      
+         if($unassign_bid->meeting_status == 'Completed'){
+        return redirect()->back()->with('warning', 'This Vehicle Sold Successfully! , You Cant Make Changes ');
+      }
+      else{
       $unassign_bid->status = 0 ;
       $unassign_bid->save();
-      return redirect()->back()->with('success', 'Bid Unassign Successfully!');
-   }      
+      return redirect()->back()->with('success', 'Request Unassign Successfully!');
+    }
+   }
+         
         
 }

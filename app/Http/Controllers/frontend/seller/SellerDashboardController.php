@@ -26,6 +26,21 @@ class SellerDashboardController extends Controller
         return view('frontend.seller.acceptedVehicles',compact('allVehicles'));
 
     }
+    public function marksAsSoldVehicles($id)
+    {
+        $allVehicles = Vehicle::Where('id',$id)->first();
+        if($allVehicles->vehicle_availability == 'sold'){
+            
+        return redirect()->back()->with('warning', 'You Already Set This Vehicle To Sold');
+        }
+        else{
+        $allVehicles->status = 2;
+        $allVehicles->vehicle_availability = 'sold';
+        $allVehicles->save();
+        
+        return redirect()->back()->with('success', 'Vehicle Status Set To Sold Successfully');
+    }
+    }
     public function bidsOnVehicles($id)
     {
        $orders = BidedVehicle::with('vehicle')->with('user')->where('vehicle_id',$id)->orderBy('bid_price','DESC')->get();

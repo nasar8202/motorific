@@ -158,13 +158,13 @@
             
         </ul>
     </li> --}}
-    <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
+    {{-- <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
         <a href="{{route('liveSell')}}" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Live Sell Time</span>
         </a>
        
-    </li>
+    </li> --}}
     <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
         <a href="{{route('cardDetailsShowAdmin')}}" class='sidebar-link'>
             <i class="bi bi-stack"></i>

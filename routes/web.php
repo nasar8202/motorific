@@ -313,9 +313,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/orderd-dealer-detail/{id}', [DealerOrderVehicleRequestController::class,'orderdDealerDetail'])->name('orderdDealerDetail');
     Route::get('/dealers-orderd-vehicle-detail/{id}', [DealerOrderVehicleRequestController::class,'dealersOrderdVehicleDetail'])->name('dealersOrderdVehicleDetail');
     Route::get('/vehicle-owner-detail/{id}', [DealerOrderVehicleRequestController::class,'vehicleOwnerDetails'])->name('vehicleOwnerDetails');
-    Route::get('/approve-dealers-order/{id}', [DealerOrderVehicleRequestController::class,'approveDealersOrder'])->name('approveDealersOrder');
+    Route::get('/approve-dealers-order/{id}/{vId}', [DealerOrderVehicleRequestController::class,'approveDealersOrder'])->name('approveDealersOrder');
     Route::post('/approve-dealers-order-admin-updated', [DealerOrderVehicleRequestController::class,'approveDealersOrderdWithAdminUpdated'])->name('approveDealersOrderdWithAdminUpdated');
-
+    Route::get('/unassign-dealers-req/{id}', [DealerOrderVehicleRequestController::class,'unassignDealerReq'])->name('unassignDealerReq');
+    
     //end dealer order vehicle request
     //start meetings
 
@@ -331,6 +332,7 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
 Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehicles'])->name('acceptedVehicles');
 Route::get('/bids-on-my-vehicles/{id}', [SellerDashboardController::class,'bidsOnVehicles'])->name('bidsOnVehicles');
+Route::get('/mark-as-sold-vehicles/{id}', [SellerDashboardController::class,'marksAsSoldVehicles'])->name('marksAsSoldVehicles');
 Route::get('/orders-on-my-vehicles/{id}', [SellerDashboardController::class,'ordersOnVehicles'])->name('ordersOnVehicles');
 Route::post('/meeting-status', [SellerDashboardController::class,'meetingStatus'])->name('meetingStatus');
 Route::post('/meeting-bid-status', [SellerDashboardController::class,'meetingBidStatus'])->name('meetingBidStatus');
@@ -358,6 +360,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/completed-requested-vehicles', [DealerDashboardController::class,'CompletedRequestedVehicle'])->name('CompletedRequestedVehicle');
     Route::get('/canceled-requested-vehicles', [DealerDashboardController::class,'CancelRequestedVehicle'])->name('CancelRequestedVehicle');
     Route::get('/my-vehicles', [DealerDashboardController::class,'myVehicles'])->name('myVehicles');
+    
+    Route::get('/mark-as-sold-dealervehicles/{id}', [DealerDashboardController::class,'markAsSoldDealerVehicle'])->name('markAsSoldDealerVehicle');
     Route::get('/order-on-my-vehicles/{id}', [DealerDashboardController::class,'orderOnMyVehicle'])->name('orderOnMyVehicle');
     Route::post('/dealer-meeting-status', [DealerDashboardController::class,'dealerMeetingStatus'])->name('dealerMeetingStatus');
 
