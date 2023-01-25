@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend\seller;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Finance;
 use App\Models\Smoking;
@@ -9,6 +10,7 @@ use App\Models\Vehicle;
 use App\Models\ToolPack;
 use App\Models\VCLogBook;
 use App\Models\NumberOfKey;
+use Illuminate\Support\Str;
 use App\Models\PrivatePlate;
 use App\Models\SeatMaterial;
 use App\Models\VehicleImage;
@@ -23,13 +25,11 @@ use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
-use App\Models\vehicleConditionAndDamage;
 
-use Carbon\Carbon;
-use Mail;
-use Hash;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
+use App\Models\vehicleConditionAndDamage;
 
 class FrontController extends Controller
 {

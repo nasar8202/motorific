@@ -129,7 +129,6 @@ class AdminDashboardController extends Controller
     {
         
         $purchase = DealerWinningCharges::with('user')->with('Vehicle')->where('user_id',$id)->where('status','1')->get();
-        
         return view('backend.admin.dealers.dealersPurchase',compact('purchase'));
     }
     // end approved dealer by admin

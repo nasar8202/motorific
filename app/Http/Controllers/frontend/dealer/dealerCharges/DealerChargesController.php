@@ -247,7 +247,7 @@ class DealerChargesController extends Controller
         
         $user_id = Auth::user()->id;
         
-       $charges =  DealerWinningCharges::where('user_id',$user_id)->where('vehicle_id',$id)->first();
+       $charges =  DealerWinningCharges::where('user_id',$user_id)->where('dealer_vehicle_id',$id)->first();
        
        $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->first();
         //   dd($pricing);

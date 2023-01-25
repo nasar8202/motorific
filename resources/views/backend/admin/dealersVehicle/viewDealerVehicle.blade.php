@@ -66,7 +66,7 @@
                             @elseif($DealerVehicle->status == 1)
                             <td class=""><span class="badge badge-success"> Accepted </span></td>
                             @else
-                            <td class=""><span class="badge badge-danger"> Sold </span></td>
+                            <td class=""><span class="badge badge-danger"> Deactivate </span></td>
                             @endif
                             
                             <td>

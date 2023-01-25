@@ -61,12 +61,14 @@
                             <a class="badge badge-success" href="{{route('dealersOrderdVehicleDetail',$order->vehicle_id)}}" >Vehicle Details </a>
                             <a class="badge badge-success" href="{{route('vehicleOwnerDetails',$order->vehicle->user_id)}}" >Vehicle Owner's Details </a>
                             @if($order->status == 0)
-                            <a class="badge badge-info" href="{{route('approveDealersOrder',$order->id)}}" >Approve Order Request </a>
+                            <a class="badge badge-info" href="{{route('approveDealersOrder',['id'=>$order->id,'vId'=>$order->vehicle->id])}}" >Approve Order Request </a>
                             <button type="button" class="btn btn-sm mt-2 btn-outline-primary block price" data-bs-toggle="modal"
                             data-bs-target="#default"  data-id="{{$order->id}}">
                             Update Price
                         </button>
                         @else
+                        <a class="badge badge-danger" href="{{route('unassignDealerReq',$order->id)}}" >Unassign Request</a>
+                       
                         <button type="button" class="btn btn-sm mt-2  btn btn-outline-dark meeting"
                         data-bs-toggle="modal" data-bs-target="#dark" data-id="{{$order->id}}">
                         View Meeting Status

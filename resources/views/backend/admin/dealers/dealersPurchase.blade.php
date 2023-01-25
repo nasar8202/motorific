@@ -44,6 +44,7 @@
                     </thead>
                     <tbody>
                         @forelse ($purchase as $dealer)
+                        @if($dealer->vehicle_id != null)
                         <tr>
                             <td>{{ $dealer->user->name }}</td>
                             <td>{{ $dealer->vehicle->vehicle_registartion_number }}</td>
@@ -53,6 +54,17 @@
                             
                            
                         </tr>
+                        @else
+                        <tr>
+                            <td>{{ $dealer->user->name }}</td>
+                            <td>{{ $dealer->dealerVehicle->vehicle_registartion_number }}</td>
+                            <td>{{ $dealer->dealerVehicle->vehicle_name }}</td>
+                            <td>{{ $dealer->dealerVehicle->vehicle_price }}</td>
+                            <td>{{ $dealer->vehicle_charges }}</td>
+                            
+                           
+                        </tr>
+                        @endif
                         @empty
                         <td colspan="6">No Purchase Found</td>
                         @endforelse

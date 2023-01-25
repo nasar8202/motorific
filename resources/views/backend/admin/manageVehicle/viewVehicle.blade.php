@@ -64,16 +64,18 @@
                             <td>{{ $vehicle->vehicle_price}}</td>
                             @if($vehicle->status == 0)
                             <td class=""><span class="badge badge-info"> Pending </span></td>
-                            @else
+                            @elseif($vehicle->status == 2)
+                            <td class=""><span class="badge badge-danger"> Deactivate </span></td>
+                          @else
                             <td class=""><span class="badge badge-success"> Accepted </span></td>
                             @endif
                             <td>
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
                             <td>
-                                <a href="{{ route('editVehicle',$vehicle->id) }}" class="action_btn"><span class="badge bg-success">View Details</span></a>
-                                <a href="{{ route('deleteVehicle',$vehicle->id) }}" class="action_btn"><span class="badge bg-danger">Delete</span></a>
-                                <a href="{{ route('approveVehicle',$vehicle->id) }}" class="action_btn"><span class="badge bg-success">Approve</span></a>
+                                <a href="{{ route('approveVehicle',$vehicle->id) }}"><span class="badge bg-success">Approve</span></a>
+                                <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge bg-success">View Details</span></a>
+                                <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge bg-danger">Delete</span></a>
                             </td>
                         </tr>
                         @endforeach
