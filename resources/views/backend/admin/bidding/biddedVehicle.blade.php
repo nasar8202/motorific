@@ -31,7 +31,7 @@
             </div>
 
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data vehicle_data" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -63,7 +63,7 @@
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
                             <td>
-                                <a href="{{ route('singleBid',$vehicle->id) }}"><span class="badge bg-success">View All Bids</span></a>
+                                <a href="{{ route('singleBid',$vehicle->id) }}" class="cvf_btn"><span class="badge bg-success">View All Bids</span></a>
                             
                             </td>
                         </tr>

@@ -29,11 +29,11 @@
         <div class="card">
             <div class="card-header">
                 Vehicles List
-                <a href="{{ route('createVehicleForm') }}"><span class="badge bg-primary" style="float: right">Create Vehicle</span></a>
+                <a href="{{ route('createVehicleForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Create Vehicle</span></a>
             </div>
 
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="table table-striped tables_admin_data vehicle_data" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -71,9 +71,9 @@
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
                             <td>
-                                <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge bg-success">View Details</span></a>
-                                <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge bg-danger">Delete</span></a>
-                                <a href="{{ route('approveVehicle',$vehicle->id) }}"><span class="badge bg-success">Approve</span></a>
+                                <a href="{{ route('editVehicle',$vehicle->id) }}" class="action_btn"><span class="badge bg-success">View Details</span></a>
+                                <a href="{{ route('deleteVehicle',$vehicle->id) }}" class="action_btn"><span class="badge bg-danger">Delete</span></a>
+                                <a href="{{ route('approveVehicle',$vehicle->id) }}" class="action_btn"><span class="badge bg-success">Approve</span></a>
                             </td>
                         </tr>
                         @endforeach

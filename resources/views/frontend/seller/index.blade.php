@@ -32,7 +32,7 @@ display: block;
                 <a href="#">
                     <li>How It Works</li>
                 </a>
-                <a href="#">
+                <a href="Review.blade.php">
                     <li>Reviews</li>
                 </a>
                 <a href="#">
