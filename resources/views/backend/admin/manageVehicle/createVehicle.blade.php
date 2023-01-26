@@ -34,15 +34,15 @@
     <section id="multiple-column-form">
         <div class="row match-height">
             <div class="col-md-6 col-6">
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="email-id-column">Vehicle Price</label>
                     <input type="text" id="email-id-column" class="form-control"
                         name="vehicle_price" placeholder="Vehicle Price">
-                </div>
+                </div> --}}
             </div>
-            <div class="col-md-6 col-6">
+            {{-- <div class="col-md-6 col-6">
             <a href="#" class="btn btn-success">Success</a>
-            </div>
+            </div> --}}
 
             <div class="col-12">
                 <div class="card">

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\backend\admin\orderRequest;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use App\Mail\WinnerRequestedPerson;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use App\Models\DealersOrderVehicleRequest;
 
 class OrderRequestController extends Controller
@@ -85,22 +87,35 @@ class OrderRequestController extends Controller
      public function approveOrderd($id,$vId){
       
       $orders = OrderVehicleRequest::where('vehicle_id',$vId)->get();
+      
       foreach($orders as $ord){
         if($ord->status == 1){
-        return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');        
+          return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');
+        }
       }
+       $winning_orders = OrderVehicleRequest::with('user')->with('vehicle')->where('id',$id)->first();
+        
+        $winning_orders->status = 1;
+        $winning_orders->save();
+          $ordered_vehicle = Vehicle::where('id',$winning_orders->vehicle_id)->first();
+          $ordered_vehicle->status = 2 ;
+          $ordered_vehicle->save();
+
+          $data = ([
+            'name' => $winning_orders->user->name,
+            'email' => $winning_orders->user->email,
+            'bidded_price'=>$winning_orders->request_price,
+            'vehicle_registration'=>$winning_orders->vehicle->vehicle_registartion_number,
+            'vehicle_name'=>$winning_orders->vehicle->vehicle_name,
+            'vehicle_mileage'=>$winning_orders->vehicle->vehicle_mileage,
+            
+        ]);
+        Mail::to($winning_orders->user->email)->send(new WinnerRequestedPerson($data));
+
+
+        return redirect()->back()->with('success', 'Request Approved Successfully!');
     
-      else{
-        $orders = OrderVehicleRequest::where('id',$id)->first();
-        $orders->status = 1;
-        $orders->save();
-      $ordered_vehicle = Vehicle::where('id',$orders->vehicle->id)->first();
-      $ordered_vehicle->status = 2 ;
-      $ordered_vehicle->save();
-        return redirect()->back()->with('success', 'Bid Approved Successfully!');
     
-      }
-    }    
         
     
   }
