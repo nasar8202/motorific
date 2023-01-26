@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
 use App\Models\DealersOrderVehicleRequest;
 use App\Models\LiveSaleTime;
+use App\Models\DealerVehicleExterior;
 
 class DealerDashboardController extends Controller
 {
@@ -88,14 +89,14 @@ class DealerDashboardController extends Controller
     {
       $allVehicles = DealerVehicle::Where('id',$id)->first();
         if($allVehicles->vehicle_availability == 'sold'){
-            
+
         return redirect()->back()->with('warning', 'You Already Set This Vehicle To Sold');
         }
         else{
         $allVehicles->status = 2;
         $allVehicles->vehicle_availability = 'sold';
         $allVehicles->save();
-        
+
         return redirect()->back()->with('success', 'Vehicle Status Set To Sold Successfully');
 
     }
@@ -134,12 +135,8 @@ class DealerDashboardController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
+        $bids = BidedVehicle::with('user')->with('vehicle.vehicleimage')->where('user_id',$user_id)->where('status',2)->get();
 
-                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
-                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
-                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
-                                ->where('users.id',$user_id)->where('bided_vehicles.status',2)->get();
 // dd($bids);
         $countBids = count($bids);
 
@@ -390,7 +387,13 @@ class DealerDashboardController extends Controller
             $query_string_second_part[] = " AND v.deleted_at IS NULL";
             $query_string_second_part[] = " AND vimg.deleted_at IS NULL";
 
-            $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type, v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price, v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard FROM vehicles AS v JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
+            $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type,
+             v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price,
+              v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,
+              vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,
+              vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard
+            FROM vehicles AS v
+            JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
             JOIN vehicle_images AS vimg ON vimg.vehicle_id = v.id WHERE ";
             $query_string_third_part = ' ORDER BY v.id';
 
@@ -402,7 +405,8 @@ class DealerDashboardController extends Controller
     }
     public function  dealerToDealerVehicleFilter(Request $request)
     {
-        $current_year = date("Y");
+        //dd($request->all());
+            $current_year = date("Y");
             $total = $current_year - $request->agePro;
             $range = explode('-',$request->range);
 
@@ -418,23 +422,21 @@ class DealerDashboardController extends Controller
             if(!empty($request->agePro)) $query_string_second_part[] = " AND vd.vehicle_year <= '$current_year'";
             $query_string_second_part[] = " AND vd.status = '1'";
             $query_string_second_part[] = " AND vd.deleted_at IS NULL";
-            $query_string_second_part[] = " AND veintImg.deleted_at IS NULL";
-            $query_string_second_part[] = " AND vextImg.deleted_at IS NULL";
             $query_string_second_part[] = " AND dvmedia.deleted_at IS NULL";
             $query_string_second_part[] = " AND dvhistory.deleted_at IS NULL";
 
-            $query_string_First_Part= "SELECT vd.id,vd.vehicle_registartion_number,vd.vehicle_name, vd.vehicle_year,vd.vehicle_color, vd.vehicle_type,vd.vehicle_type,vd.previous_owners, vd.vehicle_tank,vd.previous_owners, vd.vehicle_mileage, vd.vehicle_price,  vd.retail_price,  vd.status,
-             vextImg.exterior_image,veintImg.interior_image,dvhistory.keys,dvhistory.previous_owners,dvhistory.service_history_title,dvhistory.mileage,dvhistory.v5_status,dvhistory.origin,dvhistory.interior,dvhistory.exterior,dvhistory.audio_and_communications,dvhistory.drivers_assistance,
-             dvhistory.checkbox_questions,dvhistory.performance,dvhistory.safety_and_security,dvmedia.condition_damage,dvmedia.condition_damage_url,dvmedia.existing_condition_report
-             ,dvmedia.any_damage_checked,dvmedia.any_damage_on_your_vehicle,dvmedia.advert_description,dvmedia.attention_grabber,dvmedia.nearside_rear,dvmedia.nearside_front,
-             dvmedia.offside_front,dvmedia.offside_rear
+            $query_string_First_Part= "SELECT  vd.id,vd.vehicle_registartion_number,vd.vehicle_name, vd.vehicle_year,vd.vehicle_color, vd.vehicle_type,vd.previous_owners,
+            vd.vehicle_tank, vd.vehicle_mileage, vd.vehicle_price,  vd.retail_price,  vd.status,
+            dvhistory.keys,dvhistory.previous_owners,dvhistory.service_history_title,dvhistory.mileage,
+            dvhistory.v5_status,dvhistory.origin,dvhistory.interior,dvhistory.exterior,dvhistory.audio_and_communications,dvhistory.drivers_assistance,
+            dvhistory.checkbox_questions,dvhistory.performance,dvhistory.safety_and_security,dvmedia.condition_damage,dvmedia.condition_damage_url,dvmedia.existing_condition_report
+            ,dvmedia.any_damage_checked,dvmedia.any_damage_on_your_vehicle,dvmedia.advert_description,dvmedia.attention_grabber,dvmedia.nearside_rear,dvmedia.nearside_front,
+            dvmedia.offside_front,dvmedia.offside_rear
             FROM dealer_vehicles AS vd
             join dealer_vehicle_histories AS dvhistory ON dvhistory.dealer_vehicle_id = vd.id
-            Join dealer_vehicle_media As dvmedia ON dvmedia.dealer_vehicle_id = vd.id
-            JOIN dealer_vehicle_exteriors AS vextImg ON vextImg.dealer_vehicle_id = vd.id
-            JOIN dealer_vehicle_interiors AS veintImg ON veintImg.dealer_vehicle_id = vd.id WHERE ";
+            Join dealer_vehicle_media As dvmedia ON dvmedia.dealer_vehicle_id = vd.id where";
 
-            $query_string_third_part = ' ORDER BY vd.id';
+            $query_string_third_part = '  ORDER BY vd.id ';
 
         //     ->with('DealerVehicleExterior')
         // ->with('DealerVehicleHistory')
@@ -446,9 +448,18 @@ class DealerDashboardController extends Controller
             $query_string = $query_string_First_Part.$query_string_second_part.$query_string_third_part;
              //dd($query_string);
             $dealerToDealerVehicleFilter = DB::select(DB::raw($query_string));
-
-
-          return $dealerToDealerVehicleFilter;
+            if($dealerToDealerVehicleFilter != null){
+            foreach($dealerToDealerVehicleFilter as $d){
+            $exterior[] = DealerVehicleExterior::where('dealer_vehicle_id',$d->id)->first();
+        }
+            $pic = $exterior[0];
+            $data = ['dealerToDealerVehicleFilter'=>$dealerToDealerVehicleFilter,'pic'=>$pic];
+          return $data;
+        }
+        else{
+            $dealerToDealerVehicleFilter = '';
+            return $dealerToDealerVehicleFilter;
+        }
     }
     public function test(Request $request){
 
