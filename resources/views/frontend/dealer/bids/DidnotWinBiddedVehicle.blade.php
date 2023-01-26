@@ -34,16 +34,27 @@
                     <br>
                     <div class="row" id="first">
                         @forelse ($bids as $bid)
-                        <div class="col-sm-4 vec-box p-0" ><img src="{{ asset('/vehicles/vehicles_images/'. $bid->front) }}" width="300px" height="200px"></div>
+                        <div class="col-sm-4 vec-box p-0" ><img src="{{ asset('/vehicles/vehicles_images/'. $bid->vehicle->vehicleimage->front) }}" width="300px" height="200px"></div>
                         <div class="col-sm-8 vec-box p-0" >
-                            <h1 style="font-size: 20px"><span >{{ $bid->vehicle_registartion_number }}</span></h1>
-                            <p>{{ $bid->vehicle_name }}</p>
+                            <h1 style="font-size: 20px"><span >{{ $bid->vehicle->vehicle_registartion_number }}</span></h1>
+                           <p>{{ $bid->vehicle->vehicle_name }}</p>
                             <span>Max Bid:{{ $bid->bid_price }}</span>
                             <span style="padding-left: 60px;">{{ $bid->created_at->format('m/d/Y') }}</span>
-
+                            <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$bid->id}}">...</button>
+                                   
+                            <!-- Collapsible Element HTML -->
+                            <div class="collapse" id="myCollapse{{$bid->id}}">
+                                <div class="card card-body " style="width: 40%;float: right;" >
+                                    <ul>
+                                        <li><a href="{{route('sellerDetails',['bided'=>"bided",'slug'=>"seller",'id'=>$bid->vehicle->id])}}"> Seller's Details</a></li><br>
+                                        {{-- <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                        
                         </div>
                         @empty
-                        <div class="col-sm-12">No active bids or offers!</div>
+                        <div class="col-sm-12">No Didnt Win !</div>
 
                         @endforelse
 
