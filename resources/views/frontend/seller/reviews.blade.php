@@ -1,6 +1,9 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Sell your car the with Motorific')
 @section('section')
+
+
+
 <style>
     .dropdown {
 position: relative;
@@ -118,6 +121,7 @@ display: block;
     </div>
 </section>
 <!-- SECTION-2 -->
+<section class="sec-review" >
  <div class="container-1151">
      
      <div class="exelent">
@@ -128,8 +132,84 @@ display: block;
               <span> <i class="fa fa-star"></i></span>
                 <span> <i class="fas fa-star-half"></i></span>
          </div>
- 
-  </div>     
+          <p class="shown">Showing our 4 & 5 star reviews
+            </p>
+            
+            <div class="list-wraper">
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Richard Orr,    </span>
+                                <span>59 minutes ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>If you want a genuine safe and secure…</h2>
+                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                            </div>
+                    </div>
+                </div>
+                    <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Richard Orr,    </span>
+                                <span>59 minutes ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>If you want a genuine safe and secure…</h2>
+                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                            </div>
+                    </div>
+                </div>
+                    <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Richard Orr,    </span>
+                                <span>59 minutes ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>If you want a genuine safe and secure…</h2>
+                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                            </div>
+                    </div>
+                </div>
+          
+            </div>
+              <div id="pagination-container"></div>
+  </div>    
+  </section>
 <!-- SECTION-3 -->
 
 
@@ -137,7 +217,28 @@ display: block;
 
 @endsection
 @push('child-scripts')
+<script type=""></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
 <script type="text/javascript">
+// jQuery Plugin: http://flaviusmatis.github.io/simplePagination.js/
 
+var items = $(".list-wraper .reviews-add");
+    var numItems = items.length;
+    var perPage = 2;
+
+    items.slice(perPage).hide();
+
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
 </script>
 @endpush
