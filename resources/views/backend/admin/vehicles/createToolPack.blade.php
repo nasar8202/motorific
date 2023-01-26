@@ -33,16 +33,16 @@
     <div class="row match-height">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header pb-sm-0">
                     <h4 class="card-title">Add Tool Pack</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <div class="container">
+                        <div class="container-fluid">
 
                             <div class="row">
 
-                                <form action="{{ route('storeToolPack') }}" method="POST">
+                                <form action="{{ route('storeToolPack') }}" method="POST" class="oveflow-x-scroll p-0">
                                     @csrf
                                     @if ($errors->any())
                                     <div class="alert alert-danger" role="alert">
@@ -60,12 +60,12 @@
                                             <th>Action</th>
                                         </tr>
                                         <tr>
-                                            <td><input type="text" name="addMoreInputFields[0][title]" placeholder="Enter Tool Pack Question" class="form-control" />
+                                            <td><input type="text" name="addMoreInputFields[0][title]" placeholder="Enter Tool Pack Question" class="form-control w-160" />
                                             </td>
                                             <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add More</button></td>
                                         </tr>
                                     </table>
-                                    <button type="submit" class="btn btn-outline-success btn-block">Save</button>
+                                    <button type="submit" class="btn btn-outline-success">Save</button>
                                 </form>
                             </div>
 

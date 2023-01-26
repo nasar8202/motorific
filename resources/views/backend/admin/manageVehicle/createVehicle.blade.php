@@ -32,7 +32,7 @@
         </div>
     </div>
     <section id="multiple-column-form">
-        <div class="row match-height">
+        <div class="row align-items-center">
             <div class="col-md-6 col-6">
                 {{-- <div class="form-group">
                     <label for="email-id-column">Vehicle Price</label>
@@ -40,9 +40,15 @@
                         name="vehicle_price" placeholder="Vehicle Price">
                 </div> --}}
             </div>
+<<<<<<< HEAD
             {{-- <div class="col-md-6 col-6">
             <a href="#" class="btn btn-success">Success</a>
             </div> --}}
+=======
+            <div class="col-md-6 col-6">
+            <a href="#" class="btn btn-success mt-2">Success</a>
+            </div>
+>>>>>>> 053e2763b3de35ffa8bc5168b4c0efcabad9893d
 
             <div class="col-12">
                 <div class="card">
@@ -1028,101 +1034,103 @@
         </div>
     </section> --}}
     <section id="multiple-column-form">
-        <div class="row match-height">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Add Pictures</h4>
-                    </div>
-                 <div class="row">
-
-                    <div class="col-md-6">
-                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" width="80%">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image1" id="formFile">
+        <div class="container-fluid">
+            <div class="row match-height">
+                <div class="col-12 p-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Add Pictures</h4>
                         </div>
-                        @if ($errors->has('image1'))
-                        <span class="text-danger">{{ $errors->first('image1') }}</span>
-                    @endif
-                    </div>
-                 </div>
-                 <br>
-                 <div class="row">
-
-                    <div class="col-md-6">
-                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " class="rounded mx-auto d-block">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image2" id="formFile">
+                     <div class="row align-items-center">
+    
+                        <div class="col-md-6">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" class="rounded mx-auto d-block" style="width:220px;">
                         </div>
-                        @if ($errors->has('image2'))
-                        <span class="text-danger">{{ $errors->first('image2') }}</span>
-                    @endif
-                    </div>
-                 </div>
-
-                 <div class="row">
-
-                    <div class="col-md-6">
-                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " class="rounded mx-auto d-block">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image3"   id="formFile">
+                        <div class="col-md-6">
+                            <div class="mb-3 px-3">
+                                <label for="formFile" class="form-label">Add Picture In This Type</label>
+                                <input class="form-control" type="file" name="image1" id="formFile">
+                            </div>
+                            @if ($errors->has('image1'))
+                            <span class="text-danger">{{ $errors->first('image1') }}</span>
+                        @endif
                         </div>
-                        @if ($errors->has('image3'))
-                        <span class="text-danger">{{ $errors->first('image3') }}</span>
-                    @endif
-                    </div>
-                 </div>
-                 <div class="row">
-
-                    <div class="col-md-6">
-                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-interior.png')}}" class="rounded mx-auto d-block">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image4"  id="formFile">
+                     </div>
+                     <br>
+                     <div class="row  align-items-center">
+    
+                        <div class="col-md-6">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " class="rounded mx-auto d-block">
                         </div>
-                        @if ($errors->has('image4'))
-                        <span class="text-danger">{{ $errors->first('image4') }}</span>
-                    @endif
-
-                    </div>
-                 </div>
-                 <div class="row">
-
-                    <div class="col-md-6">
-                        <img src="{{URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " class="rounded mx-auto d-block">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" id="formFile"  name="image5">
+                        <div class="col-md-6">
+                            <div class="mb-3 px-3">
+                                <label for="formFile" class="form-label">Add Picture In This Type</label>
+                                <input class="form-control" type="file" name="image2" id="formFile">
+                            </div>
+                            @if ($errors->has('image2'))
+                            <span class="text-danger">{{ $errors->first('image2') }}</span>
+                        @endif
                         </div>
-                        @if ($errors->has('image5'))
-                        <span class="text-danger">{{ $errors->first('image5') }}</span>
-                    @endif
+                     </div>
+    
+                     <div class="row align-items-center">
+    
+                        <div class="col-md-6">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " class="rounded mx-auto d-block">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 px-3">
+                                <label for="formFile" class="form-label">Add Picture In This Type</label>
+                                <input class="form-control" type="file" name="image3"   id="formFile">
+                            </div>
+                            @if ($errors->has('image3'))
+                            <span class="text-danger">{{ $errors->first('image3') }}</span>
+                        @endif
+                        </div>
+                     </div>
+                     <div class="row align-items-center">
+    
+                        <div class="col-md-6">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-interior.png')}}" class="rounded mx-auto d-block">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 px-3">
+                                <label for="formFile" class="form-label">Add Picture In This Type</label>
+                                <input class="form-control" type="file" name="image4"  id="formFile">
+                            </div>
+                            @if ($errors->has('image4'))
+                            <span class="text-danger">{{ $errors->first('image4') }}</span>
+                        @endif
+    
+                        </div>
+                     </div>
+                     <div class="row align-items-center">
+    
+                        <div class="col-md-6">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " class="rounded mx-auto d-block mb-3">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 px-3">
+                                <label for="formFile" class="form-label">Add Picture In This Type</label>
+                                <input class="form-control" type="file" id="formFile"  name="image5">
+                            </div>
+                            @if ($errors->has('image5'))
+                            <span class="text-danger">{{ $errors->first('image5') }}</span>
+                        @endif
+                        </div>
+                     </div>
+    
                     </div>
-                 </div>
-
+    
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="submit"
+                            class="btn btn-primary me-1 mb-1">Submit</button>
+                        <button type="reset"
+                            class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                    </div>
                 </div>
-
-                <div class="col-12 d-flex justify-content-end">
-                    <button type="submit"
-                        class="btn btn-primary me-1 mb-1">Submit</button>
-                    <button type="reset"
-                        class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                </div>
+    
             </div>
-
         </div>
     </section>
 </form>

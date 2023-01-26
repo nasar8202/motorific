@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function viewUsers()
     {
-        $viewUsers = User::where('status',1)->where('role_id',2)->orderBy('id', 'DESC')->get();
+        $viewUsers = User::whereIn('status', array(1, 2))->where('role_id',2)->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.userDetails.userDetails',compact('viewUsers'));
     }
@@ -18,13 +18,21 @@ class UserController extends Controller
     public function deleteUser($id)
     {
         $deleteUser = User::where('id',$id)->first();
-        
+
         $deleteUser->status = 2;
         $deleteUser->save();
         return redirect()->route('viewUsers')->with('error', 'User Disabled Successfully!');
-       
-    }
 
+    }
+    public function enableUser($id)
+    {
+        $deleteUser = User::where('id',$id)->first();
+
+        $deleteUser->status = 1;
+        $deleteUser->save();
+        return redirect()->route('viewUsers')->with('error', 'User Enabled Successfully!');
+
+    }
     public function editUserForm($id)
     {
         $editUserForm = User::where('id',$id)->first();

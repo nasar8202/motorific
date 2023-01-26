@@ -31,50 +31,51 @@
     </div>
 <section id="multiple-column-form">
     <div class="row match-height">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Add Vehicle Feature</h4>
-                </div>
-                <div class="card-content">
-                    <div class="card-body">
-                        <div class="container">
-
-                            <div class="row">
-
-                                <form action="{{ route('addVehicleFeature') }}" method="POST">
-                                    @csrf
-                                    @if ($errors->any())
-                                    <div class="alert alert-danger" role="alert">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    @endif
-                                    
-                                    <table class="table table-bordered" id="dynamicAddRemove">
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="text" name="addMoreInputFields[0][title]" placeholder="Enter Title" class="form-control" />
-                                            </td>
-                                            <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add More</button></td>
-                                        </tr>
-                                    </table>
-                                    <button type="submit" class="btn btn-outline-success btn-block">Save</button>
-                                </form>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header pb-sm-0">
+                        <h4 class="card-title">Add Vehicle Feature</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="container-fluid">
+    
+                                <div class="row">
+    
+                                    <form action="{{ route('addVehicleFeature') }}" method="POST" class="table_wraper oveflow-x-scroll p-0">
+                                        @csrf
+                                        @if ($errors->any())
+                                        <div class="alert alert-danger" role="alert">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
+                                        
+                                        <table class="table table-bordered tables_admin_data" id="dynamicAddRemove">
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" name="addMoreInputFields[0][title]" placeholder="Enter Title" class="form-control w-160" />
+                                                </td>
+                                                <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add More</button></td>
+                                            </tr>
+                                        </table>
+                                        <button type="submit" class="btn btn-outline-success">Save</button>
+                                    </form>
+                                </div>
+    
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    
 </section>
 </div>
 <script type="text/javascript">

@@ -33,15 +33,15 @@
     <div class="row match-height">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header pb-sm-0">
                     <h4 class="card-title">Edit Seat Material Form</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <div class="container">
+                        <div class="container-fluid">
 
                             <div class="row">
-                                <form action="{{ route('updateSeatMaterial',$editSeatMaterial->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('updateSeatMaterial',$editSeatMaterial->id) }}" method="POST" enctype="multipart/form-data" class="oveflow-x-scroll p-0">
                                     @csrf
                                     @if ($errors->any())
                                     <div class="alert alert-danger" role="alert">
@@ -53,14 +53,14 @@
                                     </div>
                                     @endif
 
-                                    <table class="table table-bordered" id="dynamicAddRemove">
+                                    <table class="table table-bordered tables_admin_data" id="dynamicAddRemove">
                                         <tr>
                                             <th>Title</th>
                                             <th>Image Upload</th>
                                             <th>Image</th>
                                         </tr>
                                         <tr>
-                                            <td><input type="text" name="title" placeholder="Enter Title" value="{{ $editSeatMaterial->title }}" class="form-control" />
+                                            <td><input type="text" name="title" placeholder="Enter Title" value="{{ $editSeatMaterial->title }}" class="form-control w-160" />
                                             </td>
                                             <td><input type="file" name="image" value="{{ $editSeatMaterial->image }}" placeholder="Enter Title" class="form-control" />
                                             </td>
@@ -68,7 +68,7 @@
 
                                         </tr>
                                     </table>
-                                    <button type="submit" class="btn btn-outline-success btn-block">Save</button>
+                                    <button type="submit" class="btn btn-outline-success">Save</button>
                                 </form>
                             </div>
 

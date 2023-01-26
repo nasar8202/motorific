@@ -1071,17 +1071,17 @@ p {
                     <div class="card-header">
                         <h4 class="card-title">Add Pictures</h4>
                     </div>
-                 <div class="row">
+                 <div class="row align-items-center">
 
                     <div class="col-md-4">
-                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" width="80%">
+                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-front.png')}}"  class="rounded mx-auto d-block" width="220px">
                     </div>
                     <div class="col-md-4">
-                        <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" width="80%">
+                        <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}"  class="rounded mx-auto d-block mb-3" width="220px">
                     </div>
                     <div class="col-md-4">
-                        <div class="mb-3">
+                        <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
                             <input class="form-control" type="file" name="image1" id="formFile">
                         </div>
@@ -1091,17 +1091,17 @@ p {
                     </div>
                  </div>
                  <br>
-                 <div class="row">
+                 <div class="row align-items-center">
 
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
-                        <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" width="80%">
+                        <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" class="rounded mx-auto d-block  mb-3" width="220px">
                     </div>
                     <div class="col-md-4">
-                        <div class="mb-3">
+                        <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
                             <input class="form-control" type="file" name="image2" id="formFile">
                         </div>
@@ -1111,17 +1111,17 @@ p {
                     </div>
                  </div>
 
-                 <div class="row">
+                 <div class="row align-items-center">
 
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
-                        <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}" width="80%">
+                        <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}"  class="rounded mx-auto d-block  mb-3" width="220px">
                     </div>
                     <div class="col-md-4">
-                        <div class="mb-3">
+                        <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
                             <input class="form-control" type="file" name="image3"   id="formFile">
                         </div>
@@ -1130,17 +1130,17 @@ p {
                     @endif
                     </div>
                  </div>
-                 <div class="row">
+                 <div class="row align-items-center">
 
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-interior.png')}} " class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
-                        <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}" width="80%">
+                        <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}"  class="rounded mx-auto d-block  mb-3" width="220px">
                     </div>
                     <div class="col-md-4">
-                        <div class="mb-3">
+                        <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
                             <input class="form-control" type="file" name="image4"  id="formFile">
                         </div>
@@ -1150,17 +1150,17 @@ p {
                     </div>
                  </div>
 
-                 <div class="row">
+                 <div class="row align-items-center">
 
                     <div class="col-md-4">
                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
-                        <label for="formFile" class="form-label">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}" width="80%">
+                        <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}"  class="rounded mx-auto d-block  mb-3" width="220px">
                     </div>
                     <div class="col-md-4">
-                        <div class="mb-3">
+                        <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
                             <input class="form-control" type="file" id="formFile"  name="image5">
                         </div>
@@ -1195,7 +1195,7 @@ p {
                                 <div class="card-body">
 
                                         <div class="row">
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="start_vehicle_date">Start Vehicle Date </label>
                                                     <input type="date" id="start_vehicle_date" value="{{ date('Y-m-d'); }}" readonly class="form-control"
@@ -1206,7 +1206,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('start_vehicle_date') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="start_vehicle_time">Start Vehicle Time </label>
                                                     <input type="time" id="start_vehicle_time" class="form-control"
@@ -1217,7 +1217,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('start_vehicle_time') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="end_vehicle_date">End Vehicle Date </label>
                                                     <input type="date" id="end_vehicle_date" value="{{ date('Y-m-d'); }}" readonly class="form-control"
@@ -1228,7 +1228,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('end_vehicle_date') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="end_vehicle_time">Start Vehicle Date </label>
                                                     <input type="time" id="end_vehicle_time" class="form-control"
@@ -1257,7 +1257,7 @@ p {
                                 <div class="card-body">
 
                                         <div class="row">
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="retail_price">Vehicle Detail Price </label>
                                                     <input type="number" id="retail_price" value=""  class="form-control"
@@ -1268,7 +1268,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('retail_price') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="clean_price">Vehicle Clean Price </label>
                                                     <input type="number" id="clean_price" value=""  class="form-control"
@@ -1279,7 +1279,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('clean_price') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="average_price">Vehicle Average Price </label>
                                                     <input type="number" id="average_price" value=""  class="form-control"
@@ -1290,7 +1290,7 @@ p {
                                                 <span class="text-danger">{{ $errors->first('average_price') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="col-md-3 col-3">
+                                            <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="hidden_price">Vehicle Hidden Price </label>
                                                     <input type="number" id="hidden_price" value=""  class="form-control"

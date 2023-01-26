@@ -37,7 +37,7 @@ class AdminDashboardController extends Controller
         $request->validate([
             'dealer_identity_card' => 'required',
             'dealer_documents' => 'required',
-            
+
 
         ]);
         // dd($request->all());
@@ -74,7 +74,7 @@ class AdminDashboardController extends Controller
     }
     public function approveDealer($id)
     {
-        $status = ['status' => 1];
+        $status = ['status' => 0];
         $user = User::where('id',$id)->first();
 
         $dealers = User::where('id',$id)->update($status);
@@ -127,7 +127,7 @@ class AdminDashboardController extends Controller
     }
     public function dealersPurchase($id)
     {
-        
+
         $purchase = DealerWinningCharges::with('user')->with('Vehicle')->where('user_id',$id)->where('status','1')->get();
         return view('backend.admin.dealers.dealersPurchase',compact('purchase'));
     }

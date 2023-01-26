@@ -2175,4 +2175,66 @@ h3.overview-section__heading {
 
 .exelent span:last-child {
 }
+.exelent.scnd {
+    justify-content: start;
+}
+.time-period {
+    padding-top: 10px;
+}
 
+.tit-par h2 {
+    font-size: 1.5rem;
+     padding-top: 10px;
+}
+
+.tit-par p {
+    font-size: 1rem;
+    width: 65%;
+     padding-top: 10px;
+}
+.reviews-add {
+    background-color: #f8f9fa;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 rgb(182 196 210 / 40%);
+    line-height: 18px;
+    margin: 0 0 16px;
+    overflow: hidden;
+    padding: 16px;
+    position: relative;
+    word-wrap: break-word;
+}
+section.sec-review {
+    padding-bottom: 80px;
+}
+.simple-pagination ul {
+	margin: 0 0 20px;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.simple-pagination li {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+	color: #666;
+	padding: 5px 10px;
+	text-decoration: none;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	box-shadow: 0px 0px 10px 0px #EEE;
+}
+
+.simple-pagination .current {
+	color: #FFF;
+	background-color:#009688;
+	border-color: #009688;
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+	background:#009688;
+}

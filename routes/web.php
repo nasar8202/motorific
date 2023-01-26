@@ -235,6 +235,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-user/{id}', [UserController::class,'editUserForm'])->name('editUserForm');
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
+    Route::get('/enable-user/{id}', [UserController::class,'enableUser'])->name('enableUser');
     // end manage user
 
 
@@ -323,7 +324,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/approve-dealers-order/{id}/{vId}', [DealerOrderVehicleRequestController::class,'approveDealersOrder'])->name('approveDealersOrder');
     Route::post('/approve-dealers-order-admin-updated', [DealerOrderVehicleRequestController::class,'approveDealersOrderdWithAdminUpdated'])->name('approveDealersOrderdWithAdminUpdated');
     Route::get('/unassign-dealers-req/{id}', [DealerOrderVehicleRequestController::class,'unassignDealerReq'])->name('unassignDealerReq');
-    
+
     //end dealer order vehicle request
     //start meetings
 
@@ -367,7 +368,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/completed-requested-vehicles', [DealerDashboardController::class,'CompletedRequestedVehicle'])->name('CompletedRequestedVehicle');
     Route::get('/canceled-requested-vehicles', [DealerDashboardController::class,'CancelRequestedVehicle'])->name('CancelRequestedVehicle');
     Route::get('/my-vehicles', [DealerDashboardController::class,'myVehicles'])->name('myVehicles');
-    
+
     Route::get('/mark-as-sold-dealervehicles/{id}', [DealerDashboardController::class,'markAsSoldDealerVehicle'])->name('markAsSoldDealerVehicle');
     Route::get('/order-on-my-vehicles/{id}', [DealerDashboardController::class,'orderOnMyVehicle'])->name('orderOnMyVehicle');
     Route::post('/dealer-meeting-status', [DealerDashboardController::class,'dealerMeetingStatus'])->name('dealerMeetingStatus');

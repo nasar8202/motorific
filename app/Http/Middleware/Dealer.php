@@ -21,10 +21,10 @@ class Dealer
         }
 
 
-        if (Auth::user()->role_id == 1) {
+        if (Auth::user()->role_id == 1 && Auth::user()->status == 1) {
             return $next($request);
         }
-        if (Auth::user()->role_id == 2) {
+        if (Auth::user()->role_id == 2 && Auth::user()->status == 1) {
             return redirect()->route('seller');
         }
         if (Auth::user()->role_id == 3) {
