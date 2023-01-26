@@ -224,7 +224,12 @@ footer.footer_copyright p{
 .btn-modal i {
     display: none !important;
 }
-
+.oveflow-x-scroll{
+    overflow-x: scroll;
+}
+.pb-sm-0{
+    padding-bottom:0;
+}
 
 
 }
@@ -271,6 +276,9 @@ footer.footer_copyright p{
 }
 .add_btn {
     font-size: 12px;
+}
+.w-160{
+    width:160px;
 }
 
 

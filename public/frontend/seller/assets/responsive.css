@@ -1116,7 +1116,7 @@ section.photo-up-sec-2 {
     }
 
     .footer-sub.contact-2 {
-        margin: 30px auto;
+        margin: 0;
     }
 
     .footer-sub {
@@ -1712,6 +1712,9 @@ section.sec-4 {
 .overview-section {
     flex: 0 0 0 0;
     width: calc(100% - 24px);}
+    .tit-par p {
+    width: 100%;
+}
 }
 
 @media (max-width: 575px) {
