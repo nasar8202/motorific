@@ -21,12 +21,17 @@ class Seller
         }
 
 
-        if (Auth::user()->role_id == 1) {
+        if (Auth::user()->role_id == 1 && Auth::user()->status == 1) {
             return redirect()->route('seller');
 
         }
         if (Auth::user()->role_id == 2) {
-            return $next($request);
+
+            if(Auth::user()->status == 1){
+                return $next($request);
+            }else{
+                return back()->with('error',"Sorry Your Account Is Disabled!");
+            }
         }
     }
 }

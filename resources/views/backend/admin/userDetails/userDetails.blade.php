@@ -27,7 +27,7 @@
     </div>
     <section class="section">
         <div class="card">
-            
+
 
             <div class="card-body">
                 <table class="table table-striped tables_admin_data" id="table1">
@@ -54,7 +54,11 @@
                             <td>{{ $viewUser->post_code }}</td>
                             <td>
                                 <a href="{{ route('editUserForm',$viewUser->id) }}"><span class="badge bg-success">Edit</span></a>
+                                @if ($viewUser->status == 1)
                                 <a href="{{ route('deleteUser',$viewUser->id) }}"><span class="badge bg-danger">Disable</span></a>
+                                @else
+                                <a href="{{ route('enableUser',$viewUser->id) }}"><span class="badge bg-primary">Enable</span></a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

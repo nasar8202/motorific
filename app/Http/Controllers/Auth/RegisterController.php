@@ -125,7 +125,7 @@ class RegisterController extends Controller
     //     //     ];
     //     //     $abc = Auth::attempt(['email' => $user->email, 'password' => $password]);
     //     //     dd($abc);
-    
+
     //     // if (Auth::attempt($credentials)) {
     //     //     return redirect()->route('photoUpload');
     //     // }
@@ -142,7 +142,7 @@ class RegisterController extends Controller
             return redirect()->back()->withInput()->withErrors($validator);
         }
         try{
-            
+
         $password = Str::random(10);
          $user = new User;
          $user->name = $request->name;
