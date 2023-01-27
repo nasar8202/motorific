@@ -40,15 +40,9 @@
                         name="vehicle_price" placeholder="Vehicle Price">
                 </div> --}}
             </div>
-<<<<<<< HEAD
             {{-- <div class="col-md-6 col-6">
             <a href="#" class="btn btn-success">Success</a>
             </div> --}}
-=======
-            <div class="col-md-6 col-6">
-            <a href="#" class="btn btn-success mt-2">Success</a>
-            </div>
->>>>>>> 053e2763b3de35ffa8bc5168b4c0efcabad9893d
 
             <div class="col-12">
                 <div class="card">

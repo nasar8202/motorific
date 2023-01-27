@@ -71,7 +71,7 @@ class OrderRequestController extends Controller
         if($ord->status == 1){
         return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');        
       }
-      else{
+    }
         $orders->request_price = $request->updatedPrice;
         $orders->status = 1;
         $orders->admin_updated_status = 1;
@@ -80,8 +80,7 @@ class OrderRequestController extends Controller
         $ordered_vehicle->status = 2 ;
         $ordered_vehicle->save();
         return redirect()->back()->with('success', 'Request Approved And Updated Successfully!');
-      }
-    }
+     
       
        }
      public function approveOrderd($id,$vId){

@@ -25,6 +25,7 @@ use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
+use App\Http\Controllers\backend\admin\meetings\CancelVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 use App\Http\Controllers\backend\admin\orderRequest\OrderRequestController;
@@ -331,6 +332,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/view-meeting', [MeetingController::class,'viewMeeting'])->name('viewMeeting');
     //end meetings
 
+    //canceled vehicle
+    Route::get('/cancel-vehicle', [CancelVehicleController::class,'cancelVehicle'])->name('cancelVehicle');
+    //end canceled vehicle
     });
 
 // end admin panel routes

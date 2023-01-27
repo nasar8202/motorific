@@ -35,7 +35,13 @@ class CanceledRequestReviews extends Model
 
     {
 
-        return $this->hasOne(OrderVehicleRequest::class,'id','order_requests_id');
+        return $this->hasOne(OrderVehicleRequest::class,'id','biding_id');
+    }
+    public function bidorder()
+
+    {
+
+        return $this->hasOne(BidedVehicle::class,'id','biding_id');
     }
     public function dealerOrder()
 
