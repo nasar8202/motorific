@@ -1,112 +1,269 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="x-apple-disable-message-reformatting">
-  <title></title>
-  <!--[if mso]>
-  <noscript>
-    <xml>
-      <o:OfficeDocumentSettings>
-        <o:PixelsPerInch>96</o:PixelsPerInch>
-      </o:OfficeDocumentSettings>
-    </xml>
-  </noscript>
-  <![endif]-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Email</title>
+  </head>
+
   <style>
-    table, td, div, h1, p {font-family: Arial, sans-serif;}
+    body {
+      font-family: sans-serif;
+    }
+    .mail-img-one {
+      text-align: center;
+    }
+
+    .mail-img-one img {
+      width: 520px;
+    }
+    .car-det {
+      display: flex;
+      flex-direction: column;
+    }
+    .social-icon a {
+    text-decoration: none;
+    color: #000000ba;
+}
+    .content-img {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding-left: 2rem;
+    }
+
+    .content-img img {
+      width: 800px;
+    }
+    .social-icon {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+    .mail-content {
+      margin-left: 1.5rem;
+      border-left: 1px solid #5c5a5a87;
+      padding-left: 1rem;
+      margin-top: 2rem;
+    }
+    .customer-detail {
+      margin-left: 1.5rem;
+      border-left: 1px solid #5c5a5a87;
+      padding-left: 1rem;
+      margin-top: 2rem;
+      padding-bottom: 1rem;
+    }
+    .customer-detail .car-det {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .btn-mail {
+      padding-top: 3rem;
+      text-align: center;
+      padding-bottom: 3rem;
+    }
+
+    .btn-mail a {
+      background: #2196f3;
+      padding: 1rem 9rem;
+      text-decoration: none;
+      border-radius: 18px;
+      color: white;
+    }
+    .qa-ans {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-top: 1px solid #cfcfcf;
+      border-bottom: 1px solid #cfcfcf;
+    }
+    .footer-mail img {
+      width: 20%;
+      text-align: center;
+    }
+    main {
+      overflow-x: hidden;
+    }
+    @media only screen and (max-width: 1200px) {
+      .content-img img {
+        width: 580px;
+      }
+      .mail-img-one img {
+        width: 400px;
+      }
+    }
+    @media only screen and (max-width: 991px) {
+      .content-img img {
+        width: 400px;
+      }
+    }
+    @media only screen and (max-width: 767px) {
+      .mail-img-one img {
+        width: 240px;
+      }
+      .content-img {
+        display: block;
+        padding-left: 5px;
+        width: 91%;
+      }
+      .content-img img {
+        width: 100%;
+      }
+      p {
+        font-size: 14px;
+      }
+      .btn-mail a {
+        padding: 1rem 2rem;
+      }
+      .car-det span {
+        font-size: 14px;
+      }
+      .mail-content {
+    margin-left: 0.5rem;
+
+}
+.footer-mail img {
+    width: 210px;
+
+}
+.footer-mail > span {
+    font-size: 11px;
+}
+
+.footer-mail > span br{
+    display:none;
+}
+    }
   </style>
-</head>
-<body style="margin:0;padding:0;">
-  <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
-    <tr>
-      <td align="center" style="padding:0;">
-        <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
-          <tr>
-            <td align="center" style="padding:40px 0 30px 0;background:#70bbd9;">
-              <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" width="300" style="height:auto;display:block;" />
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:36px 30px 42px 30px;">
-              <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                <tr>
-                  <td style="padding:0 0 36px 0;color:#153643;">
-                    <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Congratulations You Win this Vehicle</h1>
 
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">From: Motorofic {{ $data['email'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Date:  25 January 2023 at 6:18:04 pm GMT</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">To:  info@smartautosuk.co.uk</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Subject: You bought a car! </p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Reply-To:  noreply@carwow.co.uk </p>
+  <body>
+    <main>
+      <section class="mail-sec">
+        <div class="mail-name">
+          <p>
+            <strong>From: </strong> Motorofic
+            <span style="color: blue"> {{ $data['email'] }}</span> >
+          </p>
+          <p><strong>Date: </strong> {{ $data['date'] }}</p>
+          <p>
+            <strong>To: </strong
+            ><span style="color: blue"> info@smartautosuk.co.uk</span>
+          </p>
+          <p><strong>Subject: You bought a car!</strong></p>
+          <p>
+            <strong>Reply-To</strong
+            ><span style="color: blue"> noreply@carwow.co.uk</span>
+          </p>
 
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Vehicle Registration : {{ $data['vehicle_registration'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Vehicle Name : {{ $data['vehicle_name'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Vehicle Milage : {{ $data['vehicle_mileage'] }}</p>
+          <div class="mail-img-one">
+            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> <br />
+            {{-- <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> --}}
+          </div>
+        </div>
+        <div class="mail-content">
+          <h2>You've just bought a car!</h2>
+          <p>Hi {{ $data['name'] }}!</p>
+          <p>
+            Congratulations - you've successfully bought a
+            <strong>{{ $data['vehicle_registration'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
+          </p>
+          <p>Car Details</p>
 
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Name : {{ $data['name'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email : {{ $data['email'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Max Bidded Price : {{ $data['bidded_price'] }}</p>
-                    {{-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Front Image Of Vehicle
-                      <img width="200px" height="200px"  src="{{ asset('/vehicles/vehicles_images/'.$data['front'])}}"/>
-                    </p> --}}
+          <div class="content-img">
+            <img src="{{ URL::asset('frontend/seller/assets/image/mailcar.jpg') }} " alt="" />
+            <div class="car-det">
+              <span>Model: Audi Q7 DIESEL ESTATE </span>
+              <span> Reg: {{ $data['vehicle_registration'] }} </span>
+              <span>Fee: £175 </span>
+              <span> Distance: 174 miles </span>
+              <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
+              <span>Car age: 15 </span>
+              <span>Colour: GREY </span>
+            </div>
+          </div>
+        </div>
+        <div class="customer-detail">
+          <strong>Customer Contact Details</strong>
+          <div class="car-det">
+            <span>Name: Carter</span>
+            <span> Phone: +447703287219 </span>
+            <span>Phone: +447703287219</span>
+            <span>Postcode: SY20 9LR</span>
+          </div>
+          <span
+            ><strong
+              >Now it’s time to arrange inspection, collection and payment with
+              the seller.</strong
+            ></span
+          >
+          <div class="btn-mail">
+            <a href="">Contact the seller here </a>
+          </div>
+          <div class="qa-ans">
+            <p><strong>What next? </strong></p>
+            <p>
+              You’ll need to find a time that’s right for both parties so you
+              can inspect the vehicle and make sure it looks as good as
+              advertised.
+            </p>
+            <p>
+              If you're happy you can either ask us to collect the car or pick
+              it up yourself and arrange payment with the seller.
+            </p>
+          </div>
+          <div class="qa-ans">
+            <p><strong>What next? </strong></p>
+            <p>
+              Drop us an email -
+              <span style="color: #2196f3"
+                >partner.operations@carwow.co.uk</span
+              >
+              and we’ll get back to you as soon as possible.
+            </p>
+            <p>Thanks</p>
+            <p>The carwow team.</p>
+          </div>
 
-                    <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="" style="color:#ee4c50;text-decoration:underline;">Motorofic</a></p>
-                  </td>
-                </tr>
-                {{-- <tr>
-                  <td style="padding:0;">
-                    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                      <tr>
-                        <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/left.gif" alt="" width="260" style="height:auto;display:block;" /></p>
-                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
-                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
-                        </td>
-                        <td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>
-                        <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/right.gif" alt="" width="260" style="height:auto;display:block;" /></p>
-                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Morbi porttitor, eget est accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed.</p>
-                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr> --}}
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:30px;background:#ee4c50;">
-              <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
-                <tr>
-                  <td style="padding:0;width:50%;" align="left">
-                    <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">
-                      &reg; Someone, Somewhere 2021<br/><a href="http://www.example.com" style="color:#ffffff;text-decoration:underline;">Unsubscribe</a>
-                    </p>
-                  </td>
-                  <td style="padding:0;width:50%;" align="right">
-                    <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;">
-                      <tr>
-                        <td style="padding:0 0 0 10px;width:38px;">
-                          <a href="http://www.twitter.com/" style="color:#ffffff;"><img src="https://assets.codepen.io/210284/tw_1.png" alt="Twitter" width="38" style="height:auto;display:block;border:0;" /></a>
-                        </td>
-                        <td style="padding:0 0 0 10px;width:38px;">
-                          <a href="http://www.facebook.com/" style="color:#ffffff;"><img src="https://assets.codepen.io/210284/fb_1.png" alt="Facebook" width="38" style="height:auto;display:block;border:0;" /></a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
+          <div class="footer-mail">
+            <div class="social-icon">
+                <a href=""> <span class="fa-stack fa-lg">
+
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <a href=""><span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <a href=""><span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <a href=""> <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
+
+            <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
+        </div>
+
+
+            <span
+              >© 2022 carwow Ltd, All rights reserved. carwow Ltd, registered in
+              England & Wales, registered office Verde Building, 10 Bressenden
+              Pl, Victoria, London SW1E 5DH. Company number 07103079. <br />
+              You can unsubscribe from these emails at any time.
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </body>
 </html>
-

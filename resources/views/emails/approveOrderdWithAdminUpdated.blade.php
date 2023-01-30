@@ -169,8 +169,9 @@
           <p>Hi {{ $data['name'] }}!</p>
           <p>
             Congratulations - you've successfully bought a
-            <strong>{{ $data['vehicle_registration'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
-          </p>
+            <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
+        Your Car Offer Price Updated By Motorific
+        </p>
           <p>Car Details</p>
 
           <div class="content-img">

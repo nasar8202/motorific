@@ -335,7 +335,7 @@ class FrontController extends Controller
             'image3' => 'required|mimes:jpeg,png,jpg,|max:1024',
             'image4' => 'required|mimes:jpeg,png,jpg,|max:1024',
             'image5' => 'required|mimes:jpeg,png,jpg,|max:1024',
-            
+
 
         ]);
         DB::beginTransaction();
