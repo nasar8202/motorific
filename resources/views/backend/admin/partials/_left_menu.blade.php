@@ -196,15 +196,15 @@
             
         </a>
     </li>
-    {{-- <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
+    <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
         
-        <a href="{{route('viewMeeting')}}" class='sidebar-link'>
+        <a href="{{route('cancelVehicle')}}" class='sidebar-link'>
             <i class="bi bi-stack"></i>
-            <span>Meetings </span>
+            <span>Canceled Vehicle </span>
             
             
         </a>
-    </li> --}}
+    </li>
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>
             <div class="icon dripicons-exit"></div>
