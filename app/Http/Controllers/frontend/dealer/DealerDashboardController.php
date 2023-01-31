@@ -165,14 +165,7 @@ class DealerDashboardController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
-
-                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
-                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
-                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.name','users.email','users.phone_number','vehicle_images.front')
-                                ->where('users.id',$user_id)
-                                ->where('vehicles.status','1')
-                                ->get();
+        $bids = BidedVehicle::with('user')->with('vehicle.vehicleimage')->where('user_id',$user_id)->where('status',1)->get();
 
             $countBids = count($bids);
 
@@ -239,14 +232,8 @@ class DealerDashboardController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
-
-                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
-                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
-                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
-                                ->where('users.id',$user_id)
-                                ->where('vehicles.status','1')
-                                ->get();
+        $bids = CanceledRequestReviews::where('dealer_vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.VehicleImage')->get();
+      
             $countBids = count($bids);
 
         return view('frontend.dealer.vehicle.CancelledBiddedOfferVehicle',compact('bids','countBids'));

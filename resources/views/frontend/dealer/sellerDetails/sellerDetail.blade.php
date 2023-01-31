@@ -136,7 +136,7 @@
                                       <h5>{{$allVehicles->vehicle_name}}</h5>
                                       <p>{{$allVehicles->vehicle_year}} . {{$allVehicles->vehicle_mileage}} . {{$allVehicles->vehicle_tank}} . {{$allVehicles->vehicle_type}}</p>
                                     </div>
-                                    <button type="button" >View Delivery Option</button>
+                                    {{-- <button type="button" >View Delivery Option</button> --}}
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
                                 </div>

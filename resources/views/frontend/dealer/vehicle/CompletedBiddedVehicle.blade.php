@@ -32,35 +32,28 @@
                     </div>
                     <br>
                     <div class="row">
-                     
                         @forelse ($bids as $bid)
-                        <div class="col-sm-4 vec-box p-0" style="padding: 10px;"><img src="{{ asset('/vehicles/vehicles_images/'. $bid->front) }}" width="300px" height="200px"></div>
-                        <div class="col-sm-8 vec-box p-0" style="padding: 10px">
-                            <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $bid->vehicle_registartion_number }}</span></h1>
-                            <p>{{ $bid->vehicle_name }}</p>
+                        <div class="col-sm-4 vec-box p-0" ><img src="{{ asset('/vehicles/vehicles_images/'. $bid->vehicle->vehicleimage->front) }}" width="300px" height="200px"></div>
+                        <div class="col-sm-8 vec-box p-0" >
+                            <h1 style="font-size: 20px"><span >{{ $bid->vehicle->vehicle_registartion_number }}</span></h1>
+                           <p>{{ $bid->vehicle->vehicle_name }}</p>
                             <span>Max Bid:{{ $bid->bid_price }}</span>
                             <span style="padding-left: 60px;">{{ $bid->created_at->format('m/d/Y') }}</span>
-                            <span style="padding-left: 200px;">
-                               
-                                        <!-- Trigger Buttons HTML -->
-                                       
-                                        <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$bid->id}}">...</button>
+                            <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$bid->id}}">...</button>
                                    
-                                    <!-- Collapsible Element HTML -->
-                                    <div class="collapse" id="myCollapse{{$bid->id}}">
-                                        <div class="card card-body " style="width: 40%;float: right;" >
-                                            <ul>
-                                                <li><a href="{{route('sellerDetails',['slug'=>"seller",'id'=>$bid->id])}}"> Seller's Details</a></li><br>
-                                                <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                
-                            </span>
-
+                            <!-- Collapsible Element HTML -->
+                            <div class="collapse" id="myCollapse{{$bid->id}}">
+                                <div class="card card-body " style="width: 40%;float: right;" >
+                                    <ul>
+                                        <li><a href="{{route('sellerDetails',['bided'=>"bided",'slug'=>"seller",'id'=>$bid->vehicle->id])}}"> Seller's Details</a></li><br>
+                                        {{-- <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                        
                         </div>
                         @empty
-                        <div class="col-sm-12 ">No Purchases Vehicle Found!</div>
+                        <div class="col-sm-12">No active bids or offers!</div>
 
                         @endforelse
 
