@@ -154,17 +154,13 @@ display: block;
                             @elseif($allVehicle->status == 2)
                             <span class="alert alert-success ">Deactivated</span>
                             @else
-<<<<<<< HEAD
-
-=======
->>>>>>> 5e8b869b93cb12619b00a92ac3f57add5f964f82
                             <span class="alert alert-success ">Accepeted</span>
                             @endif
                             </div>
-                           <a href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
-                           </a>  
+                           {{-- <a href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
+                           </a> --}}
                         </div>
-                            
+
                             @empty
                             <div class="col-sm-12">No Purchases Vehicle Found!</div>
 

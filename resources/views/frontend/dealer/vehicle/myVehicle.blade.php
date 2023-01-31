@@ -44,20 +44,20 @@
                             @else
                             <span class="badge badge-danger">Pending </span>
                             @endif
-                            
+
                             <span style="padding-left: 60px;">{{ $vehicle->created_at->format('m/d/Y') }}</span>
-                            <br>
-                            <a href="{{route('markAsSoldDealerVehicle',$vehicle->id)}}">Marks As Sold ?</a>
-                          
+                            
+                            {{-- <a href="{{route('markAsSoldDealerVehicle',$vehicle->id)}}">Marks As Sold ?</a> --}}
+
                             <span style="padding-left: 200px;">
-                               
+
                                         <!-- Trigger Buttons HTML -->
-                                       
-                                    
-                                
+
+
+
                             </span>
                             <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$vehicle->id}}">...</button>
-                                   
+
                                     <!-- Collapsible Element HTML -->
                                     <div class="collapse" id="myCollapse{{$vehicle->id}}">
                                         <div class="card card-body " style="width: 40%;float: right;" >
@@ -74,7 +74,7 @@
                         @endforelse
 
                     </div>
-               
+
                 </div>
                 <!-- BOX-1 -->
 
