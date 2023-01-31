@@ -126,7 +126,7 @@
 
                             <form action="#">
                                 <div class="form-group">
-                                   <center>  <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$allVehicles->DealerVehicleExterior[0]->exterior_image ?? "") }}">
+                                   <center>  <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$allVehicles->DealerVehicleExterior[0]->exterior_image ?? "") }}" width="400px">
                                    </center>
 
                                    <br>
