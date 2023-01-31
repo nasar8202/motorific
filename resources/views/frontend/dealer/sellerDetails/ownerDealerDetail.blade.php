@@ -4,17 +4,17 @@
 <!-- form css -->
 
 <main class="topPadingPage">
-   
+
     <section class="sec-2 productPageTn">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12 col-12 vehicleDetailLeft">
-             
+
                     <div class="bottomList mainSpec">
                         <div class="bottomListTitle">
                             <h4><i class="far fa-copy"></i> Contact Information</h4>
                             <ul>
-                                <li>Full Name <span><i class="fas fa-exclamation-triangle"></i> {{$user->name}}</span></li>
+                                <li>Full Name <span> {{$user->name}}</span></li>
                                 <li>Email <span>{{$user->email}}</span></li>
                                 <li>Phone Number <span>{{$user->phone_number}}</span></li>
                             </ul>
@@ -37,15 +37,15 @@
                             <form method="POST" action="{{route('reviewForCancel')}}">
                                 @csrf
                             <span>Why You Want To Cancel This Vehicle ?</span>
-                            
+
                             <input type="hidden" name="vehicle_id" value="{{$allVehicles->id}}">
                             <input type="hidden" name="user_id" value="{{$current}}">
                             <input type="hidden" name="role" value="{{$role}}">
-                            
+
                             <input type="hidden" name="order_id" value="{{$pricing->id}}">
                             <textarea class="form-control" name="reviews" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>  
-                    </form>    
+                        <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>
+                    </form>
                     </div>
 
                     <div class="form-group mt-4 meetingDiv">
@@ -53,22 +53,22 @@
                             @csrf
                         @if(Auth::user()->id == $pricing->user_id)
                         @if($pricing->meeting_date_time == null)
-                        
+
                         <span>Schedule Your Date With Seller ?</span>
                         <input type="hidden" name="order_id" value="{{$pricing->id}}">
                         <input type="datetime-local" class="form-control mt-4" name="date_time" required >
-                        <br><button type="submit" class="btn btn-info mt-4 float-left">Schedule Meeting</button> 
-                        
+                        <br><button type="submit" class="btn btn-info mt-4 float-left">Schedule Meeting</button>
+
                         @else
                         <span> Your Meeting Is Already Set On <b>{{$pricing->meeting_date_time}}</b></span>
                         <br>
                         <small>If You Want To Rescedule.</small>
                         <input type="hidden" name="order_id" value="{{$pricing->id}}">
                         <input type="datetime-local" class="form-control mt-4" name="date_time"  required >
-                        <br><button type="submit" class="btn btn-info mt-4 float-left">Reschedule Meeting</button> 
+                        <br><button type="submit" class="btn btn-info mt-4 float-left">Reschedule Meeting</button>
                         @endif
                         @endif
-                </form>    
+                </form>
                 </div>
                     </div>
                     {{-- <div class="bottomList">
@@ -105,7 +105,7 @@
                             <div class="imgVehicle">
                                 <img src="{{ URL::asset('frontend/seller/assets/image//box-1.png') }}" alt="">
                             </div>
-                            <div class="imgVehicle"> 
+                            <div class="imgVehicle">
                                 <img src="{{ URL::asset('frontend/seller/assets/image//box-1.png') }}" alt="">
                             </div>
                             <div class="imgVehicle">
@@ -116,19 +116,19 @@
                             </div>
                         </div>
                     </div> --}}
-                </div> 
+                </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 vehicleDetailRight">
                     <div class="liveSalesInProgress">
-                        <h4 class="bg bg-danger">Sold</h4>
+                        {{-- <h4 class="bg bg-danger">Sold</h4> --}}
                         <div class="reserveDetail">
-                            
-                           
-                            
+
+
+
                             <form action="#">
                                 <div class="form-group">
                                    <center>  <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$allVehicles->DealerVehicleExterior[0]->exterior_image ?? "") }}">
                                    </center>
-                                   
+
                                    <br>
                                  <div class="container">
                                       <h2 class="text text-warning">{{$allVehicles->vehicle_registartion_number}}</h2>
@@ -140,9 +140,9 @@
                                     <span class="text-danger error"></span>
                                 </div>
                             </form>
-                            
-                          
-                          
+
+
+
                         </div>
                     </div>
                 </div>
