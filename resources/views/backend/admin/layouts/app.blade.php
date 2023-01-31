@@ -58,7 +58,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                                <a href="index.html"><img src="{{URL::asset('frontend/seller/assets/image/logo.png')}}" alt="Logo" srcset=""></a>
+                                <a href="{{ route('admin') }}"><img src="{{URL::asset('frontend/seller/assets/image/logo.png')}}" alt="Logo" srcset=""></a>
                             <!--<a href="index.html"><img src="{{URL::asset('backend/admin/assets/images/logo/logo.png')}}" alt="Logo" srcset=""></a>-->
                         </div>
                         <div class="toggler">

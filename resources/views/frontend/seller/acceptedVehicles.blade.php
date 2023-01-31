@@ -157,10 +157,10 @@ display: block;
                             <span class="alert alert-success ">Accepeted</span>
                             @endif
                             </div>
-                           <a title="Once You Marked As Sold, You Can't Add This Vehicle Into Unsold Vehicles List " href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
-                           </a>  
+                           {{-- <a href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
+                           </a> --}}
                         </div>
-                            
+
                             @empty
                             <div class="col-sm-12">No Purchases Vehicle Found!</div>
 
