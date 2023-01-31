@@ -70,7 +70,7 @@
                             @endif
                             
                             <td>
-                                <img src="{{ asset('/uploads/DealerVehicles/exterior/'.$DealerVehicle->DealerVehicleExterior[0]->exterior_image) }}" width="100" height="100">
+                                <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$DealerVehicle->DealerVehicleExterior[0]->exterior_image) }}" width="100" height="100">
                             </td>
                             <td>
                                 <a href="{{ route('viewDealerVehicleDetail',$DealerVehicle->id) }}" class="action_btn"><span class="badge bg-success">View Details</span></a>

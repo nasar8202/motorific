@@ -112,16 +112,16 @@ display: block;
   <section class="photo-up-sec-1">
     <div class="container-1151">
         {{-- <img src="{{ URL::asset('frontend/seller/assets/image/ford.png')}}" alt=""> --}}
-        <h1>{{$res['basic_vehicle_info']['manufacturer_desc']}}</h1>
-        <h3>{{$res['basic_vehicle_info']['vehicle_registration_mark']}}</h3>
-        <p> {{$res['basic_vehicle_info']['derivative_desc']}}</p>
+        <h1>{{$res->make}}</h1>
+        <h3>{{$res->registrationNumber}}</h3>
+        <p> {{$res->make}}   {{$res->wheelplan}}</p>
         <div class="chart">
             <ul>
-                <li>{{date("Y",strtotime($res['basic_vehicle_info']['first_registration_date']))}}</li>
-                <li>{{$check_millage}} Millage</li>
-                <li>{{$res['basic_vehicle_info']['colour']}}</li>
-                <li>{{$res['basic_vehicle_info']['autotrader_body_type_desc']}}</li>
-                <li>{{$res['basic_vehicle_info']['autotrader_fuel_type_desc']}}</li>
+                <li>{{$res->yearOfManufacture}}</li>
+                <li>{{$milage}} Mileage</li>
+                <li>{{$res->colour}}</li>
+                <li>{{$res->wheelplan}}</li>
+                <li>{{$res->fuelType}}</li>
                 {{-- <li>43,000 miles</li>
                 <li>Grey</li>
                 <li>Hatchback</li>
@@ -209,61 +209,62 @@ display: block;
 
                         <div class="col-2Tn">
                             <h4>Vehicle Registeration Number</h4>
-                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" name="RegisterationNumber" value="{{$res['basic_vehicle_info']['vehicle_registration_mark']}}">
+                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" name="RegisterationNumber" value="{{$res->registrationNumber}}">
                             @if ($errors->has('RegisterationNumber'))
                             <span class="text-danger">{{ $errors->first('RegisterationNumber') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Name</h4>
-                            <input type="text" placeholder="Vehicle Name" class="VehicleName" name="VehicleName" value="{{$res['basic_vehicle_info']['manufacturer_desc']}} {{$res['basic_vehicle_info']['derivative_desc']}}">
+                            <input type="text" placeholder="Vehicle Name" class="VehicleName" name="VehicleName" value="{{$res->make}}">
                             @if ($errors->has('VehicleName'))
                             <span class="text-danger">{{ $errors->first('VehicleName') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Year</h4>
-                            <input type="year" placeholder="Vehicle Year" class="VehicleYear" name="VehicleYear" value="{{date("Y",strtotime($res['basic_vehicle_info']['first_registration_date']))}}">
+                            <?php $vehicleYear =date_create( $res->yearOfManufacture);?>
+                            <input type="year" placeholder="Vehicle Year" class="VehicleYear" name="VehicleYear" value="{{$res->yearOfManufacture}}">
                             @if ($errors->has('VehicleYear'))
                             <span class="text-danger">{{ $errors->first('VehicleYear') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Color</h4>
-                            <input type="text" placeholder="Vehicle Color" class="VehicleColor" name="VehicleColor" value="{{$res['basic_vehicle_info']['colour']}}">
+                            <input type="text" placeholder="Vehicle Color" class="VehicleColor" name="VehicleColor" value="{{$res->colour}}">
                             @if ($errors->has('VehicleColor'))
                             <span class="text-danger">{{ $errors->first('VehicleColor') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Type</h4>
-                            <input type="text" placeholder="Vehicle Type" class="VehicleType" name="VehicleType" value="{{$res['basic_vehicle_info']['autotrader_asset_type']}}">
+                            <input type="text" placeholder="Vehicle Type" class="VehicleType" name="VehicleType" value="">
                             @if ($errors->has('VehicleType'))
                             <span class="text-danger">{{ $errors->first('VehicleType') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Tank</h4>
-                            <input type="text" placeholder="Vehicle Tank" class="VehicleTank" name="VehicleTank" value="{{$res['basic_vehicle_info']['autotrader_fuel_type_desc']}}">
+                            <input type="text" placeholder="Vehicle Tank" class="VehicleTank" name="VehicleTank" value="{{$res->fuelType}}">
                             @if ($errors->has('VehicleTank'))
                             <span class="text-danger">{{ $errors->first('VehicleTank') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Mileage</h4>
-                            <input type="number" placeholder="Vehicle Mileage" class="VehicleMileage" name="VehicleMileage" value="{{$check_millage}}">
+                            <input type="number" placeholder="Vehicle Mileage" class="VehicleMileage" name="VehicleMileage" value="{{$milage}}">
                             @if ($errors->has('VehicleMileage'))
                             <span class="text-danger">{{ $errors->first('VehicleMileage') }}</span>
                         @endif
                         </div>
-                        <div class="col-2Tn">
+                        {{-- <div class="col-2Tn">
                             <h4>Vehicle Price</h4>
 
                             <input type="number" placeholder="Vehicle Price" class="VehiclePrice" name="VehiclePrice" value="{{$milage['retail_valuation'] ?? 0}}">
                             @if ($errors->has('VehiclePrice'))
                             <span class="text-danger">{{ $errors->first('VehiclePrice') }}</span>
                         @endif
-                        </div>
+                        </div> --}}
 
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
                             <div class="spinner-border mt-2 spinnerVehicle"  style="float: right;" role="status">
@@ -301,7 +302,7 @@ display: block;
         <!--                <div class="col-2Tn">-->
         <!--                    <h4>Body Type</h4>-->
         <!--                    <input type="text" readonly class="form-control"-->
-        <!--                    name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"  value="{{$res['basic_vehicle_info']['autotrader_body_type_desc']}}" > -->
+        {{-- <!--                    name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"  value="{{$res['basic_vehicle_info']['autotrader_body_type_desc']}}" > --> --}}
         <!--                    @if ($errors->has('body_type'))-->
         <!--                    <span class="text-danger">{{ $errors->first('body_type') }}</span>-->
         <!--                @endif-->
@@ -310,7 +311,7 @@ display: block;
         <!--                <div class="col-2Tn">-->
         <!--                    <h4>Engine Size</h4>-->
         <!--                    <input type="text"  class="form-control"-->
-        <!--                    name="engine_size" readonly id="engine_size" placeholder="Eg : 2700cc,3500cc,etc"  value="{{$res['engine_data']['engine_capacity_cc']}}">-->
+        {{-- <!--                    name="engine_size" readonly id="engine_size" placeholder="Eg : 2700cc,3500cc,etc"  value="{{$res['engine_data']['engine_capacity_cc']}}">--> --}}
         <!--                    @if ($errors->has('engine_size'))-->
         <!--                    <span class="text-danger">{{ $errors->first('engine_size') }}</span>-->
         <!--                @endif-->
@@ -334,7 +335,7 @@ display: block;
         <!--                <div class="col-2Tn">-->
         <!--                    <h4>First Registeration Date</h4>-->
         <!--                    <input type="date"  class="form-control"-->
-        <!--                    name="register_date" readonly id="register_date" placeholder=""  value="{{$res['basic_vehicle_info']['first_registration_date']}}"> -->
+        {{-- <!--                    name="register_date" readonly id="register_date" placeholder=""  value="{{$res['basic_vehicle_info']['first_registration_date']}}"> --> --}}
         <!--                    @if ($errors->has('register_date'))-->
         <!--                    <span class="text-danger">{{ $errors->first('register_date') }}</span>-->
         <!--                @endif-->
@@ -358,7 +359,7 @@ display: block;
         <!--                <div class="col-2Tn">-->
         <!--                    <h4>Previous Owners</h4>-->
         <!--                    <input type="number"  class="form-control"-->
-        <!--                    name="previous_owner" readonly id="previous_owner" placeholder="how many previous owners are"   value="{{$res['basic_vehicle_check']['number_previous_keepers']}}">-->
+        {{-- <!--                    name="previous_owner" readonly id="previous_owner" placeholder="how many previous owners are"   value="{{$res['basic_vehicle_check']['number_previous_keepers']}}">--> --}}
         <!--                    @if ($errors->has('previous_owner'))-->
         <!--                    <span class="text-danger">{{ $errors->first('previous_owner') }}</span>-->
         <!--                @endif-->
@@ -2336,7 +2337,7 @@ display: block;
                         <div class="photo-up-sec-2-vi-btm-btns d-flex justify-content-between">
                             <div class="photo-up-sec-2-vi-btns">
                                 <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                                    <button type="submit">SAVE AND EXIT</button>
+                                    {{-- <button type="submit">SAVE AND EXIT</button> --}}
                                 </div>
                             </div>
                         </div>

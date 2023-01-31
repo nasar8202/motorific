@@ -192,28 +192,63 @@ class RegisterController extends Controller
         $Finances =  Finance::where('status',1)->get();
         $user = User::find($currentUser);
         $registeration = trim($request->registeration,' ');
-        $res = Http::withHeaders([
-            'accept' => 'application/json',
-            'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-        ])
-        ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
-        ->json();
+
+        $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => "",
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 0,
+                  CURLOPT_FOLLOWLOCATION => true,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => "POST",
+                  CURLOPT_POSTFIELDS =>"{\n\t\"registrationNumber\": \"$registeration\"\n}",
+                  CURLOPT_HTTPHEADER => array(
+                    "x-api-key: XlMDFK2cy74gg0iIBYqFT9lgP4Zrul64aRVBpQC5",
+                    "Content-Type: application/json"
+                  ),
+                ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                curl_close($curl);
+                 //echo $response;
+                 $res = json_decode($response);
+
+             //return $response;
+        // $res = $res['result'];
+        // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
+        // $date = $res['basic_vehicle_info']['first_registration_date'];
+        if( isset($res->registrationNumber) ){
+        $milage = $request->millage;
+
+        // $res = Http::withHeaders([
+        //     'accept' => 'application/json',
+        //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        // ])
+        // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+        // ->json();
         // if($res['success'] == 'false'){
         //     return back()->with('error','Record not found');
         // }
-        $res = $res['result'];
-        $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
-        $date = $res['basic_vehicle_info']['first_registration_date'];
-        $check_millage = $request->millage;
-        $milage= Http::withHeaders([
-            'accept' => 'application/json',
-            'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-        ])
-        ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
-        ->json();
-        $milage = $milage['result'];
-        return view('frontend.seller.photoUpload',compact('milage','check_millage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
-            }
+        // $res = $res['result'];
+        // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
+        // $date = $res['basic_vehicle_info']['first_registration_date'];
+        //$milage = $request->millage;
+        // $milage= Http::withHeaders([
+        //     'accept' => 'application/json',
+        //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        // ])
+        // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
+        // ->json();
+        // $milage = $milage['result'];
+        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
+        }else{
+            return back()->with('error','Record not found');
+        }
+    }
             else{
                 return redirect()->route('seller')->with('success','Register Successfully!');
             }
