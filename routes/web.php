@@ -101,6 +101,7 @@ Route::post('/add-condition-and-damages', [FrontController::class,'addConditionD
 Route::post('/vehicle_information', [FrontController::class,'vehicleInformation'])->name('vehicleInformation');
 Route::post('/create-vehicle', [FrontController::class,'createVehicle'])->name('createVehicle');
 Route::post('/update-seller', [FrontController::class,'updateSeller'])->name('updateSeller');
+Route::get('/longitude', [FrontController::class,'longitude'])->name('longitude');
 Route::get('/test_location', [FrontController::class,'testlocation'])->name('testlocation');
 Route::get('/registration', [FrontController::class,'registration'])->name('registration');
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');

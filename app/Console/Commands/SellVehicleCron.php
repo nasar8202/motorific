@@ -69,7 +69,7 @@ class SellVehicleCron extends Command
                                 $vehicle->status = 0;
                                 $vehicle->save();
                        }else{
-                                $BidedVehicle->status = 2;
+                                $BidedVehicle->status = 1;
                                 $BidedVehicle->save();
 
 
