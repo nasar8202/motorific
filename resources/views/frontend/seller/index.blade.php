@@ -496,15 +496,19 @@ display: block;
            e.preventDefault(); // prevent the form submission
 
            $.ajax({
-               type: "get",
+               type: "post",
                dataType: 'JSON',
+               headers:
+    {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
                url: '{{ route('testlocation') }}',
                data: {registeration,registeration},
 
                success: function(response) {
-                console.log(response);
+                console.log(response.registrationNumber);
 
-                if(response.success == 'true'){
+                if(response && !response.errors){
                     $('.show_error').hide();
                     $('.check_area').hide();
                     $('.millage_area').show();

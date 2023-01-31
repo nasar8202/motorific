@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Models\vehicleConditionAndDamage;
+use Illuminate\Support\Facades\Log;
 
 class FrontController extends Controller
 {
@@ -491,26 +492,56 @@ class FrontController extends Controller
         $Finances =  Finance::where('status',1)->get();
         $user = User::find($currentUser);
         $registeration = trim($request->registeration,' ');
-        $res = Http::withHeaders([
-            'accept' => 'application/json',
-            'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-        ])
-        ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
-        ->json();
-        if($res['success'] == 'false'){
+        // $res = Http::withHeaders([
+        //     'accept' => 'application/json',
+        //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        // ])
+        // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+        // ->json();
+        // if($res['success'] == 'false'){
+        //     return back()->with('error','Record not found');
+        // }
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => "",
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 0,
+                  CURLOPT_FOLLOWLOCATION => true,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => "POST",
+                  CURLOPT_POSTFIELDS =>"{\n\t\"registrationNumber\": \"$registeration\"\n}",
+                  CURLOPT_HTTPHEADER => array(
+                    "x-api-key: XlMDFK2cy74gg0iIBYqFT9lgP4Zrul64aRVBpQC5",
+                    "Content-Type: application/json"
+                  ),
+                ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                curl_close($curl);
+                 //echo $response;
+                 $res = json_decode($response);
+
+             //return $response;
+        // $res = $res['result'];
+        // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
+        // $date = $res['basic_vehicle_info']['first_registration_date'];
+        if( isset($res->registrationNumber) ){
+        $milage = $request->millage;
+        }else{
             return back()->with('error','Record not found');
         }
-        $res = $res['result'];
-        $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
-        $date = $res['basic_vehicle_info']['first_registration_date'];
-        $check_millage = $request->millage;
-        $milage= Http::withHeaders([
-            'accept' => 'application/json',
-            'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-        ])
-        ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
-        ->json();
-        $milage = $milage['result'];
+        // $milage= Http::withHeaders([
+        //     'accept' => 'application/json',
+        //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        // ])
+        // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
+        // ->json();
+        // $milage = $milage['result'];
     }catch(\Exception $e)
     {
        //return $e;
@@ -518,7 +549,7 @@ class FrontController extends Controller
             ->with('error',$e->getMessage() )
             ->withInput();
     }
-        return view('frontend.seller.photoUpload',compact('milage','check_millage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
+        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
     }
     public function registration()
     {
@@ -546,16 +577,59 @@ class FrontController extends Controller
         //     return response()->json('0');
         // }
         // else{
-        $registeration = trim($request->registeration,' ');
-    $res= Http::withHeaders([
-        'accept' => 'application/json',
-        'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-    ])
-    ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
-    ->json();
-    // $user = Auth::user();
 
-    return response()->json($res);
+            try{
+                $registeration = trim($request->registeration,' ');
+                // $res= Http::withHeaders([
+                //     'accept' => 'application/json',
+                //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+                // ])
+                // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+                // ->json();
+                // // $user = Auth::user();
+
+                // return response()->json($res);
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => "",
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 0,
+                  CURLOPT_FOLLOWLOCATION => true,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => "POST",
+                  CURLOPT_POSTFIELDS =>"{\n\t\"registrationNumber\": \"$registeration\"\n}",
+                  CURLOPT_HTTPHEADER => array(
+                    "x-api-key: XlMDFK2cy74gg0iIBYqFT9lgP4Zrul64aRVBpQC5",
+                    "Content-Type: application/json"
+                  ),
+                ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                curl_close($curl);
+                 //echo $response;
+             return $response;
+            }catch(\Exception $e)
+            {
+               //return $e;
+                return Redirect()->back()
+                    ->with('error',$e->getMessage() )
+                    ->withInput();
+            }
+
+    // $data = json_decode($response, true);
+    // $quiz_queue_ans_id = $data['errors'][0]['status'];
+    // if($quiz_queue_ans_id == 404){
+    //     return 0;
+    // }else{
+    //     return $response;
+
+    // }
+
 // }
 
     }
