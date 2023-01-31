@@ -157,13 +157,8 @@ display: block;
                             <span class="alert alert-success ">Accepeted</span>
                             @endif
                             </div>
-<<<<<<< HEAD
                            {{-- <a href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
                            </a> --}}
-=======
-                           <a title="Once You Marked As Sold, You Can't Add This Vehicle Into Unsold Vehicles List " href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
-                           </a>  
->>>>>>> 5447cc28ae2f19348273599ad8237837a56d8bac
                         </div>
 
                             @empty
