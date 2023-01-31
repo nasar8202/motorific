@@ -9,13 +9,13 @@
           
            @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
             <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/uploads/DealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
+                <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
             </div>
             @empty
             @endforelse
             @forelse($vehicle->DealerVehicleInterior as $interiorimage)
             <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/uploads/DealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
+                <img src="{{ asset('/uploads/dealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
             </div>
             @empty
             @endforelse
@@ -168,7 +168,7 @@
                         <div class="vehicleDetailGalrepeatMain">
                             @forelse($vehicle->DealerVehicleTyre as $wheel)
                             <div class="imgVehicle">
-                                <img src="{{ asset('/uploads/DealerVehicles/tyres/'.$wheel->tyre_image ?? "") }}" alt="">
+                                <img src="{{ asset('/uploads/dealerVehicles/tyres/'.$wheel->tyre_image ?? "") }}" alt="">
                             </div>
                             @empty
                             @endforelse

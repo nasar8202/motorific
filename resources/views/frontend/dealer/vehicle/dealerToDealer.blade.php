@@ -246,7 +246,7 @@ div#filter-price {
                         <div class="box" id>
 
                             <div class="box-img">
-                                <img src="{{ asset('/uploads/DealerVehicles/exterior/'.$vehicle->DealerVehicleExterior[0]->exterior_image ?? "") }}" width="180px" alt="">
+                                <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$vehicle->DealerVehicleExterior[0]->exterior_image ?? "") }}" width="180px" alt="">
                             </div>
                             <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
                             <div class="d-flex justify-content-between">
@@ -327,7 +327,7 @@ $(document).ready(function(){
 
             $.each(resultData,function(resultData,row){
                     bodyData+='<a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
-                    bodyData+='<div class="box-img"><img  src="'+path+'uploads/DealerVehicles/exterior/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+                    bodyData+='<div class="box-img"><img  src="'+path+'uploads/dealerVehicles/exterior/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
                     $("#filter-price").html(bodyData);
                     $("#no-record").html('');
@@ -396,7 +396,7 @@ $(document).ready(function(){
                     $.each(resultData,function(resultData,row){
 
                     bodyData+='<a href="/dealer/dealer-vehicle-detail/'+row.id+'"><div class="box">'
-                    bodyData+='<div class="box-img"><img  src="'+path+'uploads/DealerVehicles/exterior/'+resultDatapic.exterior_image+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+                    bodyData+='<div class="box-img"><img  src="'+path+'uploads/dealerVehicles/exterior/'+resultDatapic.exterior_image+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
                     bodyData+='</div></a>';
                     $("#filter-price").html(bodyData);
                     $("#no-record").html('');

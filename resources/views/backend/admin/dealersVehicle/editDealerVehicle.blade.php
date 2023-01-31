@@ -45,13 +45,13 @@ p {
      @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
      
      <div class="col-md-3 col-sm-6">
-                    <img width="400px" height="200px" src="{{ asset('/uploads/DealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
+                    <img width="400px" height="200px" src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
               </div>
                 @empty
                 @endforelse
                 @forelse($vehicle->DealerVehicleInterior as $interiorimage)
           <div class="col-md-3 col-sm-6">
-                    <img width="400px" height="200px" src="{{ asset('/uploads/DealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
+                    <img width="400px" height="200px" src="{{ asset('/uploads/dealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
                 </div>
                 @empty
                 @endforelse
@@ -203,7 +203,7 @@ p {
                     @forelse($vehicle->DealerVehicleTyre as $wheel)
                     <div class="col-md-4 col-sm-6">
                         <div class="imgVehicle">
-                            <img  width="400px" height="200px"  src="{{ asset('/uploads/DealerVehicles/tyres/'.$wheel->tyre_image ?? "") }}" alt="">
+                            <img  width="400px" height="200px"  src="{{ asset('/uploads/dealerVehicles/tyres/'.$wheel->tyre_image ?? "") }}" alt="">
                         </div>
                     </div>
                     @empty
