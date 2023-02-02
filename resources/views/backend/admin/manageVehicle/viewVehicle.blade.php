@@ -63,7 +63,7 @@
                             <td>{{ $vehicle->vehicle_tank}}</td>
                             <td>{{ $vehicle->vehicle_price}}</td>
                             @if($vehicle->status == 0)
-                            <td class=""><span class="badge badge-info"> Pending </span></td>
+                            <td class=""><span class="badge badge-danger"> Pending </span></td>
                             @elseif($vehicle->status == 2)
                             <td class=""><span class="badge badge-danger"> Deactivate </span></td>
                           @else
@@ -74,13 +74,13 @@
                             </td>
                             <td>
                                 @if($vehicle->status == 0)
-                                <a href="{{ route('approveSellerVehicle',$vehicle->id) }}"><span class="badge bg-success">Approve</span></a>
+                                <a href="{{ route('approveSellerVehicle',$vehicle->id) }}"><span class="badge badge-success w-100 my-1">Approve</span></a>
                                 @elseif($vehicle->status == 1)
-                                <a href="{{ route('deactivateSellerVehicle',$vehicle->id) }}"><span class="badge bg-danger">Deactivate</span></a>
+                                <a href="{{ route('deactivateSellerVehicle',$vehicle->id) }}"><span class="badge badge-danger my-1 w-100">Deactivate</span></a>
                                 
                                 @endif
-                                <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge bg-success">View Details</span></a>
-                                <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge badge-success w-100">View Details</span></a>
+                                <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge badge-danger w-100 my-1">Delete</span></a>
                             </td>
                         </tr>
                         @endforeach
