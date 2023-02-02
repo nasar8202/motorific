@@ -297,7 +297,6 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
                 //$image_1 = Session::get('image_1');
                 }
 
-            if($request->damage_any == 'yes'){
             $dealer_interior_detail = new DealerVehicleInteriorDetails;
             $dealer_interior_detail->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_interior_detail->dashboard = $request->dashboard;
@@ -312,8 +311,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             $dealer_interior_detail->rear_seats = $request->rear_seats;
             $dealer_interior_detail->save();
 
-            }
-            if($request->damage_any == 'damage_any_second'){
+            
             $dealer_exterior_detail = new DealerVehicleExteriorDetails;
             $dealer_exterior_detail->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_exterior_detail->front_door_left = $request->front_door_left;
@@ -325,7 +323,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             $dealer_exterior_detail->front = $request->front;
             $dealer_exterior_detail->back = $request->back;
             $dealer_exterior_detail->save();
-        }
+        
 
             }
             catch(Exception $e)
@@ -337,7 +335,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             }
             DB::commit();
 
-            return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully!');
+            return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully. Wait For Admin Approvel!');
     }
     public function vehicleListing(Request $request)
     {

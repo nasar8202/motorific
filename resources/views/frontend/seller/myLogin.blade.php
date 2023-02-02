@@ -34,11 +34,11 @@ display: block;
                     <a href="#">
                         <li>How It Works</li>
                     </a>
-                    <a href="#">
-                        <li>Reviews</li>
+                    <a href="{{ route('howItWorksforSeller') }}">
+                        <li>How It Works</li>
                     </a>
-                    <a href="#">
-                        <li>Help</li>
+                    <a href="{{ route('reviews') }}">
+                        <li>Reviews</li>
                     </a>
                     @auth
 

@@ -31,10 +31,10 @@ display: block;
                     <a href="{{ route('sellMyCar') }}">
                         <li>Sell My Car</li>
                     </a>
-                    <a href="#">
+                    <a href="{{ route('howItWorksforSeller') }}">
                         <li>How It Works</li>
                     </a>
-                    <a href="#">
+                    <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
                     <a href="#">
@@ -74,8 +74,12 @@ display: block;
                 <div class="navi">
                     <ul>
                         <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Reviews</a></li>
+                        <a href="{{ route('howItWorksforSeller') }}">
+                            <li>How It Works</li>
+                        </a>
+                        <a href="{{ route('reviews') }}">
+                            <li>Reviews</li>
+                        </a>
                         <li><a href="#">Help</a></li>
                     </ul>
                 </div>

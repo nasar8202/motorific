@@ -232,13 +232,13 @@ $(".step-button-ext").click(function () {
 
 // hide and show 
 
-jQuery('.step-main-wrap').fadeOut();
-jQuery('.parts-no').click(function(){
-    jQuery(this).parents('.parts-hide-show').next('.step-main-wrap').fadeOut();
-});
-jQuery('.parts-yes').click(function(){
-   jQuery(this).parents('.parts-hide-show').next('.step-main-wrap').fadeIn();
-});
+// jQuery('.step-main-wrap').fadeOut();
+// jQuery('.parts-no').click(function(){
+//     jQuery(this).parents('.parts-hide-show').next('.step-main-wrap').fadeOut();
+// });
+// jQuery('.parts-yes').click(function(){
+//    jQuery(this).parents('.parts-hide-show').next('.step-main-wrap').fadeIn();
+// });
 
 // hamza js 
 

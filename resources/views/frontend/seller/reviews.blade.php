@@ -42,13 +42,18 @@ display: block;
                     <li>Help</li>
                 </a>
 
+                @guest
                 <div class="dropdown">
                     <span>More</span>
                     <div class="dropdown-content">
-                   <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
+                @endguest
             </ul>
         </div>
 
