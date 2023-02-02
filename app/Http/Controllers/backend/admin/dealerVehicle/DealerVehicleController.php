@@ -15,6 +15,9 @@ use App\Models\DealerVehicleInterior;
 use App\Models\DealerAdvertVehicleDetail;
 use App\Models\DealerVehicleExteriorDetails;
 use App\Models\DealerVehicleInteriorDetails;
+use App\Models\DealersOrderVehicleRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\dealerVehicleApprovedByAdmin;
 
 class DealerVehicleController extends Controller
 {
@@ -24,10 +27,91 @@ class DealerVehicleController extends Controller
         // dd($DealerVehicles);
         return view('backend.admin.dealersVehicle.viewDealerVehicle',compact('DealerVehicles'));
     }
+    public function approvedDealerVehicleByAdmin(Request $request,$id)
+    {
+        $vehicle = DealerVehicle::with('user')->with('DealerVehicleExterior')->where('id',$id)->first();
+        //dd($vehicle);
+        if($vehicle->vehicle_price != null){
+            $vehicle->status = 1;
+            $vehicle->save();
+            return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
+        }
+        elseif($vehicle->status == 1){
+            return redirect()->route('viewDealerVehicle')->with('alert', 'Your Vehicle Is Already Approve!');
+
+        }else{
+            return redirect()->route('viewDealerVehicle')->with('alert', 'First Update Vehicle Prices!');
+        }
+        $front = $vehicle->DealerVehicleExterior[0]->exterior_image;
+
+        $originalDate = $vehicle->updated_at;
+        $winDate = date("d F Y ", strtotime($originalDate));
+        $winTime = date("H:i:s a", strtotime($originalDate));
+
+
+        $data = ([
+            'name' => $vehicle->user->name,
+            'email' => $vehicle->user->email,
+            'date' => $winDate.' at '.$winTime,
+            'bidded_price'=>$vehicle->vehicle_price,
+            'vehicle_registration'=>$vehicle->vehicle_registartion_number,
+            'vehicle_name'=>$vehicle->vehicle_name,
+            'vehicle_mileage'=>$vehicle->vehicle_mileage,
+            'front'=>$front,
+            'colour'=>$vehicle->vehicle_color,
+            'age'=>$vehicle->vehicle_year,
+
+        ]);
+        Mail::to($vehicle->user->email)->send(new dealerVehicleApprovedByAdmin($data));
+
+        return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
+
+    }
+
+    public function deactivateDealerVehicleByAdmin(Request $request,$id)
+    {
+        $vehicle = DealerVehicle::with('user')->with('DealerVehicleExterior')->where('id',$id)->first();
+        // dd($vehicle);
+        if($vehicle->vehicle_price != null){
+            $vehicle->status = 0;
+            $vehicle->save();
+            return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
+        }
+        elseif($vehicle->status == 1){
+            return redirect()->route('viewDealerVehicle')->with('alert', 'Your Vehicle Is Already Approve!');
+
+        }else{
+            return redirect()->route('viewDealerVehicle')->with('alert', 'First Update Vehicle Prices!');
+        }
+        $front = $vehicle->DealerVehicleExterior[0]->exterior_image;
+
+        $originalDate = $vehicle->updated_at;
+        $winDate = date("d F Y ", strtotime($originalDate));
+        $winTime = date("H:i:s a", strtotime($originalDate));
+
+
+        $data = ([
+            'name' => $vehicle->user->name,
+            'email' => $vehicle->user->email,
+            'date' => $winDate.' at '.$winTime,
+            'bidded_price'=>$vehicle->vehicle_price,
+            'vehicle_registration'=>$vehicle->vehicle_registartion_number,
+            'vehicle_name'=>$vehicle->vehicle_name,
+            'vehicle_mileage'=>$vehicle->vehicle_mileage,
+            'front'=>$front,
+            'colour'=>$vehicle->vehicle_color,
+            'age'=>$vehicle->vehicle_year,
+
+        ]);
+        Mail::to($vehicle->user->email)->send(new dealerVehicleApprovedByAdmin($data));
+
+        // return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
+
+    }
     public function dealerVehicleUpdatePrice(Request $request ,$id)
     {
         $request->validate([
-           
+
             'retail_price' => 'required',
             'clean_price' => 'required',
             'average_price' => 'required',
@@ -40,8 +124,8 @@ class DealerVehicleController extends Controller
         $vehicle->clean_price = $request->clean_price;
         $vehicle->average_price = $request->average_price;
         $vehicle->hidden_price = $request->hidden_price;
-        $vehicle->status = 1;
-        
+        $vehicle->status = 0;
+
 
         $vehicle->save();
         return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
@@ -61,10 +145,10 @@ class DealerVehicleController extends Controller
         // dd($vehicle);
         return view('backend.admin.dealersVehicle.editDealerVehicle',compact('vehicle'));
     }
-    
+
     public function deleteDealerVehicle($id)
     {
-        
+
         DB::beginTransaction();
         try{
 
@@ -77,37 +161,45 @@ class DealerVehicleController extends Controller
        $DealerVehicleInterior = DealerVehicleInterior::where('dealer_vehicle_id',$id)->get();
        $DealerVehicleExterior = DealerVehicleExterior::where('dealer_vehicle_id',$id)->get();
        $DealerVehicleTyres = DealerVehicleTyres::where('dealer_vehicle_id',$id)->get();
-       $DealerVehicle->delete();
-       $DealerAdvertVehicleDetail->delete();
-       $DealerVehicleHistory->delete();
-       $DealerVehicleMedia->delete();
-       if($DealerVehicleInteriorDetails != null){
-       $DealerVehicleInteriorDetails->delete();
-    }
-    if($DealerVehicleExteriorDetails != null){
-       $DealerVehicleExteriorDetails->delete();
-    }
+            $DealersOrderVehicleRequest = DealersOrderVehicleRequest::where('vehicle_id',$DealerVehicle->id)->first();
 
-        foreach($DealerVehicleInterior as $Interior){
-          if(file_exists(public_path("/uploads/DealerVehicles/interior/".$Interior->interior_image))){
-            unlink(public_path("/uploads/DealerVehicles/interior/".$Interior->interior_image));
-          }
-          $Interior->delete();
-        }
-        foreach($DealerVehicleExterior as $Exterior){
-          if(file_exists(public_path("/uploads/DealerVehicles/exterior/".$Exterior->exterior_image))){
-            unlink(public_path("/uploads/DealerVehicles/exterior/".$Exterior->exterior_image));
-          }
-          $Exterior->delete();              
-        }
-        foreach($DealerVehicleTyres as $Tyres){
-          if(file_exists(public_path("/uploads/DealerVehicles/tyres/".$Tyres->tyre_image))){
-            unlink(public_path("/uploads/DealerVehicles/tyres/".$Tyres->tyre_image));
-          }
-       $Tyres->delete();
-        }
+      if($DealersOrderVehicleRequest){
+        return redirect()->route('viewDealerVehicle')->with('warning', 'This Vehicle Contain Bids, Thats Why You Cant Delete This Vehicle!');
 
-         
+      }else{
+        $DealerVehicle->delete();
+        $DealerAdvertVehicleDetail->delete();
+        $DealerVehicleHistory->delete();
+        $DealerVehicleMedia->delete();
+        if($DealerVehicleInteriorDetails != null){
+        $DealerVehicleInteriorDetails->delete();
+         }
+         if($DealerVehicleExteriorDetails != null){
+         $DealerVehicleExteriorDetails->delete();
+         }
+
+         foreach($DealerVehicleInterior as $Interior){
+           if(file_exists(public_path("/uploads/DealerVehicles/interior/".$Interior->interior_image))){
+             unlink(public_path("/uploads/DealerVehicles/interior/".$Interior->interior_image));
+           }
+           $Interior->delete();
+         }
+         foreach($DealerVehicleExterior as $Exterior){
+           if(file_exists(public_path("/uploads/DealerVehicles/exterior/".$Exterior->exterior_image))){
+             unlink(public_path("/uploads/DealerVehicles/exterior/".$Exterior->exterior_image));
+           }
+           $Exterior->delete();
+         }
+         foreach($DealerVehicleTyres as $Tyres){
+           if(file_exists(public_path("/uploads/DealerVehicles/tyres/".$Tyres->tyre_image))){
+             unlink(public_path("/uploads/DealerVehicles/tyres/".$Tyres->tyre_image));
+           }
+        $Tyres->delete();
+         }
+      }
+
+
+
 
     }
     catch(\Exception $e)

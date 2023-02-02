@@ -66,6 +66,7 @@
                         <br>
                         <small>If You Want To Rescedule.</small>
                         <input type="hidden" name="order_id" value="{{$pricing->id}}">
+                        <input type="hidden" name="bided" value="{{$bided ??''}}">
                         <input type="datetime-local" class="form-control mt-4" name="date_time"  required >
                         <br><button type="submit" class="btn btn-info mt-4 float-left">Reschedule Meeting</button>
                         @endif

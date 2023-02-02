@@ -26,6 +26,8 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\vehicleConditionAndDamage;
+use App\Models\BidedVehicle;
+use App\Models\OrderVehicleRequest;
 
 class ManageVehicleController extends Controller
 {
@@ -46,7 +48,7 @@ class ManageVehicleController extends Controller
     }
     public function StoreVehicle(Request $request)
     {
-        
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -89,7 +91,7 @@ class ManageVehicleController extends Controller
             'image3' => 'required',
             'image4' => 'required',
             'image5' => 'required',
-            
+
 
         ]);
         DB::beginTransaction();
@@ -142,7 +144,7 @@ class ManageVehicleController extends Controller
             $vehicleInformation = new vehicleInformation;
             $vehicleInformation->vehicle_id = $vehicle->id;
             $vehicleInformation->vehicle_feature_id = $vehicle_feature_id ;
-            
+
             $vehicleInformation->seat_material_id =  $request->seat_material;
             $vehicleInformation->number_of_keys_id =  $request->number_of_keys;
             $vehicleInformation->tool_pack_id =  $request->tool_pack;
@@ -152,7 +154,7 @@ class ManageVehicleController extends Controller
             $vehicleInformation->location =  $request->location;
             $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
             $vehicleInformation->private_plate_id =  $request->private_plate;
-           
+
             // $vehicleInformation->interior =  $request->interior;
             // $vehicleInformation->body_type =  $request->body_type;
             // $vehicleInformation->engine_size =  $request->engine_size;
@@ -164,7 +166,7 @@ class ManageVehicleController extends Controller
             // $vehicleInformation->previous_owners =  $request->previous_owner;
             // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
             // $vehicleInformation->additional_information =  $request->additional;
-           
+
             $vehicleInformation->save();
 
             $interior_detail = new VehicleInterior;
@@ -239,37 +241,55 @@ class ManageVehicleController extends Controller
     {
         DB::beginTransaction();
         try{
+            $alreadyVehicles = Vehicle::where('id',$id)->first();
+            // dd($alreadyVehicles);
+            if($alreadyVehicles->all_auction == NULL){
+                $bided = BidedVehicle::where('vehicle_id',$alreadyVehicles->id)->first();
+            }else{
+                $alreadyOrderVehicleRequest = OrderVehicleRequest::where('vehicle_id',$alreadyVehicles->id)->first();
+            }
 
-       $vehicles = Vehicle::find($id);
-       $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
-       $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
-       $vehicles->delete();
-       $vehicleInformation->delete();
+
+            if(isset($bided) || isset($alreadyOrderVehicleRequest)){
+                return redirect()->route('viewVehicle')->with('error', 'This Vehicle Contain Bids, Thats Why You Cant Delete This Vehicle! ');
+            }else{
 
 
-        if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->front))){
-            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->front));
-          }
+            $vehicles = Vehicle::find($id);
+            $vehicleInformation = vehicleInformation::where('vehicle_id',$id)->first();
+            $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
+            $VehicleInterior = VehicleInterior::where('vehicle_id',$id)->first();
+            $VehicleExterior = VehicleExterior::where('vehicle_id',$id)->first();
+            $vehicles->delete();
+            $VehicleInterior->delete();
+            $VehicleExterior->delete();
+            $vehicleInformation->delete();
 
-          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner))){
-            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner));
-          }
 
-          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner))){
-            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner));
-          }
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->front))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->front));
+            }
 
-          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front))){
-            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front));
-          }
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->passenger_rare_side_corner));
+            }
 
-          if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard))){
-            unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard));
-          }
-          $VehicleImage->delete();
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->driver_rare_side_corner));
+            }
 
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->interior_front));
+            }
+
+            if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard))){
+                unlink(public_path("/vehicles/vehicles_images/".$VehicleImage->dashboard));
+            }
+            $VehicleImage->delete();
+        }
     }catch(\Exception $e)
     {
+       // return $e;
         DB::rollback();
         return Redirect()->back()
             ->with('error',$e->getMessage() )
@@ -290,7 +310,7 @@ class ManageVehicleController extends Controller
         $damages = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
         $exterior = VehicleExterior::where('vehicle_id',$id)->first();
         $interior = VehicleInterior::where('vehicle_id',$id)->first();
-       
+
         $vehicleCategories = vehicleCategories::all();
         $VehicleFeatures =  VehicleFeature::where('status',1)->get();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
@@ -392,7 +412,7 @@ class ManageVehicleController extends Controller
         $vehicle->average_price = $request->average_price;
         $vehicle->hidden_price = $request->hidden_price;
                     $vehicle->status = 0;
-        
+
 
         $vehicle->save();
 
@@ -434,7 +454,7 @@ class ManageVehicleController extends Controller
         // $vehicleInformation->additional_information =  $request->additional;
 
         $vehicleInformation->save();
-        
+
         // $damages = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
         // $damages->vehicle_id = $vehicle->id;
         // $damages->exterior_grade = $request->exterior_grade;
@@ -448,7 +468,7 @@ class ManageVehicleController extends Controller
         // $damages->main_dealer_services = $request->main_dealer;
         // $damages->independent_dealer_service = $request->independent_dealer;
         // $damages->save();
-        
+
         $interior_detail = VehicleInterior::where('vehicle_id',$id)->first();
         $interior_detail->vehicle_id = $vehicle->id;
         $interior_detail->dashboard = $request->dashboard;
@@ -473,8 +493,8 @@ class ManageVehicleController extends Controller
         $exterior_detail->front = $request->front;
         $exterior_detail->back = $request->back;
         $exterior_detail->save();
-        
-        
+
+
         $VehicleImage = VehicleImage::where('vehicle_id',$id)->first();
         if($request->file('image1')){
             if(file_exists(public_path("/vehicles/vehicles_images/".$VehicleImage->front))){
@@ -550,7 +570,7 @@ class ManageVehicleController extends Controller
         }
         elseif($vehicle->status == 1){
             return redirect()->route('viewVehicle')->with('alert', 'Your Vehicle Is Already Approve!');
-            
+
         }
         else{
             return redirect()->route('viewVehicle')->with('alert', 'First Update Vehicle Prices!');

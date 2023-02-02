@@ -252,14 +252,14 @@
                             
                             ?>
                             @if(isset($order))
-                            <center><span class="text-danger ">You Already Request On This Vehicle</span>
+                            <center class="info_txt mt-2"><span class="text-center">You Already Request On This Vehicle</span>
                             </center>  
                             <input type="hidden" name="hidden_price" class="hidden_price" value="{{$vehicle->hidden_price}}" />
                                      
-                            <center><span class="text-danger ">Your Request Price Is <span class="userRequestedPrice" > {{$order->request_price}} </span></span>
+                            <center class="info_txt mb-2"><span class="info_txt text-center ">Your Request Price Is <span class="userRequestedPrice" > {{$order->request_price}} </span></span>
                             </center>   
-                            <center><a data-id="{{$order->id}}" class="btn btn-success btn-sm updatePrice"> Update My Price</a>
-                            <a href="{{route('cancelRequest',$order->id)}}" class="btn btn-danger btn-sm"> Cancel My Request</a>
+                            <center><a data-id="{{$order->id}}" class="btn btn-success btn-sm updatePrice btn_success"> Update My Price</a>
+                            <a href="{{route('cancelRequest',$order->id)}}" class="btn btn-danger btn-sm btn_danger"> Cancel My Request</a>
                             
                         </center>   
                         <br>    

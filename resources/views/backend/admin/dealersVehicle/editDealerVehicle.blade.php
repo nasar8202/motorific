@@ -22,7 +22,7 @@ p {
     </a>
 </header>
 <div class="page-heading">
-    
+
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
@@ -39,11 +39,11 @@ p {
             </div>
         </div>
     </div>
-  
+
  <div class="row dealer_vehicle_images">
-     
+
      @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
-     
+
      <div class="col-md-3 col-sm-6">
                     <img width="400px" height="200px" src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
               </div>
@@ -64,7 +64,7 @@ p {
                 <div class="sliderImgVehicleDetailRepeater">
                     <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? "") }}">
                 </div> --}}
-          
+
     </div>
 
     <div class="row">
@@ -80,15 +80,15 @@ p {
             <div class="mapAndText">
                 <p><strong>Collection:</strong> Available immediately</p>
                 <p><strong>Location:</strong> {{$vehicle->location ?? ''}} (9 miles away)
-                
-                
+
+
                 </p>
             </div>
             <div class="features bottomList">
                 <div class="bottomListTitle">
                     <h4><i class="fa-light fa-file-check"></i> Features</h4>
                     <ul>
-                     
+
                     </ul>
                 </div>
             </div>
@@ -108,7 +108,7 @@ p {
             <div class="bottomList mainSpec">
                 <div class="bottomListTitle">
                     <h4><i class="far fa-copy"></i> Vehicle History</h4>
-                    <ul>
+                    <ul class="list-spec">
                         <li>Keys<span><i class="fas fa-exclamation-triangle"></i> {{$vehicle->DealerVehicleHistory->keys}}</span></li>
                         <li>Previous Owners <span>{{$vehicle->DealerVehicleHistory->previous_owners}}</span></li>
                         <li>Service History <span>{{$vehicle->DealerVehicleHistory->service_history_title}}</span></li>
@@ -123,7 +123,7 @@ p {
                         <li>Illumination<span>{{$vehicle->DealerVehicleHistory->illumination}}</span></li>
                         <li>Performance<span>{{$vehicle->DealerVehicleHistory->performance}}</span></li>
                         <li>Safety and Security<span>{{$vehicle->DealerVehicleHistory->safety_and_security}}</span></li>
-                   
+
                     </ul>
                 </div>
             </div>
@@ -140,7 +140,7 @@ p {
             <div class="bottomList">
                 <div class="bottomListTitle">
                     <h4><i class="fas fa-bolt"></i> Condition And Damages</h4>
-                    <ul>
+                    <ul class="list-spec">
                         <li>Condition / Damage<span>{{$vehicle->DealerVehicleMedia->condition_damage}}</span></li>
                         <li>Condition / Damage URL <span>{{$vehicle->DealerVehicleMedia->condition_damage_url}}</span></li>
                         <li>Do you have existing condition report?<span>{{$vehicle->DealerVehicleMedia->existing_condition_report}}</span></li>
@@ -156,8 +156,8 @@ p {
             </div>
             <div class="bottomList">
                 <div class="bottomListTitle">
-                    <h4><i class="fas fa-bolt"></i>Interior Information</h4>
-                    <ul>
+                    <h4><i class="fas fa-bolt"></i><span class="mx-2">Interior Information</span></h4>
+                    <ul class="list-spec">
                         <li>Dashboard<span>{{$vehicle->DealerVehicleInteriorDetails->dashboard ?? 'No Detail' }}</span></li>
                         <li>Passenger Side Interior <span>{{$vehicle->DealerVehicleInteriorDetails->passenger_side_interior ?? 'No Detail'}}</span></li>
                         <li>Driver Side Interior<span>{{$vehicle->DealerVehicleInteriorDetails->driver_side_interior ?? 'No Detail'}}</span></li>
@@ -173,8 +173,8 @@ p {
             </div>
             <div class="bottomList">
                 <div class="bottomListTitle">
-                    <h4><i class="fas fa-bolt"></i>Exterior Information</h4>
-                    <ul>
+                    <h4><i class="fas fa-bolt"></i><span class="mx-2">Exterior Information</span></h4>
+                    <ul class="list-spec">
                         <li>Front Door Left<span>{{$vehicle->DealerVehicleExteriorDetails->front_door_left ?? 'No Detail' }}</span></li>
                         <li>Back Door Left <span>{{$vehicle->DealerVehicleExteriorDetails->back_door_left ?? 'No Detail'}}</span></li>
                         <li>Front Door Right<span>{{$vehicle->DealerVehicleExteriorDetails->front_door_right ?? 'No Detail'}}</span></li>
@@ -225,7 +225,7 @@ p {
                     <div class="imgVehicle">
                         <img src="{{ URL::asset('frontend/seller/assets/image//box-1.png') }}" alt="">
                     </div>
-                    <div class="imgVehicle"> 
+                    <div class="imgVehicle">
                         <img src="{{ URL::asset('frontend/seller/assets/image//box-1.png') }}" alt="">
                     </div>
                     <div class="imgVehicle">
@@ -236,8 +236,8 @@ p {
                     </div>
                 </div>
             </div> --}}
-        </div> 
-        
+        </div>
+
     </div>
     <br>
     <section id="multiple-column-form" class="mt-4">
@@ -245,7 +245,7 @@ p {
             <form class="form" method="post" action="{{route('dealerVehicleUpdatePrice',$vehicle->id)}}" >
                 @csrf
             <div class="col-12">
-               
+
                 @if($vehicle->vehicle_availability == null && $vehicle->status != 2)
                 <div class="row match-height">
                     <div class="col-12">

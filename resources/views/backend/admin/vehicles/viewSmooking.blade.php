@@ -50,8 +50,8 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $viewSmoking->title}}</td>
                             <td>
-                                <a href="{{ route('editsmookingForm',$viewSmoking->id) }}"><span class="badge bg-success">Edit</span></a>
-                                <a href="{{ route('deleteSmooking',$viewSmoking->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                <a href="{{ route('editsmookingForm',$viewSmoking->id) }}"><span class="badge badge-success">Edit</span></a>
+                                <a href="{{ route('deleteSmooking',$viewSmoking->id) }}"><span class="badge badge-danger">Delete</span></a>
                             </td>
                         </tr>
                         @endforeach

@@ -53,7 +53,7 @@
                             <td>{{ $dealer->position }}</td>
                             
                             <td>
-                                <a href="{{route('dealersPurchase',$dealer->id)}}"><span class="badge bg-success">View Dealer Purchases</span></a>
+                                <a href="{{route('dealersPurchase',$dealer->id)}}"><span class="badge bg-success badge-success">View Dealer Purchases</span></a>
                             </td>
                         </tr>
 

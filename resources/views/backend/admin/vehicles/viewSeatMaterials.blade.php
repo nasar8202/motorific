@@ -52,8 +52,8 @@
                             <td>{{ $SeatMaterial->title }}</td>
                             <td><img src="{{ asset('materials/seat_material_iamges/'.$SeatMaterial->image) }}" width="100" height="100"></td>
                             <td>
-                                <a href="{{ route('editSeatMaterial.edit',$SeatMaterial->id) }}"><span class="badge bg-success">Edit</span></a>
-                                <a href="{{ route('deleteSeatMaterial.delete',$SeatMaterial->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                <a href="{{ route('editSeatMaterial.edit',$SeatMaterial->id) }}"><span class="badge badge-success">Edit</span></a>
+                                <a href="{{ route('deleteSeatMaterial.delete',$SeatMaterial->id) }}"><span class="badge badge-danger">Delete</span></a>
                             </td>
                         </tr>
                         @endforeach
