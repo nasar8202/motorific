@@ -569,15 +569,58 @@ class FrontController extends Controller
     {
         return view('frontend.seller.myLogin');
     }
-    public function longitude($zip)
+    public function longitude()
     {
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($zip)."&key=[YOUR KEY]";
+        $zip = 71000;
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
         $result_string = file_get_contents($url);
         $result = json_decode($result_string, true);
+        
         $result1[]=$result['results'][0];
         $result2[]=$result1[0]['geometry'];
         $result3[]=$result2[0]['location'];
-        return $result3[0];
+
+        $zipk = 74500;
+        $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_stringk = file_get_contents($urlk);
+        $resultk = json_decode($result_stringk, true);
+        
+        $resultk1[]=$resultk['results'][0];
+        $resultk2[]=$resultk1[0]['geometry'];
+        $resultk3[]=$resultk2[0]['location'];
+        // dd($resultk3[0]);
+
+
+
+        $long1 = deg2rad($result3[0]['lng']);
+        $long2 = deg2rad($resultk3[0]['lng']);
+        $lat1 = deg2rad($resultk3[0]['lat']);
+        $lat2 = deg2rad($resultk3[0]['lat']);
+          
+        //Haversine Formula
+        $dlong = $long2 - $long1;
+        $dlati = $lat2 - $lat1;
+          
+        $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
+          
+        $res = 2 * asin(sqrt($val));
+          
+        $radius = 3958.756;
+          
+        dd ($res*$radius.'miles');
+   
+
+   // latitude and longitude of Two Points
+//    $latitudeFrom = 19.017656 ;
+//    $longitudeFrom = 72.856178;
+//    $latitudeTo = 40.7127;
+//    $longitudeTo = -74.0059;
+     
+//    // Distance between Mumbai and New York
+//    print_r(twopoints_on_earth( $latitudeFrom, $longitudeFrom,
+//                  $latitudeTo,  $longitudeTo).' '.'miles');
+
+
     }
 
     public function testlocation(Request $request)

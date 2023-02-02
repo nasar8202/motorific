@@ -30,6 +30,7 @@
                             </ul>
                         </div>
                     </div> --}}
+                    @if($pricing->dealer_status == null)
                     <div class="bottomList">
                         <button class="btn btn-info meeting">Schedule A Meeting</button>
                         <button class="btn btn-danger cancelRequest">Cancel My Request</button>
@@ -71,6 +72,7 @@
                 </form>
                 </div>
                     </div>
+                    @endif
                     {{-- <div class="bottomList">
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-circle-notch"></i> Wheels and Tyres</h4>
@@ -135,9 +137,17 @@
                                       <h5>{{$allVehicles->vehicle_name}}</h5>
                                       <p>{{$allVehicles->vehicle_year}} . {{$allVehicles->vehicle_mileage}} . {{$allVehicles->vehicle_tank}} . {{$allVehicles->vehicle_type}}</p>
                                     </div>
-                                    {{-- <button type="button" >View Delivery Option</button> --}}
+                                    <br>
+                                   @if($pricing->dealer_status == null)
+                                    <div class="container">
+                                    <center><h5 type="button" >You Have Succesfully Purchase This Vehicle ?</h5>
+                                   <a href="{{route('dealerToDealerOrderStatus',$allVehicles->id)}}"> <span class="badge bg-success">Yes ✓</span></center></a>
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
+                                    </div>
+                                    @else
+                                    <button type="button" >Purchased  ✓</button>
+                                    @endif
                                 </div>
                             </form>
 
