@@ -47,6 +47,14 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('test', function () {
+	event(new App\Events\NewDealerRegisterNotification('Someone'));
+	return "Event has been sent!";
+});
+Route::get('test-no', function () {
+
+	return view('testnotif');
+});
 // how it works for dealer
 Route::get('/how-it-work', [HowItWorksController::class,'howItWorksforSeller'])->name('howItWorksforSeller');
 Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews');
@@ -314,6 +322,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/dealer-vehicle-update-price/{id}', [DealerVehicleController::class,'dealerVehicleUpdatePrice'])->name('dealerVehicleUpdatePrice');
     Route::get('/dealer-vehicle-detail/{id}', [DealerVehicleController::class,'viewDealerVehicleDetail'])->name('viewDealerVehicleDetail');
     Route::get('/dealer-vehicle-delete/{id}', [DealerVehicleController::class,'deleteDealerVehicle'])->name('deleteDealerVehicle');
+    Route::get('/dealer-vehicle-approved-by-admin/{id}', [DealerVehicleController::class,'approvedDealerVehicleByAdmin'])->name('approvedDealerVehicleByAdmin');
+    Route::get('/dealer-vehicle-deactivate-by-admin/{id}', [DealerVehicleController::class,'deactivateDealerVehicleByAdmin'])->name('deactivateDealerVehicleByAdmin');
 
 
     //end dealer vehicle

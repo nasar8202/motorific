@@ -22,7 +22,7 @@ p {
     </a>
 </header>
 <div class="page-heading">
-    
+
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
@@ -39,11 +39,11 @@ p {
             </div>
         </div>
     </div>
-  
+
  <div class="row dealer_vehicle_images">
-     
+
      @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
-     
+
      <div class="col-md-3 col-sm-6">
                     <img width="400px" height="200px" src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
               </div>
@@ -64,7 +64,7 @@ p {
                 <div class="sliderImgVehicleDetailRepeater">
                     <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? "") }}">
                 </div> --}}
-          
+
     </div>
 
     <div class="row">
@@ -80,15 +80,15 @@ p {
             <div class="mapAndText">
                 <p><strong>Collection:</strong> Available immediately</p>
                 <p><strong>Location:</strong> {{$vehicle->location ?? ''}} (9 miles away)
-                
-                
+
+
                 </p>
             </div>
             <div class="features bottomList">
                 <div class="bottomListTitle">
                     <h4><i class="fa-light fa-file-check"></i> Features</h4>
                     <ul>
-                     
+
                     </ul>
                 </div>
             </div>
@@ -123,7 +123,7 @@ p {
                         <li>Illumination<span>{{$vehicle->DealerVehicleHistory->illumination}}</span></li>
                         <li>Performance<span>{{$vehicle->DealerVehicleHistory->performance}}</span></li>
                         <li>Safety and Security<span>{{$vehicle->DealerVehicleHistory->safety_and_security}}</span></li>
-                   
+
                     </ul>
                 </div>
             </div>
@@ -225,7 +225,7 @@ p {
                     <div class="imgVehicle">
                         <img src="{{ URL::asset('frontend/seller/assets/image//box-1.png') }}" alt="">
                     </div>
-                    <div class="imgVehicle"> 
+                    <div class="imgVehicle">
                         <img src="{{ URL::asset('frontend/seller/assets/image//box-1.png') }}" alt="">
                     </div>
                     <div class="imgVehicle">
@@ -236,8 +236,8 @@ p {
                     </div>
                 </div>
             </div> --}}
-        </div> 
-        
+        </div>
+
     </div>
     <br>
     <section id="multiple-column-form" class="mt-4">
@@ -245,7 +245,7 @@ p {
             <form class="form" method="post" action="{{route('dealerVehicleUpdatePrice',$vehicle->id)}}" >
                 @csrf
             <div class="col-12">
-               
+
                 @if($vehicle->vehicle_availability == null && $vehicle->status != 2)
                 <div class="row match-height">
                     <div class="col-12">

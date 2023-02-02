@@ -68,13 +68,20 @@
                             @else
                             <td class=""><span class="badge badge-danger"> Deactivate </span></td>
                             @endif
-                            
+
                             <td>
                                 <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$DealerVehicle->DealerVehicleExterior[0]->exterior_image) }}" width="100" height="100">
                             </td>
                             <td>
                                 <a href="{{ route('viewDealerVehicleDetail',$DealerVehicle->id) }}" class="action_btn"><span class="badge bg-success">View Details</span></a>
                                 <a href="{{ route('deleteDealerVehicle',$DealerVehicle->id) }}" class="action_btn"><span class="badge bg-danger">Delete</span></a>
+                                @if ($DealerVehicle->status == 0)
+                                <a href="{{ route('approvedDealerVehicleByAdmin',$DealerVehicle->id) }}" class="action_btn"><span class="badge bg-primary">Activate</span></a>
+
+                                @elseif($DealerVehicle->status == 1)
+                                <a href="{{ route('deactivateDealerVehicleByAdmin',$DealerVehicle->id) }}" class="action_btn"><span class="badge bg-danger">Deactivate</span></a>
+
+                                @endif
                             </td>
                         </tr>
                         @empty

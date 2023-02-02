@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\BidedVehicle;
 use App\Models\vehicleInformation;
 use Illuminate\Database\Eloquent\Model;
@@ -43,6 +44,13 @@ class Vehicle extends Model
     {
 
         return $this->hasOne(BidedVehicle::class,'vehicle_id','id');
+
+    }
+    public function user()
+
+    {
+
+        return $this->hasOne(User::class,'id','user_id');
 
     }
 }

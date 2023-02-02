@@ -12,6 +12,7 @@ use App\Models\DealerAdvertVehicleDetail;
 use App\Models\DealerVehicleExteriorDetails;
 use App\Models\DealerVehicleInteriorDetails;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\VehicleImage;
 
 class DealerVehicle extends Model
 {
@@ -21,6 +22,13 @@ class DealerVehicle extends Model
     {
 
         return $this->hasOne(DealerAdvertVehicleDetail::class,'dealer_vehicle_id','id');
+
+    }
+    public function user()
+
+    {
+
+        return $this->hasOne(User::class,'id','user_id');
 
     }
     public function DealerVehicleExterior()
@@ -72,5 +80,5 @@ class DealerVehicle extends Model
         return $this->hasOne(DealerVehicleExteriorDetails::class,'dealer_vehicle_id','id');
 
     }
-    
+
 }
