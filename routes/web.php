@@ -443,6 +443,9 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/review-cancelation', [DealerChargesController::class,'reviewForCancel'])->name('reviewForCancel');
     Route::post('/schedule-meeting', [DealerChargesController::class,'scheduleMeeting'])->name('scheduleMeeting');
     Route::post('/owner-schedule-meeting', [DealerChargesController::class,'ownerScheduleMeeting'])->name('ownerScheduleMeeting');
+    Route::get('/dealer-to-dealer-order-status/{id}', [DealerChargesController::class,'dealerToDealerOrderStatus'])->name('dealerToDealerOrderStatus');
+    Route::get('/requested-order-status/{id}', [DealerChargesController::class,'requestedOrderStatus'])->name('requestedOrderStatus');
+    Route::get('/Bided-status/{id}', [DealerChargesController::class,'BidedStatus'])->name('BidedStatus');
 
 });
 

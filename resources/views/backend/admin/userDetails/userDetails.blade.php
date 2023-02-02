@@ -53,11 +53,11 @@
                             <td>{{ $viewUser->phone_number }}</td>
                             <td>{{ $viewUser->post_code }}</td>
                             <td>
-                                <a href="{{ route('editUserForm',$viewUser->id) }}"><span class="badge bg-success">Edit</span></a>
+                                <a href="{{ route('editUserForm',$viewUser->id) }}"><span class="badge badge-success">Edit</span></a>
                                 @if ($viewUser->status == 1)
-                                <a href="{{ route('deleteUser',$viewUser->id) }}"><span class="badge bg-danger">Disable</span></a>
+                                <a href="{{ route('deleteUser',$viewUser->id) }}"><span class="badge badge-danger">Disable</span></a>
                                 @else
-                                <a href="{{ route('enableUser',$viewUser->id) }}"><span class="badge bg-primary">Enable</span></a>
+                                <a href="{{ route('enableUser',$viewUser->id) }}"><span class="badge badge-success">Enable</span></a>
                                 @endif
                             </td>
                         </tr>

@@ -52,8 +52,8 @@
                             <td>{{ $viewPrivatePlate->title }}</td>
                             <td><img src="{{ asset('/plates/private_plate_iamges/'.$viewPrivatePlate->image) }}" width="100" height="100"></td>
                             <td>
-                                <a href="{{ route('editPrivatePlateForm',$viewPrivatePlate->id) }}"><span class="badge bg-success">Edit</span></a>
-                                <a href="{{ route('deletePrivatePlate',$viewPrivatePlate->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                <a href="{{ route('editPrivatePlateForm',$viewPrivatePlate->id) }}"><span class="badge badge-success">Edit</span></a>
+                                <a href="{{ route('deletePrivatePlate',$viewPrivatePlate->id) }}"><span class="badge badge-danger">Delete</span></a>
                             </td>
                         </tr>
                         @endforeach

@@ -66,13 +66,29 @@
 
             <div class="head-btns  justify-content-between">
                 @guest
-                    <button><a href="{{ route('myLogin') }}">Sign In</a></button>
-                    @if (Route::has('register'))
-                        <button><a href="{{ route('registration') }}">Sign Up</a></button>
-                    @endif
-                @else
-                    <a style="color: black" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <div class="dropdown">
+                    <span>More</span>
+                    <div class="dropdown-content">
+
+                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+
+                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
+                    </div>
+                </div>
+                @endguest
+            </ul>
+        </div>
+
+        <div class="head-btns  justify-content-between">
+            @guest
+            <button><a href="{{ route('myLogin') }}">Sign In</a></button>
+            @if (Route::has('register'))
+            <button><a href="{{ route('registration') }}">Sign Up</a></button>
+            @endif
+            @else
+
+                    <a style="color: black" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
 

@@ -49,6 +49,50 @@ a.action_btn:nth-child(2) {
     display: block;
     margin-bottom: 30px;
 }
+/*Tables Buttons*/
+.badge-success {
+    /*background-color: #435ebed9 !important;*/
+    background-color: #435ebe!important;
+    color: #fff !important;
+    border: none !important;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 7px 10px;
+}
+.badge-danger {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: none !important;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 7px 10px;
+}
+
+/*End*/
+
+/*Vehicle Specification*/
+.list-spec {
+    list-style: none;
+    background: #fff;
+    padding: 14px 30px 20px 30px;
+    margin: 14px 0 20px 0;
+    /*box-shadow: 0 0 4px -4px #e3e3e3;*/
+}
+
+.list-spec li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+}
+
+.list-spec li:nth-child(even) {
+    background: #e3e3e36b;
+}
+
+/*End*/
+
+
+
 
 
 

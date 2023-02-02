@@ -79,7 +79,7 @@ class DealerChargesController extends Controller
 
         $user_id = Auth::user()->id;
         $charges =  DealerWinningCharges::where('user_id',$user_id)->where('vehicle_id',$id)->first();
-        $pricing = OrderVehicleRequest::where('vehicle_id',$id)->first();
+        $pricing = OrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$user_id)->first();
 
        $charges_fee = VehicleWinningCharges::where('status',1)
        ->where('price_to','>=',$pricing->request_price)
@@ -250,7 +250,7 @@ class DealerChargesController extends Controller
 
        $charges =  DealerWinningCharges::where('user_id',$user_id)->where('dealer_vehicle_id',$id)->first();
 
-       $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->first();
+       $pricing = DealersOrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$user_id)->first();
         //   dd($pricing);
        $charges_fee = VehicleWinningCharges::where('status',1)
        ->where('price_to','>=',$pricing->request_price)
@@ -281,6 +281,72 @@ class DealerChargesController extends Controller
             ->with('error',$e->getMessage() )
             ->withInput();
     }
+    }
+    public function dealerToDealerOrderStatus($id)
+    {
+        $current = Auth::user()->id;
+        $order = DealersOrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
+        if($order->meeting_date_time == null){
+            return redirect()->back()->with('warning','You Havent Set Any Meeting Yet, First You Need To Set The Meeting.');
+        }
+        else if($order->meeting_status == 'Completed'){
+            $allVehicles = DealerVehicle::where('id',$order->vehicle_id)->first();
+            $allVehicles->status = 2;
+            $allVehicles->vehicle_availability = 'Sold';
+            $allVehicles->save();
+            $order->dealer_status = 'Yes';
+            $order->save();
+            return redirect()->back()->with('success','You Have Completely Purchase This Vehicle');
+
+        }
+        else{
+            return redirect()->back()->with('warning','Seller Didnt Updated Meeting Status');
+
+        }
+    }
+    public function requestedOrderStatus($id)
+    {
+        $current = Auth::user()->id;
+        $order = OrderVehicleRequest::where('vehicle_id',$id)->where('user_id',$current)->first();
+        if($order->meeting_date_time == null){
+            return redirect()->back()->with('warning','You Havent Set Any Meeting Yet, First You Need To Set The Meeting.');
+        }
+        else if($order->meeting_status == 'Completed'){
+            $allVehicles = Vehicle::where('id',$order->vehicle_id)->first();
+            $allVehicles->status = 2;
+            $allVehicles->vehicle_availability = 'Sold';
+            $allVehicles->save();
+            $order->dealer_status = 'Yes';
+            $order->save();
+            return redirect()->back()->with('success','You Have Completely Purchase This Vehicle');
+
+        }
+        else{
+            return redirect()->back()->with('warning','Seller Didnt Updated Meeting Status');
+
+        }
+    }
+    public function BidedStatus($id)
+    {
+        $current = Auth::user()->id;
+        $order = BidedVehicle::where('vehicle_id',$id)->where('user_id',$current)->first();
+        if($order->meeting_date_time == null){
+            return redirect()->back()->with('warning','You Havent Set Any Meeting Yet, First You Need To Set The Meeting.');
+        }
+        else if($order->meeting_status == 'Completed'){
+            $allVehicles = Vehicle::where('id',$order->vehicle_id)->first();
+            $allVehicles->status = 2;
+            $allVehicles->vehicle_availability = 'Sold';
+            $allVehicles->save();
+            $order->dealer_status = 'Yes';
+            $order->save();
+            return redirect()->back()->with('success','You Have Completely Purchase This Vehicle');
+
+        }
+        else{
+            return redirect()->back()->with('warning','Seller Didnt Updated Meeting Status');
+
+        }
     }
 
 }
