@@ -214,6 +214,7 @@ div#filter-price {
                         </label>
                     </div> --}}
                     <button type="button" class="btn btn-primary" id="subm"> Filter</button>
+                    <a href="" class="btn btn-danger" id="subm">Clear Filter</a>
                 </form>
             </div>
         </div>

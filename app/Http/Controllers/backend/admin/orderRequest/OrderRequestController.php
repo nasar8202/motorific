@@ -14,8 +14,14 @@ use App\Mail\approveOrderdWithAdminUpdated;
 
 class OrderRequestController extends Controller
 {
-    public function orderRequest(){
-    $orders = OrderVehicleRequest::with('user')->with('vehicle')->get();
+  public function orderVehicle(){
+    $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->where('all_auction','!=',null)->get();
+
+    return view('backend.admin.orderVehicleRequests.orderVehicle',compact('vehicles'));
+
+    }
+    public function orderRequest($id){
+    $orders = OrderVehicleRequest::where('vehicle_id',$id)->with('user')->with('vehicle')->get();
 
     return view('backend.admin.orderVehicleRequests.requestsVehicle',compact('orders'));
 

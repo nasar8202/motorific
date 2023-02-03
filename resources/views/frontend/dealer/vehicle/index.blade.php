@@ -71,8 +71,14 @@ div#filter-price {
   </div>
 
 </div> --}}
+<div class="loader-container">
+    <div class="loader">
+        <span></span>
+    </div>
+</div>
 <section class="sec-2 productPageTn">
     <input type="hidden" id="path" value="{{ asset('')}}">
+    
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
@@ -213,6 +219,7 @@ div#filter-price {
                         </label>
                     </div> --}}
                     <button type="button" class="btn btn-primary" id="subm"> Filter</button>
+                    <a href="" class="btn btn-danger" id="subm">Clear Filter</a>
                 </form>
             </div>
         </div>
@@ -271,12 +278,12 @@ div#filter-price {
                 @endforelse
                 </div>
                 <div id="loop" class="filter-price">
-                <div class=""  id="no-record" >
-
-
-                </div>
+                
             </div>
+            <div class=""  id="no-record" >
 
+
+            </div>
 
 
         </div>
@@ -293,7 +300,10 @@ div#filter-price {
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <script type="text/javascript">
+
+
 $(document).ready(function(){
+
     var path = $('#path').val();
     
     $('#dropdownfilter').on('change', function() {
@@ -382,11 +392,11 @@ $(document).ready(function(){
             // console.log(resultData)
             var bodyData = '';
             var count = resultData.length;
-
+                console.log(count);
             if(count > 0){
                 $("#first").hide();
                 $(".count").html("");
-                $(".count").html("Showing " +count+ " vehicles");
+                $(".count").html("Showing " +count+ "vehicles");
 
             $.each(resultData,function(resultData,row){
                     bodyData+='<div class="col-lg-3 col-md-3 blur_action mb-5"><a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
@@ -402,8 +412,8 @@ $(document).ready(function(){
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
+                $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
                 $(".filter-price").html('');
-            $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
             }
             },
 

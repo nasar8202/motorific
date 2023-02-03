@@ -181,7 +181,7 @@
        
     </li>
     <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
-        <a href="{{route('orderRequest')}}" class='sidebar-link'>
+        <a href="{{route('orderVehicle')}}" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Order Vehicle Request</span>
         </a>
@@ -189,7 +189,7 @@
     </li>
     <li class="   {{ (Request::is('admin') || request()->IS('/admin/live-sell') || request()->IS('/admin/live-sell') ? 'active' : '') }} ">
         
-        <a href="{{route('viewDealerOrderVehicle')}}" class='sidebar-link'>
+        <a href="{{route('dealersOrderdVehicle')}}" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Order Vehicle Request <small>Dealer To Dealer Vehicles</small></span>
             

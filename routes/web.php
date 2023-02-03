@@ -305,7 +305,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      //end pricning
 
      //request order price
-     Route::get('/order-request', [OrderRequestController::class,'orderRequest'])->name('orderRequest');
+     Route::get('/order-request-vehicle', [OrderRequestController::class,'orderVehicle'])->name('orderVehicle');
+     Route::get('/order-request/{id}', [OrderRequestController::class,'orderRequest'])->name('orderRequest');
      Route::get('/order-request-meeting', [OrderRequestController::class,'orderRequestMeeting'])->name('orderRequestMeeting');
      Route::get('/dealer-order-request-meeting', [OrderRequestController::class,'dealerOrderRequestMeeting'])->name('dealerOrderRequestMeeting');
      Route::get('/order-user-detail/{id}', [OrderRequestController::class,'orderdUserDetail'])->name('orderdUserDetail');
@@ -329,7 +330,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     //end dealer vehicle
 
     //dealer order vehicle request
-    Route::get('/dealer-order-vehicle-request', [DealerOrderVehicleRequestController::class,'viewDealerOrderVehicle'])->name('viewDealerOrderVehicle');
+    Route::get('/dealersOrderdVehicle', [DealerOrderVehicleRequestController::class,'dealersOrderdVehicle'])->name('dealersOrderdVehicle');
+    
+    Route::get('/dealer-order-vehicle-request/{id}', [DealerOrderVehicleRequestController::class,'viewDealerOrderVehicle'])->name('viewDealerOrderVehicle');
     Route::get('/orderd-dealer-detail/{id}', [DealerOrderVehicleRequestController::class,'orderdDealerDetail'])->name('orderdDealerDetail');
     Route::get('/dealers-orderd-vehicle-detail/{id}', [DealerOrderVehicleRequestController::class,'dealersOrderdVehicleDetail'])->name('dealersOrderdVehicleDetail');
     Route::get('/vehicle-owner-detail/{id}', [DealerOrderVehicleRequestController::class,'vehicleOwnerDetails'])->name('vehicleOwnerDetails');

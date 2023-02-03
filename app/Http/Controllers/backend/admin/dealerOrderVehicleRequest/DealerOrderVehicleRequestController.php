@@ -14,9 +14,22 @@ use App\Mail\approveDealersOrderdWithAdminUpdated;
 
 class DealerOrderVehicleRequestController extends Controller
 {
-    public function viewDealerOrderVehicle()
+  public function dealersOrderdVehicle(){
+
+    $vehicles = DealerVehicle::
+    with('DealerVehicleHistory')
+    ->with('DealerVehicleExterior')
+    ->with('DealerVehicleInterior')
+    ->get();
+
+
+    return view('backend.admin.DealersorderVehicleRequests.dealerOrderVehicle',compact('vehicles'));
+
+     }
+  
+    public function viewDealerOrderVehicle($id)
     {
-        $orders = DealersOrderVehicleRequest::with('user')->with('vehicle')->get();
+        $orders = DealersOrderVehicleRequest::where('vehicle_id',$id)->with('user')->with('vehicle')->get();
 
 
         return view('backend.admin.DealersorderVehicleRequests.dealersRequestsVehicle',compact('orders'));
