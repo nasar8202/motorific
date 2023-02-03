@@ -138,7 +138,7 @@ class MultiStepRegistration extends Controller
 
     public function PostcreateStep3(Request $request)
     {
-        // dd($request->session()->get('register'));
+        // dd($request->session()->get('postcode'));
         $validatedData = $request->validate([
             'lowest_purchase_price' => 'required',
             'highest_purchase_price' => 'required',
@@ -192,7 +192,7 @@ class MultiStepRegistration extends Controller
         $user->hear_about_us = $request->session()->get('hear_about_us');
         $user->phone_number = $request->session()->get('phone_number');
         $user->privacy_policy = $request->session()->get('privacy_policy');
-        $user->post_code = $request->session()->get('post_code');
+        $user->post_code = $request->session()->get('postcode');
         $user->status = 0;
         $user->role_id = 3;
         //dd($register->email);
