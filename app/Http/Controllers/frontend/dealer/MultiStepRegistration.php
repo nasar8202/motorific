@@ -106,10 +106,6 @@ class MultiStepRegistration extends Controller
             $result = json_decode($result_string, true);
             if (count($result['results']) != 0) {
 
-
-
-
-
                 $request->session()->put('address_line_1', $request->input('address_line_1'));
                 $request->session()->put('address_line_2', $request->input('address_line_2'));
                 $request->session()->put('city', $request->input('city'));

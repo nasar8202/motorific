@@ -125,7 +125,7 @@
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
                         <span class="text text-success mt-4 found">Vehicle Is Found <i class="fa-solid fa-check"></i></span>
                         <br>
-                        <input type="text" name="millage" placeholder="Enter Millage">
+                        <input type="number" name="millage" placeholder="Enter Millage">
                         <input type="hidden" name="registeration" class="registeration" value="">
                         <button type="submit">Continue</button>
 
