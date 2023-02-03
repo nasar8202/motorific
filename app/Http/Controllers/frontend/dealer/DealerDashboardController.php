@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend\dealer;
 
+use Exception;
 use Carbon\Carbon;
 use App\Models\Finance;
 use App\Models\Smoking;
@@ -10,6 +11,7 @@ use App\Models\ToolPack;
 use App\Models\VCLogBook;
 use App\Models\NumberOfKey;
 use App\Models\BidedVehicle;
+use App\Models\LiveSaleTime;
 use App\Models\PrivatePlate;
 use App\Models\SeatMaterial;
 use App\Models\VehicleImage;
@@ -28,12 +30,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\DealerVehicleExterior;
 use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
 use App\Models\DealersOrderVehicleRequest;
-use App\Models\LiveSaleTime;
-use App\Models\DealerVehicleExterior;
 
 class DealerDashboardController extends Controller
 {
@@ -475,11 +476,13 @@ class DealerDashboardController extends Controller
             $query_string = $query_string_First_Part.$query_string_second_part.$query_string_third_part;
              //dd($query_string);
             $dealerToDealerVehicleFilter = DB::select(DB::raw($query_string));
+            // dd($dealerToDealerVehicleFilter);
             if($dealerToDealerVehicleFilter != null){
             foreach($dealerToDealerVehicleFilter as $d){
             $exterior[] = DealerVehicleExterior::where('dealer_vehicle_id',$d->id)->first();
         }
-            $pic = $exterior[0];
+            $pic = $exterior;
+          
             $data = ['dealerToDealerVehicleFilter'=>$dealerToDealerVehicleFilter,'pic'=>$pic];
           return $data;
         }
@@ -1015,6 +1018,7 @@ die();
     }
     public function vehicleDetail($id)
     {
+      try{
         $vehicle = Vehicle::Where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
 
         $vehicle_info = vehicleInformation::where('vehicle_id',$id)->first();
@@ -1031,10 +1035,60 @@ die();
         $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
         $LockingWheelNut = LockingWheelNut::where('id',$vehicle_info->looking_wheel_nut_id)->first();
         $order = OrderVehicleRequest::where('vehicle_id',$vehicle->id)->orderBy('request_price','DESC')->first();
+        //finding distance between seller and dealer code
+        $current_user = Auth::user();
+        $user = User::where('id',$vehicle->user_id)->first();
+        
+        $zip = $current_user->post_code;
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_string = file_get_contents($url);
+        $result = json_decode($result_string, true);
+        
+        $result1[]=$result['results'][0];
+        $result2[]=$result1[0]['geometry'];
+        $result3[]=$result2[0]['location'];
+
+        $zipk = $user->post_code;
+        $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_stringk = file_get_contents($urlk);
+        $resultk = json_decode($result_stringk, true);
+
+        
+        $resultk1[]=$resultk['results'][0];
+        $resultk2[]=$resultk1[0]['geometry'];
+        $resultk3[]=$resultk2[0]['location'];
+        // dd($resultk3[0]['lat'],$resultk3[0]['lng']);
+      
+        $lat = strval($resultk3[0]['lat']);
+        $lng = strval($resultk3[0]['lng']);
+        
 
 
-
-        return view('frontend.dealer.vehicle.vehicleDetail',compact('exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
+        $long1 = deg2rad($result3[0]['lng']);
+        $long2 = deg2rad($resultk3[0]['lng']);
+        $lat1 = deg2rad($resultk3[0]['lat']);
+        $lat2 = deg2rad($resultk3[0]['lat']);
+          
+        //Haversine Formula
+        $dlong = $long2 - $long1;
+        $dlati = $lat2 - $lat1;
+          
+        $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
+          
+        $res = 2 * asin(sqrt($val));
+          
+        $radius = 3958.756;
+          
+       $distance = floor($res*$radius);
+      }
+      catch(Exception $e)
+      {
+          DB::rollback();
+          return Redirect()->back()
+              ->with('error',$e->getMessage() )
+              ->withInput();
+      }
+        return view('frontend.dealer.vehicle.vehicleDetail',compact('lat','lng','distance','exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
     }
     public function dashboard()
     {
@@ -1058,7 +1112,8 @@ die();
 
     }
     public function dealersVehicleDetail($id){
-        $vehicle = DealerVehicle::Where('status',1)->where('id',$id)
+      try{
+      $vehicle = DealerVehicle::Where('status',1)->where('id',$id)
         ->with('DealerAdvertVehicleDetail')
         ->with('DealerVehicleExterior')
         ->with('DealerVehicleHistory')
@@ -1066,9 +1121,61 @@ die();
         ->with('DealerVehicleMedia')
         ->with('DealerVehicleTyre')
         ->first();
+        $bids =DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->get();
+        $allbid = count($bids);
         // dd($vehicle);
+ //finding distance between seller and dealer code
+        $current_user = Auth::user();
+        $user = User::where('id',$vehicle->user_id)->first();
+        
+        $zip = $current_user->post_code;
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_string = file_get_contents($url);
+        $result = json_decode($result_string, true);
+        
+        $result1[]=$result['results'][0];
+        $result2[]=$result1[0]['geometry'];
+        $result3[]=$result2[0]['location'];
 
-        return view('frontend.dealer.vehicle.dealerVehicleDetail',compact('vehicle'));
+        $zipk = $user->post_code;
+        $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_stringk = file_get_contents($urlk);
+        $resultk = json_decode($result_stringk, true);
+        
+        $resultk1[]=$resultk['results'][0];
+        $resultk2[]=$resultk1[0]['geometry'];
+        $resultk3[]=$resultk2[0]['location'];
+        // dd($resultk3[0]);
+        $lat = strval($resultk3[0]['lat']);
+        $lng = strval($resultk3[0]['lng']);
+
+
+        $long1 = deg2rad($result3[0]['lng']);
+        $long2 = deg2rad($resultk3[0]['lng']);
+        $lat1 = deg2rad($resultk3[0]['lat']);
+        $lat2 = deg2rad($resultk3[0]['lat']);
+          
+        //Haversine Formula
+        $dlong = $long2 - $long1;
+        $dlati = $lat2 - $lat1;
+          
+        $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
+          
+        $res = 2 * asin(sqrt($val));
+          
+        $radius = 3958.756;
+          
+       $distance = floor($res*$radius);
+       
+      }
+      catch(Exception $e)
+      {
+          DB::rollback();
+          return Redirect()->back()
+              ->with('error',$e->getMessage() )
+              ->withInput();
+      }
+        return view('frontend.dealer.vehicle.dealerVehicleDetail',compact('vehicle','distance','allbid','lat','lng'));
     }
     public function buyItNow()
     {

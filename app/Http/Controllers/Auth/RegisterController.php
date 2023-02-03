@@ -141,8 +141,14 @@ class RegisterController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
-        try{
+        $zip = trim($request->post_code, ' ');
+        
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
 
+        try{
+            $result_string = file_get_contents($url);
+            $result = json_decode($result_string, true);
+            if (count($result['results']) != 0) {
         $password = Str::random(10);
          $user = new User;
          $user->name = $request->name;
@@ -158,7 +164,7 @@ class RegisterController extends Controller
              'password' => $password,
             ];
         //     $abc = Auth::attempt(['email' => $user->email, 'password' => $password]);
-            // dd($user);
+
         $details = [
             'greeting' => $user->name,
             'email'=>$user->email,
@@ -178,7 +184,6 @@ class RegisterController extends Controller
         if($request->registeration_with_pass == "yes"){
         if (Auth::attempt($credentials)) {
                 $currentUser = Auth::user()->id;
-
         $vehicleCategories = vehicleCategories::all();
         $VehicleFeature = VehicleFeature::all();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
@@ -256,12 +261,12 @@ class RegisterController extends Controller
         else{
             return redirect()->route('myLogin')->with('success','Register Successfully. Check Your Email For Password To Login!');
         }
+    } else {
+        return back()->with('error', 'Enter The Right Post Code');
+    }
     }catch(\Exception $e)
     {
-       //return $e;
-        return Redirect()->back()
-            ->with('error',$e->getMessage() )
-            ->withInput();
+        return back()->with('error', 'Enter The Right Post Code');
     }
     }
 }

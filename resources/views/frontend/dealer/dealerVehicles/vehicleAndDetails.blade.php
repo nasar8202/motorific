@@ -509,7 +509,7 @@
                             <label for="advert_description" class="label-main-text f-20"> Advert description </label>
                             <textarea class="textarea-qa" name="advert_description" id="advert_description" cols="30" rows="10">{{old('advert_description') ?? request()->session()->get('advert_description') }}</textarea>
                             <p class="dflexBt f-18 mt-1">
-                                <span class="c-blue">Need help?</span>
+                                {{-- <span class="c-blue">Need help?</span> --}}
                                 <span class="c-gray">1500 characters left</span>
                             </p>
                         </div>
@@ -654,15 +654,7 @@
                                 Continue to Vehicle Details
                             </button>
                         </div> --}}
-                        <div class="bt-btns-main d-flex">
-                            <button type="button" class="btn-trans step2-back-btn">
-                                <i class="fa-solid fa-arrow-left-long"></i>
-                                <span><a href="{{route('dealer.vehicleListing')}}">Go Back</a></span>
-                            </button>
-                            {{-- <button type="submit" class="btn-trans step2-btn-save">
-                                Save for Now
-                            </button> --}}
-                        </div>
+                        
 
                     </div>
 
@@ -719,13 +711,12 @@
     <div class="container-1200">
         <!--interior -->
         <div class="step-main-1">
-            <div class="parts-hide-show">
-                <form>
+            {{-- <div class="parts-hide-show">
                     <p>Do you have any damage on this vehicle</p>
                     <label><input type="radio" name="damage_any" value="yes" class="parts-yes"> Yes</label>
                     <label><input type="radio" name="damage_any" value="no"  class="parts-no" checked> No</label>
-                </form>
-            </div>
+                
+            </div> --}}
             <div class="step-main-wrap ">
             <!--<div id="svg_wrap"></div>-->
             <h1 class="step-main-head">Interior Information</h1>
@@ -1256,13 +1247,12 @@
         </div>
         <!--exterior -->
         <div class="step-main-2">
-             <div class="parts-hide-show">
-                <form>
+             {{-- <div class="parts-hide-show">
                     <p>Do you have any damage on this vehicle</p>
                     <label><input type="radio"  name="damage_any_second" value="yes" class="parts-yes"> Yes</label>
                     <label><input type="radio" name="damage_any_second" value="no" class="parts-no" checked> No</label>
-                </form>
-            </div>
+ 
+            </div> --}}
             <div class="step-main-wrap">
             <div id="svg_wrap_ext"></div>
             <h1 class="step-main-head">Exterior Information</h1>
@@ -1682,6 +1672,16 @@
 
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
+       
+        </div>
+        <div class="bt-btns-main d-flex">
+            <button type="button" class="btn-trans step2-back-btn">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                <span><a href="{{route('dealer.vehicleListing')}}">Go Back</a></span>
+            </button>
+            {{-- <button type="submit" class="btn-trans step2-btn-save">
+                Save for Now
+            </button> --}}
         </div>
         </div>
     </div>

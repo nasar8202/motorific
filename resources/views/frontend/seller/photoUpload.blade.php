@@ -31,10 +31,10 @@ display: block;
                 <a href="{{ route('sellMyCar') }}">
                     <li>Sell My Car</li>
                 </a>
-                <a href="#">
+                <a href="{{ route('howItWorksforSeller') }}">
                     <li>How It Works</li>
                 </a>
-                <a href="#">
+                <a href="{{ route('reviews') }}">
                     <li>Reviews</li>
                 </a>
                 <a href="#">

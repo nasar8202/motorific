@@ -34,11 +34,19 @@
                     </div>
                     <div class="mapAndText">
                         {{-- <p><strong>Collection:</strong> Available immediately</p> --}}
-                        <p><strong>Location:</strong> {{$vehicle->vehicleInformation->location}} (9 miles away)
-                        
-                        
+                        <p><strong>Location:</strong> {{$vehicle->vehicleInformation->location}} ({{$distance ?? ''}} miles away)
                         </p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1735296.3457931995!2d-2.163602670085061!3d53.0821386019051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487661882e969811%3A0xb25284f05eccc5c2!2sMarlow%2C%20UK!5e0!3m2!1sen!2s!4v1667457325449!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        @php
+                        // $variable = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk&q=$lng,$lat";
+                        // echo(floatval($lng) . "<br>");
+                        // die;
+                        $map = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk&q=$lat,$lng";
+                        @endphp
+                        {{-- <iframe src="https://www.google.com//maps?q='.$lat.','.$lng.'.&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
+                        <iframe src="{{$map}}"></iframe>   
+                        {{-- <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk&q=68.3644298,25.3605804"></iframe>    --}}
+                        
+                        {{-- @dd($lat,$lng) --}}
                     </div>
                     <div class="features bottomList">
                         <div class="bottomListTitle">
@@ -134,6 +142,7 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="bottomList">
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-bolt"></i>Exterior Information</h4>
@@ -204,7 +213,7 @@
                                 @if($vehicle->all_auction == 'all')
                                 <li >Higesht Offer<span> <a href="#">@if(isset($order->request_price)) {{$order->request_price}}@endif</a></span></li>
                                 @else
-                                <li >Live Salaes end <span>3h 53m 26s <a href="#">1 Bid</a></span></li>
+                                <li >Live Sales end <span>3h 53m 26s <a href="#"></a></span></li>
                                 @endif
                                 <li >valuation <span><i class="fas fa-chevron-down" id="dynamic-ar"></i></span></li>
                                 <li class="hidden">Retail:<span> €{{$vehicle->retail_price}} </span></li>
@@ -279,6 +288,8 @@
 </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 <script type="text/javascript">
   $(document).ready(function(){
     $(".spinner-border").hide();

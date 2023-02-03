@@ -40,19 +40,19 @@
                                     <h2 class="fs-title">Dealership details</h2>
                                     <div class="form-group">
                                         <label>Address line 1 *</label>
-                                        <input type="text" name="address_line_1"  placeholder="Enter description" value="{{ session()->get('address_line_1') }}" required>
+                                        <input type="text" name="address_line_1"  placeholder="Enter Address Line 1" value="{{ session()->get('address_line_1') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Address line 2 *</label>
-                                        <input type="text" name="address_line_2"  placeholder="Enter description" value="{{ session()->get('address_line_2') }}" required>
+                                        <input type="text" name="address_line_2"  placeholder="Enter Address line 2" value="{{ session()->get('address_line_2') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Town / city *</label>
-                                        <input type="text" name="city"  placeholder="Enter description" value="{{ session()->get('city') }}" required>
+                                        <input type="text" name="city"  placeholder="Enter City" value="{{ session()->get('city') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Postcode *</label>
-                                        <input type="text" name="postcode"  placeholder="Enter description" value="{{ session()->get('postcode') }}" required>
+                                        <input type="text" name="postcode"  placeholder="Enter Post Code" value="{{ session()->get('postcode') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Company type *</label>
