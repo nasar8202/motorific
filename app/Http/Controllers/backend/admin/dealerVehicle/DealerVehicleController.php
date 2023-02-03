@@ -10,14 +10,15 @@ use App\Models\DealerVehicleTyres;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\DealerVehicleHistory;
+use Illuminate\Support\Facades\Mail;
 use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
 use App\Models\DealerAdvertVehicleDetail;
+use App\Mail\dealerVehicleApprovedByAdmin;
+use App\Models\DealersOrderVehicleRequest;
+use App\Mail\dealerVehicleDeactivateByAdmin;
 use App\Models\DealerVehicleExteriorDetails;
 use App\Models\DealerVehicleInteriorDetails;
-use App\Models\DealersOrderVehicleRequest;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\dealerVehicleApprovedByAdmin;
 
 class DealerVehicleController extends Controller
 {
@@ -34,6 +35,28 @@ class DealerVehicleController extends Controller
         if($vehicle->vehicle_price != null){
             $vehicle->status = 1;
             $vehicle->save();
+            $front = $vehicle->DealerVehicleExterior[0]->exterior_image;
+
+            $originalDate = $vehicle->updated_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+
+
+            $data = ([
+                'name' => $vehicle->user->name,
+                'email' => $vehicle->user->email,
+                'date' => $winDate.' at '.$winTime,
+                'bidded_price'=>$vehicle->vehicle_price,
+                'vehicle_registration'=>$vehicle->vehicle_registartion_number,
+                'vehicle_name'=>$vehicle->vehicle_name,
+                'vehicle_mileage'=>$vehicle->vehicle_mileage,
+                'front'=>$front,
+                'colour'=>$vehicle->vehicle_color,
+                'age'=>$vehicle->vehicle_year,
+
+            ]);
+            Mail::to($vehicle->user->email)->send(new dealerVehicleApprovedByAdmin($data));
+
             return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
         }
         elseif($vehicle->status == 1){
@@ -42,29 +65,7 @@ class DealerVehicleController extends Controller
         }else{
             return redirect()->route('viewDealerVehicle')->with('alert', 'First Update Vehicle Prices!');
         }
-        $front = $vehicle->DealerVehicleExterior[0]->exterior_image;
 
-        $originalDate = $vehicle->updated_at;
-        $winDate = date("d F Y ", strtotime($originalDate));
-        $winTime = date("H:i:s a", strtotime($originalDate));
-
-
-        $data = ([
-            'name' => $vehicle->user->name,
-            'email' => $vehicle->user->email,
-            'date' => $winDate.' at '.$winTime,
-            'bidded_price'=>$vehicle->vehicle_price,
-            'vehicle_registration'=>$vehicle->vehicle_registartion_number,
-            'vehicle_name'=>$vehicle->vehicle_name,
-            'vehicle_mileage'=>$vehicle->vehicle_mileage,
-            'front'=>$front,
-            'colour'=>$vehicle->vehicle_color,
-            'age'=>$vehicle->vehicle_year,
-
-        ]);
-        Mail::to($vehicle->user->email)->send(new dealerVehicleApprovedByAdmin($data));
-
-        return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
 
     }
 
@@ -72,17 +73,10 @@ class DealerVehicleController extends Controller
     {
         $vehicle = DealerVehicle::with('user')->with('DealerVehicleExterior')->where('id',$id)->first();
         // dd($vehicle);
-        if($vehicle->vehicle_price != null){
+
             $vehicle->status = 0;
             $vehicle->save();
-            return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
-        }
-        elseif($vehicle->status == 1){
-            return redirect()->route('viewDealerVehicle')->with('alert', 'Your Vehicle Is Already Approve!');
 
-        }else{
-            return redirect()->route('viewDealerVehicle')->with('alert', 'First Update Vehicle Prices!');
-        }
         $front = $vehicle->DealerVehicleExterior[0]->exterior_image;
 
         $originalDate = $vehicle->updated_at;
@@ -103,9 +97,9 @@ class DealerVehicleController extends Controller
             'age'=>$vehicle->vehicle_year,
 
         ]);
-        Mail::to($vehicle->user->email)->send(new dealerVehicleApprovedByAdmin($data));
+        Mail::to($vehicle->user->email)->send(new dealerVehicleDeactivateByAdmin($data));
 
-        // return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
+        return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
 
     }
     public function dealerVehicleUpdatePrice(Request $request ,$id)
