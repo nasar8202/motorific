@@ -62,7 +62,7 @@
                             <a class="badge badge-success" href="{{route('orderdSellerDetail',$order->vehicle->user_id)}}" >Seller Details </a>
                             @if($order->status == 0)
                             <a class="badge badge-success" href="{{route('approveOrderd',['id'=>$order->id,'vId'=>$order->vehicle->id])}}" >Approve Order Request </a>
-                            <a role="button" class="badge badge-success mt-1" data-bs-toggle="modal"
+                            <a role="button" class="badge badge-success mt-1 price" data-bs-toggle="modal"
                             data-bs-target="#default"  data-id="{{$order->id}}">
                             Update Price
                         </a>
@@ -168,6 +168,7 @@
 $(document).ready(function(){
     $('.price').on('click', function() {
         var id = $('.price').attr("data-id");
+        // console.log('dsadasa');
         $("#orderId").val(id);
         
             $('#newPrice').on('keyup', function() {
