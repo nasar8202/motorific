@@ -82,6 +82,10 @@
 .alert-light-secondary {
     background-color: #e6eaee;
 }
+td.set-scr  span.text-danger {
+    display: block;
+}
+
 .alert-light-success {
     background-color: #d2ffe8;
 }

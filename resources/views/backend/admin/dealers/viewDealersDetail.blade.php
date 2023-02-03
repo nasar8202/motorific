@@ -176,24 +176,24 @@
                 <div class="card-header bg-transparent border-0">
                   <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Upload ID And Documents Required <span style="color: red"> *</span></h3>
                 </div>
-                <div class="card-body pt-0">
+                <div class="card-body pt-0 resp-set">
                   <table class="table table-bordered">
                     <tr>
                       <th width="30%">ID</th>
                       <td width="2%">:</td>
-                      <td><input type="file" name="dealer_identity_card" >
+                      <td class="set-scr"><input type="file" name="dealer_identity_card" >
                         @if ($errors->has('dealer_identity_card'))
-                        <span class="text-danger mt-4">{{ $errors->first('dealer_identity_card') }}</span>
+                        <span class="text-danger ">{{ $errors->first('dealer_identity_card') }}</span>
                     @endif</td>
                      
                     </tr>
                     <tr>
                         <th width="30%">Documents</th>
                         <td width="2%">:</td>
-                        <td><input type="file" name="dealer_documents" >
+                        <td class="set-scr"><input type="file" name="dealer_documents" >
                           <br>
                           @if ($errors->has('dealer_documents'))
-                          <span class="text-danger mt-2">{{ $errors->first('dealer_documents') }}</span>
+                          <span class="text-danger">{{ $errors->first('dealer_documents') }}</span>
                       @endif</td>
                         
                     </tr>
@@ -201,7 +201,7 @@
                   </table>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success ">Approved Dealer Request</button>
+              <button type="submit" class="btn btn-success mb-4">Approved Dealer Request</button>
 
           </form>
           <a href="{{ route('dealer.block',$dealers->id) }}" ><span class="badge bg-danger" style="margin-top: -100%;margin-left:40%; ">Block Dealer Request</span></a>

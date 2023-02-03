@@ -1241,7 +1241,10 @@ section.sec-8 {
 /* 320 */
 @media (max-width:767px){
     /* MENU */
-
+.check_area span.text-danger.show_error {
+    width: 100%;
+    max-width: 100%;
+}
     .menu {
         display: block;
     }
@@ -1789,5 +1792,12 @@ section.sec-2.productPageTn .vec-box {
     height: auto;
     padding-left: 10px !important;
 }
+.card-body.pt-0.resp-set  table.table.table-bordered tbody tr {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 
 }

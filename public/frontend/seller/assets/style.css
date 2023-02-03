@@ -2284,3 +2284,9 @@ section.sec-review {
     font-size: 14px;
 }
 
+.check_area span.text-danger.show_error {
+    display: block;
+   
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
