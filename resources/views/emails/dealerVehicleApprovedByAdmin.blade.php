@@ -168,7 +168,7 @@
             <h2>Deactivate by Admin!</h2>
             <p>Hi {{ $data['name'] }}!</p>
             <p>
-              Congratulations - Your Vehicle has been Deactivated by admin
+              Congratulations - Your Vehicle has been Approved by admin
               <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
 
           </p>
