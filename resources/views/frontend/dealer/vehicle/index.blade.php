@@ -97,7 +97,7 @@ div#filter-price {
                         </label>
                     </div>
                 <form  action="#">
-                    
+
                     {{-- <div class="filterIn">
                         <h4>Makes</h4>
                         <label class="selectCommon selectSingle" >
@@ -227,7 +227,7 @@ div#filter-price {
             </div>
                 <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
             </div>
-            <div class="row">
+            <div class="row" id="load-data">
                 <div class="col-lg-12 col-md-12">
                     <div class="topRightFilter">
                         <select id="dropdownfilter">
@@ -265,11 +265,17 @@ div#filter-price {
                         </div>
                     </a>
                     <br>
+
                 </div>
+
                 @empty
                 <h1>No Vehicle Found</h1>
                 @endforelse
+
                 </div>
+                {{-- <div id="remove-row" class="text-center">
+                    <button id="btn-more" data-id="{{ $vehicle->id }}" class="loadmore-btn">Load More</button>
+                    </div> --}}
                 <div id="loop" class="filter-price">
                 <div class=""  id="no-record" >
 
@@ -292,13 +298,40 @@ div#filter-price {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+<script>
+    $(document).ready(function(){
+    $(document).on('click','#btn-more',function(){
+    var id = $(this).data('id');
+    $("#btn-more").html("Loading....");
+    $.ajax({
+
+    url: 'loadmoredata',
+    method : "POST",
+    data : {id:id, _token:"{{csrf_token()}}"},
+    dataType : "text",
+    success : function (data)
+    {
+    if(data != '')
+    {
+    $('#remove-row').remove();
+    $('#load-data').append(data);
+    }
+    else
+    {
+    $('#btn-more').html("No Data");
+    }
+    }
+    });
+    });
+    });
+</script>
 <script type="text/javascript">
 $(document).ready(function(){
     var path = $('#path').val();
-    
+
     $('#dropdownfilter').on('change', function() {
         var dropdownfilter = $("#dropdownfilter").val();
-      
+
              $.ajax({
 
             url: 'dropdownfilter',
@@ -348,10 +381,10 @@ $(document).ready(function(){
 
 
             });
-   
+
 });
 
-   
+
     $( "#subm").click(function(){
 
     var makePro = $("#makePro").val();
@@ -360,9 +393,9 @@ $(document).ready(function(){
     var agePro = $("#agePro").val();
     var previousOwnersPro = $("#previousOwnersPro").val();
     var fuelType = $("#fuelType").val();
-   
-    
-    
+
+
+
 
 
         $.ajax({

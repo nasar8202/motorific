@@ -372,6 +372,7 @@ Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleA
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
+    Route::post('/loadmoredata', [DealerDashboardController::class,'loadmoredata'])->name('loadmoredata');
 
     Route::get('/bids-and-offers', [DealerDashboardController::class,'BidsAndOffers'])->name('dealer.BidsAndOffers');
     Route::get('/active-bids-vehicle', [DealerDashboardController::class,'ActiveBiddedVehicle'])->name('bids.ActiveBiddedVehicle');

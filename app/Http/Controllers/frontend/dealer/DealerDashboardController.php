@@ -48,7 +48,47 @@ class DealerDashboardController extends Controller
         return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle'));
 
     }
+    public function loadmoredata(Request $request)
+    {
+    $output = '';
+    $id = $request->id;
+    // $posts = DB::table('jobslist')->where('id','<',$id)->orderBy('id', 'DESC')->limit(5)->get();
+    $allVehicles = Vehicle::orderBy('id', 'DESC')->where('id','<',$id)->Where('status',1)->with('vehicleInformation')->with('VehicleImage')->limit(1)->get();
 
+        if(!$allVehicles->isEmpty())
+        {
+        foreach($allVehicles as $allVehicle)
+        {
+        $id = $allVehicle->id;
+        $created_at=$allVehicle->created_at;
+        $linkurl = url($allVehicle->vehicle_name);
+        $output .= '<div id="first"><div class="col-lg-3 col-md-3 blur_action mb-5" >
+        <div class="col-lg-3 col-md-3 blur_action mb-5" >
+        <a href="'.$linkurl.'">'.$allVehicle->vehicle_name.'</a>
+        <div class="box" id>
+        <div class="box-img">
+        <img src="" width="180px" alt="">
+        </div>
+        <h4>'.$allVehicle->vehicle_registartion_number.'</h4>
+        <div class="d-flex justify-content-between">
+        <p>'.$allVehicle->vehicle_name.'</p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <h6>'.$allVehicle->vehicle_year.''.$allVehicle->vehicle_tank.'.'.$allVehicle->vehicle_mileage.'.'.$allVehicle->vehicle_type.'</h6>
+        </div>
+        <span>$'.$allVehicle->vehicle_price.'</span>
+        </div>
+        </a>
+        <br>
+        ';
+        }
+        $output .= '<div id="remove-row" class="text-center">
+        <button id="btn-more" data-id="'.$allVehicle->id.'" class="loadmore-btn text-center">Load More</button>
+        </div></div></div>
+        </div>';
+        echo $output;
+        }
+    }
     // public function addVehicleToSellFromDealer()
     // {
 
@@ -233,7 +273,7 @@ class DealerDashboardController extends Controller
         $user_id = Auth::user()->id;
 
         $bids = CanceledRequestReviews::where('dealer_vehicle_id',null)->where('status',1)->where('user_id',$user_id)->with('user')->with('vehicle.VehicleImage')->get();
-      
+
             $countBids = count($bids);
 
         return view('frontend.dealer.vehicle.CancelledBiddedOfferVehicle',compact('bids','countBids'));
