@@ -107,6 +107,8 @@
                             <li>Reviews</li>
                         </a>
                         <li><a href="#">Help</a></li>
+                        <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                        </li>
                     </ul>
                 </div>
             </div>

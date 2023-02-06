@@ -277,7 +277,13 @@ footer.footer_copyright p{
 
 
 }
-
+@media(max-width:575px){
+    
+.card-body.pt-0.resp-set table.table.table-bordered tbody tr {
+    display: flex;
+    flex-direction: column;
+}
+}
 @media(max-width:480px){
     .prof-stats .row .col-6{
         width:100%;
