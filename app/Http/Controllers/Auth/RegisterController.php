@@ -134,8 +134,10 @@ class RegisterController extends Controller
     public function create_user(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255|string',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
+            'email' => 'required|string|email|max:50|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'phone_number' => 'integer|min:11|max:16',
+            
         ]);
 
         if ($validator->fails()) {

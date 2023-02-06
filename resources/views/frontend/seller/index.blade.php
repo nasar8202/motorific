@@ -107,8 +107,11 @@
                             <li>Reviews</li>
                         </a>
                         <li><a href="#">Help</a></li>
+                        @guest
                         <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
-                        </li>
+                        
+                      </li>
+                      @endguest
                     </ul>
                 </div>
             </div>
@@ -127,14 +130,14 @@
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
                         <span class="text text-success mt-4 found">Vehicle Is Found <i class="fa-solid fa-check"></i></span>
                         <br>
-                        <input type="number" name="millage" placeholder="Enter Millage">
+                        <input type="number" name="millage" placeholder="Enter Millage" required >
                         <input type="hidden" name="registeration" class="registeration" value="">
                         <button type="submit">Continue</button>
 
                     </form>
                     <div class="check_area">
 
-                        <input type="text" name="registeration" id="registeration" placeholder="Enter REG">
+                        <input type="text" name="registeration" id="registeration" placeholder="Enter REG" value="{{ old('registeration') }}">
                         <span class="text-danger show_error"></span>
                         <button type="button" id="check_registeration">Value Your Car</button>
                     </div>
