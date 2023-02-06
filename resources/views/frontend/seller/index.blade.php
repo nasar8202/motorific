@@ -107,8 +107,11 @@
                             <li>Reviews</li>
                         </a>
                         <li><a href="#">Help</a></li>
+                        @guest
                         <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
-                        </li>
+                        
+                      </li>
+                      @endguest
                     </ul>
                 </div>
             </div>

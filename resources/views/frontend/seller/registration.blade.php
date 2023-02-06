@@ -77,8 +77,11 @@
                         <li><a href="#">How It Works</a></li>
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">Help</a></li>
-                          <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
-                        </li>
+                        @guest
+                        <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                        
+                      </li>
+                      @endguest
                     </ul>
                 </div>
             </div>
@@ -164,7 +167,7 @@
                         @enderror
                             </div>
                             </div>
-                            <div class="col-lg-6 col-md-6">
+                            {{-- <div class="col-lg-6 col-md-6">
                             <div>
                                 <input type="number" placeholder="Car Mileage" name="mile_age" class="@error('mile_age') is-invalid @enderror" name="mile_age" value="{{ old('mile_age') }}">
                         @error('mile_age')
@@ -173,7 +176,7 @@
                             </span>
                         @enderror
                         </div>
-                            </div>
+                            </div> --}}
                 </div>
 
 
