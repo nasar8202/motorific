@@ -47,9 +47,13 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('test', function () {
+// 	event(new App\Events\NewDealerRegisterNotification('Someone'));
+// 	return "Event has been sent!";
+// });
 Route::get('test', function () {
-	event(new App\Events\NewDealerRegisterNotification('Someone'));
-	return "Event has been sent!";
+    event(new App\Events\StatusLiked('Someone'));
+    return "Event has been sent!";
 });
 Route::get('test-no', function () {
 
