@@ -1096,6 +1096,16 @@ die();
         return view('frontend.dealer.dashboard');
 
     }
+    public function newDashboard()
+    {
+// $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->get();
+
+//         $countAllVehicle = Vehicle::where('status',1)->count();
+
+//         return view('frontend.dealer.vehicle.dashboard',compact('allVehicles','countAllVehicle'));
+        return view('frontend.dealer.dashboard');
+
+    }
     public function dealerToDealer()
     {
 

@@ -379,6 +379,7 @@ Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updat
 // start seller panel routes
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
     Route::get('/dealer', [DealerDashboardController::class,'dashboard'])->name('dealer');
+     Route::get('/new-dashboard', [DealerDashboardController::class,'newDashboard'])->name('newDashboard');
     Route::post('/loadmoredata', [DealerDashboardController::class,'loadmoredata'])->name('loadmoredata');
 
     Route::get('/bids-and-offers', [DealerDashboardController::class,'BidsAndOffers'])->name('dealer.BidsAndOffers');

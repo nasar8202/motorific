@@ -77,6 +77,11 @@ display: block;
                         <li><a href="#">How It Works</a></li>
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">Help</a></li>
+                            @guest
+                          <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                          
+                        </li>
+                        @endguest
                     </ul>
                 </div>
             </div>
