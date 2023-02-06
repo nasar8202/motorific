@@ -136,7 +136,7 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
             'email' => 'required|string|email|max:50|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
-            'phone_number' => 'integer|min:11|max:16',
+            'phone_number' => 'min:9|max:16',
             
         ]);
 
