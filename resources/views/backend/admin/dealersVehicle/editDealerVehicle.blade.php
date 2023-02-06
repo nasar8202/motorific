@@ -119,7 +119,23 @@ p {
                         <li>Exterior<span>{{$vehicle->DealerVehicleHistory->exterior}}</span></li>
                         <li>Audio and Communications<span>{{$vehicle->DealerVehicleHistory->audio_and_communications}}</span></li>
                         <li>Drivers Assistance<span>{{$vehicle->DealerVehicleHistory->drivers_assistance}}</span></li>
-                        <li>More Details<span>{{$vehicle->DealerVehicleHistory->checkbox_questions}}</span></li>
+                        @php
+                        $in_array_questions = explode(',',($vehicle->DealerVehicleHistory->checkbox_questions));
+                        @endphp
+                        <li>More Details<span>@if(in_array('1',$in_array_questions)) Battery Charge Warning , @endif
+                                              @if(in_array('2',$in_array_questions)) Cruise Control with Programmable Speed Limiter ,@endif
+                                              @if(in_array('3',$in_array_questions)) Distance to Next Service Indicator ,@endif
+                                              @if(in_array('4',$in_array_questions))  Door Open Warning ,@endif
+                                              @if(in_array('5',$in_array_questions)) Oil Level Indicator ,@endif
+                                              @if(in_array('6',$in_array_questions)) Park Assist - 180 Degree ,@endif
+                                              @if(in_array('7',$in_array_questions)) Rear Parking Sensors ,@endif
+                                              @if(in_array('8',$in_array_questions)) Rev Counter ,@endif
+                                              @if(in_array('9',$in_array_questions)) Speedometer with Digital Odometer and Digital Trip Recorder ,@endif
+                                              @if(in_array('10',$in_array_questions)) Trip Computer ,@endif
+                                              @if(in_array('11',$in_array_questions)) Tyre Pressure Monitor ,@endif
+                                              @if(in_array('12',$in_array_questions)) Water Temperature and Fuel Gauges ,@endif
+
+                        </span></li>
                         <li>Illumination<span>{{$vehicle->DealerVehicleHistory->illumination}}</span></li>
                         <li>Performance<span>{{$vehicle->DealerVehicleHistory->performance}}</span></li>
                         <li>Safety and Security<span>{{$vehicle->DealerVehicleHistory->safety_and_security}}</span></li>

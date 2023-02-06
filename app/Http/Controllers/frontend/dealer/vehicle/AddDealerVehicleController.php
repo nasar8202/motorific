@@ -165,6 +165,7 @@ class AddDealerVehicleController extends Controller
             $dealers_vehicle->vehicle_year = session()->get('vehicle_year');
             $dealers_vehicle->vehicle_color = session()->get('vehicle_color');
             $dealers_vehicle->vehicle_type = session()->get('vehicle_body');
+            $dealers_vehicle->previous_owners = session()->get('previous_owners');
             $dealers_vehicle->vehicle_tank = session()->get('vehicle_transmission');
             $dealers_vehicle->vehicle_mileage = session()->get('vehicle_mileage');
             $dealers_vehicle->status = 0;
