@@ -105,7 +105,7 @@ Route::get('/create-advert', [MultiStepRegistration::class, 'CreateAdvert'])->na
 
 Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
-Route::post('/create_user', [RegisterController::class,'create_user'])->name('create_user');
+Route::get('/create_user', [RegisterController::class,'create_user'])->name('create_user');
 //Route::get('/usersss', [FrontController::class,'getUsers'])->name('usersss');
 Route::get('/photo-upload', [FrontController::class,'photoUpload'])->name('photoUpload');
 Route::post('/add-seller-vehicle', [FrontController::class,'addSellerVehicle'])->name('addSellerVehicle');

@@ -1064,7 +1064,7 @@ display: block;
                     <div class="step-button nxtBtn" id="next">Next →</div>
                 </div>
 
-                <p class="pt-4">If you have no damage then continue next.</p>
+                <p class="pt-4">If no damage to report! Then continue next .</p>
 
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
@@ -1494,7 +1494,7 @@ display: block;
                     <div class="step-button-ext" id="next-ext">Next &rarr;</div>
                 </div>
 
-                <p class="pt-4">If you have no damage then continue next.</p>
+                <p class="pt-4">If no damage to report! Then continue next.</p>
 
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
@@ -1549,7 +1549,7 @@ display: block;
                                             @endif
                                             @foreach($VehicleFeature as $key=> $feature)
                                             <label for="sat_nav-{{$key}}">
-                                                <input type="checkbox" class="feature" @if (isset($feature) && count((array)session()->get('vehicle_feature')) != 0) {{in_array( $feature->id, $a) ? 'checked' : '' }} @endif name="vehicle_feature[]" value="{{$feature->id}}"  id="sat_nav-{{$key}}"/>
+                                                <input type="checkbox" class="feature" @if (isset($feature) && count((array)session()->get('vehicle_feature')) != 0) {{in_array( $feature->id, $a) ? 'checked' : '' }} @endif name="vehicle_feature[]" value="{{$feature->id }}"  id="sat_nav-{{$key}}"/>
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>{{$feature->title}}</p>
                                                 </div>

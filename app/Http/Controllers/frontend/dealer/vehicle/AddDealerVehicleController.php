@@ -85,8 +85,8 @@ class AddDealerVehicleController extends Controller
                     Session::put('vehicle_name', $res->make??'');
 
                     Session::put('vehicle_color', $res->colour??'');
-                    Session::put('vehicle_body', $res->fuelType??'');
-                    Session::put('vehicle_transmission', $res->euroStatus??'');
+                    Session::put('vehicle_body',$res->euroStatus??'' );
+                    Session::put('vehicle_transmission', $res->fuelType??'');
                     return redirect()->route('dealer.mediaCondition');
 
 

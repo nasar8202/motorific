@@ -31,7 +31,7 @@ class DealerVehicleController extends Controller
     public function approvedDealerVehicleByAdmin(Request $request,$id)
     {
         $vehicle = DealerVehicle::with('user')->with('DealerVehicleExterior')->where('id',$id)->first();
-        //dd($vehicle);
+        
         if($vehicle->vehicle_price != null){
             $vehicle->status = 1;
             $vehicle->save();
@@ -60,10 +60,10 @@ class DealerVehicleController extends Controller
             return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
         }
         elseif($vehicle->status == 1){
-            return redirect()->route('viewDealerVehicle')->with('alert', 'Your Vehicle Is Already Approve!');
+            return redirect()->back()->with('error', 'Your Vehicle Is Already Approve!');
 
         }else{
-            return redirect()->route('viewDealerVehicle')->with('alert', 'First Update Vehicle Prices!');
+            return redirect()->back()->with('error', 'First Update Vehicle Prices!');
         }
 
 

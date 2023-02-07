@@ -1239,7 +1239,7 @@
                     <div class="step-button nxtBtn" id="next" >Next &rarr;</div>
                 </div>
 
-                <p class="pt-4">If you have no damage then continue next.</p>
+                <p class="pt-4">If no damage to report! Then continue next .</p>
 
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->
@@ -1668,7 +1668,7 @@
                     <div class="step-button-ext" id="next-ext">Next &rarr;</div>
                 </div>
 
-                <p class="pt-4">If you have no damage then continue next.</p>
+                <p class="pt-4">If no damage to report! Then continue next .</p>
 
             </section>
             <!--<div class="button" id="submit">Agree and send application</div>-->

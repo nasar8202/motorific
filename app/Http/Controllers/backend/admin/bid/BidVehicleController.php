@@ -6,11 +6,13 @@ use App\Models\Vehicle;
 use App\Models\BidedVehicle;
 use App\Models\VehicleImage;
 use Illuminate\Http\Request;
+use App\Mail\VehicleSoldPerson;
 use App\Mail\WinnerBidedPerson;
 use App\Models\vehicleInformation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\approveBidWithAdminUpdated;
+use App\Models\User;
 
 class BidVehicleController extends Controller
 {
@@ -75,6 +77,8 @@ class BidVehicleController extends Controller
         'vehicle_mileage'=>$orders->vehicle->vehicle_mileage,
 
     ]);
+    $seller = User::where('id',$ordered_vehicle->user_id)->first();
+    Mail::to($seller->email)->send(new VehicleSoldPerson($data));
     Mail::to($orders->user->email)->send(new WinnerBidedPerson($data));
 
         return redirect()->back()->with('success', 'Bid Approved Successfully!');
