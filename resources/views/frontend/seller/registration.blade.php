@@ -19,7 +19,18 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
+/ Chrome, Safari, Edge, Opera /
+input:hover::-webkit-outer-spin-button,
+input:hover::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  margin: 0;
+}
 
+/ Firefox /
+input[type=number] {
+  -moz-appearance: textfield !important;
+}
 
     </style>
     <!-- HEADER -->

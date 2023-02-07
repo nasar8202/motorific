@@ -1122,8 +1122,9 @@ die();
 
     }
     public function dealersVehicleDetail($id){
+      
       try{
-      $vehicle = DealerVehicle::Where('status',1)->where('id',$id)
+      $vehicle = DealerVehicle::where('id',$id)
         ->with('DealerAdvertVehicleDetail')
         ->with('DealerVehicleExterior')
         ->with('DealerVehicleHistory')
@@ -1133,7 +1134,7 @@ die();
         ->first();
         $bids =DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->get();
         $allbid = count($bids);
-        // dd($vehicle);
+        
  //finding distance between seller and dealer code
         $current_user = Auth::user();
         $user = User::where('id',$vehicle->user_id)->first();

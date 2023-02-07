@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Models\DealersOrderVehicleRequest;
 use App\Mail\approveOrderdWithAdminUpdated;
+use App\Mail\WinnerRequestedPersonForSeller;
+use App\Mail\approveOrderdWithAdminUpdatedForSeller;
 
 class OrderRequestController extends Controller
 {
@@ -72,7 +74,7 @@ class OrderRequestController extends Controller
 
 
     ]);
-      $orders = OrderVehicleRequest::with('user')->with('vehicle')->where('id',$request->orderId)->first();
+      $orders = OrderVehicleRequest::with('user')->with('vehicle.VehicleImage')->where('id',$request->orderId)->first();
       $vehicles = OrderVehicleRequest::where('vehicle_id',$orders->vehicle_id)->get();
       foreach($vehicles as $ord){
         if($ord->status == 1){
@@ -83,12 +85,18 @@ class OrderRequestController extends Controller
         $winDate = date("d F Y ", strtotime($originalDate));
         $winTime = date("H:i:s a", strtotime($originalDate));
 
+        $seller = User::where('id',$orders->vehicle->user_id)->first();
+        
+        $sellerEmail = $seller->email;
+      
+
         $orders->request_price = $request->updatedPrice;
 
         $orders->status = 1;
         $orders->admin_updated_status = 1;
         $orders->save();
         $ordered_vehicle = Vehicle::where('id',$orders->vehicle_id)->first();
+        $front = $orders->vehicle->VehicleImage->front;
         $ordered_vehicle->status = 2 ;
         $ordered_vehicle->save();
 
@@ -100,9 +108,12 @@ class OrderRequestController extends Controller
             'vehicle_registration'=>$orders->vehicle->vehicle_registartion_number,
             'vehicle_name'=>$orders->vehicle->vehicle_name,
             'vehicle_mileage'=>$orders->vehicle->vehicle_mileage,
-
+            'front'=>$front,
+            'colour'=>$orders->vehicle->vehicle_color,
+            'age'=>$orders->vehicle->vehicle_year,
         ]);
         Mail::to($orders->user->email)->send(new approveOrderdWithAdminUpdated($data));
+        Mail::to($sellerEmail)->send(new approveOrderdWithAdminUpdatedForSeller($data));
 
         return redirect()->back()->with('success', 'Request Approved And Updated Successfully!');
       }
@@ -118,11 +129,16 @@ class OrderRequestController extends Controller
           return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');
         }
       }
-       $winning_orders = OrderVehicleRequest::with('user')->with('vehicle')->where('id',$id)->first();
+       $winning_orders = OrderVehicleRequest::with('user')->with('vehicle.VehicleImage')->where('id',$id)->first();
+       $seller = User::where('id',$winning_orders->vehicle->user_id)->first();
+       $sellerEmail = $seller->email;
+       $winningOrdersEmail = $winning_orders->user->email;
+      //  dd($seller->email);
         $originalDate = $winning_orders->updated_at;
         $winDate = date("d F Y ", strtotime($originalDate));
         $winTime = date("H:i:s a", strtotime($originalDate));
-
+        $front = $winning_orders->vehicle->VehicleImage->front;
+// dd($winning_orders->vehicle->vehicle_year);
         $winning_orders->status = 1;
         $winning_orders->save();
           $ordered_vehicle = Vehicle::where('id',$winning_orders->vehicle_id)->first();
@@ -137,9 +153,13 @@ class OrderRequestController extends Controller
             'vehicle_registration'=>$winning_orders->vehicle->vehicle_registartion_number,
             'vehicle_name'=>$winning_orders->vehicle->vehicle_name,
             'vehicle_mileage'=>$winning_orders->vehicle->vehicle_mileage,
-
+            'front'=>$front,
+            'colour'=>$winning_orders->vehicle->vehicle_color,
+            'age'=>$winning_orders->vehicle->vehicle_year,
         ]);
-        Mail::to($winning_orders->user->email)->send(new WinnerRequestedPerson($data));
+       
+        Mail::to($winningOrdersEmail)->send(new WinnerRequestedPerson($data));
+        Mail::to($sellerEmail)->send(new WinnerRequestedPersonForSeller($data));
 
 
         return redirect()->back()->with('success', 'Request Approved Successfully!');

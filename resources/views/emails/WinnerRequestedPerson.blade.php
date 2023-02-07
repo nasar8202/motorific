@@ -174,20 +174,20 @@
           <p>Car Details</p>
 
           <div class="content-img">
-            <img src="{{ URL::asset('frontend/seller/assets/image/mailcar.jpg') }} " alt="" />
+            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
             <div class="car-det">
-              <span>Model: Audi Q7 DIESEL ESTATE </span>
+              <span>Model: {{ $data['vehicle_name'] }}</span>
               <span> Reg: {{ $data['vehicle_registration'] }} </span>
-              <span>Fee: £175 </span>
-              <span> Distance: 174 miles </span>
+              {{-- <span>Fee: £175 </span>
+              <span> Distance: 174 miles </span> --}}
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-              <span>Car age: 15 </span>
-              <span>Colour: GREY </span>
+              <span>Car age:{{ $data['age'] }}  </span>
+              <span>Colour: {{ $data['colour'] }} </span>
             </div>
           </div>
         </div>
         <div class="customer-detail">
-          <strong>Customer Contact Details</strong>
+          {{-- <strong>Customer Contact Details</strong>
           <div class="car-det">
             <span>Name: Carter</span>
             <span> Phone: +447703287219 </span>
@@ -202,7 +202,7 @@
           >
           <div class="btn-mail">
             <a href="">Contact the seller here </a>
-          </div>
+          </div> --}}
           <div class="qa-ans">
             <p><strong>What next? </strong></p>
             <p>
