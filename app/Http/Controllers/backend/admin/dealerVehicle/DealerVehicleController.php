@@ -126,6 +126,7 @@ class DealerVehicleController extends Controller
     }
     public function viewDealerVehicleDetail($id)
     {
+      
         $vehicle = DealerVehicle::where('id',$id)
         ->with('DealerAdvertVehicleDetail')
         ->with('DealerVehicleExterior')

@@ -153,10 +153,10 @@
             <strong>To: </strong
             ><span style="color: blue"> info@smartautosuk.co.uk</span>
           </p>
-          <p><strong>Subject: You bought a car!</strong></p>
+          <p><strong>Subject: Sell Car!</strong></p>
           <p>
             <strong>Reply-To</strong
-            ><span style="color: blue"> noreply@carwow.co.uk</span>
+            ><span style="color: blue"> noreply@motorofic.co.uk</span>
           </p>
 
           <div class="mail-img-one">
@@ -165,25 +165,24 @@
           </div>
         </div>
         <div class="mail-content">
-          <h2>You've just bought a car!</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          <h2>Your car has been sold!</h2>
+          <p>Hi !</p>
           <p>
-            Congratulations - you've successfully bought a
-            <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
-        Your Car Offer Price Updated By Motorific
-        </p>
+            Congratulations - your vehicle has been  successfully Sold to <span style="color:blue">({{ $data['name'] }})</span>
+            
+          </p>
+          <p><strong>{{ $data['vehicle_registration'] }}</strong> for the price of £{{ $data['bidded_price'] }}.</p>
           <p>Car Details</p>
 
           <div class="content-img">
-            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}  " alt="" />
+            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
             <div class="car-det">
               <span>Model: {{ $data['vehicle_name'] }} </span>
               <span> Reg: {{ $data['vehicle_registration'] }} </span>
-              {{-- <span>Fee: £175 </span>
-              <span> Distance: 174 miles </span> --}}
+              {{-- <span> Distance: 174 miles </span> --}}
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-              <span>Car age: 15 </span>
-              <span>Colour: GREY </span>
+              <span>Car age:{{ $data['age'] }} </span>
+              <span>Colour: {{ $data['colour'] }} </span>
             </div>
           </div>
         </div>
@@ -200,8 +199,8 @@
               >Now it’s time to arrange inspection, collection and payment with
               the seller.</strong
             ></span
-          >
-          <div class="btn-mail">
+          > --}}
+          {{-- <div class="btn-mail">
             <a href="">Contact the seller here </a>
           </div> --}}
           <div class="qa-ans">

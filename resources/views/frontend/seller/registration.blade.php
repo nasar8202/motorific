@@ -19,7 +19,18 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
+/ Chrome, Safari, Edge, Opera /
+input:hover::-webkit-outer-spin-button,
+input:hover::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  margin: 0;
+}
 
+/ Firefox /
+input[type=number] {
+  -moz-appearance: textfield !important;
+}
 
     </style>
     <!-- HEADER -->
@@ -121,7 +132,7 @@
                                     <input type="hidden" name="registeration" value="{{$data->registeration}}">
                                     <input type="hidden" name="registeration_with_pass" value="yes">
                                     @endif
-                                    <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                                    <input type="email" placeholder="E-mail Address" required name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -138,7 +149,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 ">
                                 <div>
-                                    <input type="text" placeholder="Full Name" name="name" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
+                                    <input type="text" placeholder="Full Name" required name="name" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -149,7 +160,7 @@
 
                             <div class="col-lg-6 col-md-6">
                                     <div class="mar-remov">
-                                     <input type="number" placeholder="Phone" name="phone_number" class="@error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}">
+                                     <input type="number" required placeholder="Phone" name="phone_number" class="@error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}">
                                     @error('phone_number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -159,7 +170,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                             <div>
-                             <input type="text" placeholder="Postcode" name="post_code" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}">
+                             <input type="text" placeholder="Postcode" name="post_code" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}" required>
                         @error('post_code')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
