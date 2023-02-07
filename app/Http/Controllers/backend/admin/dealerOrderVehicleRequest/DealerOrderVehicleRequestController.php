@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\DealersOrderVehicleRequest;
 use App\Mail\WinnerOrderVehicleRequestPerson;
 use App\Mail\approveDealersOrderdWithAdminUpdated;
+use App\Mail\WinnerOrderVehicleRequestPersonForSeller;
 
 class DealerOrderVehicleRequestController extends Controller
 {
@@ -72,19 +73,26 @@ class DealerOrderVehicleRequestController extends Controller
       }
 
     }
-        $orders = DealersOrderVehicleRequest::where('id',$id)->with('user')->with('vehicle')->first();
+        $orders = DealersOrderVehicleRequest::where('id',$id)->with('user')->with('vehicle.DealerVehicleExterior')->first();
+        // dd($orders);
+        // dd($orders->vehicle->DealerVehicleExterior[0]->exterior_image);
 
-        $orders->status = 1;
+        //$orders->status = 1;
         $orders->save();
-
+        $front = $orders->vehicle->DealerVehicleExterior[0]->exterior_image;
+;
         $originalDate = $orders->updated_at;
         $winDate = date("d F Y ", strtotime($originalDate));
         $winTime = date("H:i:s a", strtotime($originalDate));
 
       $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle->id)->first();
-      $ordered_vehicle->status = 2 ;
+      //$ordered_vehicle->status = 2 ;
       $ordered_vehicle->save();
 
+      $dealler = User::where('id',$orders->vehicle->user_id)->first();
+        
+        $dealerEmail = $dealler->email;
+      
       $data = ([
         'name' => $orders->user->name,
         'email' => $orders->user->email,
@@ -93,9 +101,14 @@ class DealerOrderVehicleRequestController extends Controller
         'vehicle_registration'=>$orders->vehicle->vehicle_registartion_number,
         'vehicle_name'=>$orders->vehicle->vehicle_name,
         'vehicle_mileage'=>$orders->vehicle->vehicle_mileage,
+        'front'=>$front,
+        'colour'=>$orders->vehicle->vehicle_color,
+        'age'=>$orders->vehicle->vehicle_year,
 
     ]);
     Mail::to($orders->user->email)->send(new WinnerOrderVehicleRequestPerson($data));
+    Mail::to($dealerEmail)->send(new WinnerOrderVehicleRequestPersonForSeller($data));
+
 
         return redirect()->back()->with('success', 'Request Approved Successfully!');
 
