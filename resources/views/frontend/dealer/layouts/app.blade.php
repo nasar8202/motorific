@@ -14,6 +14,8 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CUSTOM-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('frontend/dealers/assets/css/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('frontend/dealers/assets/css/slick-theme.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
 
@@ -619,7 +621,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ URL::asset('frontend/seller/assets/script.js') }}"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{{ URL::asset('frontend/dealers/assets/js/slick.min.js') }}"></script>
+    <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
 
     <!--<scipt src="{{ URL::asset('frontend/dealers/assets/js/jquery.steps.min.js') }}"></scipt>-->
     <!-- CUSTOM-JS -->

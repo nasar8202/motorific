@@ -1,3 +1,120 @@
+// Brands Carousel
+$('.brands-slider').slick({
+  dots: true,
+  infinite: true,
+  autoplay:true,
+  speed: 300,
+  slidesToShow: 7,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+
+// End
+
+
+// Products Carousel
+$('.procuts-wraper .products-slide').slick({
+  dots: true,
+  infinite: true,
+  autoplay:true,
+  speed: 1000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+
+// End
+
+// Testimonial  Carousel
+$('.testi-wraper').slick({
+  dots: true,
+  infinite: true,
+  autoplay:true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+
+// End
+
+
+
 function getFileName(e) {
     let file = e.files[0]
     let image = e.parentNode.children[1]
@@ -290,3 +407,7 @@ $(".step-button-ext").click(function () {
 		console.log('filesArr ', filesArr.length);
 		
 	}
+
+
+
+  
