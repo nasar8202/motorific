@@ -33,7 +33,7 @@
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <h2 class="sec-heaing fs-50">100s vehicles for sale</h2>
-                    <p>Find your best offer from over 5,000 dealers and sell <br> for up to £1,000* more. It’s that easy.</p>
+                    <p class="sec-desc">Find your best offer from over 5,000 dealers and sell <br> for up to £1,000* more. It’s that easy.</p>
                 </div>
                 <div class="col-md-4">
                     <div class="btn-wraper">
@@ -236,7 +236,7 @@
                 <div class="col-md-7">
                     <h2 class="sec-heading fs-50">How it works</h2>
                 </div>
-                <div class="col-md-5">
+                <div class="col-lg-5 col-md-12">
                     <div class="btn-wraper">
                         <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
                         <a href="#" class="prim-btn secnd">Get In Touch</a>
@@ -244,7 +244,7 @@
                 </div>
                 <div class="col-12 d-md-block d-none">
                     <div class="row hw-wraper">
-                        <div class="col-md-3">
+                        <div class="col-lg-3 col-md-6">
                             <div class="hw-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/icon1.png') }}" alt="">
@@ -255,7 +255,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-lg-3 col-md-6">
                             <div class="hw-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/icon2.png') }}" alt="">
@@ -266,7 +266,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-lg-3 col-md-6">
                             <div class="hw-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/icon3.png') }}" alt="">
@@ -277,7 +277,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-lg-3 col-md-6">
                             <div class="hw-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/icon4.png') }}" alt="">
@@ -350,13 +350,10 @@
         <div class="container-1170">
             <div class="row g-0 align-items-center">
                 <div class="col-lg-5">
-                    <!-- <div class="service-img">
-                        <img src="{{ URL::asset('frontend/dealers/assets/image/images/service-img.png') }}" alt="">
-                    </div> -->
                 </div>
                 <div class="col-lg-7">
                     <div class="row service-wraper">
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             <div class="service-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/s-icon1.png') }}" alt="">
@@ -365,7 +362,7 @@
                                 <p>All cars are direct from private owners, exclusively available for our dealers to bid on and buy in our daily online sales.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             <div class="service-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/s-icon2.png') }}" alt=""></div>
@@ -373,7 +370,7 @@
                                 <p>All cars are direct from private owners, exclusively available for our dealers to bid on and buy in our daily online sales.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             <div class="service-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/s-icon3.png') }}" alt=""></div>
@@ -381,7 +378,7 @@
                                 <p>All cars are direct from private owners, exclusively available for our dealers to bid on and buy in our daily online sales.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             <div class="service-box">
                                 <div class="icon-box">
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/s-icon4.png') }}" alt=""></div>

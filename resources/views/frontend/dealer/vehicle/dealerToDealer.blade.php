@@ -65,6 +65,7 @@
                                                                 filter: blur(3px);
                                                             } */
     </style>
+     
 
     <!-- MultiStep Form -->
     {{-- <div id='loader' >
@@ -73,7 +74,25 @@
       </div>
   </div>
 
+
+
+ 
+
+
+
 </div> --}}
+    <section class="banner-sec dealer-banner">
+        <div class="container-1170">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-content">
+                        <h2 class="sec-heading fs-50 text-white">Dealer To Dealer</h2>
+                        <p class="text-white">Next live sale begins tomorrow at 11am</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="sec-2 productPageTn">
         <input type="hidden" id="path" value="{{ asset('') }}">
         <div class="container">
