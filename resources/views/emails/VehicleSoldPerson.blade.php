@@ -165,30 +165,29 @@
           </div>
         </div>
         <div class="mail-content">
-          <h2>You've just bought a car!</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          {{-- <h2>You've just bought a car!</h2> --}}
+          <p>Hi !</p>
           <p>
-            Congratulations - you've successfully bought a
-            <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
-        Your Car Offer Price Updated By Motorific
-        </p>
+            Congratulations - your car has been successfully sold to  <b>{{ $data['name'] }}</b>
+            <strong>{{ $data['vehicle_registration'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
+          </p>
           <p>Car Details</p>
 
           <div class="content-img">
-            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" alt="" />
+            <img src="{{ URL::asset('frontend/seller/assets/image/mailcar.jpg') }} " alt="" />
             <div class="car-det">
-              <span>Model: {{ $data['vehicle_name'] }} </span>
+              <span>Model: Audi Q7 DIESEL ESTATE </span>
               <span> Reg: {{ $data['vehicle_registration'] }} </span>
-              {{-- <span>Fee: £175 </span>
-              <span> Distance: 174 miles </span> --}}
+              <span>Fee: £175 </span>
+              <span> Distance: 174 miles </span>
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-              <span>Car age: {{ $data['age'] }}  </span>
-              <span>Colour: {{ $data['colour'] }}</span>
+              <span>Car age: 15 </span>
+              <span>Colour: GREY </span>
             </div>
           </div>
         </div>
         <div class="customer-detail">
-          {{-- <strong>Customer Contact Details</strong>
+          <strong>Customer Contact Details</strong>
           <div class="car-det">
             <span>Name: Carter</span>
             <span> Phone: +447703287219 </span>
@@ -203,7 +202,7 @@
           >
           <div class="btn-mail">
             <a href="">Contact the seller here </a>
-          </div> --}}
+          </div>
           <div class="qa-ans">
             <p><strong>What next? </strong></p>
             <p>

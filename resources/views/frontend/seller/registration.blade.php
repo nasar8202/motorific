@@ -122,7 +122,7 @@ input[type=number] {
 
         <div class="container-700">
             <div class="form-main text-center">
-                <form method="post" action="{{ route('create_user') }}">
+                <form method="get" action="{{ route('create_user') }}">
                     @csrf
                     <div class="row signup-input">
                             <div class="col-lg-12 col-md-12">
