@@ -62,7 +62,7 @@
                             <a class="badge badge-success mt-1" href="{{route('vehicleOwnerDetails',$order->vehicle->user_id)}}" >Vehicle Owner's Details </a>
                             @if($order->status == 0)
                             <a class="badge badge-success" href="{{route('approveDealersOrder',['id'=>$order->id,'vId'=>$order->vehicle->id])}}" >Approve Order Request </a>
-                            <a role="button" class="badge badge-success mt-1" data-bs-toggle="modal"
+                            <a role="button" class="badge badge-success mt-1 price" data-bs-toggle="modal"
                             data-bs-target="#default"  data-id="{{$order->id}}">
                             Update Price
                         </button>

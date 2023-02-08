@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend\admin\bid;
 
+use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\BidedVehicle;
 use App\Models\VehicleImage;
@@ -12,7 +13,7 @@ use App\Models\vehicleInformation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\approveBidWithAdminUpdated;
-use App\Models\User;
+use App\Mail\approveBidWithAdminUpdatedForSeller;
 
 class BidVehicleController extends Controller
 {
@@ -89,7 +90,7 @@ class BidVehicleController extends Controller
     }
 
     public function approveBidWithAdminUpdated(Request $request){
-      // dd($request->all());
+      
       $request->validate([
         'updatedPrice' => 'required',
         ]);
@@ -122,6 +123,8 @@ class BidVehicleController extends Controller
         'vehicle_mileage'=>$orders->vehicle->vehicle_mileage,
 
     ]);
+    $user = User::where('id',$ordered_vehicle->user_id)->first();
+    Mail::to($user->email)->send(new approveBidWithAdminUpdatedForSeller($data));
     Mail::to($orders->user->email)->send(new approveBidWithAdminUpdated($data));
 
         return redirect()->back()->with('success', 'Order Approved And Updated Successfully!');

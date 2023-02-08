@@ -166,24 +166,24 @@
         </div>
         <div class="mail-content">
           <h2>You've just bought a car!</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          <p>Hi !</p>
           <p>
-            Congratulations - you've successfully bought a
+            Congratulations - your price has been Updated successfully by admin 
             <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
         Your Car Offer Price Updated By Motorific
         </p>
           <p>Car Details</p>
 
           <div class="content-img">
-            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" alt="" />
+            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
             <div class="car-det">
               <span>Model: {{ $data['vehicle_name'] }} </span>
               <span> Reg: {{ $data['vehicle_registration'] }} </span>
               {{-- <span>Fee: £175 </span>
               <span> Distance: 174 miles </span> --}}
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-              <span>Car age: {{ $data['age'] }}  </span>
-              <span>Colour: {{ $data['colour'] }}</span>
+              <span>Car age: {{ $data['age'] }} </span>
+              <span>Colour:  {{ $data['colour'] }}  </span>
             </div>
           </div>
         </div>

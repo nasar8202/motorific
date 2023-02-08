@@ -12,6 +12,7 @@ use App\Models\DealersOrderVehicleRequest;
 use App\Mail\WinnerOrderVehicleRequestPerson;
 use App\Mail\approveDealersOrderdWithAdminUpdated;
 use App\Mail\WinnerOrderVehicleRequestPersonForSeller;
+use App\Mail\approveDealersOrderdWithAdminUpdatedForDealer;
 
 class DealerOrderVehicleRequestController extends Controller
 {
@@ -80,7 +81,7 @@ class DealerOrderVehicleRequestController extends Controller
         //$orders->status = 1;
         $orders->save();
         $front = $orders->vehicle->DealerVehicleExterior[0]->exterior_image;
-;
+
         $originalDate = $orders->updated_at;
         $winDate = date("d F Y ", strtotime($originalDate));
         $winTime = date("H:i:s a", strtotime($originalDate));
@@ -121,10 +122,10 @@ class DealerOrderVehicleRequestController extends Controller
         $request->validate([
           'updatedPrice' => 'required',
 
-
       ]);
-        $orders = DealersOrderVehicleRequest::where('id',$request->orderId)->with('user')->with('vehicle')->first();
+        $orders = DealersOrderVehicleRequest::where('id',$request->orderId)->with('user')->with('vehicle.DealerVehicleExterior')->first();
         $vehicles = DealersOrderVehicleRequest::where('vehicle_id',$orders->vehicle_id)->get();
+        
         foreach($vehicles as $ord){
           if($ord->status == 1){
           return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');
@@ -133,13 +134,15 @@ class DealerOrderVehicleRequestController extends Controller
             $originalDate = $orders->updated_at;
             $winDate = date("d F Y ", strtotime($originalDate));
             $winTime = date("H:i:s a", strtotime($originalDate));
-
-          $orders->request_price = $request->updatedPrice;
-          $orders->status = 1;
-          $orders->admin_updated_status = 1;
+            $dealer = User::where('id',$orders->vehicle->user_id)->first();
+            $front = $orders->vehicle->DealerVehicleExterior[0]->exterior_image;
+            $dealerEmail = $dealer->email;
+            $orders->request_price = $request->updatedPrice;
+         // $orders->status = 1;
+         // $orders->admin_updated_status = 1;
           $orders->save();
           $ordered_vehicle = DealerVehicle::where('id',$orders->vehicle_id)->first();
-          $ordered_vehicle->status = 2 ;
+         // $ordered_vehicle->status = 2 ;
           $ordered_vehicle->save();
 
           $data = ([
@@ -150,14 +153,17 @@ class DealerOrderVehicleRequestController extends Controller
             'vehicle_registration'=>$orders->vehicle->vehicle_registartion_number,
             'vehicle_name'=>$orders->vehicle->vehicle_name,
             'vehicle_mileage'=>$orders->vehicle->vehicle_mileage,
-
+            'front'=>$front,
+            'colour'=>$orders->vehicle->vehicle_color,
+            'age'=>$orders->vehicle->vehicle_year,
         ]);
         Mail::to($orders->user->email)->send(new approveDealersOrderdWithAdminUpdated($data));
+        Mail::to($dealerEmail)->send(new approveDealersOrderdWithAdminUpdatedForDealer($data));
 
           return redirect()->back()->with('success', 'Request Approved And Updated Successfully!');
 
 
-        return redirect()->back()->with('success', 'Order Approved And Updated Successfully!');
+       // return redirect()->back()->with('success', 'Order Approved And Updated Successfully!');
 
 
     }
