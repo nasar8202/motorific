@@ -62,9 +62,10 @@
         }
 
         /* section.sec-2.productPageTn .col-lg-4.col-md-4 {
-                        filter: blur(3px);
-                    } */
+                                                                filter: blur(3px);
+                                                            } */
     </style>
+     
 
     <!-- MultiStep Form -->
     {{-- <div id='loader' >
@@ -73,7 +74,25 @@
       </div>
   </div>
 
+
+
+ 
+
+
+
 </div> --}}
+    <section class="banner-sec dealer-banner">
+        <div class="container-1170">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-content">
+                        <h2 class="sec-heading fs-50 text-white">Dealer To Dealer</h2>
+                        <p class="text-white">Next live sale begins tomorrow at 11am</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="sec-2 productPageTn">
         <input type="hidden" id="path" value="{{ asset('') }}">
         <div class="container">
@@ -256,35 +275,75 @@
                             </div>
                         </div>
                         <!-- BOX-1 -->
-                    
-                    <!-- Products Cards New Design -->
-                    <!-- <div class="procuts-wraper">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6">
-                                <a href="#" class="product-main">
-                                    <div class="product-card">
-                                        <div class="produc-img">
-                                            <img src="{{ URL::asset('frontend/dealers/assets/image/images/car1.png') }}" alt="">
-                                        </div>
-                                        <div class="p-content">
-                                            <h3 class="p-title">Fiat 500 Sport</h3>
-                                            <ul class="p-spec">
-                                                <li>2020</li>
-                                                <li>10,550 miles</li>
-                                                <li>Petrol</li>
-                                                <li>Manual</li>
-                                            </ul>
-                                            <div class="p-cate-list">
-                                                <span class="p-code gold">MX20 XGU</span>
-                                                <span class="p-location">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                161 Mi away
-                                                </span>
+
+                        <!-- Products Cards New Design -->
+                        <!-- <div class="procuts-wraper">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4 col-sm-6">
+                                                                        <a href="#" class="product-main">
+                                                                            <div class="product-card">
+                                                                                <div class="produc-img">
+                                                                                    <img src="{{ URL::asset('frontend/dealers/assets/image/images/car1.png') }}" alt="">
+                                                                                </div>
+                                                                                <div class="p-content">
+                                                                                    <h3 class="p-title">Fiat 500 Sport</h3>
+                                                                                    <ul class="p-spec">
+                                                                                        <li>2020</li>
+                                                                                        <li>10,550 miles</li>
+                                                                                        <li>Petrol</li>
+                                                                                        <li>Manual</li>
+                                                                                    </ul>
+                                                                                    <div class="p-cate-list">
+                                                                                        <span class="p-code gold">MX20 XGU</span>
+                                                                                        <span class="p-location">
+                                                                                        <i class="fas fa-map-marker-alt"></i>
+                                                                                        161 Mi away
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <h5 class="p-price">Reserve price: <span >£9,240</span></h5>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
+                        <div class="procuts-wraper">
+                            <div class="row">
+                                @forelse ($allVehicles as $vehicle)
+                                    <div class="col-lg-4 col-sm-6">
+                                        <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}"
+                                            class="product-main">
+                                            <div class="product-card">
+                                                <div class="produc-img">
+                                                    <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image ?? '') }}"
+                                                        alt="">
+                                                </div>
+                                                <div class="p-content">
+                                                    <h3 class="p-title">{{ $vehicle->vehicle_name }}</h3>
+                                                    <ul class="p-spec">
+                                                        <li>{{ $vehicle->vehicle_year }}</li>
+                                                        <li>{{ $vehicle->vehicle_mileage }}</li>
+                                                        <li>{{ $vehicle->vehicle_tank }}</li>
+                                                        <li>{{ $vehicle->vehicle_type }}</li>
+                                                    </ul>
+                                                    <div class="p-cate-list">
+                                                        <span
+                                                            class="p-code gold">{{ $vehicle->vehicle_registartion_number }}</span>
+                                                        <span class="p-location">
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                            161 Mi away
+                                                        </span>
+                                                    </div>
+                                                    <h5 class="p-price">Reserve price:
+                                                        <span>${{ $vehicle->vehicle_price }}</span>
+                                                    </h5>
+                                                </div>
                                             </div>
-                                            <h5 class="p-price">Reserve price: <span >£9,240</span></h5>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
+                                @empty
+                                    <h4>No Vehicle Found</h4>
+                                @endforelse
                             </div>
                         </div>
                     </div> -->
@@ -330,38 +389,38 @@
                     </div>
                     <!-- Products Cards New Design End -->
                         <!-- <div id="first">
-                            @forelse ($allVehicles as $vehicle)
-                                <div class="col-lg-3 col-md-3 blur_action mb-5">
-                                    <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}">
-                                        <div class="box" id>
+                                                                    @forelse ($allVehicles as $vehicle)
+    <div class="col-lg-3 col-md-3 blur_action mb-5">
+                                                                            <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}">
+                                                                                <div class="box" id>
 
-                                            <div class="box-img">
-                                                <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image ?? '') }}"
-                                                    width="180px" alt="">
-                                            </div>
-                                            <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
-                                            <div class="d-flex justify-content-between">
-                                                <p>{{ $vehicle->vehicle_name }}</p>
-
-
-                                            </div>
-                                            <div class="d-flex justify-content-between">
-
-                                                <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}
-                                                </h6>
+                                                                                    <div class="box-img">
+                                                                                        <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image ?? '') }}"
+                                                                                            width="180px" alt="">
+                                                                                    </div>
+                                                                                    <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
+                                                                                    <div class="d-flex justify-content-between">
+                                                                                        <p>{{ $vehicle->vehicle_name }}</p>
 
 
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-between">
 
-                                            </div>
-                                            <span>${{ $vehicle->vehicle_price }}</span>
-                                        </div>
-                                    </a>
-                                    <br>
-                                </div>
+                                                                                        <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}
+                                                                                        </h6>
+
+
+
+                                                                                    </div>
+                                                                                    <span>${{ $vehicle->vehicle_price }}</span>
+                                                                                </div>
+                                                                            </a>
+                                                                            <br>
+                                                                        </div>
                             @empty
-                                <h4>No Vehicle Found</h4>
-                            @endforelse
-                        </div> -->
+                                                                        <h4>No Vehicle Found</h4>
+    @endforelse
+                                                                </div> -->
                         <div id="loop">
                             <div class="col-lg-3 col-md-3 blur_action" >
 

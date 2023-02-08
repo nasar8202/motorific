@@ -15,7 +15,15 @@
                 <p>Fill all form field to go to next step</p>
                 <div class="row">
                     <div class="col-md-12 mx-0">
-
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif  
 
                             <!-- progressbar -->
                             <ul id="progressbar">
@@ -53,36 +61,36 @@
                                         <label>What is the value of vehicles you typically purchase? *</label>
                                         <div class="absolutelabel">
                                             <label>€</label>
-                                            <input id="priceFrom" class="mw-input" placeholder="4,000" required="" pattern="[0-9]*" data-private="true" type="text" name="lowest_purchase_price"  value="{{ session()->get('lowest_purchase_price') }}">
+                                            <input id="priceFrom" class="mw-input" placeholder="4,000" required="" pattern="[0-9]*" data-private="true" type="text" name="lowest_purchase_price"  value="{{ session()->get('lowest_purchase_price') ?? old('lowest_purchase_price') }}">
                                         </div>
                                         <span>-</span>
                                         <div class="absolutelabel">
                                             <label>€</label>
-                                            <input id="priceTo" class="mw-input" placeholder="10,000" required="" pattern="[0-9]*" data-private="true" type="text" name="highest_purchase_price"   value="{{ session()->get('highest_purchase_price') }}">
+                                            <input id="priceTo" class="mw-input" placeholder="10,000" required="" pattern="[0-9]*" data-private="true" type="text" name="highest_purchase_price"   value="{{ session()->get('highest_purchase_price') ?? old('highest_purchase_price') }}">
                                         </div>
                                     </div>
                                     <div class="form-group twoInOneLine">
                                         <label>What is the age of vehicles you typically purchase? *</label>
                                         <div class="absolutelabel">
                                             <label>From</label>
-                                            <input id="ageFrom" class="mw-input" placeholder="1" required="" pattern="[0-9]*" data-private="true" type="number" name="age_range_from"  value="{{ session()->get('age_range_from') }}">
+                                            <input id="ageFrom" class="mw-input" placeholder="1" required="" pattern="[0-9]*" data-private="true" type="number" name="age_range_from"  value="{{ session()->get('age_range_from') ?? old('age_range_from')}}">
                                         </div>
                                         <span>-</span>
                                         <div class="absolutelabel">
                                             <label>To</label>
-                                            <input id="ageTo" class="mw-input" placeholder="5" required="" pattern="[0-9]*" data-private="true" type="number" name="age_range_to"  value="{{ session()->get('age_range_to') }}">
+                                            <input id="ageTo" class="mw-input" placeholder="5" required="" pattern="[0-9]*" data-private="true" type="number" name="age_range_to"  value="{{ session()->get('age_range_to') ?? old('age_range_to') }}">
                                         </div>
                                     </div>
                                     <div class="form-group twoInOneLine">
                                         <label>What is the mileage of vehicles you typically purchase? *</label>
                                         <div class="absolutelabel">
                                             <label>From</label>
-                                            <input id="mileageFrom" class="mw-input" placeholder="12,000" required="" pattern="[0-9]*" data-private="true" type="number"  name="mileage_from"  value="{{ session()->get('mileage_from') }}">
+                                            <input id="mileageFrom" class="mw-input" placeholder="12,000" required="" pattern="[0-9]*" data-private="true" type="number"  name="mileage_from"  value="{{ session()->get('mileage_from') ?? old('mileage_from') }}">
                                         </div>
                                         <span>-</span>
                                         <div class="absolutelabel">
                                             <label>To</label>
-                                            <input id="mileageTo" class="mw-input" placeholder="20,000" required="" pattern="[0-9]*" data-private="true" type="number" name="mileage_to"  value="{{ session()->get('mileage_to') }}">
+                                            <input id="mileageTo" class="mw-input" placeholder="20,000" required="" pattern="[0-9]*" data-private="true" type="number" name="mileage_to"  value="{{ session()->get('mileage_to')  ?? old('mileage_to')}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -116,7 +124,7 @@
                                     </div>
                                     <div class="form-group textarea">
                                         <label>Anything else we should know?</label>
-                                        <textarea name="any_thing_else"  value="{{ session()->get('any_thing_else') }}"></textarea>
+                                        <textarea name="any_thing_else"  value="{{ session()->get('any_thing_else')  ?? old('any_thing_else') }}"></textarea>
                                     </div>
                                 </div>
                                 {{-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
