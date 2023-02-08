@@ -12,7 +12,7 @@
                 <div class="banner-content">
                     <h1 class="sec-heading fs-50">Buy smart. Buy direct <br> from private sellers.</h1>
                     <p class="sec-desc">Find your best offer from over 5,000 dealers and sell <br> for up to £1,000* more. It’s that easy.</p>
-                    <a href="#" class="prim-btn">Browse Vechicles</a>
+                    <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="btn-wraper">
-                        <a href="#" class="prim-btn">Browse Vechicles</a>
+                        <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
                     </div>
                 </div>
                 <div class="col-12 mt-4">
@@ -90,7 +90,7 @@
                     <div class="procuts-wraper">
                         <div class="row products-slide">
                             <div class="col-lg-4 col-sm-6">
-                                <a href="#" class="product-main">
+                                <a href="{{ route('dealer.dashboard') }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
                                             <img src="{{ URL::asset('frontend/dealers/assets/image/images/car1.png') }}" alt="">
@@ -116,7 +116,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a href="#" class="product-main">
+                                <a href="{{ route('dealer.dashboard') }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
                                             <img src="{{ URL::asset('frontend/dealers/assets/image/images/car2.png') }}" alt="">
@@ -142,7 +142,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a href="#" class="product-main">
+                                <a href="{{ route('dealer.dashboard') }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
                                             <img src="{{ URL::asset('frontend/dealers/assets/image/images/car3.png') }}" alt="">
@@ -168,7 +168,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a href="#" class="product-main">
+                                <a href="{{ route('dealer.dashboard') }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
                                             <img src="{{ URL::asset('frontend/dealers/assets/image/images/car2.png') }}" alt="">
@@ -194,7 +194,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a href="#" class="product-main">
+                                <a href="{{ route('dealer.dashboard') }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
                                             <img src="{{ URL::asset('frontend/dealers/assets/image/images/car1.png') }}" alt="">
@@ -238,7 +238,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="btn-wraper">
-                        <a href="#" class="prim-btn">Browse Vechicles</a>
+                        <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
                         <a href="#" class="prim-btn secnd">Get In Touch</a>
                     </div>
                 </div>
@@ -510,7 +510,7 @@
         <div class="container-1170">
             <h2>Motorific</h2>
             <h3>Supercharge your stock acquisition <br> and buy direct with Motorway</h3>
-            <a href="#" class="prim-btn">Browse Vechicles</a>
+            <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
         </div>
     </section>
 

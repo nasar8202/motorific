@@ -40,23 +40,23 @@
                                     <h2 class="fs-title">Dealership details</h2>
                                     <div class="form-group">
                                         <label>Address line 1 *</label>
-                                        <input type="text" name="address_line_1"  placeholder="Enter Address Line 1" value="{{ session()->get('address_line_1') }}" required>
+                                        <input type="text" name="address_line_1"  placeholder="Enter Address Line 1" value="{{ session()->get('address_line_1') ?? old('address_line_1') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Address line 2 *</label>
-                                        <input type="text" name="address_line_2"  placeholder="Enter Address line 2" value="{{ session()->get('address_line_2') }}" required>
+                                        <input type="text" name="address_line_2"  placeholder="Enter Address line 2" value="{{ session()->get('address_line_2')?? old('address_line_2') }}" >
                                     </div>
                                     <div class="form-group">
                                         <label>Town / city *</label>
-                                        <input type="text" name="city"  placeholder="Enter City" value="{{ session()->get('city') }}" required>
+                                        <input type="text" name="city"  placeholder="Enter City" value="{{ session()->get('city') ?? old('city')}}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Postcode *</label>
-                                        <input type="text" name="postcode"  placeholder="Enter Post Code" value="{{ session()->get('postcode') }}" required>
+                                        <input type="text" name="postcode"  placeholder="Enter Post Code" value="{{ session()->get('postcode')?? old('postcode') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Company type *</label>
-                                        <select name="company_type"  placeholder="Enter description" value="{{ session()->get('company_type') }}">
+                                        <select name="company_type"  placeholder="Enter description" value="{{ session()->get('company_type') ?? old('company_type') }}">
                                             <option value="">Select company type</option>
                                             <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Broker" ? 'selected' :  '' }}  value="Broker" @endif>Broker</option>
                                             <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Car supermarket" ? 'selected' :  '' }}  value="Car supermarket" @endif>Car supermarket</option>
@@ -70,11 +70,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Website *</label>
-                                        <input type="text" name="website" value="{{ session()->get('website') }}" placeholder="e.g. www.motorofic.co.uk" required>
+                                        <input type="text" name="website" value="{{ session()->get('website') ?? old('website') }}" placeholder="e.g. www.motorofic.co.uk" >
                                     </div>
                                     <div class="form-group">
                                         <label>Company phone *</label>
-                                        <input type="number" name="company_phone"  placeholder="Enter Phone Number" value="{{ session()->get('company_phone') }}" required>
+                                        <input type="number" name="company_phone"  placeholder="Enter Phone Number" value="{{ session()->get('company_phone') ?? old('company_phone') }}" required>
                                     </div>
                                 </div>
                                 {{-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
