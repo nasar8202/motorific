@@ -109,7 +109,7 @@ class BidVehicleController extends Controller
         $ordered_vehicle = Vehicle::where('id',$orders->vehicle_id)->first();
         $ordered_vehicle->status = 2 ;
         $ordered_vehicle->save();
-
+        $front = $ordered_vehicle->VehicleImage->front;
         $originalDate = $orders->updated_at;
       $winDate = date("d F Y ", strtotime($originalDate));
       $winTime = date("H:i:s a", strtotime($originalDate));
@@ -121,6 +121,9 @@ class BidVehicleController extends Controller
         'vehicle_registration'=>$orders->vehicle->vehicle_registartion_number,
         'vehicle_name'=>$orders->vehicle->vehicle_name,
         'vehicle_mileage'=>$orders->vehicle->vehicle_mileage,
+        'front'=>$front,
+        'colour'=>$orders->vehicle->vehicle_color,
+        'age'=>$orders->vehicle->vehicle_year,
 
     ]);
     $user = User::where('id',$ordered_vehicle->user_id)->first();

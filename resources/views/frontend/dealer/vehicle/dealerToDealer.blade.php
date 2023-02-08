@@ -288,7 +288,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="procuts-wraper">
+                    <div class="procuts-wraper" id="first">
                         <div class="row">
                             @forelse ($allVehicles as $vehicle)
                             <div class="col-lg-4 col-sm-6">
@@ -320,6 +320,12 @@
                             @empty
                                 <h4>No Vehicle Found</h4>
                             @endforelse
+                        </div>
+                    </div>
+                    <div class="procuts-wraper" >
+                        <div class="row" id="filter-price">
+                            
+
                         </div>
                     </div>
                     <!-- Products Cards New Design End -->
@@ -357,7 +363,7 @@
                             @endforelse
                         </div> -->
                         <div id="loop">
-                            <div class="col-lg-3 col-md-3 blur_action" id="filter-price">
+                            <div class="col-lg-3 col-md-3 blur_action" >
 
 
                             </div>
@@ -391,7 +397,7 @@
 
                 $.ajax({
 
-                    url: 'dropdownfilter',
+                    url: 'dealerToDealerDropdownfilter',
                     type: 'post',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -401,7 +407,7 @@
                     },
 
                     success: function(response) {
-
+                        
                         $('.blur_action').css('filter', 'blur(0px)');
                         var resultData = response;
                         // console.log(resultData)
@@ -414,21 +420,11 @@
                             $(".count").html("Showing " + count + " vehicles");
 
                             $.each(resultData, function(resultData, row) {
-                                bodyData += '<a href="/dealer/vehicle-detail/' + row
-                                    .id + '"><div class="box">'
-                                bodyData += '<div class="box-img"><img  src="' + path +
-                                    'uploads/dealerVehicles/exterior/' + row
-                                    .vehicle_image.front +
-                                    '" width="180px" alt=""></div><h4>' + row
-                                    .vehicle_registartion_number +
-                                    '</h4><div class="d-flex justify-content-between"><p>' +
-                                    row.vehicle_name +
-                                    '</p></div> <div class="d-flex justify-content-between"><h6>' +
-                                    row.vehicle_year + '.' + row.vehicle_tank + '.' +
-                                    row.vehicle_mileage + '.' + row.vehicle_type +
-                                    '</h6></div> <span>$' + row.vehicle_price +
-                                    '</span>'
-                                bodyData += '</div></a>';
+                                bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                                        bodyData += '<div class="produc-img"> <img src="' +path + 'uploads/dealerVehicles/exterior/' + row.dealer_vehicle_exterior[0].exterior_image +'"></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData += '</div> </a></div>'
+
                                 $("#filter-price").html(bodyData);
                                 $("#no-record").html('');
                             })
@@ -494,6 +490,7 @@
 
                             var bodyData = '';
                             var count = resultData.length;
+                            
                             const final_result = response.dealerToDealerVehicleFilter.map(element => {
                                 const isExist = response.pic.find((p) => p
                                     .dealer_vehicle_id === element.id)
@@ -508,22 +505,18 @@
                                 $(".count").html("Showing " + count + " vehicles");
 
                                 $.each(final_result, function(final_result, row) {
-                                    bodyData +=
-                                        '<a href="/dealer/dealer-vehicle-detail/' + row
-                                        .id + '"><div class="box">'
-                                    bodyData += '<div class="box-img"><img  src="' +
-                                        path + 'uploads/dealerVehicles/exterior/' + row
-                                        .dealer_vehicle_pic +
-                                        '" width="180px" alt=""></div><h4>' + row
-                                        .vehicle_registartion_number +
-                                        '</h4><div class="d-flex justify-content-between"><p>' +
-                                        row.vehicle_name +
-                                        '</p></div> <div class="d-flex justify-content-between"><h6>' +
-                                        row.vehicle_year + '.' + row.vehicle_tank +
-                                        '.' + row.vehicle_mileage + '.' + row
-                                        .vehicle_type + '</h6></div> <span>$' + row
-                                        .vehicle_price + '</span>'
-                                    bodyData += '</div></a>';
+
+
+                                    bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                                        bodyData += '<div class="produc-img"> <img src="' +path + 'uploads/dealerVehicles/exterior/' + row.dealer_vehicle_pic +'"></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData += '</div> </a></div>'
+
+
+
+
+
+
                                     $("#filter-price").html(bodyData);
                                     $("#no-record").html('');
                                 })
@@ -532,7 +525,7 @@
                             }
                         } else {
                             $(".count").html("");
-                            $(".count").html("Showing " + count + " vehicles");
+                            $(".count").html("Showing 0 vehicles");
                             $("#first").hide();
                             $("#filter-price").html('');
                             $("#no-record").html(

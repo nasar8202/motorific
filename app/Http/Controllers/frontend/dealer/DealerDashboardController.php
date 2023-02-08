@@ -394,6 +394,23 @@ class DealerDashboardController extends Controller
             return $newestVehicles;
           }
     }
+    public function dealerToDealerDropdownfilter(Request $request)
+    {
+      
+        if($request->dropdownfilter == 'lowestPrice'){
+            $lowestVehicles = DealerVehicle::Where('status',1)->orderBy('vehicle_price', 'ASC')->with('DealerVehicleExterior')->get();
+            return $lowestVehicles;
+          }
+           if($request->dropdownfilter == 'highestPrice'){
+            $highestVehicles = DealerVehicle::Where('status',1)->orderBy('vehicle_price', 'DESC')->with('DealerVehicleExterior')->get();
+            return $highestVehicles;
+          }
+          else{
+
+            $newestVehicles = DealerVehicle::Where('status',1)->orderBy('id', 'DESC')->with('DealerVehicleExterior')->get();
+            return $newestVehicles;
+          }
+    }
     public function filterLiveSell(Request $request)
     {
             $current_year = date("Y");

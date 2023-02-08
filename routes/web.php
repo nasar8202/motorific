@@ -406,6 +406,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/dropdownfilter', [DealerDashboardController::class,'dropdownfilter'])->name('dropdownfilter');
     Route::post('/dropdownfilterforlivesell', [DealerDashboardController::class,'dropdownfilterforlivesell'])->name('dropdownfilterforlivesell');
     Route::post('/buyItNowVehicledDropdownfilter', [DealerDashboardController::class,'buyItNowVehicledDropdownfilter'])->name('buyItNowVehicledDropdownfilter');
+    Route::post('/dealerToDealerDropdownfilter', [DealerDashboardController::class,'dealerToDealerDropdownfilter'])->name('dealerToDealerDropdownfilter');
+    
     Route::get('/vehicle-detail/{id}', [DealerDashboardController::class,'vehicleDetail'])->name('vehicle.vehicleDetail');
     Route::get('/live-sell', [DealerDashboardController::class,'liveSell'])->name('vehicle.liveSell');
     Route::get('/buy-it-now', [DealerDashboardController::class,'buyItNow'])->name('buyItNow');
