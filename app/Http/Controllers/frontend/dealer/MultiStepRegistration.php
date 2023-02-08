@@ -50,7 +50,7 @@ class MultiStepRegistration extends Controller
     {
 
         $validatedData = $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:50|min:5',
             'password' => 'required',
             'company_name' => 'required',
             'position' => 'required',

@@ -39,12 +39,12 @@
                                     <h2 class="fs-title">Your details</h2>
                                     <div class="form-group">
                                         <label>Full name *</label>
-                                        <input type="text" name="name" placeholder="Enter name" value="{{ session()->get('name') }}" >
+                                        <input type="text" name="name" placeholder="Enter name" value="{{ session()->get('name')?? old('name') }}" >
 
                                     </div>
                                     <div class="form-group">
                                         <label>Email address *</label>
-                                        <input type="email" name="email" value="{{ session()->get('email') }}" >
+                                        <input type="email" name="email" value="{{ session()->get('email') ?? old('email')}}" >
                                     </div>
                                     <div class="form-group">
                                         <label>Password *</label>
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Company Name *</label>
-                                        <input type="text" name="company_name" placeholder="Enter name" value="{{ session()->get('company_name') }}" >
+                                        <input type="text" name="company_name" placeholder="Enter name" value="{{ session()->get('company_name') ?? old('company_name') }}" >
                                     </div>
                                     <div class="form-group">
                                         <label>Position *</label>
@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Mobile number *</label>
-                                        <input type="number" name="phone_number" value="{{ session()->get('phone_number') }}" >
+                                        <input type="number" name="phone_number" value="{{ session()->get('phone_number') ?? old('phone_number') }}" >
                                     </div>
 
                                     <div class="form-group">
