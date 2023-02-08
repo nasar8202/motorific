@@ -307,7 +307,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div> -->
-                        <div class="procuts-wraper">
+                        {{-- <div class="procuts-wraper">
                             <div class="row">
                                 @forelse ($allVehicles as $vehicle)
                                     <div class="col-lg-4 col-sm-6">
@@ -345,8 +345,8 @@
                                     <h4>No Vehicle Found</h4>
                                 @endforelse
                             </div>
-                        </div>
-                    </div> -->
+                        </div> --}}
+                    </div> 
                     <div class="procuts-wraper" id="first">
                         <div class="row">
                             @forelse ($allVehicles as $vehicle)
