@@ -108,10 +108,10 @@
                         </a>
                         <li><a href="#">Help</a></li>
                         @guest
-                        <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
-                        
-                      </li>
-                      @endguest
+                            <li> <a href="{{ route('DealerLogin') }}">For Dealers</a>
+
+                            </li>
+                        @endguest
                     </ul>
                 </div>
             </div>
@@ -130,14 +130,15 @@
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
                         <span class="text text-success mt-4 found">Vehicle Is Found <i class="fa-solid fa-check"></i></span>
                         <br>
-                        <input type="number" name="millage" placeholder="Enter Millage" required >
+                        <input type="number" name="millage" placeholder="Enter Millage" required>
                         <input type="hidden" name="registeration" class="registeration" value="">
                         <button type="submit">Continue</button>
 
                     </form>
                     <div class="check_area">
 
-                        <input type="text" name="registeration" id="registeration" placeholder="Enter REG" value="{{ old('registeration') }}">
+                        <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
+                            value="{{ old('registeration') }}">
                         <span class="text-danger show_error"></span>
                         <button type="button" id="check_registeration">Value Your Car</button>
                     </div>
@@ -264,7 +265,7 @@
                 </div>
             </div>
             <div class="sec-2-btns text-center">
-                <button>VALUE YOUR CAR</button>
+                <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
                 <button>GET IN TOUCH</button>
             </div>
         </div>
@@ -284,7 +285,7 @@
                         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
                         facilisis.</p>
-                    <button>VALUE YOUR CAR</button>
+                    <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
                     <button>GET IN TOUCH</button>
                 </div>
                 <div class="col-lg-6">
@@ -308,7 +309,8 @@
                             labore
                             et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                         <div class="sec-1-txt">
-                            <button>VALUE YOUR CAR</button>
+                            <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
+                                    CAR</button></a>
                         </div>
                     </div>
                 </div>
@@ -477,7 +479,8 @@
                                 ut
                                 labore</p>
                             <input class="mb-3" type="text" placeholder="Enter REG">
-                            <button>Value Your Car</button>
+                            <a href="#vehicle_registration" style="text-decoration: none"> <button>Value Your
+                                    Car</button></a>
                         </div>
                     </div>
 
@@ -538,8 +541,8 @@
                     else {
                         $('.show_error').show();
                         $('.show_error').text('Record Not Found')
-                        
-                        
+
+
 
                     }
                 }

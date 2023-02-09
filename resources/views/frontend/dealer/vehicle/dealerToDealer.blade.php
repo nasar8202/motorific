@@ -368,7 +368,54 @@
                                                 <span class="p-code gold">{{ $vehicle->vehicle_registartion_number }}</span>
                                                 <span class="p-location">
                                                 <i class="fas fa-map-marker-alt"></i>
-                                                161 Mi away
+                                                <?php
+                                                
+                                                $current_user = Illuminate\Support\Facades\Auth::user();
+        $user = App\Models\User::where('id',$vehicle->user_id)->first();
+        
+        $zip = $current_user->post_code;
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_string = file_get_contents($url);
+        $result = json_decode($result_string, true);
+        
+        $result1[]=$result['results'][0];
+        $result2[]=$result1[0]['geometry'];
+        $result3[]=$result2[0]['location'];
+
+        $zipk = $user->post_code;
+        $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_stringk = file_get_contents($urlk);
+        $resultk = json_decode($result_stringk, true);
+
+        
+        $resultk1[]=$resultk['results'][0];
+        $resultk2[]=$resultk1[0]['geometry'];
+        $resultk3[]=$resultk2[0]['location'];
+        // dd($resultk3[0]['lat'],$resultk3[0]['lng']);
+      
+        $lat = strval($resultk3[0]['lat']);
+        $lng = strval($resultk3[0]['lng']);
+        
+
+
+        $long1 = deg2rad($result3[0]['lng']);
+        $long2 = deg2rad($resultk3[0]['lng']);
+        $lat1 = deg2rad($resultk3[0]['lat']);
+        $lat2 = deg2rad($resultk3[0]['lat']);
+          
+        //Haversine Formula
+        $dlong = $long2 - $long1;
+        $dlati = $lat2 - $lat1;
+          
+        $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
+          
+        $res = 2 * asin(sqrt($val));
+          
+        $radius = 3958.756;
+          
+       $distance = floor($res*$radius);
+              echo $distance.' Mi away';    
+              ?>
                                                 </span>
                                             </div>
                                             <h5 class="p-price">Reserve price: <span >${{ $vehicle->vehicle_price }}</span></h5>
@@ -611,9 +658,9 @@
             // Initializing slider
             $("#slider").slider({
                 range: true,
-                min: 20000,
-                max: 80000,
-                values: [22000, 25000],
+                min: 1000,
+    max: 100000,
+    values: [ 1000, 2000 ],
                 slide: function(event, ui) {
 
 

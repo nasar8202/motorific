@@ -122,6 +122,7 @@ display: block;
                             </span>
                         @enderror
                         <input type="password" placeholder="password" name="password" class="@error('password') is-invalid @enderror" name="password" value="">
+                        <input type="hidden" name="type" value="seller">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

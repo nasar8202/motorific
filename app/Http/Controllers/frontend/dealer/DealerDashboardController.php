@@ -146,30 +146,14 @@ class DealerDashboardController extends Controller
 
     public function UnderBiddedOfferVehicle()
     {
-      $mydate = Carbon::now();
-      $mytime = Carbon::now();
-      $time = $mytime->toTimeString();
-      $date =  $mydate->toDateString();
-       $sale_Time = LiveSaleTime::first();
-
-       if($time <= $sale_Time->end_time ){
-
         $user_id = Auth::user()->id;
 
-        $bids = BidedVehicle::join('vehicles', 'vehicles.id', '=', 'bided_vehicles.vehicle_id')
-
-                                ->join('users', 'users.id', '=', 'bided_vehicles.user_id')
-                                ->join('vehicle_images', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
-                                ->select('vehicles.id','vehicles.user_id','vehicles.vehicle_registartion_number','vehicles.vehicle_name','vehicles.vehicle_year','vehicles.vehicle_color','vehicles.vehicle_type','vehicles.vehicle_tank','vehicles.previous_owners','vehicles.vehicle_mileage','vehicles.vehicle_price','vehicles.retail_price','vehicles.clean_price','vehicles.average_price','vehicles.hidden_price','bided_vehicles.vehicle_id','bided_vehicles.user_id','bided_vehicles.created_at','bided_vehicles.bid_price','users.id','users.name','users.email','users.phone_number','vehicle_images.front')
-                                ->where('users.id',$user_id)->where('vehicles.end_vehicle_date',$date)->get();
-// dd($bids);
+        $bids = BidedVehicle::with('user')->with('vehicle.vehicleimage')->where('user_id',$user_id)->where('status',null)->get();
+                                // dd($bids);
         $countBids = count($bids);
 
         return view('frontend.dealer.bids.UnderBiddedOfferVehicle',compact('bids','countBids'));
-      } else{
-        return view('frontend.dealer.bids.UnderBiddedOfferVehicle');
-
-        }
+      
 
       }
     public function DidnotWinBiddedVehicle()

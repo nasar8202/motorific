@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -31,26 +32,38 @@ class LoginController extends Controller
     public function redirectTo()
     {
         $role = Auth::user()->role_id;
-
-        switch($role){
-
-            case 1:
-                $this->redirectTo = '/admin/dashboard';
-                return $this->redirectTo;
-                break;
-
-             case 2:
-                 $this->redirectTo = '/seller/dashboard';
-                 return $this->redirectTo;
-                 break;
-             case 3:
-                 $this->redirectTo = '/dealer/dashboard';
-                 return $this->redirectTo;
-                 break;
-            default:
-                $this->redirectTo = '/login';
-                return $this->redirectTo;
+        if ($role == 1) {
+            $this->redirectTo = '/admin/dashboard';
+            return $this->redirectTo;
+        } else if ($role == 2) {
+            $this->redirectTo = '/seller/dashboard';
+            return $this->redirectTo;
+        } else if ($role == 3) {
+            $this->redirectTo = '/dealer/dashboard';
+            return $this->redirectTo;
+        } else {
+            $this->redirectTo = '/login';
+            return $this->redirectTo;
         }
+        // switch($role){
+
+        //     case 1:
+        //         $this->redirectTo = '/admin/dashboard';
+        //         return $this->redirectTo;
+        //         break;
+
+        //      case 2:
+        //          $this->redirectTo = '/seller/dashboard';
+        //          return $this->redirectTo;
+        //          break;
+        //      case 3:
+        //          $this->redirectTo = '/dealer/dashboard';
+        //          return $this->redirectTo;
+        //          break;
+        //     default:
+        //         $this->redirectTo = '/login';
+        //         return $this->redirectTo;
+        // }
 
         // return $next($request);
     }
