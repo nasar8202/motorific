@@ -156,7 +156,7 @@
           <p><strong>Subject: You bought a car!</strong></p>
           <p>
             <strong>Reply-To</strong
-            ><span style="color: blue"> noreply@carwow.co.uk</span>
+            ><span style="color: blue"> noreply@motorific.co.uk</span>
           </p>
 
           <div class="mail-img-one">
@@ -168,7 +168,7 @@
           <h2>Deactivate by Admin!</h2>
           <p>Hi {{ $data['name'] }}!</p>
           <p>
-            Congratulations - Your Vehicle has been Deactivated by admin
+             Your Vehicle has been Deactivated by admin
             <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
 
         </p>
@@ -221,12 +221,12 @@
             <p>
               Drop us an email -
               <span style="color: #2196f3"
-                >partner.operations@carwow.co.uk</span
+                >partner.operations@motorific.co.uk</span
               >
               and we’ll get back to you as soon as possible.
             </p>
             <p>Thanks</p>
-            <p>The carwow team.</p>
+            <p>The motorific team.</p>
           </div>
 
           <div class="footer-mail">
@@ -255,7 +255,7 @@
 
 
             <span
-              >© 2022 carwow Ltd, All rights reserved. carwow Ltd, registered in
+              >© 2022 motorific Ltd, All rights reserved. motorific Ltd, registered in
               England & Wales, registered office Verde Building, 10 Bressenden
               Pl, Victoria, London SW1E 5DH. Company number 07103079. <br />
               You can unsubscribe from these emails at any time.

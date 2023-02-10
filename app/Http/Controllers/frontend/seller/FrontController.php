@@ -303,7 +303,7 @@ class FrontController extends Controller
             'number_of_keys' => 'required',
             'tool_pack' => 'required',
             'locking_wheel_nut' => 'required',
-            'VehicleCategory'=>'required',
+            // 'VehicleCategory'=>'required',
             'smoked_in' => 'required',
             'log_book' => 'required',
             'location' => 'required|max:256',

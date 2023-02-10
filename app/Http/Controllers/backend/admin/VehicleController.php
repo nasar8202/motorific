@@ -376,7 +376,7 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{

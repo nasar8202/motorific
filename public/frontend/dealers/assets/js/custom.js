@@ -1,3 +1,9 @@
+// Producst Card Equal Height
+$(document).ready(function(){
+    $('.product-card').matchHeight();
+});
+
+
 // Brands Carousel
 $('.brands-slider').slick({
   dots: false,

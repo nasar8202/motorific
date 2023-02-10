@@ -245,7 +245,7 @@ div#filter-price {
             <div class="sec-2-txt pb-4">
                 <h2>Live Sell <span id="word"> ends </span> in <span id="counter"></span></h2>
                 <div class="category-btn">
-                    <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
+                    <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/browse-vehicles') ? 'active' : '' }}">All </a>
                 <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
                 <a href="{{route('buyItNow')}}">Buy It Now</a>
                 <a href="{{route('dealerToDealer')}}">Dealer To Dealer</a>
@@ -266,7 +266,7 @@ div#filter-price {
                 <!-- BOX-1 -->
                 
                 <!-- Products Cards New Design -->
-                <div class="procuts-wraper">
+                <div class="procuts-wraper" id="first">
                         <div class="row">
                         @forelse ($allVehicles as $vehicle)
                             <div class="col-lg-4 col-sm-6">
@@ -287,7 +287,54 @@ div#filter-price {
                                                 <span class="p-code gold">{{ $vehicle->vehicle_registartion_number }}</span>
                                                 <span class="p-location">
                                                 <i class="fas fa-map-marker-alt"></i>
-                                                161 Mi away
+                                                <?php
+                                                
+                                                $current_user = Illuminate\Support\Facades\Auth::user();
+        $user = App\Models\User::where('id',$vehicle->user_id)->first();
+        
+        $zip = $current_user->post_code;
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_string = file_get_contents($url);
+        $result = json_decode($result_string, true);
+        
+        $result1[]=$result['results'][0];
+        $result2[]=$result1[0]['geometry'];
+        $result3[]=$result2[0]['location'];
+
+        $zipk = $user->post_code;
+        $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_stringk = file_get_contents($urlk);
+        $resultk = json_decode($result_stringk, true);
+
+        
+        $resultk1[]=$resultk['results'][0];
+        $resultk2[]=$resultk1[0]['geometry'];
+        $resultk3[]=$resultk2[0]['location'];
+        // dd($resultk3[0]['lat'],$resultk3[0]['lng']);
+      
+        $lat = strval($resultk3[0]['lat']);
+        $lng = strval($resultk3[0]['lng']);
+        
+
+
+        $long1 = deg2rad($result3[0]['lng']);
+        $long2 = deg2rad($resultk3[0]['lng']);
+        $lat1 = deg2rad($resultk3[0]['lat']);
+        $lat2 = deg2rad($resultk3[0]['lat']);
+          
+        //Haversine Formula
+        $dlong = $long2 - $long1;
+        $dlati = $lat2 - $lat1;
+          
+        $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
+          
+        $res = 2 * asin(sqrt($val));
+          
+        $radius = 3958.756;
+          
+       $distance = floor($res*$radius);
+              echo $distance.' Mi';                                  
+                                                ?>
                                                 </span>
                                             </div>
                                             <h5 class="p-price">Reserve price: <span >${{ $vehicle->vehicle_price }}</span></h5>
@@ -298,6 +345,12 @@ div#filter-price {
                             @empty
                                 <h1>No Vehicle Found</h1>
                             @endforelse
+                        </div>
+                    </div>
+                    <div class="procuts-wraper" >
+                        <div class="row" id="filter-price">
+                            
+
                         </div>
                     </div>
                     <!-- Products Cards New Design End -->
@@ -422,11 +475,14 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ " vehicles");
 
             $.each(resultData,function(resultData,row){
-                    bodyData+='<div class="col-lg-3 col-md-3 blur_action mb-5"><a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
-                    bodyData+='<div class="box-img"><img  src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
-                    bodyData+='</div></a></div>';
-                    $(".filter-price").html(bodyData);
-                    $("#no-record").html('');
+
+                    bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                                        bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData += '</div> </a></div>'
+
+                                $("#filter-price").html(bodyData);
+                                $("#no-record").html('');                    
                 })
 
 
@@ -435,7 +491,7 @@ $(document).ready(function(){
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
-                $(".filter-price").html('');
+                $("#filter-price").html('');
             $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
             }
             },
@@ -489,11 +545,13 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ "vehicles");
 
             $.each(resultData,function(resultData,row){
-                    bodyData+='<div class="col-lg-3 col-md-3 blur_action mb-5"><a href="/dealer/vehicle-detail/'+row.id+'"><div class="box">'
-                    bodyData+='<div class="box-img"><img  src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
-                    bodyData+='</div></a></div>';
-                    $(".filter-price").html(bodyData);
-                    $("#no-record").html('');
+                bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                                        bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData += '</div> </a></div>'
+
+                                $("#filter-price").html(bodyData);
+                                $("#no-record").html('');       
                 })
 
 

@@ -62,8 +62,8 @@
         }
 
         /* section.sec-2.productPageTn .col-lg-4.col-md-4 {
-                        filter: blur(3px);
-                    } */
+                                                                filter: blur(3px);
+                                                            } */
     </style>
      
 
@@ -275,9 +275,79 @@
                             </div>
                         </div>
                         <!-- BOX-1 -->
-                    
-                    <!-- Products Cards New Design -->
-                    <div class="procuts-wraper">
+
+                        <!-- Products Cards New Design -->
+                        <!-- <div class="procuts-wraper">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4 col-sm-6">
+                                                                        <a href="#" class="product-main">
+                                                                            <div class="product-card">
+                                                                                <div class="produc-img">
+                                                                                    <img src="{{ URL::asset('frontend/dealers/assets/image/images/car1.png') }}" alt="">
+                                                                                </div>
+                                                                                <div class="p-content">
+                                                                                    <h3 class="p-title">Fiat 500 Sport</h3>
+                                                                                    <ul class="p-spec">
+                                                                                        <li>2020</li>
+                                                                                        <li>10,550 miles</li>
+                                                                                        <li>Petrol</li>
+                                                                                        <li>Manual</li>
+                                                                                    </ul>
+                                                                                    <div class="p-cate-list">
+                                                                                        <span class="p-code gold">MX20 XGU</span>
+                                                                                        <span class="p-location">
+                                                                                        <i class="fas fa-map-marker-alt"></i>
+                                                                                        161 Mi away
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <h5 class="p-price">Reserve price: <span >£9,240</span></h5>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
+                        {{-- <div class="procuts-wraper">
+                            <div class="row">
+                                @forelse ($allVehicles as $vehicle)
+                                    <div class="col-lg-4 col-sm-6">
+                                        <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}"
+                                            class="product-main">
+                                            <div class="product-card">
+                                                <div class="produc-img">
+                                                    <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image ?? '') }}"
+                                                        alt="">
+                                                </div>
+                                                <div class="p-content">
+                                                    <h3 class="p-title">{{ $vehicle->vehicle_name }}</h3>
+                                                    <ul class="p-spec">
+                                                        <li>{{ $vehicle->vehicle_year }}</li>
+                                                        <li>{{ $vehicle->vehicle_mileage }}</li>
+                                                        <li>{{ $vehicle->vehicle_tank }}</li>
+                                                        <li>{{ $vehicle->vehicle_type }}</li>
+                                                    </ul>
+                                                    <div class="p-cate-list">
+                                                        <span
+                                                            class="p-code gold">{{ $vehicle->vehicle_registartion_number }}</span>
+                                                        <span class="p-location">
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                            161 Mi away
+                                                        </span>
+                                                    </div>
+                                                    <h5 class="p-price">Reserve price:
+                                                        <span>${{ $vehicle->vehicle_price }}</span>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @empty
+                                    <h4>No Vehicle Found</h4>
+                                @endforelse
+                            </div>
+                        </div> --}}
+                    </div> 
+                    <div class="procuts-wraper" id="first">
                         <div class="row">
                             @forelse ($allVehicles as $vehicle)
                             <div class="col-lg-4 col-sm-6">
@@ -298,7 +368,54 @@
                                                 <span class="p-code gold">{{ $vehicle->vehicle_registartion_number }}</span>
                                                 <span class="p-location">
                                                 <i class="fas fa-map-marker-alt"></i>
-                                                161 Mi away
+                                                <?php
+                                                
+                                                $current_user = Illuminate\Support\Facades\Auth::user();
+        $user = App\Models\User::where('id',$vehicle->user_id)->first();
+        
+        $zip = $current_user->post_code;
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_string = file_get_contents($url);
+        $result = json_decode($result_string, true);
+        
+        $result1[]=$result['results'][0];
+        $result2[]=$result1[0]['geometry'];
+        $result3[]=$result2[0]['location'];
+
+        $zipk = $user->post_code;
+        $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $result_stringk = file_get_contents($urlk);
+        $resultk = json_decode($result_stringk, true);
+
+        
+        $resultk1[]=$resultk['results'][0];
+        $resultk2[]=$resultk1[0]['geometry'];
+        $resultk3[]=$resultk2[0]['location'];
+        // dd($resultk3[0]['lat'],$resultk3[0]['lng']);
+      
+        $lat = strval($resultk3[0]['lat']);
+        $lng = strval($resultk3[0]['lng']);
+        
+
+
+        $long1 = deg2rad($result3[0]['lng']);
+        $long2 = deg2rad($resultk3[0]['lng']);
+        $lat1 = deg2rad($resultk3[0]['lat']);
+        $lat2 = deg2rad($resultk3[0]['lat']);
+          
+        //Haversine Formula
+        $dlong = $long2 - $long1;
+        $dlati = $lat2 - $lat1;
+          
+        $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
+          
+        $res = 2 * asin(sqrt($val));
+          
+        $radius = 3958.756;
+          
+       $distance = floor($res*$radius);
+              echo $distance.' Mi away';    
+              ?>
                                                 </span>
                                             </div>
                                             <h5 class="p-price">Reserve price: <span >${{ $vehicle->vehicle_price }}</span></h5>
@@ -311,42 +428,48 @@
                             @endforelse
                         </div>
                     </div>
+                    <div class="procuts-wraper" >
+                        <div class="row" id="filter-price">
+                            
+
+                        </div>
+                    </div>
                     <!-- Products Cards New Design End -->
                         <!-- <div id="first">
-                            @forelse ($allVehicles as $vehicle)
-                                <div class="col-lg-3 col-md-3 blur_action mb-5">
-                                    <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}">
-                                        <div class="box" id>
+                                                                    @forelse ($allVehicles as $vehicle)
+    <div class="col-lg-3 col-md-3 blur_action mb-5">
+                                                                            <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}">
+                                                                                <div class="box" id>
 
-                                            <div class="box-img">
-                                                <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image ?? '') }}"
-                                                    width="180px" alt="">
-                                            </div>
-                                            <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
-                                            <div class="d-flex justify-content-between">
-                                                <p>{{ $vehicle->vehicle_name }}</p>
-
-
-                                            </div>
-                                            <div class="d-flex justify-content-between">
-
-                                                <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}
-                                                </h6>
+                                                                                    <div class="box-img">
+                                                                                        <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image ?? '') }}"
+                                                                                            width="180px" alt="">
+                                                                                    </div>
+                                                                                    <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
+                                                                                    <div class="d-flex justify-content-between">
+                                                                                        <p>{{ $vehicle->vehicle_name }}</p>
 
 
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-between">
 
-                                            </div>
-                                            <span>${{ $vehicle->vehicle_price }}</span>
-                                        </div>
-                                    </a>
-                                    <br>
-                                </div>
+                                                                                        <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}
+                                                                                        </h6>
+
+
+
+                                                                                    </div>
+                                                                                    <span>${{ $vehicle->vehicle_price }}</span>
+                                                                                </div>
+                                                                            </a>
+                                                                            <br>
+                                                                        </div>
                             @empty
-                                <h4>No Vehicle Found</h4>
-                            @endforelse
-                        </div> -->
+                                                                        <h4>No Vehicle Found</h4>
+    @endforelse
+                                                                </div> -->
                         <div id="loop">
-                            <div class="col-lg-3 col-md-3 blur_action" id="filter-price">
+                            <div class="col-lg-3 col-md-3 blur_action" >
 
 
                             </div>
@@ -380,7 +503,7 @@
 
                 $.ajax({
 
-                    url: 'dropdownfilter',
+                    url: 'dealerToDealerDropdownfilter',
                     type: 'post',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -390,7 +513,7 @@
                     },
 
                     success: function(response) {
-
+                        
                         $('.blur_action').css('filter', 'blur(0px)');
                         var resultData = response;
                         // console.log(resultData)
@@ -403,21 +526,11 @@
                             $(".count").html("Showing " + count + " vehicles");
 
                             $.each(resultData, function(resultData, row) {
-                                bodyData += '<a href="/dealer/vehicle-detail/' + row
-                                    .id + '"><div class="box">'
-                                bodyData += '<div class="box-img"><img  src="' + path +
-                                    'uploads/dealerVehicles/exterior/' + row
-                                    .vehicle_image.front +
-                                    '" width="180px" alt=""></div><h4>' + row
-                                    .vehicle_registartion_number +
-                                    '</h4><div class="d-flex justify-content-between"><p>' +
-                                    row.vehicle_name +
-                                    '</p></div> <div class="d-flex justify-content-between"><h6>' +
-                                    row.vehicle_year + '.' + row.vehicle_tank + '.' +
-                                    row.vehicle_mileage + '.' + row.vehicle_type +
-                                    '</h6></div> <span>$' + row.vehicle_price +
-                                    '</span>'
-                                bodyData += '</div></a>';
+                                bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                                        bodyData += '<div class="produc-img"> <img src="' +path + 'uploads/dealerVehicles/exterior/' + row.dealer_vehicle_exterior[0].exterior_image +'"></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData += '</div> </a></div>'
+
                                 $("#filter-price").html(bodyData);
                                 $("#no-record").html('');
                             })
@@ -483,6 +596,7 @@
 
                             var bodyData = '';
                             var count = resultData.length;
+                            
                             const final_result = response.dealerToDealerVehicleFilter.map(element => {
                                 const isExist = response.pic.find((p) => p
                                     .dealer_vehicle_id === element.id)
@@ -497,22 +611,18 @@
                                 $(".count").html("Showing " + count + " vehicles");
 
                                 $.each(final_result, function(final_result, row) {
-                                    bodyData +=
-                                        '<a href="/dealer/dealer-vehicle-detail/' + row
-                                        .id + '"><div class="box">'
-                                    bodyData += '<div class="box-img"><img  src="' +
-                                        path + 'uploads/dealerVehicles/exterior/' + row
-                                        .dealer_vehicle_pic +
-                                        '" width="180px" alt=""></div><h4>' + row
-                                        .vehicle_registartion_number +
-                                        '</h4><div class="d-flex justify-content-between"><p>' +
-                                        row.vehicle_name +
-                                        '</p></div> <div class="d-flex justify-content-between"><h6>' +
-                                        row.vehicle_year + '.' + row.vehicle_tank +
-                                        '.' + row.vehicle_mileage + '.' + row
-                                        .vehicle_type + '</h6></div> <span>$' + row
-                                        .vehicle_price + '</span>'
-                                    bodyData += '</div></a>';
+
+
+                                    bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                                        bodyData += '<div class="produc-img"> <img src="' +path + 'uploads/dealerVehicles/exterior/' + row.dealer_vehicle_pic +'"></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData += '</div> </a></div>'
+
+
+
+
+
+
                                     $("#filter-price").html(bodyData);
                                     $("#no-record").html('');
                                 })
@@ -521,7 +631,7 @@
                             }
                         } else {
                             $(".count").html("");
-                            $(".count").html("Showing " + count + " vehicles");
+                            $(".count").html("Showing 0 vehicles");
                             $("#first").hide();
                             $("#filter-price").html('');
                             $("#no-record").html(
@@ -548,9 +658,9 @@
             // Initializing slider
             $("#slider").slider({
                 range: true,
-                min: 20000,
-                max: 80000,
-                values: [22000, 25000],
+                min: 1000,
+    max: 100000,
+    values: [ 1000, 2000 ],
                 slide: function(event, ui) {
 
 

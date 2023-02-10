@@ -67,7 +67,7 @@
                                         <input class="hide-inp" type="radio" name="vat" id="plus_vat" value="Final Price plus VAT" @if(request()->session()->get('vat') == 'Final Price plus VAT') checked @endif/>
                                         <label class="dflex-gap10" for="plus_vat">
                                             <span class="radio-circle"></span>
-                                            <span>Final Price plus VAT</span>
+                                            <span>VAT Qualifying</span>
                                         </label>
                                     </div>
                                 </li>
@@ -76,7 +76,7 @@
                                         <input class="hide-inp" type="radio" name="vat" id="no_vat"  value="Final Price plus VAT" @if(request()->session()->get('vat') == 'Final Price plus VAT') checked @endif/>
                                         <label class="dflex-gap10" for="no_vat">
                                             <span class="radio-circle"></span>
-                                            <span>Final Price plus VAT</span>
+                                            <span>VAT Marginal</span>
                                         </label>
                                     </div>
                                 </li>
@@ -118,7 +118,7 @@
                         </button>
 
                         <button type="submit" class="btn-trans step1-btn-save">
-                           Save for Now
+                           Next Step
 
                         </button>
                     </div>
