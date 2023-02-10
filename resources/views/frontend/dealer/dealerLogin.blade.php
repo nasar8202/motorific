@@ -46,6 +46,7 @@
                                     <div class="form-group">
                                         <label>Password *</label>
                                         <input type="password" name="password" value="{{ session()->get('password') }}" >
+                                        <input type="hidden" name="type" value="dealer" >
                                     </div>
 
 

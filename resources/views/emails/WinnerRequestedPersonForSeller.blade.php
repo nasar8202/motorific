@@ -220,12 +220,12 @@
             <p>
               Drop us an email -
               <span style="color: #2196f3"
-                >partner.operations@carwow.co.uk</span
+                >partner.operations@motorific.co.uk</span
               >
               and we’ll get back to you as soon as possible.
             </p>
             <p>Thanks</p>
-            <p>The carwow team.</p>
+            <p>The motorific team.</p>
           </div>
 
           <div class="footer-mail">
@@ -254,7 +254,7 @@
 
 
             <span
-              >© 2022 carwow Ltd, All rights reserved. carwow Ltd, registered in
+              >© 2022 motorific Ltd, All rights reserved. motorific Ltd, registered in
               England & Wales, registered office Verde Building, 10 Bressenden
               Pl, Victoria, London SW1E 5DH. Company number 07103079. <br />
               You can unsubscribe from these emails at any time.

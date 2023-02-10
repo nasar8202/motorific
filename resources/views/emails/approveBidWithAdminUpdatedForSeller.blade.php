@@ -165,7 +165,7 @@
           </div>
         </div>
         <div class="mail-content">
-          <h2>You've just bought a car!</h2>
+          {{-- <h2>You've just bought a car!</h2> --}}
           <p>Hi!</p>
           <p>
             Congratulations - your car has been successfully sold to  <b>{{ $data['name'] }}</b>
@@ -187,7 +187,7 @@
           </div>
         </div>
         <div class="customer-detail">
-          <strong>Customer Contact Details</strong>
+          {{-- <strong>Customer Contact Details</strong>
           <div class="car-det">
             <span>Name: Carter</span>
             <span> Phone: +447703287219 </span>
@@ -202,7 +202,7 @@
           >
           <div class="btn-mail">
             <a href="">Contact the seller here </a>
-          </div>
+          </div> --}}
           <div class="qa-ans">
             <p><strong>What next? </strong></p>
             <p>

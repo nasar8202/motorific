@@ -24,46 +24,14 @@
 <body onload="move()">
     <div id="myProgress">
         <div class="loader-img">
-            <img src="{{ URL::asset('frontend/seller/assets/image/loaderimg.png') }}">
+            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">
         </div>
-      <div id="myBar">
+      <!-- <div id="myBar">
           <span id="bar"></span>
           <span id="bar-txt">0%</span>
-      </div>
+      </div> -->
     </div>
     
-    <script>
-        var i = 0;
-        
-        function move() {
-          if (i == 0) {
-            i = 1;
-            var loadedPage = document.getElementById("loadedPage");
-            var progessMain = document.getElementById("myProgress");
-            var elem = document.getElementById("bar");
-            var barTxt = document.getElementById("bar-txt");
-            loadedPage.style.transform = "none";
-            var width = 0;
-            var id = setInterval(frame, 25);
-            function frame() {
-              if (width >= 100) {
-                progessMain.style.opacity =0.5;
-                progessMain.style.display ="none";
-                clearInterval(id);
-                i = 0;
-                // loadedPage.classList.remove("overflow-hidden");
-                loadedPage.style.display = "block";
-              } else {
-                width++;
-                // loadedPage.classList.add("overflow-hidden");
-                elem.style.width = width + "%";
-                barTxt.innerHTML = width + "%";
-              }
-            }
-          }
-        }
-        
-    </script>
     
     
 <main id="loadedPage">

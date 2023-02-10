@@ -111,6 +111,73 @@ ul.parts-content li span {
     .banner-sec.dealer {
         padding: 110px 0 80px 0px;
     }
+    .brands-slider .slick-arrow {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .brands-slider .slick-next.slick-arrow {
+        right: -60px;
+    }
+    
+    .brands-slider .slick-prev.slick-arrow {
+        left: -60px;
+    }
+    
+    .products-slide .slick-arrow {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .products-slide .slick-prev.slick-arrow {
+        left: -60px;
+    }
+    
+    .products-slide .slick-next.slick-arrow {
+        right: -60px;
+    }
+    
+    .p-title {
+        font-size: 18px;
+    }
+    
+    .p-cate-list .p-code {
+        font-size: 15px;
+    }
+    
+    .p-cate-list .p-location {
+        font-size: 14px;
+    }
+    
+    .p-price {
+        font-size: 16px;
+    }
+    
+    .hw-box .icon-box {
+        height: 100px;
+    }
+    
+    .hw-box .icon-content h3 {
+        font-size: 16px;
+    }
+    
+    .hw-box .icon-content p {
+        font-size: 14px;
+    }
+    
+    .service-box h3 {
+        font-size: 17px;
+    }
+    
+    .stock-cta h2 {
+        font-size: 180px;
+    }
+    
+    .stock-cta h3 {
+        font-size: 30px;
+        margin: 40px 0 30px 0;
+    }
+    
 
 
     /* End */
@@ -118,9 +185,28 @@ ul.parts-content li span {
 }
 
 
+@media(max-width:1439px){
+    .products-slide .slick-prev.slick-arrow {
+        left: 0;
+        z-index: 1;
+    }
+    
+    .products-slide .slick-next.slick-arrow {
+        right: 0;
+    }
+    
+    .services-sec {
+        margin-bottom: 40px;
+    }
+    
+}
+
 
 
 @media only screen and (max-width: 1200px) {
+    section.sec-2.productPageTn span {
+        padding: 10px 20px !important;
+    }
     .container-1200 {
         width: 1040px;
     }
@@ -157,6 +243,35 @@ div#loop .box {
 
     padding-left: 20px !important;
 }
+/* Css by Ayub */
+.hw-sec:before {
+    width: 95%;
+}
+.hw-box .icon-box {
+    height: 80px;
+}
+.hw-box .icon-content h3 {
+    font-size: 15px;
+}
+.hw-box .icon-content p {
+    font-size: 13px;
+}
+.services-sec {
+    padding: 70px 0 30px 0;
+}
+.stock-cta h2 {
+    font-size: 150px;
+}
+.stock-cta h3 {
+    font-size: 26px;
+    margin: 20px 0 30px 0;
+}
+.stock-cta {
+    padding: 70px 0;
+}
+/* End */
+
+
 }
 
 @media only screen and (max-width: 1167px) {
