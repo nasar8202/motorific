@@ -8,6 +8,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\backend\admin\VehicleController;
 use App\Http\Controllers\frontend\seller\FrontController;
 
+use App\Http\Controllers\frontend\NewsletterSubscribers;
+
+
 use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\dealer\HowItWorksController;
 use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
@@ -47,6 +50,11 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// newsletter subscriber
+Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
+
+//end
 // Route::get('test', function () {
 // 	event(new App\Events\NewDealerRegisterNotification('Someone'));
 // 	return "Event has been sent!";

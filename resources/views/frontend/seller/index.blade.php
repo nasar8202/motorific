@@ -490,8 +490,8 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut
                                 labore</p>
-                            <input class="mb-3" type="text">
-                            <button>SUBSCRIBE</button>
+                            <input class="mb-3" type="text" name="subscriber_email" id="subscriber_email" >
+                            <button onclick="addSubscriber()">SUBSCRIBE</button>
                         </div>
                     </div>
                 </div>
@@ -501,6 +501,37 @@
 @endsection
 @push('child-scripts')
     <script type="text/javascript">
+        function addSubscriber() {
+            var subscriber_email = $("#subscriber_email").val();
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+//   return regex.test(email);
+            if(regex.test(subscriber_email) == false)
+            {
+                alert('invalid email format');
+                return false;
+            }
+            $.ajax({
+                type:"post",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '{{ route('addSubscriberEmail') }}',
+                data: {
+                    subscriber_email,
+                    subscriber_email
+                },
+                success: function(response) {
+                    if(response == "exists"){
+                        alert("This Email Already Subscribed!");
+                    }else if(response == "inserted"){
+                        alert("Congrats You Have Subscribe Successfully!");
+                    }
+                },
+                error:function(){
+                    alert('error')
+                }
+            });
+          }
         $('.millage_area').hide();
         $('.show_error').hide();
         // $('.found').hide();
