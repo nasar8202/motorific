@@ -152,7 +152,7 @@
             </div>
         </div>
     </section>
-    <section class="sec-1" id="vehicle_registration_details"></section>
+    <section class="" id="vehicle_registration_details"></section>
     <!-- SECTION-2 -->
 
     <section class="sec-2">
