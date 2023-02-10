@@ -11,10 +11,12 @@
 </style>
 <header class="header">
     <!--<h2 class="logo-text">motorific</h2>-->
-    <div class="container-1200 position-relative">
-        <h2 class="logo-text"><a  href="{{route('dealer.newDashboard')}}">motorific</a></h2>
-        <div class="row header-nav-row">
-            <div class="col-lg-9 desktop-header">
+    <div class="container-1400 position-relative">
+        <div class="row header-nav-row align-items-center">
+            <div class="col-lg-2 d-lg-block d-none">
+                <h2 class="logoMain"><a  href="{{route('dealer.newDashboard')}}" class="d-block">motorific</a></h2>
+            </div>
+            <div class="col-lg-7 desktop-header">
                 <div class="header-nav dflex-gap10">
                     @if(\Request::route()->getName() == 'dealer.newDashboard' || \Request::route()->getName() == 'dealer.dashboard' || \Request::route()->getName() == 'howItWorks' || \Request::route()->getName() == 'pricing' || \Request::route()->getName() == 'onlyCars' || \Request::route()->getName() == 'onlyVans' || \Request::route()->getName() == 'vehicle.vehicleDetail' || \Request::route()->getName() == 'vehicle.liveSell' || \Request::route()->getName() == 'buyItNow' || \Request::route()->getName() == 'dealerToDealer' || \Request::route()->getName() == 'dealersVehicleDetail' || \Request::route()->getName() == 'dealer.BidsAndOffers' || \Request::route()->getName() == 'bids.ActiveBiddedVehicle' || \Request::route()->getName() == 'bids.UnderBiddedOfferVehicle' || \Request::route()->getName() == 'bids.DidnotWinBiddedVehicle' || \Request::route()->getName() == 'dealer.PurchasesVehicle' || \Request::route()->getName() == 'bids.CompletedBiddedVehicle' || \Request::route()->getName() == 'bids.CancelledBiddedOfferVehicle' || \Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.vehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing' || \Request::route()->getName() == 'CompletedRequestedVehicle' || \Request::route()->getName() == 'CancelRequestedVehicle' || \Request::route()->getName() == 'myVehicles' || \Request::route()->getName() == 'orderOnMyVehicle'  || \Request::route()->getName() == 'sellerDetails' || \Request::route()->getName() == 'ownerDealerRequestedDetails' || \Request::route()->getName() == 'sellerRequestedDetails')
                     <nav>
@@ -44,17 +46,18 @@
                     @endif
                 </div>
             </div>
-            <div class="col-lg-3 desktop-header">
-                <div class="header-btns">
+            <div class="col-lg-3 desktop-header user">
+                <div class="header-btns dealer">
                     <!--<button class="btn-mts" > Sign In </button>-->
                     <!--<button class="btn-mts"> Contact Us </button>-->
 
                     @guest
 
-                    <button class="btn-mts"><a href="{{ route('signup') }}">Sign Up</a></button>
-                    <button class="btn-mts"><a href="{{ route('DealerLogin') }}">Sign In</a></button>
+                    <button class="btn-mts header-btn "><a href="{{ route('signup') }}">Sign Up</a></button>
+                    <button class="btn-mts header-btn "><a href="{{ route('DealerLogin') }}">Sign In</a></button>
                     @else
 
+                    
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
@@ -88,10 +91,19 @@
             </div>
         </div>
             <div class="col-12 mob-header">
-                <div class="mob-header-nav">
-                    <button class="btn-icon">
+                <h3><a  href="{{route('dealer.newDashboard')}}" class="d-block">motorific</a></h3>
+                <div class="mob-header-nav dealer align-items-center">
+                @guest
+                    <div class="userBtns">
+                        <a href="{{ route('signup') }}">Sign Up</a>
+                        <a href="{{ route('DealerLogin') }}">Sign In</a>
+                    </div>
+                    @else
+                    
+                    <button class="btn-icon toglleBtn">
                         <i class="fa-solid fa-bars"></i>
                     </button>
+                    @endguest
                 </div>
             </div>
     </div>

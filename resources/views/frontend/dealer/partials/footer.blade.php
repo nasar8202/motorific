@@ -81,19 +81,15 @@
                 </div>
             </div>
             <div class="footer-sub contact-2">
-                <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt="">
+            <a  href="{{route('dealer.newDashboard')}}" class="d-block"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt=""> </a>
                 <div class="d-flex mt-4 mb-4">
-                    <a href="#">
-                        <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>
-                    </a>
-                    <a href="#">
-                        <div class="footer-icon-bg"><i class="fa-brands fa-facebook-f"></i></div>
-                    </a>
-                    <a href="#">
-                        <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>
-                    </a>
+                    <ul class="footer-social">
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
                 </div>
-                <h4>© Motorfic Online Ltd. 2017-2022</h4>
+                <h4 class="copyright-txt">© Motorfic Online Ltd. 2017-2022</h4>
             </div>
         </div>
     </div>

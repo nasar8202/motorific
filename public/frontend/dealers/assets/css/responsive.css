@@ -598,6 +598,111 @@ div#loop .col-lg-3.col-md-3.blur_action {
 .hw-sec {
     padding: 20px 0 50px 0;
 }
+.mob-header-nav.dealer{
+    position: static;
+}
+header.header {
+    padding: 20px 0 20px;
+}
+.mob-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mob-header h3 {
+    margin: 0;
+}
+
+.mob-header h3 a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+}
+.container-1400{
+    max-width: 90vw;
+}
+.userBtns a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 16px;
+    background: #7977a2;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .4s ease-in;
+}
+.userBtns a:hover {
+    background: #05eab5;
+}
+
+.userBtns a:last-child {
+    margin-left: 4px;
+}
+
+.mob-header .btn-icon {
+    margin-left: 10px;
+}
+
+.desktop-header.user {
+    /* order: -1; */
+}
+.header-btns.dealer {
+    display: block;
+}
+.header-btns.dealer .dropdown-menu {
+    position: static !important;
+    transform: unset !important;
+    transform: scaleY(0) !important;
+    transform-origin: top;
+    /* display: block; */
+    background: #7977a252;
+    transition: all .2s ease-in-out;
+}
+.header-btns.dealer .dropdown-menu.show {
+    transform: scaleY(1) !important;
+}
+.header-btns.dealer .dropdown-menu .dropdown-item {
+    color: #ffffff;
+    background: none !important;
+    white-space: unset;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 13px;
+
+}
+
+.header-btns.dealer a#navbarDropdown {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-left: 0;
+}
+.row.header-nav-row {
+    background: #202543;
+    flex-direction: column;
+}
+.header-nav {
+    display: block;
+}
+.header-nav ul {
+    display: block;
+}
+
+.header-nav ul li a {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.header-nav ul li a:before {
+    display: none;
+}
+
+
+
+
 /* End */
 
 
@@ -683,6 +788,10 @@ div#loop .box {
 }
 
 /* css by ayub */
+.container-1400 {
+    max-width: 90vw;
+}
+
 .container-1170 {
     max-width: 90vw;
 }
@@ -850,8 +959,42 @@ div#loop .box {
     display: none !important;
 }
 
+.main-footer {
+    text-align: left;
+    align-items: start;
+}
 
+.main-footer .footer-sub ul {
+    text-align: left;
+}
 
+.main-footer .footer-sub h5 {
+    text-align: left;
+    font-size: 18px;
+}
+
+.main-footer .footer-sub ul a {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.main-footer .contact div p {
+    text-align: left;
+    font-size: 15px;
+}
+
+.main-footer .footer-sub img {
+    margin-bottom: 10px;
+    max-width: 160px;
+}
+.footer-social {
+    width: 100%;
+}
+.copyright-txt {
+    font-size: 15px !important;
+    margin-bottom: 40px;
+}
 /* End */
 
 }
