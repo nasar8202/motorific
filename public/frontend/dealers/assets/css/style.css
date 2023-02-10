@@ -1160,6 +1160,17 @@ div#next, div#next-ext {
 
 
 /*Css By As*/
+.cts-files {
+    position: relative;
+}
+
+.cts-files > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
 .upload-img-btn {
     position: relative;
     visibility: hidden;
@@ -1170,7 +1181,7 @@ div#next, div#next-ext {
     visibility: visible;
     width: 95px;
     height: 95px;
-    background: url(https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/gallery-img1.png);
+    /* background: url(https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/gallery-img1.png); */
     display: block;
     border-radius: 10px;
     background-size: 100% 100%;
@@ -1180,7 +1191,7 @@ div#next, div#next-ext {
     display: flex;
     align-items: center;
     grid-gap: 15px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     margin-bottom: 30px;
 }
 
@@ -1192,6 +1203,7 @@ div#next, div#next-ext {
     border: 1px solid #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 2px 4px #f1f1f1;
+    position: relative;
 }
 
 .upload-img-wraper .image-box img {
@@ -1199,9 +1211,28 @@ div#next, div#next-ext {
     height: 100%;
     object-fit: cover;
 }
-.upload-img-wraper p.upload-imgErros {
-    color: #e11414;
+.upload-imgErros {
+    color: #be0707;
+    font-size: 14px;
     font-weight: 600;
+}
+.upload-img-wraper .image-box .remove-img-btn {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    /* background: #676a87; */
+    background: #676a87b3;
+    border-radius: 50%;
+    color: #fff;
+    top: 0;
+    right: 0;
+    border: none;
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 12px;
+}
+.upload-img-wraper .image-box .remove-img-btn:hover {
+    background: #676a87;
 }
 
 /**/
@@ -1792,5 +1823,116 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     font-size: 24px;
     font-weight: 300;
     line-height: 1.2;
+}
+.category-btn {
+    margin: 20px 0;
+}
+.category-btn a {
+    border-radius: 0 !important;
+    background: #7977a2;
+    color: #fff !important;
+}
+
+
+.vehicle-list li {
+    display: inline-block;
+    padding: 8px 20px;
+    text-align: center;
+    line-height: 1.4;
+    position: relative;
+}
+
+.vehicle-list {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e3e3e3;
+    width: fit-content;
+}
+
+.vehicle-list li:not(:last-child):after {
+    content: '';
+    height: 100%;
+    border-right: 1px solid #e3e3e3;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.liveSalesInProgress {
+    background: #7a77a2;
+    padding: 60px 30px 40px;
+}
+div.reserveDetail ul li {
+    border-bottom: 1px solid #2025436b;
+    padding: 10px 0 ;
+    color: #fff;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.reserveDetail ul li:nth-child(2) span {
+    font-size: 20px;
+}
+.reserveDetail form label {
+    padding: 0 0;
+    color: #fff;
+}
+.reserveDetail form input {
+    margin: 8px 0 20px 0;
+    width: 100%;
+    border-radius: 100px;
+}
+.reserveDetail form button {
+    margin: 0px 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 100px;
+    font-weight: 500;
+}
+.reserveDetail form button span{
+    cursor: pointer;
+}
+.reserveDetail ul li:nth-child(3) span {
+    font-size: inherit;
+}
+
+.reserveDetail ul.valuation {
+    position: relative;
+    z-index: 1;
+}
+.reserveDetail ul.valuation:before {
+    content: '';
+    width: calc(100% + 60px);
+    left: -30px;
+    height: 100%;
+    top: 0;
+    background: #676692;
+    position: absolute;
+    z-index: -1;
+}
+.reserveDetail ul.valuation li:first-child,
+.reserveDetail ul.valuation li:last-child {
+    border: none;
+}
+
+.reserveDetail.vehicle ul li:nth-child(2) span {
+    font-size: 16px;
+}
+.sliderImgVehicleDetail .slick-arrow:before{
+    display: none;
+}
+
+.dealerOwnVehilcle {
+    font-size: 14px;
+    background: #fff;
+    border-radius: 7px;
+    text-align: center;
+    margin-top: 20px;
+    color: #676692 !important;
+}
+
+.category-btn {
+    gap: 6px;
 }
 /* End */

@@ -46,12 +46,15 @@
                     </p> --}}
 
                     <div class="mt-40">
-                        <p class="gallery-top-text mb-10 f-18">Exterior</p>
-
-                        <!--Custom Code Testing-->
-                        <!--<input type="file" id="files" class="upload-img-btn" name="files" class="" multiple="" accept="image/*">-->
-                        <!--<div id="selectedFiles" class="upload-img-wraper"></div>-->
-                        <!--End-->
+                        <!-- Custom Code Testing-->
+                            <label class="gallery-top-text mb-10 f-18">Exterior</label>
+                            <div class="cts-files">
+                                <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
+                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" >
+                                <div class="upload-imgErros"></div>
+                                <div id="selectedFiles" class="upload-img-wraper "></div>
+                            </div>
+                        <!--End -->
 
                         <!--<div class="gallery-upload-main">-->
 
@@ -121,7 +124,7 @@
                         <!--    <span class="text-danger">{{ $errors->first('image_9') }}</span>-->
                         <!--    @endif --}}-->
                         <!--</div>-->
-                        <div class="gallery-upload-main">
+                        <!-- <div class="gallery-upload-main hamza">
 
                             <label for="image_1" class="custom-gallery-upload">
                                 <input type="file" name="image_1[]" id="image_1" multiple class="hide-inp" onchange="getFileName(this)" accept="image/*">
@@ -188,17 +191,26 @@
                             @if ($errors->has('image_9'))
                             <span class="text-danger">{{ $errors->first('image_9') }}</span>
                             @endif --}}
-                        </div>
+                        </div> -->
 
                     </div>
 
-                    <div class="mt-40">
-                        <p class="gallery-top-text mb-10 f-18">Interior</p>
+                    <div class="mt-40"> 
+                        
+                        <label class="gallery-top-text mb-10 f-18">Interior</label>
+                        <div class="cts-files">
+                            <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="interior" class="" multiple="" accept="image/*">
+                            <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
+                            <div class="upload-imgErros"></div>
+                            <div id="selectedFiles" class="upload-img-wraper"></div>
+                        </div>
+
+
                         <div class="gallery-upload-main">
-                            <label for="interior_image_1" class="custom-gallery-upload">
+                            <!-- <label for="interior_image_1" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_1[]" multiple id="interior_image_1" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}" alt="car image" >
-                            </label>
+                            </label> -->
                             {{-- <label for="interior_image_2" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_2" id="interior_image_2" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img11.png')}}" alt="car image" >
@@ -529,12 +541,24 @@
                         <div class="mt-40">
                             <h2 class="headingqa-4 f-40">Tyre tread depths</h2>
 
-                                <p class="gallery-top-text mb-10 f-18">Interior</p>
+                                <label class="gallery-top-text mb-10 f-18">Interior</label>
+                                <div class="cts-files">
+                                    <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
+                                    <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
+                                    <div class="upload-imgErros"></div>
+                                    <div id="selectedFiles" class="upload-img-wraper qambaraaaa"></div>
+                                </div>
+                                <!-- <div class="cts-files">
+                                    <input type="file" id="files11111" class="upload-img-btn" name="exterior" class="" multiple="" accept="image/*"  >
+                                    <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
+                                    <div class="upload-img-error-box"></div>
+                                    <div id="selectedFiles_interior" class="upload-img-wraper"></div>
+                                </div> -->
                                 <div class="gallery-upload-main">
-                                    <label for="tyre_image" class="custom-gallery-upload">
+                                    <!-- <label for="tyre_image" class="custom-gallery-upload">
                                         <input type="file" name="tyre_image[]" multiple id="tyre_image" class="hide-inp" onchange="getFileName(this)">
                                         <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}" alt="car image" >
-                                    </label>
+                                    </label> -->
                                     {{-- <label for="interior_image_2" class="custom-gallery-upload">
                                         <input type="file" name="interior_image_2" id="interior_image_2" class="hide-inp" onchange="getFileName(this)">
                                         <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img11.png')}}" alt="car image" >

@@ -359,48 +359,192 @@ $(".step-button-ext").click(function () {
 
 
 
-	var selDiv = "";
+	// var selDiv = "";
 		
-	document.addEventListener("DOMContentLoaded", init, false);
-	
-	function init() {
-		document.querySelector('#files').addEventListener('change', handleFileSelect, false);
-		selDiv = document.querySelector("#selectedFiles");
-	}
+	// document.addEventListener("DOMContentLoaded", init, false);
+  
+	// function init() {
+	// 	document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+	// 	selDiv = document.querySelector("#selectedFiles");
+	// }
 		
-	function handleFileSelect(e) {
-		
-		if(!e.target.files || !window.FileReader) return;
-		
-		selDiv.innerHTML = "";
-		
-		var files = e.target.files;
-		var filesArr = Array.prototype.slice.call(files);
-		if(filesArr.length > 4){
-		  //  document.write("Select Upto 4 images only");
-		  $(".upload-img-wraper").append(" <p  class='upload-imgErros'>❛❛ Select Upto 4 images Only. ❜❜ </p>");
-		}
-		else{
-		    filesArr.forEach(function(f) {
-			if(!f.type.match("image.*")) {
-				return;
-			}
-	
-			var reader = new FileReader();
-			reader.onload = function (e) {
-				// var html = "<div class='image-box'><img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/></div>";
-				var html = "<div class='image-box'><img src=\"" + e.target.result + "\"></div>";
-				selDiv.innerHTML += html;				
-			}
-			reader.readAsDataURL(f); 
-			
-    		});
-		}
-		
-		console.log('filesArr ', filesArr.length);
-		
-	}
+	// function handleFileSelect(e) {
+	// 	if(!e.target.files || !window.FileReader) return;
+	// 	selDiv.innerHTML = "";
+	// 	var files = e.target.files;
+	// 	var filesArr = Array.prototype.slice.call(files);
+	// 	if(files.length > 4){
+  //     e.preventDefault();
+	// 	  $(".upload-img-wraper").append(" <p  class='upload-imgErros'>❛❛ Select Upto 4 images Only. ❜❜ </p>");
+  //     return
+	// 	}
+	// 	else{
+	// 	    filesArr.forEach(function(f) {
+	// 		if(!f.type.match("image.*")) {
+	// 			return;
+	// 		}
+	// 		var reader = new FileReader();
+	// 		reader.onload = function (e) {
+	// 			var html = "<div class='image-box'><img src=\"" + e.target.result + "\"> <button class='remove-img-btn'>X</div>";
+	// 			selDiv.innerHTML += html;		
+  //       $('.remove-img-btn').click(function(){
+  //         $(this).parent('.image-box').remove();
+  //       });		
+	// 		}
+  //       reader.readAsDataURL(f); 
+  //     });
+	// 	}
+	// }
 
 
+  ///////////// FINAL FUNCTION FOR UPLOADING FILE  /////////////
 
   
+  
+//   selDiv = document.querySelector("#selectedFiles_exteriror");
+//   let input = document.getElementById('files11111')
+//   let fileListArr;
+//   input.addEventListener('change', () => {
+//     $(".upload-img-error-box").text('')
+//     selDiv.innerHTML = ''
+//     fileListArr = Array.from(input.files)
+//     console.log('fileListArr ',fileListArr)
+//     if(fileListArr.length > 5){
+//       fileListArr = ''
+//       input.value = ''
+//       $(".upload-imgErros").text('Select Upto 5 images Only')
+//     }
+//     else{
+//       fileListArr.forEach(function(f) {
+//         if(!f.type.match("image.*")) {
+//           return;
+//         }
+//         var reader = new FileReader();
+//         reader.onload = function (e) {
+//           var html = "<div class='image-box' ><img src=\"" + e.target.result + "\"> <button type='button' class='remove-img-btn'>X</div>";
+//           selDiv.innerHTML += html;		
+//           $('.remove-img-btn').click(function(){
+//             let index = $(this).parent('.image-box').prevAll().length;
+//             console.log(input.files)
+//             console.log('index ',index);
+//             fileListArr.splice(index,1)
+//             $(this).parent('.image-box').remove();
+//             console.log('fileListArr ',fileListArr)
+//           });		
+//         }
+//         reader.readAsDataURL(f); 
+//     });
+//   }
+// });
+
+
+//   selDiv = document.querySelector("#selectedFiles_exteriror");
+//   let input = document.getElementById('files11111')
+//   let fileListArr;
+//   input.addEventListener('change', () => {
+//     $(".upload-img-error-box").text('')
+//     selDiv.innerHTML = ''
+//     fileListArr = Array.from(input.files)
+//     console.log('fileListArr ',fileListArr)
+//     if(fileListArr.length > 5){
+//       fileListArr = ''
+//       input.value = ''
+//       $(".upload-imgErros").text('Select Upto 5 images Only')
+//     }
+//     else{
+//       fileListArr.forEach(function(f) {
+//         if(!f.type.match("image.*")) {
+//           return;
+//         }
+//         var reader = new FileReader();
+//         reader.onload = function (e) {
+//           var html = "<div class='image-box' ><img src=\"" + e.target.result + "\"> <button type='button' class='remove-img-btn'>X</div>";
+//           selDiv.innerHTML += html;		
+//           $('.remove-img-btn').click(function(){
+//             let index = $(this).parent('.image-box').prevAll().length;
+//             console.log(input.files)
+//             console.log('index ',index);
+//             fileListArr.splice(index,1)
+//             $(this).parent('.image-box').remove();
+//             console.log('fileListArr ',fileListArr)
+//           });		
+//         }
+//         reader.readAsDataURL(f); 
+//     });
+//   }
+// });
+
+
+
+
+
+// let fileListArr;
+// function uploadFile(abc){
+//   let files = abc.files;
+//   console.log('files ',abc.files)
+//   let imgsDiv = abc.nextElementSibling.nextElementSibling.nextElementSibling;
+//   imgsDiv.innerHTML = ''
+//   let errorDiv = abc.nextElementSibling.nextElementSibling;
+//   fileListArr = Array.from(files)
+//     if(fileListArr.length > 5){
+//       fileListArr = ''
+//       abc.value = ''
+//       errorDiv.textContent = 'Select Upto 5 images Only'
+//     }
+//     else{
+//       fileListArr.forEach(function(f) {
+//         if(!f.type.match("image.*")) {
+//           return;
+//         }
+//         var reader = new FileReader();
+//         reader.onload = function (e) {
+//           imgsDiv.innerHTML += "<div class='image-box' ><img src=\"" + e.target.result + "\"> <button type='button' class='remove-img-btn'>X</div>";		
+//           $('.remove-img-btn').click(function(){
+//             let index = $(this).parent('.image-box').prevAll().length;
+//             fileListArr.splice(index,1)
+//             $(this).parent('.image-box').remove();
+//             console.log('files ',abc.files)
+//             console.log('fileListArr ',fileListArr)
+//           });		
+//         }
+//         reader.readAsDataURL(f); 
+//     });
+//   }
+// }
+
+
+
+let fileListArr;
+function uploadFile(elem){
+  let files = elem.files;
+  console.log('files ',elem.files)
+  let imgsDiv = elem.nextElementSibling.nextElementSibling.nextElementSibling;
+  imgsDiv.innerHTML = ''
+  let errorDiv = elem.nextElementSibling.nextElementSibling;
+  fileListArr = Array.from(files)
+    if(fileListArr.length > 5){
+      fileListArr = '';
+      elem.value = '';
+      errorDiv.textContent = 'Select Upto 5 images Only';
+    }
+    else{
+      errorDiv.textContent = '';
+      fileListArr.forEach(function(f) {
+        if(!f.type.match("image.*")) {
+          return;
+        }
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          imgsDiv.innerHTML += "<div class='image-box' ><img src=\"" + e.target.result + "\"> <button type='button' class='remove-img-btn'>X</div>";		
+          $('.remove-img-btn').click(function(){
+            let index = $(this).parent('.image-box').prevAll().length;
+            fileListArr.splice(index,1)
+            $(this).parent('.image-box').remove();
+            // console.log('files ',elem.files)
+            // console.log('fileListArr ',fileListArr)
+          });		
+        }
+        reader.readAsDataURL(f); 
+    });
+  }
+}

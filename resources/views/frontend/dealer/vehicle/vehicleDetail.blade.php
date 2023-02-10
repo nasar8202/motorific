@@ -23,14 +23,21 @@
     <section class="sec-2 productPageTn">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-12 col-12 vehicleDetailLeft">
+                <div class="col-lg-8 vehicleDetailLeft">
                     <div class="numberStarDiv">
                         <span>{{$vehicle->vehicle_registartion_number}}</span>
                         <i class="fa-regular fa-star"></i>
                     </div>
                     <div class="titleVehicle">
                         <h2>{{$vehicle->vehicle_name}}</h2>
-                        <p>{{$vehicle->vehicle_color}}.<span>{{$vehicle->vehicle_year}}</span><span>.</span>{{$vehicle->vehicle_mileage}}<span>.</span>{{$vehicle->vehicle_tank}}<span>.</span>{{$vehicle->vehicle_type}}</p>
+                        <ul class="vehicle-list">
+                            <li>{{$vehicle->vehicle_year}}</li>
+                            <li>{{$vehicle->vehicle_mileage}} Miles</li>
+                            <li>{{$vehicle->vehicle_color}}</li>
+                            <li>{{$vehicle->vehicle_type}}</li>
+                            <li>{{$vehicle->vehicle_tank}}</li>
+                        </ul>
+
                     </div>
                     <div class="mapAndText">
                         {{-- <p><strong>Collection:</strong> Available immediately</p> --}}
@@ -47,54 +54,6 @@
                         {{-- <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk&q=68.3644298,25.3605804"></iframe>    --}}
                         
                         {{-- @dd($lat,$lng) --}}
-                    </div>
-                    <div class="features bottomList">
-                        <div class="bottomListTitle">
-                            <h4><i class="fa-light fa-file-check"></i> Features</h4>
-                            <ul>
-                             <?php
-                                foreach($vehcile_info_feature_id as $feature){
-                                $VehicleFeature = App\Models\VehicleFeature::where('id',$feature)->first();
-                                
-                                ?>
-                                <li><i class="fa-solid fa-map"></i> {{$VehicleFeature->title}}</li>
-                             <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bottomList mainSpec">
-                        <div class="bottomListTitle">
-                            <h4><i class="fas fa-gift"></i> Specification</h4>
-                            <ul>
-                                {{-- <li>Exterior <span> <i class="circleI" style="background:blue;"></i> {{$vehicle->vehicle_color}}</span></li> --}}
-                                {{-- <li>Interior <span>{{$vehicle->vehicleInformation->interior}}</span></li> --}}
-                                {{-- <li>Body Type <span>{{$vehicle->vehicleInformation->body_type}}</span></li> --}}
-                                {{-- <li>Transmission <span>{{$vehicle->vehicle_type}}</span></li> --}}
-                                <li>Fuel <span>{{$vehicle->vehicle_tank}}</span></li>
-                                {{-- <li>Engine Size <span>{{$vehicle->vehicleInformation->engine_size}}</span></li> --}}
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bottomList mainSpec">
-                        <div class="bottomListTitle">
-                            <h4><i class="far fa-copy"></i> Vehicle Details</h4>
-                            <ul>
-                                {{-- <li>HPI history check <span><i class="fas fa-exclamation-triangle"></i> {{$vehicle->vehicleInformation->HPI_history_check}}</span></li>
-                                <li>Registration <span>{{$vehicle->vehicle_registartion_number}}</span></li>
-                                <li>VIN <span>{{$vehicle->vehicleInformation->vin}}</span></li>
-                                <li>First Registered<span>{{$vehicle->vehicleInformation->first_registered}}</span></li>
-                                <li>Keeper Start Date<span>{{$vehicle->vehicleInformation->keeper_start_date}}</span></li>
-                                <li>Last MOT Date<span>{{$vehicle->vehicleInformation->last_mot_date}}</span></li>
-                                <li>Previous Owners<span>{{$vehicle->vehicleInformation->previous_owners}}</span></li> --}}
-                                <li>Number of Keys<span>{{$number_of_keys->number_of_key}}</span></li>
-                                <li>On Finance<span>{{$finance->title}}</span></li>
-                                <li>Private Plate<span>{{$privateplate->title}}</span></li>
-                                <li>Smooking<span>{{$smooking->title}}</span></li>
-                                <li>Tool Pack<span>{{$toolpack->title}}</span></li>
-                                <li>Locking Wheel Nut<span>{{$LockingWheelNut->title}}</span></li>
-                                {{-- <li>Seller Keeping Plate<span>{{$vehicle->vehicleInformation->seller_keeping_plate}}</span></li> --}}
-                            </ul>
-                        </div>
                     </div>
                     {{-- <div class="bottomList">
                         <div class="bottomListTitle">
@@ -125,39 +84,8 @@
                             </ul>
                         </div>
                     </div> --}}
-                    <div class="bottomList">
-                        <div class="bottomListTitle">
-                            <h4><i class="fas fa-bolt"></i>Interior Information</h4>
-                            <ul>
-                                <li>Dashboard<span>{{$interior->dashboard ?? 'No Damage' }}</span></li>
-                                <li>Passenger Side Interior <span>{{$interior->passenger_side_interior ?? 'No Damage'}}</span></li>
-                                <li>Driver Side Interior<span>{{$interior->driver_side_interior ?? 'No Damage'}}</span></li>
-                                <li>Floor<span>{{$interior->floor ?? 'No Damage'}}</span></li>
-                                <li>Ceiling <span>{{$interior->ceiling ?? 'No Damage'}}</span></li>
-                                <li>Boot<span>{{$interior->boot ?? 'No Damage'}}</span></li>
-                                <li>Rear Windscreen<span>{{$interior->rear_windscreen ?? 'No Damage'}}</span></li>
-                                <li>Passenger Seat<span>{{$interior->passenger_seat ?? 'No Damage'}}</span></li>
-                                <li>Driver Seat <span>{{$interior->driver_seat ?? 'No Damage'}} </span></li>
-                                <li>Rear Seats<span>{{$interior->rear_seats ?? 'No Damage'}}</span></li>
-                            </ul>
-                        </div>
-                    </div>
                     
-                    <div class="bottomList">
-                        <div class="bottomListTitle">
-                            <h4><i class="fas fa-bolt"></i>Exterior Information</h4>
-                            <ul>
-                                <li>Front Door Left<span>{{$exterior->front_door_left ?? 'No Damage' }}</span></li>
-                                <li>Back Door Left <span>{{$exterior->back_door_left ?? 'No Damage'}}</span></li>
-                                <li>Front Door Right<span>{{$exterior->front_door_right ?? 'No Damage'}}</span></li>
-                                <li>Back Door Right<span>{{$exterior->back_door_right	 ?? 'No Damage'}}</span></li>
-                                <li>Top <span>{{$exterior->top ?? 'No Damage'}}</span></li>
-                                <li>Bonut<span>{{$exterior->bonut ?? 'No Damage'}}</span></li>
-                                <li>Front<span>{{$exterior->front ?? 'No Damage'}}</span></li>
-                                <li>Back<span>{{$exterior->back ?? 'No Damage'}}</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     {{-- <div class="bottomList">
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-circle-notch"></i> Wheels and Tyres</h4>
@@ -204,10 +132,10 @@
                         </div>
                     </div> --}}
                 </div> 
-                <div class="col-lg-4 col-md-4 col-sm-12 col-12 vehicleDetailRight">
+                <div class="col-lg-4 vehicleDetailRight">
                     <div class="liveSalesInProgress">
                         <h4>Live Sales In Progress</h4>
-                        <div class="reserveDetail">
+                        <div class="reserveDetail vehicle">
                             <ul >
                                 <li>Reserve Price: <span>€{{$vehicle->vehicle_price}}</span></li>
                                 @if($vehicle->all_auction == 'all')
@@ -215,10 +143,12 @@
                                 @else
                                 <li >Live Sales end <span>3h 53m 26s <a href="#"></a></span></li>
                                 @endif
-                                <li >valuation <span><i class="fas fa-chevron-down" id="dynamic-ar"></i></span></li>
-                                <li class="hidden">Retail:<span> €{{$vehicle->retail_price}} </span></li>
-                                <li class="hidden">Clean:<span> €{{$vehicle->clean_price}} </span></li>
-                                <li class="hidden">Average:<span> €{{$vehicle->average_price}} </span></li>
+                                <ul class="valuation">
+                                    <li >valuation <span><i class="fas fa-chevron-down" id="dynamic-ar"></i></span></li>
+                                    <li class="hidden">Retail:<span> €{{$vehicle->retail_price}} </span></li>
+                                    <li class="hidden">Clean:<span> €{{$vehicle->clean_price}} </span></li>
+                                    <li class="hidden">Average:<span> €{{$vehicle->average_price}} </span></li>
+                                </ul>
                             </ul>
                             <?php
                            $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
@@ -283,6 +213,100 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="features bottomList">
+                        <div class="bottomListTitle">
+                            <h4><i class="fa-light fa-file-check"></i> Features</h4>
+                            <ul>
+                             <?php
+                                foreach($vehcile_info_feature_id as $feature){
+                                $VehicleFeature = App\Models\VehicleFeature::where('id',$feature)->first();
+                                
+                                ?>
+                                <li><i class="fa-solid fa-map"></i> {{$VehicleFeature->title}}</li>
+                             <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bottomList mainSpec">
+                        <div class="bottomListTitle">
+                            <h4><i class="fas fa-gift"></i> Specification</h4>
+                            <ul>
+                                {{-- <li>Exterior <span> <i class="circleI" style="background:blue;"></i> {{$vehicle->vehicle_color}}</span></li> --}}
+                                {{-- <li>Interior <span>{{$vehicle->vehicleInformation->interior}}</span></li> --}}
+                                {{-- <li>Body Type <span>{{$vehicle->vehicleInformation->body_type}}</span></li> --}}
+                                {{-- <li>Transmission <span>{{$vehicle->vehicle_type}}</span></li> --}}
+                                <li>Fuel <span>{{$vehicle->vehicle_tank}}</span></li>
+                                {{-- <li>Engine Size <span>{{$vehicle->vehicleInformation->engine_size}}</span></li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bottomList mainSpec">
+                        <div class="bottomListTitle">
+                            <h4><i class="far fa-copy"></i> Vehicle Details</h4>
+                            <ul>
+                                {{-- <li>HPI history check <span><i class="fas fa-exclamation-triangle"></i> {{$vehicle->vehicleInformation->HPI_history_check}}</span></li>
+                                <li>Registration <span>{{$vehicle->vehicle_registartion_number}}</span></li>
+                                <li>VIN <span>{{$vehicle->vehicleInformation->vin}}</span></li>
+                                <li>First Registered<span>{{$vehicle->vehicleInformation->first_registered}}</span></li>
+                                <li>Keeper Start Date<span>{{$vehicle->vehicleInformation->keeper_start_date}}</span></li>
+                                <li>Last MOT Date<span>{{$vehicle->vehicleInformation->last_mot_date}}</span></li>
+                                <li>Previous Owners<span>{{$vehicle->vehicleInformation->previous_owners}}</span></li> --}}
+                                <li>Number of Keys<span>{{$number_of_keys->number_of_key}}</span></li>
+                                <li>On Finance<span>{{$finance->title}}</span></li>
+                                <li>Private Plate<span>{{$privateplate->title}}</span></li>
+                                <li>Smooking<span>{{$smooking->title}}</span></li>
+                                <li>Tool Pack<span>{{$toolpack->title}}</span></li>
+                                <li>Locking Wheel Nut<span>{{$LockingWheelNut->title}}</span></li>
+                                {{-- <li>Seller Keeping Plate<span>{{$vehicle->vehicleInformation->seller_keeping_plate}}</span></li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bottomList">
+                        <div class="bottomListTitle">
+                            <h4><i class="fas fa-bolt"></i>Interior Information</h4>
+                            <ul>
+                                <li>Dashboard<span>{{$interior->dashboard ?? 'No Damage' }}</span></li>
+                                <li>Passenger Side Interior <span>{{$interior->passenger_side_interior ?? 'No Damage'}}</span></li>
+                                <li>Driver Side Interior<span>{{$interior->driver_side_interior ?? 'No Damage'}}</span></li>
+                                <li>Floor<span>{{$interior->floor ?? 'No Damage'}}</span></li>
+                                <li>Ceiling <span>{{$interior->ceiling ?? 'No Damage'}}</span></li>
+                                <li>Boot<span>{{$interior->boot ?? 'No Damage'}}</span></li>
+                                <li>Rear Windscreen<span>{{$interior->rear_windscreen ?? 'No Damage'}}</span></li>
+                                <li>Passenger Seat<span>{{$interior->passenger_seat ?? 'No Damage'}}</span></li>
+                                <li>Driver Seat <span>{{$interior->driver_seat ?? 'No Damage'}} </span></li>
+                                <li>Rear Seats<span>{{$interior->rear_seats ?? 'No Damage'}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bottomList">
+                        <div class="bottomListTitle">
+                            <h4><i class="fas fa-bolt"></i>Exterior Information</h4>
+                            <ul>
+                                <li>Front Door Left<span>{{$exterior->front_door_left ?? 'No Damage' }}</span></li>
+                                <li>Back Door Left <span>{{$exterior->back_door_left ?? 'No Damage'}}</span></li>
+                                <li>Front Door Right<span>{{$exterior->front_door_right ?? 'No Damage'}}</span></li>
+                                <li>Back Door Right<span>{{$exterior->back_door_right	 ?? 'No Damage'}}</span></li>
+                                <li>Top <span>{{$exterior->top ?? 'No Damage'}}</span></li>
+                                <li>Bonut<span>{{$exterior->bonut ?? 'No Damage'}}</span></li>
+                                <li>Front<span>{{$exterior->front ?? 'No Damage'}}</span></li>
+                                <li>Back<span>{{$exterior->back ?? 'No Damage'}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 </main>

@@ -1721,6 +1721,14 @@ section.sec-4 {
 }
 
 @media (max-width: 575px) {
+    .f-btn{
+        text-align: left;
+    }
+    .form-toggle-btn {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 !important;
+    }
     .chart ul {
     flex-wrap: wrap;
 }

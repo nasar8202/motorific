@@ -1,3 +1,45 @@
+// Loader
+var i = 0;
+        
+  function move() {
+    if (i == 0) {
+      i = 1;
+      var loadedPage = document.getElementById("loadedPage");
+      var progessMain = document.getElementById("myProgress");
+      var elem = document.getElementById("bar");
+      var barTxt = document.getElementById("bar-txt");
+      loadedPage.style.transform = "none";
+      var width = 0;
+      var id = setInterval(frame, 15);
+      function frame() {
+        if (width >= 100) {
+          progessMain.style.opacity =0.5;
+          progessMain.style.display ="none";
+          clearInterval(id);
+          i = 0;
+          // loadedPage.classList.remove("overflow-hidden");
+          loadedPage.style.display = "block";
+        } else {
+          width++;
+          // loadedPage.classList.add("overflow-hidden");
+          elem.style.width = width + "%";
+          barTxt.innerHTML = width + "%";
+        }
+      }
+    }
+  }
+
+// End
+
+// Step Form Toggle by As
+$(document).ready(function(){
+  $('.form-wraper').hide();
+  $(".form-toggle-btn").click(function() {
+    $(this).parent().parent().parent().next('.form-wraper').slideToggle(500);
+  });
+});
+// End
+
 //active class
 
 let menutoggle = document.querySelector('.toggle');

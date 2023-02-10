@@ -544,8 +544,17 @@ display: block;
 
             <div class="step-main-wrap photo-upload" style="">
             <!--<div id="svg_wrap"></div>-->
-            <h1 class="step-main-head">Interior Information</h1>
-            <section class="step-wrapper">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 class="step-main-head">Interior Information</h1>
+                </div>
+                <div class="col-sm-6">
+                    <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
+                        <button type="button" class="form-toggle-btn">Start</button>
+                    </div>
+                </div>
+            </div>
+            <section class="step-wrapper form-wraper">
 
                 <section class="step-sec">
                     <div class="row align-items-center">
@@ -1081,8 +1090,17 @@ display: block;
             <!--</div>-->
             <div class="step-main-wrap photo-upload">
             <div id="svg_wrap_ext"></div>
-            <h1 class="step-main-head">Exterior Information</h1>
-            <section class="step-wrapper">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 class="step-main-head">Exterior Information</h1>
+                </div>
+                <div class="col-sm-6">
+                <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
+                    <button type="button" class="form-toggle-btn">Start</button>
+                </div>
+                </div>
+            </div>
+            <section class="step-wrapper form-wraper">
 
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
@@ -2349,19 +2367,23 @@ display: block;
     </div>
 
         <div class="photo-up-sec-2-box-main">
-            <div class="photo-up-sec-2-box">
-                <div class="photo-up-sec-2-box-txt">
-                    <h4>Photos</h4>
-                    <div class="photo-up-sec-2-box-personal-information">
-                        <p>The final step is to add photos of your vehicle.</p>
+            <div class="photo-up-sec-2-box row align-items-center">
+                <div class="col-sm-6"> 
+                    <div class="photo-up-sec-2-box-txt">
+                        <h4>Photos</h4>
+                        <div class="photo-up-sec-2-box-personal-information">
+                            <p>The final step is to add photos of your vehicle.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="photo-up-sec-2-box-btn clr-s-dis my-auto">
-                    <button onclick="myFunction()">START</button>
+                <div class="col-sm-6">
+                    <div class="photo-up-sec-2-box-btn clr-s-dis my-auto f-btn">
+                        <button class="form-toggle-btn" type="button">START</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="main-add-photos" id="myDIV">
+            <div class="main-add-photos form-wraper">
 
                     <div class="add-photos-inner row">
                         <div class="add-photos-box1 col-lg-6">

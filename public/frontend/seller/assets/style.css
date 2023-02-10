@@ -2308,11 +2308,16 @@ div#myProgress {
     transition: all .4s ease-in;
     
 }
+div#myProgress .loader-img img {
+    filter: invert(1);
+    animation: zoomIn 1.5s ease infinite;
+}
 div#myBar {
     max-width: 300px;
     width: 100%;
     text-align: center;
-    backgrond: #f5f5f5;
+    /* background: #f5f5f5; */
+    display: none;
 }
 div#myBar #bar {
     width: 0%;
@@ -2321,4 +2326,19 @@ div#myBar #bar {
     text-align: center;
     margin: 10px 0;
     display:block;
+}
+@keyframes zoomIn {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+.f-btn{
+    text-align: right;
 }
