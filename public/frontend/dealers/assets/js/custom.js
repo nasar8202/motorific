@@ -114,6 +114,15 @@ $('.testi-wraper').slick({
 
 
 
+// Step Form Toggle by As
+$(document).ready(function(){
+  $('.form-wraper').hide();
+  $(".form-toggle-btn").click(function() {
+    $(this).parent().parent().next('.form-wraper').slideToggle(500);
+  });
+});
+// End
+
 function getFileName(e) {
     let file = e.files[0]
     let image = e.parentNode.children[1]
@@ -233,6 +242,7 @@ $(document).ready(function() {
 $(document).ready(function(){
     $('.btn-icon').click(function(){
         $('.row.header-nav-row').toggleClass('show');
+        $('body').toggleClass('overflow-hidden');
     })
 })
 
@@ -519,6 +529,7 @@ $(".step-button-ext").click(function () {
 // }
 
 
+// Updated Code By Qambar
 
 let fileListArr;
 function uploadFile(elem){
@@ -554,3 +565,6 @@ function uploadFile(elem){
     });
   }
 }
+
+
+

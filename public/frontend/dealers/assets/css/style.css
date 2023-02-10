@@ -30,7 +30,11 @@ ul{
     width: 1200px;
     margin: 0 auto;
 }
-
+.container-1400{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
 /* FONTS CLASSES */
 .f-12{
     font-size: var(--f12);
@@ -1308,6 +1312,23 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
 
 
 /* Css by Ayub */
+.logoMain a {
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logoMain {
+    margin: 0;
+}
+.header-btns.dealer {
+    transform: unset;
+}
+.header-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
 /* Dealer Home Page */
 
 .container-1170{
@@ -1832,6 +1853,13 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     background: #7977a2;
     color: #fff !important;
 }
+.vehicle-list {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e3e3e3;
+    border-right: none;
+    width: fit-content;
+}
 
 
 .vehicle-list li {
@@ -1841,18 +1869,15 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     line-height: 1.4;
     position: relative;
 }
-
-.vehicle-list {
-    display: flex;
-    align-items: center;
-    border: 2px solid #e3e3e3;
-    width: fit-content;
+.vehicle-list li:empty {
+    display: none;
 }
+
 
 .vehicle-list li:not(:last-child):after {
     content: '';
     height: 100%;
-    border-right: 1px solid #e3e3e3;
+    border-right: 2px solid #e3e3e3;
     margin: 0 auto;
     position: absolute;
     right: 0;
@@ -1935,4 +1960,60 @@ div.reserveDetail ul li {
 .category-btn {
     gap: 6px;
 }
+
+.vehicle-condition-main .bt-btns-main .btn-trans  {
+    margin-bottom: 30px;
+    background: #7977a2;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.vehicle-condition-main .bt-btns-main .btn-trans  a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+.vehicle-condition-main .bt-btns-main .btn-trans  i {
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+
+
+.vehicle-condition-main .bt-btns-main .btn-trans:hover {
+    color: #fff;
+    background: #05eab5;
+}
+
+
+/* Footer */
+.footer-social {
+    display: flex;
+    gap: 14px;
+}
+
+.footer-social li a {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: #05eab5;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    text-align: center;
+    transition: all .4s ease-in;
+}
+
+.footer-social li a:hover {
+    background: #7977a2;
+}
+
+
+/* End */
+
 /* End */

@@ -743,8 +743,17 @@
             </div> --}}
             <div class="step-main-wrap ">
             <!--<div id="svg_wrap"></div>-->
-            <h1 class="step-main-head">Interior Information</h1>
-            <section class="step-wrapper">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 class="step-main-head">Interior Information</h1>
+                </div>
+                <div class="col-sm-6">
+                    <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
+                        <button class="form-toggle-btn" type="button">START</button>
+                    </div>
+                </div>
+            </div>
+            <section class="step-wrapper form-wraper">
 
                 <section class="step-sec">
                     <div class="row align-items-center">
@@ -1278,9 +1287,19 @@
  
             </div> --}}
             <div class="step-main-wrap">
-            <div id="svg_wrap_ext"></div>
-            <h1 class="step-main-head">Exterior Information</h1>
-            <section class="step-wrapper">
+            <!-- <div id="svg_wrap_ext"></div> -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="step-main-head">Exterior Information</h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
+                        <button class="form-toggle-btn" type="button">START</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="step-wrapper form-wraper">
 
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
