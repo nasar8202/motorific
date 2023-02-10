@@ -106,8 +106,8 @@ input[type=number] {
                 <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt="">
                 </div>
                 <div class="">
-                <h3>GJ65 YUA</h3>
-                <p>Volkswagen Golf R DSG</p>
+                <h3>{{Session::get('registrationNo') ?? 'GJ65 YUA';}}</h3>
+                <p>{{ Session::get('model')??'Volkswagen Golf R DSG'}}</p>
                 </div>
             </div>
         </div>

@@ -475,6 +475,43 @@ class FrontController extends Controller
         $data = $request;
     $logging_cond = Auth::user();
     if(!isset($logging_cond)){
+        $registeration = trim($request->registeration,' ');
+        // $res = Http::withHeaders([
+        //     'accept' => 'application/json',
+        //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+        // ])
+        // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+        // ->json();
+        // if($res['success'] == 'false'){
+        //     return back()->with('error','Record not found');
+        // }
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => "",
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 0,
+                  CURLOPT_FOLLOWLOCATION => true,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => "POST",
+                  CURLOPT_POSTFIELDS =>"{\n\t\"registrationNumber\": \"$registeration\"\n}",
+                  CURLOPT_HTTPHEADER => array(
+                    "x-api-key: XlMDFK2cy74gg0iIBYqFT9lgP4Zrul64aRVBpQC5",
+                    "Content-Type: application/json"
+                  ),
+                ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                curl_close($curl);
+                 //echo $response;
+                 $res = json_decode($response);
+
+                 session(['registrationNo' => $res->registrationNumber]);
+                 session(['model' => $res->make]);
         return view('frontend.seller.registration',compact('data'));
     }
         $currentUser = Auth::user()->id;
