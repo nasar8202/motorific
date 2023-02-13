@@ -54,7 +54,7 @@
                             <span>More</span>
                             <div class="dropdown-content">
 
-                                <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                                <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
 
 
                                 <a href="{{ route('sellMyCar') }}">Sell My Car</a>

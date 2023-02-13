@@ -80,7 +80,7 @@ display: block;
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">Help</a></li>
                             @guest
-                          <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                          <li>  <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
                           
                         </li>
                         @endguest

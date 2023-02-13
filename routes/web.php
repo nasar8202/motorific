@@ -364,7 +364,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     });
 
 // end admin panel routes
-
+Route::get('/thankyou', [SellerDashboardController::class,'thankyou'])->name('thankyou');
 // start seller panel routes
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
 Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
@@ -385,8 +385,8 @@ Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updat
 
 
 // start seller panel routes
+Route::get('/Dealer', [DealerDashboardController::class,'dashboard'])->name('dealer.newDashboard');
 Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function () {
-    Route::get('/dashboard', [DealerDashboardController::class,'dashboard'])->name('dealer.newDashboard');
     // Route::get('/dashboard', [DealerDashboardController::class,'newDashboard'])->name('newDashboard');
     Route::post('/loadmoredata', [DealerDashboardController::class,'loadmoredata'])->name('loadmoredata');
 

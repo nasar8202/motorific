@@ -133,4 +133,10 @@ class SellerDashboardController extends Controller
         
 
     }
+    public function thankyou()
+    {
+
+        return view('frontend.seller.thankyou');
+
+    }
 }

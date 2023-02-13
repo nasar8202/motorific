@@ -47,7 +47,7 @@ display: block;
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -98,10 +98,19 @@ display: block;
             </div>
             <div class="navi">
                 <ul>
-                    <li><a  href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Reviews</a></li>
+                    <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
+                    <a href="{{ route('howItWorksforSeller') }}">
+                        <li>How It Works</li>
+                    </a>
+                    <a href="{{ route('reviews') }}">
+                        <li>Reviews</li>
+                    </a>
                     <li><a href="#">Help</a></li>
+                    @guest
+                        <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+
+                        </li>
+                    @endguest
                 </ul>
             </div>
         </div>
