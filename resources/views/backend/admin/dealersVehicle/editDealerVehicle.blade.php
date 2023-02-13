@@ -276,8 +276,8 @@ p {
                                         <div class="row">
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="retail_price">Vehicle Detail Price </label>
-                                                    <input type="number" id="retail_price" value=""  class="form-control"
+                                                    <label for="retail_price">Vehicle Retail Price </label>
+                                                    <input type="number" id="retail_price" value="{{$vehicle->retail_price ?? old('retail_price')}}"  class="form-control"
                                                        name="retail_price" placeholder="" >
 
                                                 </div>
@@ -288,7 +288,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="clean_price">Vehicle Clean Price </label>
-                                                    <input type="number" id="clean_price" value=""  class="form-control"
+                                                    <input type="number" id="clean_price" value="{{$vehicle->clean_price ?? old('clean_price')}}"  class="form-control"
                                                        name="clean_price" placeholder="" >
 
                                                 </div>
@@ -299,7 +299,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="average_price">Vehicle Average Price </label>
-                                                    <input type="number" id="average_price" value=""  class="form-control"
+                                                    <input type="number" id="average_price" value="{{$vehicle->average_price ?? old('average_price')}}"  class="form-control"
                                                        name="average_price" placeholder="" >
 
                                                 </div>
@@ -310,7 +310,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="hidden_price">Vehicle Hidden Price </label>
-                                                    <input type="number" id="hidden_price" value=""  class="form-control"
+                                                    <input type="number" id="hidden_price" value="{{$vehicle->hidden_price ?? old('hidden_price')}}"  class="form-control"
                                                        name="hidden_price" placeholder="" >
 
                                                 </div>

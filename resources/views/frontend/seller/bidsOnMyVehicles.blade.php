@@ -71,7 +71,7 @@ display: block;
             @endif
             @else
 
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a style="color: black" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
 
@@ -137,6 +137,8 @@ display: block;
                                 <th scope="col">Vehilce Name</th>
                                 <th scope="col">Vehicle Price</th>
                                 <th scope="col">Bided User</th>
+                                <th scope="col">User Number</th>
+                                <th scope="col">User Email</th>
                                 <th scope="col">Bided Price</th>
                                 <th scope="col">Bided Assign To</th>
                               </tr>
@@ -149,6 +151,8 @@ display: block;
                                 <td>{{$order->vehicle->vehicle_name}}</td>
                                 <td>{{$order->vehicle->vehicle_price}}</td>
                                 <td>{{$order->user->name}}</td>
+                                <td>{{ $order->user->phone_number }}</td>
+                                <td>{{ $order->user->email }}</td>
                                 <td>{{$order->bid_price}}</td>
                                 @if($order->status == 1)
                                 <td><span class="btn btn-warning">Solded User</span>

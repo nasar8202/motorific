@@ -154,6 +154,8 @@
                                         <th scope="col">Vehilce Name</th>
                                         <th scope="col">Vehicle Price</th>
                                         <th scope="col">Order User</th>
+                                        <th scope="col">User Number</th>
+                                        <th scope="col">User Email</th>
                                         <th scope="col">Order Price</th>
                                         <th scope="col">Order Assign To</th>
                                     </tr>
@@ -166,6 +168,8 @@
                                             <td>{{ $order->vehicle->vehicle_name }}</td>
                                             <td>{{ $order->vehicle->vehicle_price }}</td>
                                             <td>{{ $order->user->name }}</td>
+                                            <td>{{ $order->user->phone_number }}</td>
+                                            <td>{{ $order->user->email }}</td>
                                             <td>{{ $order->request_price }}</td>
                                             @if ($order->status == 1)
                                                 <td><span class="btn btn-warning">Solded User</span>
