@@ -2342,3 +2342,56 @@ div#myBar #bar {
 .f-btn{
     text-align: right;
 }
+
+/* Thank You Page */
+section.thanks {
+    padding: 180px 0px;
+}
+
+.thnk-content {
+    max-width: 700px;
+    background: #202543;
+    color: #fff;
+    padding: 50px 40px;
+    border-radius: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.thnk-content .icon {
+    font-size: 40px;
+    color: #05eab5;
+}
+
+.thnk-content h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.thnk-content p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+.thnk-content a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    margin: 6px 0;
+    font-size: 18px;
+    color: #05eab5;
+}
+
+.thnk-content a i {
+    margin-right: 6px;
+}
+
+header.thnkPage .dropdown-toggle {
+    color: #000;
+}
+
+
+/* End */

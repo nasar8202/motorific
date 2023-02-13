@@ -709,6 +709,9 @@ header.header {
 
 }
 @media (max-width: 767px) {
+.dealer-banner .banner-content p {
+    font-size: 17px;
+}
 
 .header-submenu a {
     font-size: 12px;
@@ -995,7 +998,63 @@ div#loop .box {
     font-size: 15px !important;
     margin-bottom: 40px;
 }
+
+/* Products Filter */
+.filter-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f1f1;
+    padding: 15px 20px;
+    border-radius: 15px;
+}
+.filter-head.toggle_wraper {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.filter-head {
+    font-size: 24px !important;
+    margin: 0;
+}
+section.sec-2.productPageTn{
+    position: relative;
+}
+section.sec-2.productPageTn span.filterToggle {
+    padding: 0 !important;
+}
+
+.filterWraper {
+    background: #f1f1f1;
+    padding: 0 20px;
+    margin-bottom: 40px;
+}
+
+section.sec-2.productPageTn span {
+    padding: 0 !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 20px !important;
+    right: 20px !important;
+    top: 12px !important;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+    border-color: unset !important;
+    border-width: unset !important;
+    border-top-color: transparent !important;
+    border-left-color: transparent !important;
+}
+.topRightFilter {
+    float: none;
+}
+
 /* End */
+
+
+/* End */
+
+
 
 }
 

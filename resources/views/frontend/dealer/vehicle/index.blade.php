@@ -101,7 +101,8 @@ div#filter-price {
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
             <div class="productsFilters">
-                <h2>Filters</h2>
+                <h2 class="filter-head">Filters <span class="filterToggle"><i class="fa-solid fa-sliders"></i></span></h2>
+                <div class="filterWraper">
                     <div class="filterIn">
                         <h4>Type</h4>
                         <label class="checkboxCommon" for="typeAll">
@@ -120,125 +121,126 @@ div#filter-price {
                             <span>Van</span> --}}
                         </label>
                     </div>
-                <form  action="#">
-
-                    {{-- <div class="filterIn">
-                        <h4>Makes</h4>
-                        <label class="selectCommon selectSingle" >
-                            <select name="makePro" id="makePro">
-                                <option disabled selected value=""> Select Makes</option>
-    							<option value="Audi"> Audi</option>
-    							<option value="Bentley"> Bentley</option>
-    							<option value="Bmw"> Bmw</option>
-                            </select>
-                        </label>
-                    </div> --}}
-                    <div class="filterIn">
-                        <h4>Price</h4>
-                        <div id="slider"></div><br/>
-                        <label class="rangeCommon">
-                            {{-- <input type="text" class="js-range-slider" name="my_range" value="" id="slider-range" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
-                            <input type="number" maxlength="4" name="min" value="0" id="min" class="from"/> --}}
-                            <input type="number" maxlength="4" name="max" value="1000" id="max" class="to"/>
-                            Range: <span id='range'></span>
-                        </label>
-                    </div>
-                    <div class="filterIn">
-                        <h4>Mileage</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="mileAgePro" id="mileAgePro" >
-                                <option disabled selected value=""> Select MileAge </option>
-                                <option value="100000"> < 10,0000</option>
-    							<option value="500000"> < 50,0000</option>
-    							<option value="1000000"> < 100,0000</option>
-                            </select>
-                        </label>
-                    </div>
-                     <div class="filterIn">
-                        <h4>Age</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="agePro1" id="agePro">
-                                <option selected disabled value=""> Select Age </option>
-                                <option value="10"> < 10</option>
-    							<option value="50"> < 50</option>
-    							<option value="100"> < 100</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="filterIn">
-                        <h4>Previous Owners</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="previousOwnersPro" id="previousOwnersPro">
-                                <option selected disabled value=""> Select Previous Owners </option>
-                                <option value="1"> < 1 </option>
-    							<option value="5"> < 5</option>
-                            </select>
-                        </label>
-                    </div>
-                    {{-- <div class="filterIn">
-                        <h4>Distance From SL1 2LX</h4>
-                        <label class="selectCommon selectSingle">
-                              <select name="SL12LX" id="SL12LX">
-                                <option value=""> Select Age</option>
-                                <option value="10,000"> < 10,0000</option>
-    							<option value="50,000"> < 50,0000</option>
-    							<option value="100,000"> < 100,0000</option>
-                            </select>
-                        </label>
-                    </div> --}}
-                    {{-- <div class="filterIn">
-                        <h4>Exterior Grade</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="exteriorGrade" id="exteriorGrade">
-                                <option value=""> Select Previous Owners </option>
-                                <option value="1"> 1</option>
-    							<option value="2"> 2</option>
-                            </select>
-                        </label>
-                    </div> --}}
-                    <div class="filterIn">
-                        <h4>Fuel Type</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="fuelType" id="fuelType">
-                                <option selected disabled value=""> Select Fuel Type </option>
-                                <option value="diesel"> Diesel</option>
-    							<option value="petrol"> Petrol</option>
-                            </select>
-                        </label>
-                    </div>
-                    {{-- <div class="filterIn">
-                        <h4>Transmission</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="transmission" id="transmission">
-                                <option value=""> Select Transmission </option>
-                                <option value="1"> 1</option>
-    							<option value="2"> 2</option>
-                            </select>
-                        </label>
-                    </div> --}}
-                    {{-- <div class="filterIn">
-                        <h4>Collection</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="collection" id="collection">
-                                <option value=""> Select collection </option>
-                                <option value="1"> 1</option>
-    							<option value="2"> 2</option>
-                            </select>
-                        </label>
-                    </div> --}}
-                    {{-- <div class="filterIn">
-                        <h4>Additional Filters</h4>
-                        <label class="selectCommon selectSingle">
-                            <select name="additionalFilters" id="additionalFilters">
-                                <option value=""> Select Additional Filters </option>
-                                <option value="1"> 1</option>
-    							<option value="2"> 2</option>
-                            </select>
-                        </label>
-                    </div> --}}
-                    <button type="button" class="btn btn-primary" id="subm"> Filter</button>
-                    <a href="" class="btn btn-danger" id="subm">Clear Filter</a>
-                </form>
+                    <form  action="#">
+    
+                        {{-- <div class="filterIn">
+                            <h4>Makes</h4>
+                            <label class="selectCommon selectSingle" >
+                                <select name="makePro" id="makePro">
+                                    <option disabled selected value=""> Select Makes</option>
+                                    <option value="Audi"> Audi</option>
+                                    <option value="Bentley"> Bentley</option>
+                                    <option value="Bmw"> Bmw</option>
+                                </select>
+                            </label>
+                        </div> --}}
+                        <div class="filterIn">
+                            <h4>Price</h4>
+                            <div id="slider"></div><br/>
+                            <label class="rangeCommon">
+                                {{-- <input type="text" class="js-range-slider" name="my_range" value="" id="slider-range" data-skin="round" data-type="double" data-min="0" data-max="1000" data-grid="false" />
+                                <input type="number" maxlength="4" name="min" value="0" id="min" class="from"/> --}}
+                                <input type="number" maxlength="4" name="max" value="1000" id="max" class="to"/>
+                                Range: <span id='range'></span>
+                            </label>
+                        </div>
+                        <div class="filterIn">
+                            <h4>Mileage</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="mileAgePro" id="mileAgePro" >
+                                    <option disabled selected value=""> Select MileAge </option>
+                                    <option value="100000"> < 10,0000</option>
+                                    <option value="500000"> < 50,0000</option>
+                                    <option value="1000000"> < 100,0000</option>
+                                </select>
+                            </label>
+                        </div>
+                         <div class="filterIn">
+                            <h4>Age</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="agePro1" id="agePro">
+                                    <option selected disabled value=""> Select Age </option>
+                                    <option value="10"> < 10</option>
+                                    <option value="50"> < 50</option>
+                                    <option value="100"> < 100</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="filterIn">
+                            <h4>Previous Owners</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="previousOwnersPro" id="previousOwnersPro">
+                                    <option selected disabled value=""> Select Previous Owners </option>
+                                    <option value="1"> < 1 </option>
+                                    <option value="5"> < 5</option>
+                                </select>
+                            </label>
+                        </div>
+                        {{-- <div class="filterIn">
+                            <h4>Distance From SL1 2LX</h4>
+                            <label class="selectCommon selectSingle">
+                                  <select name="SL12LX" id="SL12LX">
+                                    <option value=""> Select Age</option>
+                                    <option value="10,000"> < 10,0000</option>
+                                    <option value="50,000"> < 50,0000</option>
+                                    <option value="100,000"> < 100,0000</option>
+                                </select>
+                            </label>
+                        </div> --}}
+                        {{-- <div class="filterIn">
+                            <h4>Exterior Grade</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="exteriorGrade" id="exteriorGrade">
+                                    <option value=""> Select Previous Owners </option>
+                                    <option value="1"> 1</option>
+                                    <option value="2"> 2</option>
+                                </select>
+                            </label>
+                        </div> --}}
+                        <div class="filterIn">
+                            <h4>Fuel Type</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="fuelType" id="fuelType">
+                                    <option selected disabled value=""> Select Fuel Type </option>
+                                    <option value="diesel"> Diesel</option>
+                                    <option value="petrol"> Petrol</option>
+                                </select>
+                            </label>
+                        </div>
+                        {{-- <div class="filterIn">
+                            <h4>Transmission</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="transmission" id="transmission">
+                                    <option value=""> Select Transmission </option>
+                                    <option value="1"> 1</option>
+                                    <option value="2"> 2</option>
+                                </select>
+                            </label>
+                        </div> --}}
+                        {{-- <div class="filterIn">
+                            <h4>Collection</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="collection" id="collection">
+                                    <option value=""> Select collection </option>
+                                    <option value="1"> 1</option>
+                                    <option value="2"> 2</option>
+                                </select>
+                            </label>
+                        </div> --}}
+                        {{-- <div class="filterIn">
+                            <h4>Additional Filters</h4>
+                            <label class="selectCommon selectSingle">
+                                <select name="additionalFilters" id="additionalFilters">
+                                    <option value=""> Select Additional Filters </option>
+                                    <option value="1"> 1</option>
+                                    <option value="2"> 2</option>
+                                </select>
+                            </label>
+                        </div> --}}
+                        <button type="button" class="btn btn-primary" id="subm"> Filter</button>
+                        <a href="" class="btn btn-danger" id="subm">Clear Filter</a>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="col-lg-9 col-md-9">

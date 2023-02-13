@@ -568,3 +568,25 @@ function uploadFile(elem){
 
 
 
+// Filter Toggle Mobile
+
+
+
+
+
+$(document).ready(function(){
+    var width = $(window).width();
+    
+     $('.filterToggle').hide();
+    if(width<767){
+        $('.filterWraper').hide();
+        $('.filterToggle').show();
+        $('.filterToggle').click(function(){
+          $(this).parent().toggleClass('toggle_wraper');
+            $('.filterWraper').slideToggle(300);
+        });
+      }
+      else{
+          $('.filterWraper').show();
+      }
+});
