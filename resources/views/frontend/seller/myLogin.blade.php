@@ -31,15 +31,17 @@ display: block;
                     <a href="{{ route('sellMyCar') }}">
                         <li>Sell My Car</li>
                     </a>
-                    <a href="#">
-                        <li>How It Works</li>
-                    </a>
+                    
                     <a href="{{ route('howItWorksforSeller') }}">
                         <li>How It Works</li>
                     </a>
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
+                    <a href="#">
+                        <li>Help</li>
+                    </a>
+                    
                     @auth
 
                 @endauth
@@ -78,7 +80,7 @@ display: block;
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">Help</a></li>
                             @guest
-                          <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                          <li>  <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
                           
                         </li>
                         @endguest

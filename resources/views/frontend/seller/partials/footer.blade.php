@@ -8,14 +8,16 @@
                 <h5>About</h5>
                 <ul>
                     <a href="#">
+                        
                         <li>About us</li>
                     </a>
+                    <a href="{{ route('DealerLogin') }}"><li>For Dealers</li></a>
                     <a href="#">
                         <li>Contact us</li>
                     </a>
-                    <a href="#">
+                    {{-- <a href="#">
                         <li>Press</li>
-                    </a>
+                    </a> --}}
                     <a href="#">
                         <li>Careers</li>
                     </a>
@@ -81,7 +83,7 @@
                 </div>
             </div>
             <div class="footer-sub contact-2">
-                <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt="">
+               <a href="{{ route('index') }}"> <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt=""></a>
                 <div class="d-flex mt-4 mb-4">
                     <a href="#">
                         <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>
