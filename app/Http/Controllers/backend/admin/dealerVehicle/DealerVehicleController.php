@@ -106,10 +106,10 @@ class DealerVehicleController extends Controller
     {
         $request->validate([
 
-            'retail_price' => 'required',
-            'clean_price' => 'required',
-            'average_price' => 'required',
-            'hidden_price' => 'required',
+            'retail_price' => 'required|max:11',
+            'clean_price' => 'required|max:11',
+            'average_price' => 'required|max:11',
+            'hidden_price' => 'required|max:11',
 
         ]);
         $vehicle = DealerVehicle::where('id',$id)->first();

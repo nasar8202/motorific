@@ -29,7 +29,7 @@ class VehicleCategory extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{

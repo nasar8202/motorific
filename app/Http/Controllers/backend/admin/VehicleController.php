@@ -138,7 +138,7 @@ class VehicleController extends Controller
     public function storeSeatMaterial(Request $request)
     {
             $request->validate([
-                'addMoreInputFields.*.title' => 'required'
+                'addMoreInputFields.*.title' => 'required|max:256'
             ]);
             DB::beginTransaction();
             try{
@@ -174,7 +174,7 @@ class VehicleController extends Controller
     public function storePrivatePlate(Request $request)
     {
             $request->validate([
-                'addMoreInputFields.*.title' => 'required'
+                'addMoreInputFields.*.title' => 'required|max:256'
             ]);
             DB::beginTransaction();
             try{
@@ -207,7 +207,7 @@ class VehicleController extends Controller
     public function storeFinance(Request $request)
     {
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{
@@ -228,7 +228,7 @@ class VehicleController extends Controller
     public function storeNumberOfKeys(Request $request)
     {
         $request->validate([
-            'addMoreInputFields.*.number_of_key' => 'required'
+            'addMoreInputFields.*.number_of_key' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{
@@ -250,7 +250,7 @@ class VehicleController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{
@@ -272,7 +272,7 @@ class VehicleController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{
@@ -294,7 +294,7 @@ class VehicleController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{
@@ -316,7 +316,7 @@ class VehicleController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{
@@ -338,7 +338,7 @@ class VehicleController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'addMoreInputFields.*.title' => 'required'
+            'addMoreInputFields.*.title' => 'required|max:256'
         ]);
         DB::beginTransaction();
         try{

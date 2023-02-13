@@ -39,7 +39,7 @@ class LoginController extends Controller
             $this->redirectTo = '/seller/dashboard';
             return $this->redirectTo;
         } else if ($role == 3) {
-            $this->redirectTo = '/dealer/dashboard';
+            $this->redirectTo = '/dealer/browse-vehicles';
             return $this->redirectTo;
         } else {
             $this->redirectTo = '/login';
