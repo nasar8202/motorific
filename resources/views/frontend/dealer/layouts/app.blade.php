@@ -556,7 +556,8 @@
             transform: rotate(180deg);
         }
     </style>
-
+    <!--jQuery UI-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -856,6 +857,24 @@
 
         setInterval(function() { makeTimer(); }, 1000);
 
+
+    </script>
+    <!--jQuery UI-->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!--Drag JS-->
+    <script>
+        $('.selectedFilesTn').sortable({
+        
+            stop: function(evt, ui) {
+                var totalDivs = $(this).find('div.image-box').length;
+                var num = 1;
+                $(this).find('div.image-box').each(function(){
+                    $(this).attr('data-id','');
+                    $(this).attr('data-id','num_'+ num++ +'');
+                });
+                
+            }
+        });
 
     </script>
 </body>
