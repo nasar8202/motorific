@@ -64,7 +64,7 @@ display: block;
             <button><a href="{{ route('registration') }}">Sign Up</a></button>
             @endif
             @else
-
+            @if(Auth::check())
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
@@ -85,7 +85,7 @@ display: block;
                         </form>
 
                     </div>
-
+                    @endif
             @endguest
 
             <button>Contact Us</button>
@@ -113,6 +113,7 @@ display: block;
                         <li>
                             <a href="#">Help</a>
                         </li>
+                        @if(Auth::check())
                         <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -132,12 +133,12 @@ display: block;
                         </form>
 
                     </div>
+                    @endif
                         @guest
                             <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
 
                             </li>
                         @endguest
-                        
                     </ul>
                 </div>
         </div>
