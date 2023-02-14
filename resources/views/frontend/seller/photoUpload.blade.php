@@ -1950,31 +1950,7 @@ display: block;
                                     </div>
                                 </div>
                             </div>
-                            <!--7 Search-->
-                            <div class="vehicleSteps" data-id="VehicleLocation">
-                                <h3>Vehicle location</h3>
-                                <p>Where do you keep the vehicle?</p>
-                                <div class="row photo-up-sec-2-vi-row-ay">
-                                    <div class="col-lg-6 my-auto">
-                                        <div class="photo-up-sec-2-vi-input">
-                                            <label for="search-loc" class="iconAbsolute">
-                                                <span><p>Enter postcode or the first line of the address</p></span>
-                                                <input type="search" name="location" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    @if ($errors->has('location'))
-                                    <span class="text-danger">{{ $errors->first('location') }}</span>
-                                @endif
-                                </div>
-                                <!--Next Previous Button-->
-                                <div class="photo-up-sec-2-vi-bnch-btns">
-                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
-                                        <button type="button" class="prevBtn">PREVIOUS</button>
-                                        <button type="button" class="nxtBtn">NEXT</button>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <!--8-->
                             <div class="vehicleSteps" data-id="VehicleOwner">
                                 <span class="checboxNum" style="display:none;">0</span>
@@ -2205,6 +2181,31 @@ display: block;
                                 <div class="photo-up-sec-2-vi-bnch-btns">
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
                                         <button type="button" class="prevBtnFinaceToPrivatePlate">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn" >NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--7 Search-->
+                            <div class="vehicleSteps" data-id="VehicleLocation">
+                                <h3>Vehicle location</h3>
+                                <p>Where do you keep the vehicle?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-input">
+                                            <label for="search-loc" class="iconAbsolute">
+                                                <span><p>Enter postcode or the first line of the address</p></span>
+                                                <input type="search" name="location" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @if ($errors->has('location'))
+                                    <span class="text-danger">{{ $errors->first('location') }}</span>
+                                @endif
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtn">PREVIOUS</button>
                                         <button type="button" class="nxtBtn" id="store">NEXT</button>
                                     </div>
                                 </div>
