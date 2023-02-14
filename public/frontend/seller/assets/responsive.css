@@ -1355,16 +1355,27 @@ section.thanks {
     }
     .navi ul {
         height: 100%;
-        padding-left: 0px;
+        padding-top: 30px;
+        padding-left: 40px;
         margin-bottom: 0px;
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
+        justify-content: flex-start;
         flex-direction: column;
+        text-align: left;
+        list-style: none;
+    }
+    .navi.active ul li.logoMob {
+        margin-bottom: 60px;
+        filter: invert(1);
     }
     .navi.active ul li {
-        font-size: 25px;
+        /* font-size: 25px;
         font-weight: 600;
-        margin-bottom: 20px;
+        margin-bottom: 20px; */
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
     }
     .navi.active ul li a {
         font-family: 'Roboto Condensed','sans-serif';
@@ -1372,6 +1383,31 @@ section.thanks {
         font-weight: 700;
         text-decoration: none;
     }
+    .userPro-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        text-align: left;
+        font-size: 20px !important;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    
+    .navi .dropdown-menu {
+        position: static !important;
+        transform: unset !important;
+        width: fit-content;
+        border: none;
+        border-radius: 0 !important;
+        background: none;
+    }
+    
+    .navi .dropdown-menu a {
+        font-size: 17px;
+        font-weight: 600;
+        color: #fff;
+    }
+    
     /* MENU */
 
     section.sec-1::after{

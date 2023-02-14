@@ -105,10 +105,45 @@
                 </div>
                 <div class="navi">
                     <ul>
+                        <li class="logoMob">
+                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+                            alt=""></a>
+                        </li>
                         <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Reviews</a></li>
-                        <li><a href="#">Help</a></li>
+                        <li>
+                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('reviews') }}">Reviews</a>
+                        </li>
+                        <li>
+                            <a href="#">Help</a>
+                        </li>
+                        <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    </div>
+                        @guest
+                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+
+                            </li>
+                        @endguest
+                        
                     </ul>
                 </div>
             </div>
@@ -178,7 +213,30 @@
                         <!-- BOX-1 -->
 
                     </div>
-
+                    <div class="vpLists">
+                        <h4>Your Vehicles</h4>
+                        <div class="row g-0 vp-box">
+                            <div class="col-sm-4">
+                                <div class="vp-img">
+                                    <img src="https://davewall.ca/wp-content/uploads/2023/01/1-102.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="vp-content">
+                                    <h3 class="vp-code">BK16WWM</h3>
+                                    <h4 class="vp-code">MINI</h3>
+                                    <div class="vp-spec-box">
+                                        <p><strong> Price:</strong> 6000</p>
+                                        <p> <strong>Date:</strong> 02/08/2023</p>
+                                    </div>
+                                    <div class="vp-btns">
+                                        <a href="#">Bids On My Vehicle</a>
+                                        <a href="javascript:void(0)" class="accepted">Accepeted</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

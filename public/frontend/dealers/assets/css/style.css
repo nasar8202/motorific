@@ -1177,7 +1177,7 @@ div#next, div#next-ext {
 
 .upload-img-btn {
     position: relative;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .upload-img-btn:before {

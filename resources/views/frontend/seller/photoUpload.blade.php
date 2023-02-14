@@ -547,6 +547,7 @@ display: block;
             <div class="row">
                 <div class="col-sm-6">
                     <h1 class="step-main-head">Interior Information</h1>
+                    .comp
                 </div>
                 <div class="col-sm-6">
                     <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">

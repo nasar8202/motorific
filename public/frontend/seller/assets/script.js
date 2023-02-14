@@ -22,8 +22,8 @@ var i = 0;
         } else {
           width++;
           // loadedPage.classList.add("overflow-hidden");
-          elem.style.width = width + "%";
-          barTxt.innerHTML = width + "%";
+          // elem.style.width = width + "%";
+          // barTxt.innerHTML = width + "%";
         }
       }
     }
@@ -40,39 +40,51 @@ $(document).ready(function(){
 });
 // End
 
+
+// Toggle Menu
+
+$(document).ready(function(){
+  $('.toggle').click(function(){
+    $(this).toggleClass('active');
+    $('.navi').toggleClass('active');
+    $('body').toggleClass('overflow-hidden');
+  })
+});
+
+
 //active class
 
-let menutoggle = document.querySelector('.toggle');
-let menunav = document.querySelector('.navi');
- menutoggle.onclick = function () {
-     menutoggle.classList.toggle('active');
-    menunav.classList.toggle('active');
+// let menutoggle = document.querySelector('.toggle');
+// let menunav = document.querySelector('.navi');
+//  menutoggle.onclick = function () {
+//      menutoggle.classList.toggle('active');
+//     menunav.classList.toggle('active');
 
- }
+//  }
 
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    $(x).slideToggle();
-  }
+// function myFunction() {
+//     var x = document.getElementById("myDIV");
+//     $(x).slideToggle();
+//   }
 
-function myFunction2() {
-    var x = document.getElementById("myDIV2");
-    $(x).slideToggle();
- }
+// function myFunction2() {
+//     var x = document.getElementById("myDIV2");
+//     $(x).slideToggle();
+//  }
 
-function myFunction3() {
-    var x = document.getElementById("myDIV3");
-    $(x).slideToggle();
-}
-function myFunction4() {
-    var x = document.getElementById("myDIV4");
-    $(x).slideToggle();
-}
+// function myFunction3() {
+//     var x = document.getElementById("myDIV3");
+//     $(x).slideToggle();
+// }
+// function myFunction4() {
+//     var x = document.getElementById("myDIV4");
+//     $(x).slideToggle();
+// }
 
-function myFunction5() {
-    var x = document.getElementById("myDIV5");
-    $(x).slideToggle();
-}
+// function myFunction5() {
+//     var x = document.getElementById("myDIV5");
+//     $(x).slideToggle();
+// }
 
 
 
@@ -115,7 +127,12 @@ $(".step-button").click(function () {
   if (id == "next") {
     $("#prev").removeClass("disabled");
     if (child >= length) {
-      $(this).addClass("disabled");
+      // $(this).addClass("disabled");
+      $(this).text("Good Work");
+      $(this).css({'background-color' : '#2ECC40'});
+      $(this).click(function(){
+        $(this).parent().parent().hide();
+      });
       $('#submit').removeClass("disabled");
     }
     if (child <= length) {

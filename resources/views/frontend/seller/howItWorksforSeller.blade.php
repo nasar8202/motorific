@@ -97,23 +97,50 @@ display: block;
                 <span></span>
                 <span></span>
             </div>
+            
             <div class="navi">
-                <ul>
-                    <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                    <a href="{{ route('howItWorksforSeller') }}">
-                        <li>How It Works</li>
-                    </a>
-                    <a href="{{ route('reviews') }}">
-                        <li>Reviews</li>
-                    </a>
-                    <li><a href="#">Help</a></li>
-                    @guest
-                        <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
-
+                    <ul>
+                        <li class="logoMob">
+                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+                            alt=""></a>
                         </li>
-                    @endguest
-                </ul>
-            </div>
+                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
+                        <li>
+                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('reviews') }}">Reviews</a>
+                        </li>
+                        <li>
+                            <a href="#">Help</a>
+                        </li>
+                        <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    </div>
+                        @guest
+                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+
+                            </li>
+                        @endguest
+                        
+                    </ul>
+                </div>
         </div>
     </div>
 </header>

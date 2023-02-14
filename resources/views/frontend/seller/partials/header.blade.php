@@ -5,7 +5,7 @@
             <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="">
             <ul class="navlinks mb-0 align-items-center">
                 <a href="#">
-                    <li>Sell My Car</li>
+                    <li>Sell My Car fsdfsdff</li>
                 </a>
                 <a href="#">
                     <li>How It Works</li>
