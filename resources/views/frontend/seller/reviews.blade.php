@@ -113,6 +113,11 @@ display: block;
                         <li>
                             <a href="#">Help</a>
                         </li>
+                        @guest
+                        <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                        
+                            <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                            @endguest
                         @if(Auth::check())
                         <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

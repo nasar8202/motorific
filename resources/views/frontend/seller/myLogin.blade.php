@@ -91,6 +91,11 @@ display: block;
                         </li>
 
                     </div>
+                    @guest
+                    <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                    
+                        <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                        @endguest
                         @guest
                             <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
 
