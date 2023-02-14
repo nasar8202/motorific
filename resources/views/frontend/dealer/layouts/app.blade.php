@@ -33,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Dragable Css -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
     <!-- Css -->
     <style type="text/css">
 
@@ -629,6 +632,8 @@
     <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
 
     <!--<scipt src="{{ URL::asset('frontend/dealers/assets/js/jquery.steps.min.js') }}"></scipt>-->
+    <!-- Jquery Dragable -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <!-- CUSTOM-JS -->
     <script type="text/javascript" src="{{ URL::asset('frontend/dealers/assets/js/custom.js') }}"></script>
 
