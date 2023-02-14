@@ -103,11 +103,11 @@ input[type=number] {
         <div class="container-1151">
             <div class="d-flex">
                 <div class="my-auto">
-                <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt="">
+                {{-- <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt=""> --}}
                 </div>
                 <div class="">
-                <h3>{{Session::get('registrationNo') ?? 'GJ65 YUA';}}</h3>
-                <p>{{ Session::get('model')??'Volkswagen Golf R DSG'}}</p>
+                <h3>{{Session::get('registrationNo') ?? 'Register Here';}}</h3>
+                <p>{{ Session::get('model')??''}}</p>
                 </div>
             </div>
         </div>
@@ -188,8 +188,8 @@ input[type=number] {
                         @enderror
                         </div>
                             </div> --}}
+                            <span>If You Have Already Account. <a style="text-decoration: none;" href="{{route('myLogin')}}"> Login</a></span>
                 </div>
-
 
 
 

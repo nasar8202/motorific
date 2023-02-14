@@ -96,7 +96,7 @@
                                 <button type="submit" class="btn btn-primary">Next Step</button>
                             </fieldset>
 
-
+                            <span>If You Have Already Account. <a style="text-decoration: none;" href="{{route('DealerLogin')}}"> Login</a></span>
 
                         </form>
                     </div>

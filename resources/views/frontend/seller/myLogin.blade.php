@@ -94,11 +94,11 @@ display: block;
         <div class="container-1151">
             <div class="d-flex">
                 <div class="my-auto">
-                <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt="">
+                {{-- <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt=""> --}}
                 </div>
                 <div class="">
-                <h3>GJ65 YUA</h3>
-                <p>Volkswagen Golf R DSG</p>
+                <h3>Login</h3>
+                {{-- <p>Volkswagen Golf R DSG</p> --}}
                 </div>
             </div>
         </div>
@@ -132,12 +132,14 @@ display: block;
                         @enderror
                     </div>
 
+                    <span>If You Are New User. <a style="text-decoration: none;" href="{{route('registration')}}"> Register</a></span>
                     <br>
-                    <div>
+                    <div class="mt-2">
                         <button>CONTINUE</button>
                     </div>
                 </form>
-                <a href="{{route('forgotPassPage')}}">Forgot Your Password ?</a>
+                
+                <a style="text-decoration: none;" href="{{route('forgotPassPage')}}">Forgot Your Password ?</a>
             </div>
         </div>
     </div>

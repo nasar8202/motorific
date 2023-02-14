@@ -35,7 +35,7 @@
                         <button class="btn btn-info meeting">Schedule A Meeting</button>
                         <button class="btn btn-danger cancelRequest">Cancel My Request</button>
                         <div class="form-group mt-4 reviewSection">
-                            <form method="POST" action="{{route('reviewForCancel')}}">
+                            <form method="POST" action="{{route('reviewForCancel')}}" enctype="multipart/form-data">
                                 @csrf
                             <span>Why You Want To Cancel This Vehicle ?</span>
                             <input type="hidden" name="vehicle_id" value="{{$allVehicles->id}}">
@@ -44,7 +44,17 @@
 
                             <input type="hidden" name="bided" value="{{$bided ??''}}">
                                                         <input type="hidden" name="order_id" value="{{$pricing->id}}">
-                            <textarea class="form-control" name="reviews" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="reviews" id="exampleFormControlTextarea1" required rows="3"></textarea>
+                            @if ($errors->has('reviews'))
+                            <span class="text-danger">{{ $errors->first('reviews') }}</span>
+                            @endif
+                            <br>
+                            <span>Add Image For Cancel Evidence</span>
+                            <input type="file" class="form-control" name="cancelImages[]" multiple >
+                            @if ($errors->has('cancelImages'))
+                            <span class="text-danger">{{ $errors->first('cancelImages') }}</span>
+                            @endif
+                            <br>
                         <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>
                     </form>
                     </div>
@@ -130,7 +140,7 @@
 
                             <form action="#">
                                 <div class="form-group">
-                                   <center> <a href="{{route('completedVehicleDetails',$allVehicles)}}"> <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->dashboard ?? "") }}" width="400px">
+                                   <center> <a href="{{route('completedVehicleDetails',$allVehicles)}}"> <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->dashboard ?? "") }}" width="400px"></a>
                                    </center>
 
                                    <br>

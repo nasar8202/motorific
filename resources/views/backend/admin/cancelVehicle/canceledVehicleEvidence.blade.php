@@ -35,12 +35,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Reviews</th>
-                            <th>Dealer Name</th>
-                            <th>Vehicle Reg Num</th>
-                            <th>Vehicle Price</th>
-                            <th>Purchase Price</th>
-                            <th>Evidence</th>
+                            <th>Evidence Image</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -49,27 +45,11 @@
                         @endphp
                         @foreach ($orders as $order)
                         <tr>
-
-                            <td>{{ $i++ }}</td>
-                            <td>{{ $order->reviews}}</td>
-                            <td>{{ $order->user->name}}</td>
-                            @if($order->vehicle_id == null)
-                            <td>{{ $order->dealerVehicle->vehicle_name}}</td>
-                            <td>{{ $order->dealerVehicle->vehicle_price}}</td>
-                            @else
-                            <td>{{ $order->vehicle->vehicle_name}}</td>
-                            <td>{{ $order->vehicle->vehicle_price}}</td>
-                            @endif
-                            @if($order->dealer_vehicle_id == null)
-                            @if($order->vehicle->all_auction == null)
-                            <td>{{ $order->bidorder->bid_price}}</td>
-                            @else
-                            <td>{{ $order->order->request_price}}</td>
-                            @endif
-                            @else
-                            <td>{{ $order->dealerOrder->request_price}}</td>
-                          @endif
-                          <td><a href="{{route('cancelVehicleEvidence',$order->id)}}" class="badge bg-dark">View Evidence</a></td>
+                            <td>{{$i++}}</td>
+                            <td>  
+                                  <img src="{{ asset('/uploads/cancelVehicle/'.$order->image) }}" width="100" height="100">
+                            </td>
+                           
                         </tr>
                         @endforeach
                     </tbody>

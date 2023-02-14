@@ -51,13 +51,17 @@
 
 
                                 </div>
+                               
+                        <span>If You Are New Dealer. <a style="text-decoration: none;" href="{{route('signup')}}"> Register</a></span>
+                        <br>
                                 {{-- <button type="submit"  class="next action-button">Next Step</button> --}}
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn btn-primary mt-2">Login</button>
                             </fieldset>
 
 
 
                         </form>
+                <a style="text-decoration: none;" href="{{route('forgotPassPage')}}">Forgot Your Password ?</a>
                     </div>
                 </div>
             </div>
