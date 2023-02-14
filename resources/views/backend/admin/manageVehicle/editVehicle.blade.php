@@ -164,7 +164,7 @@ p {
                                         <div class="form-group">
                                             <label for="company-column">Vehicle Type</label>
                                             <input type="text" id="company-column" class="form-control"
-                                                name="vehicle_type" value="{{$vehicles->vehicle_type}}" placeholder="Vehicle Type">
+                                                name="vehicle_type" value="{{$vehicles->vehicle_type ?? old('vehicle_type')}}" placeholder="Vehicle Type">
                                         </div>
                                         @if ($errors->has('vehicle_type'))
                                         <span class="text-danger">{{ $errors->first('vehicle_type') }}</span>
@@ -174,7 +174,7 @@ p {
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Tank</label>
                                             <input type="text" id="" class="form-control"
-                                                name="vehicle_tank" value="{{$vehicles->vehicle_tank}}" placeholder="Vehicle Tank">
+                                                name="vehicle_tank" value="{{$vehicles->vehicle_tank ?? old('vehicle_tank')}}" placeholder="Vehicle Tank">
                                         </div>
                                         @if ($errors->has('vehicle_tank'))
                                         <span class="text-danger">{{ $errors->first('vehicle_tank') }}</span>
@@ -195,7 +195,7 @@ p {
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Price</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_price" value="{{$vehicles->vehicle_price}}" placeholder="Vehicle Price">
+                                                name="vehicle_price" value="{{$vehicles->vehicle_price ?? old('vehicle_price')}}" placeholder="Vehicle Price">
                                         </div>
                                         @if ($errors->has('vehicle_price'))
                                         <span class="text-danger">{{ $errors->first('vehicle_price') }}</span>
@@ -1259,8 +1259,8 @@ p {
                                         <div class="row">
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="retail_price">Vehicle Detail Price </label>
-                                                    <input type="number" id="retail_price" value="{{$vehicles->retail_price}}"  class="form-control"
+                                                    <label for="retail_price">Vehicle Retail Price </label>
+                                                    <input type="number" id="retail_price" value="{{$vehicles->retail_price ?? old('retail_price')}}"  class="form-control"
                                                        name="retail_price" placeholder="" >
 
                                                 </div>
@@ -1271,7 +1271,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="clean_price">Vehicle Clean Price </label>
-                                                    <input type="number" id="clean_price" value="{{$vehicles->clean_price}}"  class="form-control"
+                                                    <input type="number" id="clean_price" value="{{$vehicles->clean_price ?? old('clean_price')}}"  class="form-control"
                                                        name="clean_price" placeholder="" >
 
                                                 </div>
@@ -1282,7 +1282,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="average_price">Vehicle Average Price </label>
-                                                    <input type="number" id="average_price" value="{{$vehicles->average_price}}"  class="form-control"
+                                                    <input type="number" id="average_price" value="{{$vehicles->average_price ?? old('average_price')}}"  class="form-control"
                                                        name="average_price" placeholder="" >
 
                                                 </div>
@@ -1293,7 +1293,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="hidden_price">Vehicle Hidden Price </label>
-                                                    <input type="number" id="hidden_price" value="{{$vehicles->hidden_price}}"  class="form-control"
+                                                    <input type="number" id="hidden_price" value="{{$vehicles->hidden_price ?? old('hidden_price')}}"  class="form-control"
                                                        name="hidden_price" placeholder="" >
 
                                                 </div>

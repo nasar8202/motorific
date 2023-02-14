@@ -52,7 +52,7 @@
                                 <input type="file"  onchange="uploadFile(this)" class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" >
                                 <div class="upload-imgErros"></div>
-                                <div id="selectedFiles" class="upload-img-wraper "></div>
+                                <div id="selectedFiles" class="upload-img-wraper selectedFilesTn"></div>
                             </div>
                         <!--End -->
 
@@ -202,7 +202,7 @@
                             <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="interior" class="" multiple="" accept="image/*">
                             <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
                             <div class="upload-imgErros"></div>
-                            <div id="selectedFiles" class="upload-img-wraper"></div>
+                            <div id="selectedFiles" class="upload-img-wraper selectedFilesTn"></div>
                         </div>
 
 
@@ -546,7 +546,7 @@
                                     <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
                                     <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
                                     <div class="upload-imgErros"></div>
-                                    <div id="selectedFiles" class="upload-img-wraper qambaraaaa"></div>
+                                    <div id="selectedFiles" class="upload-img-wraper qambaraaaa selectedFilesTn"></div>
                                 </div>
                                 <!-- <div class="cts-files">
                                     <input type="file" id="files11111" class="upload-img-btn" name="exterior" class="" multiple="" accept="image/*"  >

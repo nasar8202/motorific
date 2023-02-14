@@ -139,8 +139,10 @@
                             <ul >
                                 <li>Reserve Price: <span>€{{$vehicle->vehicle_price}}</span></li>
                                 @if($vehicle->all_auction == 'all')
+                                <li>Total Offers: <span>{{$allorder ??'No Offers Yet'}}</span></li>
                                 <li >Higesht Offer<span> <a href="#">@if(isset($order->request_price)) {{$order->request_price}}@endif</a></span></li>
                                 @else
+                                <li>Total Bids: <span>{{$allbids??'No Bids Yet'}}</span></li>
                                 <li >Live Sales end <span>3h 53m 26s <a href="#"></a></span></li>
                                 @endif
                                 <ul class="valuation">
@@ -360,7 +362,7 @@
         }
         else{
         $(".warning").html('');
-        $(".warning").html('Your Requested Amount Is Not Matching The Vehicle Criteria');
+        $(".warning").html('Minimum Bid Require On This Vehicle Is '+HiddenPrice+'');
     }
     });
         
@@ -409,7 +411,7 @@
     }
     else{
         $(".warning").html('');
-        $(".warning").html('Your Bid Amount Is Not Matching The Vehicle Criteria');
+        $(".warning").html('Minimum Bid Require On This Vehicle Is '+HiddenPrice+'');
     }
   });
 

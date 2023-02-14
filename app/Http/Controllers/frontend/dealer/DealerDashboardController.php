@@ -1036,6 +1036,9 @@ die();
         $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
         $LockingWheelNut = LockingWheelNut::where('id',$vehicle_info->looking_wheel_nut_id)->first();
         $order = OrderVehicleRequest::where('vehicle_id',$vehicle->id)->orderBy('request_price','DESC')->first();
+        $allorder = count(OrderVehicleRequest::where('vehicle_id',$vehicle->id)->get());
+        
+        $allbids = count(BidedVehicle::where('vehicle_id',$vehicle->id)->get());
         //finding distance between seller and dealer code
         $current_user = Auth::user();
         $user = User::where('id',$vehicle->user_id)->first();
@@ -1089,7 +1092,7 @@ die();
               ->with('error',$e->getMessage() )
               ->withInput();
       }
-        return view('frontend.dealer.vehicle.vehicleDetail',compact('lat','lng','distance','exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
+        return view('frontend.dealer.vehicle.vehicleDetail',compact('allorder','allbids','lat','lng','distance','exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
     }
     public function dashboard()
     {

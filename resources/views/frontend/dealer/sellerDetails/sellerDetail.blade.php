@@ -130,7 +130,7 @@
 
                             <form action="#">
                                 <div class="form-group">
-                                   <center>  <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->dashboard ?? "") }}" width="400px">
+                                   <center> <a href="{{route('completedVehicleDetails',$allVehicles)}}"> <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->dashboard ?? "") }}" width="400px">
                                    </center>
 
                                    <br>
