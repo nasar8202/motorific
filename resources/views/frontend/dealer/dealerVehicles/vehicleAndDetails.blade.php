@@ -49,7 +49,7 @@
                         <!-- Custom Code Testing-->
                             <label class="gallery-top-text mb-10 f-18">Exterior</label>
                             <div class="cts-files">
-                                <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
+                                <input type="file"  onchange="uploadFile(this)" class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" >
                                 <div class="upload-imgErros"></div>
                                 <div id="selectedFiles" class="upload-img-wraper selectedFilesTn"></div>
