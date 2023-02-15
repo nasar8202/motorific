@@ -163,7 +163,7 @@
                 <div class="col-lg-9 col-md-9">
 
                     <div class="row">
-                        <h4>Your Vehicles</h4>
+                        {{-- <h4>Your Vehicles</h4> --}}
                         <br>
                         <div class="col-lg-12 col-md-12">
                             {{-- <div class="form-group">
@@ -172,7 +172,7 @@
                             <br>
                         </div> --}}
                             <br>
-                            <div class="row">
+                            {{-- <div class="row">
                                 @forelse ($allVehicles as $allVehicle)
                                     <div class="col-sm-4 vec-box p-0"><img
                                             src="{{ asset('/vehicles/vehicles_images/' . $allVehicle->VehicleImage->front) }}"
@@ -202,41 +202,57 @@
                                         </div>
                                         {{-- <a href="{{route('marksAsSoldVehicles',$allVehicle->id)}}" class="badge badge-success "> Mark As Sold ?
                            </a> --}}
-                                    </div>
+                                    {{-- </div> --}}
 
-                                @empty
-                                    <div class="col-sm-12">No Purchases Vehicle Found!</div>
-                                @endforelse
+                                {{-- @empty --}}
+                                    {{-- <div class="col-sm-12">No Purchases Vehicle Found!</div> --}}
+                                {{-- @endforelse --}}
 
-                            </div>
+                            {{-- </div> --}} 
                         </div>
                         <!-- BOX-1 -->
 
                     </div>
                     <div class="vpLists">
                         <h4>Your Vehicles</h4>
+                        @forelse ($allVehicles as $allVehicle)
                         <div class="row g-0 vp-box">
                             <div class="col-sm-4">
                                 <div class="vp-img">
-                                    <img src="https://davewall.ca/wp-content/uploads/2023/01/1-102.jpg" alt="">
+                                    <img src="{{ asset('/vehicles/vehicles_images/' . $allVehicle->VehicleImage->front) }}"
+>
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="vp-content">
-                                    <h3 class="vp-code">BK16WWM</h3>
-                                    <h4 class="vp-code">MINI</h3>
+                                    <h3 class="vp-code">{{ $allVehicle->vehicle_registartion_number }}</h3>
+                                    <h4 class="vp-code">{{ $allVehicle->vehicle_name }}</h3>
                                     <div class="vp-spec-box">
-                                        <p><strong> Price:</strong> 6000</p>
-                                        <p> <strong>Date:</strong> 02/08/2023</p>
+                                        <p><strong> Price:</strong> {{ $allVehicle->vehicle_price }}</p>
+                                        <p> <strong>Date:</strong> {{ $allVehicle->created_at->format('m/d/Y') }}</p>
                                     </div>
                                     <div class="vp-btns">
-                                        <a href="#">Bids On My Vehicle</a>
-                                        <a href="javascript:void(0)" class="accepted">Accepeted</a>
+                                        @if ($allVehicle->all_auction == null)
+                                        <a href="{{ route('bidsOnVehicles', $allVehicle->id) }}">Bids On My Vehicle</a>
+                                        @else
+                                        <a href="{{ route('ordersOnVehicles', $allVehicle->id) }}">Orders On My Vehicle</a>
+                                        @endif
+                                        @if ($allVehicle->status == 0)
+                                        <a href="javascript:void(0)" class="accepted">Pending</a>
+                                        @elseif($allVehicle->status == 2)
+                                        <a href="javascript:void(0)" class="accepted">Deactivated</a>
+                                        @else
+                                        <a href="javascript:void(0)" class="accepted">Accepted</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @empty
+                        <div class="col-sm-12">No Purchases Vehicle Found!</div>
+                    @endforelse
                     </div>
+                    
                 </div>
             </div>
         </div>

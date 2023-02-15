@@ -93,7 +93,6 @@
             </div>
             <div class="menu">
                 <div class="toggle">
-                
                     <span></span>
                     <span></span>
                     <span></span>
@@ -114,6 +113,12 @@
                         <li>
                             <a href="#">Help</a>
                         </li>
+                        @guest
+                        <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                        
+                            <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                            @endguest
+                        @if(Auth::check())
                         <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -133,14 +138,15 @@
                         </form>
 
                     </div>
+                    @endif
                         @guest
                             <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
 
                             </li>
                         @endguest
-                        
                     </ul>
                 </div>
+        </div>
             </div>
         </div>
     </header>

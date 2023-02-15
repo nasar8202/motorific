@@ -14,7 +14,11 @@
     <div class="container-1400 position-relative">
         <div class="row header-nav-row align-items-center">
             <div class="col-lg-2 d-lg-block d-none">
+                @if(Auth::check())
                 <h2 class="logoMain"><a  href="{{route('dealer.newDashboard')}}" class="d-block">motorific</a></h2>
+                @else
+                <h2 class="logoMain"><a  href="{{route('myLogin')}}" class="d-block">motorific</a></h2>
+                @endif
             </div>
             <div class="col-lg-7 desktop-header">
                 <div class="header-nav dflex-gap10">
