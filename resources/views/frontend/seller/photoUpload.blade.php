@@ -545,9 +545,12 @@ display: block;
             <div class="step-main-wrap photo-upload" style="">
             <!--<div id="svg_wrap"></div>-->
             <div class="row">
+                <button type="button" class="form-toggle-btn">Start</button>
                 <div class="col-sm-6">
                     <h1 class="step-main-head">Interior Information</h1>
-                    .comp
+                    <div class="completed-status">
+                        <i class="fa-solid fa-circle-check"></i> Complete
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
@@ -1072,6 +1075,7 @@ display: block;
                 <div class="step-button-wrap">
                     <div class="step-button" id="prev">← Previous</div>
                     <div class="step-button nxtBtn" id="next">Next →</div>
+                    <!-- <div class="step-button subBtn" id="subBtn">Submit</div> -->
                 </div>
 
                 <p class="pt-4">If no damage to report! Then continue next .</p>
