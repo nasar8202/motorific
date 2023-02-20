@@ -1804,7 +1804,24 @@ section.sec-4 {
 section.thanks {
     padding: 160px 0 50px 0;
 }
+.vp-box{
+    margin-bottom: 30px;
+}
+.vp-box .vp-btns {
+    text-align: center;
+}
 
+.vp-box .vp-btns a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.vp-btns a:first-child {
+    margin-right: 0;
+}
+.vp-box .vp-btns a:last-child {
+    margin-bottom: 0;
+}
 
 }
 

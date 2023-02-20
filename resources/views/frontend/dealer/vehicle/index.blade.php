@@ -268,10 +268,10 @@ div#filter-price {
                 <!-- BOX-1 -->
                 
                 <!-- Products Cards New Design -->
-                <div class="procuts-wraper" id="first">
+                <div class="procuts-wraper list-wraper" id="first">
                         <div class="row">
                         @forelse ($allVehicles as $vehicle)
-                            <div class="col-lg-4 col-sm-6">
+                            <div class="col-lg-4 col-sm-6 reviews-add">
                                 <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
@@ -288,49 +288,50 @@ div#filter-price {
                                             <div class="p-cate-list">
                                                 <span class="p-code gold">{{ $vehicle->vehicle_registartion_number }}</span>
                                                 <span class="p-location">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <?php
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    <?php
                                                 
                                                 $current_user = Illuminate\Support\Facades\Auth::user();
-        $user = App\Models\User::where('id',$vehicle->user_id)->first();
-        
-        $zip = $current_user->post_code;
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
-        $result_string = file_get_contents($url);
-        $result = json_decode($result_string, true);
-        
-        $result1[]=$result['results'][0];
-        $result2[]=$result1[0]['geometry'];
-        $result3[]=$result2[0]['location'];
-
-        $zipk = $user->post_code;
-        $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
-        $result_stringk = file_get_contents($urlk);
-        $resultk = json_decode($result_stringk, true);
-
-        
-        $resultk1[]=$resultk['results'][0];
-        $resultk2[]=$resultk1[0]['geometry'];
-        $resultk3[]=$resultk2[0]['location'];
-        // dd($resultk3[0]['lat'],$resultk3[0]['lng']);
-      
-        $lat = strval($resultk3[0]['lat']);
-        $lng = strval($resultk3[0]['lng']);
-        
-
-
-        $long1 = deg2rad($result3[0]['lng']);
-        $long2 = deg2rad($resultk3[0]['lng']);
-        $lat1 = deg2rad($resultk3[0]['lat']);
-        $lat2 = deg2rad($resultk3[0]['lat']);
-          
-        //Haversine Formula
-        $dlong = $long2 - $long1;
-        $dlati = $lat2 - $lat1;
-          
-        $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
-          
-        $res = 2 * asin(sqrt($val));
+                                                $user = App\Models\User::where('id',$vehicle->user_id)->first();
+                                                $zip = $current_user->post_code;
+                                                $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+                                                $result_string = file_get_contents($url);
+                                                $result = json_decode($result_string, true);
+                                                
+                                                $result1[]=$result['results'][0];
+                                                $result2[]=$result1[0]['geometry'];
+                                                $result3[]=$result2[0]['location'];
+                                                
+                                                $zipk = $user->post_code;
+                                                // dd($result_stringk);
+                                                $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+                                                $result_stringk = file_get_contents($urlk);
+                                                $resultk = json_decode($result_stringk, true);
+                                                
+                                                
+                                                $resultk1[]=$resultk['results'][0];
+                                                
+                                                $resultk2[]=$resultk1[0]['geometry'];
+                                                $resultk3[]=$resultk2[0]['location'];
+                                                // dd($resultk3[0]['lat'],$resultk3[0]['lng']);
+                                                
+                                                $lat = strval($resultk3[0]['lat']);
+                                                $lng = strval($resultk3[0]['lng']);
+                                                
+                                                
+                                                
+                                                $long1 = deg2rad($result3[0]['lng']);
+                                                $long2 = deg2rad($resultk3[0]['lng']);
+                                                $lat1 = deg2rad($resultk3[0]['lat']);
+                                                $lat2 = deg2rad($resultk3[0]['lat']);
+                                                
+                                                //Haversine Formula
+                                                $dlong = $long2 - $long1;
+                                                $dlati = $lat2 - $lat1;
+                                                
+                                                $val = pow(sin($dlati/2),2)+cos($lat1)*cos($lat2)*pow(sin($dlong/2),2);
+                                                
+                                                $res = 2 * asin(sqrt($val));
           
         $radius = 3958.756;
           
@@ -355,6 +356,8 @@ div#filter-price {
 
                         </div>
                     </div>
+              <div id="pagination-container"></div>
+
                     <!-- Products Cards New Design End -->
 
 
@@ -395,9 +398,7 @@ div#filter-price {
                 {{-- <div id="remove-row" class="text-center">
                     <button id="btn-more" data-id="{{ $vehicle->id }}" class="loadmore-btn">Load More</button>
                     </div> --}}
-                <div id="loop" class="filter-price">
-                
-            </div>
+               
             <div class=""  id="no-record" >
 
 
@@ -416,6 +417,7 @@ div#filter-price {
 <!-- Script -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
 
 <script>
     $(document).ready(function(){
@@ -478,7 +480,7 @@ $(document).ready(function(){
 
             $.each(resultData,function(resultData,row){
 
-                    bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                    bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
                                         bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
@@ -547,7 +549,7 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ "vehicles");
 
             $.each(resultData,function(resultData,row){
-                bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
+                bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
                                         bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
@@ -562,8 +564,8 @@ $(document).ready(function(){
                 $(".count").html("");
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
-                $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
-                $(".filter-price").html('');
+                $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="" class="btn btn-danger">Clear All Filter</a>');
+                $("#filter-price").html('');
             }
             },
 
@@ -709,9 +711,26 @@ $("#slider").slider({
 
 // end milage data ajax
 
+// jQuery Plugin: http://flaviusmatis.github.io/simplePagination.js/
+
+var items = $(".list-wraper .reviews-add");
+    var numItems = items.length;
+    var perPage = 9;
+
+    items.slice(perPage).hide();
+
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
 </script>
-
-
 
 @endpush
 

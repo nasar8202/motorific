@@ -144,9 +144,10 @@ class RegisterController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
-        $zip = trim($request->post_code, ' ');
-        
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $zip = ($request->post_code);
+        $postcode = str_replace(' ', '', $zip);
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+                
 
         try{
             $result_string = file_get_contents($url);
@@ -157,7 +158,7 @@ class RegisterController extends Controller
          $user->name = $request->name;
          $user->email = $request->email;
          $user->role_id = 2;
-         $user->post_code = $request->post_code;
+         $user->post_code = $postcode;
          $user->mile_age = $request->mile_age;
          $user->phone_number = $request->phone_number;
          $user->password = Hash::make($password);

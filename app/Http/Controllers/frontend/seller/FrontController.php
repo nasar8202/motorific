@@ -512,7 +512,7 @@ class FrontController extends Controller
 
                  session(['registrationNo' => $res->registrationNumber]);
                  session(['model' => $res->make]);
-        return view('frontend.seller.registration',compact('data'));
+        return view('frontend.seller.registration',compact('data','res'));
     }
         $currentUser = Auth::user()->id;
 

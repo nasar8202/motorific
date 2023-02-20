@@ -263,7 +263,7 @@ div#filter-price {
                         <div class="row">
                         @forelse ($liveSellVehicles as $vehicle)
                             <div class="col-lg-4 col-sm-6">
-                                <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}" class="product-main">
+                                <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
                                             <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? '') }}" width="180px" alt="">
@@ -380,7 +380,7 @@ div#filter-price {
                 <h1>No Vehicle Found</h1>
                 @endforelse
                 </div> -->
-                <div id="loop">
+                {{-- <div id="loop">
                 <div class="col-lg-3 col-md-3 blur_action"  id="filter-price">
 
 
@@ -389,7 +389,7 @@ div#filter-price {
 
 
                 </div>
-            </div>
+            </div> --}}
 
 
 
@@ -495,7 +495,7 @@ $(document).ready(function(){
 
             $('.blur_action').css('filter','blur(0px)');
             var resultData = response;
-             //console.log(resultData)
+             console.log(resultData)
             var bodyData = '';
             var count = resultData.length;
 
@@ -507,10 +507,10 @@ $(document).ready(function(){
             $.each(resultData,function(resultData,row){
 
                 bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
-                                        bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
+                                        bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.front+'"></div>'
                                         bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
-
+                    
                                 $("#filter-price").html(bodyData);
                                 $("#no-record").html('');
                 })
@@ -522,7 +522,7 @@ $(document).ready(function(){
                 $(".count").html("Showing " +count+ " vehicles");
                 $("#first").hide();
                 $("#filter-price").html('');
-            $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{URL::to('dealer/dashboard')}}" class="btn btn-danger">Clear All Filter</a>');
+            $("#no-record").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="" class="btn btn-danger">Clear All Filter</a>');
             }
             },
 

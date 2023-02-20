@@ -6,7 +6,7 @@
 <!-- form css -->
 <div class="topPadingPage">
     <center><b>Motorific</b> 
-    <p>You Need To Pay 80$ Charge To Buy From This Platform</p>
+    <p>You Need To Pay £{{$charges_payment}} Charge To Buy From This Platform</p>
 </center>
 </div>
 <div class="container">

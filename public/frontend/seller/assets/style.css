@@ -2402,6 +2402,8 @@ header.thnkPage .dropdown-toggle {
     border-radius: 10px;
     border: 1px solid rgb(0 0 0 / 6%);
     overflow: hidden;
+    margin-bottom: 20px;
+    background: #fff;
 }
 .vp-spec-box {
     display: flex;

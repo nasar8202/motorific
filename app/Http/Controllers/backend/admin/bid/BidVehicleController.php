@@ -31,8 +31,9 @@ class BidVehicleController extends Controller
   public function allBiddingVehicle()
 
   {
-    $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->where('all_auction', null)->get();
-
+    $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->with('allbid')->where('all_auction', null)->get();
+   
+    
     return view('backend.admin.bidding.biddedVehicle', compact('vehicles'));
   }
   public function singleBid($id)

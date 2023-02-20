@@ -42,7 +42,9 @@
                             <th>Vehicle Tank</th>
                             <th>Vehicle Price</th>
                             <th>Image</th>
-                            <th>Status</th>
+                            <th>Total Bids</th>
+                            {{-- <th>Bids Status</th> --}}
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,6 +64,48 @@
                             <td>
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
+                            <td>@if(count($vehicle->allbid))Total Bids : {{ count($vehicle->allbid)}}@else No Bid Yet @endif</td>
+                            {{-- <td>
+@php
+foreach($vehicles as $all){
+    $activebid[] = App\Models\BidedVehicle::where('vehicle_id', $all->id)->where('status',1)->first();
+    if(isset($activebid->vehicle_id) && $activebid->vehicle_id == $vehicle->id){
+    echo "Accepted";
+
+  }
+    
+  }
+  
+  foreach($vehicles as $all){
+    $deactivatebid[] = App\Models\BidedVehicle::where('vehicle_id', $all->id)->where('status',2)->first();
+    
+    if(isset($deactivatebid->vehicle_id) &&  $deactivatebid->vehicle_id == $vehicle->id){
+    echo "deactivate";
+  }
+  }
+  
+  foreach($vehicles as $all){
+    $pending[] = App\Models\BidedVehicle::where('vehicle_id', $all->id)->where('status',null)->first();
+    if(isset($pending->vehicle_id) && $pending->vehicle_id == $vehicle->id){
+    echo "pending";
+}
+    
+  }
+@endphp
+{{$vehicle->allbid}}
+
+@if(count($vehicle->allbid) != null) 
+@if($vehicle->bid->status == 1)
+accepted
+
+@elseif($vehicle->bid->status == 2)
+deacivated
+@else
+pending
+@endif
+
+@else no bid @endif
+                            </td> --}}
                             <td>
                                 <a href="{{ route('singleBid',$vehicle->id) }}" class="cvf_btn"><span class="badge bg-success">View All Bids</span></a>
                             

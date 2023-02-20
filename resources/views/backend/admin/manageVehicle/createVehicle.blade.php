@@ -12,13 +12,13 @@
         <i class="bi bi-justify fs-3"></i>
     </a>
 </header>
+
 <div class="page-heading">
-    <form class="form" method="post" action="{{route('StoreVehicle')}}" enctype="multipart/form-data">
-        @csrf
+    
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-
+                
                 <p class="text-subtitle text-muted">Add Vehicle</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -31,18 +31,24 @@
             </div>
         </div>
     </div>
+    <div class="form-group col-md-4">
+        <form class="form" method="get" action="{{route('findVehicle')}}" >
+            @csrf
+        <input type="text" id="email-id-column" class="form-control"
+            name="registeration" placeholder="Vehicle Registeration Number">
+        </div>
+        <div class="col-md-6 col-4">
+            <button type="submit" class="btn btn-success">Find Vehicle</button>
+        </div>
+    </form>
+        <br>
+    <form class="form" method="post" action="{{route('StoreVehicle')}}" enctype="multipart/form-data">
+        @csrf
     <section id="multiple-column-form">
         <div class="row align-items-center">
             <div class="col-md-6 col-6">
-                {{-- <div class="form-group">
-                    <label for="email-id-column">Vehicle Price</label>
-                    <input type="text" id="email-id-column" class="form-control"
-                        name="vehicle_price" placeholder="Vehicle Price">
-                </div> --}}
-            </div>
-            {{-- <div class="col-md-6 col-6">
-            <a href="#" class="btn btn-success">Success</a>
-            </div> --}}
+                
+                </div> 
 
             <div class="col-12">
                 <div class="card">
@@ -56,7 +62,7 @@
                                         <div class="form-group">
                                             <label for="first-name-column">Seller Email</label>
                                             <input type="email" id="first-name-column" class="form-control"
-                                                placeholder="Seller email" name="email">
+                                                placeholder="Seller email" name="email" value="{{old('email')}}">
                                         </div>
                                         @if ($errors->has('email'))
                                     <span class="text-danger">{{ $errors->first('email') }}</span>
@@ -66,7 +72,7 @@
                                         <div class="form-group">
                                             <label for="last-name-column">Password</label>
                                             <input type="password" id="last-name-column" class="form-control"
-                                                placeholder="password" name="password">
+                                                placeholder="password" name="password" value="{{old('password')}}">
                                         </div>
                                         @if ($errors->has('password'))
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
@@ -76,7 +82,7 @@
                                         <div class="form-group">
                                             <label for="city-column">Seller Name</label>
                                             <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter seller name" name="name">
+                                                placeholder="Enter seller name" name="name" value="{{old('name')}}">
                                         </div>
                                         @if ($errors->has('name'))
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
@@ -85,8 +91,8 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="country-floating">Phone Number</label>
-                                            <input type="text" id="country-floating" class="form-control"
-                                                name="phone_number" placeholder="Phone number">
+                                            <input type="number" id="country-floating" class="form-control"
+                                                name="phone_number" placeholder="Phone number" value="{{old('phone_number')}}">
                                         </div>
                                         @if ($errors->has('phone_number'))
                                         <span class="text-danger">{{ $errors->first('phone_number') }}</span>
@@ -96,22 +102,13 @@
                                         <div class="form-group">
                                             <label for="city-column">Post Code </label>
                                             <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter Post Code" name="post_code">
+                                                placeholder="Enter Post Code" name="post_code" value="{{old('post_code')}}">
                                         </div>
                                         @if ($errors->has('post_code'))
                                         <span class="text-danger">{{ $errors->first('post_code') }}</span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="country-floating">Car Year</label>
-                                            <input type="number" id="country-floating" class="form-control"
-                                                name="mile_age" placeholder="Vehicle Age">
-                                        </div>
-                                        @if ($errors->has('mile_age'))
-                                        <span class="text-danger">{{ $errors->first('mile_age') }}</span>
-                                    @endif
-                                    </div>
+                                    
                                 </div>
                         </div>
                     </div>
@@ -126,7 +123,7 @@
                                         <div class="form-group">
                                             <label for="first-name-column">Vehicle Registartion Number</label>
                                             <input type="text" id="first-name-column" class="form-control"
-                                                placeholder="Registartion Number" name="register_number">
+                                                placeholder="Registartion Number" name="register_number" readonly value="{{$res->registrationNumber ?? old('register_number')}}">
                                         </div>
                                         @if ($errors->has('register_number'))
                                     <span class="text-danger">{{ $errors->first('register_number') }}</span>
@@ -136,7 +133,7 @@
                                         <div class="form-group">
                                             <label for="last-name-column">Vehicle Name</label>
                                             <input type="text" id="last-name-column" class="form-control"
-                                                placeholder="Vehicle Name" name="vehicle_name">
+                                                placeholder="Vehicle Name" name="vehicle_name" readonly value="{{$res->make?? old('vehicle_name')}}">
                                         </div>
                                         @if ($errors->has('vehicle_name'))
                                         <span class="text-danger">{{ $errors->first('vehicle_name') }}</span>
@@ -146,7 +143,7 @@
                                         <div class="form-group">
                                             <label for="city-column">Vehicle Year</label>
                                             <input type="number" id="city-column" class="form-control"
-                                                placeholder="Vehicle Year" name="vehicle_year">
+                                                placeholder="Vehicle Year" name="vehicle_year" readonly value="{{$res->yearOfManufacture ?? old('vehicle_year')}}">
                                         </div>
                                         @if ($errors->has('vehicle_year'))
                                         <span class="text-danger">{{ $errors->first('vehicle_year') }}</span>
@@ -156,7 +153,7 @@
                                         <div class="form-group">
                                             <label for="country-floating">Vehicle Color</label>
                                             <input type="text" id="country-floating" class="form-control"
-                                                name="vehicle_color" placeholder="Vehicle Color">
+                                                name="vehicle_color" placeholder="Vehicle Color" readonly value="{{$res->colour ?? old('vehicle_color')}}">
                                         </div>
                                         @if ($errors->has('vehicle_color'))
                                         <span class="text-danger">{{ $errors->first('vehicle_color') }}</span>
@@ -166,7 +163,7 @@
                                         <div class="form-group">
                                             <label for="company-column">Vehicle Type</label>
                                             <input type="text" id="company-column" class="form-control"
-                                                name="vehicle_type" placeholder="Vehicle Type">
+                                                name="vehicle_type" placeholder="Vehicle Type" value="">
                                         </div>
                                         @if ($errors->has('vehicle_type'))
                                         <span class="text-danger">{{ $errors->first('vehicle_type') }}</span>
@@ -176,7 +173,7 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Tank</label>
                                             <input type="text" id="" class="form-control"
-                                                name="vehicle_tank" placeholder="Vehicle Tank">
+                                                name="vehicle_tank" placeholder="Vehicle Tank" readonly value="{{$res->fuelType ?? old('vehicle_tank')}}">
                                         </div>
                                         @if ($errors->has('vehicle_tank'))
                                         <span class="text-danger">{{ $errors->first('vehicle_tank') }}</span>
@@ -186,7 +183,7 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Mileage</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_mileage" placeholder="Vehicle Mileage">
+                                                name="vehicle_mileage" placeholder="Vehicle Mileage" value="">
                                         </div>
                                         @if ($errors->has('vehicle_mileage'))
                                         <span class="text-danger">{{ $errors->first('vehicle_mileage') }}</span>
@@ -197,7 +194,7 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Price</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_price" placeholder="Vehicle Price">
+                                                name="vehicle_price" placeholder="Vehicle Price" value="">
                                         </div>
                                         @if ($errors->has('vehicle_price'))
                                         <span class="text-danger">{{ $errors->first('vehicle_price') }}</span>
@@ -1043,7 +1040,7 @@
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image1" id="formFile">
+                                <input class="form-control" type="file" name="image1" id="formFile" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image1'))
                             <span class="text-danger">{{ $errors->first('image1') }}</span>
@@ -1059,7 +1056,7 @@
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image2" id="formFile">
+                                <input class="form-control" type="file" name="image2" id="formFile" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image2'))
                             <span class="text-danger">{{ $errors->first('image2') }}</span>
@@ -1075,7 +1072,7 @@
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image3"   id="formFile">
+                                <input class="form-control" type="file" name="image3"   id="formFile" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image3'))
                             <span class="text-danger">{{ $errors->first('image3') }}</span>
@@ -1090,7 +1087,7 @@
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image4"  id="formFile">
+                                <input class="form-control" type="file" name="image4"  id="formFile" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image4'))
                             <span class="text-danger">{{ $errors->first('image4') }}</span>
@@ -1106,7 +1103,7 @@
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" id="formFile"  name="image5">
+                                <input class="form-control" type="file" id="formFile"  name="image5" accept="image/png, image/jpeg, image/jpg"0>
                             </div>
                             @if ($errors->has('image5'))
                             <span class="text-danger">{{ $errors->first('image5') }}</span>

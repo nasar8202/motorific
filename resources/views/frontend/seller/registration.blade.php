@@ -110,6 +110,19 @@ input[type=number] {
                 <p>{{ Session::get('model')??''}}</p>
                 </div>
             </div>
+            <div class="chart">
+                <ul>
+                    <li>{{$res->yearOfManufacture}}</li>
+                    <li>{{$data->milage}} Mileage</li>
+                    <li>{{$res->colour}}</li>
+                    <li>{{$res->wheelplan}}</li>
+                    <li>{{$res->fuelType}}</li>
+                    {{-- <li>43,000 miles</li>
+                    <li>Grey</li>
+                    <li>Hatchback</li>
+                    <li>Petrol</li> --}}
+                </ul>
+            </div>
         </div>
     </section>
 

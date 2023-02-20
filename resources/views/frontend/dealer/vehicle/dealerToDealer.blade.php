@@ -347,10 +347,10 @@
                             </div>
                         </div> --}}
                     </div> 
-                    <div class="procuts-wraper" id="first">
+                    <div class="procuts-wraper list-wraper" id="first">
                         <div class="row">
                             @forelse ($allVehicles as $vehicle)
-                            <div class="col-lg-4 col-sm-6">
+                            <div class="col-lg-4 col-sm-6 reviews-add">
                                 <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}" class="product-main">
                                     <div class="product-card">
                                         <div class="produc-img">
@@ -434,6 +434,7 @@
 
                         </div>
                     </div>
+                    <div id="pagination-container"></div>
                     <!-- Products Cards New Design End -->
                         <!-- <div id="first">
                                                                     @forelse ($allVehicles as $vehicle)
@@ -493,6 +494,8 @@
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -635,7 +638,7 @@
                             $("#first").hide();
                             $("#filter-price").html('');
                             $("#no-record").html(
-                                '<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{ URL::to('dealer/dashboard') }}" class="btn btn-danger">Clear All Filter</a>'
+                                '<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="" class="btn btn-danger">Clear All Filter</a>'
                             );
                         }
                     },
@@ -781,5 +784,23 @@
         // });
 
         // end milage data ajax
+        var items = $(".list-wraper .reviews-add");
+    var numItems = items.length;
+    var perPage = 9;
+
+    items.slice(perPage).hide();
+
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
+
     </script>
 @endpush

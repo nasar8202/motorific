@@ -46,6 +46,13 @@ class Vehicle extends Model
         return $this->hasOne(BidedVehicle::class,'vehicle_id','id');
 
     }
+    public function allbid()
+
+    {
+
+        return $this->hasMany(BidedVehicle::class,'vehicle_id','id');
+
+    }
     public function user()
 
     {

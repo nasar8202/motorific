@@ -98,8 +98,8 @@ class MultiStepRegistration extends Controller
             'company_phone' => 'required',
         ]);
 
-        $zip = trim($request->postcode, ' ');
-
+        $zip =  str_replace(' ', '',$request->postcode);
+        
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
 
         try {

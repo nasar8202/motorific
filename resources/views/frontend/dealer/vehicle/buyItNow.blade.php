@@ -280,7 +280,7 @@
                             <div class="row">
                                 @forelse ($buyItNowVehicles as $vehicle)
                                     <div class="col-lg-4 col-sm-6">
-                                        <a href="{{ route('dealersVehicleDetail', [$vehicle->id]) }}"
+                                        <a href="{{ route('vehicle.vehicleDetail',[$vehicle->id]) }}"
                                             class="product-main">
                                             <div class="product-card">
                                                 <div class="produc-img">
@@ -458,7 +458,7 @@
 
                             $.each(resultData, function(resultData, row) {
                                 bodyData +=
-                                    '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' +
+                                    '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' +
                                     row.id +
                                     '" class="product-main"><div class="product-card">'
                                 bodyData += '<div class="produc-img"> <img src="' +
@@ -547,12 +547,12 @@
 
                             $.each(resultData, function(resultData, row) {
                                 bodyData +=
-                                    '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' +
+                                    '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' +
                                     row.id +
                                     '" class="product-main"><div class="product-card">'
                                 bodyData += '<div class="produc-img"> <img src="' +
                                     path + 'vehicles/vehicles_images/' + row
-                                    .vehicle_image.front + '"></div>'
+                                    .front + '"></div>'
                                 bodyData +=
                                     '<div class="p-content"><h3 class="p-title">' + row
                                     .vehicle_name + '</h3> <ul class="p-spec"><li>' +
@@ -576,7 +576,7 @@
                             $("#first").hide();
                             $("#filter-price").html('');
                             $("#no-record").html(
-                                '<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{ URL::to('dealer/dashboard') }}" class="btn btn-danger">Clear All Filter</a>'
+                                '<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="" class="btn btn-danger">Clear All Filter</a>'
                             );
                         }
                     },
