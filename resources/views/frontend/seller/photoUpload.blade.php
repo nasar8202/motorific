@@ -545,7 +545,6 @@ display: block;
             <div class="step-main-wrap photo-upload" style="">
             <!--<div id="svg_wrap"></div>-->
             <div class="row">
-                <button type="button" class="form-toggle-btn">Start</button>
                 <div class="col-sm-6">
                     <h1 class="step-main-head">Interior Information</h1>
                     <div class="completed-status">
@@ -560,7 +559,7 @@ display: block;
             </div>
             <section class="step-wrapper form-wraper">
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Dashboard</h2>
@@ -612,7 +611,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec" style="transform: translateX(0px);">
+                <section class="step-sec step-sec-qambar" style="transform: translateX(0px);">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Passenger Side Interior</h2>
@@ -664,7 +663,7 @@ display: block;
 
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Driver Side Interior</h2>
@@ -715,7 +714,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Floor</h2>
@@ -766,7 +765,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Ceiling</h2>
@@ -817,7 +816,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Boot</h2>
@@ -868,7 +867,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Rear Windscreen</h2>
@@ -919,7 +918,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Passenger Seat</h2>
@@ -970,7 +969,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Driver Seat</h2>
@@ -1021,7 +1020,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec">
+                <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Rear Seats</h2>
@@ -1072,9 +1071,9 @@ display: block;
                     </div>
                 </section>
 
-                <div class="step-button-wrap">
-                    <div class="step-button" id="prev">← Previous</div>
-                    <div class="step-button nxtBtn" id="next">Next →</div>
+                <div class="step-button-wrap step2-btns-qambar">
+                    <div class="step-button step-button-qambar prev-qambar disabled" id="prev">← Previous</div>
+                    <div class="step-button step-button-qambar nxtBtn next-qambar" id="next">Next →</div>
                     <!-- <div class="step-button subBtn" id="subBtn">Submit</div> -->
                 </div>
 
@@ -1094,20 +1093,25 @@ display: block;
             <!--    </form>-->
             <!--</div>-->
             <div class="step-main-wrap photo-upload">
-            <div id="svg_wrap_ext"></div>
+            <!--<div id="svg_wrap_ext"></div>-->
+        
+            
             <div class="row">
                 <div class="col-sm-6">
                     <h1 class="step-main-head">Exterior Information</h1>
+                    <div class="completed-status">
+                        <i class="fa-solid fa-circle-check"></i> Complete
+                    </div>
                 </div>
                 <div class="col-sm-6">
-                <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
-                    <button type="button" class="form-toggle-btn">Start</button>
-                </div>
+                    <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
+                        <button type="button" class="form-toggle-btn">Start</button>
+                    </div>
                 </div>
             </div>
             <section class="step-wrapper form-wraper">
 
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Front Door Left</h2>
@@ -1157,7 +1161,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Back Door Left</h2>
@@ -1207,7 +1211,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Front Door Right</h2>
@@ -1257,7 +1261,7 @@ display: block;
                         </div>
                     </div>
                 </section>
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Back Door Right</h2>
@@ -1308,7 +1312,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Top</h2>
@@ -1359,7 +1363,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Bonut</h2>
@@ -1410,7 +1414,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Front</h2>
@@ -1461,7 +1465,7 @@ display: block;
                     </div>
                 </section>
 
-                <section class="step-sec-ext">
+                <section class="step-sec-ext step-sec-qambar">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <h2 class="part-heading">Back</h2>
@@ -1513,8 +1517,8 @@ display: block;
                 </section>
 
                 <div class="step-button-wrap">
-                    <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
-                    <div class="step-button-ext" id="next-ext">Next &rarr;</div>
+                    <div class="step-button-qambar step-button-ext prev-qambar disabled" id="prev-ext">&larr; Previous</div>
+                    <div class="step-button-qambar step-button-ext nxtBtn next-qambar" id="next-ext">Next &rarr;</div>
                 </div>
 
                 <p class="pt-4">If no damage to report! Then continue next.</p>
@@ -1548,7 +1552,7 @@ display: block;
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-s-gr my-auto">
-                    <button type="button" onclick="myFunction2()">Start</button>
+                    <button type="button" onclick="myFunction2()" id="startBtn-vehicleInfo">Start</button>
                 </div>
             </div>
 
@@ -2354,6 +2358,7 @@ display: block;
                                 <div class="photo-up-sec-2-vi-bnch-btns">
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
                                         <button type="button" class="prevBtn">PREVIOUS</button>
+                                        <button type="button" class="submitVehicleInfo-qa">SUBMIT</button>
                                     </div>
                                 </div>
                             </div>
@@ -3050,6 +3055,15 @@ $("#store").click(function(){
             $('.vehicleSteps[data-id="'+ thisData +'"]').slideDown();
             $('.vehicleSteps[data-id="'+ thisData +'"]').addClass('vehicleStepsActive');
         });
+        
+        // SYBMIT SUMMARY STEP 
+        $('.submitVehicleInfo-qa').on('click', function(){
+            myFunction2()
+            $('#startBtn-vehicleInfo').text('Edit')
+            $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
+        });
+        
+        
         // Modal Open Close of Vehicle Form
         $('.modalBtn').on('click',function(){
              $('#v5Cfalse').modal('toggle');
