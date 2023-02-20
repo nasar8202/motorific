@@ -2456,5 +2456,19 @@ header.thnkPage .dropdown-toggle {
     background: #05eab5;
 }
 
+.completed-status {
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.completed-status i {
+    color: #05eab5;
+    font-size: 24px;
+}
+
+
 
 /* End */
