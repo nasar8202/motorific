@@ -461,7 +461,7 @@ class FrontController extends Controller
         }
         DB::commit();
 
-            return redirect()->route('sellMyCar')->with('success', 'Vehicle added  Successfully!');
+            return redirect()->route('thankyou')->with('success', 'Vehicle Added Successfully. Wait For Admin Approvel!');
 
 
     }

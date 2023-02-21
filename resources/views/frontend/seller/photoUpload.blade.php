@@ -1544,11 +1544,11 @@ display: block;
                     <div class="photo-up-sec-2-box-personal-information">
                         <p>Features, equipment & ownership</p>
                     </div>
-                    <div class="prf-complete d-flex align-items-center">
-                        <!--<div>-->
-                        <!--    <img src="{{ URL::asset('frontend/seller/assets/image/load.png')}}" alt="">-->
-                        <!--</div>-->
-                        <!--<h3>15% Complete</h3>-->
+                    <div class="prf-complete d-flex align-items-center completeStatus-vehicelInfo-qa d-none">
+                        <div>
+                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="">
+                        </div>
+                        <h3>Complete</h3>
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-s-gr my-auto">
@@ -3061,6 +3061,7 @@ $("#store").click(function(){
             myFunction2()
             $('#startBtn-vehicleInfo').text('Edit')
             $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
+            $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
         });
         
         

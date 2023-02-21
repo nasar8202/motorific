@@ -1276,9 +1276,9 @@ die();
 
     $bids = BidedVehicle::where('user_id',$user_id)->get();
     foreach($bids as $bid){
-      $vehicle[] = Vehicle::where('id',$bid->vehicle_id)->Where('status',1)->Where('vehicle_name', 'like', '%' . $request->search . '%')->orWhere('vehicle_registartion_number', 'like', '%' . $request->search . '%')->with('vehicleInformation')->with('bid')->with('VehicleImage')->first();
+      $vehicle[] = Vehicle::where('id',$bid->vehicle_id)->Where('vehicle_registartion_number', 'like', '%' . $request->search . '%')->with('vehicleInformation')->with('bid')->with('VehicleImage')->first();
     }
-    return array_unique($vehicle);
+    return ($vehicle);
   }
 }
 

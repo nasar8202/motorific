@@ -19,8 +19,8 @@ class OrderRequestController extends Controller
 {
   public function orderVehicle()
   {
-    $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->where('all_auction', '!=', null)->get();
-
+    $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->with('allorder')->where('all_auction', '!=', null)->get();
+    
     return view('backend.admin.orderVehicleRequests.orderVehicle', compact('vehicles'));
   }
   public function orderRequest($id)

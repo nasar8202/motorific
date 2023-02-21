@@ -366,9 +366,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     });
 
 // end admin panel routes
-Route::get('/thankyou', [SellerDashboardController::class,'thankyou'])->name('thankyou');
 // start seller panel routes
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
+    Route::get('/thankyou', [SellerDashboardController::class,'thankyou'])->name('thankyou');
 Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
 Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehicles'])->name('acceptedVehicles');
 Route::get('/bids-on-my-vehicles/{id}', [SellerDashboardController::class,'bidsOnVehicles'])->name('bidsOnVehicles');

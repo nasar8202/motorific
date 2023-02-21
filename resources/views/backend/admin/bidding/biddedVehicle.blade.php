@@ -42,6 +42,7 @@
                             <th>Vehicle Tank</th>
                             <th>Vehicle Price</th>
                             <th>Image</th>
+                            <th>Status</th>
                             <th>Total Bids</th>
                             {{-- <th>Bids Status</th> --}}
                             <th>Action</th>
@@ -64,6 +65,13 @@
                             <td>
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
+                            @if($vehicle->status == 0)
+                            <td class=""><span class="badge badge-danger"> Pending </span></td>
+                            @elseif($vehicle->status == 2)
+                            <td class=""><span class="badge badge-danger"> Deactivate </span></td>
+                          @else
+                            <td class=""><span class="badge badge-success"> Accepted </span></td>
+                            @endif
                             <td>@if(count($vehicle->allbid))Total Bids : {{ count($vehicle->allbid)}}@else No Bid Yet @endif</td>
                             {{-- <td>
 @php

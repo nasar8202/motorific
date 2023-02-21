@@ -23,6 +23,7 @@ class DealerOrderVehicleRequestController extends Controller
     $vehicles = DealerVehicle::with('DealerVehicleHistory')
       ->with('DealerVehicleExterior')
       ->with('DealerVehicleInterior')
+      ->with('allbid')
       ->get();
 
 
@@ -77,7 +78,7 @@ class DealerOrderVehicleRequestController extends Controller
       // dd($orders);
       // dd($orders->vehicle->DealerVehicleExterior[0]->exterior_image);
 
-      //$orders->status = 1;
+      $orders->status = 1;
       $orders->save();
       $front = $orders->vehicle->DealerVehicleExterior[0]->exterior_image;
 
@@ -86,7 +87,7 @@ class DealerOrderVehicleRequestController extends Controller
       $winTime = date("H:i:s a", strtotime($originalDate));
 
       $ordered_vehicle = DealerVehicle::where('id', $orders->vehicle->id)->first();
-      //$ordered_vehicle->status = 2 ;
+      $ordered_vehicle->status = 2 ;
       $ordered_vehicle->save();
 
       $dealler = User::where('id', $orders->vehicle->user_id)->first();

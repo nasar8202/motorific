@@ -27,4 +27,8 @@ class BidedVehicle extends Model
 
         return $this->hasOne(Vehicle::class,'id','vehicle_id');
     }
+    public function getCreatedAtAttribute($value)
+    {
+        return date('d/m/Y',strToTime($value));
+    }
 }
