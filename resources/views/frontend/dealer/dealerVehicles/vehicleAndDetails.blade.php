@@ -793,8 +793,8 @@
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Bumt" hidden>
-                                    <span>Bumt (B)</span>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Burnt" hidden>
+                                    <span>Burnt (B)</span>
                                 </label>
                             </li>
                         </ul>
@@ -844,8 +844,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -896,8 +896,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -947,8 +947,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="floor" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -998,8 +998,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1049,8 +1049,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="boot" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1100,8 +1100,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1151,8 +1151,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1202,8 +1202,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1253,8 +1253,8 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Bumt" hidden>
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Burnt" hidden>
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
