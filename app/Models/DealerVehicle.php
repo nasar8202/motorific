@@ -24,6 +24,7 @@ class DealerVehicle extends Model
         return $this->hasOne(DealerAdvertVehicleDetail::class,'dealer_vehicle_id','id');
 
     }
+    
     public function user()
 
     {

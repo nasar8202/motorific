@@ -13,6 +13,7 @@
 <!-- MultiStep Form -->
 
 <section class="sec-2 productPageTn requested-vehicles">
+    <input type="hidden" id="path" value="{{ asset('') }}">
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
@@ -28,9 +29,7 @@
                         <label for="usr">Search My Vehcle:</label>
                         <input type="text" placeholder="Search in Complete" name="search" class="form-control search-retailers" id="search">
                         <br>
-                        <p>{{ $vehiclesCount  }}<span style="margin: 5px">Results</span><span><form method="get" action="">
-                            {{-- <input type="text" class="search-retailers" id="search"  name="search"> --}}
-                            </form><span></p>
+                        <p class="vehiclesCount" id="vehiclesCount"><span class="spanResult" style="margin: 5px" >{{ $vehiclesCount  }} Results</span></p>
                     </div>
                     <br>
                     <div class="row vec-box" id="filter">
@@ -91,6 +90,7 @@
 @push('child-scripts')
 
 <script>
+    var path = $('#path').val();
     $(function() {
     $("#search").keyup(function() {
         var keyword = $("#search").val();
@@ -107,25 +107,46 @@
               
                 success: function(data)
                 {
-                     //console.log(typeof (data[i].status));
-                    var $tableBody = jQuery('#filter');
+                  
+                    if(data['dealerVehicles'] != null && data['dealerVehicles'] != '') {
+                        var $tableBody = jQuery('#filter');
+                        
+                        
+                        
                         $tableBody.html('');
-                        jQuery.each(data, function (i) {
-                            var created_at_y = data[i].created_at;
+                        $('#vehiclesCount').html('')
+                        $('#vehiclesCount').text(data.count);
+                        
+                        jQuery.each(data['dealerVehicles'], function (i) {
                         $tableBody.append(
-                            '<div class="col-sm-4 p-0" style="padding: 10px;"> <a href=""><img src="" width="300px" height="200px"> </a></div>' +
+                            '<div class="col-sm-4 p-0" style="padding: 10px;"> <a href=""><img src="' + path +
+                                        'uploads/dealerVehicles/exterior/' + data['dealerVehicles'][i].dealer_vehicle_interior[0].interior_image +
+                                        '  " width="300px" height="200px"> </a></div>' +
                             '<div class="col-sm-8 p-0" style="padding: 10px">'+
-                            '<h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">'+ data[i].vehicle_registartion_number +'</span></h1>'+
-                            '<p>'+data[i].vehicle_name +'</p>'+
+                            '<h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">'+ data['dealerVehicles'][i].vehicle_registartion_number +'</span></h1>'+
+                            '<p>'+data['dealerVehicles'][i].vehicle_name +'</p>'+
                             '<span>+if(data[i].status == 2){var status = 2 }else if(data[i].status){ var status = 1}else{ var status = 3}+</span>'+
                             // '<p>'+data[i].status == "2" ? "pending" : +data[i].status == "1" ? "approved" : "ASD"+ '</p>'+
                             '<p>'+status+ '</p>'+
-                            '<span style="padding-left: 60px;">'+ new Date (data[i].created_at).toLocaleDateString() +'</span>'+
+                            '<span style="padding-left: 60px;">'+ new Date (data['dealerVehicles'][i].created_at).toLocaleDateString() +'</span>'+
                             '<span style="padding-left: 200px;"></span>'+
                             '<a href="{{route('orderOnMyVehicle',$vehicle->id)}}"> Orders On Vehicle</a>'+
                             '</div></div>'
                         ); 
                         });
+                  
+                    }else{
+                        
+                        var $tableBody = jQuery('#filter');
+                        $tableBody.html('');
+                        $('#vehiclesCount').text(data.count);
+                       
+                        $tableBody.append(
+                            '<div class="col-sm-4 p-0" style="padding: 10px;text-align:center"> <h3> No Vehicle found</h3></div>' 
+                        ); 
+                    }
+                     //console.log(typeof (data[i].status));
+                    
                     
                 }
             });

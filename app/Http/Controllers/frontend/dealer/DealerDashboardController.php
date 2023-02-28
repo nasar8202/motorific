@@ -240,19 +240,19 @@ class DealerDashboardController extends Controller
       $user_id = Auth::user()->id;
       
       if(isset($request->keyword[0])) {
-        $data = 
+        $data['dealerVehicles'] = 
          DealerVehicle::
          //Where('vehicle_name', 'LIKE', "%{$request->keyword[0]}%")
           Where('vehicle_registartion_number', 'LIKE', "%{$request->keyword[0]}%")
         ->where('user_id',$user_id)
-        ->where('status',2)
+        ->where('status',1)
         ->with('DealerAdvertVehicleDetail')
         ->with('DealerVehicleExterior')
         ->with('DealerVehicleHistory')
         ->with('DealerVehicleInterior')
         ->with('DealerVehicleMedia')
         ->with('DealerVehicleTyre')->get();
-      //$vehiclesCount = count($vehicles);
+      $data['count'] = count($data['dealerVehicles']);
         //RetailersListings::search($keyword));
         
         return $data;

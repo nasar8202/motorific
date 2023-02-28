@@ -338,7 +338,7 @@
                                                         </span>
                                                     </div>
                                                     <h5 class="p-price">Reserve price:
-                                                        <span>${{ $vehicle->vehicle_price }}</span>
+                                                        <span>£{{ $vehicle->vehicle_price }}</span>
                                                     </h5>
                                                 </div>
                                             </div>
@@ -421,7 +421,7 @@
               ?>
                                                 </span>
                                             </div>
-                                            <h5 class="p-price">Reserve price: <span >${{ $vehicle->vehicle_price }}</span></h5>
+                                            <h5 class="p-price">Reserve price: <span >£{{ $vehicle->vehicle_price }}</span></h5>
                                         </div>
                                     </div>
                                 </a>
@@ -463,7 +463,7 @@
 
 
                                                                                     </div>
-                                                                                    <span>${{ $vehicle->vehicle_price }}</span>
+                                                                                    <span>£{{ $vehicle->vehicle_price }}</span>
                                                                                 </div>
                                                                             </a>
                                                                             <br>
@@ -534,7 +534,7 @@
                             $.each(resultData, function(resultData, row) {
                                 bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="' +path + 'uploads/dealerVehicles/exterior/' + row.dealer_vehicle_exterior[0].exterior_image +'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >£' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
 
                                 $("#filter-price").html(bodyData);
@@ -621,7 +621,7 @@
 
                                     bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="' +path + 'uploads/dealerVehicles/exterior/' + row.dealer_vehicle_pic +'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >£' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
 
 
@@ -684,7 +684,7 @@
             $.each(resultData,function(resultData,row){
                 bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'uploads/dealerVehicles/exterior/'+row.dealer_vehicle_exterior[0].exterior_image+'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >£' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
 
                                 $("#filter-price").html(bodyData);
@@ -735,111 +735,7 @@
                 }
             });
         });
-        // ajax for slider data start
-        // $.ajax({
-        //             url: 'test',
-        //             type: 'get',
-        //             data: {min:min,max:max},
-        //             beforeSend: function(){
-        //                 /* Show image container */
-        //                 $("#loader").show();
-        //                 $('.blur_action').css('filter','blur(3px)');
-
-        //             },
-        //             success: function(response){
-        //             $('.blur_action').css('filter','blur(0px)');
-
-        //             var resultData = response;
-        //             var count = resultData.length;
-
-        //             var bodyData = '';
-        //             var i=1;
-        //             if(count > 0){
-        //                 $("#first").hide();
-        //                 $(".count").html("");
-        //                 $(".count").html("Showing " +count+ " vehicles");
-
-        //             $.each(resultData,function(resultData,row){
-
-        //                     bodyData+='<a href="{{ URL::to('vehicle.vehicleDetail', ['+row.id+']) }}"><div class="box">'
-        //                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
-        //                     bodyData+='</div></a>';
-        //                     $("#filter-price").html(bodyData);
-        //                 })
-
-
-        //             }
-        //             else{
-        //                 $(".count").html("");
-        //                 $(".count").html("Showing " +count+ " vehicles");
-        //                 $("#first").hide();
-        //             $("#filter-price").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{ URL::to('dealer/dashboard') }}" class="btn btn-danger">Clear All Filter</a>');
-        //         }
-
-        //         },
-
-        //             complete:function(data){
-        //     /* Hide image container */
-        //     $("#loader").hide();
-
-        //    }
-        //         });
-        // end slider data ajax
-
-        // milage ajax data start
-        // $("#mileAgePro").change(function(){
-        //   var milage = this.value;
-        //          $.ajax({
-
-        //             url: 'test',
-        //             type: 'get',
-        //             data: {milage,milage},
-        //             beforeSend: function(){
-        //                 /* Show image container */
-
-        //                 $('.blur_action').css('filter','blur(3px)');
-
-        //             },
-        //             success: function(response){
-
-        //             $('.blur_action').css('filter','blur(0px)');
-        //             var resultData = response;
-        //             console.log(resultData)
-        //             var bodyData = '';
-        //             var count = resultData.length;
-
-        //             if(count > 0){
-        //                 $("#first").hide();
-        //                 $(".count").html("");
-        //                 $(".count").html("Showing " +count+ " vehicles");
-
-        //             $.each(resultData,function(resultData,row){
-
-        //                     bodyData+='<a href="{{ URL::to('vehicle.vehicleDetail', ['+row.id+']) }}"><div class="box">'
-        //                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
-        //                     bodyData+='</div></a>';
-        //                     $("#filter-price").html(bodyData);
-        //                 })
-
-
-        //             }
-        //             else{
-        //                 $(".count").html("");
-        //                 $(".count").html("Showing " +count+ " vehicles");
-        //                 $("#first").hide();
-        //             $("#filter-price").html('<h4>No matching vehicles found</h4><br><p>To see more results, try selecting different filters.</p><a href="{{ URL::to('dealer/dashboard') }}" class="btn btn-danger">Clear All Filter</a>');
-        //         }
-        //         },
-
-        //         complete:function(data){
-        //     /* Hide image container */
-        //     $("#loader").hide();
-
-        //    }
-
-
-        // });
-        // });
+   
 
         // end milage data ajax
         var items = $(".list-wraper .reviews-add");

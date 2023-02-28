@@ -268,7 +268,7 @@ div#filter-price {
 
 
                             </div>
-                            <span>${{ $vehicle->vehicle_price }}</span>
+                            <span>£{{ $vehicle->vehicle_price }}</span>
                         </div>
                     </a>
                     <br>

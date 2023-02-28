@@ -350,7 +350,7 @@
                                                         </span>
                                                     </div>
                                                     <h5 class="p-price">Reserve price:
-                                                        <span>${{ $vehicle->vehicle_price }}</span>
+                                                        <span>£{{ $vehicle->vehicle_price }}</span>
                                                     </h5>
                                                 </div>
                                             </div>
@@ -392,7 +392,7 @@
 
 
                                             </div>
-                                            <span>${{ $vehicle->vehicle_price }}</span>
+                                            <span>£{{ $vehicle->vehicle_price }}</span>
                                         </div>
                                     </a>
                                     <br>
