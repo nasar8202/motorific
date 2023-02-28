@@ -2193,6 +2193,7 @@ display: block;
                                     </div>
                                 </div>
                             </div>
+                            
                             <!--7 Search-->
                             <div class="vehicleSteps" data-id="VehicleLocation">
                                 <h3>Vehicle location</h3>
@@ -2201,7 +2202,7 @@ display: block;
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
-                                                <span><p>Enter postcode or the first line of the address</p></span>
+                                                <span><p>Enter postcode </p></span>
                                                 <input type="search" name="location" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
                                             </label>
                                         </div>

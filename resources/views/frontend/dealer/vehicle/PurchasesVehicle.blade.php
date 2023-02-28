@@ -38,7 +38,7 @@
                             <h1 style="font-size: 20px"><span style="background-color:yellow;border-radius:45px;padding:7px">{{ $bid->vehicle_registartion_number }}</span></h1>
                             <p>{{ $bid->vehicle_name }}</p>
                             <span>Max Bid:{{ $bid->bid_price }}</span>
-                            <span style="padding-left: 60px;">{{ $bid->created_at->format('m/d/Y') }}</span>
+                            <span style="padding-left: 60px;">{{ $bid->created_at }}</span>
 
                         </div>
                         @empty

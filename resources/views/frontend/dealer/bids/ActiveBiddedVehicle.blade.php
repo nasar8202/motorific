@@ -30,7 +30,7 @@
                            <label for="usr">Search Bidded Vehcle:</label>
                         <input type="text" placeholder="Search in Complete" class="form-control" id="usr">
                         <br>
-                        <p>{{ $countBids  }} <span style="margin: 5px">Results</span></p>
+                        <p class="count">{{ $countBids  }} <span style="margin: 5px">Results</span></p>
                     </div>
                     <br>
                     <div class="row" id="first" >
@@ -93,7 +93,7 @@
             var search = $('#usr').val();
             $.ajax({
                 type: "GET",
-                url: "{{route('didNotWinSearch')}}",
+                url: "{{route('purchasesBids')}}",
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

@@ -41,12 +41,13 @@ class DealerDashboardController extends Controller
     public function index()
     {
 
+      $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->distinct('vehicle_name')->pluck('vehicle_name');
 
         $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->get();
 
         $countAllVehicle = Vehicle::where('status',1)->count();
 
-        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle'));
+        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle','allVehiclesName'));
 
     }
     public function loadmoredata(Request $request)
@@ -143,12 +144,19 @@ class DealerDashboardController extends Controller
     }
   }
 
+  public function vehicleNameFilter(Request $request)
+    {
+
+      $allVehicles = Vehicle::Where('status',1)->where('vehicle_name',$request->makePro)->with('vehicleInformation')->with('VehicleImage')->get();
+      return $allVehicles;
+    }
 
     public function UnderBiddedOfferVehicle()
     {
         $user_id = Auth::user()->id;
 
-        $bids = BidedVehicle::with('user')->with('vehicle.vehicleimage')->where('user_id',$user_id)->where('status',null)->get();
+        $bids = BidedVehicle::with('user')->with('vehicle.vehicleimage')->
+        where('user_id',$user_id)->where('status',null)->get();
                                 // dd($bids);
         $countBids = count($bids);
 
@@ -291,36 +299,45 @@ class DealerDashboardController extends Controller
     public function liveSell()
     {
 
-        $liveSellVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction',null )->get();
-        $countLiveSellVehicle = Vehicle::where('status',1)->where('all_auction',null )->count();
+      $mytime = Carbon::now();
+$current_date = ($mytime->toDateString());
+        $liveSellVehicles = Vehicle::
+        Where('status',1)
+        ->where('start_vehicle_date',$current_date)
+        ->where('end_vehicle_date',$current_date)
+        ->with('vehicleInformation')
+        ->with('VehicleImage')
+        ->where('all_auction',null )->get();
+
+        $allVehiclesName = Vehicle::
+        Where('status',1)
+        ->where('start_vehicle_date',$current_date)
+        ->where('end_vehicle_date',$current_date)
+        ->with('vehicleInformation')
+        ->with('VehicleImage')
+        ->where('all_auction',null )->distinct('vehicle_name')->pluck('vehicle_name');
+        
+        $countLiveSellVehicle = count($liveSellVehicles);
 
 
 
-       // echo $interval;
-      //echo   $liveSellVehicles[0]['start_vehicle_date']." ".$liveSellVehicles[0]['start_vehicle_time'];
-// echo "<br>";
-//       $a =  $liveSellVehicles[0]['end_vehicle_date']." ".$liveSellVehicles[0]['end_vehicle_time'];
-//echo $a;
-    //   date_default_timezone_set("Asia/Karachi");
-    //    $currentDateTime = date('Y-m-d h:i:s');
-    //   echo $currentDateTime;
-    //    $date1 = new DateTime($currentDateTime);
-    //    echo $date1;
-      // print_r($date1);
-      // $date2 = $date1->diff(new DateTime('2014-05-12 11:10:00'));
-       //echo $date2->days.'Total days'."\n";
-    //    echo $date2->y.' years'."\n";
-    //    echo $date2->m.' months'."\n";
-    //    echo $date2->d.' days'."\n";
-    //    echo $date2->h.' hours'."\n";
-    //    echo $date2->i.' minutes'."\n";
-    //    echo $date2->s.' seconds'."\n";
-
-        // die;
-       return view('frontend.dealer.vehicle.liveSale',compact('countLiveSellVehicle','liveSellVehicles'));
+      
+       return view('frontend.dealer.vehicle.liveSale',compact('countLiveSellVehicle','liveSellVehicles','allVehiclesName'));
 
     }
-
+    public function liveSellmakeFilter(Request $request)
+    {
+      $mytime = Carbon::now();
+      $current_date = ($mytime->toDateString());
+              $liveSellVehicles = Vehicle::
+              Where('status',1)
+              ->where('start_vehicle_date',$current_date)
+              ->where('end_vehicle_date',$current_date)
+              ->with('vehicleInformation')
+              ->with('VehicleImage')
+              ->where('all_auction',null )->where('vehicle_name',$request->makePro)->get();
+              return $liveSellVehicles;
+    }
 
     public function dropdownfilter(Request $request)
     {
@@ -1120,9 +1137,26 @@ die();
         ->with('DealerVehicleInterior')
         ->with('DealerVehicleMedia')
         ->get();
+        $allVehiclesName = DealerVehicle::Where('status',1)
+        ->distinct('vehicle_name')->pluck('vehicle_name');
         $countAllVehicle = count($allVehicles);
 
-        return view('frontend.dealer.vehicle.dealerToDealer',compact('allVehicles','countAllVehicle'));
+        return view('frontend.dealer.vehicle.dealerToDealer',compact('allVehicles','countAllVehicle','allVehiclesName'));
+
+    }
+    public function dealerToDealerMakeFilter(Request $request)
+    {
+
+        $allVehicles = DealerVehicle::Where('status',1)
+        ->with('DealerAdvertVehicleDetail')
+        ->with('DealerVehicleExterior')
+        ->with('DealerVehicleHistory')
+        ->with('DealerVehicleInterior')
+        ->with('DealerVehicleMedia')
+        ->where('vehicle_name',$request->makePro)
+        ->get();
+        
+        return $allVehicles;
 
     }
     public function dealersVehicleDetail($id){
@@ -1196,9 +1230,17 @@ die();
     {
         $buyItNowVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all' )->get();
         $countbuyItNoVehicle = Vehicle::where('status',1)->where('all_auction','all' )->count();
+        $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all' )->distinct('vehicle_name')->pluck('vehicle_name');
 
+        return view('frontend.dealer.vehicle.buyItNow',compact('buyItNowVehicles','countbuyItNoVehicle','allVehiclesName'));
 
-        return view('frontend.dealer.vehicle.buyItNow',compact('buyItNowVehicles','countbuyItNoVehicle'));
+    }
+
+    public function buyItNowMakeFilter(Request $request)
+    {
+        $buyItNowMakeFilter = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all' )->where('vehicle_name',$request->makePro)->get();
+
+        return $buyItNowMakeFilter;
 
     }
 
@@ -1270,7 +1312,7 @@ die();
 
       return view('frontend.dealer.vehicle.completedDealerVehicleDetail',compact('vehicle','order'));
     }
-    public function didNotWinSearch(Request $request){
+    public function purchasesBids(Request $request){
     // dd($request->all());
     $user_id = Auth::user()->id;
 
@@ -1279,6 +1321,20 @@ die();
       $vehicle[] = Vehicle::where('id',$bid->vehicle_id)->Where('vehicle_registartion_number', 'like', '%' . $request->search . '%')->with('vehicleInformation')->with('bid')->with('VehicleImage')->first();
     }
     return ($vehicle);
+  }
+  public function completedRequestPurchase(Request $request){
+    // dd($request->all());
+    $user_id = Auth::user()->id;
+
+    $orders = OrderVehicleRequest::where('user_id',$user_id)->get();
+    foreach($orders as $order){
+      $vehicle[] = Vehicle::where('id',$order->vehicle_id)->Where('vehicle_registartion_number', 'like', '%' . $request->search . '%')->with('vehicleInformation')->with('singleorder')->with('VehicleImage')->first();
+    }
+    $dealerorders = DealersOrderVehicleRequest::where('user_id',$user_id)->get();
+    foreach($dealerorders as $dealerorder){
+      $dealervehicle[] = DealerVehicle::where('id',$dealerorder->vehicle_id)->Where('vehicle_registartion_number', 'like', '%' . $request->search . '%')->with('singlebid','DealerVehicleExterior')->first();
+    }
+    return ['vehicle'=>$vehicle,'dealervehicle'=>$dealervehicle];
   }
 }
 

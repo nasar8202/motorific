@@ -37,7 +37,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
-                            <th>Company Name</th>
+                            <th>Address</th>
                                                    </tr>
                     </thead>
                     <tbody>
@@ -49,7 +49,7 @@
                             
                             <td><a href="callto:">{{ $seller->phone_number}}</a></td>
                             
-                            <td>{{ $seller->company_name}} </td>
+                            <td>{{ $seller->address}} </td>
                         </tr>
                   
                     </tbody>

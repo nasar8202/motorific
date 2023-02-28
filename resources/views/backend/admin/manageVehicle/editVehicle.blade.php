@@ -1197,8 +1197,8 @@ p {
                                         <div class="row">
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="start_vehicle_date">Start Vehicle Date </label>
-                                                    <input type="date" id="start_vehicle_date" value="{{ date('Y-m-d'); }}" readonly class="form-control"
+                                                    <label for="start_vehicle_date">Start Sale Vehicle Date </label>
+                                                    <input type="date" id="start_vehicle_date" value="{{ $vehicles->start_vehicle_date ??date('Y-m-d');}}"  class="form-control"
                                                        name="start_vehicle_date" placeholder="Registartion Number" >
 
                                                 </div>
@@ -1208,7 +1208,7 @@ p {
                                             </div>
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="start_vehicle_time">Start Vehicle Time </label>
+                                                    <label for="start_vehicle_time">Start Sale Vehicle Time </label>
                                                     <input type="time" id="start_vehicle_time" class="form-control"
                                                        name="start_vehicle_time" value="{{ $liveselltime->start_time }}" readonly placeholder="" >
 
@@ -1219,8 +1219,8 @@ p {
                                             </div>
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="end_vehicle_date">End Vehicle Date </label>
-                                                    <input type="date" id="end_vehicle_date" value="{{ date('Y-m-d'); }}" readonly class="form-control"
+                                                    <label for="end_vehicle_date">End Sale Vehicle Date </label>
+                                                    <input type="date" id="end_vehicle_date" value="{{$vehicles->end_vehicle_date ?? date('Y-m-d'); }}" readonly class="form-control"
                                                        name="end_vehicle_date" placeholder="" >
 
                                                 </div>
@@ -1230,9 +1230,9 @@ p {
                                             </div>
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="end_vehicle_time">Start Vehicle Date </label>
+                                                    <label for="end_vehicle_time">End Sale Vehicle Time </label>
                                                     <input type="time" id="end_vehicle_time" class="form-control"
-                                                       name="end_vehicle_time" value="{{ $liveselltime->end_time }}" readonly placeholder="Registartion Number" >
+                                                       name="end_vehicle_time" value="{{ $liveselltime->end_time }}" readonly placeholder="End Sale Vehicle Time" >
 
                                                 </div>
                                                 @if ($errors->has('end_vehicle_time'))
@@ -1277,6 +1277,17 @@ p {
                                                 </div>
                                                 @if ($errors->has('clean_price'))
                                                 <span class="text-danger">{{ $errors->first('clean_price') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="reserve_price">Vehicle Reserve Price </label>
+                                                    <input type="number" id="reserve_price" value="{{$vehicles->reserve_price ?? old('reserve_price')}}"  class="form-control"
+                                                       name="reserve_price" placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('reserve_price'))
+                                                <span class="text-danger">{{ $errors->first('reserve_price') }}</span>
                                                 @endif
                                             </div>
                                             <div class="col-md-3 col-sm-6">

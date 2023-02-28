@@ -298,6 +298,17 @@ p {
                                             </div>
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
+                                                    <label for="reserve_price">Vehicle Reserve Price </label>
+                                                    <input type="number" id="reserve_price" value="{{$vehicle->reserve_price ?? old('reserve_price')}}"  class="form-control"
+                                                       name="reserve_price" placeholder="" >
+
+                                                </div>
+                                                @if ($errors->has('reserve_price'))
+                                                <span class="text-danger">{{ $errors->first('reserve_price') }}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <div class="form-group">
                                                     <label for="average_price">Vehicle Average Price </label>
                                                     <input type="number" id="average_price" value="{{$vehicle->average_price ?? old('average_price')}}"  class="form-control"
                                                        name="average_price" placeholder="" >

@@ -44,6 +44,7 @@
                             <th>Vehicle Tank</th>
                             <th>Vehicle Price</th>
                             <th>Status</th>
+                            <th>Vehicle Sale Time</th>
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -69,10 +70,21 @@
                           @else
                             <td class=""><span class="badge badge-success"> Accepted </span></td>
                             @endif
+                            @if($vehicle->start_vehicle_date > date('Y-m-d') && $vehicle->start_vehicle_date != null)
+                            <td class=""><span class="badge badge-info"> Tomorrow </span></td>
+                            @elseif($vehicle->start_vehicle_date < date('Y-m-d') && $vehicle->start_vehicle_date != null)
+                            <td class=""><span class="badge bg-danger"> Sale End </span></td>
+                            @elseif($vehicle->start_vehicle_date == date('Y-m-d') && $vehicle->start_vehicle_date != null)
+                            <td class=""><span class="badge badge-info"> Today </span></td>
+                          @else
+                            <td class=""><span class="badge badge-success"> Not In Sale </span></td>
+                            @endif
                             <td>
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>
+                            
                             <td>
+                                
                                 @if($vehicle->status == 0)
                                 <a href="{{ route('approveSellerVehicle',$vehicle->id) }}"><span class="badge badge-success w-100 my-1">Approve</span></a>
                                 @elseif($vehicle->status == 1)
@@ -82,6 +94,7 @@
                                 <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge badge-success w-100">View Details</span></a>
                                 <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge badge-danger w-100 my-1">Delete</span></a>
                             </td>
+
                         </tr>
                         @endforeach
                     </tbody>

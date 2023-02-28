@@ -22,4 +22,8 @@ class DealersOrderVehicleRequest extends Model
 
         return $this->hasOne(DealerVehicle::class,'id','vehicle_id');
     }
+    public function getCreatedAtAttribute($value)
+    {
+        return date('d/m/Y',strToTime($value));
+    }
 }

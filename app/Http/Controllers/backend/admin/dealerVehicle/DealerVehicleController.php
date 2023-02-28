@@ -108,6 +108,7 @@ class DealerVehicleController extends Controller
 
             'retail_price' => 'required|max:11',
             'clean_price' => 'required|max:11',
+            'reserve_price' => 'required|max:11',
             'average_price' => 'required|max:11',
             'hidden_price' => 'required|max:11',
 
@@ -116,6 +117,7 @@ class DealerVehicleController extends Controller
         $vehicle->vehicle_price = $request->retail_price;
         $vehicle->retail_price = $request->retail_price;
         $vehicle->clean_price = $request->clean_price;
+        $vehicle->reserve_price = $request->reserve_price;
         $vehicle->average_price = $request->average_price;
         $vehicle->hidden_price = $request->hidden_price;
         $vehicle->status = 0;

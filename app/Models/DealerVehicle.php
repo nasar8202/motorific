@@ -87,5 +87,12 @@ class DealerVehicle extends Model
         return $this->hasMany(DealersOrderVehicleRequest::class,'vehicle_id','id');
 
     }
+    public function singlebid()
+
+    {
+
+        return $this->hasOne(DealersOrderVehicleRequest::class,'vehicle_id','id');
+
+    }
 
 }
