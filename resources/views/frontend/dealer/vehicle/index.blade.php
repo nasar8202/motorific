@@ -340,7 +340,7 @@ div#filter-price {
                                                 ?>
                                                 </span>
                                             </div>
-                                            <h5 class="p-price">Reserve price: <span >${{ $vehicle->vehicle_price }}</span></h5>
+                                            <h5 class="p-price">Reserve price: <span >€{{ $vehicle->vehicle_price }}</span></h5>
                                         </div>
                                     </div>
                                 </a>
@@ -383,7 +383,7 @@ div#filter-price {
 
 
                             </div>
-                            <span>${{ $vehicle->vehicle_price }}</span>
+                            <span>€{{ $vehicle->vehicle_price }}</span>
                         </div>
                     </a>
                     <br>
@@ -482,7 +482,7 @@ $(document).ready(function(){
 
                     bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >€' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
 
                                 $("#filter-price").html(bodyData);
@@ -551,7 +551,7 @@ $(document).ready(function(){
             $.each(resultData,function(resultData,row){
                 bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >€' + row.vehicle_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
 
                                 $("#filter-price").html(bodyData);
@@ -630,7 +630,7 @@ $("#slider").slider({
 //             $.each(resultData,function(resultData,row){
 
 //                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
-//                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+//                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>€'+row.vehicle_price+'</span>'
 //                     bodyData+='</div></a>';
 //                     $("#filter-price").html(bodyData);
 //                 })
@@ -684,7 +684,7 @@ $("#slider").slider({
 //             $.each(resultData,function(resultData,row){
 
 //                     bodyData+='<a href="{{URL::to('vehicle.vehicleDetail',['+row.id+'])}}"><div class="box">'
-//                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>$'+row.vehicle_price+'</span>'
+//                     bodyData+='<div class="box-img"><img src="/vehicles/vehicles_images/'+row.vehicle_image.front+'" width="180px" alt=""></div><h4>'+row.vehicle_registartion_number+'</h4><div class="d-flex justify-content-between"><p>'+row.vehicle_name+'</p></div> <div class="d-flex justify-content-between"><h6>'+row.vehicle_year+'.'+row.vehicle_tank+'.'+row.vehicle_mileage+'.'+row.vehicle_type+'</h6></div> <span>€'+row.vehicle_price+'</span>'
 //                     bodyData+='</div></a>';
 //                     $("#filter-price").html(bodyData);
 //                 })

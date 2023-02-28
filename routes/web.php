@@ -403,6 +403,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/canceled-requested-vehicles', [DealerDashboardController::class,'CancelRequestedVehicle'])->name('CancelRequestedVehicle');
     Route::get('/my-vehicles', [DealerDashboardController::class,'myVehicles'])->name('myVehicles');
 
+    Route::get('/search-myvehicles', [DealerDashboardController::class,'searchMyVehicles'])->name('searchMyVehicles');
+
     Route::get('/mark-as-sold-dealervehicles/{id}', [DealerDashboardController::class,'markAsSoldDealerVehicle'])->name('markAsSoldDealerVehicle');
     Route::get('/order-on-my-vehicles/{id}', [DealerDashboardController::class,'orderOnMyVehicle'])->name('orderOnMyVehicle');
     Route::post('/dealer-meeting-status', [DealerDashboardController::class,'dealerMeetingStatus'])->name('dealerMeetingStatus');

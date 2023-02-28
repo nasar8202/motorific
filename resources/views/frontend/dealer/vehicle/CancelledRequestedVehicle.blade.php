@@ -38,7 +38,7 @@
                        <div class="col-sm-8 p-0" style="padding: 10px">
                             <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $cancel->vehicle->vehicle_registartion_number }}</span></h1>
                             <p>{{ $cancel->vehicle->vehicle_name }}</p>
-                            <span>Requested Price:{{ $cancel->order->request_price }}</span>
+                            <span>Requested Price:{{ $cancel->order->request_price ??"" }}</span>
                             
                             <span style="padding-left: 60px;">{{ $cancel->created_at->format('m/d/Y') }}</span>
                             <span style="padding-left: 200px;">
@@ -66,7 +66,7 @@
                        <div class="col-sm-8 p-0" style="padding: 10px">
                             <h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $dealercanceled->dealerVehicle->vehicle_registartion_number }}</span></h1>
                             <p>{{ $dealercanceled->dealerVehicle->vehicle_name }}</p>
-                            <span>Requested Price:{{ $dealercanceled->dealerOrder->request_price }}</span>
+                            <span>Requested Price:{{ $dealercanceled->dealerOrder->request_price??"" }}</span>
                             
                             <span style="padding-left: 60px;">{{ $dealercanceled->created_at->format('m/d/Y') }}</span>
                             <span style="padding-left: 200px;">

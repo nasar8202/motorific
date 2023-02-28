@@ -225,6 +225,34 @@ class DealerDashboardController extends Controller
         return view('frontend.dealer.vehicle.myVehicle',compact('vehicles','vehiclesCount'));
 
     }
+
+    public function searchMyVehicles(request $request)
+    {
+     
+      $user_id = Auth::user()->id;
+      
+      if(isset($request->keyword[0])) {
+        $data = 
+         DealerVehicle::
+         //Where('vehicle_name', 'LIKE', "%{$request->keyword[0]}%")
+          Where('vehicle_registartion_number', 'LIKE', "%{$request->keyword[0]}%")
+        ->where('user_id',$user_id)
+        ->where('status',2)
+        ->with('DealerAdvertVehicleDetail')
+        ->with('DealerVehicleExterior')
+        ->with('DealerVehicleHistory')
+        ->with('DealerVehicleInterior')
+        ->with('DealerVehicleMedia')
+        ->with('DealerVehicleTyre')->get();
+      //$vehiclesCount = count($vehicles);
+        //RetailersListings::search($keyword));
+        
+        return $data;
+      } else {
+        return "no results";
+      }
+
+    }
     public function orderOnMyVehicle($id)
     {
        $orders =  DealersOrderVehicleRequest::where('vehicle_id',$id)->get();

@@ -1,5 +1,5 @@
 @extends('frontend.dealer.layouts.app')
-@section('title','Sell your car the with Motorific')
+@section('title','Browse Vehicle the with Motorific')
 @section('section')
 <!-- form css -->
 
@@ -137,7 +137,7 @@
                         <h4>Live Sales In Progress</h4>
                         <div class="reserveDetail vehicle">
                             <ul >
-                                <li>Reserve Price: <span>€{{$vehicle->vehicle_price}}</span></li>
+                                <li>Reserve Price: <span>£{{$vehicle->vehicle_price}}</span></li>
                                 @if($vehicle->all_auction == 'all')
                                 <li>Total Offers: <span>{{$allorder ??'No Offers Yet'}}</span></li>
                                 <li >Higesht Offer<span> <a href="#">@if(isset($order->request_price)) {{$order->request_price}}@endif</a></span></li>
@@ -147,9 +147,9 @@
                                 @endif
                                 <ul class="valuation">
                                     <li >valuation <span><i class="fas fa-chevron-down" id="dynamic-ar"></i></span></li>
-                                    <li class="hidden">Retail:<span> €{{$vehicle->retail_price}} </span></li>
-                                    <li class="hidden">Clean:<span> €{{$vehicle->clean_price}} </span></li>
-                                    <li class="hidden">Average:<span> €{{$vehicle->average_price}} </span></li>
+                                    <li class="hidden">Retail:<span> £{{$vehicle->retail_price}} </span></li>
+                                    <li class="hidden">Clean:<span> £{{$vehicle->clean_price}} </span></li>
+                                    <li class="hidden">Average:<span> £{{$vehicle->average_price}} </span></li>
                                 </ul>
                             </ul>
                             <?php
@@ -163,7 +163,7 @@
                             <form  action="#" >
                                 <div class="form-group">
                                     <label>Enter Maximum Bid</label>
-                                    <input type="number" name="bid" placeholder="€" class="bid_price" />
+                                    <input type="number" name="bid" placeholder="£" class="bid_price" />
                                     <input type="hidden" name="hidden_price" class="hidden_price" value="{{$vehicle->hidden_price}}" />
                                     <input type="hidden" name="vehicle_id" class="vehicle_id" value="{{$vehicle->id}}" />
                                     <div class="spinner-border"  style="margin-left: 150px; " role="status">
@@ -196,7 +196,7 @@
                         </center>   
                         <br>    
                         <div class="input-group mb-3 requestPrice ">
-                            <input type="number" class="form-control updatePriceInput" value="" placeholder="€" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="number" class="form-control updatePriceInput" value="" placeholder="£" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                               <button class="btn btn-outline-secondary updateAmount" type="button">Update</button>
                             </div>

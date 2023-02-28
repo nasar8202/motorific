@@ -49,11 +49,14 @@
                         <!-- Custom Code Testing-->
                             <label class="gallery-top-text mb-10 f-18">Exterior</label>
                             <div class="cts-files">
-                                <input type="file"  onchange="uploadFile(this)" class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
+                                <input type="file"  onchange="uploadFile(this)" class="upload-img-btn"  name="image_1[]" class="" multiple id="image_1" accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" >
                                 <div class="upload-imgErros"></div>
                                 <div id="selectedFiles" class="upload-img-wraper selectedFilesTn"></div>
                             </div>
+                         @if ($errors->has('image_1'))
+                      <span class="text-danger">{{ $errors->first('image_1') }}</span>
+                           @endif
                         <!--End -->
 
                         <!--<div class="gallery-upload-main">-->
@@ -96,9 +99,7 @@
                         <!--        <input type="file" name="image_9" id="image_9" class="hide-inp" onchange="getFileName(this)">-->
                         <!--        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img9.png')}}" alt="car image" >-->
                         <!--    </label> --}}-->
-                        <!--    @if ($errors->has('image_1'))-->
-                        <!--    <span class="text-danger">{{ $errors->first('image_1') }}</span>-->
-                        <!--    @endif-->
+                        
                         <!--    {{-- @if ($errors->has('image_2'))-->
                         <!--    <span class="text-danger">{{ $errors->first('image_2') }}</span>-->
                         <!--    @endif-->
@@ -124,74 +125,7 @@
                         <!--    <span class="text-danger">{{ $errors->first('image_9') }}</span>-->
                         <!--    @endif --}}-->
                         <!--</div>-->
-                        <!-- <div class="gallery-upload-main hamza">
-
-                            <label for="image_1" class="custom-gallery-upload">
-                                <input type="file" name="image_1[]" id="image_1" multiple class="hide-inp" onchange="getFileName(this)" accept="image/*">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" alt="car image" >
-
-                            </label>
-
-                            {{-- <label for="image_2" class="custom-gallery-upload">
-                                <input type="file" name="image_2" id="image_2" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img2.png')}}" alt="car image" >
-                            </label>
-                            <label for="image_3" class="custom-gallery-upload">
-                                <input type="file" name="image_3" id="image_3" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img3.png')}}" alt="car image" >
-                            </label>
-                            <label for="image_4" class="custom-gallery-upload">
-                                <input type="file" name="image_4" id="image_4" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img4.png')}}" alt="car image" >
-                            </label>
-                            <label for="image_5" class="custom-gallery-upload">
-                                <input type="file" name="image_5" id="image_5" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img5.png')}}" alt="car image" >
-                            </label>
-                            <label for="image_6" class="custom-gallery-upload">
-                                <input type="file" name="image_6" id="image_6" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img6.png')}}" alt="car image" >
-                            </label>
-                            <label for="image_7" class="custom-gallery-upload">
-                                <input type="file" name="image_7" id="image_7" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img7.png')}}" alt="car image" >
-                            </label>
-                            <label for="image_8" class="custom-gallery-upload">
-                                <input type="file" name="image_8" id="image_8" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img8.png')}}" alt="car image" >
-                            </label>
-                            <label for="image_9" class="custom-gallery-upload">
-                                <input type="file" name="image_9" id="image_9" class="hide-inp" onchange="getFileName(this)">
-                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img9.png')}}" alt="car image" >
-                            </label> --}}
-                            @if ($errors->has('image_1'))
-                            <span class="text-danger">{{ $errors->first('image_1') }}</span>
-                            @endif
-                            {{-- @if ($errors->has('image_2'))
-                            <span class="text-danger">{{ $errors->first('image_2') }}</span>
-                            @endif
-                            @if ($errors->has('image_3'))
-                            <span class="text-danger">{{ $errors->first('image_3') }}</span>
-                            @endif
-                            @if ($errors->has('image_4'))
-                            <span class="text-danger">{{ $errors->first('image_4') }}</span>
-                            @endif
-                            @if ($errors->has('image_5'))
-                            <span class="text-danger">{{ $errors->first('image_5') }}</span>
-                            @endif
-                            @if ($errors->has('image_6'))
-                            <span class="text-danger">{{ $errors->first('image_6') }}</span>
-                            @endif
-                            @if ($errors->has('image_7'))
-                            <span class="text-danger">{{ $errors->first('image_7') }}</span>
-                            @endif
-                            @if ($errors->has('image_8'))
-                            <span class="text-danger">{{ $errors->first('image_8') }}</span>
-                            @endif
-                            @if ($errors->has('image_9'))
-                            <span class="text-danger">{{ $errors->first('image_9') }}</span>
-                            @endif --}}
-                        </div> -->
+                        
 
                     </div>
 
@@ -199,13 +133,15 @@
                         
                         <label class="gallery-top-text mb-10 f-18">Interior</label>
                         <div class="cts-files">
-                            <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="interior" class="" multiple="" accept="image/*">
+                            <input type="file" onchange='uploadFile(this)' class="upload-img-btn" id="interior_image_1"  name="interior_image_1[]" class="" multiple accept="image/*">
                             <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
                             <div class="upload-imgErros"></div>
                             <div id="selectedFiles" class="upload-img-wraper selectedFilesTn"></div>
                         </div>
 
-
+                        @if ($errors->has('interior_image_1'))
+                        <span class="text-danger">{{ $errors->first('interior_image_1') }}</span>
+                        @endif
                         <div class="gallery-upload-main">
                             <!-- <label for="interior_image_1" class="custom-gallery-upload">
                                 <input type="file" name="interior_image_1[]" multiple id="interior_image_1" class="hide-inp" onchange="getFileName(this)">
@@ -227,9 +163,7 @@
                                 <input type="file" name="interior_image_5" id="interior_image_5" class="hide-inp" onchange="getFileName(this)">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img14.png')}}" alt="car image" >
                             </label> --}}
-                            @if ($errors->has('interior_image_1'))
-                            <span class="text-danger">{{ $errors->first('interior_image_1') }}</span>
-                            @endif
+                           
                             {{-- @if ($errors->has('interior_image_2'))
                             <span class="text-danger">{{ $errors->first('interior_image_2') }}</span>
                             @endif
@@ -255,7 +189,7 @@
                     @if ($errors->has('condition_damage'))
                     <span class="text-danger">{{ $errors->first('condition_damage') }}</span>
                     @endif
-                    <div class="mt-40">
+                    {{-- <div class="mt-40">
                         <label for="condition_damage_url" class="label-main-text f-20"> Condition / Damage </label>
                         <div class="video-box-main">
 
@@ -264,26 +198,18 @@
                                 <input class="inp-qa inp-round"  name="condition_damage_url" type="text" value="{{ old('condition_damage_url') ?? request()->session()->get('condition_damage_url') }}">
                             </div>
 
-                            {{-- <div class="upload-img-box sm-graybox upload-video-box">
-                                <p class="f-18 c-dull-gray mb-0">Upload or Drag</p>
-                                <label for="upload_video1" class="custom-upload-image">
-                                    <input type="file" name="upload_image" id="upload_video1" class="hide-inp">
-                                    <span class="add-img">
-                                        <img src="{{ URL::asset('frontend/dealers/assets/image/add-icon.png')}}" alt="Add" class="img-fluid">
-                                    </span>
-                                </label>
-                            </div> --}}
+                          
 
                         </div>
                     </div>
                     @if ($errors->has('condition_damage_url'))
                     <span class="text-danger">{{ $errors->first('condition_damage_url') }}</span>
-                    @endif
+                    @endif --}}
                     <div class="vehicle-condition-main mt-40">
                         <h2 class="headingqa-2 f-40">Vehicle Condition</h2>
 
                         <div class="details-field-main">
-                            <p class="label-main-text f-20"> Do you have existing condition report? </p>
+                            {{-- <p class="label-main-text f-20"> Do you have existing condition report? </p>
                             <ul class="list-unstyled d-flex gap-4 mb-0">
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
@@ -306,7 +232,7 @@
                             </ul>
                             @if ($errors->has('existing_condition_report'))
                             <span class="text-danger">{{ $errors->first('existing_condition_report') }}</span>
-                            @endif
+                            @endif --}}
                             <p class="label-main-text f-20"> Is there any damage on your vehicle? </p>
                             <ul class="list-unstyled d-flex gap-4 mb-0">
                                 <li class="radio-option-box">
@@ -543,7 +469,7 @@
 
                                 <label class="gallery-top-text mb-10 f-18">Interior</label>
                                 <div class="cts-files">
-                                    <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="exterior" class="" multiple="" accept="image/*">
+                                    <input type="file" onchange='uploadFile(this)' class="upload-img-btn"  name="tyre_image[]" class="" multiple id="tyre_image" accept="image/*">
                                     <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
                                     <div class="upload-imgErros"></div>
                                     <div id="selectedFiles" class="upload-img-wraper qambaraaaa selectedFilesTn"></div>

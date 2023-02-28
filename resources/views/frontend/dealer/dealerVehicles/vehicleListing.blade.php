@@ -230,7 +230,7 @@
 
                 </div> -->
 
-                <div class="mt-40">
+                {{-- <div class="mt-40">
                     <label class="multi-select-qa" for="interiorSelect_step4">
                         <p class="multiselect-label label-main-text f-20 dflexBt">
                             <span>Interior <span> </span> </span>
@@ -251,10 +251,10 @@
                     @if ($errors->has('interior'))
                     <span class="text-danger">{{ $errors->first('interior') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
 
-                <div class="mt-10">
+                {{-- <div class="mt-10">
                     <label class="multi-select-qa" for="exteriorSelect_step4">
                         <p class="multiselect-label label-main-text f-20 dflexBt">
                             <span>Exterior <span> </span> </span>
@@ -275,10 +275,10 @@
                     @if ($errors->has('exterior'))
                     <span class="text-danger">{{ $errors->first('exterior') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
 
-                <div class="mt-10">
+                {{-- <div class="mt-10">
                     <label class="multi-select-qa" for="audioSelect_step4">
                         <p class="multiselect-label label-main-text f-20 dflexBt">
                             <span>Audio and Communications  <span>  </span> </span>
@@ -299,9 +299,9 @@
                     @if ($errors->has('audio_and_communications'))
                     <span class="text-danger">{{ $errors->first('audio_and_communications') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
-
+{{-- 
                 <div class="mt-10">
                     <label class="multi-select-qa" for="driverAssistanceSelect_step4">
                         <p class="multiselect-label label-main-text f-20 dflexBt">
@@ -323,7 +323,7 @@
                     @if ($errors->has('drivers_assistance'))
                     <span class="text-danger">{{ $errors->first('drivers_assistance') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
 
                 <ul class="step4-checklist">
@@ -469,7 +469,7 @@
                 <span class="text-danger">{{ $errors->first('checkbox_questions') }}</span>
                 @endif
 
-                <div class="mt-40">
+                {{-- <div class="mt-40">
                     <label class="multi-select-qa" for="illumination">
                         <p class="multiselect-label label-main-text f-20 dflexBt">
                             <span>Illumination  <span>  </span> </span>
@@ -491,9 +491,9 @@
                     @if ($errors->has('illumination'))
                     <span class="text-danger">{{ $errors->first('illumination') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
-                <div class="mt-10">
+                {{-- <div class="mt-10">
                     <label class="multi-select-qa" for="performance">
                         <p class="multiselect-label label-main-text f-20 dflexBt">
                             <span>Performance  <span>  </span> </span>
@@ -516,8 +516,8 @@
                     @if ($errors->has('performance'))
                     <span class="text-danger">{{ $errors->first('performance') }}</span>
                     @endif
-                </div>
-
+                </div> --}}
+{{-- 
                 <div class="mt-10">
                     <label class="multi-select-qa" for="safety_and_security" >
                         <p class="multiselect-label label-main-text f-20 dflexBt">
@@ -541,7 +541,7 @@
                     @if ($errors->has('safety_and_security'))
                     <span class="text-danger">{{ $errors->first('safety_and_security') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
 
                 {{-- <button type="button" class="btn-qa1 f-25 w-100 mt-40"> Continue to Listing Details </button> --}}

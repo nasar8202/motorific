@@ -138,12 +138,11 @@ class AddDealerVehicleController extends Controller
 
     public function vehicleAndDetailsPost(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'image_1' => 'required',
             'interior_image_1' => 'required',
             'condition_damage' => 'required',
-            'condition_damage_url' => 'required',
-            'existing_condition_report' => 'required',
             'any_damage_checked' => 'required',
             'advert_description' => 'required',
             'attention_grabber' => 'required',
@@ -247,8 +246,10 @@ class AddDealerVehicleController extends Controller
             $dealer_vehicle_media = new DealerVehicleMedia;
             $dealer_vehicle_media->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_vehicle_media->condition_damage = $request->condition_damage;
-            $dealer_vehicle_media->condition_damage_url = $request->condition_damage_url;
-            $dealer_vehicle_media->existing_condition_report = $request->existing_condition_report;
+            // $dealer_vehicle_media->condition_damage_url = $request->condition_damage_url;
+            // $dealer_vehicle_media->existing_condition_report = $request->existing_condition_report;
+            $dealer_vehicle_media->condition_damage_url = "ads";
+            $dealer_vehicle_media->existing_condition_report = 0;
             $dealer_vehicle_media->any_damage_checked = $request->any_damage_checked;
             $dealer_vehicle_media->advert_description = $request->advert_description;
             $dealer_vehicle_media->attention_grabber = $request->attention_grabber;
