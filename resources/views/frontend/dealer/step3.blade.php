@@ -60,12 +60,12 @@
                                     <div class="form-group twoInOneLine">
                                         <label>What is the value of vehicles you typically purchase? *</label>
                                         <div class="absolutelabel">
-                                            <label>€</label>
+                                            <label>£</label>
                                             <input id="priceFrom" class="mw-input" placeholder="4,000" required="" pattern="[0-9]*" data-private="true" type="text" name="lowest_purchase_price"  value="{{ session()->get('lowest_purchase_price') ?? old('lowest_purchase_price') }}">
                                         </div>
                                         <span>-</span>
                                         <div class="absolutelabel">
-                                            <label>€</label>
+                                            <label>£</label>
                                             <input id="priceTo" class="mw-input" placeholder="10,000" required="" pattern="[0-9]*" data-private="true" type="text" name="highest_purchase_price"   value="{{ session()->get('highest_purchase_price') ?? old('highest_purchase_price') }}">
                                         </div>
                                     </div>

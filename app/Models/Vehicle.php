@@ -46,11 +46,25 @@ class Vehicle extends Model
         return $this->hasOne(BidedVehicle::class,'vehicle_id','id');
 
     }
+    public function singleorder()
+
+    {
+
+        return $this->hasOne(OrderVehicleRequest::class,'vehicle_id','id');
+
+    }
     public function allbid()
 
     {
 
         return $this->hasMany(BidedVehicle::class,'vehicle_id','id');
+
+    }
+    public function allorder()
+
+    {
+
+        return $this->hasMany(OrderVehicleRequest::class,'vehicle_id','id');
 
     }
     public function user()
@@ -60,4 +74,7 @@ class Vehicle extends Model
         return $this->hasOne(User::class,'id','user_id');
 
     }
+
+  
+
 }

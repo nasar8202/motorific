@@ -89,7 +89,7 @@ input[type=number] {
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">Help</a></li>
                         @guest
-                        <li>  <a href="{{ route('DealerLogin') }}">For Dealers</a>
+                        <li>  <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
                         
                       </li>
                       @endguest
@@ -112,11 +112,11 @@ input[type=number] {
             </div>
             <div class="chart">
                 <ul>
-                    <li>{{$res->yearOfManufacture}}</li>
-                    <li>{{$data->milage}} Mileage</li>
-                    <li>{{$res->colour}}</li>
-                    <li>{{$res->wheelplan}}</li>
-                    <li>{{$res->fuelType}}</li>
+                    <li>{{$res->yearOfManufacture??"year of manufacture"}}</li>
+                    <li>{{$data->milage??"mileage"}} Mileage</li>
+                    <li>{{$res->colour??"colour"}}</li>
+                    <li>{{$res->wheelplan??"wheelplan"}}</li>
+                    <li>{{$res->fuelType??"fueltype"}}</li>
                     {{-- <li>43,000 miles</li>
                     <li>Grey</li>
                     <li>Hatchback</li>

@@ -133,12 +133,12 @@
                             <h4>Live Sales In Progress</h4>
                             <div class="reserveDetail">
                                 <ul>
-                                    <li>Reserve Price: <span>€{{ $vehicle->vehicle_price }}</span></li>
+                                    <li>Reserve Price: <span>£{{ $vehicle->vehicle_price }}</span></li>
                                     <ul class="valuation">
                                         <li><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" id="dynamic-ar"></i></span></li>
-                                        <li class="hidden">Retail:<span> €{{ $vehicle->retail_price }} </span></li>
-                                        <li class="hidden">Clean:<span> €{{ $vehicle->clean_price }} </span></li>
-                                        <li class="hidden">Average:<span> €{{ $vehicle->average_price }} </span></li>
+                                        <li class="hidden">Retail:<span> £{{ $vehicle->retail_price }} </span></li>
+                                        <li class="hidden">Clean:<span> £{{ $vehicle->clean_price }} </span></li>
+                                        <li class="hidden">Average:<span> £{{ $vehicle->average_price }} </span></li>
                                     </ul>
                                     <li>Live Salaes end <span>3h 53m 26s <a href="#">
                                                 @if ($allbid)
@@ -159,7 +159,7 @@
                                     <form action="#">
                                         <div class="form-group">
                                             <label>Enter Maximum Bid</label>
-                                            <input type="number" name="bid" placeholder="€" class="bid_price" />
+                                            <input type="number" name="bid" placeholder="£" class="bid_price" />
                                             <input type="hidden" name="hidden_price" class="hidden_price"
                                                 value="{{ $vehicle->hidden_price }}" />
                                             <input type="hidden" name="vehicle_id" class="vehicle_id"

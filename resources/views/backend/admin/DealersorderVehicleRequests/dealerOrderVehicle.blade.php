@@ -43,6 +43,8 @@
                             <th>Vehicle Price</th>
                             <th>Image</th>
                             <th>Status</th>
+                            <th>Total Bids</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,6 +64,14 @@
                             <td>
                                 <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$vehicle->DealerVehicleExterior[0]->exterior_image) }}" width="100" height="100">
                             </td>
+                            @if($vehicle->status == 0)
+                            <td class=""><span class="badge badge-danger"> Pending </span></td>
+                            @elseif($vehicle->status == 2)
+                            <td class=""><span class="badge badge-danger"> Deactivate </span></td>
+                          @else
+                            <td class=""><span class="badge badge-success"> Accepted </span></td>
+                            @endif
+                            <td>@if(count($vehicle->allbid))Total Bids : {{ count($vehicle->allbid)}}@else No Bid Yet @endif</td>
                             <td>
                                 <a href="{{ route('viewDealerOrderVehicle',$vehicle->id) }}" class="cvf_btn"><span class="badge bg-success">View All Bids</span></a>
                             

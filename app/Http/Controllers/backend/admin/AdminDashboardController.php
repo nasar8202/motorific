@@ -74,7 +74,7 @@ class AdminDashboardController extends Controller
     }
     public function approveDealer($id)
     {
-        $status = ['status' => 0];
+        $status = ['status' => 1];
         $user = User::where('id',$id)->first();
 
         $dealers = User::where('id',$id)->update($status);
@@ -96,12 +96,12 @@ class AdminDashboardController extends Controller
     }
     public function blockDealer($id)
     {
-        $status = ['status' => 2];
         $user = User::where('id',$id)->first();
-        $dealers = User::where('id',$id)->update($status);
+        $user->status = 2;
+        $user->save();
         $details = [
             'greeting' => 'Hi ' . $user->name,
-            'body' => 'Your Request Has Been Rejected',
+            'body' => 'Your Are Block By Admin From Motorific. Contact Admin For More Dealers',
             'thanks' => 'Thank you for using Motorfic.com ',
             'actionText' => 'Login',
             'actionURL' => url('/dealer-login'),

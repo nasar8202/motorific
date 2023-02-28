@@ -20,6 +20,7 @@ use App\Models\LockingWheelNut;
 use App\Models\vehicleCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\UserDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
@@ -148,10 +149,11 @@ class RegisterController extends Controller
         $postcode = str_replace(' ', '', $zip);
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
                 
-
+        
         try{
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
+            
             if (count($result['results']) != 0) {
         $password = Str::random(10);
          $user = new User;
@@ -159,10 +161,12 @@ class RegisterController extends Controller
          $user->email = $request->email;
          $user->role_id = 2;
          $user->post_code = $postcode;
+         $user->address = $result['results'][0]['formatted_address'];
          $user->mile_age = $request->mile_age;
          $user->phone_number = $request->phone_number;
          $user->password = Hash::make($password);
          $user->save();
+        
          $credentials = [
              'email' => $user->email,
              'password' => $password,

@@ -597,8 +597,8 @@ display: block;
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Bumt" hidden="">
-                                    <span>Bumt (B)</span>
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Burnt" hidden="">
+                                    <span>Burnt (B)</span>
                                 </label>
                             </li>
                         </ul>
@@ -648,8 +648,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -700,8 +700,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -751,8 +751,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="floor" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -802,8 +802,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -853,8 +853,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="boot" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -904,8 +904,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -955,8 +955,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1006,8 +1006,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1057,8 +1057,8 @@ display: block;
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Bumt" hidden="">
-                                        <span>Bumt (B)</span>
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
                                     </label>
                                 </li>
                             </ul>
@@ -1544,11 +1544,11 @@ display: block;
                     <div class="photo-up-sec-2-box-personal-information">
                         <p>Features, equipment & ownership</p>
                     </div>
-                    <div class="prf-complete d-flex align-items-center">
-                        <!--<div>-->
-                        <!--    <img src="{{ URL::asset('frontend/seller/assets/image/load.png')}}" alt="">-->
-                        <!--</div>-->
-                        <!--<h3>15% Complete</h3>-->
+                    <div class="prf-complete d-flex align-items-center completeStatus-vehicelInfo-qa d-none">
+                        <div>
+                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="">
+                        </div>
+                        <h3>Complete</h3>
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-s-gr my-auto">
@@ -2193,6 +2193,7 @@ display: block;
                                     </div>
                                 </div>
                             </div>
+                            
                             <!--7 Search-->
                             <div class="vehicleSteps" data-id="VehicleLocation">
                                 <h3>Vehicle location</h3>
@@ -2201,7 +2202,7 @@ display: block;
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
-                                                <span><p>Enter postcode or the first line of the address</p></span>
+                                                <span><p>Enter postcode </p></span>
                                                 <input type="search" name="location" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
                                             </label>
                                         </div>
@@ -3061,6 +3062,7 @@ $("#store").click(function(){
             myFunction2()
             $('#startBtn-vehicleInfo').text('Edit')
             $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
+            $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
         });
         
         

@@ -11,7 +11,7 @@
                         
                         <li>About us</li>
                     </a>
-                    <a href="{{ route('DealerLogin') }}"><li>For Dealers</li></a>
+                    <a href="{{ route('dealer.newDashboard') }}"><li>For Dealers</li></a>
                     <a href="#">
                         <li>Contact us</li>
                     </a>

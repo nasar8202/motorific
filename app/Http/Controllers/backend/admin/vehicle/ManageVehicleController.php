@@ -306,7 +306,7 @@ class ManageVehicleController extends Controller
     public function viewVehicle()
     {
 
-        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->get();
+        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->orderBy('id','DESC')->get();
         //    dd($vehicles);
         return view('backend.admin.manageVehicle.viewVehicle', compact('vehicles'));
     }
@@ -434,6 +434,7 @@ class ManageVehicleController extends Controller
             // 'independent_dealer' => 'required',
             'retail_price' => 'required|max:11',
             'clean_price' => 'required|max:11',
+            'reserve_price' => 'required|max:11',
             'average_price' => 'required|max:11',
             'hidden_price' => 'required|max:11',
 
@@ -453,7 +454,7 @@ class ManageVehicleController extends Controller
             } else {
                 $start_date = $request->start_vehicle_date;
                 $start_time = $request->start_vehicle_time;
-                $end_date = $request->end_vehicle_date;
+                $end_date = $request->start_vehicle_date;
                 $end_time = $request->end_vehicle_time;
                 $auction_date_time = null;
             }
@@ -480,6 +481,8 @@ class ManageVehicleController extends Controller
             // prices
             $vehicle->retail_price = $request->retail_price;
             $vehicle->clean_price = $request->clean_price;
+            $vehicle->reserve_price = $request->reserve_price;
+            
             $vehicle->average_price = $request->average_price;
             $vehicle->hidden_price = $request->hidden_price;
             $vehicle->status = 0;
