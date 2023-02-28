@@ -2193,7 +2193,49 @@ display: block;
                                     </div>
                                 </div>
                             </div>
-                            
+                            <!--Vehicle Category-->
+                            <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="VehicleCategory">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Vehicle Category</h3>
+                                <p>Is this vehicle on finance?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                           @foreach($Finances as $key=> $Finance)
+                                            <label for="radio-isVehicleOnFinance-true-{{$key}}">
+                                                <input type="radio"  name="finance" class="finance" value="{{$Finance->id}}" @if($Finance->id == session()->get('finance')) checked @endif id="radio-isVehicleOnFinance-true-{{$key}}" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>{{$Finance->title}}</p>
+                                                </div>
+                                            </label>
+                                            @endforeach
+                                            {{-- <label for="radio-isVehicleOnFinance-false">
+                                                <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Not on finance</p>
+                                                </div>
+                                            </label> --}}
+                                        </div>
+                                        @if ($errors->has('finance'))
+                                        <span class="text-danger">{{ $errors->first('finance') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>If your vehicle currently has any finance remaining, whether PCP or HP, or any other type of loan or finance, please select “On finance”.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtnFinaceToPrivatePlate">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn" >NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End-->
+
                             <!--7 Search-->
                             <div class="vehicleSteps" data-id="VehicleLocation">
                                 <h3>Vehicle location</h3>
