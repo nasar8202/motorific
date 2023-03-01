@@ -245,7 +245,7 @@ class DealerDashboardController extends Controller
          //Where('vehicle_name', 'LIKE', "%{$request->keyword[0]}%")
           Where('vehicle_registartion_number', 'LIKE', "%{$request->keyword[0]}%")
         ->where('user_id',$user_id)
-        ->where('status',1)
+        //->where('status',1)
         ->with('DealerAdvertVehicleDetail')
         ->with('DealerVehicleExterior')
         ->with('DealerVehicleHistory')
