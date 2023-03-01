@@ -275,6 +275,7 @@ class RegisterController extends Controller
             }
         } catch (\Exception $e) {
             if(isset($e)){
+                return $e;
                 return back()->with('error', 'Something went wrong!');
 
             }else{
