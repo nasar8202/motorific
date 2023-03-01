@@ -274,8 +274,13 @@ class RegisterController extends Controller
                 return back()->with('error', 'Enter The Right Post Code');
             }
         } catch (\Exception $e) {
-            return $e;
-            return back()->with('error', 'Enter The Right Post Code');
+            if(isset($e)){
+                return back()->with('error', 'Something went wrong!');
+
+            }else{
+
+                return back()->with('error', 'Enter The Right Post Code');
+            }
         }
     }
 }
