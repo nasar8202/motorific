@@ -2202,8 +2202,8 @@ display: block;
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
                                            @foreach($Finances as $key=> $Finance)
-                                            <label for="radio-isVehicleOnFinance-true-{{$key}}">
-                                                <input type="radio"  name="finance" class="finance" value="{{$Finance->id}}" @if($Finance->id == session()->get('finance')) checked @endif id="radio-isVehicleOnFinance-true-{{$key}}" />
+                                            <label for="radio-isVehicleCategoryOnFinance-true-{{$key}}">
+                                                <input type="radio"  name="finance" class="finance" value="{{$Finance->id}}" @if($Finance->id == session()->get('finance')) checked @endif id="radio-isVehicleCategoryOnFinance-true-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>{{$Finance->title}}</p>
                                                 </div>

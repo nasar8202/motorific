@@ -29,10 +29,10 @@
                             <ul id="progressbar">
                                 <li class="active" id="account"><strong>Your details</strong></li>
                                 <li id="personal"><strong>Dealership details</strong></li>
-                                <li id="payment"><strong>Purchasing requirements</strong></li>
+                                {{-- <li id="payment"><strong>Purchasing requirements</strong></li> --}}
                             </ul>
                             <!-- fieldsets -->
-                            <form id="msform" action="{{ route('register.post.step.1') }}" method="POST">
+                            <form id="msform" action="{{ route('register.post.step.1') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                             <fieldset>
                                 <div class="form-card">
@@ -54,7 +54,7 @@
                                         <label>Company Name *</label>
                                         <input type="text" name="company_name" placeholder="Enter name" value="{{ session()->get('company_name') ?? old('company_name') }}" >
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label>Position *</label>
                                         <select name="position" >
                                             <option selected="" value="">Select position</option>
@@ -67,13 +67,13 @@
                                             <option @if(session()->get('position') != null) {{ session()->get('position') == "Sales Manager" ? 'selected' :  '' }} value="Sales Manager" @endif>Sales Manager</option>
                                             <option @if(session()->get('position') != null) {{ session()->get('position') == "Stock Controller" ? 'selected' :  '' }} value="Stock Controller" @endif>Stock Controller</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <label>Mobile number *</label>
                                         <input type="number" name="phone_number" value="{{ session()->get('phone_number') ?? old('phone_number') }}" >
                                     </div>
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <select name="hear_about_us" >
                                             <option value="">Select how you heard about us</option>
                                             <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Search engine" ? 'selected' :  '' }} value="Search engine" @endif >Search engine</option>
@@ -84,7 +84,7 @@
                                             <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Word of mouth" ? 'selected' :  '' }} value="Word of mouth" @endif>Word of mouth</option>
                                             <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Other" ? 'selected' :  '' }} value="Other" @endif>Other</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group radio-group">
                                         <label for="policy">
                                             <input type="radio" name="privacy_policy" value="1"  id="policy" checked>

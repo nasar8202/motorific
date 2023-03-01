@@ -49,17 +49,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-   // protected $redirectTo = RouteServiceProvider::HOME;
-   protected $redirectTo;
-   public function redirectTo()
-   {
-    $role =Auth::user()->role_id;
-       switch($role){
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo;
+    public function redirectTo()
+    {
+        $role = Auth::user()->role_id;
+        switch ($role) {
 
-           case 1:
-               $this->redirectTo = 'admin/dashboard';
-               return $this->redirectTo;
-               break;
+            case 1:
+                $this->redirectTo = 'admin/dashboard';
+                return $this->redirectTo;
+                break;
 
             case 2:
                 $this->redirectTo = 'seller/dashboard';
@@ -69,13 +69,13 @@ class RegisterController extends Controller
                 $this->redirectTo = 'dealer/dashboard';
                 return $this->redirectTo;
                 break;
-           default:
-               $this->redirectTo = '/login';
-               return $this->redirectTo;
-       }
+            default:
+                $this->redirectTo = '/login';
+                return $this->redirectTo;
+        }
 
-       // return $next($request);
-   }
+        // return $next($request);
+    }
     /**
      * Create a new controller instance.
      *
@@ -134,12 +134,12 @@ class RegisterController extends Controller
     // }
     public function create_user(Request $request)
     {
-        
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
             'email' => 'required|string|email|max:50|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
             'phone_number' => 'min:9|max:16',
-            
+
         ]);
 
         if ($validator->fails()) {
@@ -148,133 +148,130 @@ class RegisterController extends Controller
         $zip = ($request->post_code);
         $postcode = str_replace(' ', '', $zip);
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
-                
-        
-        try{
+
+        try {
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
-            
+// dd($result['results'][0]['formatted_address']);
             if (count($result['results']) != 0) {
-        $password = Str::random(10);
-         $user = new User;
-         $user->name = $request->name;
-         $user->email = $request->email;
-         $user->role_id = 2;
-         $user->post_code = $postcode;
-         $user->address = $result['results'][0]['formatted_address'];
-         $user->mile_age = $request->mile_age;
-         $user->phone_number = $request->phone_number;
-         $user->password = Hash::make($password);
-         $user->save();
-        
-         $credentials = [
-             'email' => $user->email,
-             'password' => $password,
-            ];
-        //     $abc = Auth::attempt(['email' => $user->email, 'password' => $password]);
+                $password = Str::random(10);
+                $user = new User;
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->role_id = 2;
+                $user->post_code = $postcode;
+                $user->address = $result['results'][0]['formatted_address'];
+                $user->mile_age = $request->mile_age;
+                $user->phone_number = $request->phone_number;
+                $user->password = Hash::make($password);
+                $user->save();
 
-        $details = [
-            'greeting' => $user->name,
-            'email'=>$user->email,
-            'body' => $password ,
-            'body1' => $user->post_code,
-            'body2' => $user->name,
-            'phone_number' => $user->phone_number,
-            'thanks' => 'Thank you for using Motorfic.com ',
-            'actionText' => 'Login',
-            'actionURL' => url('/dealer-login'),
-            'order_id' => 101
-        ];
-//   dd($details);
-        dispatch(new SellerDetail($details));
-        // Notification::send($user->email, new MyFirstNotification($details));
-        // $user->notify(new SellerDetailsNotification($details));
-        if($request->registeration_with_pass == "yes"){
-        if (Auth::attempt($credentials)) {
-                $currentUser = Auth::user()->id;
-        $vehicleCategories = vehicleCategories::all();
-        $VehicleFeature = VehicleFeature::all();
-        $NumberOfKeys =  NumberOfKey::where('status',1)->get();
-        $SeatMaterials =  SeatMaterial::where('status',1)->get();
-        $ToolPacks =  ToolPack::where('status',1)->get();
-        $LockingWheelNuts =  LockingWheelNut::where('status',1)->get();
-        $Smokings =  Smoking::where('status',1)->get();
-        $VCLogBooks =  VCLogBook::where('status',1)->get();
-        $VehicleOwners =  VehicleOwner::where('status',1)->get();
-        $PrivatePlates =  PrivatePlate::where('status',1)->get();
-        $Finances =  Finance::where('status',1)->get();
-        $user = User::find($currentUser);
-        $registeration = trim($request->registeration,' ');
+                $credentials = [
+                    'email' => $user->email,
+                    'password' => $password,
+                ];
+                //     $abc = Auth::attempt(['email' => $user->email, 'password' => $password]);
 
-        $curl = curl_init();
+                $details = [
+                    'greeting' => $user->name,
+                    'email' => $user->email,
+                    'body' => $password,
+                    'body1' => $user->post_code,
+                    'body2' => $user->name,
+                    'phone_number' => $user->phone_number,
+                    'thanks' => 'Thank you for using Motorfic.com ',
+                    'actionText' => 'Login',
+                    'actionURL' => url('/dealer-login'),
+                    'order_id' => 101
+                ];
+                //   dd($details);
+                dispatch(new SellerDetail($details));
+                // Notification::send($user->email, new MyFirstNotification($details));
+                // $user->notify(new SellerDetailsNotification($details));
+                if ($request->registeration_with_pass == "yes") {
+                    if (Auth::attempt($credentials)) {
+                        $currentUser = Auth::user()->id;
+                        $vehicleCategories = vehicleCategories::all();
+                        $VehicleFeature = VehicleFeature::all();
+                        $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
+                        $SeatMaterials =  SeatMaterial::where('status', 1)->get();
+                        $ToolPacks =  ToolPack::where('status', 1)->get();
+                        $LockingWheelNuts =  LockingWheelNut::where('status', 1)->get();
+                        $Smokings =  Smoking::where('status', 1)->get();
+                        $VCLogBooks =  VCLogBook::where('status', 1)->get();
+                        $VehicleOwners =  VehicleOwner::where('status', 1)->get();
+                        $PrivatePlates =  PrivatePlate::where('status', 1)->get();
+                        $Finances =  Finance::where('status', 1)->get();
+                        $user = User::find($currentUser);
+                        $registeration = trim($request->registeration, ' ');
 
-                curl_setopt_array($curl, array(
-                  CURLOPT_URL => "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
-                  CURLOPT_RETURNTRANSFER => true,
-                  CURLOPT_ENCODING => "",
-                  CURLOPT_MAXREDIRS => 10,
-                  CURLOPT_TIMEOUT => 0,
-                  CURLOPT_FOLLOWLOCATION => true,
-                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                  CURLOPT_CUSTOMREQUEST => "POST",
-                  CURLOPT_POSTFIELDS =>"{\n\t\"registrationNumber\": \"$registeration\"\n}",
-                  CURLOPT_HTTPHEADER => array(
-                    "x-api-key: XlMDFK2cy74gg0iIBYqFT9lgP4Zrul64aRVBpQC5",
-                    "Content-Type: application/json"
-                  ),
-                ));
+                        $curl = curl_init();
 
-                $response = curl_exec($curl);
-                $err = curl_error($curl);
-                curl_close($curl);
-                 //echo $response;
-                 $res = json_decode($response);
+                        curl_setopt_array($curl, array(
+                            CURLOPT_URL => "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
+                            CURLOPT_RETURNTRANSFER => true,
+                            CURLOPT_ENCODING => "",
+                            CURLOPT_MAXREDIRS => 10,
+                            CURLOPT_TIMEOUT => 0,
+                            CURLOPT_FOLLOWLOCATION => true,
+                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                            CURLOPT_CUSTOMREQUEST => "POST",
+                            CURLOPT_POSTFIELDS => "{\n\t\"registrationNumber\": \"$registeration\"\n}",
+                            CURLOPT_HTTPHEADER => array(
+                                "x-api-key: XlMDFK2cy74gg0iIBYqFT9lgP4Zrul64aRVBpQC5",
+                                "Content-Type: application/json"
+                            ),
+                        ));
 
-             //return $response;
-        // $res = $res['result'];
-        // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
-        // $date = $res['basic_vehicle_info']['first_registration_date'];
-        if( isset($res->registrationNumber) ){
-        $milage = $request->millage;
+                        $response = curl_exec($curl);
+                        $err = curl_error($curl);
+                        curl_close($curl);
+                        //echo $response;
+                        $res = json_decode($response);
 
-        // $res = Http::withHeaders([
-        //     'accept' => 'application/json',
-        //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-        // ])
-        // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
-        // ->json();
-        // if($res['success'] == 'false'){
-        //     return back()->with('error','Record not found');
-        // }
-        // $res = $res['result'];
-        // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
-        // $date = $res['basic_vehicle_info']['first_registration_date'];
-        //$milage = $request->millage;
-        // $milage= Http::withHeaders([
-        //     'accept' => 'application/json',
-        //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-        // ])
-        // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
-        // ->json();
-        // $milage = $milage['result'];
-        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
-        }else{
-            return back()->with('error','Record not found');
-        }
-    }
-            else{
-                return redirect()->route('seller')->with('success','Register Successfully!');
+                        //return $response;
+                        // $res = $res['result'];
+                        // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
+                        // $date = $res['basic_vehicle_info']['first_registration_date'];
+                        if (isset($res->registrationNumber)) {
+                            $milage = $request->millage;
+
+                            // $res = Http::withHeaders([
+                            //     'accept' => 'application/json',
+                            //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+                            // ])
+                            // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
+                            // ->json();
+                            // if($res['success'] == 'false'){
+                            //     return back()->with('error','Record not found');
+                            // }
+                            // $res = $res['result'];
+                            // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
+                            // $date = $res['basic_vehicle_info']['first_registration_date'];
+                            //$milage = $request->millage;
+                            // $milage= Http::withHeaders([
+                            //     'accept' => 'application/json',
+                            //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
+                            // ])
+                            // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
+                            // ->json();
+                            // $milage = $milage['result'];
+                            return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'user'));
+                        } else {
+                            return back()->with('error', 'Record not found');
+                        }
+                    } else {
+                        return redirect()->route('seller')->with('success', 'Register Successfully!');
+                    }
+                } else {
+                    return redirect()->route('myLogin')->with('success', 'Register Successfully. Check Your Email For Password To Login!');
+                }
+            } else {
+                return back()->with('error', 'Enter The Right Post Code');
             }
+        } catch (\Exception $e) {
+            return $e;
+            return back()->with('error', 'Enter The Right Post Code');
         }
-        else{
-            return redirect()->route('myLogin')->with('success','Register Successfully. Check Your Email For Password To Login!');
-        }
-    } else {
-        return back()->with('error', 'Enter The Right Post Code');
-    }
-    }catch(\Exception $e)
-    {
-        return back()->with('error', 'Enter The Right Post Code');
-    }
     }
 }
