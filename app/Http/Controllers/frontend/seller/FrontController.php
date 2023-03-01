@@ -20,17 +20,18 @@ use App\Models\VehicleFeature;
 use App\Models\LockingWheelNut;
 use App\Models\VehicleExterior;
 use App\Models\VehicleInterior;
+use App\Mail\SellerVehicleAdded;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Models\vehicleConditionAndDamage;
-use Illuminate\Support\Facades\Log;
 
 class FrontController extends Controller
 {
@@ -342,7 +343,8 @@ class FrontController extends Controller
         DB::beginTransaction();
         try{
 
-
+            $users = User::where('id',$request->user_id)->first();
+            // dd($users);
             $vehicle = new Vehicle;
             $vehicle->user_id = $request->user_id;
             $vehicle->vehicle_registartion_number = $request->RegisterationNumber;
@@ -359,6 +361,7 @@ class FrontController extends Controller
 
             $vehicle->save();
 
+            
 
             $interior_detail = new VehicleInterior;
             $interior_detail->vehicle_id = $vehicle->id;
@@ -451,10 +454,32 @@ class FrontController extends Controller
                 $VehicleImage->dashboard = $dashboard;
                 $VehicleImage->save();
 
+                $originalDate = $vehicle->created_at;
+                $winDate = date("d F Y ", strtotime($originalDate));
+                $winTime = date("H:i:s a", strtotime($originalDate));
+
+                $users = User::where('id',$request->user_id)->first();
+
+                $data = ([
+                    'name' => $users->name,
+                    'email' => $users->email,
+                    'date' => $winDate.' at '.$winTime,
+                    'vehicle_registration'=>$request->RegisterationNumber,
+                    'vehicle_name'=>$request->VehicleName,
+                    'vehicle_mileage'=>$request->VehicleMileage,
+                    'front'=> $front,
+                    'colour'=>$vehicle->vehicle_color,
+                    'bidded_price'=>$request->VehiclePrice??"No Price Yet!",
+                    'age'=>$request->VehicleYear,
+    
+                ]);
+                Mail::to($users->email)->send(new SellerVehicleAdded($data));
+
+
         }catch(\Exception $e)
         {
             DB::rollback();
-           //return $e;
+        //    return $e;
             return Redirect()->back()
                 ->with('error',$e->getMessage() )
                 ->withInput();

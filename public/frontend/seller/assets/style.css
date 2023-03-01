@@ -2469,6 +2469,10 @@ header.thnkPage .dropdown-toggle {
     font-size: 24px;
 }
 
-
+ol.tagLines {
+    margin: 20px 0 0;
+    list-style-position: inside;
+    padding: 0;
+}
 
 /* End */
