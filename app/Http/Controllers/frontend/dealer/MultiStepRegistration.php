@@ -54,11 +54,11 @@ class MultiStepRegistration extends Controller
             'name' => 'required|Regex:/^[\D]+$/i|max:100|min:5',
             'password' => 'required',
             'company_name' => 'required|Regex:/^[\D]+$/i|max:500|min:5',
-            'position' => 'required',
+            // 'position' => 'required',
             'phone_number' => 'required|max:16|min:11',
 
             'email' => 'required|email|max:255|unique:users',
-            'hear_about_us' => 'required',
+            // 'hear_about_us' => 'required',
             'privacy_policy' => 'required'
         ]);
 
@@ -94,8 +94,10 @@ class MultiStepRegistration extends Controller
             'city' => 'required',
             'postcode' => 'required',
             'company_type' => 'required',
-            'website' => 'url|max:256',
+            'website' => 'max:256',
             'company_phone' => 'required',
+            // 'dealer_identity_card' => 'required',
+            // 'dealer_documents' => 'required',
         ]);
 
         $zip =  str_replace(' ', '',$request->postcode);
@@ -124,11 +126,108 @@ class MultiStepRegistration extends Controller
                     $register->fill($validatedData);
                     $request->session()->put('register', $register);
                 }
-                return redirect()->route('register.create.step.3');
+                
+            if (empty($request->session()->get('register'))) {
+                $register = new UserDetail();
+                $register->fill($validatedData);
+    
+                $request->session()->put('register', $register);
+            } else {
+                $register = $request->session()->get('register');
+                $register->fill($validatedData);
+                $request->session()->put('register', $register);
+            }
+    
+    
+            $register = $request->session()->get('register');
+            $request->session()->put('register', $register);
+            // dd($request->session()->put('register', $register));
+            $user = new User();
+            $user->email = $request->session()->get('email');
+            $user->name = $request->session()->get('name');
+            $user->password = Hash::make($request->session()->get('password'));
+            $user->company_name = $request->session()->get('company_name');
+            $user->position = $request->session()->get('position');
+            $user->hear_about_us = $request->session()->get('hear_about_us');
+            $user->phone_number = $request->session()->get('phone_number');
+            $user->privacy_policy = $request->session()->get('privacy_policy');
+            $user->post_code = $request->session()->get('postcode');
+            $user->status = 0;
+            $user->role_id = 3;
+            //dd($register->email);
+            $user->save();
+    
+            $user_id = $user->id;
+    
+           
+    
+            
+            $user_detail  = new UserDetail();
+            $user_detail->user_id = $user_id;
+            $user_detail->address_line_1 = $request->session()->get('address_line_1');
+            $user_detail->address_line_2 = $request->session()->get('address_line_2');
+            $user_detail->city = $request->session()->get('city');
+            $user_detail->postcode = $request->session()->get('postcode');
+            $user_detail->company_type = $request->session()->get('company_type');
+            $user_detail->website = $request->session()->get('website');
+            $user_detail->company_phone = $request->session()->get('company_phone');
+            $user_detail->lowest_purchase_price = 111;
+            $user_detail->highest_purchase_price = 111;
+            $user_detail->age_range_from = 1;
+            $user_detail->age_range_to = 2;
+            $user_detail->mileage_from = 1;
+            $user_detail->mileage_to = 2;
+
+            if(!empty($request->file('dealer_identity_card')) && !empty($request->file('dealer_documents'))){
+                $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
+                $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
+                
+                $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
+                $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
+    
+    
+                $user_detail->dealer_identity_card = $dealer_identity_card;
+                $user_detail->dealer_documents = $dealer_documents;
+            }
+           
+            $user_detail->how_far_distance = 2;
+            $user_detail->purchase_each_month_vehicles = 2;
+            // if ($request->input('all_makes') == 'all_makes') {
+            //     $user_detail->all_makes = $request->session()->get('all_makes');
+            // } else {
+            //     $implode_data = implode(",", $request->session()->get('specific_makes'));
+            //     $user_detail->specific_makes = $implode_data;
+            // }
+            // $user_detail->any_thing_else = $request->session()->get('any_thing_else');
+    
+            $user_detail->save();
+    
+            Session::flush();
+    
+            $details = [
+                'greeting' => 'New Request Dealer Name :' . $user->name . " And  Email :" . $user->email,
+                'body' => 'New Dealer Request Please Check Details',
+                'thanks' => 'Thank you for using Motorfic.com',
+                'actionText' => 'View New Dealers Request',
+                'actionURL' => url('/requests-dealers'),
+                'order_id' => 101
+            ];
+            $email = User::where('role_id', 1)->first();
+            $data = ([
+                'name' => $user->name,
+                'email' => $user->email,
+    
+            ]);
+            Mail::to($email)->send(new WelcomeDealerRegistrationRequestMail($data));
+            // Notification::send($user->email, new MyFirstNotification($details));
+            //$user->notify(new NewDealerRequestNotification($details));
+            return redirect()->route('DealerLogin')->with("success", "Account Create Successfully! Waiting For Admin Approval");
+                //return redirect()->route('register.create.step.3');
             } else {
                 return back()->with('error', 'Enter The Right Post Code');
             }
         } catch (\Exception $e) {
+            // return $e;
             return back()->with('error', 'Enter The Right Post Code');
         }
     }
@@ -196,6 +295,10 @@ class MultiStepRegistration extends Controller
     
             $user_id = $user->id;
     
+            $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
+            $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
+
+
             $user_detail  = new UserDetail();
             $user_detail->user_id = $user_id;
             $user_detail->address_line_1 = $request->session()->get('address_line_1');

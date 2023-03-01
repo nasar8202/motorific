@@ -30,10 +30,10 @@
                             <ul id="progressbar">
                                 <li class="active" id="account"><strong>Your details</strong></li>
                                 <li id="personal"><strong>Dealership details</strong></li>
-                                <li id="payment"><strong>Purchasing requirements</strong></li>
+                                {{-- <li id="payment"><strong>Purchasing requirements</strong></li> --}}
                             </ul>
                             <!-- fieldsets -->
-                            <form id="msform" action="{{ route('register.post.step.2') }}" method="POST">
+                            <form id="msform" action="{{ route('register.post.step.2') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                             <fieldset>
                                 <div class="form-card">
@@ -76,13 +76,22 @@
                                         <label>Company phone *</label>
                                         <input type="number" name="company_phone"  placeholder="Enter Phone Number" value="{{ session()->get('company_phone') ?? old('company_phone') }}" required>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Upload ID Card</label>
+                                        <input type="file" name="dealer_identity_card" >
+                                            
+                                    </div>
+                                    <div>
+                                        <label for="documents">Upload Documents</label>
+                                        <input type="file" name="dealer_documents" >
+                                    </div>
                                 </div>
                                 {{-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="button" name="next" class="next action-button" value="Next Step"/> --}}
                                 {{-- <button type="submit" name="next" class="next action-button">Next Step</button>
                                 <button type="submit"  href="{{ route('signup') }}" name="previous" class="previous action-button-previous">Previous</button> --}}
-                                <a type="button" href="{{ route('signup') }}" class="btn btn-warning">Back to Step 1</a>
-                                <button type="submit" class="btn btn-primary">Continue</button>
+                                {{-- <a type="button" href="{{ route('signup') }}" class="btn btn-warning">Back to Step 1</a> --}}
+                                <button type="submit" class="btn btn-success">Submit</button>
                             </fieldset>
 
                         </form>

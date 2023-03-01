@@ -32,7 +32,7 @@
                                 <li id="payment"><strong>Purchasing requirements</strong></li>
                             </ul>
                             <!-- fieldsets -->
-                            <form id="msform" action="{{ route('register.post.step.3') }}" method="POST">
+                            <form id="msform" action="{{ route('register.post.step.3') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                             <fieldset>
                                 <div class="form-card">
