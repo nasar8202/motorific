@@ -67,6 +67,10 @@ Route::get('test-no', function () {
 
 	return view('testnotif');
 });
+
+//thank you registration
+Route::get('/seller-registration-thankyou', [RegisterController::class,'sellerRegistrationThankyou'])->name('sellerRegistrationThankyou');
+//end
 // how it works for dealer
 Route::get('/how-it-work', [HowItWorksController::class,'howItWorksforSeller'])->name('howItWorksforSeller');
 Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews');

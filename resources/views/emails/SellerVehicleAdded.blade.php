@@ -165,7 +165,7 @@
           </div>
         </div>
         <div class="mail-content">
-          <h2>Youur car added Successfully!</h2>
+          <h2>Your car added Successfully!</h2>
           <p>Hi {{ $data['name'] }}!</p>
           <p>
             Congratulations - Your Vehicle Added Successfully wait for admin approvel!

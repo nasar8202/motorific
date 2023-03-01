@@ -132,6 +132,10 @@ class RegisterController extends Controller
     //     // }
     //     return $user;
     // }
+    public function sellerRegistrationThankyou()
+    {
+        return view('frontend.seller.sellerRegistrationThankyou');
+    }
     public function create_user(Request $request)
     {
 
@@ -264,7 +268,7 @@ class RegisterController extends Controller
                         return redirect()->route('seller')->with('success', 'Register Successfully!');
                     }
                 } else {
-                    return redirect()->route('myLogin')->with('success', 'Register Successfully. Check Your Email For Password To Login!');
+                    return redirect()->route('sellerRegistrationThankyou')->with('success', 'Register Successfully. Check Your Email For Password To Login!');
                 }
             } else {
                 return back()->with('error', 'Enter The Right Post Code');
