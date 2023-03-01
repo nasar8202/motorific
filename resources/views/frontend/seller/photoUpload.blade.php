@@ -2401,7 +2401,7 @@ display: block;
                                 <div class="photo-up-sec-2-vi-bnch-btns">
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
                                         <button type="button" class="prevBtn">PREVIOUS</button>
-                                        <button type="button" class="submitVehicleInfo-qa">SUBMIT</button>
+                                        <!--<button type="button" class="submitVehicleInfo-qa">SUBMIT</button>-->
                                     </div>
                                 </div>
                             </div>
@@ -3100,12 +3100,12 @@ $("#store").click(function(){
         });
         
         // SYBMIT SUMMARY STEP 
-        $('.submitVehicleInfo-qa').on('click', function(){
-            myFunction2()
-            $('#startBtn-vehicleInfo').text('Edit')
-            $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
-            $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
-        });
+        // $('.submitVehicleInfo-qa').on('click', function(){
+        //     myFunction2()
+        //     $('#startBtn-vehicleInfo').text('Edit')
+        //     $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
+        //     $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
+        // });
         
         
         // Modal Open Close of Vehicle Form
