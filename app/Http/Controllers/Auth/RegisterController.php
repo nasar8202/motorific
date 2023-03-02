@@ -268,7 +268,8 @@ class RegisterController extends Controller
                         return redirect()->route('seller')->with('success', 'Register Successfully!');
                     }
                 } else {
-                    return redirect()->route('sellerRegistrationThankyou')->with('success', 'Register Successfully. Check Your Email For Password To Login!');
+                    return view('frontend.seller.sellerRegistrationThankyou');
+                    //return redirect()->route('sellerRegistrationThankyou')->with('success', 'Register Successfully. Check Your Email For Password To Login!');
                 }
             } else {
                 return back()->with('error', 'Enter The Right Post Code');
