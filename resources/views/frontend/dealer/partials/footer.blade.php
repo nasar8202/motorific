@@ -7,63 +7,54 @@
             <div class="footer-sub about">
                 <h5>About</h5>
                 <ul>
-                    <a href="#">
-                        <li>About us</li>
-                    </a>
-                    <a href="#">
-                        <li>Contact us</li>
-                    </a>
-                    <a href="#">
-                        <li>Press</li>
-                    </a>
-                    <a href="#">
-                        <li>Careers</li>
-                    </a>
+                    <li>
+                        <a href="#">About us</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact us</a>
+                    </li>
+                    <li>
+                        <a href="#">Press</a>
+                    </li>
+                    <li>
+                        <a href="#">Careers</a>
+                    </li>
                 </ul>
             </div>
             <div class="footer-sub product">
                 <h5>Product</h5>
                 <ul>
-                    <a href="#">
-                        <li>Sell my car</li>
-                    </a>
-                    <a href="#">
-                        <li>Sell my van</li>
-                    </a>
-                    <a href="#">
-                        <li>Car buyers</li>
-                    </a>
-                    <a href="#">
-                        <li>Cash for cars</li>
-                    </a>
-                    <a href="#">
-                        <li>Car Valuation</li>
-                    </a>
-                    <a href="#">
-                        <li>Who will buy my car?</li>
-                    </a>
+                    <li>
+                        <a href="#">Sell my car</a>
+                    </li>
+                    <li>
+                        <a href="#">Sell my van</a>
+                    </li>
+                    <li>
+                        <a href="#">Car buyers</a>
+                    </li>
+                    <li>
+                        <a href="#">Cash for cars</a>
+                    </li>
+                    <li>
+                        <a href="#">Car Valuation</a>
+                    </li>
+                    <li>
+                        <a href="#">Who will buy my car?</a>
+                    </li>
                 </ul>
             </div>
             <div class="footer-sub product-2">
                 <ul>
-                    <a href="">
-                        <li>Car buying sites</li>
-                    </a>
-                    <a href="">
-                        <li>Scrap my car</li>
-                    </a>
-                    <a href="">
-                        <li>Sell to a dealer</li>
-                    </a>
-                    <a href="">
-                        <li>Sell on finance</li>
-                    </a>
-                    <a href="">
-                        <li>ULEZ checker</li>
-                    </a>
-                    <a href="">
-                        <li>Sell my electric car</li>
-                    </a>
+                    <li>
+                        <a  href="#">Car buying sites</a>
+                    </li>
+                    <li>
+                        <a href="#">Sell to a dealer</a>
+                    </li>
+                    <li>
+                        <a href="#">Sell my electric car</a>
+                    </li>
                 </ul>
             </div>
             <div class="footer-sub contact">

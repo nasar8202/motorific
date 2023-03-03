@@ -159,16 +159,13 @@
                 <div class="sec-1-txt col-lg-6">
                     <h2>Sell your car the
                         with <span>Motorific</span></h2>
-                        <ol class="tagLines">
-                            <li>Get the best deals for your wheels with Motorific </li>
-                            <li>Unlock the true value of your car with Motorific</li>
-                            <li>Sell your car hassle-free and fast with Motorific</li>
-                            <li>Maximize your car's value with Motorific</li>
-                        </ol>
+                        
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p>Get the highest possible sale price for your vehicle with minimal effort. 5000+ verified dealers await to give you the best offer!</p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
-                        <span class="text text-success mt-4 found">Enter Milage <i class="fa-solid fa-check"></i></span>
+
+                        <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
+
                         <br>
                         <input type="number" name="millage" placeholder="Enter Millage" required>
                         <input type="hidden" name="registeration" class="registeration" value="">
@@ -190,70 +187,79 @@
                     <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
                 </div>
             </div>
+            <ol class="tagLines">
+                <li>Get the best deals for your wheels with Motorific </li>
+                <li>Unlock the true value of your car with Motorific</li>
+                <li>Sell your car hassle-free and fast with Motorific</li>
+                <li>Maximize your car's value with Motorific</li>
+            </ol>
         </div>
     </section>
-    <section class="" id="vehicle_registration_details"></section>
+    <!--<section class="" id="vehicle_registration_details"></section>-->
     <!-- SECTION-2 -->
 
     <section class="sec-2">
         <div class="container-1151">
-            <div class="sec-2-txt pb-4">
-                <h2>Just sold the <span>Motorific</span> way</h2>
-                <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
-            </div>
+            <!--<div class="sec-2-txt pb-4">-->
+            <!--    <h2>Just sold the <span>Motorific</span> way</h2>-->
+            <!--    <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+
+                
+            <!--    <div class="col-lg-4 col-md-6">-->
+            <!--        <div class="box">-->
+            <!--            <h4>Sold by Sydney</h4>-->
+            <!--            <div class="box-img">-->
+            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-1.png') }}" alt="">-->
+            <!--            </div>-->
+            <!--            <h5>Mercedes C180 KOMP Avantgarde...,</h5>-->
+            <!--            <div class="d-flex justify-content-between">-->
+            <!--                <p>Sold for £1,400</p>-->
+            <!--                <h5>a day ago</h5>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+
+                
+            <!--    <div class="col-lg-4 col-md-6">-->
+            <!--        <div class="box">-->
+            <!--            <h4>Sold by Sydney</h4>-->
+            <!--            <div class="box-img">-->
+            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-2.png') }}" alt="">-->
+            <!--            </div>-->
+            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
+            <!--            <div class="d-flex justify-content-between">-->
+            <!--                <p>Sold for £1,400</p>-->
+            <!--                <h5>a day ago</h5>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+
+                 
+            <!--    <div class="col-lg-4 col-md-6 mx-auto">-->
+            <!--        <div class="box">-->
+            <!--            <h4>Sold by Sydney</h4>-->
+            <!--            <div class="box-img">-->
+            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-3.png') }}" alt="">-->
+            <!--            </div>-->
+            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
+            <!--            <div class="d-flex justify-content-between">-->
+            <!--                <p>Sold for £1,400</p>-->
+            <!--                <h5>a day ago</h5>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+
+            <!--</div>-->
+
+            
             <div class="row">
-
-                <!-- BOX-1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="box">
-                        <h4>Sold by Sydney</h4>
-                        <div class="box-img">
-                            <img src="{{ URL::asset('frontend/seller/assets/image/box-1.png') }}" alt="">
-                        </div>
-                        <h5>Mercedes C180 KOMP Avantgarde...,</h5>
-                        <div class="d-flex justify-content-between">
-                            <p>Sold for £1,400</p>
-                            <h5>a day ago</h5>
-                        </div>
+                <div class="col-12">
+                    <div class="how-work">
+                        <h3>How it works</h3>
                     </div>
                 </div>
-
-                <!-- BOX-2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="box">
-                        <h4>Sold by Sydney</h4>
-                        <div class="box-img">
-                            <img src="{{ URL::asset('frontend/seller/assets/image/box-2.png') }}" alt="">
-                        </div>
-                        <h5>Mercedes C180 KOMP. Avantgarde…,</h5>
-                        <div class="d-flex justify-content-between">
-                            <p>Sold for £1,400</p>
-                            <h5>a day ago</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BOX-3 -->
-                <div class="col-lg-4 col-md-6 mx-auto">
-                    <div class="box">
-                        <h4>Sold by Sydney</h4>
-                        <div class="box-img">
-                            <img src="{{ URL::asset('frontend/seller/assets/image/box-3.png') }}" alt="">
-                        </div>
-                        <h5>Mercedes C180 KOMP. Avantgarde…,</h5>
-                        <div class="d-flex justify-content-between">
-                            <p>Sold for £1,400</p>
-                            <h5>a day ago</h5>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="how-work">
-                <h3>How it works</h3>
-            </div>
-            <div class="row">
                 <div class="howitwork-main col-lg-3 col-md-3">
                     <div class="step-nmbr">
                         <h5>1</h5>

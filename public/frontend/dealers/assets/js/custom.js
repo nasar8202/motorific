@@ -1,3 +1,5 @@
+
+
 // Producst Card Equal Height
 $(document).ready(function () {
   $('.product-card').matchHeight();

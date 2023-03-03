@@ -154,7 +154,7 @@
                                     <div class="container">
                                     <center><h5 type="button" >You Have Succesfully Purchase This Vehicle ?</h5>
                                   @if($allVehicles->all_auction == null)
-                                    <a href="{{route('BidedStatus',$allVehicles->id)}}"> <span class="badge bg-success">Yes ✓</span></center></a>
+                                    <a href="{{route('BidedStatus',$allVehicles->id)}}"> <span class="badge bg-success btn" role="button">Confirm Purchase ✓</span></center></a>
                                     @else
                                     <a href="{{route('requestedOrderStatus',$allVehicles->id)}}"> <span class="badge bg-success">Yes ✓</span></center></a>
                                     @endif
