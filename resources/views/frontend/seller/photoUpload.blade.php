@@ -2236,6 +2236,49 @@ display: block;
                             </div>
                             <!--End-->
 
+                              <!--Vehicle History-->
+                              <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="VehicleHistory">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Vehicle History</h3>
+                                <p>How much service history does your car have?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-12 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                           @foreach($VehicleHistories as $key=> $VehicleHistory)
+                                            <label for="radio-isVehicleHistory-true-{{$key}}">
+                                                <input type="radio"  name="VehicleHistory" class="VehicleHistory" value="{{$VehicleHistory->id}}" @if($VehicleHistory->id == session()->get('VehicleHistory')) checked @endif id="radio-isVehicleCategory-true-{{$key}}" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>{{$VehicleHistory->title}}</p>
+                                                </div>
+                                            </label>
+                                            @endforeach
+                                            {{-- <label for="radio-isVehicleOnFinance-false">
+                                                <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>Not on finance</p>
+                                                </div>
+                                            </label> --}}
+                                        </div>
+                                        @if ($errors->has('VehicleHistory'))
+                                        <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
+                                    @endif
+                                    </div>
+                                    {{-- <div class="col-lg-5">
+                                        <div class="info-box">
+                                            <p>If your vehicle currently has any finance remaining, whether PCP or HP, or any other type of loan or finance, please select “On finance”.</p>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtnFinaceToPrivatePlate">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn" >NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End-->
+
                             <!--7 Search-->
                             <div class="vehicleSteps" data-id="VehicleLocation">
                                 <h3>Vehicle location</h3>
@@ -2754,6 +2797,9 @@ $("#store").click(function(){
     var vehicleOwner = $(".vehicleOwner:checked").val();
     var privatePlate = $(".privatePlate:checked").val();
     var finance = $(".finance:checked").val();
+    var VehicleHistory = $(".VehicleHistory:checked").val();
+
+    
 
     console.log(the_value);
     console.log(seatMaterial);
@@ -2766,6 +2812,7 @@ $("#store").click(function(){
     console.log(vehicleOwner);
     console.log(privatePlate);
     console.log(finance);
+    console.log(VehicleHistory);
 
      $.ajax({
 
@@ -2776,7 +2823,7 @@ $("#store").click(function(){
             },
             data: {the_value:the_value,seatMaterial:seatMaterial,numberOfKeys:numberOfKeys,
                 toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,
-                vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance
+                vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance,VehicleHistory:VehicleHistory
             },
 
             success: function(response){
@@ -2794,6 +2841,7 @@ $("#store").click(function(){
                 var VehicleOwners = response.VehicleOwners;
                 var PrivatePlates = response.PrivatePlates;
                 var Finances = response.Finances;
+                var VehicleHistory = response.VehicleHistory;
                 // console.log(SeatMaterials.title);
                 $.each(vehicleResponse,function(vehicleResponse,row){
                     vehicledata+='<p>'+row.title+'</p>';
@@ -2829,6 +2877,9 @@ $("#store").click(function(){
 
                 $("#FinanceFinal").html('');
                 $("#FinanceFinal").html(Finances.title);
+
+                $("#FinanceFinal").html('');
+                $("#FinanceFinal").html(VehicleHistory.title);
             },
 
 

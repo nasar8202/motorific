@@ -40,7 +40,7 @@
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Phone Number : {{ $details['phone_number'] }}</p>
 
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Post Code : {{ $details['body1'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Your Password Is :{{ $details['body'] }}</p>
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Your Password Is: {{ $details['body'] }}</p>
                     {{-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Front Image Of Vehicle
                       <img width="200px" height="200px"  src="{{ asset('/vehicles/vehicles_images/'.$data['front'])}}"/>
                     </p> --}}

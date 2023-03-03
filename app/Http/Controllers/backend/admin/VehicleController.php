@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\backend\admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Finance;
+use App\Models\Smoking;
+use App\Models\ToolPack;
+use App\Models\VCLogBook;
+use App\Models\NumberOfKey;
+use App\Models\PrivatePlate;
+use App\Models\SeatMaterial;
+use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
-use App\Models\SeatMaterial;
-use App\Models\NumberOfKey;
-use App\Models\ToolPack;
 use App\Models\LockingWheelNut;
-use App\Models\Smoking;
-use App\Models\VCLogBook;
-use App\Models\VehicleOwner;
-use App\Models\Finance;
-use App\Models\PrivatePlate;
-use DB;
 use App\Models\vehicleInformation;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\VehicleHistory;
 
 class VehicleController extends Controller
 {
@@ -82,11 +83,21 @@ class VehicleController extends Controller
 
         return view('backend.admin.vehicles.viewFinance',compact('viewFinances'));
     }
+    public function viewVehicleHistory()
+    {
+        $viewVehicleHistories = VehicleHistory::where('status',1)->orderBy('id', 'DESC')->get();
 
+        return view('backend.admin.vehicles.viewVehicleHistory',compact('viewVehicleHistories'));
+    }
     public function createVehicleFeatureForm()
     {
 
         return view('backend.admin.vehicles.createVehicleFeatureForm');
+    }
+    public function createVehicleHistoryForm()
+    {
+
+        return view('backend.admin.vehicles.createVehicleHistoryForm');
     }
     public function createNumberOfkeysForm()
     {
@@ -225,6 +236,29 @@ class VehicleController extends Controller
         return redirect()->route('viewFinance')->with('success', 'Finance added  Successfully!');
 
     }
+    
+    public function storeVehicleHistory(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required|max:256'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            VehicleHistory::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewVehicleHistory')->with('success', 'Vehicle History added  Successfully!');
+
+    }
+
     public function storeNumberOfKeys(Request $request)
     {
         $request->validate([

@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Models\vehicleConditionAndDamage;
+use App\Models\VehicleHistory;
 
 class FrontController extends Controller
 {
@@ -196,7 +197,7 @@ class FrontController extends Controller
     //multistep question form submition code start
     public function vehicleInformation(Request $request)
     {
-        // dd($request->all());
+         dd($request->all());
         // $feature = implode($request->the_value, ',');
 
         $request->session()->put('vehicle_feature',$request->the_value);
@@ -290,6 +291,7 @@ class FrontController extends Controller
 
     public function createVehicle(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             // 'RegisterationNumber' => 'required',
             // 'VehicleName' => 'required',
@@ -418,6 +420,7 @@ class FrontController extends Controller
             $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
             $vehicleInformation->private_plate_id =  $request->private_plate;
             $vehicleInformation->finance_id =  $request->finance;
+            $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
             // $vehicleInformation->interior =  $request->interior;
             // $vehicleInformation->body_type =  $request->body_type;
@@ -479,7 +482,7 @@ class FrontController extends Controller
         }catch(\Exception $e)
         {
             DB::rollback();
-        //    return $e;
+           // return $e;
             return Redirect()->back()
                 ->with('error',$e->getMessage() )
                 ->withInput();
@@ -552,6 +555,7 @@ class FrontController extends Controller
         $VehicleOwners =  VehicleOwner::where('status',1)->get();
         $PrivatePlates =  PrivatePlate::where('status',1)->get();
         $Finances =  Finance::where('status',1)->get();
+        $VehicleHistories =  VehicleHistory::where('status',1)->get();
         $user = User::find($currentUser);
         $registeration = trim($request->registeration,' ');
         // $res = Http::withHeaders([
@@ -611,7 +615,7 @@ class FrontController extends Controller
             ->with('error',$e->getMessage() )
             ->withInput();
     }
-        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','user'));
+        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','VehicleHistories','user'));
     }
     public function registration()
     {

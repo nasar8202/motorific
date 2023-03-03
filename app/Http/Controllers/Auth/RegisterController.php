@@ -23,6 +23,7 @@ use App\Http\Controllers\Controller;
 use App\Models\UserDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Http;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -138,7 +139,7 @@ class RegisterController extends Controller
     }
     public function create_user(Request $request)
     {
-
+        
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
             'email' => 'required|string|email|max:50|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',

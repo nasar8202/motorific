@@ -168,7 +168,7 @@
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p>Get the highest possible sale price for your vehicle with minimal effort. 5000+ verified dealers await to give you the best offer!</p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
-                        <span class="text text-success mt-4 found">Vehicle Is Found <i class="fa-solid fa-check"></i></span>
+                        <span class="text text-success mt-4 found">Enter Milage <i class="fa-solid fa-check"></i></span>
                         <br>
                         <input type="number" name="millage" placeholder="Enter Millage" required>
                         <input type="hidden" name="registeration" class="registeration" value="">

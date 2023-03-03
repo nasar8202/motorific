@@ -1,4 +1,4 @@
-@extends('backend.superadmin.layouts.app')
+@extends('backend.agents.layouts.app')
 @section('title','Dashboard')
 @section('secton')
 <header class="mb-3">
