@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\backend\superadmin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Role;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\RolePermissionStoreRequest;
-use DB;
-class SuperAdminDashboardController extends Controller
+class AgentsDashboardController extends Controller
 {
-    public function superadmin()
+    public function agent()
     {
-        return view('backend.superadmin.dashboard');
+        return view('backend.agents.dashboard');
     }
     public function RoleForm()
     {

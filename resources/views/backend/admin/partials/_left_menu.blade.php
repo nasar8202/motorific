@@ -80,6 +80,9 @@
                     <li class="submenu-item">
                         <a href="{{ route('viewFinance') }}">Finance</a>
                     </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewVehicleHistory') }}">Vehicle History</a>
+                    </li>
                 </ul>
             </li>
            
@@ -206,6 +209,24 @@
             
         </a>
     </li>
+
+    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Register Selles Person</span>
+        </a>
+        <ul class="submenu" style="display:{{ (Request::is('admin') || request()->IS('admin/register-sell-person') || request()->IS('admin/view-seller-persons') ? 'block' : '') }}">
+            <li class="submenu-item {{ request()->IS('admin/register-sell-person') ? 'active' : '' }}">
+                <a href="{{ route('createSellesPersonForm') }} ">Add Selles Person</a>
+            </li>
+            <li class="submenu-item {{ request()->IS('admin/view-seller-persons') ? 'active' : '' }}">
+                <a href="{{ route('viewSellerPersons') }}">View Seller Persons</a>
+            </li>
+            
+        </ul>
+    </li>
+
+
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>
             <div class="icon dripicons-exit"></div>

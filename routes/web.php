@@ -5,10 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\backend\admin\VehicleController;
-use App\Http\Controllers\frontend\seller\FrontController;
-
 use App\Http\Controllers\frontend\NewsletterSubscribers;
+use App\Http\Controllers\backend\admin\VehicleController;
+
+use App\Http\Controllers\frontend\seller\FrontController;
 
 
 use App\Http\Controllers\frontend\dealer\PricingController;
@@ -27,6 +27,7 @@ use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
+use App\Http\Controllers\backend\superadmin\AgentsDashboardController;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\meetings\CancelVehicleController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
@@ -36,6 +37,7 @@ use App\Http\Controllers\frontend\dealer\vehicle\AddDealerVehicleController;
 use App\Http\Controllers\backend\admin\dealerVehicle\DealerVehicleController;
 use App\Http\Controllers\backend\admin\vehicleCharges\PricingChargesController;
 use App\Http\Controllers\frontend\dealer\dealerCharges\DealerChargesController;
+use App\Http\Controllers\backend\admin\sellesPerson\ManageSellesPersonController;
 use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesController;
 use App\Http\Controllers\frontend\dealer\orderRequest\OrderVehicleRequestController;
 use App\Http\Controllers\frontend\dealer\dealerOrderRequest\DealerOrderRequestController;
@@ -146,6 +148,21 @@ Route::post('reset-password', [FrontController::class, 'submitResetPasswordForm'
 
 // start admin panel routes
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
+
+    
+     // register selles person
+     Route::get('/view-seller-persons', [ManageSellesPersonController::class,'viewSellerPersons'])->name('viewSellerPersons');
+     Route::get('/register-sell-person', [ManageSellesPersonController::class,'createSellesPersonForm'])->name('createSellesPersonForm');
+     Route::post('/store-selles-person', [ManageSellesPersonController::class, 'StoreSellesPerson'])->name('StoreSellesPerson');
+    //  Route::get('/find-vehicle', [ManageVehicleController::class, 'findVehicle'])->name('findVehicle');
+      Route::get('/edit-selles-person/{id}', [ManageSellesPersonController::class,'sellesPersonEdit'])->name('sellesPersonEdit');
+       Route::post('/edit-selles-person', [ManageSellesPersonController::class,'updateSellePerson'])->name('updateSellePerson');
+       Route::get('/block-sell-person/{id}', [ManageSellesPersonController::class,'blockSellesPerson'])->name('blockSellesPerson');
+       Route::get('/unblock-sell-person/{id}', [ManageSellesPersonController::class,'unBlockSellesPerson'])->name('unBlockSellesPerson');
+    //  Route::get('/approve-vehicle/{id}', [ManageVehicleController::class,'approveVehicle'])->name('approveVehicle');
+    //  // end vehcile
+
+
     Route::get('/dashboard', [AdminDashboardController::class,'admin'])->name('admin');
     Route::get('/requests-dealers', [AdminDashboardController::class,'viewDealers'])->name('ViewDealers');
     Route::get('/approve-dealer/{id}', [AdminDashboardController::class,'approveDealer'])->name('dealer.approve');
@@ -246,6 +263,17 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-private-plate/{id}', [VehicleController::class,'updatePrivatePlate'])->name('updatePrivatePlate');
     Route::get('/delete-private-plate/{id}', [VehicleController::class,'deletePrivatePlate'])->name('deletePrivatePlate');
     // end private plate
+    
+
+    // finance nnn
+    Route::get('/view-vehicle-history', [VehicleController::class,'viewVehicleHistory'])->name('viewVehicleHistory');
+    Route::get('/add-vehicle-history', [VehicleController::class,'createVehicleHistoryForm'])->name('createVehicleHistoryForm');
+    Route::post('/store-vehicle-history', [VehicleController::class, 'storeVehicleHistory'])->name('storeVehicleHistory');
+    Route::get('/edit-finance/{id}', [VehicleController::class,'editFinanceForm'])->name('editFinanceForm');
+    Route::post('/update-finance/{id}', [VehicleController::class,'updateFinance'])->name('updateFinance');
+    Route::get('/delete-finance/{id}', [VehicleController::class,'deleteFinance'])->name('deleteFinance');
+    // end finance
+
 
      // finance nnn
      Route::get('/view-finance', [VehicleController::class,'viewFinance'])->name('viewFinance');
@@ -500,6 +528,23 @@ Route::group(['prefix' => 'superadmin','middleware'=>['auth','superadmin']], fun
 
 });
 
+// start agents panel
+// start agents panel
+Route::group(['prefix' => 'agent','middleware'=>['auth','agent']], function () {
+    //Route::name('superadmin')->prefix('superadmin')->middleware('superadmin')->group(function () {
+    
+       // Route::get('/superadmin', [SuperAdminDashboardController::class,'superadmin'])->name('superadmin');
+        Route::get('/dashboard', [AgentsDashboardController::class,'agent'])->name('dashboard');
+        // Route::get('/create-role', [SuperAdminDashboardController::class,'RoleForm'])->name('RoleForm');
+        // Route::post('/store',  [SuperAdminDashboardController::class,'store'])->name('store');
+        // Route::get('/view-role',  [SuperAdminDashboardController::class,'ViewRole'])->name('ViewRole');
+        // Route::get('/edit/{id}',  [SuperAdminDashboardController::class,'EditRoleForm'])->name('EditRoleForm');
+        // Route::post('/update/{id}',  [SuperAdminDashboardController::class,'update'])->name('update');
+        // Route::get('/delete/{id}',  [SuperAdminDashboardController::class,'delete'])->name('Delete');
+    
+    
+    });
+//end agents
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
