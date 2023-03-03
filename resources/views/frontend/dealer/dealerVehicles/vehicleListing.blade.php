@@ -26,7 +26,7 @@
                     <ul class="list-unstyled d-flex gap-4">
                         <li class="radio-option-box min-width-170">
                             <div class="custom-radio-box d-flex">
-                                <input class="hide-inp" type="radio" name="keys" id="two_keys" value="2+ keys"  @if(request()->session()->get('keys') == '2+ keys') checked @endif>
+                                <input class="hide-inp" type="radio" name="keys" id="two_keys" value="2+ keys"  @if(old('keys') == "2+ keys") checked @endif  @if(request()->session()->get('keys') == '2+ keys') checked @endif>
                                 <label class="dflex-gap10" for="two_keys">
                                     <span class="radio-circle"></span>
                                     <span>2+ keys</span>
@@ -35,7 +35,7 @@
                         </li>
                         <li class="radio-option-box min-width-170">
                             <div class="custom-radio-box d-flex">
-                                <input class="hide-inp" type="radio" name="keys" id="one_keys" value="1 key" @if(request()->session()->get('keys') == '1 key') checked @endif>
+                                <input class="hide-inp" type="radio" name="keys" id="one_keys" value="1 key" @if(old('keys') == "1 key") checked @endif @if(request()->session()->get('keys') == '1 key') checked @endif>
                                 <label class="dflex-gap10" for="one_keys">
                                     <span class="radio-circle"></span>
                                     <span>1 key</span>
@@ -51,7 +51,7 @@
 
                 <div class="mt-40">
                     <label class="label-main-text f-20" for="previous_owners"> Previous Owners </label>
-                    <input class="inp-qa f-20" type="text" value="{{session()->get('previous_owners')}}" placeholder="0" name="previous_owners" id="previous_owners">
+                    <input class="inp-qa f-20" type="text" value="{{old('previous_owners') ?? session()->get('previous_owners')}}" placeholder="0" name="previous_owners" id="previous_owners">
                     @if ($errors->has('previous_owners'))
                     <span class="text-danger">{{ $errors->first('previous_owners') }}</span>
                     @endif
@@ -62,7 +62,7 @@
                     <ul class="d-flex flex-wrap gap-4">
                         <li class="radio-option-box">
                             <div class="custom-radio-box d-flex">
-                                <input class="hide-inp" type="radio" name="service_history_title" @if(request()->session()->get('service_history_title') == 'Full history') checked @endif id="full_history" value="Full history">
+                                <input class="hide-inp" type="radio" name="service_history_title" @if(old('service_history_title') == "Full history") checked @endif @if(request()->session()->get('service_history_title') == 'Full history') checked @endif id="full_history" value="Full history">
                                 <label class="dflex-gap10" for="full_history">
                                     <span class="radio-circle"></span>
                                     <span>Full history</span>
@@ -73,7 +73,7 @@
                         <li class="radio-option-box">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="service_history_title" id="full_frnachise_history"
-                                @if(request()->session()->get('service_history_title') == 'Full franchise history') checked @endif value="Full franchise history">
+                                @if(old('service_history_title') == "Full franchise history") checked @endif @if(request()->session()->get('service_history_title') == 'Full franchise history') checked @endif value="Full franchise history">
                                 <label class="dflex-gap10" for="full_frnachise_history">
                                     <span class="radio-circle"></span>
                                     <span>Full franchise history</span>
@@ -84,7 +84,7 @@
                         <li class="radio-option-box">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="service_history_title" id="partial_history"
-                                @if(request()->session()->get('service_history_title') == 'Partial history') checked @endif value="Partial history">
+                                @if(old('service_history_title') == "Partial history") checked @endif @if(request()->session()->get('service_history_title') == 'Partial history') checked @endif value="Partial history">
                                 <label class="dflex-gap10" for="partial_history">
                                     <span class="radio-circle"></span>
                                     <span>Partial history</span>
@@ -95,7 +95,7 @@
                         <li class="radio-option-box">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="service_history_title" id="no_history"
-                                @if(request()->session()->get('service_history_title') == 'No history') checked @endif value="No history">
+                                @if(old('service_history_title') == "No history") checked @endif @if(request()->session()->get('service_history_title') == 'No history') checked @endif value="No history">
                                 <label class="dflex-gap10" for="no_history">
                                     <span class="radio-circle"></span>
                                     <span>No history</span>
@@ -131,13 +131,13 @@
 
                 </div> --}}
 
-                <div class="mt-40">
+                {{-- <div class="mt-40">
                     <label class="label-main-text f-20" for="mileage"> Mileage </label>
                     <input class="inp-qa f-20" type="text" placeholder="0" value="{{session()->get('mileage')}}" id="mileage" name="mileage">
                     @if ($errors->has('mileage'))
                     <span class="text-danger">{{ $errors->first('mileage') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
                 <div class="mt-40">
                     <p class="label-main-text f-20"> V5 Status </p>
@@ -145,7 +145,7 @@
                         <li class="radio-option-box min-width-170">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="v5_status" id="v5_present"
-                                @if(request()->session()->get('v5_status') == 'Present') checked @endif value="Present">
+                                @if(old('v5_status') == "Present") checked @endif @if(request()->session()->get('v5_status') == 'Present') checked @endif value="Present">
                                 <label class="dflex-gap10" for="v5_present">
                                     <span class="radio-circle"></span>
                                     <span>Present</span>
@@ -155,7 +155,7 @@
                         <li class="radio-option-box min-width-170">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="v5_status" id="v5_not_present"
-                                @if(request()->session()->get('v5_status') == 'Not Present') checked @endif value="Not Present">
+                                @if(old('v5_status') == "Not Present") checked @endif @if(request()->session()->get('v5_status') == 'Not Present') checked @endif value="Not Present">
                                 <label class="dflex-gap10" for="v5_not_present">
                                     <span class="radio-circle"></span>
                                     <span>Not Present</span>
@@ -174,7 +174,7 @@
                         <li class="radio-option-box min-width-170">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="origin" id="origin_uk"
-                                @if(request()->session()->get('origin') == 'UK Vehicle') checked @endif  value="UK Vehicle">
+                                @if(old('origin') == "UK Vehicle") checked @endif @if(request()->session()->get('origin') == 'UK Vehicle') checked @endif  value="UK Vehicle">
                                 <label class="dflex-gap10" for="origin_uk">
                                     <span class="radio-circle"></span>
                                     <span>UK Vehicle</span>
@@ -184,7 +184,7 @@
                         <li class="radio-option-box min-width-170">
                             <div class="custom-radio-box d-flex">
                                 <input class="hide-inp" type="radio" name="origin" id="origin_import"
-                                @if(request()->session()->get('origin') == 'Import') checked @endif value="Import">
+                                @if(old('origin') == "Import") checked @endif  @if(request()->session()->get('origin') == 'Import') checked @endif value="Import">
                                 <label class="dflex-gap10" for="origin_import">
                                     <span class="radio-circle"></span>
                                     <span>Import</span>
@@ -325,7 +325,7 @@
                     @endif
                 </div> --}}
 
-
+                <p class="label-main-text f-20"> Features </p>
                 <ul class="step4-checklist">
                     @php
                     $in_array_questions = explode(',',(session()->get('checkbox_questions')));

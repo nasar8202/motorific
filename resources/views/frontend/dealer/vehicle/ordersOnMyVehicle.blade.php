@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-lg-9 col-md-9">
-<h5>Orders On My Vehicle</h5>
+<h5>Biddes On My Vehicle</h5>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <table class="table table-striped">
@@ -30,9 +30,9 @@
                             <th scope="col">#</th>
                             <th scope="col">Vehilce Name</th>
                             <th scope="col">Vehicle Price</th>
-                            <th scope="col">Order User</th>
-                            <th scope="col">Order Price</th>
-                            <th scope="col">Order Assign To</th>
+                            <th scope="col">Biddes User</th>
+                            <th scope="col">Biddes Price</th>
+                            <th scope="col">Biddes Assign To</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -103,7 +103,7 @@
                              </td>
                              @endif
                             @empty
-                            <td>No Order Found On This Vehicle</td>
+                            <td colspan="6" class="text-center">No Biddes Found On This Vehicle</td>
                           
                         </tr>
                         @endforelse 

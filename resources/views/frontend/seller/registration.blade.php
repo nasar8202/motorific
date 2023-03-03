@@ -183,12 +183,14 @@ input[type=number] {
                             </div>
                             <div class="col-lg-6 col-md-6">
                             <div>
-                             <input type="text" placeholder="Postcode" name="post_code" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}" required>
+                                
+                             <input type="text" placeholder="Postcode"  name="post_code" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}" required>
                         @error('post_code')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
+                        <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
                             </div>
                             </div>
                             {{-- <div class="col-lg-6 col-md-6">
@@ -439,3 +441,37 @@ input[type=number] {
         </div>
     </section>
 @endsection
+@push('child-scripts')
+<script type="text/javascript">
+$(document).ready(function() {
+    // let api = "https://corona.lmao.ninja/v2/countries/";
+    
+    $("#search").keyup( function() {
+
+        $("#result").html('');
+        
+        let zip = $("#search").val();
+       let removspace =  zip.replace(/\s/g, '');
+       console.log(removspace)
+            let api = `https://maps.googleapis.com/maps/api/geocode/json?address=.'${removspace}'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk`;
+       
+        $.getJSON( api, function( results ) {
+            
+            $.each( results.results, function( key, value ) {
+                
+                if( value.formatted_address ) 
+                {
+                    $("#result").append(`<li class="list-group-item c">${value.formatted_address} </li>`)
+                }
+            } );
+        } );
+    } );
+
+    $("#result").on("click", "li", function() {
+        $("#search").val($(this).text());
+        $("#result").html('');
+    })
+});
+</script>
+
+@endpush

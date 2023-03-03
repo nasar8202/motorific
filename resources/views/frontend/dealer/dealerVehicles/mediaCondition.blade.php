@@ -96,7 +96,7 @@
                                 </span>
                                 <span>
                                     I confirm that all information on this advert is truthfully
-                                    represented, and adheres to Dealer Auction T&C’s.
+                                    represented, and adheres to Motorific T&C’s.
                                 </span>
                             </label>
                         </div>

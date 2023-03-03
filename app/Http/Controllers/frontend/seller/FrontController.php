@@ -197,7 +197,7 @@ class FrontController extends Controller
     //multistep question form submition code start
     public function vehicleInformation(Request $request)
     {
-         dd($request->all());
+        // dd($request->all());
         // $feature = implode($request->the_value, ',');
 
         $request->session()->put('vehicle_feature',$request->the_value);
@@ -482,7 +482,7 @@ class FrontController extends Controller
         }catch(\Exception $e)
         {
             DB::rollback();
-           // return $e;
+            return $e;
             return Redirect()->back()
                 ->with('error',$e->getMessage() )
                 ->withInput();

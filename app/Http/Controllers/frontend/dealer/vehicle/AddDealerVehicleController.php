@@ -142,14 +142,11 @@ class AddDealerVehicleController extends Controller
         $request->validate([
             'image_1' => 'required',
             'interior_image_1' => 'required',
-            'condition_damage' => 'required',
+            
             'any_damage_checked' => 'required',
             'advert_description' => 'required',
             'attention_grabber' => 'required',
-            'nearside_front' => 'required',
-            'nearside_rear' => 'required',
-            'offside_front' => 'required',
-            'offside_rear' => 'required',
+            
             'tyre_image' => 'required',
 
         ]);
@@ -336,7 +333,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
                     ->withInput();
             }
             DB::commit();
-
+             return view('frontend.dealer.dealerVehicles.thankyou');
             return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully. Wait For Admin Approvel!');
     }
     public function vehicleListing(Request $request)
@@ -352,7 +349,6 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             'keys' => 'required',
             'previous_owners' => 'required',
             'service_history_title' => 'required',
-            'mileage' => 'required',
             'v5_status' => 'required',
             'origin' => 'required',
             // 'interior' => 'required',

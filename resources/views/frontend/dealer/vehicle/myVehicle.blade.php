@@ -55,7 +55,7 @@
                                         @endif
 
                                         <span style="padding-left: 60px;">{{ $vehicle->created_at->format('m/d/Y') }}</span>
-                                        <a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Orders On Vehicle</a>
+                                        <a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Biddes On Vehicle</a>
                                         {{-- <a href="{{route('markAsSoldDealerVehicle',$vehicle->id)}}">Marks As Sold ?</a> --}}
 
                                         <span style="padding-left: 200px;">
@@ -71,7 +71,7 @@
                                     <div class="collapse" id="myCollapse{{$vehicle->id}}">
                                         <div class="card card-body " style="width: 40%;float: right;" >
                                             <ul>
-                                                <li><a href="{{route('orderOnMyVehicle',$vehicle->id)}}"> Orders On Vehicle</a></li>
+                                                <li><a href="{{route('orderOnMyVehicle',$vehicle->id)}}"> Biddes On Vehicle</a></li>
                                             </ul>
                                         </div>
                                     </div> --}}
@@ -97,6 +97,7 @@
 @push('child-scripts')
     <script>
         var path = $('#path').val();
+        var appUrl = window?.location?.origin;
         $(function() {
             $("#search").keyup(function() {
                 var keyword = $("#search").val();
@@ -126,8 +127,9 @@
                                         } else {
                                             var status = "Pending";
                                         }
+                                        
                                     var data1 =
-                                        `<div class="col-sm-4 p-0" style="padding: 10px;"> <a href=""><img src="${path}/uploads/dealerVehicles/exterior/${data['dealerVehicles'][i].dealer_vehicle_interior[0].interior_image}" width="300px" height="200px"> </a></div><div class="col-sm-8 p-0" style="padding: 10px"><h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">${data['dealerVehicles'][i].vehicle_registartion_number}</span></h1><p>${data['dealerVehicles'][i].vehicle_name}</p><span class="badge badge-success">${status}</span><span style="padding-left: 60px;">${ new Date (data['dealerVehicles'][i].created_at).toLocaleDateString()}</span><span style="padding-left: 200px;"></span><a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Orders On Vehicle</a></div></div>`;
+                                        `<div class="col-sm-4 p-0" style="padding: 10px;"> <a href=""><img src="${path}/uploads/dealerVehicles/exterior/${data['dealerVehicles'][i].dealer_vehicle_interior[0].interior_image}" width="300px" height="200px"> </a></div><div class="col-sm-8 p-0" style="padding: 10px"><h1 style="font-size: 20px"><span style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">${data['dealerVehicles'][i].vehicle_registartion_number}</span></h1><p>${data['dealerVehicles'][i].vehicle_name}</p><span class="badge badge-success">${status}</span><span style="padding-left: 60px;">${ new Date (data['dealerVehicles'][i].created_at).toLocaleDateString()}</span><span style="padding-left: 200px;"></span><a href="${appUrl}/order-on-my-vehicles/${data['dealerVehicles'][i].id}"> Biddes On Vehicle</a></div></div>`;
                                     $tableBody.append(data1);
                                 });
 

@@ -48,6 +48,7 @@
                     <div class="mt-40">
                         <!-- Custom Code Testing-->
                             <label class="gallery-top-text mb-10 f-18">Exterior</label>
+                            <span>(Upload 5 pictures only)</span>
                             <div class="cts-files">
                                 <input type="file"  onchange="uploadFile(this)" class="upload-img-btn"  name="image_1[]" class="" multiple id="image_1" accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png')}}" >
@@ -132,6 +133,7 @@
                     <div class="mt-40"> 
                         
                         <label class="gallery-top-text mb-10 f-18">Interior</label>
+                        <span>(Upload 5 pictures only)</span>
                         <div class="cts-files">
                             <input type="file" onchange='uploadFile(this)' class="upload-img-btn" id="interior_image_1"  name="interior_image_1[]" class="" multiple accept="image/*">
                             <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png')}}">
@@ -182,13 +184,13 @@
 
                     </div>
 
-                    <div class="mt-40">
+                    {{-- <div class="mt-40">
                         <label for="condition_damage" class="label-main-text f-20"> Condition / Damage </label>
                         <textarea class="textarea-qa" name="condition_damage" id="condition_damage" cols="30" rows="10"  >{{ old('condition_damage') ??request()->session()->get('condition_damage') }}</textarea>
                     </div>
                     @if ($errors->has('condition_damage'))
                     <span class="text-danger">{{ $errors->first('condition_damage') }}</span>
-                    @endif
+                    @endif --}}
                     {{-- <div class="mt-40">
                         <label for="condition_damage_url" class="label-main-text f-20"> Condition / Damage </label>
                         <div class="video-box-main">
@@ -206,242 +208,8 @@
                     <span class="text-danger">{{ $errors->first('condition_damage_url') }}</span>
                     @endif --}}
                     <div class="vehicle-condition-main mt-40">
-                        <h2 class="headingqa-2 f-40">Vehicle Condition</h2>
+                        
 
-                        <div class="details-field-main">
-                            {{-- <p class="label-main-text f-20"> Do you have existing condition report? </p>
-                            <ul class="list-unstyled d-flex gap-4 mb-0">
-                                <li class="radio-option-box">
-                                    <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="existing_condition_report" id="existing_condition_report_yes" value="1"  @if(request()->session()->get('existing_condition_report') == '1') checked @endif >
-                                        <label class="dflex-gap10" for="existing_condition_report_yes">
-                                            <span class="radio-circle"></span>
-                                            <span>Yes</span>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="radio-option-box">
-                                    <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="existing_condition_report" id="existing_condition_report_no" value="0" @if(request()->session()->get('existing_condition_report') == '0') checked @endif>
-                                        <label class="dflex-gap10" for="existing_condition_report_no">
-                                            <span class="radio-circle"></span>
-                                            <span>No</span>
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                            @if ($errors->has('existing_condition_report'))
-                            <span class="text-danger">{{ $errors->first('existing_condition_report') }}</span>
-                            @endif --}}
-                            <p class="label-main-text f-20"> Is there any damage on your vehicle? </p>
-                            <ul class="list-unstyled d-flex gap-4 mb-0">
-                                <li class="radio-option-box">
-                                    <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_yes" value="1" @if(request()->session()->get('any_damage_checked') == '1') checked @endif>
-                                        <label class="dflex-gap10" for="any_damage_checked_yes">
-                                            <span class="radio-circle"></span>
-                                            <span>Yes</span>
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="radio-option-box">
-                                    <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_no" value="0" @if(request()->session()->get('any_damage_checked') == '0') checked @endif>
-                                        <label class="dflex-gap10" for="any_damage_checked_no">
-                                            <span class="radio-circle"></span>
-                                            <span>No</span>
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                            @if ($errors->has('any_damage_checked'))
-                            <span class="text-danger">{{ $errors->first('any_damage_checked') }}</span>
-                            @endif
-                            {{-- <p class="purple-box">
-                                Drag the damaged icons below on the affected areas of the vehicle.
-                            </p> --}}
-                        </div>
-{{--
-                        <div class="ext-int-tab dflexBt align-items-center">
-                            <div class="w-48">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/cars-vertical.png')}}" alt="car image" class="img-fluid" >
-                            </div>
-                            <div class="w-48">
-                                <ul class="nav nav-pills mb-3 justify-content-between" id="pills-tab" role="tablist">
-                                    <li role="presentation">
-                                        <button
-                                            class="tabs-btn active"
-                                            id="pills-exterior-tab"
-                                            data-bs-toggle="pill"
-                                            data-bs-target="#pills-exterior"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="pills-exterior"
-                                            aria-selected="true">
-                                            Exterior
-                                        </button>
-                                    </li>
-                                    <li role="presentation">
-                                        <button
-                                            class="tabs-btn"
-                                            id="pills-interior-tab"
-                                            data-bs-toggle="pill"
-                                            data-bs-target="#pills-interior"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="pills-interior"
-                                            aria-selected="false">
-                                            Interior
-                                        </button>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="pills-tabContent">
-
-                                    <div class="tab-pane fade show active" id="pills-exterior" role="tabpanel" aria-labelledby="pills-exterior-tab">
-
-                                        <div class="txt-chkboxs-main d-flex flex-wrap">
-                                            <label class="txt-chkbox-custom" for="exterior_b">
-                                                <input class="hide-inp" type="radio" name="exterior_b" id="exterior_b" value="B" >
-                                                <span class="f-14">B</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_bd">
-                                                <input class="hide-inp" type="radio" name="exterior_bd" id="exterior_bd" value="BD" >
-                                                <span class="f-14">BD</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_c">
-                                                <input class="hide-inp" type="radio" name="exterior_c" id="exterior_c" value="C" >
-                                                <span class="f-14">C</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_cr">
-                                                <input class="hide-inp" type="radio" name="exterior_cr" id="exterior_cr" value="CR" >
-                                                <span class="f-14">CR</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_d">
-                                                <input class="hide-inp" type="radio" name="exterior_d" id="exterior_d" value="d" >
-                                                <span class="f-14">d</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_dl">
-                                                <input class="hide-inp" type="radio" name="exterior_dl" id="exterior_dl" value="DL" >
-                                                <span class="f-14">DL</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_f">
-                                                <input class="hide-inp" type="radio" name="exterior_f" id="exterior_f" value="f" >
-                                                <span class="f-14">F</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_mc">
-                                                <input class="hide-inp" type="radio" name="exterior_mc" id="exterior_mc" value="mc" >
-                                                <span class="f-14">MC</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_oc">
-                                                <input class="hide-inp" type="radio" name="exterior_oc" id="exterior_oc" value="oc" >
-                                                <span class="f-14">OC</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_pr">
-                                                <input class="hide-inp" type="radio" name="exterior_pr" id="exterior_pr" value="pr" >
-                                                <span class="f-14">PR</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_r">
-                                                <input class="hide-inp" type="radio" name="exterior_r" id="exterior_r" value="r" >
-                                                <span class="f-14">R</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_sc">
-                                                <input class="hide-inp" type="radio" name="exterior_sc" id="exterior_sc" value="sc" >
-                                                <span class="f-14">sc</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_s">
-                                                <input class="hide-inp" type="radio" name="exterior_s" id="exterior_s" value="s" >
-                                                <span class="f-14">s</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_sl">
-                                                <input class="hide-inp" type="radio" name="exterior_sl" id="exterior_sl" value="sl" >
-                                                <span class="f-14">sl</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_ws">
-                                                <input class="hide-inp" type="radio" name="exterior_ws" id="exterior_ws" value="ws" >
-                                                <span class="f-14">ws</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="exterior_o">
-                                                <input class="hide-inp" type="radio" name="exterior_o" id="exterior_o" value="o" >
-                                                <span class="f-14">o</span>
-                                            </label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="tab-pane fade" id="pills-interior" role="tabpanel" aria-labelledby="pills-interior-tab">
-
-                                        <div class="txt-chkboxs-main d-flex flex-wrap">
-                                            <label class="txt-chkbox-custom" for="interior_b">
-                                                <input class="hide-inp" type="radio" name="interior_b" id="interior_b" value="B" >
-                                                <span class="f-14">B</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_bd">
-                                                <input class="hide-inp" type="radio" name="interior_bd" id="interior_bd" value="BD" >
-                                                <span class="f-14">BD</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_c">
-                                                <input class="hide-inp" type="radio" name="interior_c" id="interior_c" value="C" >
-                                                <span class="f-14">C</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_cr">
-                                                <input class="hide-inp" type="radio" name="interior_cr" id="interior_cr" value="CR" >
-                                                <span class="f-14">CR</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_d">
-                                                <input class="hide-inp" type="radio" name="interior_d" id="interior_d" value="d" >
-                                                <span class="f-14">d</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_dl">
-                                                <input class="hide-inp" type="radio" name="interior_dl" id="interior_dl" value="DL" >
-                                                <span class="f-14">DL</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_f">
-                                                <input class="hide-inp" type="radio" name="interior_f" id="interior_f" value="f" >
-                                                <span class="f-14">F</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_mc">
-                                                <input class="hide-inp" type="radio" name="interior_mc" id="interior_mc" value="mc" >
-                                                <span class="f-14">MC</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_oc">
-                                                <input class="hide-inp" type="radio" name="interior_oc" id="interior_oc" value="oc" >
-                                                <span class="f-14">OC</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_pr">
-                                                <input class="hide-inp" type="radio" name="interior_pr" id="interior_pr" value="pr" >
-                                                <span class="f-14">PR</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_r">
-                                                <input class="hide-inp" type="radio" name="interior_r" id="interior_r" value="r" >
-                                                <span class="f-14">R</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_sc">
-                                                <input class="hide-inp" type="radio" name="interior_sc" id="interior_sc" value="sc" >
-                                                <span class="f-14">sc</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_s">
-                                                <input class="hide-inp" type="radio" name="interior_s" id="interior_s" value="s" >
-                                                <span class="f-14">s</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_sl">
-                                                <input class="hide-inp" type="radio" name="interior_sl" id="interior_sl" value="sl" >
-                                                <span class="f-14">sl</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_ws">
-                                                <input class="hide-inp" type="radio" name="interior_ws" id="interior_ws" value="ws" >
-                                                <span class="f-14">ws</span>
-                                            </label>
-                                            <label class="txt-chkbox-custom" for="interior_o">
-                                                <input class="hide-inp" type="radio" name="interior_o" id="interior_o" value="o" >
-                                                <span class="f-14">o</span>
-                                            </label>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div> --}}
 
                         <div class="mt-40">
                             <label for="advert_description" class="label-main-text f-20"> Advert description </label>
@@ -520,7 +288,7 @@
 
                                 </div>
 
-                            <div class="d-flex gap-40">
+                            {{-- <div class="d-flex gap-40">
                                 <div class="counter-main">
                                     <label for="" class="d-block">Nearside Front</label>
                                     <div class="counter-with-unit">
@@ -595,15 +363,61 @@
                                     @endif
                                 </div>
 
-                            </div>
+                            </div> --}}
 
                         </div>
+                        <div class="mt-40">
+                        <label for="condition_damage" class="label-main-text f-20"> Estimated Preparation Cost </label>
+                        <textarea class="textarea-qa textarea-qa-sm" name="condition_damage" id="condition_damage" cols="30" rows="10"  >{{ old('condition_damage') ??request()->session()->get('condition_damage') }}£45</textarea>
+                    </div>
+                    
+                    {{-- <div class="mt-40">
+                        <label for="condition_damage_url" class="label-main-text f-20"> Condition / Damage </label>
+                        <div class="video-box-main">
 
-                        {{-- <div class="mt-40">
-                            <button type="button" class="btn-qa1 f-25 w-100">
-                                Continue to Vehicle Details
-                            </button>
-                        </div> --}}
+                            <div class="upload-img-box sm-graybox upload-video-box">
+                                <p class="f-18 c-dull-gray mb-0">Paste URL</p>
+                                <input class="inp-qa inp-round"  name="condition_damage_url" type="text" value="{{ old('condition_damage_url') ?? request()->session()->get('condition_damage_url') }}">
+                            </div>
+
+                          
+
+                        </div>
+                    </div>
+                    @if ($errors->has('condition_damage_url'))
+                    <span class="text-danger">{{ $errors->first('condition_damage_url') }}</span>
+                    @endif --}}
+                        <h2 class="headingqa-2 f-40">Vehicle Condition</h2>
+
+                        <div class="details-field-main">
+                           
+                            <p class="label-main-text f-20"> Is there any damage on your vehicle? </p>
+                            <ul class="list-unstyled d-flex gap-4 mb-0">
+                                <li class="radio-option-box">
+                                    <div class="custom-radio-box d-flex">
+                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_yes" value="1" @if(request()->session()->get('any_damage_checked') == '1') checked @endif>
+                                        <label class="dflex-gap10" for="any_damage_checked_yes">
+                                            <span class="radio-circle"></span>
+                                            <span>Yes</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="radio-option-box">
+                                    <div class="custom-radio-box d-flex">
+                                        <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_no" value="0" @if(request()->session()->get('any_damage_checked') == '0') checked @endif>
+                                        <label class="dflex-gap10" for="any_damage_checked_no">
+                                            <span class="radio-circle"></span>
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                            @if ($errors->has('any_damage_checked'))
+                            <span class="text-danger">{{ $errors->first('any_damage_checked') }}</span>
+                            @endif
+                           
+                        </div>
+                       
                         
 
                     </div>
@@ -634,10 +448,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="d-flex gap-2 justify-content-end mt-4">
-                {{-- <button type="button" class="btn-qa1 f-16 btn-border-sm">Save Advert</button> --}}
+            {{-- <div class="d-flex gap-2 justify-content-end mt-4">
+                
                 <button type="submit" class="btn-qa1 f-16 btn-filled-sm">Publish Advert</button>
-            </div>
+            </div> --}}
 
     </div>
 
@@ -1651,6 +1465,10 @@
             {{-- <button type="submit" class="btn-trans step2-btn-save">
                 Save for Now
             </button> --}}
+            <div class="d-flex gap-2 justify-content-end mt-4">
+                {{-- <button type="button" class="btn-qa1 f-16 btn-border-sm">Save Advert</button> --}}
+                <button type="submit" class="btn-qa1 f-16 btn-filled-sm">Publish Advert</button>
+            </div>
         </div>
         </div>
     </div>
