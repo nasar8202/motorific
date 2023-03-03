@@ -231,7 +231,7 @@
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-wrench"></i>Service History</h4>
                             <ul>
-                                <li>Service Record<span>First service not yet due</span></li>
+                                <li>Service Record<span>{{$vehicle_history->title ??""}}</span></li>
                             </ul>
                         </div>
                     </div>

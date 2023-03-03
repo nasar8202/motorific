@@ -334,7 +334,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             }
             DB::commit();
              return view('frontend.dealer.dealerVehicles.thankyou');
-            return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully. Wait For Admin Approvel!');
+            //return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully. Wait For Admin Approvel!');
     }
     public function vehicleListing(Request $request)
     {

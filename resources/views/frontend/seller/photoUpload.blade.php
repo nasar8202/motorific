@@ -2246,7 +2246,7 @@ display: block;
                                         <div class="photo-up-sec-2-vi-btns">
                                            @foreach($VehicleHistories as $key=> $VehicleHistory)
                                             <label for="radio-isVehicleHistory-true-{{$key}}">
-                                                <input type="radio"  name="VehicleHistory" class="VehicleHistory" value="{{$VehicleHistory->id}}" @if($VehicleHistory->id == session()->get('VehicleHistory')) checked @endif id="radio-isVehicleCategory-true-{{$key}}" />
+                                                <input type="radio"  name="VehicleHistory" class="VehicleHistory" value="{{$VehicleHistory->id}}" @if($VehicleHistory->id == session()->get('VehicleHistory')) checked @endif id="radio-isVehicleHistory-true-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>{{$VehicleHistory->title}}</p>
                                                 </div>

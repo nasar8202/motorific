@@ -26,7 +26,7 @@
                             <ul class='list-unstyled d-flex gap-4 mb-0'>
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="listing_type" id="online_auction" value="Online auction" @if(request()->session()->get('listing_type') == 'Online auction') checked @endif  />
+                                        <input class="hide-inp" type="radio" name="listing_type" id="online_auction" value="Online auction" @if(old('listing_type') == "Online auction") checked @endif @if(request()->session()->get('listing_type') == 'Online auction') checked @endif  />
                                         <label class="dflex-gap10" for="online_auction">
                                             <span class="radio-circle"></span>
                                             <span>Online auction</span>
@@ -35,7 +35,7 @@
                                 </li>
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="listing_type" id="buy_now_only" value="Buy now only" @if(request()->session()->get('listing_type') == 'Buy now only') checked @endif />
+                                        <input class="hide-inp" type="radio" name="listing_type" id="buy_now_only" value="Buy now only" @if(old('listing_type') == "Buy now only") checked @endif @if(request()->session()->get('listing_type') == 'Buy now only') checked @endif />
                                         <label class="dflex-gap10" for="buy_now_only">
                                             <span class="radio-circle"></span>
                                             <span>Buy now only</span>
@@ -52,7 +52,7 @@
 
                     <div class="details-field-main">
                         <label class="label-main-text f-20"> Stand in value </label>
-                        <input class="inp-qa f-20" type="text" placeholder="0" name="stand_in_value" value="{{ request()->session()->get('stand_in_value') }}" >
+                        <input class="inp-qa f-20" type="text" placeholder="0" name="stand_in_value" value="{{ old('stand_in_value') ?? request()->session()->get('stand_in_value') }}" >
                         @if ($errors->has('stand_in_value'))
                         <span class="text-danger">{{ $errors->first('stand_in_value') }}</span>
                         @endif
@@ -64,7 +64,7 @@
                             <ul class='list-unstyled d-flex gap-4 mb-0'>
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="vat" id="plus_vat" value="Final Price plus VAT" @if(request()->session()->get('vat') == 'Final Price plus VAT') checked @endif/>
+                                        <input class="hide-inp" type="radio" name="vat" id="plus_vat" value="VAT Qualifying" @if(old('vat') == "VAT Qualifying") checked @endif @if(request()->session()->get('vat') == 'VAT Qualifying') checked @endif/>
                                         <label class="dflex-gap10" for="plus_vat">
                                             <span class="radio-circle"></span>
                                             <span>VAT Qualifying</span>
@@ -73,7 +73,7 @@
                                 </li>
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
-                                        <input class="hide-inp" type="radio" name="vat" id="no_vat"  value="Final Price plus VAT" @if(request()->session()->get('vat') == 'Final Price plus VAT') checked @endif/>
+                                        <input class="hide-inp" type="radio" name="vat" id="no_vat"  value="VAT Marginal" @if(old('vat') == "VAT Marginal") checked @endif @if(request()->session()->get('vat') == 'VAT Marginal') checked @endif/>
                                         <label class="dflex-gap10" for="no_vat">
                                             <span class="radio-circle"></span>
                                             <span>VAT Marginal</span>
@@ -89,7 +89,7 @@
 
                     <div class="details-field-main confirmation-div">
                         <div class="custom-checkbox d-flex my-4">
-                            <input class="hide-inp" type="checkbox" name="confirm" value="1" id="confirm_tac" @if(request()->session()->get('confirm') == 1) checked @endif />
+                            <input class="hide-inp" type="checkbox" name="confirm" value="1" id="confirm_tac" @if(old('confirm') == "1") checked @endif @if(request()->session()->get('confirm') == 1) checked @endif />
                             <label class="dflex-gap10 align-items-start" for="confirm_tac">
                                 <span class="checkbox-square f-15">
                                     <i class="fa-solid fa-check"></i>

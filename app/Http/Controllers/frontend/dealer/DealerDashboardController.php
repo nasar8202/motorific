@@ -35,6 +35,7 @@ use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
 use App\Models\DealersOrderVehicleRequest;
+use App\Models\VehicleHistory;
 
 class DealerDashboardController extends Controller
 {
@@ -1066,16 +1067,18 @@ die();
     {
       try{
         $vehicle = Vehicle::Where('id',$id)->with('vehicleInformation')->with('VehicleImage')->first();
-
+        
         $vehicle_info = vehicleInformation::where('vehicle_id',$id)->first();
         $damage = vehicleConditionAndDamage::where('vehicle_id',$id)->first();
         $exterior = VehicleExterior::where('vehicle_id',$id)->first();
         $interior = VehicleInterior::where('vehicle_id',$id)->first();
-
+        
         $vehcile_info_feature_id = explode(',' ,$vehicle_info->vehicle_feature_id);
 
         $number_of_keys = NumberOfKey::where('id',$vehicle_info->number_of_keys_id)->first();
         $finance = Finance::where('id',$vehicle_info->finance_id)->first();
+        $vehicle_history = VehicleHistory::where('id',$vehicle_info->vehicle_history_id)->first();
+        
         $privateplate = PrivatePlate::where('id',$vehicle_info->private_plate_id)->first();
         $smooking = Smoking::where('id',$vehicle_info->smooking_id)->first();
         $toolpack = ToolPack::where('id',$vehicle_info->tool_pack_id)->first();
@@ -1137,7 +1140,7 @@ die();
               ->with('error',$e->getMessage() )
               ->withInput();
       }
-        return view('frontend.dealer.vehicle.vehicleDetail',compact('allorder','allbids','lat','lng','distance','exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
+        return view('frontend.dealer.vehicle.vehicleDetail',compact('allorder','vehicle_history','allbids','lat','lng','distance','exterior','interior','vehicle','vehcile_info_feature_id','number_of_keys','finance','privateplate','smooking','toolpack','LockingWheelNut','damage','order'));
     }
     public function dashboard()
     {

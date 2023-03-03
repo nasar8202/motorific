@@ -1210,7 +1210,7 @@ p {
                                                 <div class="form-group">
                                                     <label for="start_vehicle_time">Start Sale Vehicle Time </label>
                                                     <input type="time" id="start_vehicle_time" class="form-control"
-                                                       name="start_vehicle_time" value="{{ $liveselltime->start_time }}" readonly placeholder="" >
+                                                       name="start_vehicle_time" value="{{ $liveselltime->start_time ?? "" }}" readonly placeholder="" >
 
                                                 </div>
                                                 @if ($errors->has('start_vehicle_time'))
@@ -1232,7 +1232,7 @@ p {
                                                 <div class="form-group">
                                                     <label for="end_vehicle_time">End Sale Vehicle Time </label>
                                                     <input type="time" id="end_vehicle_time" class="form-control"
-                                                       name="end_vehicle_time" value="{{ $liveselltime->end_time }}" readonly placeholder="End Sale Vehicle Time" >
+                                                       name="end_vehicle_time" value="{{ $liveselltime->end_time ?? ""}}" readonly placeholder="End Sale Vehicle Time" >
 
                                                 </div>
                                                 @if ($errors->has('end_vehicle_time'))
