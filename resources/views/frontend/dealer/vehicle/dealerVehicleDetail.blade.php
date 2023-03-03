@@ -34,7 +34,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 vehicleDetailLeft">
-                        <div class="numberStarDiv">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="numberStarDiv">
                             <span>{{ $vehicle->vehicle_registartion_number }}</span>
                             <i class="fa-regular fa-star"></i>
                         </div>
@@ -71,7 +73,7 @@
                             </ul>
                         </div>
                     </div> --}}
-                        {{-- <div class="bottomList mainSpec">
+                    {{-- <div class="bottomList mainSpec">
                         <div class="bottomListTitle">
                             <h4><i class="fas fa-gift"></i> Specification</h4>
                             <ul>
@@ -127,72 +129,8 @@
                             </div>
                         </div>
                     </div> --}}
-                    </div>
-                    <div class="col-lg-4 vehicleDetailRight">
-                        <div class="liveSalesInProgress live_sell">
-                            <h4>Live Sales In Progress</h4>
-                            <div class="reserveDetail">
-                                <ul>
-                                    <li>Reserve Price: <span>£{{ $vehicle->vehicle_price }}</span></li>
-                                    <ul class="valuation">
-                                        <li><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" id="dynamic-ar"></i></span></li>
-                                        <li class="hidden">Retail:<span> £{{ $vehicle->retail_price }} </span></li>
-                                        <li class="hidden">Clean:<span> £{{ $vehicle->clean_price }} </span></li>
-                                        <li class="hidden">Average:<span> £{{ $vehicle->average_price }} </span></li>
-                                    </ul>
-                                    <li>Live Salaes end <span>3h 53m 26s <a href="#">
-                                                @if ($allbid)
-                                                    {{ $allbid }}
-                                                @else
-                                                    No Bid Yet
-                                                @endif
-                                            </a></span></li>
-                                </ul>
-                                <?php
-                           $bid = App\Models\DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
-                            if($bid == null){
-                            
-                            ?>
-                                @if ($vehicle->user_id == Auth::user()->id)
-                                    <h2 class="text text-danger  p-2 dealerOwnVehilcle">This Is Your Own Vehicle</h2>
-                                @else
-                                    <form action="#">
-                                        <div class="form-group">
-                                            <label>Enter Maximum Bid</label>
-                                            <input type="number" name="bid" placeholder="£" class="bid_price" />
-                                            <input type="hidden" name="hidden_price" class="hidden_price"
-                                                value="{{ $vehicle->hidden_price }}" />
-                                            <input type="hidden" name="vehicle_id" class="vehicle_id"
-                                                value="{{ $vehicle->id }}" />
-                                            <div class="spinner-border" style="margin-left: 150px; " role="status">
-                                                <span class="sr-only">Loading...</span>
-                                            </div>
-                                            <button type="button" class="bid">Submit Bid</button>
-                                            <span class="text-danger warning"></span>
-                                            <span class="text-danger error"></span>
-                                        </div>
-                                    </form>
-                                @endif
-                                <?php }
-                           else{
-
-                            
-                            ?>
-                                <center><span class="text-danger ">You Already Bid On This Vehicle</span>
-                                </center>
-                                <center><span class="text-danger ">Your Bid Price Is {{ $bid->bid_price }}</span>
-                                </center>
-                                <center><a href="{{ route('cancelDealerRequest', $bid->id) }}"
-                                        class="btn btn-danger btn-sm"> Cancel Bid</a>
-                                </center>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-lg-6">
+                    
+                    <div class="col-12">
                         <div class="bottomList mainSpec">
                                 <div class="bottomListTitle">
                                     <h4><i class="far fa-copy"></i> Vehicle History</h4>
@@ -267,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="col-lg-6">
+                    <div class="col-12">
                         <div class="bottomList">
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-bolt"></i> Condition And Damages</h4>
@@ -297,7 +235,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-12">
                         <div class="bottomList">
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-bolt"></i>Interior Information</h4>
@@ -334,7 +272,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-12">
                         <div class="bottomList">
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-bolt"></i>Exterior Information</h4>
@@ -364,6 +302,18 @@
                         </div>
                     </div>
                     <div class="col-12">
+                        <div class="bottomList">
+                            <div class="bottomListTitle">
+                                <h4><i class="fas fa-wrench"></i>Service History</h4>
+                                <ul>
+                                    <li>Service Record
+                                        <span>First service not yet due</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
                         <div class="vehicleDetailGal">
                             <h4>Wheels</h4>
                             <div class="vehicleDetailGalrepeatMain">
@@ -386,7 +336,76 @@
                             </div>
                         </div>
                     </div>
+                            </div>
+                            
+                        </div>
+                        
+                            
+                        
+                    </div>
+                    <div class="col-lg-4 vehicleDetailRight">
+                        <div class="liveSalesInProgress live_sell">
+                            <h4>Live Sales In Progress</h4>
+                            <div class="reserveDetail">
+                                <ul>
+                                    <li>Reserve Price: <span>£{{ $vehicle->vehicle_price }}</span></li>
+                                    <ul class="valuation">
+                                        <li><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" id="dynamic-ar"></i></span></li>
+                                        <li class="hidden">Retail:<span> £{{ $vehicle->retail_price }} </span></li>
+                                        <li class="hidden">Clean:<span> £{{ $vehicle->clean_price }} </span></li>
+                                        <li class="hidden">Average:<span> £{{ $vehicle->average_price }} </span></li>
+                                    </ul>
+                                    <li>Live Salaes end <span>3h 53m 26s <a href="#">
+                                                @if ($allbid)
+                                                    {{ $allbid }}
+                                                @else
+                                                    No Bid Yet
+                                                @endif
+                                            </a></span></li>
+                                </ul>
+                                <?php
+                           $bid = App\Models\DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
+                            if($bid == null){
+                            
+                            ?>
+                                @if ($vehicle->user_id == Auth::user()->id)
+                                    <h2 class="text text-danger  p-2 dealerOwnVehilcle">This Is Your Own Vehicle</h2>
+                                @else
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label>Enter Maximum Bid</label>
+                                            <input type="number" name="bid" placeholder="£" class="bid_price" />
+                                            <input type="hidden" name="hidden_price" class="hidden_price"
+                                                value="{{ $vehicle->hidden_price }}" />
+                                            <input type="hidden" name="vehicle_id" class="vehicle_id"
+                                                value="{{ $vehicle->id }}" />
+                                            <div class="spinner-border" style="margin-left: 150px; " role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                            <button type="button" class="bid">Submit Bid</button>
+                                            <span class="text-danger warning"></span>
+                                            <span class="text-danger error"></span>
+                                        </div>
+                                    </form>
+                                @endif
+                                <?php }
+                           else{
+
+                            
+                            ?>
+                                <center><span class="text-danger ">You Already Bid On This Vehicle</span>
+                                </center>
+                                <center><span class="text-danger ">Your Bid Price Is {{ $bid->bid_price }}</span>
+                                </center>
+                                <center><a href="{{ route('cancelDealerRequest', $bid->id) }}"
+                                        class="btn btn-danger btn-sm"> Cancel Bid</a>
+                                </center>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
 
             </div>
         </section>

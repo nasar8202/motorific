@@ -866,6 +866,8 @@
     </script>
     <!--jQuery UI-->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!--<script src="{{ URL::asset('frontend/dealers/assets/js/sticky.jquery.js') }}"></script>-->
+    <script src="{{ URL::asset('frontend/dealers/assets/js/scrollWithPage.min.js') }}"></script>
     <!--Drag JS-->
     <script>
         $('.selectedFilesTn').sortable({
@@ -882,6 +884,20 @@
         });
 
     </script>
+    
+    <script>
+      
+
+        $(function(){
+    
+          $("#vehBox").scrollWithPage(".productPageTn");
+        
+        });
+
+
+
+    </script>
+    
 </body>
 
 </html>

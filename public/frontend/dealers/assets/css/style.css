@@ -2013,7 +2013,13 @@ div.reserveDetail ul li {
     background: #7977a2;
 }
 
-
+.main-content-end-padding {
+    height: 20px;
+    background-color: yellow;
+}
+.parts-content input[type="radio"]:checked + span:before {
+    right: 0;
+}
 /* End */
 
 /* End */

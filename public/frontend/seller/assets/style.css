@@ -277,15 +277,19 @@ section.sec-2::after {
 .howitwork-main h4 {
     font-size: 20px;
     font-weight: 700;
+    text-align: center;
 }
 
 .howitwork-main p {
     position: relative;
     font-size: 17px;
     font-family: 'Roboto Condensed', sans-serif;
-    max-width: 230px;
+    /*max-width: 230px;*/
+    text-align: center;
+    max-width: unset;
     margin-bottom: 0px;
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
+    height: 110px;
 }
 
 .howitwork-main p::after {
@@ -295,14 +299,17 @@ section.sec-2::after {
     height: 8px;
     width: 60px;
     bottom: 0px;
-    right: 160px;
+    /*right: 160px;*/
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .how-work-img {
     position: relative;
     width: 55px;
-    margin-bottom: 30px;
-    margin-left: 7px;
+    /*margin-bottom: 30px;*/
+    /*margin-left: 7px;*/
+    margin: 0 auto 40px;
 }
 
 .how-work-img::after {
@@ -346,6 +353,7 @@ section.sec-2::after {
 .how-work {
     padding-top: 80px;
     padding-bottom: 60px;
+    text-align: center;
 }
 
 .howitwork-main .step-nmbr h5 {
@@ -358,6 +366,7 @@ section.sec-2::after {
     width: 70px;
     z-index: 1;
     text-align: center;
+    margin: 0 auto;
 }
 
 .howitwork-main .step-nmbr::after {
@@ -2470,9 +2479,20 @@ header.thnkPage .dropdown-toggle {
 }
 
 ol.tagLines {
-    margin: 20px 0 0;
+    margin: 30px 0 0;
     list-style-position: inside;
     padding: 0;
+    display:flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+}
+ol.tagLines li {
+    flex: 0 0 45%;
+}
+
+ol.tagLines li::marker {
+    color: #05eab5;
+    font-weight: 700;
 }
 
 /* End */
