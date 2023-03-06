@@ -142,17 +142,17 @@
                                         <li>Service History
                                             <span>{{ $vehicle->DealerVehicleHistory->service_history_title }}</span>
                                         </li>
-                                        <li>Mileage<span>{{ $vehicle->DealerVehicleHistory->mileage }}</span></li>
+                                        <li>Mileage<span>{{ $vehicle->vehicle_mileage }}</span></li>
                                         <li>V5 Status<span>{{ $vehicle->DealerVehicleHistory->v5_status }}</span></li>
                                         <li>Origin<span>{{ $vehicle->DealerVehicleHistory->origin }}</span></li>
-                                        <li>Interior<span>{{ $vehicle->DealerVehicleHistory->interior }}</span></li>
+                                        {{-- <li>Interior<span>{{ $vehicle->DealerVehicleHistory->interior }}</span></li>
                                         <li>Exterior<span>{{ $vehicle->DealerVehicleHistory->exterior }}</span></li>
                                         <li>Audio and
                                             Communications<span>{{ $vehicle->DealerVehicleHistory->audio_and_communications }}</span>
                                         </li>
                                         <li>Drivers
                                             Assistance<span>{{ $vehicle->DealerVehicleHistory->drivers_assistance }}</span>
-                                        </li>
+                                        </li> --}}
                                         <li>More Details
                                             <span>
                                                 @php
@@ -196,10 +196,10 @@
                                                 @endif
                                             </span>
                                         </li>
-                                        <li>Illumination<span>{{ $vehicle->DealerVehicleHistory->illumination }}</span></li>
+                                        {{-- <li>Illumination<span>{{ $vehicle->DealerVehicleHistory->illumination }}</span></li>
                                         <li>Performance<span>{{ $vehicle->DealerVehicleHistory->performance }}</span></li>
                                         <li>Safety and
-                                            Security<span>{{ $vehicle->DealerVehicleHistory->safety_and_security }}</span></li>
+                                            Security<span>{{ $vehicle->DealerVehicleHistory->safety_and_security }}</span></li> --}}
 
                                     </ul>
                                 </div>
@@ -210,7 +210,7 @@
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-bolt"></i> Condition And Damages</h4>
                                 <ul>
-                                    <li>Condition / Damage<span>{{ $vehicle->DealerVehicleMedia->condition_damage }}</span>
+                                    <li>Estimated Cost<span>{{ $vehicle->DealerVehicleMedia->condition_damage }}</span>
                                     </li>
                                     <li>Condition / Damage URL
                                         <span>{{ $vehicle->DealerVehicleMedia->condition_damage_url }}</span>
@@ -227,10 +227,10 @@
                                     <li>Attention Grabber
                                         <span>{{ $vehicle->DealerVehicleMedia->attention_grabber }}</span>
                                     </li>
-                                    <li>Nearside Front<span>{{ $vehicle->DealerVehicleMedia->nearside_front }}</span></li>
+                                    {{-- <li>Nearside Front<span>{{ $vehicle->DealerVehicleMedia->nearside_front }}</span></li>
                                     <li>Nearside Rear<span>{{ $vehicle->DealerVehicleMedia->nearside_rear }}</span></li>
                                     <li>Offside Front <span>{{ $vehicle->DealerVehicleMedia->offside_front }} </span></li>
-                                    <li>Offside Rear<span>{{ $vehicle->DealerVehicleMedia->offside_rear }}</span></li>
+                                    <li>Offside Rear<span>{{ $vehicle->DealerVehicleMedia->offside_rear }}</span></li> --}}
                                 </ul>
                             </div>
                         </div>

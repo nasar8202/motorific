@@ -2197,15 +2197,15 @@ display: block;
                             <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="VehicleCategory">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Vehicle Category</h3>
-                                <p>Is this vehicle on finance?</p>
+                                {{-- <p>Is this vehicle on finance?</p> --}}
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
-                                           @foreach($Finances as $key=> $Finance)
+                                           @foreach($vehicleCategories as $key=> $vehicleCategori)
                                             <label for="radio-isVehicleCategoryOnFinance-true-{{$key}}">
-                                                <input type="radio"  name="finance" class="finance" value="{{$Finance->id}}" @if($Finance->id == session()->get('finance')) checked @endif id="radio-isVehicleCategoryOnFinance-true-{{$key}}" />
+                                                <input type="radio"  name="vehicleCateg" class="categ" value="{{$vehicleCategori->id}}" @if($vehicleCategori->id == session()->get('categ')) checked @endif id="radio-isVehicleCategoryOnFinance-true-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
-                                                    <p>{{$Finance->title}}</p>
+                                                    <p>{{$vehicleCategori->title}}</p>
                                                 </div>
                                             </label>
                                             @endforeach
@@ -2216,8 +2216,8 @@ display: block;
                                                 </div>
                                             </label> --}}
                                         </div>
-                                        @if ($errors->has('finance'))
-                                        <span class="text-danger">{{ $errors->first('finance') }}</span>
+                                        @if ($errors->has('vehicleCateg'))
+                                        <span class="text-danger">{{ $errors->first('vehicleCateg') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-lg-5">
@@ -2428,6 +2428,24 @@ display: block;
                                             						<td id="FinanceFinal" >N/A</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="Finance">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                                            <tr class="SectionTable__withLink">
+                                            					<td><span>Vehicle Category</span></td>
+                                            						<td id="vehicleCategory" >N/A</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="vehicleCategory">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                                            <tr class="SectionTable__withLink">
+                                            					<td><span>Vehicle History</span></td>
+                                            						<td id="vehicleHisory" >N/A</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="vehicleHisory">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -2797,7 +2815,9 @@ $("#store").click(function(){
     var vehicleOwner = $(".vehicleOwner:checked").val();
     var privatePlate = $(".privatePlate:checked").val();
     var finance = $(".finance:checked").val();
+    var categ = $(".categ:checked").val();
     var VehicleHistory = $(".VehicleHistory:checked").val();
+    
 
     
 
@@ -2813,6 +2833,7 @@ $("#store").click(function(){
     console.log(privatePlate);
     console.log(finance);
     console.log(VehicleHistory);
+    console.log(categ);
 
      $.ajax({
 
@@ -2823,11 +2844,11 @@ $("#store").click(function(){
             },
             data: {the_value:the_value,seatMaterial:seatMaterial,numberOfKeys:numberOfKeys,
                 toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,
-                vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance,VehicleHistory:VehicleHistory
+                vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance,VehicleHistory:VehicleHistory,categ:categ
             },
 
             success: function(response){
-                // console.log("ghhhhh",response);
+                console.log(response);
                 var vehicleResponse = response.VehicleFeature;
                 var vehicledata = '';
                 var SeatMaterialsResponse = response.SeatMaterials;
@@ -2842,7 +2863,8 @@ $("#store").click(function(){
                 var PrivatePlates = response.PrivatePlates;
                 var Finances = response.Finances;
                 var VehicleHistory = response.VehicleHistory;
-                // console.log(SeatMaterials.title);
+                var categ = response.vehicleCategories;
+                console.log(Finances.title);
                 $.each(vehicleResponse,function(vehicleResponse,row){
                     vehicledata+='<p>'+row.title+'</p>';
 
@@ -2878,8 +2900,11 @@ $("#store").click(function(){
                 $("#FinanceFinal").html('');
                 $("#FinanceFinal").html(Finances.title);
 
-                $("#FinanceFinal").html('');
-                $("#FinanceFinal").html(VehicleHistory.title);
+                $("#vehicleHisory").html('');
+                $("#vehicleHisory").html(VehicleHistory.title);
+                
+                $("#vehicleCategory").html('');
+                $("#vehicleCategory").html(categ.title);
             },
 
 
