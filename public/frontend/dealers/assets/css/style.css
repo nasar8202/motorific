@@ -1051,10 +1051,12 @@ ul.parts-content li span:hover:before {
 ul.parts-content li span:hover {
     color: #fff;
 }
-ul.parts-content li input:checked + span:before {
+ul.parts-content li input[type="radio"]:checked + span:before {
     background: #05eab5;
+    transform: skew(0);
+    width: 100%;
 }
-ul.parts-content li input:checked + span {
+ul.parts-content li input[type="radio"]:checked + span {
     border-color: #05eab5;
 }
 .step-img img {
@@ -1700,7 +1702,8 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
 .services-sec {
     position: relative;
     padding: 90px 0 110px 0;
-    margin-bottom: 100px;
+    /*margin-bottom: 100px;*/
+    margin-bottom: 190px;
 }
 .services-sec:before {
     content: '';
@@ -1709,6 +1712,7 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     background: url(../image/images/service-img.png) no-repeat center / 100%;
     position: absolute;
     top: 20px;
+    min-height: calc(100% + 100px);
 }
 .service-box .icon-box img {
     max-height: 60px;
@@ -1886,6 +1890,7 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
 .liveSalesInProgress {
     background: #7a77a2;
     padding: 60px 30px 40px;
+    margin-top: 20px;
 }
 div.reserveDetail ul li {
     border-bottom: 1px solid #2025436b;

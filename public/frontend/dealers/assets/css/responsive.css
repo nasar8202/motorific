@@ -1,4 +1,4 @@
-@media (max-width: 1700px) {
+@media (max-width: 1750px) {
     .container-1200 {
         width: 1130px;
     }
@@ -31,6 +31,17 @@ ul.parts-content li span {
 .step-img img {
     max-width: 280px;
 }
+
+section.services-sec {
+    margin-bottom: 120px;
+}
+
+.services-sec:before {
+    min-height: calc(100% + 30px);
+}
+
+
+
 
 }
 
@@ -542,6 +553,7 @@ div#loop .col-lg-3.col-md-3.blur_action {
     background-image: url(../image/images/service-bg-mob.png);
     top: 0;
     background-position: top;
+    min-height: auto;
 }
 
 .services-sec .row {

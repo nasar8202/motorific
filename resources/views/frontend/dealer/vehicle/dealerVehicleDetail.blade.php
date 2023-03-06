@@ -344,7 +344,7 @@
                         
                     </div>
                     <div class="col-lg-4 vehicleDetailRight">
-                        <div class="liveSalesInProgress live_sell">
+                        <div class="liveSalesInProgress live_sell" id="vehBox">
                             <h4>Live Sales In Progress</h4>
                             <div class="reserveDetail">
                                 <ul>
