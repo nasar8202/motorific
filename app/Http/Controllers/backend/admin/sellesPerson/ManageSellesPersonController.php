@@ -61,7 +61,7 @@ class ManageSellesPersonController extends Controller
             ];
             //   dd($details);
             dispatch(new SellerDetail($details));
-            return redirect()->route('viewVehicle')->with('success', 'Register Successfully!');
+            return redirect()->route('viewSellerPersons')->with('success', 'Register Successfully!');
         } catch (\Exception $e) {
             return back()->with('error', 'Something went wrong!');
         }
@@ -98,23 +98,32 @@ class ManageSellesPersonController extends Controller
             $postcode = str_replace(' ', '', $zip);
     
             $data = [
-                'email'=>$request->email,
+                
                 'name'=>$request->name,
                 'post_code'=>$postcode,
                 'phone_number'=>$request->phone_number,
             ];
             
-            // $user =  User::where('id',$id)->update($data);
+            //$user =  User::where('id',$request->id)->update($data);
 
             $seller = User::find($request->id);
-            $seller->name = $request->name;
-           
-            $seller->post_code = $postcode;
-            $seller->phone_number = $request->phone_number;
-            // $seller->password = Hash::make($request->password);
-            $seller->save();
 
-                // dd($user);
+            $data = [
+                
+                'name'=>$request->name,
+                'post_code'=>$postcode,
+                'phone_number'=>$request->phone_number,
+            ];
+
+           // dd($seller->update($data));
+            // $seller->name = $request->name;
+           
+            // $seller->post_code = $postcode;
+            // $seller->phone_number = $request->phone_number;
+            // // $seller->password = Hash::make($request->password);
+            // $seller->save();
+
+                 //dd($user);
         //    dd($seller);
             return redirect()->route('viewSellerPersons')->with('success', 'Updated Successfully!');
         } catch (\Exception $e) {

@@ -535,7 +535,9 @@ Route::group(['prefix' => 'agent','middleware'=>['auth','agent']], function () {
     
        // Route::get('/superadmin', [SuperAdminDashboardController::class,'superadmin'])->name('superadmin');
         Route::get('/dashboard', [AgentsDashboardController::class,'agent'])->name('dashboard');
-        // Route::get('/create-role', [SuperAdminDashboardController::class,'RoleForm'])->name('RoleForm');
+        Route::get('/create-vehicle', [AgentsDashboardController::class,'addVehicleFromSellerPerson'])->name('addVehicleFromSellerPerson');
+        Route::post('/store-vehicle', [AgentsDashboardController::class, 'StoreVehicle'])->name('StoreVehicle');
+        Route::get('/find-vehicle', [AgentsDashboardController::class, 'findVehicle'])->name('findVehicle');
         // Route::post('/store',  [SuperAdminDashboardController::class,'store'])->name('store');
         // Route::get('/view-role',  [SuperAdminDashboardController::class,'ViewRole'])->name('ViewRole');
         // Route::get('/edit/{id}',  [SuperAdminDashboardController::class,'EditRoleForm'])->name('EditRoleForm');

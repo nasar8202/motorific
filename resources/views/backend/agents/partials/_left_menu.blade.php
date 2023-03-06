@@ -11,14 +11,14 @@
     <li class="sidebar-item  has-sub">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
-            <span>Manage Users</span>
+            <span>Manage Vehicles</span>
         </a>
         <ul class="submenu ">
             <li class="submenu-item ">
-                <a href="{{ route('RoleForm') }}">Add Role</a>
+                <a href="{{ route('addVehicleFromSellerPerson') }}">Add Vehicle</a>
             </li>
             <li class="submenu-item ">
-                <a href="{{ route('ViewRole') }}">View Role</a>
+                <a href="{{ route('ViewRole') }}">View View Vehicles</a>
             </li>
 
         </ul>

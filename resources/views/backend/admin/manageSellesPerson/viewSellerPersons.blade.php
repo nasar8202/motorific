@@ -39,6 +39,8 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Post Code</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -51,13 +53,15 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $sellesPerson->name }}</td>
                             <td>{{ $sellesPerson->email }}</td>
+                            <td>{{ $sellesPerson->phone_number }}</td>
+                            <td>{{ $sellesPerson->post_code }}</td>
                             <td>
                                 <a href="{{ route('sellesPersonEdit',$sellesPerson->id) }}"><span class="badge badge-success">Edit</span></a>
-                                @if($sellesPerson->status == 1)
+                                {{-- @if($sellesPerson->status == 1)
                                 <a href="{{ route('unBlockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">unblocked</span></a>
                                 @else
                                 <a href="{{ route('blockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">blocked</span></a>
-                                @endif
+                                @endif --}}
                             </td>
                         </tr>
                         @endforeach
