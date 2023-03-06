@@ -211,6 +211,8 @@ class FrontController extends Controller
         $request->session()->put('vehicle_owner',$request->vehicleOwner);
         $request->session()->put('private_plate',$request->privatePlate);
         $request->session()->put('finance',$request->finance);
+        $request->session()->put('categ',$request->categ);
+        $request->session()->put('VehicleHistory',$request->VehicleHistory);
 
         $feature = explode(',',$request->the_value);
         foreach($feature as $f){
@@ -226,12 +228,15 @@ class FrontController extends Controller
         $VehicleOwners =  VehicleOwner::where('id',session()->get('vehicle_owner'))->first();
         $PrivatePlates =  PrivatePlate::where('id',session()->get('private_plate'))->first();
         $Finances =  Finance::where('id',session()->get('finance'))->first();
+        $vehicleCategories =  vehicleCategories::where('id',session()->get('categ'))->first();
+        $VehicleHistory =  VehicleHistory::where('id',session()->get('VehicleHistory'))->first();
 
-
+        
 
         return ['VehicleFeature'=>$VehicleFeature,'SeatMaterials'=>$SeatMaterials,'NumberOfKeys'=>$numberOfKeys,
         'ToolPack'=>$ToolPack,'LockingWheelNut'=>$LockingWheelNut,'Smokings'=>$Smokings,'VCLogBooks'=>$VCLogBooks,
-        'VehicleLocation'=>$VehicleLocation,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances];
+        'VehicleLocation'=>$VehicleLocation,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances,'vehicleCategories'=>$vehicleCategories
+        ,'VehicleHistory'=>$VehicleHistory];
     //  $request->session()->get('seat_material');
 
     }
@@ -358,7 +363,7 @@ class FrontController extends Controller
             $vehicle->previous_owners =  $request->previous_owner;
             $vehicle->vehicle_mileage = $request->VehicleMileage;
             $vehicle->vehicle_price = $request->VehiclePrice;
-            $vehicle->vehicle_category = $request->VehicleCategory;
+            $vehicle->vehicle_category = $request->vehicleCateg;
             $vehicle->status = 0;
 
             $vehicle->save();

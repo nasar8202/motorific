@@ -244,7 +244,7 @@
                         <h4>Live Sales In Progress</h4>
                         <div class="reserveDetail vehicle">
                             <ul >
-                                <li>Reserve Price: <span>£{{$vehicle->vehicle_price}}</span></li>
+                                <li>Reserve Price: <span>£{{$vehicle->reserve_price}}</span></li>
                                 @if($vehicle->all_auction == 'all')
                                 <li>Total Offers: <span>{{$allorder ??'No Offers Yet'}}</span></li>
                                 <li >Higesht Offer<span> <a href="#">@if(isset($order->request_price)) {{$order->request_price}}@endif</a></span></li>
@@ -339,10 +339,10 @@
         e.preventDefault();
     });
     $(".requestVehicle").click(function(){
-        var BidPrice = $(".bid_price").val();
+        var BidPrice = parseFloat($(".bid_price").val());
         var VehicleId = $(".vehicle_id").val();
-        var HiddenPrice = $(".hidden_price").val();
-        if(!(BidPrice <= HiddenPrice)){
+        var HiddenPrice = parseFloat($(".hidden_price").val());
+        if(BidPrice > HiddenPrice){
              $.ajax({
 
             url: '{{route("vehicleRequest")}}',
@@ -383,12 +383,12 @@
         
     $(".bid").click(function(){
         
-    var BidPrice = $(".bid_price").val();
-    var HiddenPrice = $(".hidden_price").val();
+    var BidPrice = parseFloat($(".bid_price").val());
+    var HiddenPrice = parseFloat($(".hidden_price").val());
     var VehicleId = $(".vehicle_id").val();
     console.log(BidPrice,HiddenPrice);
-    // console.log(BidPrice <= HiddenPrice);
-    if(!(BidPrice <= HiddenPrice)){
+    // console.log(BidPrice > HiddenPrice,"jkfhsdjkfsdjkfhsdjkfsdjkfhsdkjhsdjkfhjksdfhsdjkfhsdjkfhsdjkfhsdjkfhsdjkh");
+    if(BidPrice > HiddenPrice){
 
          $.ajax({
 
