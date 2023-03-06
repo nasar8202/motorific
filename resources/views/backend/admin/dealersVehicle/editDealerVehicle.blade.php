@@ -77,13 +77,13 @@ p {
                 <h2 class="fs-head">{{$vehicle->vehicle_name}}</h2>
                 <p>{{$vehicle->vehicle_color}}.<span>{{$vehicle->vehicle_year}}</span><span>.</span>{{$vehicle->vehicle_mileage}}<span>.</span>{{$vehicle->vehicle_tank}}<span>.</span>{{$vehicle->vehicle_type}}</p>
             </div>
-            <div class="mapAndText">
+            {{-- <div class="mapAndText">
                 <p><strong>Collection:</strong> Available immediately</p>
                 <p><strong>Location:</strong> {{$vehicle->location ?? ''}} (9 miles away)
 
 
                 </p>
-            </div>
+            </div> --}}
             <div class="features bottomList">
                 <div class="bottomListTitle">
                     <h4><i class="fa-light fa-file-check"></i> Features</h4>
@@ -112,13 +112,13 @@ p {
                         <li>Keys<span><i class="fas fa-exclamation-triangle"></i> {{$vehicle->DealerVehicleHistory->keys}}</span></li>
                         <li>Previous Owners <span>{{$vehicle->DealerVehicleHistory->previous_owners}}</span></li>
                         <li>Service History <span>{{$vehicle->DealerVehicleHistory->service_history_title}}</span></li>
-                        <li>Mileage<span>{{$vehicle->DealerVehicleHistory->mileage}}</span></li>
+                        <li>Mileage<span>{{$vehicle->vehicle_mileage}}</span></li>
                         <li>V5 Status<span>{{$vehicle->DealerVehicleHistory->v5_status}}</span></li>
                         <li>Origin<span>{{$vehicle->DealerVehicleHistory->origin}}</span></li>
-                        <li>Interior<span>{{$vehicle->DealerVehicleHistory->interior}}</span></li>
+                        {{-- <li>Interior<span>{{$vehicle->DealerVehicleHistory->interior}}</span></li>
                         <li>Exterior<span>{{$vehicle->DealerVehicleHistory->exterior}}</span></li>
                         <li>Audio and Communications<span>{{$vehicle->DealerVehicleHistory->audio_and_communications}}</span></li>
-                        <li>Drivers Assistance<span>{{$vehicle->DealerVehicleHistory->drivers_assistance}}</span></li>
+                        <li>Drivers Assistance<span>{{$vehicle->DealerVehicleHistory->drivers_assistance}}</span></li> --}}
                         @php
                         $in_array_questions = explode(',',($vehicle->DealerVehicleHistory->checkbox_questions));
                         @endphp
@@ -136,9 +136,9 @@ p {
                                               @if(in_array('12',$in_array_questions)) Water Temperature and Fuel Gauges ,@endif
 
                         </span></li>
-                        <li>Illumination<span>{{$vehicle->DealerVehicleHistory->illumination}}</span></li>
+                        {{-- <li>Illumination<span>{{$vehicle->DealerVehicleHistory->illumination}}</span></li>
                         <li>Performance<span>{{$vehicle->DealerVehicleHistory->performance}}</span></li>
-                        <li>Safety and Security<span>{{$vehicle->DealerVehicleHistory->safety_and_security}}</span></li>
+                        <li>Safety and Security<span>{{$vehicle->DealerVehicleHistory->safety_and_security}}</span></li> --}}
 
                     </ul>
                 </div>
@@ -157,16 +157,16 @@ p {
                 <div class="bottomListTitle">
                     <h4><i class="fas fa-bolt"></i> Condition And Damages</h4>
                     <ul class="list-spec">
-                        <li>Condition / Damage<span>{{$vehicle->DealerVehicleMedia->condition_damage}}</span></li>
-                        <li>Condition / Damage URL <span>{{$vehicle->DealerVehicleMedia->condition_damage_url}}</span></li>
+                        <li>Estimated Cost<span>{{$vehicle->DealerVehicleMedia->condition_damage}}</span></li>
+                        {{-- <li>Condition / Damage URL <span>{{$vehicle->DealerVehicleMedia->condition_damage_url}}</span></li> --}}
                         <li>Do you have existing condition report?<span>{{$vehicle->DealerVehicleMedia->existing_condition_report}}</span></li>
                         <li>Is there any damage on your vehicle? <span>{{$vehicle->DealerVehicleMedia->any_damage_checked}}</span></li>
                         <li>Advert description <span>{{$vehicle->DealerVehicleMedia->advert_description}}</span></li>
                         <li>Attention Grabber <span>{{$vehicle->DealerVehicleMedia->attention_grabber}}</span></li>
-                        <li>Nearside Front<span>{{$vehicle->DealerVehicleMedia->nearside_front}}</span></li>
+                        {{-- <li>Nearside Front<span>{{$vehicle->DealerVehicleMedia->nearside_front}}</span></li>
                         <li>Nearside Rear<span>{{$vehicle->DealerVehicleMedia->nearside_rear}}</span></li>
-                        <li>Offside Front <span>{{$vehicle->DealerVehicleMedia->offside_front}} </span></li>
-                        <li>Offside Rear<span>{{$vehicle->DealerVehicleMedia->offside_rear}}</span></li>
+                        <li>Offside Front <span>{{$vehicle->DealerVehicleMedia->offside_front}} </span></li> --}}
+                        {{-- <li>Estimation Cost<span>{{$vehicle->DealerVehicleMedia->offside_rear}}</span></li> --}}
                     </ul>
                 </div>
             </div>
