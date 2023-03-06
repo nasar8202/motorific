@@ -27,7 +27,7 @@ class CreateVehicleInformationTable extends Migration
             $table->unsignedBigInteger('vehicle_owner_id')->nullable();
             $table->unsignedBigInteger('private_plate_id')->nullable();
             $table->unsignedBigInteger('finance_id')->nullable();
-            $table->unsignedBigInteger('vehicle_history_id')->nullable();
+            
             $table->string('status')->default(1)->comment('1 = Active , 2 = Deactive');
             $table->timestamps();
             $table->softDeletes();

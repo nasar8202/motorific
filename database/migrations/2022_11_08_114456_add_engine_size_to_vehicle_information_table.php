@@ -14,6 +14,7 @@ class AddEngineSizeToVehicleInformationTable extends Migration
     public function up()
     {
         Schema::table('vehicle_information', function (Blueprint $table) {
+            $table->unsignedBigInteger('vehicle_history_id')->nullable();
             $table->string('interior')->nullable();
             $table->string('body_type')->nullable();
             $table->string('engine_size')->nullable();
