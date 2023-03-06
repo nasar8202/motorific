@@ -7,9 +7,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FONTAWESOME -->
-    <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script>
+    {{-- <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/fontawesome/all.min.css')}}"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   <!-- BOOTSTRAP-5 -->
+    {{-- <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script> --}}
+
+    <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CUSTOM-CSS -->
@@ -29,16 +34,17 @@
     <!-- Select 2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <title>Motorific- @yield('title')</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <!-- Dragable Css -->
     <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    
+
     <!-- Css -->
     <style type="text/css">
-
         /*Background color*/
         #grad1 {
             padding-top: 100px;
@@ -91,7 +97,9 @@
             color: #9E9E9E;
         }
 
-        #msform input, #msform textarea,#msform select {
+        #msform input,
+        #msform textarea,
+        #msform select {
             padding: 0px 15px 0px 15px;
             border: 1px solid #ccc;
             margin-bottom: 25px;
@@ -105,7 +113,8 @@
             height: 52px;
         }
 
-        #msform input:focus, #msform textarea:focus {
+        #msform input:focus,
+        #msform textarea:focus {
             -moz-box-shadow: none !important;
             -webkit-box-shadow: none !important;
             box-shadow: none !important;
@@ -126,7 +135,8 @@
             border-radius: 50px;
         }
 
-        #msform .action-button:hover, #msform .action-button:focus {
+        #msform .action-button:hover,
+        #msform .action-button:focus {
             box-shadow: 0 0 0 2px white, 0 0 0 3px #05eab5;
         }
 
@@ -143,7 +153,8 @@
             border-radius: 50px;
         }
 
-        #msform .action-button-previous:hover, #msform .action-button-previous:focus {
+        #msform .action-button-previous:hover,
+        #msform .action-button-previous:focus {
             box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
         }
 
@@ -248,7 +259,8 @@
         }
 
         /*Color number of the step and the connector before it*/
-        #progressbar li.active:before, #progressbar li.active:after {
+        #progressbar li.active:before,
+        #progressbar li.active:after {
             background: #05eab5;
         }
 
@@ -259,14 +271,14 @@
         }
 
         .radio {
-            display:inline-block;
+            display: inline-block;
             width: 204;
             height: 104;
             border-radius: 0;
             background: lightblue;
             box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
             box-sizing: border-box;
-            cursor:pointer;
+            cursor: pointer;
             margin: 8px 2px;
         }
 
@@ -279,7 +291,7 @@
         }
 
         /*Fit image in bootstrap div*/
-        .fit-image{
+        .fit-image {
             width: 100%;
             object-fit: cover;
         }
@@ -295,16 +307,16 @@
         }
 
         #msform .form-group.radio-group input {
-                width: auto;
-                display: none;
+            width: auto;
+            display: none;
         }
 
-        #msform .form-group.radio-group input + span {
+        #msform .form-group.radio-group input+span {
             position: relative;
             padding-left: 30px;
         }
 
-        #msform .form-group.radio-group input + span:before {
+        #msform .form-group.radio-group input+span:before {
             content: '';
             position: absolute;
             left: 0;
@@ -317,18 +329,30 @@
             transform: translateY(-50%);
         }
 
-        #msform .form-group.radio-group input + span a {
+        #msform .form-group.radio-group input+span a {
             color: #05eab5;
             text-decoration: none;
         }
 
-        #msform .form-group.radio-group input + span:after {position: absolute;left: 5px;top: 50%;width: 10px;height: 10px;border-radius: 50%;background: #05eab5;content: '';transform: translateY(-50%);opacity: 0;transition: all .3s linear 0s;}
+        #msform .form-group.radio-group input+span:after {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #05eab5;
+            content: '';
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all .3s linear 0s;
+        }
 
         #msform fieldset .form-card label span {
             position: relative;
         }
 
-        #msform .form-group.radio-group input:checked + span:after {
+        #msform .form-group.radio-group input:checked+span:after {
             opacity: 1;
         }
 
@@ -353,7 +377,7 @@
             transform: translateY(-50%);
         }
 
-        #msform fieldset .form-card  .absolutelabel > label {
+        #msform fieldset .form-card .absolutelabel>label {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -375,7 +399,7 @@
             padding-left: 80px;
         }
 
-        .form-group.twoInOneLine > label {
+        .form-group.twoInOneLine>label {
             width: 100%;
             flex: 0 0 100%;
             margin-bottom: -14px;
@@ -388,10 +412,11 @@
             justify-content: center;
         }
 
-        .form-group.twoInOneLine > span {
+        .form-group.twoInOneLine>span {
             flex: 0 0 30px;
             text-align: center;
         }
+
         span.select2.select2-container {
             min-width: 100%;
             padding: 0px 15px 0px 15px;
@@ -438,80 +463,101 @@
             transform: rotate(45deg);
             -webkit-transform: rotate(45deg);
         }
+
         .select2-container {
-          min-width: 400px;
+            min-width: 400px;
         }
 
         .select2-results__option {
-          padding-right: 20px;
-          vertical-align: middle;
+            padding-right: 20px;
+            vertical-align: middle;
         }
+
         .select2-results__option:before {
-          content: "";
-          display: inline-block;
-          position: relative;
-          height: 20px;
-          width: 20px;
-          border: 2px solid #e9e9e9;
-          border-radius: 4px;
-          background-color: #fff;
-          margin-right: 20px;
-          vertical-align: middle;
+            content: "";
+            display: inline-block;
+            position: relative;
+            height: 20px;
+            width: 20px;
+            border: 2px solid #e9e9e9;
+            border-radius: 4px;
+            background-color: #fff;
+            margin-right: 20px;
+            vertical-align: middle;
         }
+
         .select2-results__option[aria-selected=true]:before {
-          font-family:fontAwesome;
-          content: "\f00c";
-          color: #fff;
-          background-color: #05eab5;
-          border: 0;
-          display: inline-block;
-          padding-left: 3px;
+            font-family: fontAwesome;
+            content: "\f00c";
+            color: #fff;
+            background-color: #05eab5;
+            border: 0;
+            display: inline-block;
+            padding-left: 3px;
         }
+
         .select2-container--default .select2-results__option[aria-selected=true] {
             background-color: #fff;
         }
+
         .select2-container--default .select2-results__option--highlighted[aria-selected] {
             background-color: #eaeaeb;
             color: #272727;
         }
+
         .select2-container--default .select2-selection--multiple {
             margin-bottom: 10px;
         }
+
         .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
             border-radius: 4px;
         }
+
         .select2-container--default.select2-container--focus .select2-selection--multiple {
             border-color: #05eab5;
             border-width: 2px;
         }
+
         .select2-container--default .select2-selection--multiple {
             border-width: 2px;
         }
+
         .select2-container--open .select2-dropdown--below {
 
             border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
         }
+
         .select2-selection .select2-selection--multiple:after {
             content: 'hhghgh';
         }
+
         /* select with icons badges single*/
         .select-icon .select2-selection__placeholder .badge {
             display: none;
         }
+
         .select-icon .placeholder {
             display: none;
         }
+
         .select-icon .select2-results__option:before,
         .select-icon .select2-results__option[aria-selected=true]:before {
             display: none !important;
             /* content: "" !important; */
         }
-        .select-icon  .select2-search--dropdown {
+
+        .select-icon .select2-search--dropdown {
             display: none;
         }
-        #msform .select2-container--default .select2-search--inline .select2-search__field {height: 52px;border: 0;background: transparent;line-height: 45px;}
+
+        #msform .select2-container--default .select2-search--inline .select2-search__field {
+            height: 52px;
+            border: 0;
+            background: transparent;
+            line-height: 45px;
+        }
 
         .select2-container--default.select2-container--focus .select2-selection--multiple {
             height: 52px;
@@ -523,18 +569,24 @@
         span.select2.select2-container {
             padding: 0;
         }
-        .select2-container--default .select2-selection--multiple{
+
+        .select2-container--default .select2-selection--multiple {
             background: transparent;
             border: 0;
         }
-        textarea.select2-search__field {height: 0;}
+
+        textarea.select2-search__field {
+            height: 0;
+        }
+
         .select2-container .select2-selection--multiple .select2-selection__rendered {
             position: absolute;
             top: 8px;
             left: 10px;
             margin: 0;
         }
-        select.js-select2.companyType + span {
+
+        select.js-select2.companyType+span {
             display: none;
         }
 
@@ -551,11 +603,12 @@
             padding: 10px 20px;
             text-align: left;
         }
-        button.btn-qa span:last-child{
+
+        button.btn-qa span:last-child {
             transform: rotate(0deg);
         }
 
-        button.btn-qa:not(.collapsed) span:last-child{
+        button.btn-qa:not(.collapsed) span:last-child {
             transform: rotate(180deg);
         }
     </style>
@@ -564,61 +617,64 @@
 </head>
 
 <body>
-<main>
-    <!-- HEADER -->
-    @include('frontend.dealer.partials.header')
+    <main>
+        <!-- HEADER -->
+        @include('frontend.dealer.partials.header')
 
-    @yield('section')
+        @yield('section')
 
-    <!-- FOOTER -->
+        <!-- FOOTER -->
 
-    @include('frontend.dealer.partials.footer')
+        @include('frontend.dealer.partials.footer')
 
-</main>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-@stack('child-scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script>
-     @if(Session::has('success'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-                toastr.success("{{ session('success') }}");
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- <script src="{{ URL::asset('backend/admin/assets/vendors/fontawesome/all.min.js') }}"></script> --}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js"
+        integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @stack('child-scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if (Session::has('success'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('success') }}");
         @endif
 
-        @if(Session::has('error'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-                toastr.error("{{ session('error') }}");
+        @if (Session::has('error'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('error') }}");
         @endif
 
-        @if(Session::has('info'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-                toastr.info("{{ session('info') }}");
+        @if (Session::has('info'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('info') }}");
         @endif
 
-        @if(Session::has('warning'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-        toastr.warning("{{ session('warning') }}");
+        @if (Session::has('warning'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.warning("{{ session('warning') }}");
         @endif
-</script>
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     {{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
     <!-- Select 2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -629,7 +685,8 @@
 
     <!--Macth Height Js-->
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js' crossorigin = "anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js'
+        crossorigin="anonymous"></script>
     <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
 
     <!--<scipt src="{{ URL::asset('frontend/dealers/assets/js/jquery.steps.min.js') }}"></scipt>-->
@@ -639,14 +696,13 @@
     <script type="text/javascript" src="{{ URL::asset('frontend/dealers/assets/js/custom.js') }}"></script>
 
     <!-- Step Form -->
-     <script type="text/javascript">
-
-        $(document).ready(function(){
+    <script type="text/javascript">
+        $(document).ready(function() {
 
             // Select 2
             $(".js-select2").select2({
-                closeOnSelect : false,
-                placeholder : "Placeholder",
+                closeOnSelect: false,
+                placeholder: "Placeholder",
                 allowHtml: true,
                 allowClear: true,
                 tags: true
@@ -657,7 +713,7 @@
             var current_fs, next_fs, previous_fs; //fieldsets
             var opacity;
 
-            $(".next").click(function(){
+            $(".next").click(function() {
 
                 current_fs = $(this).parent();
                 next_fs = $(this).parent().next();
@@ -668,7 +724,9 @@
                 //show the next fieldset
                 next_fs.show();
                 //hide the current fieldset with style
-                current_fs.animate({opacity: 0}, {
+                current_fs.animate({
+                    opacity: 0
+                }, {
                     step: function(now) {
                         // for making fielset appear animation
                         opacity = 1 - now;
@@ -677,13 +735,15 @@
                             'display': 'none',
                             'position': 'relative'
                         });
-                        next_fs.css({'opacity': opacity});
+                        next_fs.css({
+                            'opacity': opacity
+                        });
                     },
                     duration: 600
                 });
             });
 
-            $(".previous").click(function(){
+            $(".previous").click(function() {
 
                 current_fs = $(this).parent();
                 previous_fs = $(this).parent().prev();
@@ -695,7 +755,9 @@
                 previous_fs.show();
 
                 //hide the current fieldset with style
-                current_fs.animate({opacity: 0}, {
+                current_fs.animate({
+                    opacity: 0
+                }, {
                     step: function(now) {
                         // for making fielset appear animation
                         opacity = 1 - now;
@@ -704,35 +766,37 @@
                             'display': 'none',
                             'position': 'relative'
                         });
-                        previous_fs.css({'opacity': opacity});
+                        previous_fs.css({
+                            'opacity': opacity
+                        });
                     },
                     duration: 600
                 });
             });
 
-            $('.radio-group .radio').click(function(){
+            $('.radio-group .radio').click(function() {
                 $(this).parent().find('.radio').removeClass('selected');
                 $(this).addClass('selected');
             });
 
-            $(".submit").click(function(){
+            $(".submit").click(function() {
                 return false;
             })
 
 
 
             // Form Condition
-            $('#allMakes').on('change', function(){
-                if ($(this).is(':checked')){
-                    $('select.js-select2.companyType + span').css('display','none');
+            $('#allMakes').on('change', function() {
+                if ($(this).is(':checked')) {
+                    $('select.js-select2.companyType + span').css('display', 'none');
                 }
             });
-            $('#specificMakes').on('change', function(){
-                if ($(this).is(':checked')){
-                    $('select.js-select2.companyType + span').css('display','block');
+            $('#specificMakes').on('change', function() {
+                if ($(this).is(':checked')) {
+                    $('select.js-select2.companyType + span').css('display', 'block');
                 }
             });
-            });
+        });
     </script>
     <!--Filter Product-->
     <script type="text/javascript">
@@ -746,28 +810,28 @@
             from,
             to;
 
-        var updateValues = function () {
+        var updateValues = function() {
             $from.prop("value", from);
             $to.prop("value", to);
         };
 
         $range.ionRangeSlider({
-            onChange: function (data) {
-              from = data.from;
-              to = data.to;
-              updateValues();
+            onChange: function(data) {
+                from = data.from;
+                to = data.to;
+                updateValues();
             }
         });
 
         range = $range.data("ionRangeSlider");
-        var updateRange = function () {
+        var updateRange = function() {
             range.update({
                 from: from,
                 to: to
             });
         };
 
-        $from.on("input", function () {
+        $from.on("input", function() {
             from = +$(this).prop("value");
             if (from < min) {
                 from = min;
@@ -779,7 +843,7 @@
             updateRange();
         });
 
-        $to.on("input", function () {
+        $to.on("input", function() {
             to = +$(this).prop("value");
             if (to > max) {
                 to = max;
@@ -794,110 +858,107 @@
         // Single Select
         $('.selectSingle select').select2();
         $('.topRightFilter select').select2();
-
-
     </script>
     <!--Slider-->
     <script>
         $('.sliderImgVehicleDetail').slick({
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
-          nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1
-              }
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-          ]
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+            nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         });
         // Timer
         function makeTimer() {
 
             //var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");
             var endTime = new Date("7 November 2022 09:43:00 UTC+05:00");
-                endTime = (Date.parse(endTime) / 1000);
+            endTime = (Date.parse(endTime) / 1000);
 
-                var now = new Date();
-                now = (Date.parse(now) / 1000);
+            var now = new Date();
+            now = (Date.parse(now) / 1000);
 
-                var timeLeft = endTime - now;
+            var timeLeft = endTime - now;
 
-                var days = Math.floor(timeLeft / 86400);
-                var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
-                var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
-                var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+            var days = Math.floor(timeLeft / 86400);
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
 
-                if (hours < "10") { hours = "0" + hours; }
-                if (minutes < "10") { minutes = "0" + minutes; }
-                if (seconds < "10") { seconds = "0" + seconds; }
+            if (hours < "10") {
+                hours = "0" + hours;
+            }
+            if (minutes < "10") {
+                minutes = "0" + minutes;
+            }
+            if (seconds < "10") {
+                seconds = "0" + seconds;
+            }
 
-                $("#counter").html(hours+":"+minutes+":"+seconds);
-                // $("#word").html('');
-                $("#word").html('Begins');
-                // $("#minutes").html(minutes);
-                // $("#seconds").html(seconds);
+            $("#counter").html(hours + ":" + minutes + ":" + seconds);
+            // $("#word").html('');
+            $("#word").html('Begins');
+            // $("#minutes").html(minutes);
+            // $("#seconds").html(seconds);
 
         }
 
-        setInterval(function() { makeTimer(); }, 1000);
-
-
+        setInterval(function() {
+            makeTimer();
+        }, 1000);
     </script>
     <!--jQuery UI-->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <!--<script src="{{ URL::asset('frontend/dealers/assets/js/sticky.jquery.js') }}"></script>-->
-    <script src="{{ URL::asset('frontend/dealers/assets/js/scrollWithPage.min.js') }}"></script>
+    {{-- <script src="{{ URL::asset('frontend/dealers/assets/js/scrollWithPage.min.js') }}"></script> --}}
     <!--Drag JS-->
     <script>
         $('.selectedFilesTn').sortable({
-        
+
             stop: function(evt, ui) {
                 var totalDivs = $(this).find('div.image-box').length;
                 var num = 1;
-                $(this).find('div.image-box').each(function(){
-                    $(this).attr('data-id','');
-                    $(this).attr('data-id','num_'+ num++ +'');
+                $(this).find('div.image-box').each(function() {
+                    $(this).attr('data-id', '');
+                    $(this).attr('data-id', 'num_' + num++ + '');
                 });
-                
+
             }
         });
-
     </script>
-    
+
     <script>
-      
+        // $(function(){
 
-        $(function(){
-    
-          $("#vehBox").scrollWithPage(".productPageTn");
-        
-        });
+        //   $("#vehBox").scrollWithPage(".productPageTn");
 
-
-
+        // });
     </script>
-    
+
 </body>
 
 </html>

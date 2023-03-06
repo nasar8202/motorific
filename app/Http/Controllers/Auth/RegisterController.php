@@ -21,6 +21,7 @@ use App\Models\vehicleCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\UserDetail;
+use App\Models\VehicleHistory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -207,6 +208,7 @@ class RegisterController extends Controller
                         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
                         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
                         $Finances =  Finance::where('status', 1)->get();
+                        $VehicleHistories  =  VehicleHistory::where('status', 1)->get();
                         $user = User::find($currentUser);
                         $registeration = trim($request->registeration, ' ');
 
@@ -261,7 +263,7 @@ class RegisterController extends Controller
                             // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
                             // ->json();
                             // $milage = $milage['result'];
-                            return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'user'));
+                            return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances','VehicleHistories', 'user'));
                         } else {
                             return back()->with('error', 'Record not found');
                         }

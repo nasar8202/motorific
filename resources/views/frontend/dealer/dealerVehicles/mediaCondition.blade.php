@@ -89,7 +89,7 @@
 
                     <div class="details-field-main confirmation-div">
                         <div class="custom-checkbox d-flex my-4">
-                            <input class="hide-inp" type="checkbox" name="confirm" value="1" id="confirm_tac" @if(old('confirm') == "1") checked @endif @if(request()->session()->get('confirm') == 1) checked @endif />
+                            <input class="hide-inp" type="checkbox" name="confirm" value="1" id="confirm_tac"  />
                             <label class="dflex-gap10 align-items-start" for="confirm_tac">
                                 <span class="checkbox-square f-15">
                                     <i class="fa-solid fa-check"></i>

@@ -249,7 +249,7 @@ display: block;
                                  </td>
                                     @endif
                                 @empty
-                                <td>No Order Found On This Vehicle</td>
+                                <td colspan="8" style="text-align: center">No Order Found On This Vehicle</td>
 
                             </tr>
                             @endforelse
