@@ -36,7 +36,14 @@ use App\Models\VehicleHistory;
 
 class FrontController extends Controller
 {
-
+    public function sellToADealer()
+    {
+        return view('frontend.seller.sellToADealer');
+    }
+    public function sellMyElectricCars()
+    {
+        return view('frontend.seller.sellMyElectricCars');
+    }
     public function createStep1(Request $request)
     {
         $register = $request->session()->get('register');

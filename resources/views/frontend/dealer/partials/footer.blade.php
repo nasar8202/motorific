@@ -60,15 +60,15 @@
             <div class="footer-sub contact">
                 <div>
                     <h5>Whatsapp</h5>
-                    <p>+39 0432 500759</p>
+                    <p>+44 7593 839364</p>
                 </div>
                 <div>
                     <h5>Customer Support </h5>
-                    <p>+39 347 1107748</p>
+                    <p>+44 7593 839364</p>
                 </div>
                 <div>
                     <h5>Email</h5>
-                    <p>hello@motorific.com</p>
+                    <p>info@motorific.co.uk</p>
                 </div>
             </div>
             <div class="footer-sub contact-2">
@@ -80,7 +80,7 @@
                         <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                     </ul>
                 </div>
-                <h4 class="copyright-txt">© Motorfic Online Ltd. 2017-2022</h4>
+                <h4 class="copyright-txt">© Motorfic Online Ltd. 2017-<?php echo date("Y"); ?></h4>
             </div>
         </div>
     </div>

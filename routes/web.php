@@ -55,6 +55,7 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 
 // newsletter subscriber
 Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
+Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmail'])->name('subscribeEmail');
 
 //end
 // Route::get('test', function () {
@@ -77,6 +78,10 @@ Route::get('/seller-registration-thankyou', [RegisterController::class,'sellerRe
 Route::get('/how-it-work', [HowItWorksController::class,'howItWorksforSeller'])->name('howItWorksforSeller');
 Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews');
 
+// sell my electric car
+Route::get('/sell-my-electric-cars', [FrontController::class,'sellMyElectricCars'])->name('sellMyElectricCars');
+Route::get('/sell-to-a-dealer', [FrontController::class,'sellToADealer'])->name('sellToADealer');
+// end sell my electric car
 
 // how it works for dealer
 Route::get('/how-it-works', [HowItWorksController::class,'howItWorks'])->name('howItWorks');
