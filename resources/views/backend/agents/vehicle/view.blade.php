@@ -29,7 +29,7 @@
         <div class="card">
             <div class="card-header">
                 Vehicles List
-                <a href="{{ route('createVehicleForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Create Vehicle</span></a>
+                {{-- <a href="{{ route('createVehicleForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Create Vehicle</span></a> --}}
             </div>
 
             <div class="card-body">
