@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
 use App\Http\Requests\RolePermissionStoreRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AgentsDashboardController extends Controller
 {
@@ -34,7 +35,7 @@ class AgentsDashboardController extends Controller
     {
         return view('backend.agents.dashboard');
     }
-    public function findVehicle(Request $request)
+    public function findVehicleinAgent(Request $request)
     {
         $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
         $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
@@ -81,29 +82,15 @@ class AgentsDashboardController extends Controller
             return back()->with('error', 'Record not found');
         }
     }
-    public function addVehicleFromSellerPerson()
+    public function StoreVehicleByAgent(Request $request)
     {
-        $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
-        $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
-        $vehicleCategories = vehicleCategories::all();
-        $SeatMaterials =  SeatMaterial::where('status', 1)->get();
-        $ToolPacks =  ToolPack::where('status', 1)->get();
-        $LockingWheelNuts =  LockingWheelNut::where('status', 1)->get();
-        $Smokings =  Smoking::where('status', 1)->get();
-        $VCLogBooks =  VCLogBook::where('status', 1)->get();
-        $VehicleOwners =  VehicleOwner::where('status', 1)->get();
-        $PrivatePlates =  PrivatePlate::where('status', 1)->get();
-        $Finances =  Finance::where('status', 1)->get();
-        return view('backend.agents.vehicle.create', compact('VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
-        
-    }
-   
-
-    public function StoreVehicle(Request $request)
-    {
-
         $request->validate([
-            
+            'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
+            'email' => 'required|string|email|max:50|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'password' => 'required',
+            'post_code' => 'required',
+            'phone_number' => 'required|min:9|max:16',
+            // 'mile_age' => 'required',
             'register_number' => 'required',
             'vehicle_name' => 'required',
             'vehicle_year' => 'required',
@@ -154,6 +141,7 @@ class AgentsDashboardController extends Controller
             $result = json_decode($result_string, true);
             if (count($result['results']) != 0) {
                 $seller = new User;
+                $seller->agent_id = Auth::user()->id;
                 $seller->name = $request->name;
                 $seller->email = $request->email;
                 $seller->mile_age = $request->mile_age;
@@ -296,8 +284,40 @@ class AgentsDashboardController extends Controller
         }
         DB::commit();
 
-        return redirect()->route('createVehicleForm')->with('success', 'Vehicle added  Successfully!');
+        return redirect()->route('addVehicleFromSellerPerson')->with('success', 'Vehicle added  Successfully!');
+    }
+    public function addVehicleFromSellerPerson()
+    {
+        $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
+        $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
+        $vehicleCategories = vehicleCategories::all();
+        $SeatMaterials =  SeatMaterial::where('status', 1)->get();
+        $ToolPacks =  ToolPack::where('status', 1)->get();
+        $LockingWheelNuts =  LockingWheelNut::where('status', 1)->get();
+        $Smokings =  Smoking::where('status', 1)->get();
+        $VCLogBooks =  VCLogBook::where('status', 1)->get();
+        $VehicleOwners =  VehicleOwner::where('status', 1)->get();
+        $PrivatePlates =  PrivatePlate::where('status', 1)->get();
+        $Finances =  Finance::where('status', 1)->get();
+        return view('backend.agents.vehicle.create', compact('VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+        
+    }
+   
+
+    public function viewAgentSeller()
+    {
+
+        $seller = User::where('agent_id',Auth::user()->id)->get();
+        //    dd($vehicles);
+        return view('backend.agents.vehicle.view', compact('seller'));
     }
     
+    public function viewSellersVehicle($id)
+    {
+
+        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->orderBy('id','DESC')->where('user_id',$id)->get();
+        //    dd($vehicles);
+        return view('backend.agents.vehicle.viewSellerVehicle', compact('vehicles'));
+    }
    
 }

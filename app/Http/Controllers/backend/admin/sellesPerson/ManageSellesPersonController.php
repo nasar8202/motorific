@@ -80,9 +80,8 @@ class ManageSellesPersonController extends Controller
         return view('backend.admin.manageSellesPerson.editSellePersonForm', compact('sellePerson'));
 
     }
-    public function updateSellePerson(Request $request)
+    public function updateSellePerson(Request $request,$id)
     {
-        
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
             'phone_number' => 'min:9|max:16',
@@ -91,55 +90,32 @@ class ManageSellesPersonController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
-        DB::beginTransaction();
+    
         try {
 
-            $zip = ($request->post_code);
-            $postcode = str_replace(' ', '', $zip);
-    
-            $data = [
-                
-                'name'=>$request->name,
-                'post_code'=>$postcode,
-                'phone_number'=>$request->phone_number,
-            ];
+            $selles = User::find($id);
             
-            //$user =  User::where('id',$request->id)->update($data);
-
-            $seller = User::find($request->id);
-
-            $data = [
-                
-                'name'=>$request->name,
-                'post_code'=>$postcode,
-                'phone_number'=>$request->phone_number,
-            ];
-
-           // dd($seller->update($data));
-            // $seller->name = $request->name;
-           
-            // $seller->post_code = $postcode;
-            // $seller->phone_number = $request->phone_number;
-            // // $seller->password = Hash::make($request->password);
-            // $seller->save();
-
-                 //dd($user);
-        //    dd($seller);
-            return redirect()->route('viewSellerPersons')->with('success', 'Updated Successfully!');
+            $selles->name = $request->name;
+            $selles->post_code = $request->post_code;
+            $selles->phone_number = $request->phone_number;
+            $selles->update();
         } catch (\Exception $e) {
             
             DB::rollback();
             return Redirect()->back()
-                ->with('error', $e->getMessage())
-                ->withInput();
+            ->with('error', $e->getMessage())
+            ->withInput();
         }
         DB::commit();
+        return redirect()->route('viewSellerPersons')->with('success', 'Updated Successfully!');
     }
 
     public function blockSellesPerson($id)
     {
-        $status = ['status'=>2];
-        $seller = User::where('id',$id)->update($status);
+        $seller = User::find($id);
+        
+        $seller->status = 2;
+        $seller->save();
         return redirect()->route('viewSellerPersons')->with('success', 'Blocked Successfully!');
            
            

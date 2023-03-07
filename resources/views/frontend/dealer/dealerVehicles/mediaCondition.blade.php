@@ -52,7 +52,7 @@
 
                     <div class="details-field-main">
                         <label class="label-main-text f-20"> Stand in value </label>
-                        <input class="inp-qa f-20" type="text" placeholder="0" name="stand_in_value" value="{{ old('stand_in_value') ?? request()->session()->get('stand_in_value') }}" >
+                        <input class="inp-qa f-20" type="number" placeholder="0" name="stand_in_value" value="{{ old('stand_in_value') ?? request()->session()->get('stand_in_value') }}" >
                         @if ($errors->has('stand_in_value'))
                         <span class="text-danger">{{ $errors->first('stand_in_value') }}</span>
                         @endif
@@ -114,11 +114,10 @@
                     <div class="bt-btns-main d-flex">
                         <button type="button" class="btn-trans step4-back-btn">
                             <i class="fa-solid fa-arrow-left-long"></i>
-                            <span><a href="{{route('dealer.addVehicleToSellFromDealer')}}">Go Back</a></span>
+                            <span><a href="{{route('dealer.mediaCondition')}}">Go Back</a></span>
                         </button>
-
-                        <button type="submit" class="btn-trans step1-btn-save">
-                           Next Step
+                        <button type="submit" class="btn-trans step4-btn-save">
+                            Next Step
 
                         </button>
                     </div>
@@ -140,12 +139,12 @@
                         {{ request()->session()->get('vehicle_name') }}
                     </h3>
                     <ul class="item-features">
-                        <li> {{ request()->session()->get('vehicle_registartion_number') }}</li>
-                        <li> {{ request()->session()->get('vehicle_year') }}</li>
-                        <li>{{ request()->session()->get('vehicle_color') }}</li>
-                        <li> {{ request()->session()->get('vehicle_body') }}</li>
-                        <li>{{ request()->session()->get('vehicle_mileage') }}</li>
-                        <li> {{ request()->session()->get('vehicle_transmission') }}</li>
+                        <li> {{ request()->session()->get('vehicle_registartion_number') ??'N/F' }}</li>
+                        <li> {{ request()->session()->get('vehicle_year')??'N/F' }}</li>
+                        <li>{{ request()->session()->get('vehicle_color')??'N/F' }}</li>
+                        <li> {{ request()->session()->get('vehicle_body')}}</li>
+                        <li>{{ request()->session()->get('vehicle_mileage')??'N/F' }}</li>
+                        <li> {{ request()->session()->get('vehicle_transmission')??'N/F' }}</li>
                       
                     </ul>
      

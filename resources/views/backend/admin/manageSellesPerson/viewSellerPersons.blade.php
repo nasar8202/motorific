@@ -57,11 +57,11 @@
                             <td>{{ $sellesPerson->post_code }}</td>
                             <td>
                                 <a href="{{ route('sellesPersonEdit',$sellesPerson->id) }}"><span class="badge badge-success">Edit</span></a>
-                                {{-- @if($sellesPerson->status == 1)
-                                <a href="{{ route('unBlockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">unblocked</span></a>
+                                @if($sellesPerson->status == 1)
+                                <a href="{{ route('blockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">Blocked</span></a>
                                 @else
-                                <a href="{{ route('blockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">blocked</span></a>
-                                @endif --}}
+                                <a href="{{ route('unBlockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">Unblocked</span></a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
