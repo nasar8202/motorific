@@ -161,7 +161,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::post('/store-selles-person', [ManageSellesPersonController::class, 'StoreSellesPerson'])->name('StoreSellesPerson');
     //  Route::get('/find-vehicle', [ManageVehicleController::class, 'findVehicle'])->name('findVehicle');
       Route::get('/edit-selles-person/{id}', [ManageSellesPersonController::class,'sellesPersonEdit'])->name('sellesPersonEdit');
-       Route::post('/edit-selles-person', [ManageSellesPersonController::class,'updateSellePerson'])->name('updateSellePerson');
+       Route::post('/update-selles-person/{id}', [ManageSellesPersonController::class,'updateSellePerson'])->name('updateSellePerson');
        Route::get('/block-sell-person/{id}', [ManageSellesPersonController::class,'blockSellesPerson'])->name('blockSellesPerson');
        Route::get('/unblock-sell-person/{id}', [ManageSellesPersonController::class,'unBlockSellesPerson'])->name('unBlockSellesPerson');
     //  Route::get('/approve-vehicle/{id}', [ManageVehicleController::class,'approveVehicle'])->name('approveVehicle');
@@ -542,7 +542,10 @@ Route::group(['prefix' => 'agent','middleware'=>['auth','agent']], function () {
         Route::get('/dashboard', [AgentsDashboardController::class,'agent'])->name('dashboard');
         Route::get('/create-vehicle', [AgentsDashboardController::class,'addVehicleFromSellerPerson'])->name('addVehicleFromSellerPerson');
         Route::post('/store-vehicle', [AgentsDashboardController::class, 'StoreVehicle'])->name('StoreVehicle');
-        Route::get('/find-vehicle', [AgentsDashboardController::class, 'findVehicle'])->name('findVehicle');
+        Route::get('/find-vehicle-inAgent', [AgentsDashboardController::class, 'findVehicleinAgent'])->name('findVehicleinAgent');
+        Route::post('/store-vehicle-by-agent', [AgentsDashboardController::class, 'StoreVehicleByAgent'])->name('StoreVehicleByAgent');
+        Route::get('/view-agent-seller', [AgentsDashboardController::class, 'viewAgentSeller'])->name('viewAgentSeller');
+        Route::get('/view-seller-vehicle/{id}', [AgentsDashboardController::class, 'viewSellersVehicle'])->name('viewSellersVehicle');
         // Route::post('/store',  [SuperAdminDashboardController::class,'store'])->name('store');
         // Route::get('/view-role',  [SuperAdminDashboardController::class,'ViewRole'])->name('ViewRole');
         // Route::get('/edit/{id}',  [SuperAdminDashboardController::class,'EditRoleForm'])->name('EditRoleForm');

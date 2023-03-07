@@ -41,9 +41,8 @@
                         <div class="container-fluid">
 
                             <div class="row">
-                                <form action="{{ route('updateSellePerson') }}" method="POST" enctype="multipart/form-data" class="oveflow-x-scroll p-0">
+                                <form action="{{ route('updateSellePerson',$sellePerson->id) }}" method="POST"  class="oveflow-x-scroll p-0">
                                     @csrf
-                                    <input type="hidden" name="id" placeholder="Enter Title" value="{{ $sellePerson->id }}" class="form-control w-160" />
                                     @if ($errors->any())
                                     <div class="alert alert-danger" role="alert">
                                         <ul>

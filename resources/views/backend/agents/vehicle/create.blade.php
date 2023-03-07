@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="form-group col-md-4">
-        <form class="form" method="get" action="{{route('findVehicle')}}" >
+        <form class="form" method="GET" action="{{route('findVehicleinAgent')}}" >
             @csrf
         <input type="text" id="email-id-column" class="form-control"
             name="registeration" placeholder="Vehicle Registeration Number">
@@ -42,7 +42,7 @@
         </div>
     </form>
         <br>
-    <form class="form" method="post" action="{{route('StoreVehicle')}}" enctype="multipart/form-data">
+    <form class="form" method="post" action="{{route('StoreVehicleByAgent')}}" enctype="multipart/form-data">
         @csrf
     <section id="multiple-column-form">
         <div class="row align-items-center">
@@ -52,7 +52,66 @@
 
             <div class="col-12">
                 <div class="card">
-                    
+                    <div class="card-header">
+                        <h4 class="card-title">Add Seller Information</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">Seller Email</label>
+                                            <input type="email" id="first-name-column" class="form-control"
+                                                placeholder="Seller email" name="email" value="{{old('email')}}">
+                                        </div>
+                                        @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="last-name-column">Password</label>
+                                            <input type="password" id="last-name-column" class="form-control"
+                                                placeholder="password" name="password" value="{{old('password')}}">
+                                        </div>
+                                        @if ($errors->has('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="city-column">Seller Name</label>
+                                            <input type="text" id="city-column" class="form-control"
+                                                placeholder="Enter seller name" name="name" value="{{old('name')}}">
+                                        </div>
+                                        @if ($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="country-floating">Phone Number</label>
+                                            <input type="number" id="country-floating" class="form-control"
+                                                name="phone_number" placeholder="Phone number" value="{{old('phone_number')}}">
+                                        </div>
+                                        @if ($errors->has('phone_number'))
+                                        <span class="text-danger">{{ $errors->first('phone_number') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="city-column">Post Code </label>
+                                            <input type="text" id="city-column" class="form-control"
+                                                placeholder="Enter Post Code" name="post_code" value="{{old('post_code')}}">
+                                        </div>
+                                        @if ($errors->has('post_code'))
+                                        <span class="text-danger">{{ $errors->first('post_code') }}</span>
+                                    @endif
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                    </div>
                     <div class="card-header">
                         <h4 class="card-title">Add Vehcile Information</h4>
                     </div>
