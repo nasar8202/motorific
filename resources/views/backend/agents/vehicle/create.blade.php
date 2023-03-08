@@ -163,7 +163,7 @@
                                         <div class="form-group">
                                             <label for="company-column">Vehicle Type</label>
                                             <input type="text" id="company-column" class="form-control"
-                                                name="vehicle_type" placeholder="Vehicle Type" value="">
+                                                name="vehicle_type" placeholder="Vehicle Type" required value="">
                                         </div>
                                         @if ($errors->has('vehicle_type'))
                                         <span class="text-danger">{{ $errors->first('vehicle_type') }}</span>
@@ -183,7 +183,7 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Mileage</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_mileage" placeholder="Vehicle Mileage" value="">
+                                                name="vehicle_mileage" placeholder="Vehicle Mileage" required value="">
                                         </div>
                                         @if ($errors->has('vehicle_mileage'))
                                         <span class="text-danger">{{ $errors->first('vehicle_mileage') }}</span>
@@ -194,7 +194,7 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Price</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_price" placeholder="Vehicle Price" value="">
+                                                name="vehicle_price" placeholder="Vehicle Price" required value="">
                                         </div>
                                         @if ($errors->has('vehicle_price'))
                                         <span class="text-danger">{{ $errors->first('vehicle_price') }}</span>
@@ -589,7 +589,7 @@
                                         <h6>Select Vehicle Category</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="vehicle_category" id="basicSelect">
+                                            <select class="form-select" name="vehicle_category" required id="basicSelect">
                                                 <option disabled selected>Select Vehicle Category</option>
                                                 @foreach($vehicleCategories as $vehicleCategorie)
                                                     <option value="{{$vehicleCategorie->id}}">{{$vehicleCategorie->title}}</option>
@@ -605,7 +605,7 @@
                                         <h6>Select Seat Material</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="seat_material" id="basicSelect">
+                                            <select class="form-select" name="seat_material" required id="basicSelect">
                                                 <option disabled selected>Select Seat Material</option>
                                                 @foreach($SeatMaterials as $SeatMaterial)
                                                     <option value="{{$SeatMaterial->id}}">{{$SeatMaterial->title}}</option>
@@ -620,7 +620,7 @@
                                         <h6>Number of keys</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="number_of_keys" id="basicSelect">
+                                            <select class="form-select" name="number_of_keys" required id="basicSelect">
                                                 <option disabled selected>Select Number of keys</option>
                                                 @foreach($NumberOfKeys as $NumberOfKey)
                                                 <option value="{{$NumberOfKey->id}}">{{$NumberOfKey->number_of_key}}</option>
@@ -635,7 +635,7 @@
                                         <h6>Tool pack</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="tool_pack" id="basicSelect">
+                                            <select class="form-select" name="tool_pack" required id="basicSelect">
                                                 <option disabled selected>Select Tool pack</option>
                                                 @foreach($ToolPacks as $ToolPack)
                                                 <option value="{{$ToolPack->id}}">{{$ToolPack->title}}</option>
@@ -650,7 +650,7 @@
                                         <h6>Locking wheel nut</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="wheel_nut" id="basicSelect">
+                                            <select class="form-select" name="wheel_nut" required id="basicSelect">
                                                 <option disabled selected>Select Locking wheel nut</option>
                                                 @foreach($LockingWheelNuts as $LockingWheelNut)
                                                 <option value="{{$LockingWheelNut->id}}">{{$LockingWheelNut->title}}</option>

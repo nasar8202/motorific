@@ -173,7 +173,6 @@ class RegisterController extends Controller
                 $user->phone_number = $request->phone_number;
                 $user->password = Hash::make($password);
                 $user->save();
-
                 $credentials = [
                     'email' => $user->email,
                     'password' => $password,
@@ -206,7 +205,7 @@ class RegisterController extends Controller
                     'order_id' => 101
                 ];
                 //   dd($details);
-                Mail::to("odersuae786@gmail.com")->send(new SellerRegistrationEmailToAdmin($data));
+                Mail::to("webuyurcars121@gmail.com")->send(new SellerRegistrationEmailToAdmin($data));
                 dispatch(new SellerDetail($details));
                 // Notification::send($user->email, new MyFirstNotification($details));
                 // $user->notify(new SellerDetailsNotification($details));
@@ -279,8 +278,8 @@ class RegisterController extends Controller
                             // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
                             // ->json();
                             // $milage = $milage['result'];
+                            DB::commit();
                             return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances','VehicleHistories', 'user'));
-                                DB::commit();
                         } else {
                             return back()->with('error', 'Record not found');
                         }
