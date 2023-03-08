@@ -164,6 +164,9 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
        Route::post('/update-selles-person/{id}', [ManageSellesPersonController::class,'updateSellePerson'])->name('updateSellePerson');
        Route::get('/block-sell-person/{id}', [ManageSellesPersonController::class,'blockSellesPerson'])->name('blockSellesPerson');
        Route::get('/unblock-sell-person/{id}', [ManageSellesPersonController::class,'unBlockSellesPerson'])->name('unBlockSellesPerson');
+       Route::get('/agent-seller/{id}', [ManageSellesPersonController::class,'viewAgentSellers'])->name('viewAgentSellers');
+       Route::get('/agent-seller-vehicle/{id}', [ManageSellesPersonController::class,'viewAgentSellersView'])->name('viewAgentSellersView');
+       Route::get('/agent-sale/{id}', [ManageSellesPersonController::class,'viewAgentSales'])->name('viewAgentSales');
     //  Route::get('/approve-vehicle/{id}', [ManageVehicleController::class,'approveVehicle'])->name('approveVehicle');
     //  // end vehcile
 

@@ -129,10 +129,11 @@ class AgentsDashboardController extends Controller
 
 
         ]);
+        $zip = ($request->post_code);
+        $postcode = str_replace(' ', '', $zip);
+       
 
-        $zip = trim($request->post_code, ' ');
-
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
 
         DB::beginTransaction();
         try {
@@ -145,7 +146,7 @@ class AgentsDashboardController extends Controller
                 $seller->name = $request->name;
                 $seller->email = $request->email;
                 $seller->mile_age = $request->mile_age;
-                $seller->post_code = $request->post_code;
+                $seller->post_code = $postcode;
                 $seller->phone_number = $request->phone_number;
                 $seller->password = Hash::make($request->password);
 
