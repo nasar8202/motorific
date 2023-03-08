@@ -210,12 +210,12 @@
         </a>
     </li>
 
-    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
+    <li class="sidebar-item  has-sub {{ request()->IS('admin/view-seller-persons') ||request()->IS('admin/register-sell-person') ? 'active' : '' }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
-            <span>Register Selles Person</span>
+            <span>Selles Person</span>
         </a>
-        <ul class="submenu" style="display:{{ (Request::is('admin') || request()->IS('admin/register-sell-person') || request()->IS('admin/view-seller-persons') ? 'block' : '') }}">
+        <ul class="submenu" style="display:{{  request()->IS('admin/register-sell-person') ? 'active' : '' }}">
             <li class="submenu-item {{ request()->IS('admin/register-sell-person') ? 'active' : '' }}">
                 <a href="{{ route('createSellesPersonForm') }} ">Add Selles Person</a>
             </li>

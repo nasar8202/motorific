@@ -13,6 +13,7 @@ class CancelVehicleController extends Controller
     { 
       
         $orders = CanceledRequestReviews::with(['user','vehicle','dealerVehicle','order','dealerOrder'])->get();
+        
         return view('backend.admin.cancelVehicle.canceledVehicle',compact('orders'));
     }
     public function cancelVehicleEvidence($id)

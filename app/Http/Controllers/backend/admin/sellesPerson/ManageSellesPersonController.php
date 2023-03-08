@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\backend\admin\sellesPerson;
 use App\Models\User;
+use App\Models\Vehicle;
 use App\Jobs\SellerDetail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -127,6 +128,21 @@ class ManageSellesPersonController extends Controller
         $seller = User::where('id',$id)->update($status);
         return redirect()->route('viewSellerPersons')->with('success', 'Unblocked Successfully!');
            
+    }
+    public function viewAgentSellers($id){
+        $agentSeller  = User::where('agent_id', $id)->where('role_id',2)->get();
+        return view('backend.admin.manageSellesPerson.agentSeller', compact('agentSeller'));
+
+    }
+    public function viewAgentSellersView($id){
+        
+        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->where('user_id',$id)->get();
+        return view('backend.admin.manageSellesPerson.agentSellerVehicle', compact('vehicles'));
+
+    }
+    public function viewAgentSales($id){
+        $agentSale  = User::with('vehicles.vehicleWinningCharge')->where('agent_id', $id)->where('role_id',2)->get();
+        return view('backend.admin.manageSellesPerson.agentSalesDetail', compact('agentSale'));
     }
 }
 ?>

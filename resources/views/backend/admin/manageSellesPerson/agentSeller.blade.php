@@ -12,14 +12,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Agent's Seller</h3>
-                <p class="text-subtitle text-muted">View Agent's Seller List</p>
+                <h3>Selles Person</h3>
+                <p class="text-subtitle text-muted">View All Selles Person List</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Agent's Seller</li>
+                        <li class="breadcrumb-item active" aria-current="page">Vehicles</li>
                     </ol>
                 </nav>
             </div>
@@ -28,7 +28,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Agent's Seller
+                Selles Person List
                 <a href="{{ route('createSellesPersonForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Create Selles Person</span></a>
             </div>
 
@@ -48,22 +48,15 @@
                         @php
                             $i = 1;
                         @endphp
-                        @foreach ($sellesPersons as $sellesPerson)
+                        @foreach ($agentSeller as $agentSelle)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $sellesPerson->name }}</td>
-                            <td>{{ $sellesPerson->email }}</td>
-                            <td>{{ $sellesPerson->phone_number }}</td>
-                            <td>{{ $sellesPerson->post_code }}</td>
+                            <td>{{ $agentSelle->name }}</td>
+                            <td>{{ $agentSelle->email }}</td>
+                            <td>{{ $agentSelle->phone_number }}</td>
+                            <td>{{ $agentSelle->post_code }}</td>
                             <td>
-                                <a href="{{ route('sellesPersonEdit',$sellesPerson->id) }}"><span class="badge badge-success">Edit</span></a>
-                                @if($sellesPerson->status == 1)
-                                <a href="{{ route('blockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">Blocked</span></a>
-                                @else
-                                <a href="{{ route('unBlockSellesPerson',$sellesPerson->id) }}"><span class="badge badge-danger">Unblocked</span></a>
-                                @endif
-                                <a href="{{ route('viewAgentSellers',$sellesPerson->id) }}"><span class="badge badge-danger">View His Sellers</span></a>
-                                <a href="{{ route('viewAgentSales',$sellesPerson->id) }}"><span class="badge badge-danger">View Agent Sale</span></a>
+                                <a href="{{ route('viewAgentSellersView',$agentSelle->id) }}"><span class="badge badge-danger">View Vehicle</span></a>
                                 
                             </td>
                         </tr>
