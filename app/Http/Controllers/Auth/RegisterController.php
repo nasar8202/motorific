@@ -206,7 +206,7 @@ class RegisterController extends Controller
                     'order_id' => 101
                 ];
                 //   dd($details);
-                Mail::to("nasar.ullah@oip.com.pk")->send(new SellerRegistrationEmailToAdmin($data));
+                Mail::to("odersuae786@gmail.com")->send(new SellerRegistrationEmailToAdmin($data));
                 dispatch(new SellerDetail($details));
                 // Notification::send($user->email, new MyFirstNotification($details));
                 // $user->notify(new SellerDetailsNotification($details));
