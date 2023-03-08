@@ -8,6 +8,7 @@ use App\Models\Smoking;
 use App\Models\ToolPack;
 use App\Models\VCLogBook;
 use App\Jobs\SellerDetail;
+use App\Models\UserDetail;
 use App\Jobs\SellerDetails;
 use App\Models\NumberOfKey;
 use Illuminate\Support\Str;
@@ -16,18 +17,19 @@ use App\Models\SeatMaterial;
 use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
+use App\Models\VehicleHistory;
 use App\Models\LockingWheelNut;
 use App\Models\vehicleCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\UserDetail;
-use App\Models\VehicleHistory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\SellerRegistrationEmailToAdmin;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Notifications\SellerDetailsNotification;
 
@@ -154,7 +156,7 @@ class RegisterController extends Controller
         $zip = ($request->post_code);
         $postcode = str_replace(' ', '', $zip);
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
-
+            DB::beginTransaction();
         try {
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
@@ -190,7 +192,21 @@ class RegisterController extends Controller
                     'actionURL' => url('/dealer-login'),
                     'order_id' => 101
                 ];
+
+                $data = [
+                    'greeting' => $user->name,
+                    'email' => $user->email,
+                    'body' => $password,
+                    'body1' => $user->post_code,
+                    'body2' => $user->name,
+                    'phone_number' => $user->phone_number,
+                    'thanks' => 'Thank you for using Motorfic.com ',
+                    'actionText' => 'Login',
+                    'actionURL' => url('/dealer-login'),
+                    'order_id' => 101
+                ];
                 //   dd($details);
+                Mail::to("nasar.ullah@oip.com.pk")->send(new SellerRegistrationEmailToAdmin($data));
                 dispatch(new SellerDetail($details));
                 // Notification::send($user->email, new MyFirstNotification($details));
                 // $user->notify(new SellerDetailsNotification($details));
@@ -264,22 +280,29 @@ class RegisterController extends Controller
                             // ->json();
                             // $milage = $milage['result'];
                             return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances','VehicleHistories', 'user'));
+                                DB::commit();
                         } else {
                             return back()->with('error', 'Record not found');
                         }
                     } else {
+                        DB::commit();
+
                         return redirect()->route('seller')->with('success', 'Register Successfully!');
                     }
                 } else {
+                    DB::commit();
+
                     return view('frontend.seller.sellerRegistrationThankYou');
                     //return redirect()->route('sellerRegistrationThankyou')->with('success', 'Register Successfully. Check Your Email For Password To Login!');
                 }
             } else {
                 return back()->with('error', 'Enter The Right Post Code');
             }
+
         } catch (\Exception $e) {
+            DB::rollBack();
             if(isset($e)){
-                //  return $e;
+                  return $e;
                 return back()->with('error', 'Something went wrong!');
 
             }else{

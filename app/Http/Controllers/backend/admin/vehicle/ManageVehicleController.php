@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
 use App\Models\vehicleConditionAndDamage;
+use App\Models\VehicleHistory;
 
 class ManageVehicleController extends Controller
 {
@@ -97,7 +98,9 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
-        return view('backend.admin.manageVehicle.createVehicle', compact('VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+        $VehicleHistories =  VehicleHistory::where('status', 1)->get();
+        
+        return view('backend.admin.manageVehicle.createVehicle', compact('VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
     }
     public function StoreVehicle(Request $request)
     {
@@ -215,6 +218,8 @@ class ManageVehicleController extends Controller
                 $vehicleInformation->location =  $request->location;
                 $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
                 $vehicleInformation->private_plate_id =  $request->private_plate;
+                $vehicleInformation->finance_id =  $request->finance;
+                $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
                 // $vehicleInformation->interior =  $request->interior;
                 // $vehicleInformation->body_type =  $request->body_type;
@@ -394,8 +399,9 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $liveselltime = LiveSaleTime::first();
-        return view('backend.admin.manageVehicle.editVehicle', compact('exterior', 'interior', 'VehicleFeatures', 'seller', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicles', 'vehicleInformation', 'VehicleImage', 'damages', 'vehicleCategories', 'liveselltime'));
+        return view('backend.admin.manageVehicle.editVehicle', compact('exterior', 'interior', 'VehicleFeatures', 'seller', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicles', 'vehicleInformation', 'VehicleImage', 'damages', 'vehicleCategories','VehicleHistories', 'liveselltime'));
     }
     public function updateVehicle(Request $request, $id)
     {
@@ -514,6 +520,7 @@ class ManageVehicleController extends Controller
             $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
             $vehicleInformation->private_plate_id =  $request->private_plate;
             $vehicleInformation->finance_id =  $request->finance;
+            $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
             // $vehicleInformation->interior =  $request->interior;
             // $vehicleInformation->body_type =  $request->body_type;
