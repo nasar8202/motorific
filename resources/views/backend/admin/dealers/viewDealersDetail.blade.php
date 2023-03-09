@@ -215,12 +215,45 @@
                                             </div>
                                         </div>
                                         @else
-                                        @endif
-                                        <button type="submit" class="btn btn-success mb-4">Approved Dealer Request</button>
+                                        <div class="card shadow-sm">
+                                            <div class="card-header bg-transparent border-0">
+                                                <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Uploaded ID And Documents
+                                                </h3>
+                                            </div>
+                                            <div class="card-body pt-0 resp-set">
+                                                <table class="table table-bordered">
+                                                    
+                                                    <tr>
+                                                        <th width="3%">ID</th>
+                                                        <td width="2%">:</td>
+                                                        <td class="set-scr">
+                                                            <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_identity_card) }}" width="400px" height="200px">
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="3%">Documents</th>
+                                                        <td width="2%">:</td>
+                                                        <td class="set-scr"> <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_documents) }}" width="400px" height="200px">
+                                                        </td>
 
-                                    </form>
-                                    <a href="{{ route('dealer.block', $dealers->id) }}"><span class="badge bg-danger"
-                                            style="margin-top: -100%;margin-left:40%; ">Block Dealer Request</span></a>
+                                                    </tr>
+                                                    
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        <div style="display: flex">
+                                            <button type="submit" class="btn btn-success mb-4">Approved Dealer Request</button>
+    
+                                        </form>
+                                        <button type="button" style="border: none; background-color:white;">
+                                        <a href="{{ route('dealer.block', $dealers->id) }}" style="border: none; margin-top: none; padding-top:none; margin-left: auto">
+                                            <span class=" btn btn-danger mb-4"
+                                                >Block Dealer Request</span></a>
+                                            </button>
+                                        </div>
 
                                 </div>
 

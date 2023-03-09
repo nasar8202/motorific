@@ -1,5 +1,5 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell your car  with the Motorific')
+@section('title', 'Sell My Electric Car')
 @section('section')
     <style>
         .dropdown {
@@ -157,11 +157,11 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-1-txt col-lg-6">
-                    <h2>Sell your car 
-                        with the <span>Motorific</span></h2>
+                    <h2>Sell My Electric Car</h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Get the highest possible sale price for your vehicle with minimal effort. 5000+ verified dealers await to give you the best offer!</p>
+                    <p>Connect with 5000+ verified dealers in London and across the UK and sell your electric car for the highest price. 
+                    </p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -187,12 +187,7 @@
                     <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
                 </div>
             </div>
-            <ol class="tagLines">
-                <li>Get the best deals for your wheels with Motorific </li>
-                <li>Unlock the true value of your car with Motorific</li>
-                <li>Sell your car hassle-free and fast with Motorific</li>
-                <li>Maximize your car's value with Motorific</li>
-            </ol>
+            
         </div>
     </section>
     <!--<section class="" id="vehicle_registration_details"></section>-->
@@ -200,60 +195,7 @@
 
     <section class="sec-2">
         <div class="container-1151">
-            <!--<div class="sec-2-txt pb-4">-->
-            <!--    <h2>Just sold the <span>Motorific</span> way</h2>-->
-            <!--    <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-
-                
-            <!--    <div class="col-lg-4 col-md-6">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-1.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP Avantgarde...,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-                
-            <!--    <div class="col-lg-4 col-md-6">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-2.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-                 
-            <!--    <div class="col-lg-4 col-md-6 mx-auto">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-3.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-            <!--</div>-->
-
-            
+           
             <div class="row">
                 <div class="col-12">
                     <div class="how-work">
@@ -269,8 +211,9 @@
                         <div class="line-sec-2">
                         </div>
                     </div>
-                    <h4>Profile Your Car</h4>
-                    <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. Maximize profits.</p>
+                    <h4>Car Profiling:</h4>
+                    <p>You create an awesome profile for your electric car through your mobile. To begin, you need to enter the registration number of your vehicle. 
+                    </p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -282,8 +225,8 @@
                         <div class="line-sec-2">
                         </div>
                     </div>
-                    <h4>Motorific Alerts Dealers</h4>
-                    <p>Our online sale invites over 5,000 car dealers across the UK to present their top bids for your car.</p>
+                    <h4>Motorific Alerts Dealers:</h4>
+                    <p>As soon as you finish profiling your car, our automated system alerts 5000+ verified dealers to get the job done. </p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -295,8 +238,8 @@
                         <div class="line-sec-2">
                         </div>
                     </div>
-                    <h4>Pick Highest Bid</h4>
-                    <p>You pick the dealer who pays the most or makes the highest bid. </p>
+                    <h4>Get Maximum Value: </h4>
+                    <p>Of all the bids, Motorific connects you with the person willing to pay you the most for your electric car. You approve the offer and the dealer makes a free car collection. </p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -306,8 +249,8 @@
                     <div class="how-work-img">
                         <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
                     </div>
-                    <h4>Free Home Collection</h4>
-                    <p>Sell your car and receive full payment within 24 hours as we charge nothing. Welcome to the Motorific way!</p>
+                    <h4>Get Paid In Full:</h4>
+                    <p> You receive full payment for your electric car within 24 hours of collection. We charge fees from dealers.</p>
                 </div>
             </div>
             <div class="sec-2-btns text-center">
@@ -325,13 +268,15 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-3-txt col-lg-6">
-                    <h4>Who We Are</h4>
+                    <h4>Motorific Is Home To 5000+ Verified Dealers 
+                    </h4>
                     <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
                     <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
-                    <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over 5000+ verified dealers nationwide and present you with the highest bid for your car.</p>
-                    <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
-                    <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                    <button>GET IN TOUCH</button>
+                    <p>Motorific brings 5000+ verified dealers on board who compete to give you the highest price for your electric car. Motorific is a fast, efficient, trusted, and advanced way of selling your electric car. 
+                    </p>
+                    <p>250,000+ Car Owners Have Got The Best Prices For Used Vehicles. You Can Get It, too!
+                    </p>
+                    
                 </div>
                 <div class="col-lg-6">
 
@@ -364,14 +309,15 @@
                             <div class="sec-4-box mb-3">
                                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img.png') }}" alt="">
                                 <h4>Instant Valuation</h4>
-                                <p>As soon as you enter registration number, our algorithms provide accurate car value using latest market data. </p>
+                                <p>Motorific’s car valuation technology is powered by live market data and it provides you with an exact estimate of your car’s value. 
+                                </p>
                             </div>
 
                             <div class="sec-4-box">
                                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img2.png') }}" alt="">
                                 <!--<h4>Get your highest price</h4>-->
-                                <h4>Pick the highest bidder</h4>
-                                <p>With thousands of car dealers offering their prices, we only present you the highest bidders. </p>
+                                <h4>Get Maximum Value for Electric Car</h4>
+                                <p>Soon after you post an ad, 5000+ verified dealers start making attracting bids. We connect you with the one who is willing to pay the most. </p>
                             </div>
                         </div>
 
@@ -379,14 +325,15 @@
                             <div class="sec-4-box mb-3">
                                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img3.png') }}" alt="">
                                 <h4>Free Home Collection</h4>
-                                <p>Motorific lets you sale your car within 24 hours. Dealerships collect your car right from your doorstep and we transfer full payment promptly. </p>
+                                <p>The winning bidder collects your car from your home for free.  </p>
                             </div>
 
                             <div class="sec-4-box">
                                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img4.png') }}" alt="">
                                 <!--<h4>Oh, and it’s 100% free</h4>-->
-                                <h4>We Charge Nothing/Motorific Is Free</h4>
-                                <p>When you sell your car through us, the dealers pay the fee - not you! This means you can enjoy a completely free selling experience.</p>
+                                <h4>Get Paid in Full For Your Electric Vehicle
+                                </h4>
+                                <p>You receive full payment for your electric car within 24 hours. We charge a small fee to the winning bidder. </p>
                             </div>
                         </div>
                     </div>

@@ -44,4 +44,11 @@ class User extends Authenticatable
         return $this->hasOne(UserDetail::class,'user_id','id');
 
     }
+    public function vehicles()
+
+    {
+
+        return $this->hasMany(Vehicle::class,'user_id','id');
+
+    }
 }

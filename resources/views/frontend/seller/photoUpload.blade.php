@@ -137,7 +137,7 @@ display: block;
     <section class="photo-up-sec-2">
         <div class="container-1151">
             <div class="photo-up-sec-2-heading text-center">
-                <h3>Complete your profile steps to get your vehicle for sale</h3>
+                <h3>Complete your profile steps to Get your vehicles valuation </h3>
             </div>
 
             <div class="photo-up-sec-2-box-main">

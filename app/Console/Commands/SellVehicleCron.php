@@ -76,9 +76,14 @@ class SellVehicleCron extends Command
                                 $user= User::find($BidedVehicle->user_id);
                                 $vehicleImage= VehicleImage::where('vehicle_id',$vehicle->id)->first();
 
+                                $originalDate = $BidedVehicle->updated_at;
+                                $winDate = date("d F Y ", strtotime($originalDate));
+                                $winTime = date("H:i:s a", strtotime($originalDate));
+                                
                                 $data = ([
                                             'name' => $user->name,
                                             'email' => $user->email,
+                                            'date' => $winDate . ' at ' . $winTime,
                                             'bidded_price'=>$BidedVehicle->max_bid_price,
                                             'vehicle_registration'=>$vehicle->vehicle_registartion_number,
                                             'vehicle_name'=>$vehicle->vehicle_name,

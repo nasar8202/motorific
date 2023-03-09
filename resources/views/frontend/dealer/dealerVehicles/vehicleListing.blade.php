@@ -51,7 +51,7 @@
 
                 <div class="mt-40">
                     <label class="label-main-text f-20" for="previous_owners"> Previous Owners </label>
-                    <input class="inp-qa f-20" type="text" value="{{old('previous_owners') ?? session()->get('previous_owners')}}" placeholder="0" name="previous_owners" id="previous_owners">
+                    <input class="inp-qa f-20" type="text" value="{{old('previous_owners') ?? session()->get('previous_owners')}}" placeholder="0" name="previous_owners" id="previous_owners"  maxlength="2">
                     @if ($errors->has('previous_owners'))
                     <span class="text-danger">{{ $errors->first('previous_owners') }}</span>
                     @endif

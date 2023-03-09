@@ -755,6 +755,22 @@ p {
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
                                     @endif
                                     </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <h6>Vehcile History</h6>
+
+                                        <div class="form-group">
+                                            <select class="form-select" name="VehicleHistory" id="basicSelect">
+                                                <option disabled selected>Select Vehicle History</option>
+                                                @foreach($VehicleHistories as $VehicleHistory)
+                                                <option  @if($VehicleHistory->id == $vehicleInformation->vehicle_history_id ) selected @endif  value="{{$VehicleHistory->id}}">{{$VehicleHistory->title}}</option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                        @if ($errors->has('VehicleHistory'))
+                                        <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
+                                    @endif
+                                    </div>
                                     {{-- <div class="col-md-6 col-12">
                                         <h6>Interior</h6>
                                         <div class="form-group">
@@ -1074,16 +1090,16 @@ p {
                  <div class="row align-items-center">
 
                     <div class="col-md-4">
-                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-front.png')}}"  class="rounded mx-auto d-block" width="220px">
+                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" id="preview-image1" width="250px" height="250px"  class="rounded mx-auto d-block" width="220px">
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}"  class="rounded mx-auto d-block mb-3" width="220px">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}"  class="rounded mx-auto d-block mb-3"  height="250px" width="220px">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image1" id="formFile">
+                            <input class="form-control" type="file" name="image1" id="image1">
                         </div>
                         @if ($errors->has('image1'))
                         <span class="text-danger">{{ $errors->first('image1') }}</span>
@@ -1094,16 +1110,16 @@ p {
                  <div class="row align-items-center">
 
                     <div class="col-md-4">
-                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " class="rounded mx-auto d-block">
+                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " id="preview-image2" width="250px" height="250px" class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" class="rounded mx-auto d-block  mb-3" width="220px">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" class="rounded mx-auto d-block  mb-3"  height="250px" width="220px">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image2" id="formFile">
+                            <input class="form-control" type="file" name="image2" id="image2">
                         </div>
                         @if ($errors->has('image2'))
                         <span class="text-danger">{{ $errors->first('image2') }}</span>
@@ -1114,16 +1130,16 @@ p {
                  <div class="row align-items-center">
 
                     <div class="col-md-4">
-                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " class="rounded mx-auto d-block">
+                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " id="preview-image3" width="250px" height="250px" class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}"  class="rounded mx-auto d-block  mb-3" width="220px">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}"  class="rounded mx-auto d-block  mb-3"  height="250px" width="220px">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image3"   id="formFile">
+                            <input class="form-control" type="file" name="image3"   id="image3">
                         </div>
                         @if ($errors->has('image3'))
                         <span class="text-danger">{{ $errors->first('image3') }}</span>
@@ -1133,16 +1149,16 @@ p {
                  <div class="row align-items-center">
 
                     <div class="col-md-4">
-                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-interior.png')}} " class="rounded mx-auto d-block">
+                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-interior.png')}} " id="preview-image4" width="250px" height="250px" class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}"  class="rounded mx-auto d-block  mb-3" width="220px">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}"  class="rounded mx-auto d-block  mb-3"  height="250px" width="220px">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" name="image4"  id="formFile">
+                            <input class="form-control" type="file" name="image4"  id="image4">
                         </div>
                         @if ($errors->has('image4'))
                         <span class="text-danger">{{ $errors->first('image4') }}</span>
@@ -1153,16 +1169,16 @@ p {
                  <div class="row align-items-center">
 
                     <div class="col-md-4">
-                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " class="rounded mx-auto d-block">
+                        <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " id="preview-image5" width="250px" height="250px" class="rounded mx-auto d-block">
                     </div>
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}"  class="rounded mx-auto d-block  mb-3" width="220px">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}"  class="rounded mx-auto d-block  mb-3"  height="250px" width="220px">
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3 px-3">
                             <label for="formFile" class="form-label">Add Picture In This Type</label>
-                            <input class="form-control" type="file" id="formFile"  name="image5">
+                            <input class="form-control" type="file" id="image5"  name="image5">
                         </div>
                         @if ($errors->has('image5'))
                         <span class="text-danger">{{ $errors->first('image5') }}</span>
@@ -1337,7 +1353,23 @@ p {
 </form>
 </div>
 <script type="text/javascript">
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                imgId = '#preview-'+$(input).attr('id');
+                $(imgId).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+
+      $("input[type='file']").change(function(){
+        readURL(this);
+      });
 function show1(){
   document.getElementById('div1').style.display ='none';
 }

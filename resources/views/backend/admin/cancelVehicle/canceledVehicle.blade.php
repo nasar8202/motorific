@@ -47,31 +47,32 @@
                         @php
                             $i = 1;
                         @endphp
-                        @foreach ($orders as $order)
+                        @forelse ($orders as $order)
                         <tr>
 
                             <td>{{ $i++ }}</td>
-                            <td>{{ $order->reviews}}</td>
-                            <td>{{ $order->user->name}}</td>
+                            <td>{{ $order->reviews??""}}</td>
+                            <td>{{ $order->user->name??""}}</td>
                             @if($order->vehicle_id == null)
-                            <td>{{ $order->dealerVehicle->vehicle_name}}</td>
-                            <td>{{ $order->dealerVehicle->vehicle_price}}</td>
+                            <td>{{ $order->dealerVehicle->vehicle_name??""}}</td>
+                            <td>{{ $order->dealerVehicle->vehicle_price??""}}</td>
                             @else
-                            <td>{{ $order->vehicle->vehicle_name}}</td>
-                            <td>{{ $order->vehicle->vehicle_price}}</td>
+                            <td>{{ $order->vehicle->vehicle_name??""}}</td>
+                            <td>{{ $order->vehicle->vehicle_price??""}}</td>
                             @endif
                             @if($order->dealer_vehicle_id == null)
                             @if($order->vehicle->all_auction == null)
-                            <td>{{ $order->bidorder->bid_price}}</td>
+                            <td>{{ $order->bidorder->bid_price??""}}</td>
                             @else
-                            <td>{{ $order->order->request_price}}</td>
+                            <td>{{ $order->order->request_price??""}}</td>
                             @endif
                             @else
-                            <td>{{ $order->dealerOrder->request_price}}</td>
+                            <td>{{ $order->dealerOrder->request_price??""}}</td>
                           @endif
                           <td><a href="{{route('cancelVehicleEvidence',$order->id)}}" class="badge bg-dark">View Evidence</a></td>
                         </tr>
-                        @endforeach
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>

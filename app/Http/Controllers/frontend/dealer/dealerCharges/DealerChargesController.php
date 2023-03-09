@@ -15,11 +15,14 @@ use App\Models\CancelImages;
 use Illuminate\Http\Request;
 
 use App\Models\DealerVehicle;
+use App\Mail\BiddedVehicleDealer;
+use App\Mail\BiddedVehicleSeller;
 use Illuminate\Support\Facades\DB;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 use App\Models\DealerWinningCharges;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Models\VehicleWinningCharges;
 use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
@@ -46,6 +49,7 @@ class DealerChargesController extends Controller
 
     public function sellerDetails($bided, $id, $slug)
     {
+        // dd($bided,$id,$slug);
         try {
         $bided = $bided;
         $role = $slug;
@@ -330,24 +334,128 @@ class DealerChargesController extends Controller
     }
     public function scheduleMeeting(Request $request)
     {
+        
 
+        //dd($meeting = BidedVehicle::where('id', $request->order_id)->first());
         if ($request->bided == 'bided') {
-            $meeting = BidedVehicle::where('id', $request->order_id)->first();
-            $meeting->meeting_date_time = $request->date_time;
-            $meeting->save();
+            $dealer = BidedVehicle::where('id', $request->order_id)->with('user')->with('vehicle')->first();
+            $vehicle  = Vehicle::where('id', $dealer->vehicle->id)->with('VehicleImage')->first();
+            $seller = User::where('id', $vehicle->user_id)->first();
+            $dealer->meeting_date_time = $request->date_time;
+            $dealer->save();
+            // dd("dss",$dealer,$seller);
+            // $user = User::where('id', $meeting->user_id)->first();
+            $originalDate = $dealer->created_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+            $front = $vehicle->VehicleImage->front;
+            $data = ([
+              'name' => $dealer->user->name,
+              'email' => $dealer->user->email,
+              'date' => $winDate . ' at ' . $winTime,
+              'bidded_price' => $vehicle->request_price,
+              'vehicle_registration' => $vehicle->vehicle_registartion_number,
+              'vehicle_name' => $vehicle->vehicle_name,
+              'vehicle_mileage' => $vehicle->vehicle_mileage,
+              'front' => $front,
+              'colour' => $vehicle->vehicle_color,
+              'age' => $vehicle->vehicle_year,
+              'meeting_schedule' => $request->date_time
+            ]);
+
+
+            $data1 = ([
+                'name' => $seller->name,
+                'email' => $seller->email,
+                'date' => $winDate . ' at ' . $winTime,
+                'bidded_price' => $vehicle->request_price,
+                'vehicle_registration' => $vehicle->vehicle_registartion_number,
+                'vehicle_name' => $vehicle->vehicle_name,
+                'vehicle_mileage' => $vehicle->vehicle_mileage,
+                'front' => $front,
+                'colour' => $vehicle->vehicle_color,
+                'age' => $vehicle->vehicle_year,
+                'meeting_schedule' => $request->date_time
+              ]);
+            
+            Mail::to($seller->email)->send(new BiddedVehicleSeller($data));
+            Mail::to($dealer->user->email)->send(new BiddedVehicleDealer($data1));
+
             return redirect()->route('CompletedRequestedVehicle')->with('success', 'Meeting Has Been Schedule');
         } else {
-            $meeting = OrderVehicleRequest::where('id', $request->order_id)->first();
+            $meeting = OrderVehicleRequest::where('id', $request->order_id)->with('user')->with('vehicle')->first();
             $meeting->meeting_date_time = $request->date_time;
+            
             $meeting->save();
+            
+            $vehicle  = Vehicle::where('id', $meeting->vehicle->id)->with('VehicleImage')->first();
+            $seller = User::where('id', $vehicle->user_id)->first();
+            $originalDate = $meeting->created_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+            $front = $vehicle->VehicleImage->front;
+            $data = ([
+              'name' => $meeting->user->name,
+              'email' => $meeting->user->email,
+              'date' => $winDate . ' at ' . $winTime,
+              'bidded_price' => $vehicle->request_price,
+              'vehicle_registration' => $vehicle->vehicle_registartion_number,
+              'vehicle_name' => $vehicle->vehicle_name,
+              'vehicle_mileage' => $vehicle->vehicle_mileage,
+              'front' => $front,
+              'colour' => $vehicle->vehicle_color,
+              'age' => $vehicle->vehicle_year,
+              'meeting_schedule' => $request->date_time
+            ]);
+
+            $data1 = ([
+                'name' => $meeting->name,
+                'email' => $meeting->email,
+                'date' => $winDate . ' at ' . $winTime,
+                'bidded_price' => $vehicle->request_price,
+                'vehicle_registration' => $vehicle->vehicle_registartion_number,
+                'vehicle_name' => $vehicle->vehicle_name,
+                'vehicle_mileage' => $vehicle->vehicle_mileage,
+                'front' => $front,
+                'colour' => $vehicle->vehicle_color,
+                'age' => $vehicle->vehicle_year,
+                'meeting_schedule' => $request->date_time
+              ]);
+            
+            Mail::to($seller->email)->send(new BiddedVehicleSeller($data));
+            Mail::to($meeting->user->email)->send(new BiddedVehicleDealer($data1));
             return redirect()->route('CompletedRequestedVehicle')->with('success', 'Meeting Has Been Schedule');
         }
     }
     public function ownerScheduleMeeting(Request $request)
     {
-        $meeting = DealersOrderVehicleRequest::where('id', $request->order_id)->first();
+        $meeting = DealersOrderVehicleRequest::where('id', $request->order_id)->with('user')->with('vehicle')->first();
         $meeting->meeting_date_time = $request->date_time;
         $meeting->save();
+
+        $vehicle  = Vehicle::where('id', $meeting->vehicle->id)->with('VehicleImage')->first();
+            $seller = User::where('id', $vehicle->user_id)->first();
+            $originalDate = $meeting->created_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+            $front = $vehicle->VehicleImage->front;
+            $data = ([
+              'name' => $meeting->user->name,
+              'email' => $meeting->user->email,
+              'date' => $winDate . ' at ' . $winTime,
+              'bidded_price' => $vehicle->request_price,
+              'vehicle_registration' => $vehicle->vehicle_registartion_number,
+              'vehicle_name' => $vehicle->vehicle_name,
+              'vehicle_mileage' => $vehicle->vehicle_mileage,
+              'front' => $front,
+              'colour' => $vehicle->vehicle_color,
+              'age' => $vehicle->vehicle_year,
+              'meeting_schedule' => $request->date_time
+            ]);
+            
+            Mail::to($seller->email)->send(new BiddedVehicleSeller($data));
+            Mail::to($meeting->user->email)->send(new BiddedVehicleDealer($data));
+
         return redirect()->route('CompletedRequestedVehicle')->with('success', 'Meeting Has Been Schedule');
     }
     public function ownerDealerRequestedDetails($slug, $id)

@@ -74,6 +74,13 @@ class Vehicle extends Model
         return $this->hasOne(User::class,'id','user_id');
 
     }
+    public function vehicleWinningCharge()
+
+    {
+
+        return $this->hasOne(DealerWinningCharges::class,'vehicle_id','id');
+
+    }
 
   
 

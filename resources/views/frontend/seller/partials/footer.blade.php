@@ -52,25 +52,25 @@
                         <a href="#">Car buying sites</a>
                     </li>
                     <li>
-                        <a href="#">Sell to a dealer</a>
+                        <a href="{{route('sellToADealer')}}">Sell to a dealer</a>
                     </li>
                     <li>
-                        <a href="#">Sell my electric car</a>
+                        <a href="{{route('sellMyElectricCars')}}">Sell my electric car</a>
                     </li>
                 </ul>
             </div>
             <div class="footer-sub contact">
                 <div>
                     <h5>Whatsapp</h5>
-                    <p>+39 0432 500759</p>
+                    <p>+44 7593 839364</p>
                 </div>
                 <div>
                     <h5>Customer Support </h5>
-                    <p>+39 347 1107748</p>
+                    <p>+44 7593 839364</p>
                 </div>
                 <div>
                     <h5>Email</h5>
-                    <p>hello@motorific.com</p>
+                    <p>info@motorific.co.uk</p>
                 </div>
             </div>
             <div class="footer-sub contact-2">
@@ -86,7 +86,7 @@
                         <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>
                     </a>
                 </div>
-                <h4>© Motorfic Online Ltd. 2017-2022</h4>
+                <h4>© Motorfic Online Ltd. 2017-<?php echo date("Y"); ?></h4>
             </div>
         </div>
     </div>

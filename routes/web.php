@@ -55,6 +55,7 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 
 // newsletter subscriber
 Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
+Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmail'])->name('subscribeEmail');
 
 //end
 // Route::get('test', function () {
@@ -77,6 +78,10 @@ Route::get('/seller-registration-thankyou', [RegisterController::class,'sellerRe
 Route::get('/how-it-work', [HowItWorksController::class,'howItWorksforSeller'])->name('howItWorksforSeller');
 Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews');
 
+// sell my electric car
+Route::get('/sell-my-electric-cars', [FrontController::class,'sellMyElectricCars'])->name('sellMyElectricCars');
+Route::get('/sell-to-a-dealer', [FrontController::class,'sellToADealer'])->name('sellToADealer');
+// end sell my electric car
 
 // how it works for dealer
 Route::get('/how-it-works', [HowItWorksController::class,'howItWorks'])->name('howItWorks');
@@ -156,9 +161,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::post('/store-selles-person', [ManageSellesPersonController::class, 'StoreSellesPerson'])->name('StoreSellesPerson');
     //  Route::get('/find-vehicle', [ManageVehicleController::class, 'findVehicle'])->name('findVehicle');
       Route::get('/edit-selles-person/{id}', [ManageSellesPersonController::class,'sellesPersonEdit'])->name('sellesPersonEdit');
-       Route::post('/edit-selles-person', [ManageSellesPersonController::class,'updateSellePerson'])->name('updateSellePerson');
+       Route::post('/update-selles-person/{id}', [ManageSellesPersonController::class,'updateSellePerson'])->name('updateSellePerson');
        Route::get('/block-sell-person/{id}', [ManageSellesPersonController::class,'blockSellesPerson'])->name('blockSellesPerson');
        Route::get('/unblock-sell-person/{id}', [ManageSellesPersonController::class,'unBlockSellesPerson'])->name('unBlockSellesPerson');
+       Route::get('/agent-seller/{id}', [ManageSellesPersonController::class,'viewAgentSellers'])->name('viewAgentSellers');
+       Route::get('/agent-seller-vehicle/{id}', [ManageSellesPersonController::class,'viewAgentSellersView'])->name('viewAgentSellersView');
+       Route::get('/agent-sale/{id}', [ManageSellesPersonController::class,'viewAgentSales'])->name('viewAgentSales');
     //  Route::get('/approve-vehicle/{id}', [ManageVehicleController::class,'approveVehicle'])->name('approveVehicle');
     //  // end vehcile
 
@@ -537,7 +545,10 @@ Route::group(['prefix' => 'agent','middleware'=>['auth','agent']], function () {
         Route::get('/dashboard', [AgentsDashboardController::class,'agent'])->name('dashboard');
         Route::get('/create-vehicle', [AgentsDashboardController::class,'addVehicleFromSellerPerson'])->name('addVehicleFromSellerPerson');
         Route::post('/store-vehicle', [AgentsDashboardController::class, 'StoreVehicle'])->name('StoreVehicle');
-        Route::get('/find-vehicle', [AgentsDashboardController::class, 'findVehicle'])->name('findVehicle');
+        Route::get('/find-vehicle-inAgent', [AgentsDashboardController::class, 'findVehicleinAgent'])->name('findVehicleinAgent');
+        Route::post('/store-vehicle-by-agent', [AgentsDashboardController::class, 'StoreVehicleByAgent'])->name('StoreVehicleByAgent');
+        Route::get('/view-agent-seller', [AgentsDashboardController::class, 'viewAgentSeller'])->name('viewAgentSeller');
+        Route::get('/view-seller-vehicle/{id}', [AgentsDashboardController::class, 'viewSellersVehicle'])->name('viewSellersVehicle');
         // Route::post('/store',  [SuperAdminDashboardController::class,'store'])->name('store');
         // Route::get('/view-role',  [SuperAdminDashboardController::class,'ViewRole'])->name('ViewRole');
         // Route::get('/edit/{id}',  [SuperAdminDashboardController::class,'EditRoleForm'])->name('EditRoleForm');

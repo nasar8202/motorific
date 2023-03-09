@@ -28,4 +28,9 @@ class NewsletterSubscribers extends Controller
             }
         }
     }
+
+    public function subscribeEmail()
+    {
+        return view("frontend.seller.thankyouEmailSubscribe");
+    }
 }
