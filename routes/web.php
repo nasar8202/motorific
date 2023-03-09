@@ -42,6 +42,8 @@ use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesControlle
 use App\Http\Controllers\frontend\dealer\orderRequest\OrderVehicleRequestController;
 use App\Http\Controllers\frontend\dealer\dealerOrderRequest\DealerOrderRequestController;
 use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehicleRequestController;
+use App\Models\NewsletterSubscriber;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,7 +58,8 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 // newsletter subscriber
 Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
 Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmail'])->name('subscribeEmail');
-
+Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
+Route::post('get-intouch-post',[NewsletterSubscribers::class,'getIntouchPost'])->name('getIntouchPost');
 //end
 // Route::get('test', function () {
 // 	event(new App\Events\NewDealerRegisterNotification('Someone'));
@@ -154,7 +157,8 @@ Route::post('reset-password', [FrontController::class, 'submitResetPasswordForm'
 // start admin panel routes
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
-    
+    Route::get('/get-contacts', [NewsletterSubscribers::class,'getContacts'])->name('getContacts');
+    Route::get('/update-get-in-touch/{id}', [NewsletterSubscribers::class,'updateGetInTouch'])->name('updateGetInTouch');
      // register selles person
      Route::get('/view-seller-persons', [ManageSellesPersonController::class,'viewSellerPersons'])->name('viewSellerPersons');
      Route::get('/register-sell-person', [ManageSellesPersonController::class,'createSellesPersonForm'])->name('createSellesPersonForm');

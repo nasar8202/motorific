@@ -225,7 +225,15 @@
             
         </ul>
     </li>
-
+    <li class="   {{ (Request::is('admin') || request()->IS('/admin/get-contacts') || request()->IS('/admin/get-contacts') ? 'active' : '') }} ">
+        
+        <a href="{{route('getContacts')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Get In Touch</span>
+            
+            
+        </a>
+    </li>
 
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>
