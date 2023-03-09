@@ -38,7 +38,7 @@
                             <h1 style="font-size: 20px"><span >{{ $bid->vehicle->vehicle_registartion_number }}</span></h1>
                            <p>{{ $bid->vehicle->vehicle_name }}</p>
                             <span>Max Bid:{{ $bid->bid_price }}</span>
-                            <span style="padding-left: 60px;">{{ $bid->created_at->format('m/d/Y') }}</span>
+                            <span style="padding-left: 60px;">{{ date('m/d/Y', strtotime($bid->created_at)) }}</span>
                             {{-- <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$bid->id}}">...</button> --}}
                                 <br>
                                 <span class="text text-danger">Pending Bid</span>   
