@@ -302,6 +302,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
     Route::get('/enable-user/{id}', [UserController::class,'enableUser'])->name('enableUser');
+    Route::get('/mark-as-contacted/{id}', [UserController::class,'markAsContacted'])->name('markAsContacted');
     // end manage user
 
 

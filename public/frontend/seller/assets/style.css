@@ -111,7 +111,8 @@ ul.navlinks {
 
 section.sec-1 {
     padding-top: 180px;
-    padding-bottom: 150px;
+    /*padding-bottom: 150px;*/
+    padding-bottom: 70px;
     position: relative;
 }
 
@@ -199,6 +200,7 @@ section.sec-2::after {
     bottom: 0px;
     left: 0px;
     z-index: -1;
+    display:none;
 }
 
 .sec-2-txt h2 {
@@ -743,7 +745,8 @@ section.sec-8 {
 }
 
 .chart {
-    width: 50%;
+    /*width: 50%;*/
+    width: fit-content;
     border: 2px solid white;
 }
 
@@ -756,9 +759,11 @@ section.sec-8 {
 .chart ul li {
     color: white;
     border-right: 1px solid white;
-    padding: 15px 5px;
+    /*padding: 15px 5px;*/
+    padding: 8px 15px;
     list-style-type: none;
-    width: 50%;
+    /*width: 50%;*/
+    width: fit-content;
     text-align: center;
 }
 
@@ -1944,6 +1949,11 @@ h2.part-heading {
     padding-left:0;
     list-style:none;
 }
+.parts-content input[type="radio"]:checked + span:before {
+    right: 0;
+    transform: skew(0);
+}
+
 ul.parts-content li span {
     display: block;
     position: relative;
@@ -1991,10 +2001,20 @@ ul.parts-content li input:checked + span:before {
 }
 ul.parts-content li input:checked + span {
     border-color: #05eab5;
+    color: #fff;
 }
 .step-img img {
     width: 100%;
     max-width: 310px;
+}
+.vehicleSteps input:checked + div:after {
+    right: 0;
+    width: 100%;
+    transform: skew(0);
+}
+
+.vehicleSteps input:checked + div p {
+    color: #fff;
 }
 
 .step-img {

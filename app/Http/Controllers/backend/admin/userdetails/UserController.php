@@ -30,7 +30,16 @@ class UserController extends Controller
 
         $deleteUser->status = 1;
         $deleteUser->save();
-        return redirect()->route('viewUsers')->with('error', 'User Enabled Successfully!');
+        return redirect()->route('viewUsers')->with('success', 'User Enabled Successfully!');
+
+    }
+    public function markAsContacted($id)
+    {
+        $deleteUser = User::where('id',$id)->first();
+
+        $deleteUser->contact_status = 1;
+        $deleteUser->save();
+        return redirect()->route('viewUsers')->with('success', 'User Marked As Contact Successfully ✔');
 
     }
     public function editUserForm($id)

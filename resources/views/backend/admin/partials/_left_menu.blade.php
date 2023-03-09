@@ -217,10 +217,10 @@
         </a>
         <ul class="submenu" style="display:{{  request()->IS('admin/register-sell-person') ? 'active' : '' }}">
             <li class="submenu-item {{ request()->IS('admin/register-sell-person') ? 'active' : '' }}">
-                <a href="{{ route('createSellesPersonForm') }} ">Add Selles Person</a>
+                <a href="{{ route('createSellesPersonForm') }} ">Add Agent </a>
             </li>
             <li class="submenu-item {{ request()->IS('admin/view-seller-persons') ? 'active' : '' }}">
-                <a href="{{ route('viewSellerPersons') }}">View Seller Persons</a>
+                <a href="{{ route('viewSellerPersons') }}">View Agent </a>
             </li>
             
         </ul>
