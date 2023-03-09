@@ -277,9 +277,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     // end private plate
     
 
-    // finance nnn
+    // Vehicle history nnn
     Route::get('/view-vehicle-history', [VehicleController::class,'viewVehicleHistory'])->name('viewVehicleHistory');
     Route::get('/add-vehicle-history', [VehicleController::class,'createVehicleHistoryForm'])->name('createVehicleHistoryForm');
+    Route::post('/update-vehicle-history/{id}', [VehicleController::class,'updateVehicleHistory'])->name('updateVehicleHistory');
+    Route::get('/edit-vehilce-history/{id}', [VehicleController::class,'editVehicleHistoryForm'])->name('editVehicleHistoryForm');
+//finance
     Route::post('/store-vehicle-history', [VehicleController::class, 'storeVehicleHistory'])->name('storeVehicleHistory');
     Route::get('/edit-finance/{id}', [VehicleController::class,'editFinanceForm'])->name('editFinanceForm');
     Route::post('/update-finance/{id}', [VehicleController::class,'updateFinance'])->name('updateFinance');

@@ -396,6 +396,13 @@ class VehicleController extends Controller
         $editSeatMaterial = SeatMaterial::where('id',$id)->first();
         return view('backend.admin.vehicles.editSeatMaterialForm',compact('editSeatMaterial'));
     }
+
+    public function editVehicleHistoryForm($id)
+    {
+        $editVehicleHistory = VehicleHistory::where('id',$id)->first();
+        return view('backend.admin.vehicles.editVehicleHistoryForm',compact('editVehicleHistory'));
+    }
+
     public function editFinanceForm($id)
     {
         $editFinance = Finance::where('id',$id)->first();
@@ -496,6 +503,16 @@ class VehicleController extends Controller
 
         return redirect()->route('ViewNumberOfkeys')->with('success', 'Key Updated  Successfully!');
 
+    }
+
+    public function updateVehicleHistory(request $request,$id)
+    {
+        $data = [
+            'title'=>$request->title
+        ];
+        VehicleHistory::where('id',$id)->update($data);
+
+        return redirect()->route('viewVehicleHistory')->with('success', 'Vehicle Updated  Successfully!');
     }
     public function updateToolPack(Request $request,$id)
     {

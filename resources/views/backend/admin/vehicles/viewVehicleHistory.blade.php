@@ -45,12 +45,12 @@
                         @php
                             $i = 1;
                         @endphp
-                        @foreach ($viewVehicleHistories as $viewVehicleHistory)
+                        @foreach ($viewVehicleHistories as $VehicleHistory)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $viewVehicleHistory->title }}</td>
+                            <td>{{ $VehicleHistory->title }}</td>
                             <td>
-                                <a href=""><span class="badge badge-success">Edit</span></a>
+                                <a href="{{route('editVehicleHistoryForm',$VehicleHistory)}}"><span class="badge badge-success">Edit</span></a>
                                 <a href=""><span class="badge badge-danger">Delete</span></a>
                             </td>
                         </tr>

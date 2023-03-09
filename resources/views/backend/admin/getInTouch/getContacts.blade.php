@@ -52,10 +52,11 @@
                             <td>{{ $getInTouch->description}}</td>
                             <td>
                                 @if($getInTouch->status == 1)
-                                <a href="{{route('updateGetInTouch',$getInTouch->id)}}"><span class="badge badge-success">Not Contacted</span></a>
+                                <a href="{{route('updateGetInTouch',$getInTouch->id)}}"><span class="badge badge-danger">Mark As Contacted ✔</span></a>
                                 @else
-                                <a><span class="badge badge-danger">Contacted</span></a>
+                                <a><span class="badge badge-success">Already Contacted</span></a>
                                 @endif
+                                
                                 
                             </td>
                         </tr>
