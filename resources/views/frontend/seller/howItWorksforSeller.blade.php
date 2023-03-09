@@ -262,7 +262,7 @@ display: block;
                     </div>
                 </div>
                 <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+                <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. Maximize profits.</p>
             </div>
 
             <div class="howitwork-main col-lg-3 col-md-3">
@@ -274,8 +274,8 @@ display: block;
                     <div class="line-sec-2">
                     </div>
                 </div>
-                <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+                <h4>Motorific Alerts Dealers</h4>
+                <p>Our online sale invites over 5,000 car dealers across the UK to present their top bids for your car.</p>
             </div>
 
             <div class="howitwork-main col-lg-3 col-md-3">
@@ -287,8 +287,8 @@ display: block;
                     <div class="line-sec-2">
                     </div>
                 </div>
-                <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+                <h4>Pick Highest Bid</h4>
+                <p>You pick the dealer who pays the most or makes the highest bid.</p>
             </div>
 
             <div class="howitwork-main col-lg-3 col-md-3">
@@ -298,8 +298,8 @@ display: block;
                 <div class="how-work-img">
                     <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
                 </div>
-                <h4>Profile your car</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
+                <h4>Free Home Collection</h4>
+                <p>Sell your car and receive full payment within 24 hours as we charge nothing. Welcome to the Motorific way!</p>
             </div>
         </div>
 

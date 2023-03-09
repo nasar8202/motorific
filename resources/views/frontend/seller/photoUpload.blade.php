@@ -2600,9 +2600,7 @@ display: block;
                 <div class="col-lg-6 col-md-6">
                     <div class="sec-7-box">
                         <h4>What are you waiting for?</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore</p>
+                        <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
                         <input class="mb-3" type="text" placeholder="Enter REG">
                         <button>Value Your Car</button>
                     </div>
@@ -2611,9 +2609,7 @@ display: block;
                 <div class="col-lg-6 col-md-6">
                     <div class="sec-7-box">
                         <h4>Newsletter</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore</p>
+                        <p>Subscribe to our newsletter and stay on top of industry news.</p>
                         <input class="mb-3" type="text">
                         <button>SUBSCRIBE</button>
                     </div>
