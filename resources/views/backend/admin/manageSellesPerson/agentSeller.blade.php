@@ -41,6 +41,7 @@
                             <th>Email</th>
                             <th>Phone Number</th>
                             <th>Post Code</th>
+                            <th>Created Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -55,6 +56,7 @@
                             <td>{{ $agentSelle->email }}</td>
                             <td>{{ $agentSelle->phone_number }}</td>
                             <td>{{ $agentSelle->post_code }}</td>
+                            <td>{{ $agentSelle->created_at }}</td>
                             <td>
                                 <a href="{{ route('viewAgentSellersView',$agentSelle->id) }}"><span class="badge badge-danger">View Vehicle</span></a>
                                 
