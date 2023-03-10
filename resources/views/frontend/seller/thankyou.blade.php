@@ -113,7 +113,6 @@
                 <a href="{{route('acceptedVehicles')}}">Check My Vehicle</a>
                 You wil receive your tailored offer shortly via text or email.
                 <br>
-                We're taking our responsibilities to respond to Coronavirus (COVID 19) seriously and continue to follow the advice from Government and the NHS daily.
             </p>
         </div>
     </div>

@@ -516,6 +516,11 @@ class FrontController extends Controller
     $logging_cond = Auth::user();
     if(!isset($logging_cond)){
         $registeration = trim($request->registeration,' ');
+        $vehicle = Vehicle::where('vehicle_registartion_number',$registeration)->where('user_id',$logging_cond)->first();
+
+        if($vehicle != null){
+            return back()->with('error','You Already Register This Vehicle');
+         } else{
         // $res = Http::withHeaders([
         //     'accept' => 'application/json',
         //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
@@ -554,8 +559,9 @@ class FrontController extends Controller
                  session(['model' => $res->make]);
         return view('frontend.seller.registration',compact('data','res'));
     }
+}
         $currentUser = Auth::user()->id;
-
+     
         $vehicleCategories = vehicleCategories::all();
         $VehicleFeature = VehicleFeature::all();
         $NumberOfKeys =  NumberOfKey::where('status',1)->get();
@@ -569,7 +575,7 @@ class FrontController extends Controller
         $Finances =  Finance::where('status',1)->get();
         $VehicleHistories =  VehicleHistory::where('status',1)->get();
         $user = User::find($currentUser);
-        $registeration = trim($request->registeration,' ');
+        $registeration = str_replace(' ','',$request->registeration);
         // $res = Http::withHeaders([
         //     'accept' => 'application/json',
         //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
@@ -579,6 +585,13 @@ class FrontController extends Controller
         // if($res['success'] == 'false'){
         //     return back()->with('error','Record not found');
         // }
+        // dd($registeration);
+        $vehicle = Vehicle::where('vehicle_registartion_number',$registeration)->where('user_id',$currentUser)->first();
+
+        if($vehicle != null || !empty($vehicle)){
+            
+            return back()->with('error','You Already Register This Vehicle');
+         } else{
 
                 $curl = curl_init();
 
@@ -613,6 +626,9 @@ class FrontController extends Controller
         }else{
             return back()->with('error','Record not found');
         }
+        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','VehicleHistories','user'));
+    
+    }
         // $milage= Http::withHeaders([
         //     'accept' => 'application/json',
         //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
@@ -627,7 +643,6 @@ class FrontController extends Controller
             ->with('error',$e->getMessage() )
             ->withInput();
     }
-        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','VehicleHistories','user'));
     }
     public function registration()
     {

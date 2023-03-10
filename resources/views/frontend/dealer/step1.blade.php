@@ -85,12 +85,12 @@
                                             <option @if(session()->get('hear_about_us') != null) {{ session()->get('hear_about_us') == "Other" ? 'selected' :  '' }} value="Other" @endif>Other</option>
                                         </select>
                                     </div> --}}
-                                    <div class="form-group radio-group">
+                                    {{-- <div class="form-group radio-group">
                                         <label for="policy">
                                             <input type="radio" name="privacy_policy" value="1"  id="policy" checked>
                                             <span>I have read the <a href="" rel="noopener noreferrer" target="_blank" >Privacy Policy</a> and accept the <a class="SignupPage_termsLink__GuXm5" href="" rel="noopener noreferrer" target="_blank">Terms &amp; Conditions</a>.</span>
                                         </label>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 {{-- <button type="submit"  class="next action-button">Next Step</button> --}}
                                 <button type="submit" class="btn btn-primary">Next Step</button>

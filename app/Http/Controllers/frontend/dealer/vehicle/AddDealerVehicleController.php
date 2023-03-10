@@ -34,8 +34,14 @@ class AddDealerVehicleController extends Controller
             'vehicle_registartion_number' => 'required',
             'vehicle_mileage' => 'required|numeric',
         ]);
-        $registeration = trim($request->vehicle_registartion_number,' ');
-
+        $registeration = str_replace(' ','',$request->registeration);
+        $currentUser = Auth::user()->id;
+        $vehicle = DealerVehicle::where('vehicle_registartion_number',$registeration)->where('user_id',$currentUser)->first();
+        dd($vehicle);
+        if($vehicle != null || !empty($vehicle)){
+            
+            return back()->with('error','You Already Register This Vehicle');
+         } else{
         // $res= Http::withHeaders([
         //     'accept' => 'application/json',
         //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
@@ -96,6 +102,7 @@ class AddDealerVehicleController extends Controller
                     return back()->with('error','Record not found');
                 }
              return $res;
+            }
         // $res = $res['result'];
         // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
         // $date = $res['basic_vehicle_info']['first_registration_date'];

@@ -46,6 +46,7 @@
                                                 style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $vehicle->vehicle_registartion_number }}</span>
                                         </h1>
                                         <p>{{ $vehicle->vehicle_name }}</p>
+                                        <p>Vehicle Price : {{ $vehicle->vehicle_price }}</p>
                                         @if ($vehicle->status == 1)
                                             <span class="badge badge-success">Approved </span>
                                         @elseif($vehicle->status == 2)

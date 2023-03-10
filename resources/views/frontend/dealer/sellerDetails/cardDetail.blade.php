@@ -6,7 +6,9 @@
 <!-- form css -->
 <div class="topPadingPage">
     <center><b>Motorific</b> 
-    <p>You Need To Pay £{{$charges_payment}} Charge To Buy From This Platform</p>
+        <p>
+        Please pay buys fee of £{{$charges_payment}} to view sellers details
+    </p>
 </center>
 </div>
 <div class="container">
@@ -75,7 +77,7 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now </button>
                     </div>
                 </div>
                     

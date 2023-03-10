@@ -58,14 +58,10 @@
                                         <label>Company type *</label>
                                         <select name="company_type"  placeholder="Enter description" value="{{ session()->get('company_type') ?? old('company_type') }}">
                                             <option value="">Select company type</option>
-                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Broker" ? 'selected' :  '' }}  value="Broker" @endif>Broker</option>
                                             <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Car supermarket" ? 'selected' :  '' }}  value="Car supermarket" @endif>Car supermarket</option>
                                             <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Independent" ? 'selected' :  '' }}  value="Independent" @endif>Independent</option>
-                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Leasing company" ? 'selected' :  '' }}  value="Leasing company" @endif>Leasing company</option>
                                             <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Main dealer (multi-franchise)" ? 'selected' :  '' }}  value="Main dealer (multi-franchise)" @endif>Main dealer (multi-franchise)</option>
                                             <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Main dealer (single-franchise)" ? 'selected' :  '' }}  value="Main dealer (single-franchise)" @endif>Main dealer (single-franchise)</option>
-                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Manufacturer" ? 'selected' :  '' }}  value="Manufacturer" @endif>Manufacturer</option>
-                                            <option @if(session()->get('company_type') != null) {{ session()->get('company_type') == "Online car buyer" ? 'selected' :  '' }}  value="Online car buyer" @endif>Online car buyer</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

@@ -502,7 +502,7 @@
     <section class="stock-cta">
         <div class="container-1170">
             <h2>Motorific</h2>
-            <h3>Supercharge your stock acquisition <br> and buy direct with Motorway</h3>
+            Supercharge your inventory acquisition and purchase direct with Motorific. connecting sellers direct with Dealers 
             <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
         </div>
     </section>

@@ -17,8 +17,7 @@
 
                 You wil receive your tailored offer shortly via text or email.
                 <br>
-                We're taking our responsibilities to respond to Coronavirus (COVID 19) seriously and continue to follow the advice from Government and the NHS daily.
-            </p>
+               
             <a href="{{route('dealer.dashboard')}}"><i class="fa-solid "></i> Go Browse vehicle</a>
         </div>
     </div>

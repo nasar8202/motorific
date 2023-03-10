@@ -59,7 +59,7 @@ class MultiStepRegistration extends Controller
 
             'email' => 'required|email|max:255|unique:users',
             // 'hear_about_us' => 'required',
-            'privacy_policy' => 'required'
+            // 'privacy_policy' => 'required'
         ]);
 
 
