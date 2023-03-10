@@ -89,7 +89,7 @@ class BidVehicleController extends Controller
       Mail::to($orders->user->email)->send(new WinnerBidedPerson($data));
       return redirect()->back()->with('success', 'Bid Approved Successfully!');
     } catch (\Exception $e) {
-      dd($e->getMessage());
+      //dd($e->getMessage());
       DB::rollback();
       return Redirect()->back()
         ->with('error', $e->getMessage())

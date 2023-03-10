@@ -42,6 +42,8 @@ use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesControlle
 use App\Http\Controllers\frontend\dealer\orderRequest\OrderVehicleRequestController;
 use App\Http\Controllers\frontend\dealer\dealerOrderRequest\DealerOrderRequestController;
 use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehicleRequestController;
+use App\Models\NewsletterSubscriber;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,7 +58,8 @@ use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehi
 // newsletter subscriber
 Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
 Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmail'])->name('subscribeEmail');
-
+Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
+Route::post('get-intouch-post',[NewsletterSubscribers::class,'getIntouchPost'])->name('getIntouchPost');
 //end
 // Route::get('test', function () {
 // 	event(new App\Events\NewDealerRegisterNotification('Someone'));
@@ -156,7 +159,8 @@ Route::post('reset-password', [FrontController::class, 'submitResetPasswordForm'
 // start admin panel routes
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
-    
+    Route::get('/get-contacts', [NewsletterSubscribers::class,'getContacts'])->name('getContacts');
+    Route::get('/update-get-in-touch/{id}', [NewsletterSubscribers::class,'updateGetInTouch'])->name('updateGetInTouch');
      // register selles person
      Route::get('/view-seller-persons', [ManageSellesPersonController::class,'viewSellerPersons'])->name('viewSellerPersons');
      Route::get('/register-sell-person', [ManageSellesPersonController::class,'createSellesPersonForm'])->name('createSellesPersonForm');
@@ -275,9 +279,12 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     // end private plate
     
 
-    // finance nnn
+    // Vehicle history nnn
     Route::get('/view-vehicle-history', [VehicleController::class,'viewVehicleHistory'])->name('viewVehicleHistory');
     Route::get('/add-vehicle-history', [VehicleController::class,'createVehicleHistoryForm'])->name('createVehicleHistoryForm');
+    Route::post('/update-vehicle-history/{id}', [VehicleController::class,'updateVehicleHistory'])->name('updateVehicleHistory');
+    Route::get('/edit-vehilce-history/{id}', [VehicleController::class,'editVehicleHistoryForm'])->name('editVehicleHistoryForm');
+//finance
     Route::post('/store-vehicle-history', [VehicleController::class, 'storeVehicleHistory'])->name('storeVehicleHistory');
     Route::get('/edit-finance/{id}', [VehicleController::class,'editFinanceForm'])->name('editFinanceForm');
     Route::post('/update-finance/{id}', [VehicleController::class,'updateFinance'])->name('updateFinance');
@@ -300,6 +307,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
     Route::get('/enable-user/{id}', [UserController::class,'enableUser'])->name('enableUser');
+    Route::get('/mark-as-contacted/{id}', [UserController::class,'markAsContacted'])->name('markAsContacted');
     // end manage user
 
 

@@ -43,6 +43,7 @@ class LoginController extends Controller
             return $this->redirectTo;
         }
         else if ($role == 4) {
+        
             $this->redirectTo = '/agent/dashboard';
             return $this->redirectTo;
         }  

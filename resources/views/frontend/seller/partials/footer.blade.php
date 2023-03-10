@@ -89,7 +89,7 @@
                         <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>
                     </a>
                 </div>
-                <h4>© Motorfic Online Ltd. 2017-<?php echo date("Y"); ?></h4>
+                <h4>© Motorific Online Ltd. 2017-<?php echo date("Y"); ?></h4>
             </div>
         </div>
     </div>

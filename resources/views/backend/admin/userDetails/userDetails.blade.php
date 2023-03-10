@@ -59,6 +59,11 @@
                                 @else
                                 <a href="{{ route('enableUser',$viewUser->id) }}"><span class="badge badge-success">Enable</span></a>
                                 @endif
+                                @if ($viewUser->contact_status == 1)
+                                <a href="#"><span class="badge badge-success">Already Contacted</span></a>
+                                @else
+                                <a href="{{ route('markAsContacted',$viewUser->id) }}"><span class="badge badge-danger">Mark As Contacted ✔</span></a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

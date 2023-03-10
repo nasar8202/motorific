@@ -168,11 +168,12 @@ class DealerDashboardController extends Controller
     public function DidnotWinBiddedVehicle()
     {
         $user_id = Auth::user()->id;
+//         $b = BidedVehicle::where('user_id',$user_id)->get();
+// dd($b);
+        $bids = BidedVehicle::with('user')->where('user_id',$user_id)->with('vehicle')->with('vehicleimage')->where('status',2)->get();
 
-        $bids = BidedVehicle::with('user')->with('vehicle.vehicleimage')->where('user_id',$user_id)->where('status',2)->get();
-
-// dd($bids);
         $countBids = count($bids);
+        
 
         return view('frontend.dealer.bids.DidnotWinBiddedVehicle',compact('bids','countBids'));
 

@@ -217,15 +217,23 @@
         </a>
         <ul class="submenu" style="display:{{  request()->IS('admin/register-sell-person') ? 'active' : '' }}">
             <li class="submenu-item {{ request()->IS('admin/register-sell-person') ? 'active' : '' }}">
-                <a href="{{ route('createSellesPersonForm') }} ">Add Selles Person</a>
+                <a href="{{ route('createSellesPersonForm') }} ">Add Agent </a>
             </li>
             <li class="submenu-item {{ request()->IS('admin/view-seller-persons') ? 'active' : '' }}">
-                <a href="{{ route('viewSellerPersons') }}">View Seller Persons</a>
+                <a href="{{ route('viewSellerPersons') }}">View Agent </a>
             </li>
             
         </ul>
     </li>
-
+    <li class="   {{ (Request::is('admin') || request()->IS('/admin/get-contacts') || request()->IS('/admin/get-contacts') ? 'active' : '') }} ">
+        
+        <a href="{{route('getContacts')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Get In Touch</span>
+            
+            
+        </a>
+    </li>
 
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>
