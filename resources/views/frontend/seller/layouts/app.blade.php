@@ -10,11 +10,11 @@
     <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script>
     <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" type="text/css">
     <!-- CUSTOM-CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}" type="text/css">
     <!-- RESPONSIVE-CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}" type="text/css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <title>Motorific- @yield('title')</title>
