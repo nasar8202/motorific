@@ -305,7 +305,7 @@
                             </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#hwAccordians">
-                            <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </div>
+                            <div class="accordion-body">Get yourself registered as a dealer for free & leverage the platform for stock acquisition and instant car sales. Only pay for the leads you receive!</div>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -315,28 +315,28 @@
                             </button>
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#hwAccordians">
-                            <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </div>
+                            <div class="accordion-body">Elevate your inventory with Motorific’s dealer-only stock & get your hands on the most sought-after cars.</div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            <span class="hw-ac-img"><img src="{{ URL::asset('frontend/dealers/assets/image/images/hw-icon3.png') }}" alt=""></span> Bid easily online
+                            <span class="hw-ac-img"><img src="{{ URL::asset('frontend/dealers/assets/image/images/hw-icon3.png') }}" alt=""></span> Bid Online
                             </button>
                             </h2>
                             <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#hwAccordians">
-                                <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <div class="accordion-body">Post ads for free, reach out to millions of high-intent car buyers and get the best possible prices for your stock.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-headingFour" aria-expanded="false" aria-controls="flush-collapseThree">
-                            <span class="hw-ac-img"><img src="{{ URL::asset('frontend/dealers/assets/image/images/hw-icon4.png') }}" alt=""></span> We close the sale for you
+                            <span class="hw-ac-img"><img src="{{ URL::asset('frontend/dealers/assets/image/images/hw-icon4.png') }}" alt=""></span> We Close Sale For You
                             </button>
                             </h2>
                             <div id="flush-headingFour" class="accordion-collapse collapse" data-bs-parent="#hwAccordians">
-                                <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                <div class="accordion-body">You pick the highest bid for your car and we close the sale for you like a pro!
                                 </div>
                             </div>
                         </div>

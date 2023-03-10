@@ -300,7 +300,8 @@ $(document).ready(function () {
     currentSection.prevAll('section.step-sec').css('transform', 'translateX(-100px)');
     currentSection.nextAll('section.step-sec').css('transform', 'translateX(100px)');
     $('section.step-sec').not(currentSection).hide();
-    $('section.step-sec:last-child()').next('#next').hide();
+    // $('section.step-sec:last-child()').next('#next').hide();
+    $('section.step-sec:last-child()').next('#next').html('Submit');
   });
 
 

@@ -1,5 +1,5 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell your car  with the Motorific')
+@section('title', 'Car Value Tracker')
 @section('section')
     <style>
         .dropdown {
@@ -157,11 +157,10 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-1-txt col-lg-6">
-                    <h2>Sell your car 
-                        with  <span>Motorific</span></h2>
+                    <h2 class="fs-small">Car Value Tracker - Know Your Vehicle’s True Worth</h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Get the highest possible sale price for your vehicle with minimal effort. 5000+ verified dealers await to give you the best offer!</p>
+                    <p>Motorific’s car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -177,7 +176,7 @@
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
                             value="{{ old('registeration') }}">
                         <span class="text-danger show_error"></span>
-                        <button type="button" id="check_registeration">Value Your Car</button>
+                        <button type="button" id="check_registeration">Value My Car</button>
                     </div>
                     @if ($errors->has('millage'))
                         <span class="text-danger">{{ $errors->first('millage') }}</span>
@@ -187,11 +186,10 @@
                     <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
                 </div>
             </div>
-            <ol class="tagLines">
-                <li>Get the best deals for your wheels with Motorific </li>
-                <li>Unlock the true value of your car with Motorific</li>
-                <li>Sell your car hassle-free and fast with Motorific</li>
-                <li>Maximize your car's value with Motorific</li>
+            <ol class="tagLines value-car">
+                <li><strong>Value:</strong>  Enter registration & mileage to get instant car valuation.  </li>
+                <li><strong>Track:</strong>  Car prices are vulnerable to fluctuation & our tracker lets you know the exact price of your car via monthly alerts.</li>
+                <li><strong>Sell:</strong>  Sell your car at a time that produces maximum profits.</li>
             </ol>
         </div>
     </section>
@@ -312,7 +310,7 @@
             </div>
             <div class="sec-2-btns text-center">
                 <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button ><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
+                <button >GET IN TOUCH</button>
                 
             </div>
         </div>
@@ -325,13 +323,12 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-3-txt col-lg-6">
-                    <h4>Who We Are</h4>
-                    <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
-                    <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
-                    <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over 5000+ verified dealers nationwide and present you with the highest bid for your car.</p>
-                    <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
-                    <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                    <button>GET IN TOUCH</button>
+                    <h5 class="text-white fw-bold">Get Exact & Real Time Valuations Only On Motorific</h5>
+                   <p>Motorific combines its live market data tool with sales statistics to provide a real-time and exact valuation of your car. It takes into car’s make, mileage, and model.</p>
+                    <h5 class="text-white fw-bold mt-2">Value History</h5>
+                    <p>The whole idea of creating a car value tracker is to help you decide on the best time to sell to get maximum value for your car. The all-new exciting feature lets you price trends across the whole year as well as visualize the rate of depreciation. </p>
+                    <h5 class="text-white fw-bold mt-2">Monthly Car Value Alerts</h5>
+                    <p>You get instant valuation but if you think now is not the right time to sell my car, you can get monthly car value alerts to pinpoint the best price.  </p>
                 </div>
                 <div class="col-lg-6">
 
@@ -342,58 +339,58 @@
 
     <!-- SECTION-4 -->
 
-    <section class="sec-4">
-        <div class="container-1151">
-            <div class="row">
-                <div class="col-lg-6 my-auto">
-                    <div class="sec-4-txt ">
+    <!--<section class="sec-4">-->
+    <!--    <div class="container-1151">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-lg-6 my-auto">-->
+    <!--                <div class="sec-4-txt ">-->
                         <!--<h4>This is the way.</h4>-->
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
-                        <h4>Your Car. Your Price - with Motorific</h4>
-                        <p>Motorific brings transparency so that you get the highest bid for your car. With over 5000+ dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
-                        <div class="sec-1-txt">
-                            <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
-                                    CAR</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mx-auto">
-                    <div class="d-flex sec-6-box">
-                        <div class="sec-4-box-sec-1">
-                            <div class="sec-4-box mb-3">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img.png') }}" alt="">
-                                <h4>Instant Valuation</h4>
-                                <p>As soon as you enter registration number, our algorithms provide accurate car value using latest market data. </p>
-                            </div>
+    <!--                    <h4>Your Car. Your Price - with Motorific</h4>-->
+    <!--                    <p>Motorific brings transparency so that you get the highest bid for your car. With over 5000+ dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>-->
+    <!--                    <div class="sec-1-txt">-->
+    <!--                        <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR-->
+    <!--                                CAR</button></a>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-lg-6 mx-auto">-->
+    <!--                <div class="d-flex sec-6-box">-->
+    <!--                    <div class="sec-4-box-sec-1">-->
+    <!--                        <div class="sec-4-box mb-3">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img.png') }}" alt="">-->
+    <!--                            <h4>Instant Valuation</h4>-->
+    <!--                            <p>As soon as you enter registration number, our algorithms provide accurate car value using latest market data. </p>-->
+    <!--                        </div>-->
 
-                            <div class="sec-4-box">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img2.png') }}" alt="">
+    <!--                        <div class="sec-4-box">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img2.png') }}" alt="">-->
                                 <!--<h4>Get your highest price</h4>-->
-                                <h4>Pick the highest bidder</h4>
-                                <p>With thousands of car dealers offering their prices, we only present you the highest bidders. </p>
-                            </div>
-                        </div>
+    <!--                            <h4>Pick the highest bidder</h4>-->
+    <!--                            <p>With thousands of car dealers offering their prices, we only present you the highest bidders. </p>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
 
-                        <div class="sec-4-box-sec-2">
-                            <div class="sec-4-box mb-3">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img3.png') }}" alt="">
-                                <h4>Free Home Collection</h4>
-                                <p>Motorific lets you sale your car within 24 hours. Dealerships collect your car right from your doorstep and we transfer full payment promptly. </p>
-                            </div>
+    <!--                    <div class="sec-4-box-sec-2">-->
+    <!--                        <div class="sec-4-box mb-3">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img3.png') }}" alt="">-->
+    <!--                            <h4>Free Home Collection</h4>-->
+    <!--                            <p>Motorific lets you sale your car within 24 hours. Dealerships collect your car right from your doorstep and we transfer full payment promptly. </p>-->
+    <!--                        </div>-->
 
-                            <div class="sec-4-box">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img4.png') }}" alt="">
+    <!--                        <div class="sec-4-box">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img4.png') }}" alt="">-->
                                 <!--<h4>Oh, and it’s 100% free</h4>-->
-                                <h4>We Charge Nothing/Motorific Is Free</h4>
-                                <p>When you sell your car through us, the dealers pay the fee - not you! This means you can enjoy a completely free selling experience.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--                            <h4>We Charge Nothing/Motorific Is Free</h4>-->
+    <!--                            <p>When you sell your car through us, the dealers pay the fee - not you! This means you can enjoy a completely free selling experience.</p>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
 
     <!-- SECTION-5 -->
 
@@ -401,32 +398,38 @@
         <div class="container-1600">
             <div class="sec-5-txt">
                 <div class="container-1151">
-                    <h5>Why Sell Your <br> Used Car With Motorofic? </h5>
-                    <div class="row sec-5-txt-sub">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Verified Dealers</h4>
-                                <p>Motorific brings thousands of verified dealers on single platform from across the country. To ensure transparency, out team performs a stern scrutiny to ensure seamless user experience for all stakeholders.</p>
-                            </div>
-
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Simple & Straightforward Process</h4>
-                                <p>The whole process of selling your used car is simple, transparent, and straightforward. You do the whole process through your phone. From creating car profile to receiving bids, you can get a sale agreed in as little as 24 hours.</p>
-                            </div>
+                    <h5>What factors can influence <br> your car value negatively?</h5>
+                    <div class="fct-text">
+                        <div class="fct-cont">
+                            <p>
+                              1)<strong> Age:</strong>  The 1st and the most important factor that influences your car’s value negatively is its age. Experts say that car prices plummet considerably three years after their registration. In the first year, the decrease in car value is more than in any other year. After that, car value does depreciate but at a slower pace.
+                            </p>
                         </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Free Collection</h4>
-                                <p>Once you seal the deal with highest bidder, they will collect your car from your home, free of charge! From profiling to selling, you do the whole process from comfort of your home.</p>
-                            </div>
-
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Fast & Full Payments</h4>
-                                <p>Motorific ensures that you receive payments promptly and fastly. You will receive full payment from the dealer as we charge you nothing!</p>
-                            </div>
+                        <div class="fct-cont">
+                            <p>
+                              2)<strong> Mileage:</strong>  The higher the mileage, the less will be car’s value. Why? Because your car’s mileage reflects how much your car has gone through wear and tear over all these years. 
+                            </p>
                         </div>
-
+                        <div class="fct-cont">
+                            <p>
+                              3)<strong> Service History:</strong>  If your list your car for sale with incomplete or missing service records, it will negatively impact your car’s value. Why? Because significant gaps in service history will create doubts in dealers’ minds as they will presume the worst. All of this will only result in lower bids.  
+                            </p>
+                        </div>
+                        <div class="fct-cont">
+                            <p>
+                              4)<strong> Market Demand:</strong>  While factors like mileage, age, and service history are in your hands, preferences like market demand aren’t. Factors like environmental regulations, economic conditions, or rise in eco-system for electric vehicles. Likewise, the release of upgraded versions of existing models, changes in tax regimes, and decrease in production due to external factors can influence the value of your car positively or negatively.  
+                            </p>
+                        </div>
+                        <div class="fct-cont">
+                            <p>
+                              5)<strong> More than one owner:</strong>  Another factor that negatively impacts your car’s value is more than one owner. The more the owners, the less will be the cost. Why? Because the number of owners reflects the condition and age of your car.  
+                            </p>
+                        </div>
+                        <div class="fct-cont">
+                            <p>
+                              6)<strong> Accident History:</strong>  Used cars with one owner since registration are generally preferred by professional buyers as they tend to hold more value compared to cars with multiple owners. The number of previous owners of a car can often indicate its age and overall condition.  
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

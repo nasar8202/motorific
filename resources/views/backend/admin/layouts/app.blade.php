@@ -132,7 +132,12 @@
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
-
+ <script src="{{URL::asset('backend/admin/assets/vendors/tinymce/tinymce.min.js')}}"></script>
+ <script src="{{URL::asset('backend/admin/assets/vendors/tinymce/plugins/code/plugin.min.js')}}"></script>
+ <script>
+     tinymce.init({ selector: '#default' });
+     tinymce.init({ selector: '#dark', toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code', plugins: 'code' });
+ </script>
 <script src="{{URL::asset('backend/admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
 <script src="{{URL::asset('backend/admin/assets/js/pages/ui-chartjs.js')}}"></script>
 <script src="{{URL::asset('backend/admin/assets/vendors/choices.js/choices.min.js')}}"></script>

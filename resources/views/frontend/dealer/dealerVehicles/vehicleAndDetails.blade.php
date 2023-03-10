@@ -396,7 +396,7 @@
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
                                         <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_yes" value="1" @if(request()->session()->get('any_damage_checked') == '1') checked @endif>
-                                        <label class="dflex-gap10" for="any_damage_checked_yes">
+                                        <label class="dflex-gap10 any_damage_checked_label_yes" for="any_damage_checked_yes">
                                             <span class="radio-circle"></span>
                                             <span>Yes</span>
                                         </label>
@@ -405,7 +405,7 @@
                                 <li class="radio-option-box">
                                     <div class="custom-radio-box d-flex">
                                         <input class="hide-inp" type="radio" name="any_damage_checked" id="any_damage_checked_no" value="0" @if(request()->session()->get('any_damage_checked') == '0') checked @endif>
-                                        <label class="dflex-gap10" for="any_damage_checked_no">
+                                        <label class="dflex-gap10 any_damage_checked_label_no" for="any_damage_checked_no">
                                             <span class="radio-circle"></span>
                                             <span>No</span>
                                         </label>
@@ -470,7 +470,7 @@
         <span class="radio-circle"></span>
         <span>No</span>
     </label>                             --}}
-<section class="step-form-sec">
+<section class="step-form-sec step-form-sec-dealer-main d-none">
 
     <div class="container-1200">
         <!--interior -->
@@ -483,17 +483,25 @@
             </div> --}}
             <div class="step-main-wrap ">
             <!--<div id="svg_wrap"></div>-->
+            
+            
             <div class="row">
                 <div class="col-sm-6">
                     <h1 class="step-main-head">Interior Information</h1>
+                    <div class="prf-complete d-flex align-items-center interior-info-complete-txt d-none">
+                        <div>
+                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="">
+                        </div>
+                        <h5 class="m-0"> Complete</h5>
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
-                        <button class="form-toggle-btn" type="button">START</button>
+                        <button class="form-toggle-btn form-toggle-btn-interior" type="button">START</button>
                     </div>
                 </div>
             </div>
-            <section class="step-wrapper form-wraper">
+            <section class="step-wrapper form-wraper step-wrapper-interior">
 
                 <section class="step-sec">
                     <div class="row align-items-center">
@@ -1010,6 +1018,7 @@
                 <div class="step-button-wrap">
                     <div class="step-button" id="prev">&larr; Previous</div>
                     <div class="step-button nxtBtn" id="next" >Next &rarr;</div>
+                    <div class="step-button" id="submit">Submit</div>
                 </div>
 
                 <p class="pt-4">If no damage to report! Then continue next .</p>
@@ -1031,15 +1040,21 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1 class="step-main-head">Exterior Information</h1>
+                    <div class="prf-complete d-flex align-items-center exterior-info-complete-txt d-none">
+                        <div>
+                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="">
+                        </div>
+                        <h5 class="m-0"> Complete</h5>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="photo-up-sec-2-box-btn clr-s-gr my-auto f-btn">
-                        <button class="form-toggle-btn" type="button">START</button>
+                        <button class="form-toggle-btn form-toggle-btn-exterior" type="button">START</button>
                     </div>
                 </div>
             </div>
 
-            <section class="step-wrapper form-wraper">
+            <section class="step-wrapper form-wraper step-wrapper-exterior">
 
                 <section class="step-sec-ext">
                     <div class="row align-items-center">
@@ -1449,6 +1464,7 @@
                 <div class="step-button-wrap">
                     <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
                     <div class="step-button-ext" id="next-ext">Next &rarr;</div>
+                    <div class="step-button" id="submit-ext">Submit</div>
                 </div>
 
                 <p class="pt-4">If no damage to report! Then continue next .</p>
@@ -1540,9 +1556,49 @@
 
 
 
+
+
+
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
 
 
+
+
 @endsection
+
+
+<!--step-form-sec-dealer-main-->
+@push('child-scripts')
+<script type="text/javascript">
+ 
+    $(document).ready(function() {
+        console.log(' document');
+        $(".any_damage_checked_label_no").click(function(){
+            console.log('yes');
+          $(".step-form-sec-dealer-main").addClass("d-none");
+        });
+        $(".any_damage_checked_label_yes").click(function(){
+            console.log('no');
+          $(".step-form-sec-dealer-main").removeClass("d-none");
+        });
+        
+        
+        $("#submit").click(function(){
+          $(".interior-info-complete-txt").removeClass("d-none");
+          $(".form-toggle-btn-interior").text("Edit");
+          $('.form-toggle-btn-interior').css({ background: "#7977a2" })
+          $('.step-wrapper-interior').slideToggle();
+        });
+        
+        $("#submit-ext").click(function(){
+          $(".exterior-info-complete-txt").removeClass("d-none");
+          $(".form-toggle-btn-exterior").text("Edit");
+          $('.form-toggle-btn-exterior').css({ background: "#7977a2" })
+          $('.step-wrapper-exterior').slideToggle();
+        });
+        
+    });
+</script>
+@endpush
 
 

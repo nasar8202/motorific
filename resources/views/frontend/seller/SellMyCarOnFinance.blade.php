@@ -1,5 +1,5 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell your car  with the Motorific')
+@section('title', 'Sell My Car On Finance')
 @section('section')
     <style>
         .dropdown {
@@ -157,11 +157,8 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-1-txt col-lg-6">
-                    <h2>Sell your car 
-                        with  <span>Motorific</span></h2>
-                        
-                    <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Get the highest possible sale price for your vehicle with minimal effort. 5000+ verified dealers await to give you the best offer!</p>
+                    <h2>Sell My Car On Finance </h2>
+                    <p>Our 5000+ verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -187,133 +184,40 @@
                     <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
                 </div>
             </div>
-            <ol class="tagLines">
-                <li>Get the best deals for your wheels with Motorific </li>
-                <li>Unlock the true value of your car with Motorific</li>
-                <li>Sell your car hassle-free and fast with Motorific</li>
-                <li>Maximize your car's value with Motorific</li>
-            </ol>
+            
         </div>
     </section>
     <!--<section class="" id="vehicle_registration_details"></section>-->
     <!-- SECTION-2 -->
 
-    <section class="sec-2">
+    <section class="sec-2 py-5">
         <div class="container-1151">
-            <!--<div class="sec-2-txt pb-4">-->
-            <!--    <h2>Just sold the <span>Motorific</span> way</h2>-->
-            <!--    <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-
-                
-            <!--    <div class="col-lg-4 col-md-6">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-1.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP Avantgarde...,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-                
-            <!--    <div class="col-lg-4 col-md-6">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-2.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-                 
-            <!--    <div class="col-lg-4 col-md-6 mx-auto">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-3.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-            <!--</div>-->
-
-            
+           
             <div class="row">
-                <div class="col-12">
-                    <div class="how-work">
-                        <h3>How it works</h3>
-                    </div>
-                </div>
                 <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>1</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/car.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Profile Your Car</h4>
-                    <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. Maximize profits.</p>
+                    
+                    <h4>Instant Valuation:</h4>
+                    <p> Our live-market-data-powered technology provides an accurate estimate of your car’s value. 
+                    </p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>2</h5>
-                    </div>
-                    <div class="how-work-img d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/megaphone.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Motorific Alerts Dealers</h4>
-                    <p>Our online sale invites over 5,000 car dealers across the UK to present their top bids for your car.</p>
+                    
+                    <h4>Get Your Highest Price:</h4>
+                    <p>We alert dealers every time a new listing comes up. They compete to give you the best price for your used car. We connect you with the dealer offering the highest price.</p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>3</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/price.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Pick Highest Bid</h4>
-                    <p>You pick the dealer who pays the most or makes the highest bid. </p>
+                    
+                    <h4>Free Home Collection: </h4>
+                    <p>Once you accept the bid, a verified dealer will collect your car from your home for free. You get paid in full. </p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>4</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
-                    </div>
-                    <h4>Free Home Collection</h4>
-                    <p>Sell your car and receive full payment within 24 hours as we charge nothing. Welcome to the Motorific way!</p>
+                    
+                    <h4>Motorific Is Free: </h4>
+                    <p> We don’t charge used car owners any fee. We collect fees from verified dealers. </p>
                 </div>
-            </div>
-            <div class="sec-2-btns text-center">
-                <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button ><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
-                
             </div>
         </div>
     </section>
@@ -325,13 +229,11 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-3-txt col-lg-6">
-                    <h4>Who We Are</h4>
-                    <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
-                    <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
-                    <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over 5000+ verified dealers nationwide and present you with the highest bid for your car.</p>
-                    <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
-                    <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                    <button>GET IN TOUCH</button>
+                    <h4>Fast, Efficient, & Advanced Way of Selling Your Used Cars on Finance 
+                    </h4>
+                    <p>Motorific is home to 5000+ verified dealers who compete daily to get the best cars for stock acquisition. They are willing to pay the best possible prices. 
+                    </p>
+                    
                 </div>
                 <div class="col-lg-6">
 
@@ -342,144 +244,136 @@
 
     <!-- SECTION-4 -->
 
-    <section class="sec-4">
-        <div class="container-1151">
-            <div class="row">
-                <div class="col-lg-6 my-auto">
-                    <div class="sec-4-txt ">
+    <!--<section class="sec-4">-->
+    <!--    <div class="container-1151">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-lg-6 my-auto">-->
+    <!--                <div class="sec-4-txt ">-->
                         <!--<h4>This is the way.</h4>-->
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
-                        <h4>Your Car. Your Price - with Motorific</h4>
-                        <p>Motorific brings transparency so that you get the highest bid for your car. With over 5000+ dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
-                        <div class="sec-1-txt">
-                            <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
-                                    CAR</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mx-auto">
-                    <div class="d-flex sec-6-box">
-                        <div class="sec-4-box-sec-1">
-                            <div class="sec-4-box mb-3">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img.png') }}" alt="">
-                                <h4>Instant Valuation</h4>
-                                <p>As soon as you enter registration number, our algorithms provide accurate car value using latest market data. </p>
-                            </div>
+    <!--                    <h4>Your Car. Your Price - with Motorific</h4>-->
+    <!--                    <p>Motorific brings transparency so that you get the highest bid for your car. With over 5000+ dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>-->
+    <!--                    <div class="sec-1-txt">-->
+    <!--                        <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR-->
+    <!--                                CAR</button></a>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-lg-6 mx-auto">-->
+    <!--                <div class="d-flex sec-6-box">-->
+    <!--                    <div class="sec-4-box-sec-1">-->
+    <!--                        <div class="sec-4-box mb-3">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img.png') }}" alt="">-->
+    <!--                            <h4>Instant Valuation</h4>-->
+    <!--                            <p>Motorific’s car valuation technology is powered by live market data and it provides you with an exact estimate of your car’s value. -->
+    <!--                            </p>-->
+    <!--                        </div>-->
 
-                            <div class="sec-4-box">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img2.png') }}" alt="">
+    <!--                        <div class="sec-4-box">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img2.png') }}" alt="">-->
                                 <!--<h4>Get your highest price</h4>-->
-                                <h4>Pick the highest bidder</h4>
-                                <p>With thousands of car dealers offering their prices, we only present you the highest bidders. </p>
-                            </div>
-                        </div>
+    <!--                            <h4>Get Maximum Value for Electric Car</h4>-->
+    <!--                            <p>Soon after you post an ad, 5000+ verified dealers start making attracting bids. We connect you with the one who is willing to pay the most. </p>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
 
-                        <div class="sec-4-box-sec-2">
-                            <div class="sec-4-box mb-3">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img3.png') }}" alt="">
-                                <h4>Free Home Collection</h4>
-                                <p>Motorific lets you sale your car within 24 hours. Dealerships collect your car right from your doorstep and we transfer full payment promptly. </p>
-                            </div>
+    <!--                    <div class="sec-4-box-sec-2">-->
+    <!--                        <div class="sec-4-box mb-3">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img3.png') }}" alt="">-->
+    <!--                            <h4>Free Home Collection</h4>-->
+    <!--                            <p>The winning bidder collects your car from your home for free.  </p>-->
+    <!--                        </div>-->
 
-                            <div class="sec-4-box">
-                                <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img4.png') }}" alt="">
+    <!--                        <div class="sec-4-box">-->
+    <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img4.png') }}" alt="">-->
                                 <!--<h4>Oh, and it’s 100% free</h4>-->
-                                <h4>We Charge Nothing/Motorific Is Free</h4>
-                                <p>When you sell your car through us, the dealers pay the fee - not you! This means you can enjoy a completely free selling experience.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--                            <h4>Get Paid in Full For Your Electric Vehicle-->
+    <!--                            </h4>-->
+    <!--                            <p>You receive full payment for your electric car within 24 hours. We charge a small fee to the winning bidder. </p>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
 
     <!-- SECTION-5 -->
 
     <section class="sec-5">
         <div class="container-1600">
-            <div class="sec-5-txt">
+            <div class="sec-5-txt bst-price-sec">
                 <div class="container-1151">
-                    <h5>Why Sell Your <br> Used Car With Motorofic? </h5>
-                    <div class="row sec-5-txt-sub">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Verified Dealers</h4>
-                                <p>Motorific brings thousands of verified dealers on single platform from across the country. To ensure transparency, out team performs a stern scrutiny to ensure seamless user experience for all stakeholders.</p>
-                            </div>
-
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Simple & Straightforward Process</h4>
-                                <p>The whole process of selling your used car is simple, transparent, and straightforward. You do the whole process through your phone. From creating car profile to receiving bids, you can get a sale agreed in as little as 24 hours.</p>
-                            </div>
+                    <h5>Over 250,000 Owners Have Got The Best Price For Their Cars. </h5>
+                    <h6>How Motorific Works To Sell Cars On Finance</h6>
+                    <div class="fct-text">
+                        <div class="fct-cont">
+                            <p>
+                              1)<strong> Profile Your Car:</strong>  You profile your car by simply entering the car’s registration number. Our system provides instant car valuation using live market data and statistics.
+                            </p>
                         </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Free Collection</h4>
-                                <p>Once you seal the deal with highest bidder, they will collect your car from your home, free of charge! From profiling to selling, you do the whole process from comfort of your home.</p>
-                            </div>
-
-                            <div class="sec-5-inner-txt mt-4">
-                                <h4>Fast & Full Payments</h4>
-                                <p>Motorific ensures that you receive payments promptly and fastly. You will receive full payment from the dealer as we charge you nothing!</p>
-                            </div>
+                        <div class="fct-cont">
+                            <p>
+                              2)<strong> We Alert Dealers:</strong>  As soon as your listing completes, Motorific sends notifications to 5000+ verified dealers who compete with the highest bids.
+                            </p>
                         </div>
-
+                        <div class="fct-cont">
+                            <p>
+                              3)<strong> Get Maximum Value For Your Car:</strong>  Motorific connects with the dealer who has placed the highest bid. You approve the bid and the dealer collects the car from your home for free. 
+                            </p>
+                        </div>
+                        <div class="fct-cont">
+                            <p>
+                              4)<strong> Get Paid In Full:</strong>  You get paid in full within 24 hours of the sale. 90% of car owners have received their payments on the same day. 
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION-6 -->
-
-    <section class="sec-6">
+    
+    <!--Finance Section-->
+    <section class="finance-sec">
         <div class="container-1151">
-            <div class="sec-6-heading">
-                <!--<h5>Our happy customers</h5>-->
-                <h5>Hear From Our Satisfied Customers</h5>
-                <!--<p>Rated Excellent <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i-->
-                <!--        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by-->
-                <!--    5,000+ Users</p>-->
-                <p>Rated  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 35000+ Customers </p>
-            </div>
-            <div class="sec-6-boxes d-flex">
-                <div class="sec-6-main-box col-lg-4 col-md-6">
-                    <p style="font-style:italic;">I was a little hesitant to sell my car online, but Motorific made the process incredibly easy and stress-free. Their platform connects car sellers with verified dealers, which gave me peace of mind knowing that I was dealing with reputable buyers. The whole process was seamless - I entered registration number and created my car and within hours, I had multiple offers from interested dealers. I was able to compare the offers and choose the one that worked best for me. The team at Motorific was also very helpful and responsive throughout the process, answering any questions I had and providing updates on the status of my listing. I highly recommend Motorific to anyone looking to sell their car - it's a great way to get a fair price without the hassle of dealing with private buyers.</p>
-                    <div class="sec-6-box-pfp d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp.png') }}" alt="">
-                        <div>
-                            <h5>Mark,Homestay</h5>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                        </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="fin-content">
+                        <h3>Sell My Car On Finance Through Motorific</h3>
+                        <p>As per the latest stats, 85% of people buy cars through some sort of finance agreement. With flexible payment plans, it becomes easy for people to pay for cars and own a vehicle. However, complexities arise when car owners go to sell their cars on finance. However, Motorific has a solution for you as we can help you sell your car on finance.</p>
                     </div>
                 </div>
-                <div class="sec-6-main-box col-lg-4 col-md-6">
-                    <p style="font-style:italic;">From my experience, I can vouch that Motorific is the best way to sell used car! I tried selling my car through traditional methods and it turned out to be a big headache. But then a friend of mine recommended Motorific. As soon as I created profile, I was able to get multiple offers from verified dealers instantly. The whole process was seamless, prompt and hassle-free. What I appreciates the most about Motorific is the transparency of the platform, and the fact that I could compare offers and choose the one that worked best for me. Thanks to Motorific, I got the best value for my MG HS!</p>
-                    <div class="sec-6-box-pfp d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp2.png') }}" alt="">
-                        <div>
-                            <h5>Mark,Homestay</h5>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="sec-6-main-box col-lg-4 col-md-6 mx-auto">
-                    <p style=""font-style: italic;">Sold my Peugeot e-208 through Motorific - it was easy, fast, and stress-free! I got a great price for my car and was able to complete the transaction quickly. Highly recommend Motorific for anyone looking to sell their car fastly!</p>
-                    <div class="sec-6-box-pfp d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp3.png') }}" alt="">
-                        <div>
-                            <h5>Mark,Homestay</h5>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                        </div>
+                <div class="col-lg-6">
+                    <div class="fin-content">
+                        <h3>Can You Sell Your 1st Car On Finance?</h3>
+                        <p>With Motorific, you always can. Our verified dealers have bought cars that came with outstanding finance. However, to sell my car on finance, all you need to do is to settle the outstanding balance. This act of settling balance is called the settlement figure. Then, you will submit proof of payment clearance and you are all set to sell your car.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!--End-->
+    
+    
+    <!--Sell Car Sec-->
+    <section class="sell-car-sec">
+        <div class="container-1151">
+            <h2>How to sell my financed car through Motorific?</h2>
+            <p>If you have bought a car on finance, then you should know it already that you are not the legal owner of the car. The ownership will be only transferred to you when you have submitted all payments to your lender. This whole complex concept of ownership gives birth to the ambiguity that you can’t sell your car on finance until all your outstanding payments are cleared. Fortunately, that’s not the case.</p>
+            <ul>
+                <li>You can voluntarily terminate your finance agreement provided that you have paid 50% or more of the agreed amount.</li>
+                <li>You will then clear the remaining balance that you owe. </li>
+                <li>Likewise, you will pay any outstanding fees or interests.</li>
+                <li>When considering purchasing a new car, it could be worthwhile to have a conversation with your lender. They may offer the option to take back your current car and initiate a new agreement, which could provide you with personalized rates as an existing customer.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!--End-->
+    
 
     <!-- SECTION-7 -->
 

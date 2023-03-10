@@ -2194,7 +2194,7 @@ display: block;
                                 </div>
                             </div>
                             <!--Vehicle Category-->
-                            <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="VehicleCategory">
+                            <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="vehicleCategory">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Vehicle Category</h3>
                                 {{-- <p>Is this vehicle on finance?</p> --}}
@@ -2237,7 +2237,7 @@ display: block;
                             <!--End-->
 
                               <!--Vehicle History-->
-                              <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="VehicleHistory">
+                              <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="vehicleHisory">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Vehicle History</h3>
                                 <p>How much service history does your car have?</p>
@@ -2462,7 +2462,7 @@ display: block;
                                 <div class="photo-up-sec-2-vi-bnch-btns">
                                     <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
                                         <button type="button" class="prevBtn">PREVIOUS</button>
-                                        <!--<button type="button" class="submitVehicleInfo-qa">SUBMIT</button>-->
+                                        <button type="button" class="submitVehicleInfo-qa">SUBMIT</button>
                                     </div>
                                 </div>
                             </div>
@@ -2582,7 +2582,7 @@ display: block;
                         </div>
                     </div>
                     <div class="photo-up-sec-2-btn photo-up-sec-2-box-btn text-center clr-s-gr">
-                        <button type="submit">Submit</button>
+                        <button class="submitBtn-photos-sec" type="submit">Submit</button>
                     </div>
 
             </div>
@@ -3165,20 +3165,28 @@ $("#store").click(function(){
         // Summary Step
         $('.stepOpener').on('click', function(){
             var thisData = $(this).attr('data-title');
+            console.log('thisData',thisData)
             $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
             $(this).closest('.vehicleSteps').slideUp();
             $('.vehicleSteps[data-id="'+ thisData +'"]').slideDown();
             $('.vehicleSteps[data-id="'+ thisData +'"]').addClass('vehicleStepsActive');
         });
         
+        // DISABLE SUBIMIT BUTTON OF PHOTOS STEP
+        $(".submitBtn-photos-sec").attr("disabled", true);
         // SYBMIT SUMMARY STEP 
-        // $('.submitVehicleInfo-qa').on('click', function(){
-        //     myFunction2()
-        //     $('#startBtn-vehicleInfo').text('Edit')
-        //     $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
-        //     $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
-        // });
+        $('.submitVehicleInfo-qa').on('click', function(){
+            myFunction2()
+            $('#startBtn-vehicleInfo').text('Edit')
+            $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
+            $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
+            $(".submitBtn-photos-sec").attr("disabled", false);
+        });
         
+        
+       
+        
+        // submitBtn-photos-sec
         
         // Modal Open Close of Vehicle Form
         $('.modalBtn').on('click',function(){

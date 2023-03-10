@@ -2,7 +2,11 @@
 @section('title','Browse Vehicle the with Motorific')
 @section('section')
 <!-- form css -->
-
+<style>
+    .rotate{
+        transform: rotate(180deg);
+    }
+</style>
 <main class="topPadingPage">
     <section>
         <div class="sliderImgVehicleDetail">
@@ -253,7 +257,7 @@
                                 <li >Live Sales end <span>3h 53m 26s <a href="#"></a></span></li>
                                 @endif
                                 <ul class="valuation">
-                                    <li >valuation <span><i class="fas fa-chevron-down" id="dynamic-ar"></i></span></li>
+                                    <li id="dynamic-ar">valuation <span><i class="fas fa-chevron-down"></i></span></li>
                                     <li class="hidden">Retail:<span> £{{$vehicle->retail_price}} </span></li>
                                     <li class="hidden">Clean:<span> £{{$vehicle->clean_price}} </span></li>
                                     <li class="hidden">Average:<span> £{{$vehicle->average_price}} </span></li>
@@ -432,6 +436,7 @@
 
     $(".hidden").hide();
   $("#dynamic-ar").click(function(){
+    $(this).find('span').toggleClass("rotate");
     $(".hidden").toggle();
   });
 

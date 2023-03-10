@@ -235,6 +235,21 @@
         </a>
     </li>
 
+    <li class="sidebar-item  has-sub {{ request()->IS('admin/view-all-subscribers') ||request()->IS('admin/view-all-subscribers') ? 'active' : '' }} ">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Subscribers</span>
+        </a>
+        <ul class="submenu" style="display:{{  request()->IS('admin/send-notification-to-subscribers') ? 'active' : '' }}">
+            <li class="submenu-item {{ request()->IS('admin/send-notification-to-subscribers') ? 'active' : '' }}">
+                <a href="{{ route('createNotificationToSubscriberForm') }} ">Send Notification </a>
+            </li>
+            <li class="submenu-item {{ request()->IS('admin/view-all-subscribers') ? 'active' : '' }}">
+                <a href="{{ route('viewAllSubscribers') }}">View Subscribers </a>
+            </li>
+            
+        </ul>
+    </li>
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>
             <div class="icon dripicons-exit"></div>

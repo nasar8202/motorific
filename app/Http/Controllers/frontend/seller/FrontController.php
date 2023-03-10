@@ -40,6 +40,14 @@ class FrontController extends Controller
     {
         return view('frontend.seller.sellToADealer');
     }
+    public function CarValueTracker()
+    {
+        return view('frontend.seller.CarValueTracker');
+    }
+    public function SellMyCarOnFinance()
+    {
+        return view('frontend.seller.SellMyCarOnFinance');
+    }
     public function sellMyElectricCars()
     {
         return view('frontend.seller.sellMyElectricCars');

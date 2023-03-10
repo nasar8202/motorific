@@ -1,35 +1,37 @@
 <?php
 
+use App\Models\NewsletterSubscriber;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\frontend\NewsletterSubscribers;
 use App\Http\Controllers\backend\admin\VehicleController;
 
+
 use App\Http\Controllers\frontend\seller\FrontController;
-
-
 use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\dealer\HowItWorksController;
 use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 use App\Http\Controllers\backend\admin\AdminDashboardController;
-use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 
+use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\meetings\MeetingController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
+
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
-
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 use App\Http\Controllers\backend\superadmin\AgentsDashboardController;
 use App\Http\Controllers\backend\admin\vehicle\ManageVehicleController;
 use App\Http\Controllers\backend\admin\meetings\CancelVehicleController;
+use App\Http\Controllers\backend\admin\subscribers\SubscriberController;
 use App\Http\Controllers\backend\admin\newVehicle\SellerVehicleController;
 use App\Http\Controllers\backend\superadmin\SuperAdminDashboardController;
 use App\Http\Controllers\backend\admin\orderRequest\OrderRequestController;
@@ -42,7 +44,6 @@ use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesControlle
 use App\Http\Controllers\frontend\dealer\orderRequest\OrderVehicleRequestController;
 use App\Http\Controllers\frontend\dealer\dealerOrderRequest\DealerOrderRequestController;
 use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehicleRequestController;
-use App\Models\NewsletterSubscriber;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,13 @@ use App\Models\NewsletterSubscriber;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('view:clear');
+    $exitCode = Artisan::call('route:clear');
+     return "cache cleared!";
+});
 
 // newsletter subscriber
 Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
@@ -84,6 +92,8 @@ Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews')
 // sell my electric car
 Route::get('/sell-my-electric-cars', [FrontController::class,'sellMyElectricCars'])->name('sellMyElectricCars');
 Route::get('/sell-to-a-dealer', [FrontController::class,'sellToADealer'])->name('sellToADealer');
+Route::get('/car-value-tracker', [FrontController::class,'CarValueTracker'])->name('CarValueTracker');
+Route::get('/sell-my-car-on-finance', [FrontController::class,'SellMyCarOnFinance'])->name('SellMyCarOnFinance');
 // end sell my electric car
 
 // how it works for dealer
@@ -156,6 +166,11 @@ Route::post('reset-password', [FrontController::class, 'submitResetPasswordForm'
 
 // start admin panel routes
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
+
+    Route::get('/send-notification-to-subscribers',[SubscriberController::class,'createNotificationToSubscriberForm'])->name('createNotificationToSubscriberForm');
+    Route::post('/store-subscriber',[SubscriberController::class,'sendNotificationsToUsers'])->name('sendNotificationsToUsers');
+    
+    Route::get('/view-all-subscribers',[SubscriberController::class,'viewAllSubscribers'])->name('viewAllSubscribers');
 
     Route::get('/get-contacts', [NewsletterSubscribers::class,'getContacts'])->name('getContacts');
     Route::get('/update-get-in-touch/{id}', [NewsletterSubscribers::class,'updateGetInTouch'])->name('updateGetInTouch');
