@@ -819,10 +819,11 @@ section.sec-2.productPageTn span {
     .photo-up-sec-1 div p {
      font-size: 18px;
         padding-bottom: 10px;
+    padding: 20px 30px;
     }
-    padding: 20px 30px;.photo-up-sec-1 h1 {
+    .photo-up-sec-1 h1 {
     font-size: 24px;
-}
+    }
 
 .chart ul li {
     padding: 9px 5px;
@@ -880,6 +881,35 @@ section.photo-up-sec-2 {
 
 /* 768 */
 @media (max-width:991px){
+    .bst-price-sec .fct-text {
+    display: block;
+}
+
+.bst-price-sec .fct-text .fct-cont {
+    max-width: 100%;
+    margin-top: 20px;
+}
+.fin-content {
+    margin-bottom: 30px;
+}
+
+.sell-car-sec h2 {
+    font-size: 23px;
+}
+
+.sell-car-sec p, .sell-car-sec ul li {
+    font-size: 14px;
+}
+
+.finance-sec {
+    padding-bottom: 50px;
+}
+
+.sell-car-sec {
+    padding-bottom: 50px;
+}
+
+
     .head-btns {
         /* width: 25%; */
     }
@@ -1916,6 +1946,34 @@ section.sec-2.productPageTn .vec-box {
 }
 .thnk-content {
     padding: 25px;
+}
+
+.fin-content {
+    padding: 20px;
+}
+
+.fin-content h3 {
+    font-size: 18px;
+}
+
+.fin-content p {
+    font-size: 12px;
+}
+
+.sell-car-sec h2 {
+    font-size: 20px;
+}
+
+.sell-car-sec p, .sell-car-sec ul li {
+    font-size: 12px;
+}
+
+.finance-sec {
+    padding-bottom: 30px;
+}
+
+.sell-car-sec {
+    padding-bottom: 30px;
 }
 
 

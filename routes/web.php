@@ -81,6 +81,8 @@ Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews')
 // sell my electric car
 Route::get('/sell-my-electric-cars', [FrontController::class,'sellMyElectricCars'])->name('sellMyElectricCars');
 Route::get('/sell-to-a-dealer', [FrontController::class,'sellToADealer'])->name('sellToADealer');
+Route::get('/car-value-tracker', [FrontController::class,'CarValueTracker'])->name('CarValueTracker');
+Route::get('/sell-my-car-on-finance', [FrontController::class,'SellMyCarOnFinance'])->name('SellMyCarOnFinance');
 // end sell my electric car
 
 // how it works for dealer

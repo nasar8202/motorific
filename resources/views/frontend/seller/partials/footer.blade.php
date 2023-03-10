@@ -27,7 +27,7 @@
                 <h5>Product</h5>
                 <ul>
                     <li>
-                        <a href="#">Sell my car</a>
+                        <a href="{{route('CarValueTracker')}}">Sell my car</a>
                     </li>
                     <li>
                         <a href="#">Sell my van</a>
@@ -35,8 +35,11 @@
                     <li>
                         <a href="#">Car buyers</a>
                     </li>
+                    <!--<li>-->
+                    <!--    <a href="">Cash for cars</a>-->
+                    <!--</li>-->
                     <li>
-                        <a href="#">Cash for cars</a>
+                        <a href="{{route('SellMyCarOnFinance')}}">Sell My Car On Finance</a>
                     </li>
                     <li>
                         <a href="#">Car Valuation</a>
