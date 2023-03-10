@@ -520,7 +520,7 @@
                         <div class="sec-7-box">
                             <h4>Newsletter</h4>
                             <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                            <input class="mb-3" type="text" name="subscriber_email" id="subscriber_email" >
+                            <input class="mb-3" type="text" placeholder="email" name="subscriber_email" id="subscriber_email" >
                             <button onclick="addSubscriber()">SUBSCRIBE</button>
                         </div>
                     </div>
