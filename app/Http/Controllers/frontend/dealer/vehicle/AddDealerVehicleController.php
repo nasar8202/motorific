@@ -34,10 +34,11 @@ class AddDealerVehicleController extends Controller
             'vehicle_registartion_number' => 'required',
             'vehicle_mileage' => 'required|numeric',
         ]);
-        $registeration = str_replace(' ','',$request->registeration);
+        $registeration = str_replace(' ','',$request->vehicle_registartion_number);
+        // $registeration = trim($request->vehicle_registartion_number,' ');
+        // dd($registeration,$request);
         $currentUser = Auth::user()->id;
         $vehicle = DealerVehicle::where('vehicle_registartion_number',$registeration)->where('user_id',$currentUser)->first();
-        dd($vehicle);
         if($vehicle != null || !empty($vehicle)){
             
             return back()->with('error','You Already Register This Vehicle');
