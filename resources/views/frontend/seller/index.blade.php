@@ -158,7 +158,7 @@
             <div class="row">
                 <div class="sec-1-txt col-lg-6">
                     <h2>Sell your car 
-                        with the <span>Motorific</span></h2>
+                        with  <span>Motorific</span></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p>Get the highest possible sale price for your vehicle with minimal effort. 5000+ verified dealers await to give you the best offer!</p>

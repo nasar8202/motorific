@@ -1,5 +1,5 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell your car the with Motorific')
+@section('title', 'Sell your car with Motorific')
 @section('section')
 
     <style>

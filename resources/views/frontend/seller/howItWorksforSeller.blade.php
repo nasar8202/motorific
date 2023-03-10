@@ -158,9 +158,13 @@ display: block;
     <div class="container-1151">
         <div class="row">
             <div class="sec-1-txt col-lg-6">
-                <h2>Sell your car the
+                
+                <h4>Tagline 1: Drive Away With A Great Deal - Sell Your Car With Motorific</h4>
+                <h4>Tagline 2: Your Car Deserves The Best Price - Sell Your Car With Motorific</h4>
+                <p>5000+ verified dealers bid to give you the best price for your car. </p>
+                {{-- <h2>Sell your car
                     with <span>Motorific</span></h2>
-                <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
+                <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p> --}}
             
             </div>
             <div class="sec-1-img col-lg-6">
@@ -172,7 +176,7 @@ display: block;
 <!-- SECTION-2 -->
     <div class="container-1151">
              <div class="how-work">
-            <h3>How to sell a car with Motorfic </h3>
+            <h3>How To Sell My Car With Motorific </h3>
         </div>
         <div class="overview-sections">
         <div class="overview-section">
@@ -188,12 +192,11 @@ display: block;
         </div>
         <h3 class="overview-section__heading">
         1.
-        Tell us about your car
+       	Profile Your Car: 
         
         </h3>
         <p class="overview-section__content">
-        Add some basic details about your car and start receiving free car valuations within minutes – there are no hidden fees or costs.
-        
+            You enter a registration number to get instant car valuation. You make an awesome car profile through your mobile. 
         </p>
         </div>
         <div class="overview-section">
@@ -209,12 +212,11 @@ display: block;
         </div>
         <h3 class="overview-section__heading">
         2.
-        3,000+ trusted dealers will compete to buy your car
+      	5000+ Verified Dealers Make Offers: 
         
         </h3>
         <p class="overview-section__content">
-        Our nationwide network of dealers will make their best offers in our auctions.
-        
+            5000+ verified dealers make attractive offers on your listing. We connect you with the one offering the highest price. 
         </p>
         </div>
         <div class="overview-section">
@@ -229,12 +231,11 @@ display: block;
         </div>
         <h3 class="overview-section__heading">
         3.
-        Easy payment and free collection
+        	You Get Paid in Full: 
         
         </h3>
         <p class="overview-section__content">
-        Once the auction is up your car will be sold to the winning dealer. They’ll collect it at a time that suits and pay you right away!
-        
+            You approve the offer. The dealer collects your car for free and you get paid in full within 24 hours. 
         </p>
         </div>
         
@@ -312,71 +313,106 @@ display: block;
         <div class="car-selling__benefits">
        
          <div class="how-work">
-            <h3>   Why sell your used car with carwow</h3>
+            <h3>   Why Sell Your Used Car With Motorific?</h3>
         </div>
         <ul class="list-icon car-selling__benefits-list">
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        We check thousands of dealers
+            Get The Highest Price For Your Car
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        We save you the bother of hunting around for the best price to sell your old car
+            Here at Motorific, thousands of verified dealers bid against your listings and we connect you only with the one offering the highest price. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        Dealers compete to buy your car
+            Get Paid In Full
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        We make the process of selling a car to a dealer easier. Any buyers who are interested in bidding will offer you their best price
+            Motorific lets you keep the full price of the car. We do not charge a fee to car owners. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        You will sell your car online for free
+            Get Paid Within 24 Hours
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        No fees. No hidden costs. All the money from the sale is yours to spend how you want
+            93% of car owners have received payments on the same day. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        Avoid the hassle of the private sale
+            5000+ verified dealers
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        Skip the struggle of selling a vehicle privately. You may also get more for it than if you were to try part exchange
+            Motorific is accompanied by 5000+ dealers. You don’t need to spend time hunting for the best prices. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        Sell your car for what it's really worth
+            Cars on Finance Accepted 
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        Get a realistic valuation of your car's worth, not an automated price to be chipped down later
+            Motorific can assist you in selling your car even if it has outstanding finance to pay off. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        Sell your car fast and get paid the same day
+            Instant Car Valuation
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        The chosen dealer will contact you to make payment and arrange free home collection
+            You enter a car registration number and we offer instant valuation using live market data technology. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        Buy and sell your car in one place
+            Free Collection
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        We can also help you find your next car to buy, without the hassle or haggle
+            Once you accept an offer from a dealer, he picks your car from your home for free. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-        Outstanding finance cars accepted
+            One-Stop-Shop For Buying & Selling Cars
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-        We can help you sell your car even if it has outstanding finance to settle
+            We are your one stop shop for buying and selling used cars. Over 10000 car owners make listings here daily. 
+        </p>
+        </li>
+        </ul>
+        </div>
+    </div>
+    <div class="container-1151">
+        <div class="car-selling__benefits">
+       
+         <div class="how-work">
+            <h3>   Free, Trusted, & Efficient Way To Sell Your Used Car Online </h3>
+        </div>
+        <ul class="list-icon car-selling__benefits-list">
+        <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
+        <h4 class="car-selling__benefits-list-item-title">
+            Free:
+        </h4>
+        <p class="car-selling__benefits-list-item-desc">
+            We charge nothing to car owners. You list your car & get paid in full.  
+        </p>
+        </li>
+        
+        <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
+        <h4 class="car-selling__benefits-list-item-title">
+            Convenient:
+        </h4>
+        <p class="car-selling__benefits-list-item-desc">
+            Being home to 5000+ verified dealers, it’s never more easy to sell your car online.
+        </p>
+        </li>
+        <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
+        <h4 class="car-selling__benefits-list-item-title">
+            Trusted:
+        </h4>
+        <p class="car-selling__benefits-list-item-desc">
+            Over 250,000+ people have sold their used cars with Motorific. We enjoy 5-star ratings on TrustPilot. 
         </p>
         </li>
         </ul>
