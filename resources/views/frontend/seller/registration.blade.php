@@ -106,7 +106,7 @@ input[type=number] {
                 {{-- <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt=""> --}}
                 </div>
                 <div class="">
-                <h3>{{Session::get('registrationNo') ?? 'Register Here';}}</h3>
+                <h3>{{Session::get('registrationNo') ?? 'Register Here'}}</h3>
                 <p>{{ Session::get('model')??''}}</p>
                 </div>
             </div>

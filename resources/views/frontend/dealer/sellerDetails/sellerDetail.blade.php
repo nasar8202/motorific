@@ -17,6 +17,7 @@
                                 <li>Full Name <span>{{$user->name}}</span></li>
                                 <li>Email <span>{{$user->email}}</span></li>
                                 <li>Phone Number <span>{{$user->phone_number}}</span></li>
+                                <li>Address <span>{{$user->address??""}}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -133,14 +134,14 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 vehicleDetailRight">
                     <div class="liveSalesInProgress">
-                        {{-- <h4 class="bg bg-danger">Sold</h4> --}}
+                         <!-- <h4 class="bg bg-danger">Sold</h4>  -->
                         <div class="reserveDetail">
 
 
 
                             <form action="#">
                                 <div class="form-group">
-                                   <center> <a href="{{route('completedVehicleDetails',$allVehicles)}}"> <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->dashboard ?? "") }}" width="400px"></a>
+                                   <center> <a href="{{route('completedVehicleDetails',$allVehicles)}}"> <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->dashboard ?? "") }}" width="350px"></a>
                                    </center>
 
                                    <br>

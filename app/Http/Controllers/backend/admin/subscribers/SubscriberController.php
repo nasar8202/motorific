@@ -23,7 +23,7 @@ class SubscriberController extends Controller
 
     public function createNotificationToSubscriberForm()
     {
-        $users = User::where('status',1)->where('role_id', '!=' ,'1')->get();
+        $users = NewsletterSubscriber::where('status',1)->get();
         return view('backend.admin.subscribers.createNotificationToSubscriberForm',compact('users'));
 
     }
