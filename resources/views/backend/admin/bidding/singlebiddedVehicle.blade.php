@@ -63,14 +63,14 @@
                             @if($order->status == 0)
                             <a class="badge badge-info" href="{{route('approveBid',['id'=>$order->id,'vid'=>$order->vehicle->id])}}" >Approve Bid </a>
                             <button type="button" class="btn btn-sm mt-2 btn-outline-primary block price" data-bs-toggle="modal"
-                            data-bs-target="#default"  data-id="{{$order->id}}">
+                            data-bs-target="#pricing"  data-id="{{$order->id}}">
                             Update Price
                         </button>
                         @else
                         <a class="badge badge-danger" href="{{route('unassignBid',$order->id)}}" >Unassign Bid</a>
                        
                         <button type="button" class="btn btn-sm mt-2  btn btn-outline-dark meeting"
-                        data-bs-toggle="modal" data-bs-target="#dark" data-id="{{$order->id}}">
+                        data-bs-toggle="modal" data-bs-target="#meeting" data-id="{{$order->id}}">
                         View Meeting Status
                          </button>
                         @endif
@@ -86,7 +86,7 @@
         </div>
 
     </section>
-    <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+    <div class="modal fade text-left" id="pricing"  tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel1" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable" role="document">
                                             <div class="modal-content">
@@ -123,7 +123,7 @@
                                         </div>
                                     </div>
 </div>
-<div class="modal fade text-left" id="dark" tabindex="-1"
+<div class="modal fade text-left " id="meeting"  tabindex="-1"
              role="dialog" aria-labelledby="myModalLabel150"                 
                        aria-hidden="true">
  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"

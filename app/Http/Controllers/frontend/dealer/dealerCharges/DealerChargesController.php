@@ -58,7 +58,7 @@ class DealerChargesController extends Controller
         $charges =  DealerWinningCharges::where('user_id', $user_id)->where('vehicle_id', $id)->first();
 
         $pricing = BidedVehicle::where('vehicle_id', $id)->where('user_id', $user_id)->first();
-
+        
         $charges_fee = VehicleWinningCharges::where('status', 1)
             ->where('price_to', '>=', $pricing->bid_price)
             ->where('price_from', '<=', $pricing->bid_price)
@@ -69,10 +69,10 @@ class DealerChargesController extends Controller
             $dealerCard =  CardDetails::where('user_id',$user_id)->first();
             $charges_payment = $charges_fee->fee;
             if($dealerCard == null){
-            return view('frontend.dealer.sellerDetails.cardDetail', compact('id', 'charges_payment', 'user_id', 'role', 'bided'))->with('error', 'First You Need To Pay');
+                    return view('frontend.dealer.sellerDetails.cardDetail', compact('id', 'charges_payment', 'user_id', 'role', 'bided'))->with('error', 'First You Need To Pay');
         }else{
-
-            Stripe::setApiKey("sk_test_51L6BbmHh7DA7fp0JBVYZphgLBNOStcNsdKyockhG7OdGCpfL8eBETqsN3XniEjRPGFuc8C272ORCR1YsFcKi2clz00ilFXOFCW");
+           
+  Stripe::setApiKey("sk_test_51L6BbmHh7DA7fp0JBVYZphgLBNOStcNsdKyockhG7OdGCpfL8eBETqsN3XniEjRPGFuc8C272ORCR1YsFcKi2clz00ilFXOFCW");
 
             $result = Token::create([
             
@@ -100,6 +100,7 @@ class DealerChargesController extends Controller
             ]);
             
             $allVehicles = Vehicle::Where('status', 2)->where('id', $id)->with('vehicleInformation')->with('VehicleImage')->first();
+            
             $chargesDetails = new DealerWinningCharges;
             $user_id = Auth::user()->id;
             $chargesDetails->user_id = $user_id;
@@ -118,7 +119,7 @@ class DealerChargesController extends Controller
         }
         } else {
             $allVehicles = Vehicle::Where('status', 2)->where('id', $id)->with('vehicleInformation')->with('VehicleImage')->first();
-
+            
             $user = User::where('id', $allVehicles->user_id)->first();
             $current = Auth::user()->id;
             $pricing = BidedVehicle::where('vehicle_id', $id)->where('user_id', $current)->first();
@@ -126,7 +127,7 @@ class DealerChargesController extends Controller
             return view('frontend.dealer.sellerDetails.sellerDetail', compact('user', 'role', 'allVehicles', 'current', 'pricing', 'bided'));
         }
     } catch (\Exception $e) {
-        //return $e;
+        return $e;
         return Redirect()->back()
             ->with('error', $e->getMessage())
             ->withInput();

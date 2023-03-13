@@ -2288,8 +2288,9 @@ display: block;
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
                                                 <span><p>Enter postcode </p></span>
-                                                <input type="search" name="location" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
+                                                <input type="search" name="location" id="search" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
                                             </label>
+                                            <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
                                         </div>
                                     </div>
                                     @if ($errors->has('location'))
@@ -3214,6 +3215,34 @@ $("#store").click(function(){
                 reader.readAsDataURL(file);
             }
        });
+       $("#search").keyup( function() {
+
+        $("#result").html('');
+        
+        let zip = $("#search").val();
+       let removspace =  zip.replace(/\s/g, '');
+       console.log(removspace)
+            let api = `https://maps.googleapis.com/maps/api/geocode/json?address=.'${removspace}'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk`;
+       
+        $.getJSON( api, function( results ) {
+            console.log(results,results.status,"cheking");
+            if(results?.results && results?.results.length !== 0){
+            $.each( results.results, function( key, value ) {
+                if( value.formatted_address ) 
+                {
+                    $("#result").html(`<li class="list-group-item c">${value.formatted_address} </li>`)
+                }
+            } );
+        } else {
+            $("#result").html(`<span class="list-group-item c">Not Found</span>`)
+        }
+        } );
+    } );
+
+    $("#result").on("click", "li", function() {
+        $("#search").val($(this).text());
+        $("#result").html('');
+    })
     });
 </script>
 @endpush

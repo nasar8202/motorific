@@ -141,11 +141,11 @@ class DealerOrderVehicleRequestController extends Controller
       $front = $orders->vehicle->DealerVehicleExterior[0]->exterior_image;
       $dealerEmail = $dealer->email;
       $orders->request_price = $request->updatedPrice;
-      // $orders->status = 1;
-      // $orders->admin_updated_status = 1;
+      $orders->status = 1;
+      $orders->admin_updated_status = 1;
       $orders->save();
       $ordered_vehicle = DealerVehicle::where('id', $orders->vehicle_id)->first();
-      // $ordered_vehicle->status = 2 ;
+      $ordered_vehicle->status = 2 ;
       $ordered_vehicle->save();
 
       $data = ([

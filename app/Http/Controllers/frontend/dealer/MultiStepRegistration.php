@@ -150,7 +150,7 @@ class MultiStepRegistration extends Controller
             $user->position = $request->session()->get('position');
             $user->hear_about_us = $request->session()->get('hear_about_us');
             $user->phone_number = $request->session()->get('phone_number');
-            $user->privacy_policy = $request->session()->get('privacy_policy');
+            $user->privacy_policy =1;
             $user->post_code = $request->session()->get('postcode');
             $user->status = 0;
             $user->role_id = 3;
@@ -227,8 +227,8 @@ class MultiStepRegistration extends Controller
                 return back()->with('error', 'Enter The Right Post Code');
             }
         } catch (\Exception $e) {
-            // return $e;
-            return back()->with('error', 'Enter The Right Post Code');
+            return $e;
+            // return back()->with('error', 'Enter The Right Post Code');
         }
     }
 
