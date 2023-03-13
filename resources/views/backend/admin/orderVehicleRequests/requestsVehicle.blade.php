@@ -63,14 +63,14 @@
                             @if($order->status == 0)
                             <a class="badge badge-success" href="{{route('approveOrderd',['id'=>$order->id,'vId'=>$order->vehicle->id])}}" >Approve Order Request </a>
                             <a role="button" class="badge badge-success mt-1 price" data-bs-toggle="modal"
-                            data-bs-target="#default"  data-id="{{$order->id}}">
+                            data-bs-target="#pricing"  data-id="{{$order->id}}">
                             Update Price
                         </a>
                         @else
                         <a class="badge badge-danger" href="{{route('unassignReq',$order->id)}}" >Unassign Request</a>
                        
-                        <a role="button" class="badge badge-success mt-1"
-                        data-bs-toggle="modal" data-bs-target="#dark" data-id="{{$order->id}}">
+                        <a role="button" class="badge badge-success mt-1 meeting"
+                        data-bs-toggle="modal" data-bs-target="#meeting" data-id="{{$order->id}}">
                         View Meeting Status
                          </a>
                         @endif
@@ -86,7 +86,7 @@
         </div>
 
     </section>
-    <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+    <div class="modal fade text-left" id="pricing" tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel1" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable" role="document">
                                             <div class="modal-content">
@@ -123,7 +123,7 @@
                                         </div>
                                     </div>
 </div>
-<div class="modal fade text-left" id="dark" tabindex="-1"
+<div class="modal fade text-left" id="meeting" tabindex="-1"
              role="dialog" aria-labelledby="myModalLabel150"                 
                        aria-hidden="true">
  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"

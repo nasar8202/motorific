@@ -304,6 +304,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
                 //$image_1 = Session::get('image_1');
                 }
 
+                if($request->any_damage_checked == 1) {
             $dealer_interior_detail = new DealerVehicleInteriorDetails;
             $dealer_interior_detail->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_interior_detail->dashboard = $request->dashboard;
@@ -330,7 +331,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             $dealer_exterior_detail->front = $request->front;
             $dealer_exterior_detail->back = $request->back;
             $dealer_exterior_detail->save();
-        
+        }
 
             }
             catch(Exception $e)

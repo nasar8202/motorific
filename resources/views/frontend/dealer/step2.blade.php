@@ -39,9 +39,15 @@
                                 <div class="form-card">
                                     <h2 class="fs-title">Dealership details</h2>
                                     <div class="form-group">
-                                        <label>Address line 1 *</label>
-                                        <input type="text" name="address_line_1"  placeholder="Enter Address Line 1" value="{{ session()->get('address_line_1') ?? old('address_line_1') }}" required>
+                                        <label>Postcode *</label>
+                                        <input type="text" name="postcode"  placeholder="Enter Post Code" id="search" value="{{ session()->get('postcode')?? old('postcode') }}" required>
+                                        
                                     </div>
+                                    <div class="form-group">
+                                        <label>Address line 1 *</label>
+                                        <input type="text" name="address_line_1" id="searchAddress" placeholder="Enter Address Line 1" value="{{ session()->get('address_line_1') ?? old('address_line_1') }}" required>
+                                    </div>
+                                    <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
                                     <div class="form-group">
                                         <label>Address line 2 *</label>
                                         <input type="text" name="address_line_2"  placeholder="Enter Address line 2" value="{{ session()->get('address_line_2')?? old('address_line_2') }}" >
@@ -49,10 +55,6 @@
                                     <div class="form-group">
                                         <label>Town / city *</label>
                                         <input type="text" name="city"  placeholder="Enter City" value="{{ session()->get('city') ?? old('city')}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Postcode *</label>
-                                        <input type="text" name="postcode"  placeholder="Enter Post Code" value="{{ session()->get('postcode')?? old('postcode') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Company type *</label>
@@ -98,5 +100,36 @@
     </div>
 </div>
 @endsection
+@push('child-scripts')
+<script type="text/javascript">
+     $("#search").keyup( function() {
 
+        $("#result").html('');
+        
+        let zip = $("#search").val();
+       let removspace =  zip.replace(/\s/g, '');
+       console.log(removspace)
+            let api = `https://maps.googleapis.com/maps/api/geocode/json?address=.'${removspace}'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk`;
+       
+        $.getJSON( api, function( results ) {
+            console.log(results,results.status,"cheking");
+            if(results?.results && results?.results.length !== 0){
+            $.each( results.results, function( key, value ) {
+                if( value.formatted_address ) 
+                {
+                    $("#result").html(`<li class="list-group-item c">${value.formatted_address} </li>`)
+                }
+            } );
+        } else {
+            $("#result").html(`<span class="list-group-item c">Not Found</span>`)
+        }
+        } );
+    } );
+
+    $("#result").on("click", "li", function() {
+        $("#searchAddress").val($(this).text());
+        $("#result").html('');
+    })
+</script>
+@endpush
 
