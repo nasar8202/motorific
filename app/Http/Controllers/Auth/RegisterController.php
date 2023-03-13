@@ -186,6 +186,9 @@ class RegisterController extends Controller
                     'body1' => $user->post_code,
                     'body2' => $user->name,
                     'phone_number' => $user->phone_number,
+                    'registration_number' => $request->registeration??"No Registration",
+                    'mile_age' => $request->millage??"No Mileage",
+
                     'thanks' => 'Thank you for using Motorfic.com ',
                     'actionText' => 'Login',
                     'actionURL' => url('/dealer-login'),
@@ -199,6 +202,8 @@ class RegisterController extends Controller
                     'body1' => $user->post_code,
                     'body2' => $user->name,
                     'phone_number' => $user->phone_number,
+                    'registration_number' => $request->registeration??"No Registration",
+                    'mile_age' => $request->millage??"No Mileage",
                     'thanks' => 'Thank you for using Motorfic.com ',
                     'actionText' => 'Login',
                     'actionURL' => url('/dealer-login'),
@@ -206,6 +211,7 @@ class RegisterController extends Controller
                 ];
                 //   dd($details);
                 Mail::to("webuyurcars121@gmail.com")->send(new SellerRegistrationEmailToAdmin($data));
+                // Mail::to("nasar.ullah@oip.com.pk")->send(new SellerRegistrationEmailToAdmin($data));
                 dispatch(new SellerDetail($details));
                 // Notification::send($user->email, new MyFirstNotification($details));
                 // $user->notify(new SellerDetailsNotification($details));
@@ -299,7 +305,9 @@ class RegisterController extends Controller
             }
 
         } catch (\Exception $e) {
+
             DB::rollBack();
+            return $e;
             if(isset($e)){
                   return $e;
                 return back()->with('error', 'Something went wrong!');

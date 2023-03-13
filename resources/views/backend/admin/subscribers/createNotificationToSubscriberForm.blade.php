@@ -65,9 +65,11 @@
                                                                 multiple="multiple">
                                                                 <option  value="0" disabled>Select Users</option>
                                                                 
-                                                                @foreach($users as $user)
-                                                                    <option  value="{{$user->id}}">{{$user->name}}</option>
-                                                                @endforeach
+                                                                @forelse($users as $user)
+                                                                    <option  value="{{$user->id}}">{{$user->email}}</option>
+                                                                @empty
+                                                                <option  value="0" disabled>No Subscriber found!</option>
+                                                                @endforelse
                                                                
                                                             </select>
                                                         </div>
