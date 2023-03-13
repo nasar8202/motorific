@@ -184,7 +184,7 @@ input[type=number] {
                             <div class="col-lg-6 col-md-6">
                             <div>
                                 
-                             <input type="text" placeholder="Postcode"  name="post_code" id="search" class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}" required>
+                             <input type="text" placeholder="Postcode"  name="post_code"  class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}" required>
                         @error('post_code')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
