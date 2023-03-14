@@ -1,106 +1,407 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="x-apple-disable-message-reformatting">
-  <title></title>
-  <!--[if mso]>
-  <noscript>
-    <xml>
-      <o:OfficeDocumentSettings>
-        <o:PixelsPerInch>96</o:PixelsPerInch>
-      </o:OfficeDocumentSettings>
-    </xml>
-  </noscript>
-  <![endif]-->
-  <style>
-    table, td, div, h1, p {font-family: Arial, sans-serif;}
-  </style>
-</head>
-<body style="margin:0;padding:0;">
-  <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
-    <tr>
-      <td align="center" style="padding:0;">
-        <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
-          <tr>
-            <td align="center" style="padding:40px 0 30px 0;background:#70bbd9;">
-              <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" width="300" style="height:auto;display:block;" />
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:36px 30px 42px 30px;">
-              <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                <tr>
-                  <td style="padding:0 0 36px 0;color:#153643;">
-                    <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Your Registeration Is Complete</h1>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">User Name : {{ $details['greeting'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email : {{ $details['email'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Phone Number : {{ $details['phone_number'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Registration : {{ $details['registration_number'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Mile age : {{ $details['mile_age'] }}</p>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Complete</title>
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Post Code : {{ $details['body1'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Your Password Is: {{ $details['body'] }}</p>
-                    {{-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Front Image Of Vehicle
-                      <img width="200px" height="200px"  src="{{ asset('/vehicles/vehicles_images/'.$data['front'])}}"/>
-                    </p> --}}
-                    <a href="{{route('myLogin')}}">Login</a>
-                    <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="{{route('index')}}" style="color:#ee4c50;text-decoration:underline;">Motorofic</a></p>
-                  </td>
-                </tr>
-                {{-- <tr>
-                  <td style="padding:0;">
-                    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                      <tr>
-                        <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/left.gif" alt="" width="260" style="height:auto;display:block;" /></p>
-                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, est nisi libero ultricies ipsum, in posuere mauris neque at erat.</p>
-                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p>
-                        </td>
-                        <td style="width:20px;padding:0;font-size:0;line-height:0;">&nbsp;</td>
-                        <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
-                          <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/right.gif" alt="" width="260" style="height:auto;display:block;" /></p>
-                          <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Morbi porttitor, eget est accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed.</p>
-                          <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr> --}}
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:30px;background:#ee4c50;">
-              <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
-                <tr>
-                  <td style="padding:0;width:50%;" align="left">
-                    <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">
-                      &reg; Someone, Somewhere 2021<br/><a href="http://www.example.com" style="color:#ffffff;text-decoration:underline;">Unsubscribe</a>
-                    </p>
-                  </td>
-                  <td style="padding:0;width:50%;" align="right">
-                    <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;">
-                      <tr>
-                        <td style="padding:0 0 0 10px;width:38px;">
-                          <a href="http://www.twitter.com/" style="color:#ffffff;"><img src="https://assets.codepen.io/210284/tw_1.png" alt="Twitter" width="38" style="height:auto;display:block;border:0;" /></a>
-                        </td>
-                        <td style="padding:0 0 0 10px;width:38px;">
-                          <a href="http://www.facebook.com/" style="color:#ffffff;"><img src="https://assets.codepen.io/210284/fb_1.png" alt="Facebook" width="38" style="height:auto;display:block;border:0;" /></a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+    <!-- Custom Css -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;   
+        }
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        .container{
+            width: 100%;
+            max-width: 75vw;
+            margin: 0 auto;
+        }
+        /* Header  */
+        header.header {
+            padding: 15px 0;
+            text-align: center;
+            background: #7977a2;
+        }
+
+        header.header .logo a {
+            font-size: 30px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header.header .logo {
+            margin: 0;
+        }
+
+        /* End */
+
+        /* Main Content */
+        .cont-main {
+            max-width: 50vw;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 65px 0;
+        }
+
+        .congt-box h3 {
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        /* End */
+
+        /* Footer */
+        footer.footer {
+            padding: 15px 0;
+            background: #7977a2;
+        }
+
+        .footer-wraper {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-addr p {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .footer-addr ul {
+            list-style: none;
+        }
+
+        .footer-addr ul li a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-social {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-social li a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 14px;
+            border: 3px solid #ffffff;
+            transition: all .3s ease-in;
+            opacity: .4;
+        }
+
+        .footer-social li a:hover {
+            opacity: 1;
+            background: #fff;
+            color: #7977a2;
+        }
+        .price {
+            font-size: 30px;
+            padding: 4px 40px;
+            max-width: fit-content;
+            margin: 30px auto;
+            background: #05eab5;
+        }
+
+        .accept-msg {
+            font-weight: 600;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .prim-btn {
+            font-weight: 600;
+            padding: 8px 30px;
+            background: #7977a2;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            margin: 30px 0;
+        }
+
+        .prim-btn span {
+            margin-left: 8px;
+            transition: all .3s ease-in;
+        }
+        .prim-btn:hover span {
+            margin-left: 0;
+        }
+        .tos-box h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .tos-box {
+            max-width: 600px;
+            background: #05eab559;
+            margin: 0 auto;
+            padding: 40px 20px;
+            border-radius: 12px;
+        }
+        .icon {
+            font-size: 70px;
+            color: #05eab5;
+        }
+        .green-btn {
+            background: #05eab5;
+            color: #000;
+            font-weight: 700;
+        }
+        .forget-pass h3 {
+            margin-bottom: 8px;
+        }
+
+        .forget-pass .green-btn {
+            margin-top: 20px;
+        }
+        ul.site-links {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        ul.site-links li a {
+            text-decoration: none;
+            color: #000;
+        }
+        .unsub .prim-btn {
+            margin-bottom: 0;
+        }
+        .cont-main.unsub {
+            text-align: left;
+        }
+
+        ul.reg-detail {
+            list-style: none;
+        }
+
+        ul.reg-detail li span {
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        ul.reg-detail li {
+            margin-bottom: 4px;
+        }
+
+        .cont-main.unsub h4 {
+            margin-top: 15px;
+        }
+
+        /* End */
+
+        /* Responsive */
+        @media(max-width:991px){
+            .cont-main {
+                max-width: 70vw;
+            }
+            .congt-box h3 {
+                font-size: 20px;
+            }
+
+            .congt-msg {
+                font-size: 14px;
+            }
+
+            .price {
+                font-size: 26px;
+                margin: 24px auto;
+            }
+
+            .accept-msg {
+                font-size: 14px;
+            }
+
+            .prim-btn {
+                font-size: 14px;
+            }
+
+            .tos-box {
+                padding: 30px 20px;
+            }
+
+            .tos-box h2 {
+                font-size: 18px;
+            }
+
+            .tos-box p {
+                font-size: 14px;
+            }
+            .icon {
+                font-size: 55px;
+            }
+            ul.reg-detail li {
+                font-size: 14px;
+            }
+
+        }
+
+        @media(max-width:767px){
+            .congt-box h3 {
+                font-size: 18px;
+            }
+
+            .congt-msg {
+                font-size: 12px;
+            }
+
+            .price {
+                font-size: 20px;
+                margin: 20px auto;
+            }
+
+            .accept-msg {
+                font-size: 12px;
+            }
+
+            .prim-btn {
+                font-size: 13px;
+            }
+
+            .tos-box h2 {
+                font-size: 16px;
+            }
+
+            .tos-box p {
+                font-size: 12px;
+            }
+
+            .main-content {
+                padding: 40px 0;
+            }
+
+            .footer-addr p {
+                font-size: 12px;
+            }
+
+            .footer-addr ul li a {
+                font-size: 12px;
+            }
+
+            .container {
+                max-width: 90vw;
+            }
+
+            .footer-social {
+                gap: 15px;
+            }
+
+            .footer-social li a {
+                width: 35px;
+                height: 35px;
+                border-width: 2px;
+            }
+            .icon {
+                font-size: 45px;
+            }
+            ul.site-links li a {
+                font-size: 14px;
+            }
+
+
+        }
+
+        @media(max-width:575px){
+            .cont-main {
+                max-width: 85vw;
+            }
+            header.header .logo a {
+                font-size: 24px;
+            }
+
+            header.header {
+                padding: 12px 0;
+            }
+
+            .main-content {
+                padding: 30px 0 40px;
+            }
+            ul.site-links li a {
+                font-size: 13px;
+            }
+            .unsub .congt-box h3 {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            ul.reg-detail li {
+                font-size: 12px;
+            }
+
+
+        }
+
+        /* End */
+    </style>
+    <!-- End -->
+</head>
+<body>
+    <main>
+        <header class="header">
+            <div class="container">
+                <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="container">
+                <div class="cont-main  unsub">
+                    <div class="congt-box">
+                        <h3>Your Registration is Complete</h3>
+                        <ul class="reg-detail">
+                            <li><span>User Name:</span> {{ $details['greeting'] }}</li>
+                            <li><span>Email:</span> {{ $details['email'] }}</li>
+                            <li><span>Phone Number:</span>{{ $details['phone_number'] }}</li>
+                            <li><span>Post Code:</span>{{ $details['body1'] }}</li>
+                            <li><span>Your Password is:</span>{{ $details['body'] }}</li>
+                        </ul>
+                        <a href="{{route('myLogin')}}" class="prim-btn green-btn">Login</a>
+                        <h4>Motorific</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-wraper">
+                    <div class="footer-addr">
+                        <p>
+                            Motorific online limited <br>
+                            55 armoury Way london sw18 1jz
+                        </p>
+                        <ul>
+                            <li><a href="{{route('index')}}">www.motorific.co.uk</a></li>
+                            <li><a href="mailto:info@motorific.co.uk">info@motorific.co.uk</a></li>
+                        </ul>
+                    </div>
+                    <ul class="footer-social">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </main>    
 </body>
 </html>
-

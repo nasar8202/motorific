@@ -11,13 +11,16 @@ use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Http\Controllers\Controller;
 use App\Models\DealerWinningCharges;
+use App\Models\NewsletterSubscriber;
 use App\Notifications\RejectDealerNotification;
 use App\Notifications\ApprovedDealerNotification;
+
 
 class AdminDashboardController extends Controller
 {
     public function index()
     {
+     
         return view('backend.admin.dashboard');
     }
     public function viewDealers()
@@ -120,7 +123,12 @@ class AdminDashboardController extends Controller
     }
     public function admin()
     {
-        return view('backend.admin.dashboard');
+        $totalSellerCounts = User::where('role_id',2)->count();
+        $totalDealerCounts = User::where('role_id',3)->count();
+        $totalAgentCounts = User::where('role_id',4)->count();
+        $totalSubscribers = NewsletterSubscriber::where('status',1)->count();
+        //dd($totalAgentCounts,"total agents",$totalDealerCounts,"del cou",$totalSellerCounts,"sel to");
+        return view('backend.admin.dashboard',compact('totalSellerCounts','totalDealerCounts','totalAgentCounts','totalSubscribers'));
     }
 
     // start approved dealer by admin
