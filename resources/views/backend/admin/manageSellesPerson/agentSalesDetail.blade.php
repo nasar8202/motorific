@@ -11,6 +11,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
+                    <a href="{{ route('viewSellerPersons') }}"><span class="badge badge-success">Go Back</span></a>
                     <h3>Agent Sale</h3>
                     <p class="text-subtitle text-muted">View All Agent Sales List</p>
                 </div>
@@ -88,7 +89,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6">No Sale Found</td>
+                                    <td colspan="7" style="text-align: center">No Sale Found</td>
                                 </tr>
                             @endforelse
                         </tbody>

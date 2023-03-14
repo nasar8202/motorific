@@ -257,7 +257,7 @@
             </div>
             <div class="sec-2-btns text-center">
                 <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button >GET IN TOUCH</button>
+                <button ><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
                 
             </div>
         </div>
@@ -473,7 +473,7 @@
                         <div class="sec-7-box">
                             <h4>Newsletter</h4>
                             <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                            <input class="mb-3" type="text" name="subscriber_email" id="subscriber_email" >
+                            <input class="mb-3" type="text" name="subscriber_email" placeholder="email" id="subscriber_email" >
                             <button onclick="addSubscriber()">SUBSCRIBE</button>
                         </div>
                     </div>

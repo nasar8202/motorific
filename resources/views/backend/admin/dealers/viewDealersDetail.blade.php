@@ -49,6 +49,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
+                    <a href="{{ route('ViewDealers') }}"><span class="badge badge-success">Go Back to Dealer List</span></a>
                     <h3>View {{ $dealers->name }} Details</h3>
                     <p class="text-subtitle text-muted">View {{ $dealers->name }} Details</p>
                 </div>

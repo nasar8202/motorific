@@ -34,7 +34,7 @@
               <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                 <tr>
                   <td style="padding:0 0 36px 0;color:#153643;">
-                    <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Welcome Email New Dealer Requests</h1>
+                    <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">thank you for registrating as a dealer with motorific we are checking your information and revert back to you if we require any further information</h1>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Name : {{ $data['name'] }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email : {{ $data['email'] }}</p>
 

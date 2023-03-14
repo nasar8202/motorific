@@ -50,6 +50,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
+              <a href="{{ route('cardDetailsShowAdmin') }}"><span class="badge badge-success">Back to Card Details</span></a>
                 <h3>View {{$dealers->name}} Details</h3>
                 <p class="text-subtitle text-muted">View {{$dealers->name}} Details</p>
             </div>

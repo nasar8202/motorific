@@ -12,6 +12,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
+                <a href="{{ route('allBiddingVehicle') }}"><span class="badge badge-success">Go Back</span></a>
                 <h3>Orderd Vehicles Details</h3>
                 <p class="text-subtitle text-muted">Orderd  Vehicles Details </p>
             </div>
@@ -62,7 +63,7 @@
                         <tr>
                             <th>Vehicle Year</th>
                             <th>Vehicle Color</th>
-                            <th>Vehicle Tank</th>
+                            <th>Fuel type</th>
                             <th>Previous Owner</th>
                             <th>Vehicle Milage</th>
                                                    </tr>

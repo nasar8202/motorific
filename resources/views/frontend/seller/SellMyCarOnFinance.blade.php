@@ -204,7 +204,7 @@
                 <div class="howitwork-main col-lg-3 col-md-3">
                     
                     <h4>Get Your Highest Price:</h4>
-                    <p>We alert dealers every time a new listing comes up. They compete to give you the best price for your used car. We connect you with the dealer offering the highest price.</p>
+                    <p>We alert dealers every time a new listing comes up. They compete to give you the best price for your used car. We connect you with the dealer offering the highest </p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -414,7 +414,7 @@
                         <div class="sec-7-box">
                             <h4>Newsletter</h4>
                             <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                            <input class="mb-3" type="text" name="subscriber_email" id="subscriber_email" >
+                            <input class="mb-3" type="text" name="subscriber_email" placeholder="email" id="subscriber_email" >
                             <button onclick="addSubscriber()">SUBSCRIBE</button>
                         </div>
                     </div>

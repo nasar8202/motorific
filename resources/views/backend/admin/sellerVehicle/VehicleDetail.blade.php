@@ -64,7 +64,7 @@
                         <tr>
                             <th>Vehicle Year</th>
                             <th>Vehicle Color</th>
-                            <th>Vehicle Tank</th>
+                            <th>Fuel type</th>
                             <th>Previous Owner</th>
                             <th>Vehicle Milage</th>
                                                    </tr>

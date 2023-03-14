@@ -181,7 +181,7 @@
               {{-- <span>Fee: £175 </span> --}}
               {{-- <span> Distance: 174 miles </span> --}}
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-              <span>Car age:{{ $data['age'] }} </span>
+              <!-- <span>Car age:{{ $data['age'] }} </span> -->
               <span>Colour: {{ $data['colour'] }} </span>
             </div>
           </div>

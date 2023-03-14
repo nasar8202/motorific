@@ -16,6 +16,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
+                <a href="{{ route('viewUsers') }}"><span class="badge badge-success">Go Back</span></a>
                 <h3>Edit User Form</h3>
                 <p class="text-subtitle text-muted">Edit User Form</p>
             </div>

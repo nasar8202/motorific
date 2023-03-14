@@ -12,6 +12,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
+                <a href="{{ route('dealersOrderdVehicle') }}"><span class="badge badge-success">Go Back</span></a>
                 <h3>All Dealer To Dealer Vehicles Request</h3>
                 <p class="text-subtitle text-muted">View All Dealer To Dealer Vehicles Request</p>
             </div>
