@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
+use App\Models\User as ModelsUser;
 use App\Models\vehicleConditionAndDamage;
 use App\Models\VehicleHistory;
 
@@ -40,6 +41,7 @@ class ManageVehicleController extends Controller
 
     public function findVehicle(Request $request)
     {
+        $seller = User::where('role_id',2)->where('status',1)->get();
         $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
         $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
         $vehicleCategories = vehicleCategories::all();
@@ -51,7 +53,7 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
-
+        $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $registeration = trim($request->registeration, ' ');
 
 
@@ -80,13 +82,14 @@ class ManageVehicleController extends Controller
         $res = json_decode($response);
         if (isset($res->registrationNumber)) {
 
-            return view('backend.admin.manageVehicle.createVehicle', compact('res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+            return view('backend.admin.manageVehicle.createVehicle', compact('VehicleHistories','seller','res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         } else {
             return back()->with('error', 'Record not found');
         }
     }
     public function createVehicleForm()
     {
+        $seller = User::where('role_id',2)->where('status',1)->get();
         $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
         $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
         $vehicleCategories = vehicleCategories::all();
@@ -100,11 +103,10 @@ class ManageVehicleController extends Controller
         $Finances =  Finance::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         
-        return view('backend.admin.manageVehicle.createVehicle', compact('VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
+        return view('backend.admin.manageVehicle.createVehicle', compact('seller','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
     }
-    public function StoreVehicle(Request $request)
+    public function StoreVehicleByAdmin(Request $request)
     {
-
         $request->validate([
             'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
             'email' => 'required|string|email|max:50|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
@@ -163,6 +165,7 @@ class ManageVehicleController extends Controller
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
             if (count($result['results']) != 0) {
+                if($request->inlineRadio1 == 2){
                 $seller = new User;
                 $seller->name = $request->name;
                 $seller->email = $request->email;
@@ -174,6 +177,12 @@ class ManageVehicleController extends Controller
                 $seller->save();
 
                 $seller_id = $seller->id;
+            }
+            else{
+                $seller_id = $request->exisiting_user;
+                dd($seller_id);
+            }
+
                 $vehicle = new Vehicle;
                 $vehicle->user_id = $seller_id;
                 $vehicle->vehicle_registartion_number = $request->register_number;

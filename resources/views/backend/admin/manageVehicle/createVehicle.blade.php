@@ -42,7 +42,7 @@
         </div>
     </form>
         <br>
-    <form class="form" method="post" action="{{route('StoreVehicle')}}" enctype="multipart/form-data">
+    <form class="form" method="post" action="{{route('StoreVehicleByAdmin')}}" enctype="multipart/form-data">
         @csrf
     <section id="multiple-column-form">
         <div class="row align-items-center">
@@ -50,14 +50,53 @@
                 
                 </div> 
 
+                <div class="container m-4">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input existing" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" required />
+                                <label class="form-check-label" for="inlineRadio1">Existing User</label>
+                              </div>
+                              
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input new" type="radio" checked name="inlineRadioOptions"  id="inlineRadio1" value="2" required />
+                                <label class="form-check-label" for="inlineRadio1">New User</label>
+                              </div>
+                              
+                        </div>
+                    </div>
+                </div>
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Add Seller Information</h4>
+                    
+      
+                    <div class="card-body">
+                    <div class="col-md-6 mb-4 sellerinfo">
+                        <h6>Select Exisiting User</h6>
+
+                        <div class="form-group">
+                            <select class="form-select" name="exisiting_user" id="basicSelect">
+                                <option disabled selected>Select Exisiting User</option>
+                                @foreach($seller as $sellers)
+                                    <option value="{{$sellers->id}}">{{$sellers->name}}</option>
+                                   @endforeach
+                            </select>
+                        </div>
+                        @if ($errors->has('exisiting_user'))
+                        <span class="text-danger">{{ $errors->first('exisiting_user') }}</span>
+                    @endif
                     </div>
-                    <div class="card-content">
+                    </div>
+                      
+                    <div class="card-content  exisitingUser">
+                        <div class="card-header">
+                            <h4 class="card-title">Add Seller Information</h4>
+                        </div>
                         <div class="card-body">
                                 <div class="row">
+                                    
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">Seller Email</label>
@@ -1143,6 +1182,10 @@
 </form>
 </div>
 <script type="text/javascript">
+
+$('.sellerinfo').hide();
+// $('.exisitingUser').hide();
+
 function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -1170,5 +1213,16 @@ function readURL(input) {
     $(document).on('click', '.remove-input-field', function () {
         $(this).parents('tr').remove();
     });
+    $(document).ready(function(){
+        
+  $(".new").click(function(){
+    $('.exisitingUser').show();
+    $('.sellerinfo').hide();
+  });
+  $(".existing").click(function(){
+    $('.exisitingUser').hide();
+    $('.sellerinfo').show();
+  });
+});
 </script>
 @endsection
