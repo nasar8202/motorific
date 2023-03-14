@@ -139,4 +139,9 @@ class SellerDashboardController extends Controller
         return view('frontend.seller.thankyou');
 
     }
+    public function sellersSoldDealerDetails($id)
+    {
+        $dealers = User::find($id);
+        return view('frontend.seller.viewDealerDetail',compact('dealers'));
+    }
 }
