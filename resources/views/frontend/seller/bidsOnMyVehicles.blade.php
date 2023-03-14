@@ -77,7 +77,7 @@ display: block;
 
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">My Account</a>
+                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -171,11 +171,11 @@ display: block;
                                 <th scope="col">#</th>
                                 <th scope="col">Vehilce Name</th>
                                 <th scope="col">Vehicle Price</th>
-                                <th scope="col">Bided User</th>
-                                <th scope="col">User Number</th>
-                                <th scope="col">User Email</th>
-                                <th scope="col">Bided Price</th>
-                                <th scope="col">Bided Assign To</th>
+                                <th scope="col">Dealer Name</th>
+                                <th scope="col">Dealer Number</th>
+                                <th scope="col">Dealer Email</th>
+                                <th scope="col">Bid Price</th>
+                                <th scope="col">Bid Status</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -190,7 +190,7 @@ display: block;
                                 <td>{{ $order->user->email }}</td>
                                 <td>{{$order->bid_price}}</td>
                                 @if($order->status == 1)
-                                <td><span class="btn btn-warning">Solded User</span>
+                                <td><a href="{{route('sellersSoldDealerDetails',$order->user->id)}}" title="View Dealer Detail" class="btn btn-warning">Sold To This Dealer </a>
                                     <button type="button" class="btn btn-outline-primary block " data-bs-toggle="modal"
                                     data-bs-target="#default">
                                     View Meeting

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use App\Mail\WelcomeDealerRegistrationRequestMail;
 use App\Notifications\NewDealerRequestNotification;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class MultiStepRegistration extends Controller
 {
@@ -95,7 +96,7 @@ class MultiStepRegistration extends Controller
             'postcode' => 'required',
             'company_type' => 'required',
             'website' => 'max:256',
-            'company_phone' => 'required',
+            'company_phone' => 'required|min:11|max:11',
             // 'dealer_identity_card' => 'required',
             // 'dealer_documents' => 'required',
         ]);
@@ -103,7 +104,7 @@ class MultiStepRegistration extends Controller
         $zip =  str_replace(' ', '',$request->postcode);
         
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
-
+        DB::beginTransaction();
         try {
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
@@ -142,6 +143,7 @@ class MultiStepRegistration extends Controller
             $register = $request->session()->get('register');
             $request->session()->put('register', $register);
             // dd($request->session()->put('register', $register));
+            
             $user = new User();
             $user->email = $request->session()->get('email');
             $user->name = $request->session()->get('name');
@@ -169,7 +171,7 @@ class MultiStepRegistration extends Controller
             $user_detail->city = $request->session()->get('city');
             $user_detail->postcode = $request->session()->get('postcode');
             $user_detail->company_type = $request->session()->get('company_type');
-            $user_detail->website = $request->session()->get('website');
+            $user_detail->website = $request->session()->get('website')??'no website url';
             $user_detail->company_phone = $request->session()->get('company_phone');
             $user_detail->lowest_purchase_price = 111;
             $user_detail->highest_purchase_price = 111;
@@ -201,7 +203,7 @@ class MultiStepRegistration extends Controller
             // $user_detail->any_thing_else = $request->session()->get('any_thing_else');
     
             $user_detail->save();
-    
+            DB::commit();
             Session::flush();
     
             $details = [
@@ -224,11 +226,13 @@ class MultiStepRegistration extends Controller
             return redirect()->route('DealerLogin')->with("success", "Account Create Successfully! Waiting For Admin Approval");
                 //return redirect()->route('register.create.step.3');
             } else {
+                DB::rollBack();
                 return back()->with('error', 'Enter The Right Post Code');
             }
         } catch (\Exception $e) {
-            return $e;
-            // return back()->with('error', 'Enter The Right Post Code');
+            DB::rollBack();
+            // return $e;
+            return back()->with('error', 'Something Went Wrong');
         }
     }
 

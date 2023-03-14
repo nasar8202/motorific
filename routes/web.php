@@ -435,6 +435,7 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
 Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
 Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehicles'])->name('acceptedVehicles');
 Route::get('/bids-on-my-vehicles/{id}', [SellerDashboardController::class,'bidsOnVehicles'])->name('bidsOnVehicles');
+Route::get('/seller-sold-dealer-detail/{id}', [SellerDashboardController::class,'sellersSoldDealerDetails'])->name('sellersSoldDealerDetails');
 Route::get('/mark-as-sold-vehicles/{id}', [SellerDashboardController::class,'marksAsSoldVehicles'])->name('marksAsSoldVehicles');
 Route::get('/orders-on-my-vehicles/{id}', [SellerDashboardController::class,'ordersOnVehicles'])->name('ordersOnVehicles');
 Route::post('/meeting-status', [SellerDashboardController::class,'meetingStatus'])->name('meetingStatus');

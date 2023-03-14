@@ -48,7 +48,7 @@ class SellerVehicleController extends Controller
             'name' => $vehicles->user->name,
             'email' => $vehicles->user->email,
             'date' => $winDate.' at '.$winTime,
-            'bidded_price'=>$vehicles->vehicle_price,
+            'bidded_price'=>$vehicles->reserve_price,
             'vehicle_registration'=>$vehicles->vehicle_registartion_number,
             'vehicle_name'=>$vehicles->vehicle_name,
             'vehicle_mileage'=>$vehicles->vehicle_mileage,

@@ -6,7 +6,7 @@
     <main class="topPadingPage">
         <section>
             <div class="sliderImgVehicleDetail">
-
+                
                 @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
                     <div class="sliderImgVehicleDetailRepeater">
                         <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $exteriorimage->exterior_image ?? '') }}">
@@ -137,11 +137,12 @@
                                     <ul>
                                         <li>Keys<span><i class="fas fa-exclamation-triangle"></i>
                                                 {{ $vehicle->DealerVehicleHistory->keys }}</span></li>
+                                        <li>VAT <span>{{ $vehicle->DealerAdvertVehicleDetail->vat }}</span>
                                         <li>Previous Owners <span>{{ $vehicle->DealerVehicleHistory->previous_owners }}</span>
                                         </li>
-                                        <li>Service History
+                                        {{-- <li>Service History
                                             <span>{{ $vehicle->DealerVehicleHistory->service_history_title }}</span>
-                                        </li>
+                                        </li> --}}
                                         <li>Mileage<span>{{ $vehicle->vehicle_mileage }}</span></li>
                                         <li>V5 Status<span>{{ $vehicle->DealerVehicleHistory->v5_status }}</span></li>
                                         <li>Origin<span>{{ $vehicle->DealerVehicleHistory->origin }}</span></li>
@@ -304,10 +305,22 @@
                     <div class="col-12">
                         <div class="bottomList">
                             <div class="bottomListTitle">
-                                <h4><i class="fas fa-wrench"></i>Service History</h4>
+                                <h4><i class="fas fa-wrench"></i>&nbsp;&nbsp;Service History</h4>
                                 <ul>
                                     <li>Service Record
-                                        <span>First service not yet due</span>
+                                        <span>{{ $vehicle->DealerVehicleHistory->service_history_title }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="bottomList">
+                            <div class="bottomListTitle">
+                                <h4><i class="fas fa-pound-sign"></i>&nbsp;&nbsp;Estimated Cost</h4>
+                                <ul>
+                                    <li>Estimated Cost
+                                        <span>{{ $vehicle->DealerVehicleMedia->condition_damage ?? 'No Cost'}}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -350,7 +363,7 @@
                                 <ul>
                                     <li>Reserve Price: <span>£{{ $vehicle->vehicle_price }}</span></li>
                                     <ul class="valuation">
-                                        <li><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" id="dynamic-ar"></i></span></li>
+                                        <li><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" id="dynamic-ar" style="cursor: pointer;"></i></span></li>
                                         <li class="hidden">Retail:<span> £{{ $vehicle->retail_price }} </span></li>
                                         <li class="hidden">Clean:<span> £{{ $vehicle->clean_price }} </span></li>
                                         <li class="hidden">Average:<span> £{{ $vehicle->average_price }} </span></li>
@@ -465,12 +478,13 @@
 
                 } else {
                     $(".warning").html('');
-                    $(".warning").html('Your Bid Amount Is Not Matching The Vehicle Criteria');
+                    $(".warning").html('Minimum Bid Require On This Vehicle Is '+HiddenPrice+'');
                 }
             });
 
             $(".hidden").hide();
             $("#dynamic-ar").click(function() {
+                
                 $(".hidden").toggle();
             });
         });
