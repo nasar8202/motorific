@@ -14,41 +14,19 @@
     <section class="row prof-stats">
         <div class="col-12 col-lg-9">
             <div class="row">
+                
                 <div class="col-6 col-md-3 col-sm-4">
                     <div class="card">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="stats-icon purple">
-                                        <i class="iconly-boldShow"></i>
+                                    <div class="stats-icon blue">
+                                        <i class="iconly-boldProfile"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Profile Views</h6>
-                                    {{-- <ul class="nav navbar-nav">
-                                        <li class="dropdown dropdown-notifications">
-                                          <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i data-count="0" class="glyphicon glyphicon-bell notification-icon"></i>
-                                            
-                                          </a>
-                            
-                                          <div class="dropdown-container">
-                                            <div class="dropdown-toolbar">
-                                              <div class="dropdown-toolbar-actions">
-                                                <a href="#">Mark all as read</a>
-                                              </div>
-                                              <h3 class="dropdown-toolbar-title">Notifications (<span class="notif-count">0</span>)</h3>
-                                            </div>
-                                            <ul class="dropdown-menu">
-                                            </ul>
-                                            <div class="dropdown-footer text-center">
-                                              <a href="#">View All</a>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        <li><a href="#">Timeline</a></li>
-                                        <li><a href="#">Friends</a></li>
-                                      </ul> --}}
+                                    <h6 class="text-muted font-semibold">Total Sellers</h6>
+                                    <h6 class="font-extrabold mb-0">{{$totalSellerCounts}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -64,8 +42,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                    <h6 class="text-muted font-semibold">Total Dealers</h6>
+                                    <h6 class="font-extrabold mb-0">{{$totalDealerCounts}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -76,13 +54,13 @@
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="stats-icon green">
-                                        <i class="iconly-boldAdd-User"></i>
+                                    <div class="stats-icon blue">
+                                        <i class="iconly-boldProfile"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Following</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                    <h6 class="text-muted font-semibold">Total Agents</h6>
+                                    <h6 class="font-extrabold mb-0">{{$totalAgentCounts}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -93,18 +71,19 @@
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="stats-icon red">
-                                        <i class="iconly-boldBookmark"></i>
+                                    <div class="stats-icon blue">
+                                        <i class="iconly-boldProfile"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
+                                    <h6 class="text-muted font-semibold"> Subscribers</h6>
+                                    <h6 class="font-extrabold mb-0">{{$totalSubscribers}}</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+               
             </div>
         <!--    <div class="row">-->
         <!--        <div class="col-12">-->
@@ -296,6 +275,7 @@
         <!--</div>-->
     </section>
 </div>
+<div style="margin-top: 30%"></div>
 @endsection
 @push('child-scripts')
 
