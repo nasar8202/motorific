@@ -50,7 +50,7 @@
                 
                 </div> 
 
-                <div class="container m-4">
+                {{-- <div class="container m-4">
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-check form-check-inline">
@@ -67,7 +67,7 @@
                               
                         </div>
                     </div>
-                </div>
+                </div> --}}
             <div class="col-12">
                 <div class="card">
                     

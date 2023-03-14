@@ -165,7 +165,7 @@ class ManageVehicleController extends Controller
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
             if (count($result['results']) != 0) {
-                if($request->inlineRadio1 == 2){
+                
                 $seller = new User;
                 $seller->name = $request->name;
                 $seller->email = $request->email;
@@ -177,11 +177,7 @@ class ManageVehicleController extends Controller
                 $seller->save();
 
                 $seller_id = $seller->id;
-            }
-            else{
-                $seller_id = $request->exisiting_user;
-                dd($seller_id);
-            }
+            
 
                 $vehicle = new Vehicle;
                 $vehicle->user_id = $seller_id;
