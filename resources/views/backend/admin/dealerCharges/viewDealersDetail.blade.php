@@ -50,6 +50,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
+              <a href="{{ route('cardDetailsShowAdmin') }}"><span class="badge badge-success">Back to Card Details</span></a>
                 <h3>View {{$dealers->name}} Details</h3>
                 <p class="text-subtitle text-muted">View {{$dealers->name}} Details</p>
             </div>
@@ -122,7 +123,7 @@
                       <td width="2%">:</td>
                       <td>{{$dealers->userDetails->company_phone}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th width="30%">Lower Purchase Price</th>
                         <td width="2%">:</td>
                         <td>{{$dealers->userDetails->lowest_purchase_price}}</td>
@@ -156,12 +157,12 @@
                         <th width="30%">How Far Distance</th>
                         <td width="2%">:</td>
                         <td>{{$dealers->userDetails->how_far_distance}}</td>
-                      </tr>
-                      <tr>
+                      </tr> -->
+                      <!-- <tr>
                         <th width="30%">Purchase Rach Month Vehicles</th>
                         <td width="2%">:</td>
                         <td>{{$dealers->userDetails->purchase_each_month_vehicles}}</td>
-                      </tr>
+                      </tr> -->
                       <tr>
                         <th width="30%">Any Thing Else</th>
                         <td width="2%">:</td>

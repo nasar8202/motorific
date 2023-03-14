@@ -171,9 +171,9 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Vehicle Tank</label>
+                                            <label for="email-id-column">Fuel type</label>
                                             <input type="text" id="" class="form-control"
-                                                name="vehicle_tank" placeholder="Vehicle Tank" readonly value="{{$res->fuelType ?? old('vehicle_tank')}}">
+                                                name="vehicle_tank" placeholder="Fuel type" readonly value="{{$res->fuelType ?? old('vehicle_tank')}}">
                                         </div>
                                         @if ($errors->has('vehicle_tank'))
                                         <span class="text-danger">{{ $errors->first('vehicle_tank') }}</span>

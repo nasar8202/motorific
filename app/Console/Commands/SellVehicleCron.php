@@ -88,6 +88,7 @@ class SellVehicleCron extends Command
                                             'vehicle_registration'=>$vehicle->vehicle_registartion_number,
                                             'vehicle_name'=>$vehicle->vehicle_name,
                                             'vehicle_mileage'=>$vehicle->vehicle_mileage,
+                                            
                                             'front'=>$vehicleImage->front
                                         ]);
                                 $vehicle->status = 2;

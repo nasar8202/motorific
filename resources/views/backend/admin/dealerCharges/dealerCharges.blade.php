@@ -57,8 +57,8 @@
                             <td>
                                 {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success my-2">Paid Completed ✓</span></a>
                             <br> --}}
-                                <a href="{{ route('viewDealerDetailsFromCharges',$details->user_id) }}"><span class="badge badge-success my-1">View Dealer Deatils</span></a>
-                                <a href="{{ route('dealerCardDetails',$details->user_id) }}"><span class="badge badge-success">View Dealer's Card Deatils</span></a>
+                                <a href="{{ route('viewDealerDetailsFromCharges',$details->user_id) }}"><span class="badge badge-success my-1">View Dealer Details</span></a>
+                                <a href="{{ route('dealerCardDetails',$details->user_id) }}"><span class="badge badge-success">View Dealer's Card Details</span></a>
                             
                             </td>
                         </tr>
@@ -76,8 +76,8 @@
                             <td>
                                 {{-- <a title="mark as paid this dealer it means this dealer paid the charges" href="{{ route('cardDetailsAccept',$details->id) }}"><span class="badge bg-success my-2">Paid Completed ✓</span></a>
                             <br> --}}
-                                <a href="{{ route('viewDealerDetailsFromCharges',$dealervehicleCard->user_id) }}"><span class="badge badge-success my-1">View Dealer Deatils</span></a>
-                                <a href="{{ route('dealerCardDetails',$dealervehicleCard->user_id) }}"><span class="badge badge-success">View Dealer's Card Deatils</span></a>
+                                <a href="{{ route('viewDealerDetailsFromCharges',$dealervehicleCard->user_id) }}"><span class="badge badge-success my-1">View Dealer Details</span></a>
+                                <a href="{{ route('dealerCardDetails',$dealervehicleCard->user_id) }}"><span class="badge badge-success">View Dealer's Card Details</span></a>
                             
                             </td>
                         </tr>

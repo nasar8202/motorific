@@ -244,8 +244,8 @@ display: block;
                         @endif
                         </div>
                         <div class="col-2Tn">
-                            <h4>Vehicle Tank</h4>
-                            <input type="text" placeholder="Vehicle Tank" class="VehicleTank" name="VehicleTank" value="{{$res->fuelType}}">
+                            <h4>Fuel type</h4>
+                            <input type="text" placeholder="Fuel type" class="VehicleTank" name="VehicleTank" value="{{$res->fuelType}}">
                             @if ($errors->has('VehicleTank'))
                             <span class="text-danger">{{ $errors->first('VehicleTank') }}</span>
                         @endif

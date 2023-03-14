@@ -12,6 +12,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
+                <a href="{{ route('viewSellerPersons') }}"><span class="badge badge-success">Go Back</span></a>
                 <h3>Agent Seller's Vehicle</h3>
                 <p class="text-subtitle text-muted">View Agent Seller's Vehicle List</p>
             </div>
@@ -41,7 +42,7 @@
                             <th>Vehicle Name</th>
                             <th>Vehicle Year</th>
                             <th>Vehicle Type</th>
-                            <th>Vehicle Tank</th>
+                            <th>Fuel type</th>
                             <th>Vehicle Price</th>
                             <th>Status</th>
                             <th>Vehicle Sale Time</th>

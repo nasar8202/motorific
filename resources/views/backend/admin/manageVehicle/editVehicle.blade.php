@@ -27,6 +27,7 @@ p {
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
+                <a href="{{ route('viewVehicle') }}"><span class="badge badge-success">Go Back</span></a>
                 <h3>View And Update Vehicle Details</h3>
                 <p class="text-subtitle text-muted">View And Update Vehicle Details</p>
             </div>
@@ -172,9 +173,9 @@ p {
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Vehicle Tank</label>
+                                            <label for="email-id-column">Fuel type</label>
                                             <input type="text" id="" class="form-control"
-                                                name="vehicle_tank" value="{{$vehicles->vehicle_tank ?? old('vehicle_tank')}}" placeholder="Vehicle Tank">
+                                                name="vehicle_tank" value="{{$vehicles->vehicle_tank ?? old('vehicle_tank')}}" placeholder="Fuel type">
                                         </div>
                                         @if ($errors->has('vehicle_tank'))
                                         <span class="text-danger">{{ $errors->first('vehicle_tank') }}</span>

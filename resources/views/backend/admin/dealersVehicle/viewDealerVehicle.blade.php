@@ -40,7 +40,7 @@
                             <th>Vehicle Name</th>
                             <th>Vehicle Year</th>
                             <th>Vehicle Type</th>
-                            <th>Vehicle Tank</th>
+                            <th>Fuel type</th>
                             <th>Vehicle Price</th>
                             <th>Status</th>
                             <th>Image</th>

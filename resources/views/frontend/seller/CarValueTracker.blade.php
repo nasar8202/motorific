@@ -157,7 +157,8 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-1-txt col-lg-6">
-                    <h2 class="fs-small">Car Value Tracker - Know Your Vehicle’s True Worth</h2>
+                    <h2 class="fs-small"><h2>Sell your car 
+                        with  <span>Motorific</span></h2></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p>Motorific’s car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>
@@ -310,7 +311,7 @@
             </div>
             <div class="sec-2-btns text-center">
                 <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button >GET IN TOUCH</button>
+                <button ><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
                 
             </div>
         </div>
@@ -523,7 +524,7 @@
                         <div class="sec-7-box">
                             <h4>Newsletter</h4>
                             <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                            <input class="mb-3" type="text" name="subscriber_email" id="subscriber_email" >
+                            <input class="mb-3" type="text" name="subscriber_email" placeholder="email" id="subscriber_email" >
                             <button onclick="addSubscriber()">SUBSCRIBE</button>
                         </div>
                     </div>
