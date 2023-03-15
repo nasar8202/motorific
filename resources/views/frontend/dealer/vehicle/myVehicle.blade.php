@@ -56,7 +56,6 @@
                                         @endif
 
                                         <span style="padding-left: 60px;">{{ $vehicle->created_at->format('m/d/Y') }}</span>
-                                        <a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Biddes On Vehicle</a>
                                         {{-- <a href="{{route('markAsSoldDealerVehicle',$vehicle->id)}}">Marks As Sold ?</a> --}}
 
                                         <span style="padding-left: 200px;">
@@ -66,6 +65,9 @@
 
 
                                         </span>
+                                        <div class="btn-bids">
+                                            <a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Biddes On Vehicle</a>
+                                        </div>
                                         {{-- <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$vehicle->id}}">...</button>
 
                                     <!-- Collapsible Element HTML -->

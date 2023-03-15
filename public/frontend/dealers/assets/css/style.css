@@ -2028,3 +2028,64 @@ div.reserveDetail ul li {
 /* End */
 
 /* End */
+
+
+button.btn-Prev,button.btn-Next {
+    margin-bottom: 30px;
+    background: #7977a2;
+    color: #fff !important; 
+    padding: 5px 16px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 13px;
+    transition:all .4s ease-in;
+}
+button.btn-Prev:hover, button.btn-Next:hover {
+    background: #05eab5;
+}
+button.btn-Next{
+    display:flex;
+    flex-direction:row-reverse;
+}
+
+button.btn-Prev a, button.btn-Next a {
+    color: #fff !important;
+    text-decoration: none;
+}
+button.btn-Next svg {
+    transform: scaleX(-1);
+    margin-left: 4px;
+}
+.btns-wraps .btn-publish {
+    font-size: 14px;
+    color: #fff;
+    padding: 4px 22px;
+    border-radius: 4px;
+    margin-top: 0;
+}
+
+.btns-wraps .btn-Prev {
+    margin: 0 !important;
+}
+
+.btns-wraps {
+    align-items: center !important;
+}
+.btn-bids {
+    text-align: right;
+    padding: 20px 10px 20px; 
+}
+
+.btn-bids a {
+    padding: 8px 20px;
+    text-decoration: none;
+    background: #05eab5;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #fff;
+}
+
+
+
+
+

@@ -89,8 +89,6 @@ display: block;
                         <li>
                             <a href="#">Help</a>
                         </li>
-
-                    </div>
                     @guest
                     <li><a href="{{ route('myLogin') }}">Sign In</a></li>
                     
@@ -101,6 +99,8 @@ display: block;
 
                             </li>
                         @endguest
+
+                    </div>
                         
                     </ul>
                 </div>
