@@ -19,20 +19,20 @@
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 
-                <p class="text-subtitle text-muted">Add Vehicle</p>
+                <p class="text-subtitle text-muted">Add Vehicle For Old User</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         {{-- <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li> --}}
-                        <li class="breadcrumb-item active" aria-current="page">Add Vehicle</li>
+                        <li class="breadcrumb-item active" aria-current="page">Add Vehicle For Old User</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
     <div class="form-group col-md-4">
-        <form class="form" method="GET" action="{{route('findVehicleinAgent')}}" >
+        <form class="form" method="get" action="{{route('findVehicleinForSingleUser',$user->id)}}" >
             @csrf
         <input type="text" id="email-id-column" class="form-control"
             name="registeration" placeholder="Vehicle Registeration Number">
@@ -42,7 +42,7 @@
         </div>
     </form>
         <br>
-    <form class="form" method="post" action="{{route('StoreVehicleByAgent')}}" enctype="multipart/form-data">
+    <form class="form" method="post" action="{{route('StoreVehicleForOldUserByAgent',$user->id)}}" enctype="multipart/form-data">
         @csrf
     <section id="multiple-column-form">
         <div class="row align-items-center">
@@ -52,65 +52,11 @@
 
             <div class="col-12">
                 <div class="card">
+                    
+      
                     <div class="card-header">
-                        <h4 class="card-title">Add Seller Information</h4>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="first-name-column">Seller Email</label>
-                                            <input type="email" id="first-name-column" class="form-control"
-                                                placeholder="Seller email" name="email" required value="{{old('email')}}">
-                                        </div>
-                                        @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                    @endif
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="last-name-column">Password</label>
-                                            <input type="password" id="last-name-column" class="form-control"
-                                                placeholder="password" name="password" required value="{{old('password')}}">
-                                        </div>
-                                        @if ($errors->has('password'))
-                                        <span class="text-danger">{{ $errors->first('password') }}</span>
-                                    @endif
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="city-column">Seller Name</label>
-                                            <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter seller name" required name="name" value="{{old('name')}}">
-                                        </div>
-                                        @if ($errors->has('name'))
-                                        <span class="text-danger">{{ $errors->first('name') }}</span>
-                                    @endif
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="country-floating">Phone Number</label>
-                                            <input type="number" id="country-floating" class="form-control"
-                                                name="phone_number" placeholder="Phone number" required value="{{old('phone_number')}}">
-                                        </div>
-                                        @if ($errors->has('phone_number'))
-                                        <span class="text-danger">{{ $errors->first('phone_number') }}</span>
-                                    @endif
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="city-column">Post Code </label>
-                                            <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter Post Code" required name="post_code" value="{{old('post_code')}}">
-                                        </div>
-                                        @if ($errors->has('post_code'))
-                                        <span class="text-danger">{{ $errors->first('post_code') }}</span>
-                                    @endif
-                                    </div>
-                                    
-                                </div>
-                        </div>
+                      
+                    <h4 class="card-title">Your Are Adding This Vehicle For "{{$user->name}}" Seller</h4>
                     </div>
                     <div class="card-header">
                         <h4 class="card-title">Add Vehcile Information</h4>
@@ -163,7 +109,7 @@
                                         <div class="form-group">
                                             <label for="company-column">Vehicle Type</label>
                                             <input type="text" id="company-column" class="form-control"
-                                                name="vehicle_type" placeholder="Vehicle Type" required value="">
+                                                name="vehicle_type" placeholder="Vehicle Type" value="">
                                         </div>
                                         @if ($errors->has('vehicle_type'))
                                         <span class="text-danger">{{ $errors->first('vehicle_type') }}</span>
@@ -183,7 +129,7 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Mileage</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_mileage" placeholder="Vehicle Mileage" required value="">
+                                                name="vehicle_mileage" placeholder="Vehicle Mileage" value="">
                                         </div>
                                         @if ($errors->has('vehicle_mileage'))
                                         <span class="text-danger">{{ $errors->first('vehicle_mileage') }}</span>
@@ -194,7 +140,7 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Price</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_price" placeholder="Vehicle Price" required value="">
+                                                name="vehicle_price" placeholder="Vehicle Price" value="">
                                         </div>
                                         @if ($errors->has('vehicle_price'))
                                         <span class="text-danger">{{ $errors->first('vehicle_price') }}</span>
@@ -589,7 +535,7 @@
                                         <h6>Select Vehicle Category</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="vehicle_category" required id="basicSelect">
+                                            <select class="form-select" name="vehicle_category" id="basicSelect">
                                                 <option disabled selected>Select Vehicle Category</option>
                                                 @foreach($vehicleCategories as $vehicleCategorie)
                                                     <option value="{{$vehicleCategorie->id}}">{{$vehicleCategorie->title}}</option>
@@ -605,7 +551,7 @@
                                         <h6>Select Seat Material</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="seat_material" required id="basicSelect">
+                                            <select class="form-select" name="seat_material" id="basicSelect">
                                                 <option disabled selected>Select Seat Material</option>
                                                 @foreach($SeatMaterials as $SeatMaterial)
                                                     <option value="{{$SeatMaterial->id}}">{{$SeatMaterial->title}}</option>
@@ -620,7 +566,7 @@
                                         <h6>Number of keys</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="number_of_keys" required id="basicSelect">
+                                            <select class="form-select" name="number_of_keys" id="basicSelect">
                                                 <option disabled selected>Select Number of keys</option>
                                                 @foreach($NumberOfKeys as $NumberOfKey)
                                                 <option value="{{$NumberOfKey->id}}">{{$NumberOfKey->number_of_key}}</option>
@@ -635,7 +581,7 @@
                                         <h6>Tool pack</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="tool_pack" required id="basicSelect">
+                                            <select class="form-select" name="tool_pack" id="basicSelect">
                                                 <option disabled selected>Select Tool pack</option>
                                                 @foreach($ToolPacks as $ToolPack)
                                                 <option value="{{$ToolPack->id}}">{{$ToolPack->title}}</option>
@@ -650,7 +596,7 @@
                                         <h6>Locking wheel nut</h6>
 
                                         <div class="form-group">
-                                            <select class="form-select" name="wheel_nut" required id="basicSelect">
+                                            <select class="form-select" name="wheel_nut" id="basicSelect">
                                                 <option disabled selected>Select Locking wheel nut</option>
                                                 @foreach($LockingWheelNuts as $LockingWheelNut)
                                                 <option value="{{$LockingWheelNut->id}}">{{$LockingWheelNut->title}}</option>
@@ -746,7 +692,7 @@
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
                                     @endif
                                     </div>
-                                    
+
                                     <div class="col-md-6 mb-4">
                                         <h6>Vehicle History</h6>
 
@@ -1051,12 +997,12 @@
                      <div class="row align-items-center">
     
                         <div class="col-md-6">
-                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" class="rounded mx-auto d-block" style="width:220px;">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-front.png')}}" id="preview-image1" width="250px" height="250px" class="rounded mx-auto d-block" style="width:220px;">
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image1" id="formFile" accept="image/png, image/jpeg, image/jpg">
+                                <input class="form-control" type="file" name="image1" id="image1" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image1'))
                             <span class="text-danger">{{ $errors->first('image1') }}</span>
@@ -1067,12 +1013,12 @@
                      <div class="row  align-items-center">
     
                         <div class="col-md-6">
-                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " class="rounded mx-auto d-block">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back.png')}} " id="preview-image2" width="250px" height="250px" class="rounded mx-auto d-block">
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image2" id="formFile" accept="image/png, image/jpeg, image/jpg">
+                                <input class="form-control" type="file" name="image2" id="image2" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image2'))
                             <span class="text-danger">{{ $errors->first('image2') }}</span>
@@ -1083,12 +1029,12 @@
                      <div class="row align-items-center">
     
                         <div class="col-md-6">
-                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " class="rounded mx-auto d-block">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-back-corner.png')}} " id="preview-image3" width="250px" height="250px" class="rounded mx-auto d-block">
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image3"   id="formFile" accept="image/png, image/jpeg, image/jpg">
+                                <input class="form-control" type="file" name="image3"   id="image3" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image3'))
                             <span class="text-danger">{{ $errors->first('image3') }}</span>
@@ -1098,12 +1044,12 @@
                      <div class="row align-items-center">
     
                         <div class="col-md-6">
-                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-interior.png')}}" class="rounded mx-auto d-block">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-interior.png')}}" id="preview-image4" width="250px" height="250px" class="rounded mx-auto d-block">
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" name="image4"  id="formFile" accept="image/png, image/jpeg, image/jpg">
+                                <input class="form-control" type="file" name="image4"  id="image4" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             @if ($errors->has('image4'))
                             <span class="text-danger">{{ $errors->first('image4') }}</span>
@@ -1114,12 +1060,12 @@
                      <div class="row align-items-center">
     
                         <div class="col-md-6">
-                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " class="rounded mx-auto d-block mb-3">
+                            <img src="{{URL::asset('/frontend/seller/assets/image/add-p-dashboard.png')}} " id="preview-image5" width="250px" height="250px" class="rounded mx-auto d-block mb-3">
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 px-3">
                                 <label for="formFile" class="form-label">Add Picture In This Type</label>
-                                <input class="form-control" type="file" id="formFile"  name="image5" accept="image/png, image/jpeg, image/jpg"0>
+                                <input class="form-control" type="file" id="image5"  name="image5" accept="image/png, image/jpeg, image/jpg"0>
                             </div>
                             @if ($errors->has('image5'))
                             <span class="text-danger">{{ $errors->first('image5') }}</span>
@@ -1143,6 +1089,27 @@
 </form>
 </div>
 <script type="text/javascript">
+
+$('.sellerinfo').hide();
+// $('.exisitingUser').hide();
+
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                imgId = '#preview-'+$(input).attr('id');
+                $(imgId).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+
+      $("input[type='file']").change(function(){
+        readURL(this);
+      });
     var i = 0;
     $("#dynamic-ar").click(function () {
         ++i;
@@ -1153,5 +1120,16 @@
     $(document).on('click', '.remove-input-field', function () {
         $(this).parents('tr').remove();
     });
+    $(document).ready(function(){
+        
+  $(".new").click(function(){
+    $('.exisitingUser').show();
+    $('.sellerinfo').hide();
+  });
+  $(".existing").click(function(){
+    $('.exisitingUser').hide();
+    $('.sellerinfo').show();
+  });
+});
 </script>
 @endsection
