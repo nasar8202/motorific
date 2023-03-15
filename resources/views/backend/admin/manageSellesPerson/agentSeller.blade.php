@@ -14,7 +14,7 @@
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <a href="{{ route('viewSellerPersons') }}"><span class="badge badge-success">Go Back</span></a>
                 <h3>Selles Person</h3>
-                <p class="text-subtitle text-muted">View All Selles Person List</p>
+                <p class="text-subtitle text-muted">View All Selles Agent List</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -29,7 +29,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Selles Person List
+                Selles Agent List
                 <a href="{{ route('createSellesPersonForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Create Selles Person</span></a>
             </div>
 

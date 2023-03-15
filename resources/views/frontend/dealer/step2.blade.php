@@ -67,11 +67,11 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Website *</label>
+                                        <label>Website </label>
                                         <input type="text" name="website" value="{{ session()->get('website') ?? old('website') }}" placeholder="e.g. www.motorofic.co.uk" >
                                     </div>
                                     <div class="form-group">
-                                        <label>Company phone *</label>
+                                        <label>Company phone (11 digits)*</label>
                                         <input type="number" name="company_phone"  placeholder="Enter Phone Number" value="{{ session()->get('company_phone') ?? old('company_phone') }}" required>
                                     </div>
                                     <div class="form-group">

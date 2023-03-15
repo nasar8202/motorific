@@ -106,14 +106,11 @@
             <span class="icon"><i class="fas fa-check-circle"></i></span>
             <h2>Thank You For Choosing Us</h2>
             <h6>You have Subscribe Successfully</h6>
-            <p>Our pricing specialists are now working on getting the best price tailored to your vehicle.
-                If you have any additional information regarding your vehicle e.g. optional extras which could help our team to create your unique offer,
-                please call us on <a href="tel:07888185014"><i class="fa-solid fa-phone"></i> 07888185014.</a>
+            
                 <br>
-                <a href="{{route('index')}}">Go Back to Site</a>
+                {{-- <a href="{{route('index')}}">Go Back to Site</a> --}}
                 You wil receive your tailored offer shortly via text or email.
-                <br>
-                We're taking our responsibilities to respond to Coronavirus (COVID 19) seriously and continue to follow the advice from Government and the NHS daily.
+                
             </p>
         </div>
     </div>

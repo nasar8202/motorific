@@ -80,7 +80,7 @@
                         <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                     </ul>
                 </div>
-                <h4 class="copyright-txt">© Motorific Online Ltd. 2017-<?php echo date("Y"); ?></h4>
+                <h4 class="copyright-txt">© Motorific Online Ltd. <?php echo date("Y"); ?></h4>
             </div>
         </div>
     </div>
