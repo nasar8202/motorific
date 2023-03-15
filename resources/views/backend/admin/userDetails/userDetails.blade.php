@@ -53,6 +53,7 @@
                             <td>{{ $viewUser->phone_number }}</td>
                             <td>{{ $viewUser->post_code }}</td>
                             <td>
+                                <a href="{{ route('addVehicleForOldUser',$viewUser->id) }}"><span class="badge badge-success">Add Vehicle For This User</span></a>
                                 <a href="{{ route('editUserForm',$viewUser->id) }}"><span class="badge badge-success">Edit</span></a>
                                 @if ($viewUser->status == 1)
                                 <a href="{{ route('deleteUser',$viewUser->id) }}"><span class="badge badge-danger">Disable</span></a>

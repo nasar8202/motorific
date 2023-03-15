@@ -213,7 +213,7 @@
     <li class="sidebar-item  has-sub {{ request()->IS('admin/view-seller-persons') ||request()->IS('admin/register-sell-person') ? 'active' : '' }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
-            <span>Selles Person</span>
+            <span>Sales Agent</span>
         </a>
         <ul class="submenu" style="display:{{  request()->IS('admin/register-sell-person') ? 'active' : '' }}">
             <li class="submenu-item {{ request()->IS('admin/register-sell-person') ? 'active' : '' }}">
