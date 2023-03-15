@@ -554,7 +554,7 @@ class AgentsDashboardController extends Controller
         }
         DB::commit();
 
-        return redirect()->route('viewVehicle')->with('success', 'Vehicle Added For Old User Successfully!');
+        return redirect()->route('viewAgentSeller')->with('success', 'Vehicle Added For Old User Successfully!');
     }
    
 }
