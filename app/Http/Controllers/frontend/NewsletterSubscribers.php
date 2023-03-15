@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsletterSubscribers extends Controller
 {
+    public function careers(){
+        return view("frontend.seller.careers");
+    }
     public function addSubscriberEmail(Request $request)
     {
         if($request->ajax()){
