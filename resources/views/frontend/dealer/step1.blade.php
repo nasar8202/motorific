@@ -69,7 +69,7 @@
                                         </select>
                                     </div> --}}
                                     <div class="form-group">
-                                        <label>Mobile number *</label>
+                                        <label>Mobile number (11 digits) *</label>
                                         <input type="number" name="phone_number" value="{{ session()->get('phone_number') ?? old('phone_number') }}" >
                                     </div>
 

@@ -123,18 +123,18 @@ p {
                         @php
                         $in_array_questions = explode(',',($vehicle->DealerVehicleHistory->checkbox_questions));
                         @endphp
-                        <li>More Details<span>@if(in_array('1',$in_array_questions)) Battery Charge Warning , @endif
-                                              @if(in_array('2',$in_array_questions)) Cruise Control with Programmable Speed Limiter ,@endif
-                                              @if(in_array('3',$in_array_questions)) Distance to Next Service Indicator ,@endif
-                                              @if(in_array('4',$in_array_questions))  Door Open Warning ,@endif
-                                              @if(in_array('5',$in_array_questions)) Oil Level Indicator ,@endif
-                                              @if(in_array('6',$in_array_questions)) Park Assist - 180 Degree ,@endif
-                                              @if(in_array('7',$in_array_questions)) Rear Parking Sensors ,@endif
-                                              @if(in_array('8',$in_array_questions)) Rev Counter ,@endif
-                                              @if(in_array('9',$in_array_questions)) Speedometer with Digital Odometer and Digital Trip Recorder ,@endif
-                                              @if(in_array('10',$in_array_questions)) Trip Computer ,@endif
+                        <li>More Details<span>@if(in_array('1',$in_array_questions)) Leather seats , @endif
+                                              @if(in_array('2',$in_array_questions)) Panoramic sunroof ,@endif
+                                              @if(in_array('3',$in_array_questions))  Cruise control ,@endif
+                                              @if(in_array('4',$in_array_questions))  Parking cameras ,@endif
+                                              @if(in_array('5',$in_array_questions))  Bluetooth ,@endif
+                                              @if(in_array('6',$in_array_questions)) Heated seats,@endif
+                                              @if(in_array('7',$in_array_questions))  Digital DAB radio ,@endif
+                                              @if(in_array('8',$in_array_questions)) Satellite navigation ,@endif
+                                              @if(in_array('9',$in_array_questions)) Parking sensors ,@endif
+                                              {{-- @if(in_array('10',$in_array_questions)) Trip Computer ,@endif
                                               @if(in_array('11',$in_array_questions)) Tyre Pressure Monitor ,@endif
-                                              @if(in_array('12',$in_array_questions)) Water Temperature and Fuel Gauges ,@endif
+                                              @if(in_array('12',$in_array_questions)) Water Temperature and Fuel Gauges ,@endif --}}
 
                         </span></li>
                         {{-- <li>Illumination<span>{{$vehicle->DealerVehicleHistory->illumination}}</span></li>

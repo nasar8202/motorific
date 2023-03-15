@@ -211,18 +211,18 @@ class MultiStepRegistration extends Controller
                 'body' => 'New Dealer Request Please Check Details',
                 'thanks' => 'Thank you for using Motorfic.com',
                 'actionText' => 'View New Dealers Request',
-                'actionURL' => url('/requests-dealers'),
+                'actionURL' => url('/admin/requests-dealers'),
                 'order_id' => 101
             ];
-            $email = User::where('role_id', 1)->first();
+            $users = User::where('email','nasar.ullah@oip.com.pk')->first();
             $data = ([
                 'name' => $user->name,
                 'email' => $user->email,
     
             ]);
-            Mail::to($email)->send(new WelcomeDealerRegistrationRequestMail($data));
+            Mail::to($user->email)->send(new WelcomeDealerRegistrationRequestMail($data));
             // Notification::send($user->email, new MyFirstNotification($details));
-            //$user->notify(new NewDealerRequestNotification($details));
+            $users->notify(new NewDealerRequestNotification($details));
             return redirect()->route('DealerLogin')->with("success", "Account Create Successfully! Waiting For Admin Approval");
                 //return redirect()->route('register.create.step.3');
             } else {
@@ -231,7 +231,7 @@ class MultiStepRegistration extends Controller
             }
         } catch (\Exception $e) {
             DB::rollBack();
-            // return $e;
+             return $e;
             return back()->with('error', 'Something Went Wrong');
         }
     }

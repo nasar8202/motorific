@@ -329,6 +329,7 @@
                 <ul class="step4-checklist">
                     @php
                     $in_array_questions = explode(',',(session()->get('checkbox_questions')));
+                    // dd($in_array_questions);
                 @endphp
                     <li class="custom-checkbox d-flex">
                         <input class="hide-inp" type="checkbox" name="checkbox_questions[]" @if(in_array('1',$in_array_questions)) checked @endif value="1" id="checklist_1_step4">
@@ -337,7 +338,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Battery Charge Warning
+                                Leather seats
                             </span> 
                         </label>
                     </li>
@@ -348,7 +349,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Cruise Control with Programmable Speed Limiter
+                                Panoramic sunroof
                             </span> 
                         </label>
                     </li>
@@ -359,7 +360,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Distance to Next Service Indicator
+                                Cruise control
                             </span> 
                         </label>
                     </li>
@@ -370,7 +371,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Door Open Warning
+                                Parking cameras
                             </span> 
                         </label>
                     </li>
@@ -381,7 +382,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Oil Level Indicator
+                                Bluetooth
                             </span> 
                         </label>
                     </li>
@@ -392,7 +393,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Park Assist - 180 Degree
+                                Heated seats
                             </span> 
                         </label>
                     </li>
@@ -403,7 +404,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Rear Parking Sensors
+                                Digital DAB radio
                             </span> 
                         </label>
                     </li>
@@ -414,7 +415,7 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Rev Counter
+                                Satellite navigation
                             </span> 
                         </label>
                     </li>
@@ -425,13 +426,13 @@
                                 <i class="fa-solid fa-check"></i>
                             </span>
                             <span class="f-18">
-                                Speedometer with Digital Odometer and Digital Trip Recorder
+                                Parking sensors
                             </span> 
                         </label>
                     </li>
 
 
-                    <li class="custom-checkbox d-flex">
+                    {{-- <li class="custom-checkbox d-flex">
                         <input class="hide-inp" type="checkbox" name="checkbox_questions[]" @if(in_array('10',$in_array_questions)) checked @endif value="10" id="checklist_10_step4">
                         <label class="dflex-gap10" for="checklist_10_step4"> 
                             <span class="checkbox-square f-20">
@@ -441,8 +442,8 @@
                                 Trip Computer
                             </span> 
                         </label>
-                    </li>
-                    <li class="custom-checkbox d-flex">
+                    </li> --}}
+                    {{-- <li class="custom-checkbox d-flex">
                         <input class="hide-inp" type="checkbox" name="checkbox_questions[]" @if(in_array('11',$in_array_questions)) checked @endif value="11" id="checklist_11_step4">
                         <label class="dflex-gap10" for="checklist_11_step4"> 
                             <span class="checkbox-square f-20">
@@ -452,8 +453,8 @@
                                 Tyre Pressure Monitor
                             </span> 
                         </label>
-                    </li>
-                    <li class="custom-checkbox d-flex">
+                    </li> --}}
+                    {{-- <li class="custom-checkbox d-flex">
                         <input class="hide-inp" type="checkbox" name="checkbox_questions[]" @if(in_array('12',$in_array_questions)) checked @endif value="12" id="checklist_12_step4">
                         <label class="dflex-gap10" for="checklist_12_step4"> 
                             <span class="checkbox-square f-20">
@@ -463,7 +464,7 @@
                                 Water Temperature and Fuel Gauges
                             </span> 
                         </label>
-                    </li>
+                    </li> --}}
                 </ul>
                 @if ($errors->has('checkbox_questions'))
                 <span class="text-danger">{{ $errors->first('checkbox_questions') }}</span>
@@ -604,7 +605,7 @@
 <div>
     <div class="container-1200">
         <div class="row">
-            <div class="col-lg-6 col-md-8">
+            {{-- <div class="col-lg-6 col-md-8">
                 <div class="newsletter-box">
                     <h4>What are you waiting for?</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -615,16 +616,14 @@
                         Value Your Car
                     </button>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="col-lg-6 col-md-8">
+            <div class="col-lg-12 col-md-8">
                 <div class="newsletter-box">
                     <h4>Newsletter</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut
-                        labore</p>
-                    <input class="inp-qa f-20" type="text" placeholder="Enter REG">
-                    <button type="button" class="btn-mts f-25">
+                    <p>Subscribe to our newsletter and stay on top of industry news.</p>
+                    <input class="inp-qa f-20" type="text" name="subscriber_email" id="subscriber_email" placeholder="Enter Email">
+                    <button type="button" onclick="addSubscriber()" class="btn-mts f-25">
                         SUBSCRIBE
                     </button>
                 </div>
@@ -638,3 +637,45 @@
 @endsection
 
 
+@push('child-scripts')
+    <script type="text/javascript">
+        function addSubscriber() {
+            var subscriber_email = $("#subscriber_email").val();
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if(subscriber_email == '' || subscriber_email == null){
+                alert('email field is required')
+                return false;
+            }
+            else if(regex.test(subscriber_email) == false)
+            {
+                alert('invalid email format');
+                return false;
+            }
+            $.ajax({
+                type:"post",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '{{ route('addSubscriberEmail') }}',
+                data: {
+                    subscriber_email,
+                    subscriber_email
+                },
+                success: function(response) {
+                    if(response == "exists"){
+                        alert("This Email Already Subscribed!");
+                    }else if(response == "inserted"){
+                        window.location.href = "{{ route('subscribeEmail')}}";
+                        //alert("Congrats You Have Subscribe Successfully!");
+                    }
+                },
+                error:function(){
+                    alert('error')
+                }
+            });
+          }
+       
+       
+    </script>
+@endpush

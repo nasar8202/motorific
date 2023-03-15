@@ -591,7 +591,7 @@
                 },
 
                 success: function(response) {
-                    console.log(response.registrationNumber);
+                   
 
                     if (response && !response.errors) {
                         $('.show_error1').hide();

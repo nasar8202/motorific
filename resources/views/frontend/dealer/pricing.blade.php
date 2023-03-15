@@ -14,8 +14,8 @@
 
 <section class="sec-2 productPageTn">
 <div class="container">
-  <h2>Pricing 2022</h2>
-  <p>Fees are based on the value of the winning bid in accordance with the table below. Regardless of whether the final purchase price is higher or lower than the winning bid, the fee shall always be based on the winning bid. Motorway shall invoice the Car Buying Partner within 3 working days of the Seller confirming the sale of their vehicle.</p>            
+  <h2>Motorific buyers fee <?php echo date("Y"); ?></h2>
+  <p>The following table outlines the fees based on the winning bid's value. The charge shall always be based on the winning bid, whether the actual purchase price is more or lower than the winning bid. If the Seller confirms the sale of the vehicle, Motorific must charge and invoice the buyers fee before revealing the sellers contact information.</p>            
   <table class="table">
     <thead>
       <tr>
