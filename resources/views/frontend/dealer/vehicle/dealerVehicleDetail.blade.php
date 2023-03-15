@@ -211,7 +211,7 @@
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-bolt"></i> Condition And Damages</h4>
                                 <ul>
-                                    <li>Estimated Cost<span>{{ $vehicle->DealerVehicleMedia->condition_damage }}</span>
+                                    {{-- <li>Estimated Cost<span>{{ $vehicle->DealerVehicleMedia->condition_damage }}</span> --}}
                                     </li>
                                     <li>Condition / Damage URL
                                         <span>{{ $vehicle->DealerVehicleMedia->condition_damage_url }}</span>
@@ -319,7 +319,7 @@
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-pound-sign"></i>&nbsp;&nbsp;Estimated Cost</h4>
                                 <ul>
-                                    <li>Estimated Cost
+                                    <li>Estimated Prepration Cost
                                         <span>{{ $vehicle->DealerVehicleMedia->condition_damage ?? 'No Cost'}}</span>
                                     </li>
                                 </ul>
