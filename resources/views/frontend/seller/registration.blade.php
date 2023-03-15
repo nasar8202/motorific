@@ -88,11 +88,17 @@ input[type=number] {
                         <li><a href="#">How It Works</a></li>
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">Help</a></li>
-                        @guest
-                        <li>  <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
                         
-                      </li>
-                      @endguest
+                    @guest
+                    <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                    
+                        <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                        @endguest
+                        @guest
+                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+
+                            </li>
+                        @endguest
                     </ul>
                 </div>
             </div>

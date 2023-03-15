@@ -1301,6 +1301,46 @@ section.thanks {
     padding: 160px 0 80px 0;
 }
 
+/*Contact Page*/
+.contact-sec {
+    padding: 40px 0;
+}
+.contact-sec h2 {
+    font-size: 24px;
+}
+
+.contact-content h3 {
+    font-size: 18px;
+}
+
+.contact-content p {
+    font-size: 12px;
+}
+
+.contact-content .contact-info li {
+    font-size: 12px;
+}
+
+.contact-form .form-group label {
+    font-size: 12px;
+}
+
+.prim-btn {
+    font-size: 12px;
+    padding: 6px 24px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 4px;
+}
+.contact-form .form-group input, .contact-form .form-group textarea {
+    font-size: 12px;
+}
+.contact-form .form-group textarea {
+    margin-bottom: 15px;
+}
+
+/*End*/
 
 
 }
@@ -1851,6 +1891,13 @@ section.thanks {
 }
 .vp-box .vp-btns a:last-child {
     margin-bottom: 0;
+}
+
+.contact-form .form-group textarea {
+    min-height: 120px;
+}
+#pagination-container ul li span {
+    padding: 4px 10px !important;
 }
 
 }
