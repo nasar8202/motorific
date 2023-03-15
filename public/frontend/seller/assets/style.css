@@ -2575,4 +2575,101 @@ ol.tagLines li::marker {
     font-weight: 700;
     margin-bottom: 20px;
 }
+.green-btn {
+    background: #05eab5 !important;
+}
+
+.green-btn a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*Contact Page Css */
+.contact-sec {
+    padding: 4vw 0;
+}
+
+.contact-sec h2 {
+    font-size: 2.4vw;
+    text-align: center;
+    margin-bottom: 2.2vw;
+    font-weight: 600;
+    color: #000;
+}
+.contact-content {
+    padding-top: 1.3vw;
+}
+.contact-content h3 {
+    font-size: 1.6vw;
+    color: #000;
+}
+
+.contact-content p {
+    font-size: 0.95vw;
+    max-width: 85%;
+}
+
+.contact-content .contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-content .contact-info span {
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.contact-content .contact-info li {
+    font-size: .94vw;
+}
+
+.contact-content .contact-info li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1vw;
+}
+
+.contact-form .form-group label {
+    font-size: .94vw;
+}
+
+.contact-form .form-group input, .contact-form .form-group textarea {
+    font-size: .94vw;
+    box-shadow:none;
+}
+.contact-form .form-group input:focus, .contact-form .form-group textarea:focus {
+    border-color: #05eab5;
+}
+
+.contact-form .form-group textarea {
+    min-height: 10vw;
+    resize: none;
+    margin-bottom: 1.5vw;
+}
+
+.prim-btn {
+    font-size: .94vw;
+    padding: .55vw 2vw;
+    border-radius: 100px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow:none;
+    transition: all .35s ease-in;
+}
+
+.btn-green {
+    background: #05eab5;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background: #7977a2;
+    color: #fff;
+}
+
+
+/*End*/
 

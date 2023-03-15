@@ -363,7 +363,7 @@
                                 <ul>
                                     <li>Reserve Price: <span>£{{ $vehicle->vehicle_price }}</span></li>
                                     <ul class="valuation">
-                                        <li><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" id="dynamic-ar" style="cursor: pointer;"></i></span></li>
+                                        <li id="dynamic-ar" ><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" style="cursor: pointer;"></i></span></li>
                                         <li class="hidden">Retail:<span> £{{ $vehicle->retail_price }} </span></li>
                                         <li class="hidden">Clean:<span> £{{ $vehicle->clean_price }} </span></li>
                                         <li class="hidden">Average:<span> £{{ $vehicle->average_price }} </span></li>

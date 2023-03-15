@@ -112,11 +112,13 @@
                     </div> --}}
 
                     <div class="bt-btns-main d-flex">
-                        <button type="button" class="btn-trans step4-back-btn">
+                        <button type="button" class="btn-trans step4-back-btn btn-Prev">
                             <i class="fa-solid fa-arrow-left-long"></i>
                             <span><a href="{{route('dealer.mediaCondition')}}">Go Back</a></span>
                         </button>
-                        <button type="submit" class="btn-trans step4-btn-save">
+                        <button type="submit" class="btn-trans step4-btn-save btn-Next">
+                            
+                            <i class="fa-solid fa-arrow-left-long"></i>
                             Next Step
 
                         </button>
