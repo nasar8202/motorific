@@ -185,7 +185,7 @@ p {
                                         <div class="form-group">
                                             <label for="email-id-column">Vehicle Mileage</label>
                                             <input type="number" id="email-id-column" class="form-control"
-                                                name="vehicle_mileage" value="{{$vehicles->vehicle_mileage}}" placeholder="Vehicle Mileage">
+                                                name="vehicle_mileage" value="{{$vehicles->vehicle_mileage ?? old('vehicle_mileage')}}" placeholder="Vehicle Mileage">
                                         </div>
                                         @if ($errors->has('vehicle_mileage'))
                                         <span class="text-danger">{{ $errors->first('vehicle_mileage') }}</span>
