@@ -55,7 +55,8 @@
                             <td>{{ $selle->email}}</td>
                             <td>{{ $selle->phone_number}}</td>
                             <td>
-                                <a href="{{ route('viewSellersVehicle',$selle->id) }}"><span class="badge badge-success w-100">View Vehicle</span></a>
+                                <a href="{{ route('addSellerVehicleFromAgent',$selle->id) }}" class="badge badge-success w-100">Add Vehicle For This Seller</a>
+                                <a href="{{ route('viewSellersVehicle',$selle->id) }}" class="badge badge-success w-100 mt-1">View Vehicle</a>
                             </td>
 
                         </tr>

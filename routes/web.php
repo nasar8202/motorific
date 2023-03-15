@@ -576,6 +576,10 @@ Route::group(['prefix' => 'agent','middleware'=>['auth','agent']], function () {
         Route::post('/store-vehicle-by-agent', [AgentsDashboardController::class, 'StoreVehicleByAgent'])->name('StoreVehicleByAgent');
         Route::get('/view-agent-seller', [AgentsDashboardController::class, 'viewAgentSeller'])->name('viewAgentSeller');
         Route::get('/view-seller-vehicle/{id}', [AgentsDashboardController::class, 'viewSellersVehicle'])->name('viewSellersVehicle');
+        Route::get('/add-seller-vehicle-from-agent-form/{id}', [AgentsDashboardController::class, 'addSellerVehicleFromAgent'])->name('addSellerVehicleFromAgent');
+        Route::get('/find-vehicle-for-single-user/{id}', [AgentsDashboardController::class, 'findVehicleinForSingleUser'])->name('findVehicleinForSingleUser');
+        Route::post('/StoreVehicleForOldUserByAgent/{id}', [AgentsDashboardController::class, 'StoreVehicleForOldUserByAgent'])->name('StoreVehicleForOldUserByAgent');
+       
         // Route::post('/store',  [SuperAdminDashboardController::class,'store'])->name('store');
         // Route::get('/view-role',  [SuperAdminDashboardController::class,'ViewRole'])->name('ViewRole');
         // Route::get('/edit/{id}',  [SuperAdminDashboardController::class,'EditRoleForm'])->name('EditRoleForm');
