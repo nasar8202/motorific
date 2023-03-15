@@ -214,7 +214,7 @@ class MultiStepRegistration extends Controller
                 'actionURL' => url('/admin/requests-dealers'),
                 'order_id' => 101
             ];
-            $users = User::where('email','nasar.ullah@oip.com.pk')->first();
+            $users = User::where('role_id','1')->first();
             $data = ([
                 'name' => $user->name,
                 'email' => $user->email,
@@ -231,7 +231,7 @@ class MultiStepRegistration extends Controller
             }
         } catch (\Exception $e) {
             DB::rollBack();
-             return $e;
+           //  return $e;
             return back()->with('error', 'Something Went Wrong');
         }
     }

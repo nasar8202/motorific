@@ -94,7 +94,7 @@ display: block;
 
             @endguest
 
-            <button>Contact Us</button>
+            <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
         </div>
         <div class="menu">
             <div class="toggle">
