@@ -29,7 +29,7 @@
         <div class="card">
             <div class="card-header">
                 Agent's Seller
-                <a href="{{ route('createSellesPersonForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Create Selles Person</span></a>
+                <a href="{{ route('createSellesPersonForm') }}" class="cvf_btn"><span class="badge bg-primary" style="float: right">Add Sales Agent</span></a>
             </div>
 
             <div class="card-body">

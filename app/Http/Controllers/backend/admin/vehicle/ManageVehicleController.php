@@ -54,8 +54,9 @@ class ManageVehicleController extends Controller
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
-        $registeration = trim($request->registeration, ' ');
-
+        $registeration = str_replace(' ', '', $request->registeration);
+        
+       
 
         $curl = curl_init();
 

@@ -319,7 +319,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/edit-user/{id}', [UserController::class,'editUserForm'])->name('editUserForm');
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
+    Route::get('/add-vehicle-for-old-user/{id}', [UserController::class,'addVehicleForOldUser'])->name('addVehicleForOldUser');
+    Route::post('/store-vehicle-by-admin-for-old-user/{id}', [UserController::class,'StoreVehicleByAdminForOldUser'])->name('StoreVehicleByAdminForOldUser');
     Route::get('/enable-user/{id}', [UserController::class,'enableUser'])->name('enableUser');
+    Route::get('/find-vehicle-for-old-user/{id}', [UserController::class,'findVehicleForOldUser'])->name('findVehicleForOldUser');
     Route::get('/mark-as-contacted/{id}', [UserController::class,'markAsContacted'])->name('markAsContacted');
     // end manage user
 
