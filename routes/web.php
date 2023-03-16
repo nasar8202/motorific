@@ -65,6 +65,7 @@ Route::get('/clear-cache', function() {
 
 // newsletter subscriber
 Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
+Route::get('/careers', [NewsletterSubscribers::class,'careers'])->name('careers');
 Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmail'])->name('subscribeEmail');
 Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
 Route::post('get-intouch-post',[NewsletterSubscribers::class,'getIntouchPost'])->name('getIntouchPost');
