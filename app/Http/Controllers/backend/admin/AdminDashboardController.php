@@ -39,32 +39,49 @@ class AdminDashboardController extends Controller
     {
        
         $dealerDetails = UserDetail::where('user_id',$request->id)->first();
-        if($dealerDetails->dealer_identity_card == null && $dealerDetails->dealer_documents== null){
+        if($dealerDetails->dealer_identity_card == null ){
+            $request->validate([
+                'dealer_identity_card' => 'required',
+                
+            ]);
+       
+            $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
+            $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
+            $dealerDetails->dealer_identity_card = $dealer_identity_card ;
+        }
+           elseif( $dealerDetails->dealer_documents== null){
+                $request->validate([
+                    
+                    'dealer_documents' => 'required',
+                ]);
+            $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
+            $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
+
+            
+            $dealerDetails->dealer_documents =  $dealer_documents;
+            
+        }
+        else{
             $request->validate([
                 'dealer_identity_card' => 'required',
                 'dealer_documents' => 'required',
+                
             ]);
-            $status = ['status' => 1];
-            $user = User::where('id',$request->id)->first();
-
-            $dealers = User::where('id',$request->id)->update($status);
-
+       
             $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
             $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
-
+            $dealerDetails->dealer_identity_card = $dealer_identity_card ;
             $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
             $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
 
             $dealerDetails->dealer_identity_card = $dealer_identity_card ;
             $dealerDetails->dealer_documents =  $dealer_documents;
-            $dealerDetails->save();
+           
         }
-        else{
-            $status = ['status' => 1];
-            $user = User::where('id',$request->id)->first();
-
-            $dealers = User::where('id',$request->id)->update($status);
-        }
+        $dealerDetails->save();
+        $user = User::where('id',$request->id)->first();
+        $user->status = 1;
+        $user->save();
         
         $details = [
             'greeting' => 'Hi ' . $user->name,

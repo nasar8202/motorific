@@ -6,19 +6,39 @@ use Illuminate\Http\Request;
 use App\Models\OrderVehicleRequest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Auth;
 
 class OrderVehicleRequestController extends Controller
 {
     public function vehicleRequest(Request $request)
-    {
+    {   
+        $vehicle = Vehicle::where('status',1)->where('id',$request->VehicleId)->first();
+        if( $request->BidPrice >= $vehicle->reserve_price ){
+        $order = new OrderVehicleRequest;
+        $order->user_id = Auth::user()->id;
+        $order->vehicle_id = $request->VehicleId;
+        $order->request_price = $request->BidPrice;
+        $order->status = 1;
+        $order->save();
+        $vehicle->status = 2;
+        $vehicle->save();
+        if($order){
+            return response()->json(['success' => 'Congrats You Have Succesully Purchase This Vehicle. Go To The Purchases To Process Forward']);
+        }
+        else{
+            return 0;
+        }
+    }
+    else{
+
         $order = new OrderVehicleRequest;
         $order->user_id = Auth::user()->id;
         $order->vehicle_id = $request->VehicleId;
         $order->request_price = $request->BidPrice;
         $order->status = 0;
         $order->save();
-
+    
         if($order){
             return response()->json(['success' => 'Order Request successfully Added . Wait For Seller Approvel']);
         }
@@ -26,7 +46,8 @@ class OrderVehicleRequestController extends Controller
             return 0;
         }
 
-        
+
+    }
     }
     public function cancelRequest($id)
     {
