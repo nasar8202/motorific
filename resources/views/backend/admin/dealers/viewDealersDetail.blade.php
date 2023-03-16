@@ -60,7 +60,7 @@
                             <li class="breadcrumb-item active" aria-current="page">Dealers Details</li>
                         </ol>
                     </nav>
-                </div>
+                </div>   
             </div>
         </div>
         <section class="section">
@@ -179,6 +179,7 @@
                                         </div>
                                         
                                         @if($dealers->userDetails->dealer_identity_card == null && $dealers->userDetails->dealer_documents == null)
+                                        
                                         <div class="card shadow-sm">
                                             <div class="card-header bg-transparent border-0">
                                                 <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Upload ID And Documents
@@ -186,7 +187,8 @@
                                             </div>
                                             <div class="card-body pt-0 resp-set">
                                                 <table class="table table-bordered">
-                                                    
+                                                 
+                                                    @if($dealers->userDetails->dealer_identity_card == null && $dealers->userDetails->dealer_documents == null)
                                                     <tr>
                                                         <th width="30%">ID</th>
                                                         <td width="2%">:</td>
@@ -210,7 +212,35 @@
                                                         </td>
 
                                                     </tr>
-                                                    
+                                                    @else
+                                                    @if($dealers->userDetails->dealer_identity_card == null)
+                                                    <tr>
+                                                        <th width="30%">ID</th>
+                                                        <td width="2%">:</td>
+                                                        <td class="set-scr"><input type="file"
+                                                                name="dealer_identity_card">
+                                                            @if ($errors->has('dealer_identity_card'))
+                                                                <span
+                                                                    class="text-danger ">{{ $errors->first('dealer_identity_card') }}</span>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                    @endif
+                                                    @if($dealers->userDetails->dealer_documents == null)
+                                                    <tr>
+                                                        <th width="30%">Documents</th>
+                                                        <td width="2%">:</td>
+                                                        <td class="set-scr"><input type="file" name="dealer_documents">
+                                                            <br>
+                                                            @if ($errors->has('dealer_documents'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('dealer_documents') }}</span>
+                                                            @endif
+                                                        </td>
+
+                                                    </tr>
+                                                    @endif
+                                                    @endif
 
                                                 </table>
                                             </div>
@@ -228,14 +258,24 @@
                                                         <th width="3%">ID</th>
                                                         <td width="2%">:</td>
                                                         <td class="set-scr">
-                                                            <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_identity_card) }}" width="400px" height="200px">
-                                                            
+                                                            @if($dealers->userDetails->dealer_identity_card == null) <input type="file"
+                                                            name="dealer_identity_card"> @else <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_identity_card) }}" width="400px" height="200px"> @endif 
+                                                            @if ($errors->has('dealer_identity_card'))
+                                                                <span
+                                                                    class="text-danger ">{{ $errors->first('dealer_identity_card') }}</span>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th width="3%">Documents</th>
                                                         <td width="2%">:</td>
-                                                        <td class="set-scr"> <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_documents) }}" width="400px" height="200px">
+                                                        <td class="set-scr"> 
+                                                            @if($dealers->userDetails->dealer_documents == null) <input type="file" name="dealer_documents">@else <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_documents) }}" width="400px" height="200px"> @endif
+                                                            <br>
+                                                            @if ($errors->has('dealer_documents'))
+                                                                <span
+                                                                    class="text-danger">{{ $errors->first('dealer_documents') }}</span>
+                                                             @endif
                                                         </td>
 
                                                     </tr>
