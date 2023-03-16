@@ -48,7 +48,7 @@ class LoginController extends Controller
             return $this->redirectTo;
         }  
         else {
-            $this->redirectTo = '/login';
+            $this->redirectTo = '/seller-login';
             return $this->redirectTo;
         }
         // switch($role){

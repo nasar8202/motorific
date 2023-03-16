@@ -10,9 +10,86 @@ use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\sellerVehicleRejectBySeller;
+use App\Mail\sellerVehicleApprovedBySeller;
 
 class SellerDashboardController extends Controller
 {
+    public function approveBySellerVehicle($id)
+    {
+
+       $vehicles = Vehicle::with('user')->with('VehicleImage')->where('id',$id)->first();
+//  dd($vehicles);
+      if($vehicles->status == 1){
+        return back()->with('warning', 'This Vehicle Is Already Approve');
+    }
+    else{
+        $vehicles->status = 1;
+        $vehicles->save();
+        $originalDate = $vehicles->updated_at;
+        $winDate = date("d F Y ", strtotime($originalDate));
+        $winTime = date("H:i:s a", strtotime($originalDate));
+
+        $data = ([
+           
+            'date' => $winDate.' at '.$winTime,
+            'reserve_price'=>$vehicles->reserve_price,
+            'vehicle_registration'=>$vehicles->vehicle_registartion_number,
+            'vehicle_name'=>$vehicles->vehicle_name,
+            'vehicle_mileage'=>$vehicles->vehicle_mileage,
+            
+
+        ]);
+        $admin = User::where('id',1)->first();
+        Mail::to($admin->email)->send(new sellerVehicleApprovedBySeller($data));
+
+        return redirect()->route('myLogin')->with('success', 'You Have Approved Your Valuation, Login To System So Further Process');
+    }
+
+    }
+
+    public function rejectBySellerVehicle($id)
+    {
+
+       $vehicles = Vehicle::with('user')->with('VehicleImage')->where('id',$id)->first();
+//  dd($vehicles);
+      if($vehicles->status == 0){
+        return redirect()->route('myLogin')->with('warning', 'You have already reject valuation');
+
+      }else{
+        $vehicles->status = 0;
+        $vehicles->save();
+
+        $originalDate = $vehicles->updated_at;
+        $winDate = date("d F Y ", strtotime($originalDate));
+        $winTime = date("H:i:s a", strtotime($originalDate));
+
+
+        $originalDate = $vehicles->updated_at;
+        $winDate = date("d F Y ", strtotime($originalDate));
+        $winTime = date("H:i:s a", strtotime($originalDate));
+
+        $data = ([
+           
+            'date' => $winDate.' at '.$winTime,
+            'reserve_price'=>$vehicles->reserve_price,
+            'vehicle_registration'=>$vehicles->vehicle_registartion_number,
+            'vehicle_name'=>$vehicles->vehicle_name,
+            'vehicle_mileage'=>$vehicles->vehicle_mileage,
+            
+
+        ]);
+        $admin = User::where('role_id',1)->first();
+        Mail::to($admin->email)->send(new sellerVehicleRejectBySeller($data));
+
+        return redirect()->route('myLogin')->with('warning', 'You have reject valuation');
+      }
+        
+
+
+    }
+
     public function seller()
     {
 

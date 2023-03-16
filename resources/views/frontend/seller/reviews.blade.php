@@ -156,10 +156,29 @@ display: block;
     <div class="container-1151">
         <div class="row">
             <div class="sec-1-txt col-lg-6">
-                <h2>Sell your car the
+                <h2>Sell your car 
                     with <span>Motorific</span></h2>
                 <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
-            
+                <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
+
+                    <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
+
+                    <br>
+                    <input type="number" name="millage" placeholder="Enter Millage" required>
+                    <input type="hidden" name="registeration" class="registeration" value="">
+                    <button type="submit">Continue</button>
+
+                </form>
+                <div class="check_area">
+
+                    <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
+                        value="{{ old('registeration') }}">
+                    <span class="text-danger show_error"></span>
+                    <button type="button" id="check_registeration">Value Your Car</button>
+                </div>
+                @if ($errors->has('millage'))
+                    <span class="text-danger">{{ $errors->first('millage') }}</span>
+                @endif
             </div>
             <div class="sec-1-img col-lg-6">
                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
@@ -264,6 +283,49 @@ display: block;
 
 @endsection
 @push('child-scripts')
+<script type="text/javascript">
+    $('.millage_area').hide();
+            $('.show_error').hide();
+    
+     $("#check_registeration").on("click", function(e) {
+                var registeration = $("#registeration").val();
+                e.preventDefault(); // prevent the form submission
+    
+                $.ajax({
+                    type: "post",
+                    dataType: 'JSON',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '{{ route('testlocation') }}',
+                    data: {
+                        registeration,
+                        registeration
+                    },
+    
+                    success: function(response) {
+                        console.log(response.registrationNumber);
+    
+                        if (response && !response.errors) {
+                            $('.show_error').hide();
+                            $('.check_area').hide();
+                            $('.millage_area').show();
+                            $('.found').show();
+                            $('.registeration').val(registeration);
+                        }
+                        
+                        else {
+                            $('.show_error').show();
+                            $('.show_error').text('Record Not Found')
+    
+    
+    
+                        }
+                    }
+    
+                });
+            });
+    </script>
 <script type=""></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>

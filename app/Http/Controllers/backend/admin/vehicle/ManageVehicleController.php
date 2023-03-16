@@ -16,12 +16,15 @@ use App\Models\VehicleImage;
 use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
+use App\Models\VehicleHistory;
 use App\Models\LockingWheelNut;
 use App\Models\VehicleExterior;
 use App\Models\VehicleInterior;
 use App\Models\vehicleCategories;
+use App\Models\User as ModelsUser;
 use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
+use App\Mail\VehicleValuationPrice;
 use App\Mail\WinnerRequestedPerson;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
@@ -30,9 +33,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
-use App\Models\User as ModelsUser;
 use App\Models\vehicleConditionAndDamage;
-use App\Models\VehicleHistory;
 
 class ManageVehicleController extends Controller
 {
@@ -512,7 +513,23 @@ class ManageVehicleController extends Controller
             $seller->phone_number = $request->phone_number;
             // $seller->password = Hash::make($request->password);
             $seller->save();
+            $originalDate = $vehicle->updated_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+            $data = ([
+                'name' => $seller->name,
+                'vehicle_id' => $vehicle->id,
+                'user_id' => $seller->id,
+                'date' => $winDate.' at '.$winTime,
+                'reserve_price'=>$request->reserve_price,
+                'vehicle_registration'=>$vehicle->vehicle_registartion_number,
+                'vehicle_name'=>$vehicle->vehicle_name,
+                'vehicle_mileage'=>$vehicle->vehicle_mileage,
+                
 
+            ]);
+
+            Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
             $vehicle_feature_id =  implode(',', $request->vehicle_feature);
 
             $vehicleInformation = vehicleInformation::where('vehicle_id', $id)->first();
@@ -630,7 +647,7 @@ class ManageVehicleController extends Controller
 
             $VehicleImage->save();
         } catch (\Exception $e) {
-            return $e;
+           // return $e;
             DB::rollback();
             return Redirect()->back()
                 ->with('error', $e->getMessage())
