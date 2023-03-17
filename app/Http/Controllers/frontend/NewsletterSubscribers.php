@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Mail\GetInTouchMailRecieve;
 use App\Http\Controllers\Controller;
+use App\Models\MotorificJob;
 use App\Models\NewsletterSubscriber;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -15,6 +16,35 @@ class NewsletterSubscribers extends Controller
 {
     public function careers(){
         return view("frontend.seller.careers");
+    }
+    public function applyForJob(Request $request)
+    {
+        // dd($request->all(),$request->file('cv'));
+        $request->validate([
+            'cv' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
+            ]);
+            //  dd($request->all(),$request->file('cv'));
+            $job = new MotorificJob;
+            if($request->file('cv')) {
+                $fileName = time().'_'.$request->file('cv')->getClientOriginalName();
+                $request->file('cv')->move(public_path() . '/jobs/data/', $fileName);
+               
+
+                // dd($filePath);
+                $job->first_name = $request->first_name;
+                $job->last_name = $request->last_name;
+                $job->email = $request->email;
+                $job->phone_number = $request->phone_number;
+                $job->description = $request->description;
+                $job->applied_for = $request->applied_for;
+                $job->cv = $fileName;
+                $job->save();
+                
+                return back()
+                ->with('success','File has been uploaded.');
+            }
+
+       
     }
     public function addSubscriberEmail(Request $request)
     {

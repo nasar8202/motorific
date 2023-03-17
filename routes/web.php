@@ -66,6 +66,7 @@ Route::get('/clear-cache', function() {
 // newsletter subscriber
 Route::post('/add-subscriber-email', [NewsletterSubscribers::class,'addSubscriberEmail'])->name('addSubscriberEmail');
 Route::get('/careers', [NewsletterSubscribers::class,'careers'])->name('careers');
+Route::post('/apply-for-job', [NewsletterSubscribers::class,'applyForJob'])->name('applyForJob');
 Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmail'])->name('subscribeEmail');
 Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
 Route::post('get-intouch-post',[NewsletterSubscribers::class,'getIntouchPost'])->name('getIntouchPost');
@@ -167,7 +168,7 @@ Route::post('reset-password', [FrontController::class, 'submitResetPasswordForm'
 
 // start admin panel routes
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
-
+    Route::get('/getCvs',[SubscriberController::class,'getCvs'])->name('getCvs');
     Route::get('/send-notification-to-subscribers',[SubscriberController::class,'createNotificationToSubscriberForm'])->name('createNotificationToSubscriberForm');
     Route::post('/store-subscriber',[SubscriberController::class,'sendNotificationsToUsers'])->name('sendNotificationsToUsers');
     
