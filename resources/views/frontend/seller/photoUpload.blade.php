@@ -764,6 +764,108 @@ display: block;
                         </div>
                     </div>
                 </section>
+                
+                <section class="step-sec step-sec-qambar">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Passenger Back Door</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passengerback.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec step-sec-qambar">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Driver Back Door</h2>
+                            <ul class="parts-content">
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <span>Stained (ST)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <span>Torn / Ripped (T)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <span>Warn (W)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <span>Dirty (D)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <span>Broken / Damage (BD)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <span>Burnt (B)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driverback.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <section class="step-sec step-sec-qambar">
                     <div class="row align-items-center">
@@ -1511,6 +1613,57 @@ display: block;
                         <div class="col-md-6">
                             <div class="step-img">
                                 <img src="{{ URL::asset('frontend/dealers/assets/image/back.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="step-sec-ext step-sec-qambar">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="part-heading">Windscreen</h2>
+                           <ul class="parts-content">
+                            <li>
+                                <label>
+                                    <input type="radio" name="back" value="Dent" class="step-list-check" hidden>
+                                    <span>Dent (D)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Broken" class="step-list-check" hidden>
+                                    <span>Broken (B)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Chips" class="step-list-check" hidden>
+                                    <span>Chips (CH)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Crack/Rust" class="step-list-check" hidden>
+                                    <span>Crack / Rust (CR)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Scratch" class="step-list-check" hidden>
+                                    <span>Scratch (S)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio"  name="back" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <span>Wheel Scuff (WS)</span>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="step-img">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/windscreen.png') }}" alt="">
                             </div>
                         </div>
                     </div>

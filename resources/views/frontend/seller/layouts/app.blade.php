@@ -73,6 +73,7 @@
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" >
 <script>
      @if(Session::has('success'))
         toastr.options =

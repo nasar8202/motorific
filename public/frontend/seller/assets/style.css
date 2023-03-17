@@ -2673,3 +2673,275 @@ ol.tagLines li::marker {
 
 /*End*/
 
+
+/*Career Page*/
+.header-career {
+    background: #202543e8;
+    padding: 15px 0;
+}
+
+.career-sec {
+    padding: 7.292vw 0 4.688vw;
+}
+.tag {
+    font-weight: 600;
+    border: 0.104vw solid #05eab5;
+    padding: 0.313vw 0.781vw;
+    border-radius: 5.208vw;
+    font-size: 0.677vw;
+    color: #05eab5;
+    display: inline-block;
+}
+.career-top-content h1 {
+    font-size: 2.604vw;
+    font-weight: 700;
+    color: #000;
+    margin: 0.781vw 0;
+}
+
+.career-top-content p {
+    font-size: 0.938vw;
+    max-width: 60%;
+    font-weight: 500;
+}
+
+.tags-wraper {
+    list-style: none;
+    padding: 1.042vw 0 1.563vw;
+    border-bottom: 0.104vw solid #f1f1f1;
+}
+
+.tags-wraper li {
+    display: inline-block;
+}
+
+.tags-wraper li a {
+    list-style: none;
+    font-size: 0.7vw;
+    text-decoration: none;
+    font-weight: 500;
+    color: #05eab5;
+    border: 0.052vw solid #05eab5;
+    padding: 0.3vw 1.26vw;
+    border-radius: 5.208vw;
+}
+
+.tags-wraper li:not(:last-child) {
+    margin-right: 0.521vw;
+}
+
+.tags-wraper li a.active {
+    background: #05eab5;
+    border-color: #05eab5;
+    color: #fff;
+}
+
+.jobs-box {
+    padding: 0.781vw 0 0.417vw;
+    border-bottom: 0.104vw solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.job-content h2 {
+    font-size: 1.25vw;
+    font-weight: 600;
+    color: #000;
+}
+
+.job-content p {
+    font-size: 0.833vw;
+}
+
+.jobs-box .job-btn {
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.938vw;
+}
+
+.jobs-box .job-btn span {
+    margin-left: 0.365vw;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+.job-times {
+    padding: 0;
+    list-style: none;
+}
+
+.job-times li:not(:last-child) {
+    margin-right: 0.521vw;
+}
+
+.job-times li {
+    display: inline-block;
+}
+
+.job-times li p {
+    margin: 0;
+    font-size: 0.67vw;
+    padding: 0.26vw 1.26vw;
+    border: 0.052vw solid #05eab5;
+    border-radius: 5.208vw;
+    font-weight: 500;
+    color: #05eab5;
+}
+
+.job-times li p span {
+    margin-right: 0.313vw;
+}
+
+/*End*/
+
+
+/*Career Form Modal*/
+/*.careerFormModal .modal-dialog {*/
+/*    max-width: 40vw;*/
+/*}*/
+.careerFormModal .modal-title {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.careerFormModal .btn-close {
+    opacity: 1;
+}
+
+.careerFormModal .modal-content {
+    padding: 40px 30px;
+    border-radius: 10px;
+}
+
+.careerFormModal .modal-header {
+    padding-top: 0;
+    border: 0;
+    padding-bottom: 14px;
+}
+
+.careerFormModal .form-control:not([type="file"]) {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.careerFormModal .form-control:focus {
+    box-shadow: none;
+    border-color: #05eab5;
+}
+
+.careerFormModal textarea.form-control {
+    margin-top: 20px;
+    min-height: 150px;
+    resize: none;
+}
+
+.careerFormModal .modal-content .btn-submit {
+    background: #05eab5;
+    color: #fff;
+    border: 1px solid #05eab5;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: all .4s ease;
+}
+
+.careerFormModal .modal-content .btn-submit:hover {
+    background: transparent;
+    color: #05eab5;
+}
+
+.careerFormModal .modal-dialog.modal-dialog-centered {
+    max-width: 700px;
+}
+
+
+
+
+/*End*/
+
+/*cookies modal*/
+.cookies-modal .modal-dialog.modal-dialog-centered {
+    
+    max-width: 575px;
+    align-items: end;
+        margin: 0 auto 0 70px;
+    height: 100%;
+        padding-bottom: 40px;
+}
+.cookies-modal .modal-header {
+    border: 0;
+}
+
+.cookies-modal .modal-content {
+    min-height: 400px;
+    border-radius: 10px;
+        text-align: center;
+    padding-bottom: 30px;
+        background-color: #fff;
+    position: relative;
+    z-index: 1;
+    overflow: hidden
+}
+.cookies-modal .modal-content:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://webprojectmockup.com/custom/motorific/public/frontend/seller/assets/image/cookies.png) no-repeat center / cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+.cookies-modal .modal-header .btn-close {
+    opacity: 1;
+}
+
+.cokies-content img {
+    max-width: 230px;
+}
+
+.cokies-content p {
+    font-size: 19px;
+    color: #000;
+    max-width: 360px;
+    margin: 30px auto 20px;
+    line-height: 1.2;
+}
+
+.cokies-content button {
+       font-size: 16px;
+    padding: 10px 30px;
+    border: 1px solid #000;
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.cokies-content button:before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://webprojectmockup.com/custom/motorific/public/frontend/seller/assets/image/chochlate.jpg) no-repeat center / cover;
+    z-index: -1;
+    transition: all .4s ease;
+    opacity: 0.5;
+}
+
+.cokies-content button:hover:before {
+    left: 0;
+}
+
+.cookies-btn {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+/*cookies modal*/

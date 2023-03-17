@@ -125,7 +125,7 @@ display: block;
 
                     <br>
                     <div>
-                        <button type="submit"> Send Password Reset Link</button>
+                        <button type="submit " class="m-0"> Send Password Reset Link</button>
                     </div>
                 </form>
                 <a href="{{route('myLogin')}}">Login</a>
