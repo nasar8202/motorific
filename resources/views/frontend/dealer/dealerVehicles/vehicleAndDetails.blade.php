@@ -1107,7 +1107,107 @@
                                     </div>
                                 </div>
                             </section>
-
+                            <section class="step-sec step-sec-qambar">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <h2 class="part-heading">Passenger Back Door</h2>
+                                        <ul class="parts-content">
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="passenger_back_door" value="Stained" hidden="">
+                                                    <span>Stained (ST)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="passenger_back_door" value="Torn/Ripped" hidden="">
+                                                    <span>Torn / Ripped (T)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="passenger_back_door" value="Warn" hidden="">
+                                                    <span>Warn (W)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="passenger_back_door" value="Dirty" hidden="">
+                                                    <span>Dirty (D)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="passenger_back_door" value="Broken/Damage" hidden="">
+                                                    <span>Broken / Damage (BD)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="passenger_back_door" value="Burnt" hidden="">
+                                                    <span>Burnt (B)</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="step-img">
+                                            <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passengerback.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="step-sec step-sec-qambar">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <h2 class="part-heading">Driver Back Door</h2>
+                                        <ul class="parts-content">
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="driver_back_door" value="Stained" hidden="">
+                                                    <span>Stained (ST)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="driver_back_door" value="Torn/Ripped" hidden="">
+                                                    <span>Torn / Ripped (T)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="driver_back_door" value="Warn" hidden="">
+                                                    <span>Warn (W)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="driver_back_door" value="Dirty" hidden="">
+                                                    <span>Dirty (D)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="driver_back_door" value="Broken/Damage" hidden="">
+                                                    <span>Broken / Damage (BD)</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="radio" class="step-list-check" name="driver_back_door" value="Burnt" hidden="">
+                                                    <span>Burnt (B)</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="step-img">
+                                            <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driverback.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                             <div class="step-button-wrap">
                                 <div class="step-button" id="prev">&larr; Previous</div>
                                 <div class="step-button nxtBtn" id="next">Next &rarr;</div>
@@ -1610,7 +1710,56 @@
                                     </div>
                                 </div>
                             </section>
-
+                            <section class="step-sec-ext step-sec-qambar">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <h2 class="part-heading">Windscreen</h2>
+                                       <ul class="parts-content">
+                                        <li>
+                                            <label>
+                                                <input type="radio" name="windscreen" value="Dent" class="step-list-check" hidden>
+                                                <span>Dent (D)</span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="radio"  name="windscreen" value="Broken" class="step-list-check" hidden>
+                                                <span>Broken (B)</span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="radio"  name="windscreen" value="Chips" class="step-list-check" hidden>
+                                                <span>Chips (CH)</span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="radio"  name="windscreen" value="Crack/Rust" class="step-list-check" hidden>
+                                                <span>Crack / Rust (CR)</span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="radio"  name="windscreen" value="Scratch" class="step-list-check" hidden>
+                                                <span>Scratch (S)</span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="radio"  name="windscreen" value="Wheel Scuff" class="step-list-check" hidden>
+                                                <span>Wheel Scuff (WS)</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="step-img">
+                                            <img src="{{ URL::asset('frontend/dealers/assets/image/windscreen.png') }}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                             <div class="step-button-wrap">
                                 <div class="step-button-ext" id="prev-ext">&larr; Previous</div>
                                 <div class="step-button-ext" id="next-ext">Next &rarr;</div>

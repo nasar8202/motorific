@@ -229,6 +229,8 @@ class AgentsDashboardController extends Controller
                 $interior_detail->passenger_seat = $request->passenger_seat;
                 $interior_detail->driver_seat = $request->driver_seat;
                 $interior_detail->rear_seats = $request->rear_seats;
+                $interior_detail->passenger_back_door = $request->passenger_back_door;
+                $interior_detail->driver_back_door = $request->driver_back_door;
                 $interior_detail->save();
                 $exterior_detail = new VehicleExterior;
                 $exterior_detail->vehicle_id = $vehicle->id;
@@ -240,6 +242,7 @@ class AgentsDashboardController extends Controller
                 $exterior_detail->bonut = $request->bonut;
                 $exterior_detail->front = $request->front;
                 $exterior_detail->back = $request->back;
+                $exterior_detail->windscreen = $request->wind_screen;
                 $exterior_detail->save();
 
                 $front = time() . '_' . $request->file('image1')->getClientOriginalName();

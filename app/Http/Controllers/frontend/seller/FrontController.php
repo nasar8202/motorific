@@ -223,6 +223,7 @@ class FrontController extends Controller
         $request->session()->put('smoked_in',$request->smoking);
         $request->session()->put('log_book',$request->logBook);
         $request->session()->put('location',$request->location);
+        $request->session()->put('HouseName',$request->HouseName);
         $request->session()->put('vehicle_owner',$request->vehicleOwner);
         $request->session()->put('private_plate',$request->privatePlate);
         $request->session()->put('finance',$request->finance);
@@ -240,6 +241,7 @@ class FrontController extends Controller
         $Smokings =  Smoking::where('id',session()->get('smoked_in'))->first();
         $VCLogBooks =  VCLogBook::where('id',session()->get('log_book'))->first();
         $VehicleLocation = session()->get('location');
+        $HouseName = session()->get('HouseName');
         $VehicleOwners =  VehicleOwner::where('id',session()->get('vehicle_owner'))->first();
         $PrivatePlates =  PrivatePlate::where('id',session()->get('private_plate'))->first();
         $Finances =  Finance::where('id',session()->get('finance'))->first();
@@ -250,7 +252,7 @@ class FrontController extends Controller
 
         return ['VehicleFeature'=>$VehicleFeature,'SeatMaterials'=>$SeatMaterials,'NumberOfKeys'=>$numberOfKeys,
         'ToolPack'=>$ToolPack,'LockingWheelNut'=>$LockingWheelNut,'Smokings'=>$Smokings,'VCLogBooks'=>$VCLogBooks,
-        'VehicleLocation'=>$VehicleLocation,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances,'vehicleCategories'=>$vehicleCategories
+        'VehicleLocation'=>$VehicleLocation,'HouseName'=>$HouseName,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances,'vehicleCategories'=>$vehicleCategories
         ,'VehicleHistory'=>$VehicleHistory];
     //  $request->session()->get('seat_material');
 
@@ -311,7 +313,7 @@ class FrontController extends Controller
 
     public function createVehicle(Request $request)
     {
-        // dd($request->all());
+        //  dd($request->all());
         $request->validate([
             // 'RegisterationNumber' => 'required',
             // 'VehicleName' => 'required',
@@ -330,6 +332,7 @@ class FrontController extends Controller
             'smoked_in' => 'required',
             'log_book' => 'required',
             'location' => 'required|max:256',
+            'houseName' => 'required|max:256',
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
@@ -393,6 +396,8 @@ class FrontController extends Controller
             $interior_detail->floor = $request->floor;
             $interior_detail->ceiling = $request->ceiling;
             $interior_detail->boot = $request->boot;
+            $interior_detail->passenger_back_door = $request->passenger_back_door;
+            $interior_detail->driver_back_door = $request->driver_back_door;
             $interior_detail->rear_windscreen = $request->rear_windscreen;
             $interior_detail->passenger_seat = $request->passenger_seat;
             $interior_detail->driver_seat = $request->driver_seat;
@@ -405,6 +410,7 @@ class FrontController extends Controller
             $exterior_detail->front_door_right = $request->front_door_right;
             $exterior_detail->back_door_right = $request->back_door_right;
             $exterior_detail->top = $request->top;
+            $exterior_detail->windscreen = $request->windscreen;
             $exterior_detail->bonut = $request->bonut;
             $exterior_detail->front = $request->front;
             $exterior_detail->back = $request->back;
@@ -452,7 +458,7 @@ class FrontController extends Controller
             // $vehicleInformation->last_mot_date =  $request->mot_date;
             // $vehicleInformation->previous_owners =  $request->previous_owner;
             // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
-            // $vehicleInformation->additional_information =  $request->additional;
+            $vehicleInformation->additional_information =  $request->houseName;
 
             $vehicleInformation->save();
 
@@ -816,7 +822,7 @@ class FrontController extends Controller
         // $details = [
         //     'greeting' => 'Hi ' . $user->name,
         //     'body' => 'Your Request Has Been Approved',
-        //     'thanks' => 'Thank you for using Motorfic.com ',
+        //     'thanks' => 'Thank you for using motorific.co.uk',
         //     'actionText' => 'Login',
         //     'actionURL' => url('/register-step-1'),
         //     'order_id' => 101

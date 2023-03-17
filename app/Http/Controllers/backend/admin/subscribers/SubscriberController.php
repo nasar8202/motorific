@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\admin\subscribers;
 
 use App\Models\User;
+use App\Models\MotorificJob;
 use Illuminate\Http\Request;
 use App\Jobs\SendEmailToSubscriber;
 use App\Mail\MailToSubscriberUsers;
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Mail;
 class SubscriberController extends Controller
 {
 
+    public function getCvs(){
+        $CvLists = MotorificJob::where('status',1)->orderBy('id',"DESC")->get();
+        return view('backend.admin.jobs.viewCvList',compact('CvLists'));
+    }
     public function viewAllSubscribers()
     {
         $subscribers = NewsletterSubscriber::where('status',1)->get(); 

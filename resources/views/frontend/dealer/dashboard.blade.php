@@ -364,7 +364,7 @@
                                     <img src="{{ URL::asset('frontend/dealers/assets/image/images/s-icon1.png') }}" alt="">
                                 </div>
                                 <h3>The best stock every day</h3>
-                                <p>4 million private car owners list their used cars every month on Motorific. Register for free to get exclusive access to high-demand cars and elevate your stock.</p>
+                                <p>thousands of private car owners list their used cars every month on Motorific. Register for free to get exclusive access to high-demand cars and elevate your stock.</p>
                             </div>
                         </div>
                         <div class="col-sm-6">

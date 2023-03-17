@@ -624,7 +624,15 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T31HYRPFV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-T31HYRPFV9');
+</script>
 <body>
     <main>
         <!-- HEADER -->

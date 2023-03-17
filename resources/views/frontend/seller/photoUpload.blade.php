@@ -164,7 +164,7 @@ display: block;
 
             <div class="personal-info-main" id="myDIV3">
                 <div class="personal-info-heading">
-                    <h3>Personal Information</h3>
+                    <h3>Personal Information </h3>
                     <p>Here’s the contact information you’ve given us. Please make sure it’s correct so we can keep you up to date.</p>
                 </div>
 
@@ -772,37 +772,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Stained" hidden="">
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Torn/Ripped" hidden="">
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Warn" hidden="">
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Dirty" hidden="">
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Broken/Damage" hidden="">
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Burnt" hidden="">
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -823,37 +823,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Stained" hidden="">
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Torn/Ripped" hidden="">
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Warn" hidden="">
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Dirty" hidden="">
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Broken/Damage" hidden="">
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Burnt" hidden="">
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -1625,37 +1625,37 @@ display: block;
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="back" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="windscreen" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -2441,9 +2441,16 @@ display: block;
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
                                                 <span><p>Enter postcode </p></span>
+                                           
                                                 <input type="search" name="location" id="search" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                                <br>
+                                                <span><p>House Name And Number </p></span>
+                                                
+                                                <input type="search" name="houseName"  class="HouseName"  value="@if(session()->get('HouseName')) {{session()->get('HouseName')}} @endif" id="search-loc" placeholder="Enter House Name And Location"/>
+                                           
                                             </label>
-                                            <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                            
                                         </div>
                                     </div>
                                     @if ($errors->has('location'))
@@ -2544,6 +2551,17 @@ display: block;
                                             						<span>Vehicle location</span>
                                             					</td>
                                             						<td id="VehicleLocationFinal">–</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="VehicleLocation">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                                            <tr class="SectionTable__noValue SectionTable__withLink">
+                                            					<td>
+                                            						<span>Home Name And Number</span>
+                                            					</td>
+                                            						<td id="HomeName">–</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="VehicleLocation">
                                             							<i class="fa fa-pencil"></i>
@@ -2754,7 +2772,7 @@ display: block;
                 <div class="col-lg-6 col-md-6">
                     <div class="sec-7-box">
                         <h4>What are you waiting for?</h4>
-                        <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                        <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
                         <input class="mb-3" type="text" placeholder="Enter REG">
                         <button>Value Your Car</button>
                     </div>
@@ -2962,6 +2980,7 @@ $("#store").click(function(){
     var smoking = $(".smoking:checked").val();
     var logBook = $(".logBook:checked").val();
     var location = $(".location").val();
+    var HouseName = $(".HouseName").val();
     var vehicleOwner = $(".vehicleOwner:checked").val();
     var privatePlate = $(".privatePlate:checked").val();
     var finance = $(".finance:checked").val();
@@ -2993,7 +3012,7 @@ $("#store").click(function(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {the_value:the_value,seatMaterial:seatMaterial,numberOfKeys:numberOfKeys,
-                toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,
+                toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,HouseName:HouseName,
                 vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance,VehicleHistory:VehicleHistory,categ:categ
             },
 
@@ -3009,6 +3028,7 @@ $("#store").click(function(){
                 var Smokings = response.Smokings;
                 var VCLogBooks = response.VCLogBooks;
                 var VehicleLocation = response.VehicleLocation;
+                var HouseName = response.HouseName;
                 var VehicleOwners = response.VehicleOwners;
                 var PrivatePlates = response.PrivatePlates;
                 var Finances = response.Finances;
@@ -3040,6 +3060,9 @@ $("#store").click(function(){
 
                 $("#VehicleLocationFinal").html('');
                 $("#VehicleLocationFinal").html(VehicleLocation);
+
+                $("#HomeName").html('');
+                $("#HomeName").html(HouseName);
 
                 $("#VehicleOwnerFinal").html('');
                 $("#VehicleOwnerFinal").html(VehicleOwners.title);

@@ -117,6 +117,20 @@ display: block;
                 <h1>Be Part of Our Mission</h1>
                 <p>We're looking for passionate people to join our mission. We value flat hierarchies, clear communication, and full ownership and responsibility.</p>
             </div>
+            @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+  @if ($message = Session::get('success'))
+  <div class="alert alert-success">
+      <strong>{{ $message }}</strong>
+  </div>
+@endif
             <div class="jobs-wraper">
                 <ul class="tags-wraper">
                     <li>
@@ -178,36 +192,37 @@ display: block;
       </div>
       <div class="modal-body">
         <div class="careerForm">
-            <form>
+            <form action="{{route('applyForJob')}}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name">
+                            <input type="text" class="form-control" name="first_name" placeholder="First Name">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name">
+                            <input type="text" class="form-control" name="last_name" placeholder="Last Name">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email Address">
+                            <input type="text" class="form-control" name="email" placeholder="Email Address">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Phone Number">
+                            <input type="number" class="form-control" name="phone_number" placeholder="Phone Number">
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <input type="file" class="form-control" >
+                            <input type="file" name="cv" class="form-control" >
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" name="description"></textarea>
                         </div>
                     </div>
                     <div class="col-12">

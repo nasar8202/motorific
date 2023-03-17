@@ -158,7 +158,7 @@
             <div class="row">
                 <div class="sec-1-txt col-lg-6">
                     <h2>Sell My Car On Finance </h2>
-                    <p>Our 5000+ verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>
+                    <p>Our thousands verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -231,7 +231,7 @@
                 <div class="sec-3-txt col-lg-6">
                     <h4>Fast, Efficient, & Advanced Way of Selling Your Used Cars on Finance 
                     </h4>
-                    <p>Motorific is home to 5000+ verified dealers who compete daily to get the best cars for stock acquisition. They are willing to pay the best possible prices. 
+                    <p>Motorific is home to thousands verified dealers who compete daily to get the best cars for stock acquisition. They are willing to pay the best possible prices. 
                     </p>
                     
                 </div>
@@ -253,7 +253,7 @@
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
     <!--                    <h4>Your Car. Your Price - with Motorific</h4>-->
-    <!--                    <p>Motorific brings transparency so that you get the highest bid for your car. With over 5000+ dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>-->
+    <!--                    <p>Motorific brings transparency so that you get the highest bid for your car. With over thousands dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>-->
     <!--                    <div class="sec-1-txt">-->
     <!--                        <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR-->
     <!--                                CAR</button></a>-->
@@ -274,7 +274,7 @@
     <!--                            <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img2.png') }}" alt="">-->
                                 <!--<h4>Get your highest price</h4>-->
     <!--                            <h4>Get Maximum Value for Electric Car</h4>-->
-    <!--                            <p>Soon after you post an ad, 5000+ verified dealers start making attracting bids. We connect you with the one who is willing to pay the most. </p>-->
+    <!--                            <p>Soon after you post an ad, thousands verified dealers start making attracting bids. We connect you with the one who is willing to pay the most. </p>-->
     <!--                        </div>-->
     <!--                    </div>-->
 
@@ -315,7 +315,7 @@
                         </div>
                         <div class="fct-cont">
                             <p>
-                              2)<strong> We Alert Dealers:</strong>  As soon as your listing completes, Motorific sends notifications to 5000+ verified dealers who compete with the highest bids.
+                              2)<strong> We Alert Dealers:</strong>  As soon as your listing completes, Motorific sends notifications to thousands verified dealers who compete with the highest bids.
                             </p>
                         </div>
                         <div class="fct-cont">
@@ -384,7 +384,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="sec-7-box">
                             <h4>What are you waiting for?</h4>
-                            <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                            <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
                             <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
 
                                 <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>

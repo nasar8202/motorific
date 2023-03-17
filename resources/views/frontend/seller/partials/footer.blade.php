@@ -19,7 +19,7 @@
                         <li>Press</li>
                     </a> --}}
                     <li href="#">
-                        <a href="#">Careers</a>
+                        <a href="{{route('careers')}}">Careers</a>
                     </li>
                 </ul>
             </div>
@@ -30,10 +30,10 @@
                         <a href="{{route('CarValueTracker')}}">Sell my car</a>
                     </li>
                     <li>
-                        <a href="#">Sell my van</a>
+                        <a href="{{route('CarValueTracker')}}">Sell my van</a>
                     </li>
                     <li>
-                        <a href="#">Car buyers</a>
+                        <a href="{{route('CarValueTracker')}}">Car buyers</a>
                     </li>
                     <!--<li>-->
                     <!--    <a href="">Cash for cars</a>-->
@@ -42,17 +42,17 @@
                         <a href="{{route('SellMyCarOnFinance')}}">Sell My Car On Finance</a>
                     </li>
                     <li>
-                        <a href="#">Car Valuation</a>
+                        <a href="{{route('CarValueTracker')}}">Car Valuation</a>
                     </li>
                     <li>
-                        <a href="#">Who will buy my car?</a>
+                        <a href="{{route('CarValueTracker')}}">Who will buy my car?</a>
                     </li>
                 </ul>
             </div>
             <div class="footer-sub product-2">
                 <ul>
                     <li>
-                        <a href="#">Car buying sites</a>
+                        <a href="{{route('CarValueTracker')}}">Car buying sites</a>
                     </li>
                     <li>
                         <a href="{{route('sellToADealer')}}">Sell to a dealer</a>

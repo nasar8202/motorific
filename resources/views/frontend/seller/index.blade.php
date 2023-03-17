@@ -163,7 +163,7 @@
                         with  <span>Motorific</span></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Get the highest possible sale price for your vehicle with minimal effort. 5000+ verified dealers await to give you the best offer!</p>
+                    <p>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -202,7 +202,7 @@
     
     <!---->
     <!-- Career Modal Form -->
-<div class="modal fade cookies-modal" id="cokies" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade cookies-modal" id="cokies" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -222,7 +222,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
     <!---->
     <!-- SECTION-2 -->
@@ -359,10 +359,10 @@
                     <h4>Who We Are</h4>
                     <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
                     <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
-                    <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over 5000+ verified dealers nationwide and present you with the highest bid for your car.</p>
+                    <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over thousands verified dealers nationwide and present you with the highest bid for your car.</p>
                     <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
                     <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                    <button>GET IN TOUCH</button>
+                    <button><a href="{{route('GetInTouchSellerForm')}}" style="text-decoration: none;background-color:#e3e3f0;color:#7977a2">GET IN TOUCH</a></button>
                 </div>
                 <div class="col-lg-6">
 
@@ -382,7 +382,7 @@
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
                         <h4>Your Car. Your Price - with Motorific</h4>
-                        <p>Motorific brings transparency so that you get the highest bid for your car. With over 5000+ dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
+                        <p>Motorific brings transparency so that you get the highest bid for your car. With over thousands dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
                         <div class="sec-1-txt">
                             <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
                                     CAR</button></a>
@@ -475,7 +475,7 @@
                 <!--        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by-->
                 <!--    5,000+ Users</p>-->
                 <p>Rated  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 35000+ Customers </p>
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 3thousands Customers </p>
             </div>
             <div class="sec-6-boxes d-flex">
                 <div class="sec-6-main-box col-lg-4 col-md-6">
@@ -521,7 +521,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="sec-7-box">
                             <h4>What are you waiting for?</h4>
-                            <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                            <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
                             <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
 
                                 <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>

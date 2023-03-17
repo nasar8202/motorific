@@ -57,7 +57,7 @@ p {
                                         <div class="form-group">
                                             <label for="first-name-column">User Email</label>
                                             <input type="email" id="first-name-column" class="form-control"
-                                                placeholder="Registartion Number" value="{{$seller->email}}" name="email">
+                                                placeholder="Registartion Number" readonly value="{{$seller->email}}" name="email">
                                         </div>
                                         @if ($errors->has('email'))
                                             <span class="text-danger">{{ $errors->first('email') }}</span>
@@ -77,7 +77,7 @@ p {
                                         <div class="form-group">
                                             <label for="city-column">Seller Name</label>
                                             <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter Seller Name" value="{{$seller->name}}" name="name">
+                                                placeholder="Enter Seller Name" readonly value="{{$seller->name}}" name="name">
                                         </div>
                                         @if ($errors->has('name'))
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
@@ -87,7 +87,7 @@ p {
                                         <div class="form-group">
                                             <label for="country-floating"></label>
                                             <input type="text" id="country-floating" class="form-control"
-                                                name="phone_number" value="{{$seller->phone_number}}" placeholder="Phone Number">
+                                                name="phone_number" readonly value="{{$seller->phone_number}}" placeholder="Phone Number">
                                         </div>
                                         @if ($errors->has('phone_number'))
                                         <span class="text-danger">{{ $errors->first('phone_number') }}</span>
@@ -97,13 +97,13 @@ p {
                                         <div class="form-group">
                                             <label for="city-column">Post Code </label>
                                             <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter Post Code" value="{{$seller->post_code}}" name="post_code">
+                                                placeholder="Enter Post Code" readonly value="{{$seller->post_code}}" name="post_code">
                                         </div>
                                         @if ($errors->has('post_code'))
                                         <span class="text-danger">{{ $errors->first('post_code') }}</span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6 col-12">
+                                    {{-- <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="country-floating">Car Mile Age</label>
                                             <input type="text" id="country-floating" value="{{$seller->mile_age}}" class="form-control"
@@ -112,7 +112,7 @@ p {
                                         @if ($errors->has('mile_age'))
                                         <span class="text-danger">{{ $errors->first('mile_age') }}</span>
                                     @endif
-                                    </div>
+                                    </div> --}}
 
 
 
@@ -401,6 +401,45 @@ p {
                                 <span class="text-danger">{{ $errors->first('rear_seats') }}</span>
                             @endif
                             </div>
+
+                            <div class="col-md-6 mb-4">
+                                <h6>Passenger Back Door</h6>
+{{-- @dd($interior->passenger_back_door) --}}
+                                <div class="form-group">
+                                    <select class="form-select" name="passenger_back_door" id="basicSelect">
+                                        <option disabled selected>Select Passenger Back Doors </option>
+                                        <option value="Stained" @if(isset($interior->passenger_back_door) && $interior->passenger_back_door == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->passenger_back_door) && $interior->passenger_back_door == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->passenger_back_door) && $interior->passenger_back_door == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->passenger_back_door) && $interior->passenger_back_door == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->passenger_back_door) && $interior->passenger_back_door == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->passenger_back_door) && $interior->passenger_back_door == 'Bumt') selected @endif>Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('passenger_back_door'))
+                                <span class="text-danger">{{ $errors->first('passenger_back_door') }}</span>
+                            @endif
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <h6>Driver Back Door</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="driver_back_door" id="basicSelect">
+                                        <option disabled selected>Select Driver Back Doors </option>
+                                        <option value="Stained" @if(isset($interior->driver_back_door) && $interior->driver_back_door == 'Stained') selected @endif >Stained (ST)</option>
+                                        <option value="Torn/Ripped" @if(isset($interior->driver_back_door) && $interior->driver_back_door == 'Torn/Ripped') selected @endif >Torn / Ripped (T)</option>
+                                        <option value="Warn"  @if(isset($interior->driver_back_door) && $interior->driver_back_door == 'Warn') selected @endif >Warn (W)</option>
+                                        <option value="Dirty" @if(isset($interior->driver_back_door) && $interior->driver_back_door == 'Dirty') selected @endif>Dirty (D)</option>
+                                        <option value="Broken/Damage" @if(isset($interior->driver_back_door) && $interior->driver_back_door == 'Broken/Damage') selected @endif >Broken / Damage (BD)</option>
+                                        <option value="Bumt" @if(isset($interior->driver_back_door) && $interior->driver_back_door == 'Bumt') selected @endif>Bumt (B)</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('driver_back_door'))
+                                <span class="text-danger">{{ $errors->first('driver_back_door') }}</span>
+                            @endif
+                            </div>
+
                     </div>
                 </div>
             </div>
@@ -551,6 +590,24 @@ p {
                                 </div>
                                 @if ($errors->has('back'))
                                 <span class="text-danger">{{ $errors->first('back') }}</span>
+                            @endif
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <h6>wind screen</h6>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="windscreen" id="basicSelect">
+                                        <option disabled selected>Select wind screen </option>
+                                        <option value="Dent" @if(isset($exterior->windscreen) && $exterior->windscreen == 'Dent') selected @endif >Dent (D)</option>
+                                        <option value="Broken" @if(isset($exterior->windscreen) && $exterior->windscreen == 'Broken') selected @endif >Broken (B)</option>
+                                        <option value="Chips"  @if(isset($exterior->windscreen) && $exterior->windscreen == 'Chips') selected @endif >Chips (CH)</option>
+                                        <option value="Crack/Rust" @if(isset($exterior->windscreen) && $exterior->windscreen == 'Crack/Rust') selected @endif>Crack / Rust (CR)</option>
+                                        <option value="Scratch" @if(isset($exterior->windscreen) && $exterior->windscreen == 'Scratch') selected @endif >Scratch (S)</option>
+                                        <option value="Wheel Scuff" @if(isset($exterior->windscreen) && $exterior->windscreen == 'Wheel Scuff') selected @endif>Wheel Scuff (WS)</option></select>
+                                </div>
+                                @if ($errors->has('windscreen'))
+                                <span class="text-danger">{{ $errors->first('windscreen') }}</span>
                             @endif
                             </div>
                       
@@ -705,7 +762,8 @@ p {
                                         <div class="form-group">
                                             <label for="email-id-column">Location</label>
                                             <input type="text"  class="form-control"
-                                                name="location" value="{{$vehicleInformation->location}}" placeholder="Enter Your Location">
+                                                name="location" value="{{$vehicleInformation->location}}" id="search" placeholder="Enter Your Location">
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
                                         </div>
                                         @if ($errors->has('location'))
                                         <span class="text-danger">{{ $errors->first('location') }}</span>
@@ -771,6 +829,17 @@ p {
                                         @if ($errors->has('VehicleHistory'))
                                         <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
                                     @endif
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">House Name And Number</label>
+                                            <input type="text" class="form-control" name="HouseName"
+                                                placeholder="Enter Your House Name And Number" id="search" value="{{$vehicleInformation->additional_information }}">
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                        </div>
+                                        @if ($errors->has('HouseName'))
+                                            <span class="text-danger">{{ $errors->first('HouseName') }}</span>
+                                        @endif
                                     </div>
                                     {{-- <div class="col-md-6 col-12">
                                         <h6>Interior</h6>
@@ -1384,5 +1453,33 @@ $(document).on('change', '.commonCheck', function () {
 });
 
 $('#liveSell').prop('checked', true).trigger('change');
+$("#search").keyup( function() {
+
+$("#result").html('');
+
+let zip = $("#search").val();
+let removspace =  zip.replace(/\s/g, '');
+console.log(removspace)
+    let api = `https://maps.googleapis.com/maps/api/geocode/json?address=.'${removspace}'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk`;
+
+$.getJSON( api, function( results ) {
+    console.log(results,results.status,"cheking");
+    if(results?.results && results?.results.length !== 0){
+    $.each( results.results, function( key, value ) {
+        if( value.formatted_address ) 
+        {
+            $("#result").html(`<li class="list-group-item c">${value.formatted_address} </li>`)
+        }
+    } );
+} else {
+    $("#result").html(`<span class="list-group-item c">Not Found</span>`)
+}
+} );
+} );
+
+$("#result").on("click", "li", function() {
+$("#search").val($(this).text());
+$("#result").html('');
+})
 </script>
 @endsection
