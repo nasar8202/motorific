@@ -207,7 +207,7 @@
                                             <td>{{ $order->user->email }}</td>
                                             <td>{{ $order->request_price }}</td>
                                             @if ($order->status == 1)
-                                                <td><span class="btn btn-warning">Solded User</span>
+                                                <td><span class="btn btn-warning">Sold To This Dealer</span>
                                                     <button type="button" class="btn btn-outline-primary block "
                                                         data-bs-toggle="modal" data-bs-target="#default">
                                                         View Meeting

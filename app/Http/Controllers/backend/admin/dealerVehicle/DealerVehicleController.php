@@ -24,7 +24,7 @@ class DealerVehicleController extends Controller
 {
     public function viewDealerVehicle()
     {
-        $DealerVehicles = DealerVehicle::with('DealerVehicleExterior')->get();
+        $DealerVehicles = DealerVehicle::with('DealerVehicleExterior')->orderBy("id","DESC")->get();
         // dd($DealerVehicles);
         return view('backend.admin.dealersVehicle.viewDealerVehicle',compact('DealerVehicles'));
     }

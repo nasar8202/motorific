@@ -135,13 +135,13 @@ display: block;
                     @csrf
                     <div>
 
-                        <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                        <input type="email" placeholder="E-mail Address" required name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <input type="password" placeholder="password" name="password" class="@error('password') is-invalid @enderror" name="password" value="">
+                        <input type="password" placeholder="password" required name="password" class="@error('password') is-invalid @enderror" name="password" value="">
                         <input type="hidden" name="type" value="seller">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -374,6 +374,12 @@ display: block;
 @endsection
 @push('child-scripts')
     <script type="text/javascript">
+    $(document).ready(function() {
+        
+        $(document).on('submit', 'form', function() {
+            $('button').attr('disabled', 'disabled');
+        });
+    });
         function addSubscriber() {
             var subscriber_email = $("#subscriber_email").val();
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;

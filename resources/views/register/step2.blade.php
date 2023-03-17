@@ -52,3 +52,11 @@
     </div>
 </div>
 @endsection
+<script>
+    $(document).ready(function() {
+        alert(4)
+        $(document).on('submit', 'form', function() {
+            $('button').attr('disabled', 'disabled');
+        });
+    });
+    </script>

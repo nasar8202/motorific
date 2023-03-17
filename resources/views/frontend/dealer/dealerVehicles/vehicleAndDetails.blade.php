@@ -450,7 +450,8 @@
                 <div class="col-lg-6 col-md-8">
                     <div class="description-box graybox">
                         <div class="item-img">
-                            <img src="{{ URL::asset('frontend/dealers/assets/image/car1.png') }}" alt="">
+                            <img src="{{ URL::asset('frontend/dealers/assets/image/your-image-vehicle.png')}}" alt="">
+                            {{-- <img src="{{ URL::asset('frontend/dealers/assets/image/car1.png') }}" alt=""> --}}
                         </div>
                         <div>
                             <h3 class="item-descp f-18">
