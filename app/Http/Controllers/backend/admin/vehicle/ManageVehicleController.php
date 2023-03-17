@@ -137,7 +137,7 @@ class ManageVehicleController extends Controller
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
-            'HomeName' => 'required',
+            // 'HomeName' => 'required',
             // 'exterior_grade' => 'required',
             // 'scratches' => 'required',
             // 'dents' => 'required',

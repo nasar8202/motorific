@@ -159,8 +159,8 @@ display: block;
         <div class="row">
             <div class="sec-1-txt col-lg-6">
                 
-                <h4>Tagline 1: Drive Away With A Great Deal - Sell Your Car With Motorific</h4>
-                <h4>Tagline 2: Your Car Deserves The Best Price - Sell Your Car With Motorific</h4>
+                <h4> Drive Away With A Great Deal - Sell Your Car With Motorific</h4>
+                
                 <p>thousands verified dealers bid to give you the best price for your car. </p>
                 {{-- <h2>Sell your car
                     with <span>Motorific</span></h2>

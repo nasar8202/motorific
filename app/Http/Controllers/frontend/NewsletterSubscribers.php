@@ -41,7 +41,7 @@ class NewsletterSubscribers extends Controller
                 $job->save();
                 
                 return back()
-                ->with('success','File has been uploaded.');
+                ->with('success','You have applied successfully');
             }
 
        
