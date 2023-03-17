@@ -157,12 +157,13 @@
                 <h2>
                     Live Sell ends in 
                     <div id="timer">
-                        <!-- <div id="days"></div> -->
+                         <div id="days"></div> 
                         <div id="hours"></div>
-                        <!-- <div id="minutes"></div>
+                         <div id="minutes"></div>
                         <div id="seconds"></div> -->
                     </div>
                 </h2>
+                
 
          
                 <h4>Showing  {{ $countVehicle }} vehicles</h4>

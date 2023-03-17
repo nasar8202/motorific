@@ -456,3 +456,45 @@ $(document).ready(function () {
 
 
 
+// live sell begeins and ends 
+var countDownDate = new Date();
+countDownDate.setHours(15);
+countDownDate.setMinutes(0);
+countDownDate.setSeconds(0);
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  
+  
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 01)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  var countdownElement = document.getElementById("countdown");
+  countdownElement.innerHTML = "Live Sale <span>Begins</span> in: " + hours + "h " + minutes + "m " + seconds + "s ";
+  
+  if (distance < 0) { 
+    clearInterval(x);
+    countdownElement.innerHTML = "Live Sale Started!";
+    // Start new countdown from 3:00 PM to 8:00 PM
+    countDownDate.setHours(20); // 8 PM
+    countDownDate.setMinutes(0);
+    countDownDate.setSeconds(0);
+    x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = "Live Sale <span>Ends</span> in: " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        countdownElement.innerHTML = "Live Sale <span>Ended</span> !";
+      }
+    }, 1000);
+  }
+}, 1000);
+// live sell begeins and ends 
