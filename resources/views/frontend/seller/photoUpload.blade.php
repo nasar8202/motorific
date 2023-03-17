@@ -164,7 +164,7 @@ display: block;
 
             <div class="personal-info-main" id="myDIV3">
                 <div class="personal-info-heading">
-                    <h3>Personal Information</h3>
+                    <h3>Personal Information </h3>
                     <p>Here’s the contact information you’ve given us. Please make sure it’s correct so we can keep you up to date.</p>
                 </div>
 
@@ -2441,9 +2441,16 @@ display: block;
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
                                                 <span><p>Enter postcode </p></span>
+                                           
                                                 <input type="search" name="location" id="search" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                                <br>
+                                                <span><p>House Name And Number </p></span>
+                                                
+                                                <input type="search" name="houseName"  class="HouseName"  value="@if(session()->get('HouseName')) {{session()->get('HouseName')}} @endif" id="search-loc" placeholder="Enter House Name And Location"/>
+                                           
                                             </label>
-                                            <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                            
                                         </div>
                                     </div>
                                     @if ($errors->has('location'))
@@ -2544,6 +2551,17 @@ display: block;
                                             						<span>Vehicle location</span>
                                             					</td>
                                             						<td id="VehicleLocationFinal">–</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="VehicleLocation">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                                            <tr class="SectionTable__noValue SectionTable__withLink">
+                                            					<td>
+                                            						<span>Home Name And Number</span>
+                                            					</td>
+                                            						<td id="HomeName">–</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="VehicleLocation">
                                             							<i class="fa fa-pencil"></i>
@@ -2962,6 +2980,7 @@ $("#store").click(function(){
     var smoking = $(".smoking:checked").val();
     var logBook = $(".logBook:checked").val();
     var location = $(".location").val();
+    var HouseName = $(".HouseName").val();
     var vehicleOwner = $(".vehicleOwner:checked").val();
     var privatePlate = $(".privatePlate:checked").val();
     var finance = $(".finance:checked").val();
@@ -2993,7 +3012,7 @@ $("#store").click(function(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {the_value:the_value,seatMaterial:seatMaterial,numberOfKeys:numberOfKeys,
-                toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,
+                toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,HouseName:HouseName,
                 vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance,VehicleHistory:VehicleHistory,categ:categ
             },
 
@@ -3009,6 +3028,7 @@ $("#store").click(function(){
                 var Smokings = response.Smokings;
                 var VCLogBooks = response.VCLogBooks;
                 var VehicleLocation = response.VehicleLocation;
+                var HouseName = response.HouseName;
                 var VehicleOwners = response.VehicleOwners;
                 var PrivatePlates = response.PrivatePlates;
                 var Finances = response.Finances;
@@ -3040,6 +3060,9 @@ $("#store").click(function(){
 
                 $("#VehicleLocationFinal").html('');
                 $("#VehicleLocationFinal").html(VehicleLocation);
+
+                $("#HomeName").html('');
+                $("#HomeName").html(HouseName);
 
                 $("#VehicleOwnerFinal").html('');
                 $("#VehicleOwnerFinal").html(VehicleOwners.title);

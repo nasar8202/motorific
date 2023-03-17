@@ -641,7 +641,8 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Location</label>
                                             <input type="text"  class="form-control"
-                                                name="location" placeholder="Enter Your Location">
+                                                name="location" id="search" placeholder="Enter Your Location">
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
                                         </div>
                                         @if ($errors->has('location'))
                                         <span class="text-danger">{{ $errors->first('location') }}</span>
@@ -1131,5 +1132,33 @@ function readURL(input) {
     $('.sellerinfo').show();
   });
 });
+$("#search").keyup( function() {
+
+$("#result").html('');
+
+let zip = $("#search").val();
+let removspace =  zip.replace(/\s/g, '');
+console.log(removspace)
+    let api = `https://maps.googleapis.com/maps/api/geocode/json?address=.'${removspace}'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk`;
+
+$.getJSON( api, function( results ) {
+    console.log(results,results.status,"cheking");
+    if(results?.results && results?.results.length !== 0){
+    $.each( results.results, function( key, value ) {
+        if( value.formatted_address ) 
+        {
+            $("#result").html(`<li class="list-group-item c">${value.formatted_address} </li>`)
+        }
+    } );
+} else {
+    $("#result").html(`<span class="list-group-item c">Not Found</span>`)
+}
+} );
+} );
+
+$("#result").on("click", "li", function() {
+$("#search").val($(this).text());
+$("#result").html('');
+})
 </script>
 @endsection

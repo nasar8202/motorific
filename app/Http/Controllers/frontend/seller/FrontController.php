@@ -223,6 +223,7 @@ class FrontController extends Controller
         $request->session()->put('smoked_in',$request->smoking);
         $request->session()->put('log_book',$request->logBook);
         $request->session()->put('location',$request->location);
+        $request->session()->put('HouseName',$request->HouseName);
         $request->session()->put('vehicle_owner',$request->vehicleOwner);
         $request->session()->put('private_plate',$request->privatePlate);
         $request->session()->put('finance',$request->finance);
@@ -240,6 +241,7 @@ class FrontController extends Controller
         $Smokings =  Smoking::where('id',session()->get('smoked_in'))->first();
         $VCLogBooks =  VCLogBook::where('id',session()->get('log_book'))->first();
         $VehicleLocation = session()->get('location');
+        $HouseName = session()->get('HouseName');
         $VehicleOwners =  VehicleOwner::where('id',session()->get('vehicle_owner'))->first();
         $PrivatePlates =  PrivatePlate::where('id',session()->get('private_plate'))->first();
         $Finances =  Finance::where('id',session()->get('finance'))->first();
@@ -250,7 +252,7 @@ class FrontController extends Controller
 
         return ['VehicleFeature'=>$VehicleFeature,'SeatMaterials'=>$SeatMaterials,'NumberOfKeys'=>$numberOfKeys,
         'ToolPack'=>$ToolPack,'LockingWheelNut'=>$LockingWheelNut,'Smokings'=>$Smokings,'VCLogBooks'=>$VCLogBooks,
-        'VehicleLocation'=>$VehicleLocation,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances,'vehicleCategories'=>$vehicleCategories
+        'VehicleLocation'=>$VehicleLocation,'HouseName'=>$HouseName,'VehicleOwners'=>$VehicleOwners,'PrivatePlates'=>$PrivatePlates,'Finances'=>$Finances,'vehicleCategories'=>$vehicleCategories
         ,'VehicleHistory'=>$VehicleHistory];
     //  $request->session()->get('seat_material');
 
@@ -330,6 +332,7 @@ class FrontController extends Controller
             'smoked_in' => 'required',
             'log_book' => 'required',
             'location' => 'required|max:256',
+            'houseName' => 'required|max:256',
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
@@ -452,7 +455,7 @@ class FrontController extends Controller
             // $vehicleInformation->last_mot_date =  $request->mot_date;
             // $vehicleInformation->previous_owners =  $request->previous_owner;
             // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
-            // $vehicleInformation->additional_information =  $request->additional;
+            $vehicleInformation->additional_information =  $request->houseName;
 
             $vehicleInformation->save();
 

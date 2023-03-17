@@ -57,7 +57,7 @@ p {
                                         <div class="form-group">
                                             <label for="first-name-column">User Email</label>
                                             <input type="email" id="first-name-column" class="form-control"
-                                                placeholder="Registartion Number" value="{{$seller->email}}" name="email">
+                                                placeholder="Registartion Number" readonly value="{{$seller->email}}" name="email">
                                         </div>
                                         @if ($errors->has('email'))
                                             <span class="text-danger">{{ $errors->first('email') }}</span>
@@ -77,7 +77,7 @@ p {
                                         <div class="form-group">
                                             <label for="city-column">Seller Name</label>
                                             <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter Seller Name" value="{{$seller->name}}" name="name">
+                                                placeholder="Enter Seller Name" readonly value="{{$seller->name}}" name="name">
                                         </div>
                                         @if ($errors->has('name'))
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
@@ -87,7 +87,7 @@ p {
                                         <div class="form-group">
                                             <label for="country-floating"></label>
                                             <input type="text" id="country-floating" class="form-control"
-                                                name="phone_number" value="{{$seller->phone_number}}" placeholder="Phone Number">
+                                                name="phone_number" readonly value="{{$seller->phone_number}}" placeholder="Phone Number">
                                         </div>
                                         @if ($errors->has('phone_number'))
                                         <span class="text-danger">{{ $errors->first('phone_number') }}</span>
@@ -97,13 +97,13 @@ p {
                                         <div class="form-group">
                                             <label for="city-column">Post Code </label>
                                             <input type="text" id="city-column" class="form-control"
-                                                placeholder="Enter Post Code" value="{{$seller->post_code}}" name="post_code">
+                                                placeholder="Enter Post Code" readonly value="{{$seller->post_code}}" name="post_code">
                                         </div>
                                         @if ($errors->has('post_code'))
                                         <span class="text-danger">{{ $errors->first('post_code') }}</span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6 col-12">
+                                    {{-- <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="country-floating">Car Mile Age</label>
                                             <input type="text" id="country-floating" value="{{$seller->mile_age}}" class="form-control"
@@ -112,7 +112,7 @@ p {
                                         @if ($errors->has('mile_age'))
                                         <span class="text-danger">{{ $errors->first('mile_age') }}</span>
                                     @endif
-                                    </div>
+                                    </div> --}}
 
 
 
@@ -705,7 +705,8 @@ p {
                                         <div class="form-group">
                                             <label for="email-id-column">Location</label>
                                             <input type="text"  class="form-control"
-                                                name="location" value="{{$vehicleInformation->location}}" placeholder="Enter Your Location">
+                                                name="location" value="{{$vehicleInformation->location}}" id="search" placeholder="Enter Your Location">
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
                                         </div>
                                         @if ($errors->has('location'))
                                         <span class="text-danger">{{ $errors->first('location') }}</span>
@@ -1384,5 +1385,33 @@ $(document).on('change', '.commonCheck', function () {
 });
 
 $('#liveSell').prop('checked', true).trigger('change');
+$("#search").keyup( function() {
+
+$("#result").html('');
+
+let zip = $("#search").val();
+let removspace =  zip.replace(/\s/g, '');
+console.log(removspace)
+    let api = `https://maps.googleapis.com/maps/api/geocode/json?address=.'${removspace}'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk`;
+
+$.getJSON( api, function( results ) {
+    console.log(results,results.status,"cheking");
+    if(results?.results && results?.results.length !== 0){
+    $.each( results.results, function( key, value ) {
+        if( value.formatted_address ) 
+        {
+            $("#result").html(`<li class="list-group-item c">${value.formatted_address} </li>`)
+        }
+    } );
+} else {
+    $("#result").html(`<span class="list-group-item c">Not Found</span>`)
+}
+} );
+} );
+
+$("#result").on("click", "li", function() {
+$("#search").val($(this).text());
+$("#result").html('');
+})
 </script>
 @endsection
