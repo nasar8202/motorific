@@ -250,6 +250,15 @@
             
         </ul>
     </li>
+    <li class="   {{ (Request::is('admin') ||  request()->IS('/admin/getCvs') ? 'active' : '') }} ">
+        
+        <a href="{{route('getCvs')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Job Request</span>
+            
+            
+        </a>
+    </li>
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>
             <div class="icon dripicons-exit"></div>
