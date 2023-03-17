@@ -2601,7 +2601,7 @@ display: block;
                 <div class="col-lg-6 col-md-6">
                     <div class="sec-7-box">
                         <h4>What are you waiting for?</h4>
-                        <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                        <p>Bid to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
                         <input class="mb-3" type="text" placeholder="Enter REG">
                         <button>Value Your Car</button>
                     </div>

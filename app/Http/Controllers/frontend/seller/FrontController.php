@@ -816,7 +816,7 @@ class FrontController extends Controller
         // $details = [
         //     'greeting' => 'Hi ' . $user->name,
         //     'body' => 'Your Request Has Been Approved',
-        //     'thanks' => 'Thank you for using Motorfic.com ',
+        //     'thanks' => 'Thank you for using motorific.co.uk',
         //     'actionText' => 'Login',
         //     'actionURL' => url('/register-step-1'),
         //     'order_id' => 101

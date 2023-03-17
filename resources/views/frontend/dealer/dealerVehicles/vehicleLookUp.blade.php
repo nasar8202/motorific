@@ -66,7 +66,7 @@
                 {{-- <div class="col-lg-6 col-md-8">
                     <div class="newsletter-box">
                         <h4>What are you waiting for?</h4>
-                        <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                        <p>Bid to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
                         <input class="inp-qa f-20" type="text" name="registeration" id="registeration" placeholder="Enter REG" >
 
                         <button type="button" class="btn-mts f-25">
