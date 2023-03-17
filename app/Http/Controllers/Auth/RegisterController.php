@@ -189,7 +189,7 @@ class RegisterController extends Controller
                     'registration_number' => $request->registeration??"No Registration",
                     'mile_age' => $request->millage??"No Mileage",
 
-                    'thanks' => 'Thank you for using Motorfic.com ',
+                    'thanks' => 'Thank you for using motorific.co.uk ',
                     'actionText' => 'Login',
                     'actionURL' => url('/dealer-login'),
                     'order_id' => 101
@@ -204,7 +204,7 @@ class RegisterController extends Controller
                     'phone_number' => $user->phone_number,
                     'registration_number' => $request->registeration??"No Registration",
                     'mile_age' => $request->millage??"No Mileage",
-                    'thanks' => 'Thank you for using Motorfic.com ',
+                    'thanks' => 'Thank you for using motorific.co.uk ',
                     'actionText' => 'Login',
                     'actionURL' => url('/dealer-login'),
                     'order_id' => 101

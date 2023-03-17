@@ -434,7 +434,13 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
 // end admin panel routes
 // start seller panel routes
+Route::get('/approve-by-seller-vehicle/{id}/{user_id}', [SellerDashboardController::class,'approveBySellerVehicle'])->name('approveBySellerVehicle');
+Route::get('/reject-by-seller-vehicle/{id}/{user_id}', [SellerDashboardController::class,'rejectBySellerVehicle'])->name('rejectBySellerVehicle');
+
 Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function () {
+    // Route::get('/approve-by-seller-vehicle/{id}', [SellerDashboardController::class,'approveBySellerVehicle'])->name('approveBySellerVehicle');
+    // Route::get('/reject-by-seller-vehicle/{id}', [SellerDashboardController::class,'rejectBySellerVehicle'])->name('rejectBySellerVehicle');
+    
     Route::get('/thankyou', [SellerDashboardController::class,'thankyou'])->name('thankyou');
 Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
 Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehicles'])->name('acceptedVehicles');

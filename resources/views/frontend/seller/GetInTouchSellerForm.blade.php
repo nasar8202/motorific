@@ -187,7 +187,7 @@ display: block;
                     <div class="col-lg-6 col-md-6">
                         <div class="sec-7-box">
                             <h4>What are you waiting for?</h4>
-                            <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                            <p>Bid to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
                             <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
 
                                 <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>

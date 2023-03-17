@@ -19,7 +19,7 @@
             <div class="advert-details-form step1 show">
                 <form action="{{ route('dealer.mediaConditionPost') }}" method="POST">
                     @csrf
-                    <h2 class="headingqa-2 f-40">Adverasdt details</h2>
+                    <h2 class="headingqa-2 f-40">Advertise details</h2>
                     <div class="details-field-main">
                         <p class="label-main-text f-20"> Listing type </p>
                         <div>
@@ -133,7 +133,9 @@
         <div class="col-lg-6 col-md-8">
             <div class="description-box graybox">
                 <div class="item-img">
-                    <img src="{{ URL::asset('frontend/dealers/assets/image/car1.png')}}" alt="">
+                    <img src="{{ URL::asset('frontend/dealers/assets/image/your-image-vehicle.png')}}" alt="">
+                    
+                    {{-- <img src="{{ URL::asset('frontend/dealers/assets/image/car1.png')}}" alt=""> --}}
                 </div>
                 <div>
                     <h3 class="item-descp f-18">

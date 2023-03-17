@@ -480,7 +480,28 @@ section.sec-2.productPageTn span.alert.alert-success {
 .thnk-content p {
     font-size: 14px;
 }
+.cookies-modal .modal-content {
+    padding-bottom: 20px;
+}
 
+.cookies-modal .modal-dialog.modal-dialog-centered {
+    max-width: 495px;
+}
+
+.cokies-content img {
+    max-width: 190px;
+}
+
+.cokies-content p {
+    font-size: 18px;
+}
+
+.cokies-content button {
+    font-size: 13px;
+}
+.reg-form-heading h3 {
+    font-size: 40px;
+}
 
 
 }
@@ -875,7 +896,17 @@ section.photo-up-sec-2 {
 .thnk-content a {
     font-size: 15px;
 }
+/*carrermodal*/
+.careerFormModal .form-control:not([type="file"]) {
+    padding: 9px;
+    margin-bottom: 16px;
+    font-size: 15px;
+}
 
+.careerFormModal .modal-content .btn-submit {
+    font-size: 14px;
+}
+/*carrermodal*/
 
 }
 
@@ -1338,6 +1369,77 @@ section.thanks {
 }
 .contact-form .form-group textarea {
     margin-bottom: 15px;
+}
+
+/*End*/
+
+/*Career Page*/
+.career-sec {
+    padding: 100px 0 40px;
+}
+
+.tag {
+    font-weight: 600;
+    border: 0.104vw solid #05eab5;
+    padding: 4px 20px;
+    font-size: 12px;
+}
+
+.career-top-content h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.career-top-content p {
+    font-size: 12px;
+    max-width: 80%;
+}
+
+.tags-wraper li a {
+    font-size: 11px;
+    padding: 3px 15px;
+}
+
+.tags-wraper li:not(:last-child) {
+    margin-right: 8px;
+}
+
+.tags-wraper {
+    padding: 10px 0 20px;
+}
+
+.jobs-box {
+    padding: 12px 0 6px;
+}
+
+.job-content h2 {
+    font-size: 18px;
+}
+
+.job-content p {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.job-times li p {
+    font-size: 11px;
+    padding: 3px 15px;
+}
+
+.jobs-box .job-btn {
+    font-size: 12px;
+}
+/*carrermodal*/
+.careerFormModal .modal-content {
+    padding: 30px 25px;
+}
+/*carrermodal*/
+.registration-form {
+    padding: 100px 0px;
+}
+
+.reg-form-heading h3 {
+    font-size: 40px;
 }
 
 /*End*/
@@ -1900,6 +2002,10 @@ section.thanks {
     padding: 4px 10px !important;
 }
 
+.career-sec {
+    padding-top: 120px;
+}
+
 }
 
 @media (max-width: 575px) {
@@ -2021,6 +2127,87 @@ section.sec-2.productPageTn .vec-box {
 
 .sell-car-sec {
     padding-bottom: 30px;
+}
+.career-top-content p {
+    max-width: 100%;
+}
+
+.tags-wraper li:not(:last-child) {
+    margin-right: 4px;
+}
+/*carrermodal */
+.careerFormModal .modal-content {
+    padding: 20px 10px;
+}
+
+.careerFormModal .modal-title {
+    font-size: 21px;
+}
+
+.careerFormModal .modal-header {
+    padding-bottom: 10px;
+}
+
+.careerFormModal .form-control:not([type="file"]) {
+    padding: 10px;
+    font-size: 13px;
+    margin-bottom: 11px;
+}
+
+.careerFormModal textarea.form-control {
+    min-height: 120px;
+}
+
+.careerFormModal .form-control[type="file"] {
+    font-size: 12px;
+}
+
+.careerFormModal .modal-content .btn-submit {
+    font-size: 13px;
+    padding: 6px 25px;
+}
+/*carrermodal */
+.cookies-modal .modal-dialog.modal-dialog-centered {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.cokies-content img {
+    max-width: 150px;
+}
+
+.cokies-content p {
+    font-size: 15px;
+    margin: 20px auto 10px;
+}
+
+.cookies-modal .modal-header {
+    padding-bottom: 0;
+}
+
+.cookies-btn {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cookies-modal .modal-content {
+    padding-bottom: 10px;
+}
+.registration-form {
+    padding: 50px 0px;
+}
+
+.reg-form-heading h3 {
+    font-size: 23px;
+}
+
+.registration-form .form-main form div input, .registration-form .form-main form div button {
+    width: 93%;
+    max-width: 280px;
+}
+
+.registration-form .form-main.text-center div {
+    margin: 0;
 }
 
 

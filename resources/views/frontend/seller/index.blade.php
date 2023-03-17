@@ -150,6 +150,8 @@
             </div>
         </div>
     </header>
+    
+    
 
     <!-- SECTION-1 -->
 
@@ -195,8 +197,37 @@
             </ol>
         </div>
     </section>
+    
     <!--<section class="" id="vehicle_registration_details"></section>-->
+    
+    <!---->
+    <!-- Career Modal Form -->
+<div class="modal fade cookies-modal" id="cokies" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="cokies-content">
+            <img src="{{ URL::asset('frontend/seller/assets/image/cooky.png') }}" alt="">
+            
+            <p>We use cookies to improve your website expereince</p>
+            <div class="cookies-btn">
+                <button type="button">Accept All cookies</button>
+                <button type="button">Customize Settings</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!---->
     <!-- SECTION-2 -->
+    
+    
 
     <section class="sec-2">
         <div class="container-1151">
@@ -490,7 +521,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="sec-7-box">
                             <h4>What are you waiting for?</h4>
-                            <p>Bid adieu to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                            <p>Bid to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
                             <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
 
                                 <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -651,3 +682,5 @@
         });
     </script>
 @endpush
+
+
