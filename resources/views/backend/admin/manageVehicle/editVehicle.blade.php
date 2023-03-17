@@ -773,6 +773,17 @@ p {
                                         <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
                                     @endif
                                     </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">House Name And Number</label>
+                                            <input type="text" class="form-control" name="HouseName"
+                                                placeholder="Enter Your House Name And Number" id="search" value="{{$vehicleInformation->additional_information }}">
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                        </div>
+                                        @if ($errors->has('HouseName'))
+                                            <span class="text-danger">{{ $errors->first('HouseName') }}</span>
+                                        @endif
+                                    </div>
                                     {{-- <div class="col-md-6 col-12">
                                         <h6>Interior</h6>
                                         <div class="form-group">
