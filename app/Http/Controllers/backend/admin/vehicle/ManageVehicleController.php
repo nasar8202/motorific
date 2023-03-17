@@ -137,6 +137,7 @@ class ManageVehicleController extends Controller
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
+            'HomeName' => 'required',
             // 'exterior_grade' => 'required',
             // 'scratches' => 'required',
             // 'dents' => 'required',
@@ -241,7 +242,7 @@ class ManageVehicleController extends Controller
                 // $vehicleInformation->last_mot_date =  $request->mot_date;
                 // $vehicleInformation->previous_owners =  $request->previous_owner;
                 // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
-                // $vehicleInformation->additional_information =  $request->additional;
+                $vehicleInformation->additional_information =  $request->HomeName;
 
                 $vehicleInformation->save();
 
@@ -562,7 +563,7 @@ class ManageVehicleController extends Controller
             // $vehicleInformation->last_mot_date =  $request->mot_date;
             // $vehicleInformation->previous_owners =  $request->previous_owner;
             // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
-            // $vehicleInformation->additional_information =  $request->additional;
+            $vehicleInformation->additional_information =  $request->HouseName;
 
             $vehicleInformation->save();
 
