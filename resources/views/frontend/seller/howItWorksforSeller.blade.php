@@ -161,7 +161,7 @@ display: block;
                 
                 <h4>Tagline 1: Drive Away With A Great Deal - Sell Your Car With Motorific</h4>
                 <h4>Tagline 2: Your Car Deserves The Best Price - Sell Your Car With Motorific</h4>
-                <p>5000+ verified dealers bid to give you the best price for your car. </p>
+                <p>thousands verified dealers bid to give you the best price for your car. </p>
                 {{-- <h2>Sell your car
                     with <span>Motorific</span></h2>
                 <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p> --}}
@@ -231,11 +231,11 @@ display: block;
         </div>
         <h3 class="overview-section__heading">
         2.
-      	5000+ Verified Dealers Make Offers: 
+      	thousands Verified Dealers Make Offers: 
         
         </h3>
         <p class="overview-section__content">
-            5000+ verified dealers make attractive offers on your listing. We connect you with the one offering the highest price. 
+            thousands verified dealers make attractive offers on your listing. We connect you with the one offering the highest price. 
         </p>
         </div>
         <div class="overview-section">
@@ -361,10 +361,10 @@ display: block;
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
         <h4 class="car-selling__benefits-list-item-title">
-            5000+ verified dealers
+            thousands verified dealers
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-            Motorific is accompanied by 5000+ dealers. You don’t need to spend time hunting for the best prices. 
+            Motorific is accompanied by thousands dealers. You don’t need to spend time hunting for the best prices. 
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
@@ -396,7 +396,7 @@ display: block;
             One-Stop-Shop For Buying & Selling Cars
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-            We are your one stop shop for buying and selling used cars. Over 10000 car owners make listings here daily. 
+            We are your one stop shop for selling your used cars. Over hundreds of car owners make listing here daily hassle free.
         </p>
         </li>
         </ul>
@@ -416,6 +416,9 @@ display: block;
         <p class="car-selling__benefits-list-item-desc">
             We charge nothing to car owners. You list your car & get paid in full.  
         </p>
+        <p class="car-selling__benefits-list-item-desc">
+            we get our finders fees from dealers.
+        </p>
         </li>
         
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
@@ -423,7 +426,7 @@ display: block;
             Convenient:
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-            Being home to 5000+ verified dealers, it’s never more easy to sell your car online.
+            Being home to thousands verified dealers, it’s never more easy to sell your car online.
         </p>
         </li>
         <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
@@ -431,7 +434,7 @@ display: block;
             Trusted:
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-            Over 250,000+ people have sold their used cars with Motorific. We enjoy 5-star ratings on TrustPilot. 
+            Over thousands people have sold their used cars with Motorific. We enjoy 5-star ratings on TrustPilot. 
         </p>
         </li>
         </ul>

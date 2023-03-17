@@ -313,7 +313,7 @@ class FrontController extends Controller
 
     public function createVehicle(Request $request)
     {
-        // dd($request->all());
+        //  dd($request->all());
         $request->validate([
             // 'RegisterationNumber' => 'required',
             // 'VehicleName' => 'required',
@@ -396,6 +396,8 @@ class FrontController extends Controller
             $interior_detail->floor = $request->floor;
             $interior_detail->ceiling = $request->ceiling;
             $interior_detail->boot = $request->boot;
+            $interior_detail->passenger_back_door = $request->passenger_back_door;
+            $interior_detail->driver_back_door = $request->driver_back_door;
             $interior_detail->rear_windscreen = $request->rear_windscreen;
             $interior_detail->passenger_seat = $request->passenger_seat;
             $interior_detail->driver_seat = $request->driver_seat;
@@ -408,6 +410,7 @@ class FrontController extends Controller
             $exterior_detail->front_door_right = $request->front_door_right;
             $exterior_detail->back_door_right = $request->back_door_right;
             $exterior_detail->top = $request->top;
+            $exterior_detail->windscreen = $request->windscreen;
             $exterior_detail->bonut = $request->bonut;
             $exterior_detail->front = $request->front;
             $exterior_detail->back = $request->back;

@@ -26,8 +26,6 @@
 
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4758N"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-</head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T31HYRPFV9"></script>
 <script>
@@ -37,6 +35,8 @@
 
   gtag('config', 'G-T31HYRPFV9');
 </script>
+</head>
+
 <body onload="move()" id="contentBody">
     <div id="myProgress">
         <div class="loader-img">
@@ -73,7 +73,7 @@
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" >
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" > </script>
 <script>
      @if(Session::has('success'))
         toastr.options =

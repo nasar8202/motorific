@@ -109,6 +109,7 @@ class ManageVehicleController extends Controller
     }
     public function StoreVehicleByAdmin(Request $request)
     {
+        //  dd($request->all());
         $request->validate([
             'name' => 'required|max:50|string|regex:/[a-zA-Z]+$/u',
             'email' => 'required|string|email|max:50|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
@@ -256,6 +257,8 @@ class ManageVehicleController extends Controller
                 $interior_detail->passenger_seat = $request->passenger_seat;
                 $interior_detail->driver_seat = $request->driver_seat;
                 $interior_detail->rear_seats = $request->rear_seats;
+                $interior_detail->passenger_back_door = $request->passenger_back_door;
+                $interior_detail->driver_back_door = $request->driver_back_door;
                 $interior_detail->save();
                 $exterior_detail = new VehicleExterior;
                 $exterior_detail->vehicle_id = $vehicle->id;
@@ -267,6 +270,7 @@ class ManageVehicleController extends Controller
                 $exterior_detail->bonut = $request->bonut;
                 $exterior_detail->front = $request->front;
                 $exterior_detail->back = $request->back;
+                $exterior_detail->windscreen = $request->windscreen;
                 $exterior_detail->save();
 
                 $front = time() . '_' . $request->file('image1')->getClientOriginalName();
@@ -302,6 +306,9 @@ class ManageVehicleController extends Controller
                   ]);
             
                   Mail::to($seller->email)->send(new NewSellerVehicleByAdmin($data));
+                  DB::commit();
+
+        return redirect()->route('createVehicleForm')->with('success', 'Vehicle added  Successfully!');
             } else {
                 return back()->with('error', 'Enter The Right Post Code');
             }
@@ -313,9 +320,7 @@ class ManageVehicleController extends Controller
                 ->with('error', $e->getMessage())
                 ->withInput();
         }
-        DB::commit();
-
-        return redirect()->route('createVehicleForm')->with('success', 'Vehicle added  Successfully!');
+        
     }
     public function viewVehicle()
     {
@@ -396,7 +401,7 @@ class ManageVehicleController extends Controller
         $damages = vehicleConditionAndDamage::where('vehicle_id', $id)->first();
         $exterior = VehicleExterior::where('vehicle_id', $id)->first();
         $interior = VehicleInterior::where('vehicle_id', $id)->first();
-
+//  dd($interior,$exterior);
         $vehicleCategories = vehicleCategories::all();
         $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
         $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
@@ -414,7 +419,7 @@ class ManageVehicleController extends Controller
     }
     public function updateVehicle(Request $request, $id)
     {
-        // dd($request->all());
+        //  dd($request->all());
 
         $request->validate([
             'register_number' => 'required',
@@ -587,6 +592,8 @@ class ManageVehicleController extends Controller
             $interior_detail->passenger_seat = $request->passenger_seat;
             $interior_detail->driver_seat = $request->driver_seat;
             $interior_detail->rear_seats = $request->rear_seats;
+            $interior_detail->passenger_back_door = $request->passenger_back_door;
+            $interior_detail->driver_back_door = $request->driver_back_door;
             $interior_detail->save();
             $exterior_detail = VehicleExterior::where('vehicle_id', $id)->first();
             $exterior_detail->vehicle_id = $vehicle->id;
@@ -597,6 +604,7 @@ class ManageVehicleController extends Controller
             $exterior_detail->top = $request->top;
             $exterior_detail->bonut = $request->bonut;
             $exterior_detail->front = $request->front;
+            $exterior_detail->windscreen = $request->windscreen;
             $exterior_detail->back = $request->back;
             $exterior_detail->save();
 

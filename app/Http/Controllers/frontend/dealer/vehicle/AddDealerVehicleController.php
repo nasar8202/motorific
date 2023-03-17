@@ -146,7 +146,7 @@ class AddDealerVehicleController extends Controller
 
     public function vehicleAndDetailsPost(Request $request)
     {
-        // dd($request->all());
+        //  dd($request->all());
         $request->validate([
             'image_1' => 'required',
             'interior_image_1' => 'required',
@@ -317,6 +317,8 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             $dealer_interior_detail->passenger_seat = $request->passenger_seat;
             $dealer_interior_detail->driver_seat = $request->driver_seat;
             $dealer_interior_detail->rear_seats = $request->rear_seats;
+            $dealer_interior_detail->passenger_back_door = $request->passenger_back_door;
+            $dealer_interior_detail->driver_back_door = $request->driver_back_door;
             $dealer_interior_detail->save();
 
             
@@ -330,6 +332,7 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             $dealer_exterior_detail->bonut = $request->bonut;
             $dealer_exterior_detail->front = $request->front;
             $dealer_exterior_detail->back = $request->back;
+            $dealer_exterior_detail->windscreen = $request->windscreen;
             $dealer_exterior_detail->save();
         }
 

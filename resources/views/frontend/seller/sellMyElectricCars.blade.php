@@ -160,7 +160,7 @@
                     <h2>Sell My Electric Car</h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Connect with 5000+ verified dealers in London and across the UK and sell your electric car for the highest price. 
+                    <p>Connect with thousands verified dealers in London and across the UK and sell your electric car for the highest price. 
                     </p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
@@ -226,7 +226,7 @@
                         </div>
                     </div>
                     <h4>Motorific Alerts Dealers:</h4>
-                    <p>As soon as you finish profiling your car, our automated system alerts 5000+ verified dealers to get the job done. </p>
+                    <p>As soon as you finish profiling your car, our automated system alerts thousands verified dealers to get the job done. </p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -268,11 +268,11 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-3-txt col-lg-6">
-                    <h4>Motorific Is Home To 5000+ Verified Dealers 
+                    <h4>Motorific Is Home To thousands Verified Dealers 
                     </h4>
                     <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
                     <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
-                    <p>Motorific brings 5000+ verified dealers on board who compete to give you the highest price for your electric car. Motorific is a fast, efficient, trusted, and advanced way of selling your electric car. 
+                    <p>Motorific brings thousands verified dealers on board who compete to give you the highest price for your electric car. Motorific is a fast, efficient, trusted, and advanced way of selling your electric car. 
                     </p>
                     <p>250,000+ Car Owners Have Got The Best Prices For Used Vehicles. You Can Get It, too!
                     </p>
@@ -296,7 +296,7 @@
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
                         <h4>Your Car. Your Price - with Motorific</h4>
-                        <p>Motorific brings transparency so that you get the highest bid for your car. With over 5000+ dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
+                        <p>Motorific brings transparency so that you get the highest bid for your car. With over thousands dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
                         <div class="sec-1-txt">
                             <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
                                     CAR</button></a>
@@ -317,7 +317,7 @@
                                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img2.png') }}" alt="">
                                 <!--<h4>Get your highest price</h4>-->
                                 <h4>Get Maximum Value for Electric Car</h4>
-                                <p>Soon after you post an ad, 5000+ verified dealers start making attracting bids. We connect you with the one who is willing to pay the most. </p>
+                                <p>Soon after you post an ad, thousands verified dealers start making attracting bids. We connect you with the one who is willing to pay the most. </p>
                             </div>
                         </div>
 
@@ -391,7 +391,7 @@
                 <!--        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by-->
                 <!--    5,000+ Users</p>-->
                 <p>Rated  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 35000+ Customers </p>
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 3thousands Customers </p>
             </div>
             <div class="sec-6-boxes d-flex">
                 <div class="sec-6-main-box col-lg-4 col-md-6">
@@ -437,7 +437,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="sec-7-box">
                             <h4>What are you waiting for?</h4>
-                            <p>Bid to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                            <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
                             <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
 
                                 <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>

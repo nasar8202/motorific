@@ -772,37 +772,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Stained" hidden="">
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Torn/Ripped" hidden="">
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Warn" hidden="">
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Dirty" hidden="">
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Broken/Damage" hidden="">
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Burnt" hidden="">
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -823,37 +823,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Stained" hidden="">
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Torn/Ripped" hidden="">
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Warn" hidden="">
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Dirty" hidden="">
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Broken/Damage" hidden="">
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Burnt" hidden="">
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -1625,37 +1625,37 @@ display: block;
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="back" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="windscreen" value="Dent" class="step-list-check" hidden>
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Broken" class="step-list-check" hidden>
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Chips" class="step-list-check" hidden>
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Crack/Rust" class="step-list-check" hidden>
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Scratch" class="step-list-check" hidden>
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Wheel Scuff" class="step-list-check" hidden>
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -2772,7 +2772,7 @@ display: block;
                 <div class="col-lg-6 col-md-6">
                     <div class="sec-7-box">
                         <h4>What are you waiting for?</h4>
-                        <p>Bid to traditional used car selling methods and join strong community of 200,000 + happy customers!</p>
+                        <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
                         <input class="mb-3" type="text" placeholder="Enter REG">
                         <button>Value Your Car</button>
                     </div>
