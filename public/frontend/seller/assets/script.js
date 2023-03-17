@@ -265,4 +265,11 @@ $(document).ready(function () {
 //   });
 });
 
+
+  
+   $(window).on('load',function(){
+        $('#cokies').modal('show');
+    });
+
+
 // hamza js
