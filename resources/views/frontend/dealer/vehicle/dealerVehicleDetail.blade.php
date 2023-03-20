@@ -406,7 +406,7 @@
 
                             
                             ?>
-                                <center><span class="text-danger ">You Already Bid On This Vehicle</span>
+                                {{-- <center><span class="text-danger ">You Already Bid On This Vehicle</span> --}}
                                 </center>
                                 <center><span class="text-danger ">Your Bid Price Is {{ $bid->bid_price }}</span>
                                 </center>
@@ -477,8 +477,9 @@
 
 
                 } else {
+                    console.log(HiddenPrice++)
                     $(".warning").html('');
-                    $(".warning").html('Minimum Bid Require On This Vehicle Is '+HiddenPrice+'');
+                    $(".warning").html('minimum bid required '+HiddenPrice+' or more ');
                 }
             });
 

@@ -1284,7 +1284,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="start_vehicle_date">Start Sale Vehicle Date </label>
-                                                    <input type="date" id="start_vehicle_date" value="{{ $vehicles->start_vehicle_date ??date('Y-m-d');}}"  class="form-control"
+                                                    <input type="date"   id="start_vehicle_date" value="{{ $vehicles->start_vehicle_date ?? date('Y-m-d');}}"  class="form-control"
                                                        name="start_vehicle_date" placeholder="Registartion Number" >
 
                                                 </div>
@@ -1295,7 +1295,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="start_vehicle_time">Start Sale Vehicle Time </label>
-                                                    <input type="time" id="start_vehicle_time" class="form-control"
+                                                    <input type="time"  id="start_vehicle_time" class="form-control"
                                                        name="start_vehicle_time" value="{{ $liveselltime->start_time ?? "" }}" readonly placeholder="" >
 
                                                 </div>
@@ -1423,6 +1423,21 @@ p {
 </form>
 </div>
 <script type="text/javascript">
+
+document.getElementById("start_vehicle_date").addEventListener("change", function() {
+    var input = this.value;
+       
+//     var date = new Date(input);
+// var dd = String(date.getDate()+1).padStart(2, '0');
+// var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+// var yyyy = date.getFullYear();
+
+// date = mm + '/' + dd + '/' + yyyy;
+// console.log(date)
+// document.write(date);
+// console.log(input);
+$('#end_vehicle_date').val(input);
+});
 function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
