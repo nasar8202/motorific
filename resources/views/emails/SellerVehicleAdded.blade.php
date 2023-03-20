@@ -476,7 +476,7 @@
                             <li><span>Color:</span>{{ $data['colour'] }}</li>
                         </ul>
                         <div class="veh-img">
-                            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="">
+                            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" alt="">
                         </div>
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
