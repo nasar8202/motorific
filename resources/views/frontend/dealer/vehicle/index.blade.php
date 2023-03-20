@@ -294,7 +294,7 @@ div#filter-price {
                                                 <span class="p-location">
                                                     <i class="fas fa-map-marker-alt"></i>
                                                     <?php
-                                                
+                                                /*
                                                 $current_user = Illuminate\Support\Facades\Auth::user();
                                                 $user = App\Models\User::where('id',$vehicle->user_id)->first();
                                                 $zip = $current_user->post_code;
@@ -340,7 +340,7 @@ div#filter-price {
         $radius = 3958.756;
           
        $distance = floor($res*$radius);
-              echo $distance.' Mi';                                  
+              echo $distance.' Mi';  */                                
                                                 ?>
                                                 </span>
                                             </div>
