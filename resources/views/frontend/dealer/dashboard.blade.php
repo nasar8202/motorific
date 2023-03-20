@@ -36,8 +36,8 @@
                 <div class="col-md-8">
                     <!--<h2 class="sec-heaing fs-50">100s vehicles for sale</h2>-->
                     <!--<p class="sec-desc">Find your best offer from over 5,000 dealers and sell <br> for up to £1,000* more. It’s that easy.</p>-->
-                    <h2 class="sec-heaing fs-50">Join Motorific & Connect With 3 Million Car Buyers & Sellers</h2>
-                    <p class="sec-desc">Gain exclusive access to millions of high-intent car buyers & best stock in the UK through our industry-specific platform.</p>
+                    <h2 class="sec-heaing fs-50">Join Motorific & Connect With thousands Car Buyers & Sellers</h2>
+                    <p class="sec-desc">Gain exclusive access to thousands of high-intent car buyers & best stock in the UK through our industry-specific platform.</p>
                 </div>
                 <div class="col-md-4">
                     <div class="btn-wraper">
@@ -277,7 +277,7 @@
                                 <div class="icon-content">
                                     <!--<h3>Bid easily online</h3>-->
                                     <h3>Bid Online</h3>
-                                    <p>Post ads for free, reach out to millions of high-intent car buyers and get the best possible prices for your stock.</p>
+                                    <p>Post ads for free, reach out to thousands of high-intent car buyers and get the best possible prices for your stock.</p>
                                 </div>
                             </div>
                         </div>
