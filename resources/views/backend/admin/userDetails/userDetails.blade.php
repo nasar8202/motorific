@@ -38,6 +38,7 @@
                             <th>Email</th>
                             <th>Phone Number</th>
                             <th>Post Code</th>
+                            <th>Register Date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -52,6 +53,7 @@
                             <td>{{ $viewUser->email }}</td>
                             <td>{{ $viewUser->phone_number }}</td>
                             <td>{{ $viewUser->post_code }}</td>
+                            <td>{{ $viewUser->created_at }}</td>
                             <td>
                                 <a href="{{ route('addVehicleForOldUser',$viewUser->id) }}"><span class="badge badge-success">Add Vehicle For This User</span></a>
                                 <a href="{{ route('sellerAllVehicleInAdmin',$viewUser->id) }}"><span class="badge badge-success">View Seller's All Vehicle</span></a>

@@ -177,7 +177,7 @@
                     <div class="check_area">
 
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
-                            value="{{ old('registeration') }}">
+                            value="{{ old('registeration') }}" style="text-transform: uppercase">
                         <span class="text-danger show_error"></span>
                         <button type="button" id="check_registeration">Value Your Car</button>
                     </div>
@@ -193,7 +193,7 @@
                 <li>Get the best deals for your wheels with Motorific </li>
                 <li>Unlock the true value of your car with Motorific</li>
                 <li>Sell your car hassle-free and fast with Motorific</li>
-                <li>Maximize your car's value with Motorific</li>
+                <li>maximise  your car's value with Motorific</li>
             </ol>
         </div>
     </section>
@@ -202,7 +202,7 @@
     
     <!---->
     <!-- Career Modal Form -->
-{{-- <div class="modal fade cookies-modal" id="cokies" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade cookies-modal" id="cokies" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -215,14 +215,14 @@
             
             <p>We use cookies to improve your website expereince</p>
             <div class="cookies-btn">
-                <button type="button">Accept All cookies</button>
-                <button type="button">Customize Settings</button>
+              <center>  <button type="button" data-bs-dismiss="modal" aria-label="Close">Accept All cookies</button>
+              </center>
             </div>
         </div>
       </div>
     </div>
   </div>
-</div> --}}
+</div>
 
     <!---->
     <!-- SECTION-2 -->
@@ -301,7 +301,7 @@
                         </div>
                     </div>
                     <h4>Profile Your Car</h4>
-                    <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. Maximize profits.</p>
+                    <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. maximise  profits.</p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -314,7 +314,7 @@
                         </div>
                     </div>
                     <h4>Motorific Alerts Dealers</h4>
-                    <p>Our online sale invites over 5,000 car dealers across the UK to present their top bids for your car.</p>
+                    <p>Our online sale invites over thousands car dealers across the UK to present their top bids for your car.</p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -382,7 +382,7 @@
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
                         <h4>Your Car. Your Price - with Motorific</h4>
-                        <p>Motorific brings transparency so that you get the highest bid for your car. With over thousands dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
+                        <p>With over thousands dealers eager to purchase your car, Motorific ensure you get for your car.</p>
                         <div class="sec-1-txt">
                             <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
                                     CAR</button></a>
@@ -410,7 +410,7 @@
                             <div class="sec-4-box mb-3">
                                 <img src="{{ URL::asset('frontend/seller/assets/image/sec-4img3.png') }}" alt="">
                                 <h4>Free Home Collection</h4>
-                                <p>Motorific lets you sale your car within 24 hours. Dealerships collect your car right from your doorstep and we transfer full payment promptly. </p>
+                                <p>With Motorific, you can sell your car in 24 hours. Your vehicle is picked up from your doorstep by a dealership, and they promptly transfer the full payment on the day.</p>
                             </div>
 
                             <div class="sec-4-box">

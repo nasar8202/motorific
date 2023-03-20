@@ -426,19 +426,7 @@
                             </div>
 
                             
-                            <div class="bt-btns-main d-flex align-items-center btns-wraps">
-                                <button type="button" class="btn-trans step4-back-btn btn-Prev d-block">
-                                    <i class="fa-solid fa-arrow-left-long"></i>
-                                    <span><a href="{{ route('dealer.vehicleListing') }}">Go Back</a></span>
-                                </button>
-                                {{-- <button type="submit" class="btn-trans step2-btn-save">
-                            Save for Now
-                        </button> --}}
-                                <div class="d-flex gap-2 justify-content-end ">
-                                    {{-- <button type="button" class="btn-qa1 f-16 btn-border-sm">Save Advert</button> --}}
-                                    <button type="submit" class="btn-qa1 f-16 btn-filled-sm btn-publish">Publish Advert</button>
-                                </div>
-                            </div>
+                            
 
                         </div>
 
@@ -1772,6 +1760,19 @@
                         <!--<div class="button" id="submit">Agree and send application</div>-->
 
                     </div>
+                </div>
+            </div>
+            <div class="bt-btns-main d-flex align-items-center btns-wraps">
+                <button type="button" class="btn-trans step4-back-btn btn-Prev d-block">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                    <span><a href="{{ route('dealer.vehicleListing') }}">Go Back</a></span>
+                </button>
+                {{-- <button type="submit" class="btn-trans step2-btn-save">
+            Save for Now
+        </button> --}}
+                <div class="d-flex gap-2 justify-content-end ">
+                    {{-- <button type="button" class="btn-qa1 f-16 btn-border-sm">Save Advert</button> --}}
+                    <button type="submit" class="btn-qa1 f-16 btn-filled-sm btn-publish">Publish Advert</button>
                 </div>
             </div>
         </div>

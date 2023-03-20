@@ -41,6 +41,7 @@
                             <th>Vehicle Type</th>
                             <th>Fuel type</th>
                             <th>Vehicle Price</th>
+                            <th>Registration Date</th>
                             <th>Image</th>
                             
                             <th>Status</th>
@@ -63,6 +64,7 @@
                             <td>{{ $vehicle->vehicle_type}}</td>
                             <td>{{ $vehicle->vehicle_tank}}</td>
                             <td>{{ $vehicle->vehicle_price}}</td>
+                            <td>{{ $vehicle->updated_at}}</td>
                             <td>
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
                             </td>

@@ -316,7 +316,8 @@
                             @else
                             {{-- <center><span class="text-danger ">You Already Bid On This Vehicle</span> --}}
                             {{-- </center>    --}}
-                            <center><span class="text-danger ">Your Bid Price Is {{$bid->bid_price}}</span>
+                            <center><span class="text-danger ">You've already placed a bid on this car. 
+                                Your bid is for £ {{$bid->bid_price}}</span>
                             </center>   
                             <center><a href="{{route('cancelBid',$bid->id)}}" class="btn btn-danger btn-sm"> Cancel Bid</a>
                             </center> 

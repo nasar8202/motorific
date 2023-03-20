@@ -105,10 +105,9 @@
         <div class="thnk-content">
             <span class="icon"><i class="fas fa-check-circle"></i></span>
             <h2>Thank You For Choosing Us</h2>
-            <h6>Your Vehicle Has Been Submited. Wait For Admin Approvel</h6>
-            <p>Our pricing specialists are now working on getting the best price tailored to your vehicle.
-                If you have any additional information regarding your vehicle e.g. optional extras which could help our team to create your unique offer,
-                please call us on <a href="tel:07888185014"><i class="fa-solid fa-phone"></i> 07888185014.</a>
+            {{-- <h6>Your Vehicle Has Been Submited. Wait For Admin Approvel</h6> --}}
+            <p>Your Advert is added  While you wait for admin approval, please call us if you need further assistance 07888185014. You will receive your tailored offer shortly via text or email.
+                <a href="tel:07888185014"><i class="fa-solid fa-phone"></i> 07888185014.</a>
                 <br>
                 <a href="{{route('acceptedVehicles')}}">Check My Vehicle</a>
                 You wil receive your tailored offer shortly via text or email.

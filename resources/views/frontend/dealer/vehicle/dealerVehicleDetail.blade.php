@@ -319,7 +319,7 @@
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-pound-sign"></i>&nbsp;&nbsp;Estimated Cost</h4>
                                 <ul>
-                                    <li>Estimated Prepration Cost
+                                    <li>Estimated Prepration Cost ( please provide estimated prep cost if any) 
                                         <span>{{ $vehicle->DealerVehicleMedia->condition_damage ?? 'No Cost'}}</span>
                                     </li>
                                 </ul>
@@ -408,7 +408,10 @@
                             ?>
                                 {{-- <center><span class="text-danger ">You Already Bid On This Vehicle</span> --}}
                                 </center>
-                                <center><span class="text-danger ">Your Bid Price Is {{ $bid->bid_price }}</span>
+                                <center><span class="text-danger "> You've already placed a bid on this car. 
+                                    Your bid is for £
+                                    
+                                     {{ $bid->bid_price }}</span>
                                 </center>
                                 <center><a href="{{ route('cancelDealerRequest', $bid->id) }}"
                                         class="btn btn-danger btn-sm"> Cancel Bid</a>

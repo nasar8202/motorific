@@ -13,7 +13,7 @@
                     <!--<h1 class="sec-heading fs-50">Buy smart. Buy direct <br> from private sellers.</h1>-->
                     <!--<p class="sec-desc">Find your best offer from over 5,000 dealers and sell <br> for up to £1,000* more. It’s that easy.</p>-->
                     <h1 class="sec-heading fs-50">Get In Driver’s Seat of Your Business</h1>
-                    <p class="sec-desc">Rev up your profits with Motorific - Fastest Way To Buy and Sell Cars Online</p>
+                    <p class="sec-desc">Motorific is the quickest way to Sell cars online, so use it to boost your profits</p>
                     <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
                 </div>
             </div>
@@ -242,7 +242,7 @@
                 <div class="col-lg-5 col-md-12">
                     <div class="btn-wraper">
                         <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
-                        <a href="#" class="prim-btn secnd">Get In Touch</a>
+                        <a href="#"  onclick="window.location='{{ url("/get-in-touch") }}'" class="prim-btn secnd">Get In Touch</a>
                     </div>
                 </div>
                 <div class="col-12 d-md-block d-none">

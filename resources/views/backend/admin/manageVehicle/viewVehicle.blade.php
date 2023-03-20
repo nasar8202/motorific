@@ -43,6 +43,7 @@
                             <th>Vehicle Type</th>
                             <th>Fuel type</th>
                             <th>Vehicle Price</th>
+                            <th>Registered Date Time</th>
                             <th>Status</th>
                             <th>Vehicle Sale Time</th>
                             <th>Image</th>
@@ -63,6 +64,7 @@
                             <td>{{ $vehicle->vehicle_type}}</td>
                             <td>{{ $vehicle->vehicle_tank}}</td>
                             <td>{{ $vehicle->vehicle_price}}</td>
+                            <td>{{ $vehicle->created_at}}</td>
                             @if($vehicle->status == 0)
                             <td class=""><span class="badge badge-danger"> Pending </span></td>
                             @elseif($vehicle->status == 2)

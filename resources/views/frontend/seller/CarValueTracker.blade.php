@@ -269,7 +269,7 @@
                         </div>
                     </div>
                     <h4>Profile Your Car</h4>
-                    <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. Maximize profits.</p>
+                    <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. maximise  profits.</p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">
@@ -282,7 +282,7 @@
                         </div>
                     </div>
                     <h4>Motorific Alerts Dealers</h4>
-                    <p>Our online sale invites over 5,000 car dealers across the UK to present their top bids for your car.</p>
+                    <p>Our online sale invites over thousands car dealers across the UK to present their top bids for your car.</p>
                 </div>
 
                 <div class="howitwork-main col-lg-3 col-md-3">

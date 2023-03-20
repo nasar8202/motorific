@@ -12,10 +12,10 @@
         <div class="thnk-content">
             <span class="icon"><i class="fas fa-check-circle"></i></span>
             <h2>Congratulations!</h2>
-            <p>Your Advert is added Wait for admin approved,
-                please call us on <a href="tel:07888185014"><i class="fa-solid fa-phone"></i> 07888185014.</a>
+            <p>Your Advert is added  While you wait for admin approval, please call us if you need further  
+                <a href="tel:07888185014"><i class="fa-solid fa-phone"></i> assistance 07888185014.</a>
 
-                You wil receive your tailored offer shortly via text or email.
+                You will receive your tailored offer shortly via text or email.
                 <br>
                
             <a href="{{route('dealer.dashboard')}}"><i class="fa-solid "></i> Go Browse vehicle</a>

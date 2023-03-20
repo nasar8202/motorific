@@ -17,6 +17,7 @@
                                 <li>Full Name <span> {{$user->name}}</span></li>
                                 <li>Email <span>{{$user->email}}</span></li>
                                 <li>Phone Number <span>{{$user->phone_number}}</span></li>
+                                <li>House Name And Number <span>{{$allVehicles->vehicleInformation->additional_information??""}}</span></li>
                             </ul>
                         </div>
                     </div>

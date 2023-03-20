@@ -41,6 +41,7 @@
                             <th>Email</th>
                             <th>Phone Number</th>
                             <th>Post Code</th>
+                            <th>Registered Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -55,6 +56,7 @@
                             <td>{{ $sellesPerson->email }}</td>
                             <td>{{ $sellesPerson->phone_number }}</td>
                             <td>{{ $sellesPerson->post_code }}</td>
+                            <td>{{ $sellesPerson->created_at }}</td>
                             <td>
                                 <a href="{{ route('sellesPersonEdit',$sellesPerson->id) }}"><span class="badge badge-success">Edit</span></a>
                                 @if($sellesPerson->status == 1)
