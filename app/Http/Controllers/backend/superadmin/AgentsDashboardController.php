@@ -113,7 +113,7 @@ class AgentsDashboardController extends Controller
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
-            // 'exterior_grade' => 'required',
+            'HouseName' => 'required',
             // 'scratches' => 'required',
             // 'dents' => 'required',
             // 'paintwork' => 'required',
@@ -213,8 +213,8 @@ class AgentsDashboardController extends Controller
                 // $vehicleInformation->last_mot_date =  $request->mot_date;
                 // $vehicleInformation->previous_owners =  $request->previous_owner;
                 // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
-                // $vehicleInformation->additional_information =  $request->additional;
-
+                
+                $vehicleInformation->additional_information =  $request->HouseName;
                 $vehicleInformation->save();
 
                 $interior_detail = new VehicleInterior;
@@ -419,6 +419,7 @@ class AgentsDashboardController extends Controller
             'private_plate' => 'required',
             'finance' => 'required',
             'VehicleHistory'=>'required',
+            'HouseName'=>'required',
             'image1' => 'required|mimes:jpeg,png,jpg,|max:1024',
             'image2' => 'required|mimes:jpeg,png,jpg,|max:1024',
             'image3' => 'required|mimes:jpeg,png,jpg,|max:1024',
@@ -497,7 +498,7 @@ class AgentsDashboardController extends Controller
                 // $vehicleInformation->last_mot_date =  $request->mot_date;
                 // $vehicleInformation->previous_owners =  $request->previous_owner;
                 // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
-                // $vehicleInformation->additional_information =  $request->additional;
+                $vehicleInformation->additional_information =  $request->HouseName;
 
                 $vehicleInformation->save();
 

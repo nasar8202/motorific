@@ -173,6 +173,7 @@ class UserController extends Controller
             'private_plate' => 'required',
             'finance' => 'required',
             'VehicleHistory'=>'required',
+            'HouseName'=>'required',
             'image1' => 'required|mimes:jpeg,png,jpg,|max:1024',
             'image2' => 'required|mimes:jpeg,png,jpg,|max:1024',
             'image3' => 'required|mimes:jpeg,png,jpg,|max:1024',
@@ -252,7 +253,7 @@ class UserController extends Controller
                 // $vehicleInformation->previous_owners =  $request->previous_owner;
                 // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
                 // $vehicleInformation->additional_information =  $request->additional;
-
+                $vehicleInformation->additional_information =  $request->HouseName;
                 $vehicleInformation->save();
 
                 $interior_detail = new VehicleInterior;
@@ -312,6 +313,13 @@ class UserController extends Controller
         DB::commit();
 
         return redirect()->route('viewVehicle')->with('success', 'Vehicle Added For Old User Successfully!');
+    }
+    public function sellerAllVehicleInAdmin($id)
+    {
+
+        $vehicles = Vehicle::with('vehicleInformation')->with('VehicleImage')->orderBy('id','DESC')->where('user_id',$id)->get();
+        //    dd($vehicles);
+        return view('backend.admin.userDetails.viewSellerVehicle', compact('vehicles'));
     }
 
 }

@@ -987,6 +987,17 @@
                                         <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
                                     @endif
                                     </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">House Name And Number</label>
+                                            <input type="text" class="form-control" name="HouseName"
+                                                placeholder="Enter Your House Name And Number"  value="{{ old('HouseName') }}">
+                                                 
+                                        </div>
+                                        @if ($errors->has('HouseName'))
+                                            <span class="text-danger">{{ $errors->first('HouseName') }}</span>
+                                        @endif
+                                    </div>
                                     {{-- <div class="col-md-6 col-12">
                                         <h6>Interior</h6>
                                         <div class="form-group">

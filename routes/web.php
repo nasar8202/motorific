@@ -322,6 +322,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::post('/update-user/{id}', [UserController::class,'updateUser'])->name('updateUser');
     Route::get('/delete-user/{id}', [UserController::class,'deleteUser'])->name('deleteUser');
     Route::get('/add-vehicle-for-old-user/{id}', [UserController::class,'addVehicleForOldUser'])->name('addVehicleForOldUser');
+    Route::get('/seller-all-vehicle-in-admin/{id}', [UserController::class,'sellerAllVehicleInAdmin'])->name('sellerAllVehicleInAdmin');
     Route::post('/store-vehicle-by-admin-for-old-user/{id}', [UserController::class,'StoreVehicleByAdminForOldUser'])->name('StoreVehicleByAdminForOldUser');
     Route::get('/enable-user/{id}', [UserController::class,'enableUser'])->name('enableUser');
     Route::get('/find-vehicle-for-old-user/{id}', [UserController::class,'findVehicleForOldUser'])->name('findVehicleForOldUser');
