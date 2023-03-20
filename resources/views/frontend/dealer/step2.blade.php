@@ -83,6 +83,7 @@
                                         <label for="documents">Upload Documents</label>
                                         <input type="file" name="dealer_documents" >
                                     </div>
+                                    <div>Note (No ID? You can submit at a later date, to continue simply clicking on the Submit tab)</div>
                                 </div>
                                 {{-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="button" name="next" class="next action-button" value="Next Step"/> --}}

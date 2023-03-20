@@ -314,8 +314,8 @@
                           </div>
                           <span class="text-danger same"></span>
                             @else
-                            <center><span class="text-danger ">You Already Bid On This Vehicle</span>
-                            </center>   
+                            {{-- <center><span class="text-danger ">You Already Bid On This Vehicle</span> --}}
+                            {{-- </center>    --}}
                             <center><span class="text-danger ">Your Bid Price Is {{$bid->bid_price}}</span>
                             </center>   
                             <center><a href="{{route('cancelBid',$bid->id)}}" class="btn btn-danger btn-sm"> Cancel Bid</a>
@@ -380,8 +380,9 @@
             });
         }
         else{
+            console.log("1 inc",HiddenPrice++)
         $(".warning").html('');
-        $(".warning").html('Minimum Bid Require On This Vehicle Is '+HiddenPrice+'');
+        $(".warning").html('minimum bid required '+HiddenPrice +' or more');
     }
     });
         
@@ -429,8 +430,9 @@
 
     }
     else{
+        console.log("2 inc",HiddenPrice++)
         $(".warning").html('');
-        $(".warning").html('Minimum Bid Require On This Vehicle Is '+HiddenPrice+'');
+        $(".warning").html('minimum bid required '+HiddenPrice +' or more');
     }
   });
 

@@ -95,7 +95,14 @@
             </div>
         </div>
             <div class="col-12 mob-header">
+                
+
+                @if(Auth::check())
                 <h3><a  href="{{route('dealer.newDashboard')}}" class="d-block">motorific</a></h3>
+                @else
+                <h2 class="logoMain"><a  href="{{route('myLogin')}}" class="d-block">motorific</a></h2>
+                @endif
+
                 <div class="mob-header-nav dealer align-items-center">
                 @guest
                     <div class="userBtns">
