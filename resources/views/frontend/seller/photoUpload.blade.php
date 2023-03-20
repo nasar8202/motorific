@@ -1697,6 +1697,7 @@ display: block;
                     <div class="photo-up-sec-2-box-personal-information">
                         <p>Features, equipment & ownership</p>
                     </div>
+                   
                     <div class="prf-complete d-flex align-items-center completeStatus-vehicelInfo-qa d-none">
                         <div>
                             <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="">
@@ -3349,17 +3350,7 @@ $("#store").click(function(){
             $('.vehicleSteps[data-id="'+ thisData +'"]').addClass('vehicleStepsActive');
         });
         
-        // DISABLE SUBIMIT BUTTON OF PHOTOS STEP
-        $(".submitBtn-photos-sec").attr("disabled", true);
-        // SYBMIT SUMMARY STEP 
-        $('.submitVehicleInfo-qa').on('click', function(){
-            myFunction2()
-            $('#startBtn-vehicleInfo').text('Edit')
-            $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
-            $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
-            $(".submitBtn-photos-sec").attr("disabled", false);
-        });
-        
+    
         
        
         
@@ -3421,4 +3412,26 @@ $("#store").click(function(){
     })
     });
 </script>
+
+@if(session()->get('seat_material'))
+<script>
+$(".submitBtn-photos-sec").attr("disabled", false);
+$('.completeStatus-vehicelInfo-qa').removeClass('d-none');
+</script>
+@else
+<script>
+        // DISABLE SUBIMIT BUTTON OF PHOTOS STEP
+        $(".submitBtn-photos-sec").attr("disabled", true);
+        // SYBMIT SUMMARY STEP 
+        $('.submitVehicleInfo-qa').on('click', function(){
+            myFunction2()
+            $('#startBtn-vehicleInfo').text('Edit')
+            $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
+            $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
+            $(".submitBtn-photos-sec").attr("disabled", false);
+        });
+        
+    </script>
+        @endif
 @endpush
+
