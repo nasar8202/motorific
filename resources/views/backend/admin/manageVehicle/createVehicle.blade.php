@@ -1322,7 +1322,7 @@
                                     <div class="col-md-6">
                                         <img src="{{ URL::asset('/frontend/seller/assets/image/add-p-front.png') }}"
                                             id="preview-image1" width="250px" height="250px"
-                                            class="rounded mx-auto d-block" style="width:220px;">
+                                            class="rounded mx-auto d-block" >
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3 px-3">
@@ -1354,7 +1354,7 @@
                                         @endif
                                     </div>
                                 </div>
-
+                                <br>
                                 <div class="row align-items-center">
 
                                     <div class="col-md-6">
@@ -1373,6 +1373,7 @@
                                         @endif
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row align-items-center">
 
                                     <div class="col-md-6">
@@ -1392,6 +1393,7 @@
 
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row align-items-center">
 
                                     <div class="col-md-6">

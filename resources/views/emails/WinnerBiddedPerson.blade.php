@@ -182,7 +182,6 @@
               {{-- <span> Distance: 174 miles </span> --}}
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
             
-              <span>Colour: {{ $data['colour'] }} </span>
             </div>
           </div>
         </div>
