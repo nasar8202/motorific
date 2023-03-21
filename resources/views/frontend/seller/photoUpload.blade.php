@@ -2491,7 +2491,7 @@ display: block;
                                             				<td><span>Seat material</span></td>
                                             				<td id="seatMaterialFinal">No Data Found</td>
                                             				<td>
-                                            					<span class="stepOpener" data-title="SeatMaterial" >
+                                            					<span class="stepOpener" data-title="SeatMaterial" style="cursor: pointer" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -2500,7 +2500,7 @@ display: block;
                                             				<td><span>Number of keys</span></td>
                                             				<td id="NumberOfKeyFinal">No Data Found</td>
                                             				<td>
-                                            					<span class="stepOpener" data-title="NumberOfKeys" >
+                                            					<span class="stepOpener" data-title="NumberOfKeys" style="cursor: pointer" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -2509,7 +2509,7 @@ display: block;
                                             				<td><span>Tool pack</span></td>
                                             				<td id="ToolPackFinal">No Data Found</td>
                                             				<td>
-                                            					<span class="stepOpener" data-title="ToolPack" >
+                                            					<span class="stepOpener" data-title="ToolPack" style="cursor: pointer" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -2518,7 +2518,7 @@ display: block;
                                             				<td><span>Locking wheel nut</span></td>
                                             				<td id="LockingWheelNutFinal">N/A</td>
                                             				<td>
-                                            					<span class="stepOpener" data-title="LockingWheelNut" >
+                                            					<span class="stepOpener" data-title="LockingWheelNut" style="cursor: pointer" >
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -2527,7 +2527,7 @@ display: block;
                                             				<td><span>Smoking</span></td>
                                             				<td id="SmokingFinal" >N/A</td>
                                             				<td>
-                                            					<span class="stepOpener" data-title="Smoking">
+                                            					<span class="stepOpener" data-title="Smoking" style="cursor: pointer">
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -2542,29 +2542,29 @@ display: block;
                                             					<td><span>V5C logbook</span></td>
                                             						<td id="LogbookFinal">N/A</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="V5CLogbook">
+                                            						<span class="stepOpener" data-title="V5CLogbook" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
                                             				</tr>
-                                            				<tr class="SectionTable__noValue SectionTable__withLink">
+                                            				<tr class="SectionTable__noValue SectionTable__withLink" style="cursor: pointer">
                                             					<td>
                                             						<span>Vehicle location</span>
                                             					</td>
                                             						<td id="VehicleLocationFinal">–</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="VehicleLocation">
+                                            						<span class="stepOpener" data-title="VehicleLocation" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
                                             				</tr>
-                                                            <tr class="SectionTable__noValue SectionTable__withLink">
+                                                            <tr class="SectionTable__noValue SectionTable__withLink" style="cursor: pointer">
                                             					<td>
                                             						<span>Home Name And Number</span>
                                             					</td>
                                             						<td id="HomeName">–</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="VehicleLocation">
+                                            						<span class="stepOpener" data-title="VehicleLocation" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -2573,7 +2573,7 @@ display: block;
                                             					<td><span>Vehicle owner</span></td>
                                             						<td id="VehicleOwnerFinal" >N/A</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="VehicleOwner">
+                                            						<span class="stepOpener" data-title="VehicleOwner" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -2582,7 +2582,7 @@ display: block;
                                             					<td><span>Private plate</span></td>
                                             						<td id="PrivatePlateFinal">N/A</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="PrivatePlate">
+                                            						<span class="stepOpener" data-title="PrivatePlate" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -2600,7 +2600,7 @@ display: block;
                                             					<td><span>Finance</span></td>
                                             						<td id="FinanceFinal" >N/A</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="Finance">
+                                            						<span class="stepOpener" data-title="Finance" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -2609,7 +2609,7 @@ display: block;
                                             					<td><span>Vehicle Category</span></td>
                                             						<td id="vehicleCategory" >N/A</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="vehicleCategory">
+                                            						<span class="stepOpener" data-title="vehicleCategory" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -2618,7 +2618,7 @@ display: block;
                                             					<td><span>Vehicle History</span></td>
                                             						<td id="vehicleHisory" >N/A</td>
                                             						<td>
-                                            						<span class="stepOpener" data-title="vehicleHisory">
+                                            						<span class="stepOpener" data-title="vehicleHisory" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>

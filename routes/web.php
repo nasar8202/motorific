@@ -1,31 +1,32 @@
 <?php
 
+use App\Http\Middleware\AdminCheck;
 use App\Models\NewsletterSubscriber;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\frontend\NewsletterSubscribers;
+
+
 use App\Http\Controllers\backend\admin\VehicleController;
-
-
 use App\Http\Controllers\frontend\seller\FrontController;
 use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\dealer\HowItWorksController;
 use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
-use App\Http\Controllers\backend\admin\AdminDashboardController;
 
+use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\meetings\MeetingController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
 use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
+
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
 
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
-
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
 use App\Http\Controllers\backend\superadmin\AgentsDashboardController;
@@ -136,7 +137,7 @@ Route::get('/create-advert', [MultiStepRegistration::class, 'CreateAdvert'])->na
 // Route::post('/register-post-step-3', [FrontController::class,'PostcreateStep3'])->name('register.post.step.3');
 // Route::post('/store', [FrontController::class,'store'])->name('store');
 
-
+Route::middleware([AdminCheck::class])->group(function () {
 Route::get('/', [FrontController::class,'index'])->name('index');
 Route::post('/users', [FrontController::class,'getUsers'])->name('users');
 Route::get('/create_user', [RegisterController::class,'create_user'])->name('create_user');
@@ -152,13 +153,16 @@ Route::post('/test_location', [FrontController::class,'testlocation'])->name('te
 Route::get('/registration', [FrontController::class,'registration'])->name('registration');
 Route::get('/seller-login', [FrontController::class,'myLogin'])->name('myLogin');
 Route::get('/valuation', [FrontController::class,'valuation'])->name('valuation');
-Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
+
+    Route::get('/sell-my-car', [FrontController::class,'sellMyCar'])->name('sellMyCar');
+    
+
 
 Route::get('/forgot-password', [FrontController::class,'forgotPassPage'])->name('forgotPassPage');
 Route::post('/forgot-password', [FrontController::class,'forgotPass'])->name('forgotPass');
 Route::get('reset-password/{token}', [FrontController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [FrontController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-
+});
 
 // Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 // Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
