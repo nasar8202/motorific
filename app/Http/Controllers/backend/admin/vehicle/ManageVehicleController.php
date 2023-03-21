@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend\admin\vehicle;
 
+use Carbon\Carbon;
 use App\Models\Finance;
 use App\Models\Smoking;
 use App\Models\Vehicle;
@@ -473,11 +474,19 @@ class ManageVehicleController extends Controller
                 $end_date = null;
                 $end_time = null;
             } else {
+                $mytime = Carbon::now();
+                if($mytime->toTimeString() >= "08:00:00" && $mytime->toTimeString() <= "16:00:00"){
+                    return back()->with('error','Can not update rightnow');
+                }
+                else{
+
+                
                 $start_date = $request->start_vehicle_date;
                 $start_time = $request->start_vehicle_time;
                 $end_date = $request->start_vehicle_date;
                 $end_time = $request->end_vehicle_time;
                 $auction_date_time = null;
+            }
             }
 
             $vehicle = Vehicle::find($id);

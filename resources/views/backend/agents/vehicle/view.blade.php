@@ -40,6 +40,7 @@
                             <th>Seller Name</th>
                             <th>Seller Email</th>
                             <th>Seller Phone Number</th>
+                            <th>Registration Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -54,6 +55,7 @@
                             <td>{{ $selle->name}}</td>
                             <td>{{ $selle->email}}</td>
                             <td>{{ $selle->phone_number}}</td>
+                            <td>{{ $selle->created_at}}</td>
                             <td>
                                 <a href="{{ route('addSellerVehicleFromAgent',$selle->id) }}" class="badge badge-success w-100">Add Vehicle For This Seller</a>
                                 <a href="{{ route('viewSellersVehicle',$selle->id) }}" class="badge badge-success w-100 mt-1">View Vehicle</a>
