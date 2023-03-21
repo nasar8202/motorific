@@ -174,7 +174,7 @@
           <p>Car Details</p>
 
           <div class="content-img">
-            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
+            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " width="100px" height="100px" alt="" />
             <div class="car-det">
               <span>Model:{{ $data['vehicle_name'] }} </span>
               <span> Reg: {{ $data['vehicle_registration'] }} </span>
