@@ -712,7 +712,12 @@ header.header {
     display: none;
 }
 
-
+section.services-sec {
+    margin-bottom: 30px;
+}
+.stock-cta p {
+    max-width: 80%;
+}
 
 
 /* End */
@@ -720,6 +725,7 @@ header.header {
 
 
 }
+
 @media (max-width: 767px) {
 .dealer-banner .banner-content p {
     font-size: 17px;
@@ -1010,6 +1016,10 @@ div#loop .box {
     font-size: 15px !important;
     margin-bottom: 40px;
 }
+section.services-sec {
+    margin-bottom: 20px;
+}
+
 
 /* Products Filter */
 .filter-head {
@@ -1181,6 +1191,9 @@ ul.parts-content li span {
     font-size: 10px;
     padding: 6px 0px;
     width: 100px;
+}
+.stock-cta p {
+    max-width: 100%;
 }
 
 }

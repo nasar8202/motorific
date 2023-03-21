@@ -4,7 +4,10 @@
     <!-- form css -->
 
     <main class="topPadingPage">
-        <section>
+        <section class="veh-detail-sec">
+            <div class="backBtn">
+                <a href="{{route('dealer.dashboard')}}">Back to Vehicles</a>
+            </div>
             <div class="sliderImgVehicleDetail">
                 
                 @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
@@ -52,7 +55,7 @@
                         </div>
                         <div class="mapAndText">
                             <p><strong>Collection:</strong> Available immediately</p>
-                            <p><strong>Location:</strong> {{ $vehicle->location ?? '' }} ({{ $distance }} miles away)
+                            <p><strong>Location:</strong> {{ $vehicle->location ?? '' }} ({{ $distance??'' }} miles away)
 
 
                             </p>
@@ -368,13 +371,14 @@
                                         <li class="hidden">Clean:<span> £{{ $vehicle->clean_price }} </span></li>
                                         <li class="hidden">Average:<span> £{{ $vehicle->average_price }} </span></li>
                                     </ul>
-                                    <li>Live Salaes end <span>3h 53m 26s <a href="#">
+                                    <!--<li>Live Salaes end <span>3h 53m 26s <a href="#">-->
+                                    <li class="sale-timer"><div id="countdown"> <a href="#">
                                                 @if ($allbid)
                                                     {{ $allbid }}
                                                 @else
                                                     No Bid Yet
                                                 @endif
-                                            </a></span></li>
+                                            </a></div></li>
                                 </ul>
                                 <?php
                            $bid = App\Models\DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();

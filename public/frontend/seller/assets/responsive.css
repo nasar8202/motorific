@@ -1441,6 +1441,81 @@ section.thanks {
 .reg-form-heading h3 {
     font-size: 40px;
 }
+/*Seller Login and Reg Form*/
+.form-box h2 {
+    font-size: 20px;
+}
+
+.form-box form label {
+    font-size: 12px;
+}
+
+.form-box form input {
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.form-box .invalid-feedback {
+    padding: 4px 13px;
+    font-size: 10px;
+    border-radius: 100px;
+    line-height: 1.2;
+    margin-top: 8px;
+}
+
+.form-box form .form-btn button {
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.form-box form .form-btn a {
+    font-size: 12px;
+}
+
+.formLink {
+    font-size: 12px;
+}
+
+.form-box {
+    max-width: 55%;
+    padding: 30px 20px;
+}
+
+.form-box form .form-group {
+    margin-bottom: 12px;
+}
+.forgott .form-box h2 {
+    font-size: 17px;
+}
+.reg .form-box {
+    max-width: 65%;
+}
+
+.reg .form-box h2 {
+    font-size: 22px;
+}
+
+.reg .form-box > p {
+    font-size: 12px;
+}
+.reg .form-box form .form-btn button {
+    padding: 10px 18px;
+}
+/*Seller Login and Reg Form End*/
+.chart.reg {
+    width: auto;
+}
+.chart.reg ul {
+    flex-wrap:no-wrap !important;
+    overflow-x: scroll;
+}
+.chart.reg ul li {
+    font-size: 12px;
+    white-space: nowrap;
+    padding: 10px 20px;
+}
 
 /*End*/
 
@@ -2006,6 +2081,20 @@ section.thanks {
     padding-top: 120px;
 }
 
+/*Seller Login And Reg Form*/
+.userform-sec {
+    padding: 60px 0 35px;
+}
+
+.form-box {
+    max-width: 75%;
+    border-radius: 10px;
+}
+.reg .form-box {
+    max-width: 80%;
+}
+/*Seller Login And Reg Form End*/
+
 }
 
 @media (max-width: 575px) {
@@ -2017,8 +2106,11 @@ section.thanks {
         line-height: 30px;
         padding: 0 !important;
     }
-    .chart ul {
-    flex-wrap: wrap;
+.chart ul {
+    /*flex-wrap: wrap;*/
+}
+div.chart.reg ul {
+    flex-wrap: no-wrap;
 }
 .sec-4-box-sec-1, .sec-4-box-sec-2 {
     flex: 0 0 100%;
@@ -2210,5 +2302,24 @@ section.sec-2.productPageTn .vec-box {
     margin: 0;
 }
 
+/*Seller Login and Reg Form*/
+.form-box {
+    max-width: 100%;
+}
+.form-box form .form-btn a {
+    font-size: 10px;
+}
+.forgott .form-box h2 {
+    font-size: 15px;
+}
+.reg .form-box h2 {
+    font-size: 18px;
+}
+
+.reg .form-box {
+    max-width: 100%;
+}
+
+/*Seller Login and Reg FormEnd*/
 
 }

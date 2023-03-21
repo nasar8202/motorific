@@ -471,7 +471,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
   
   var countdownElement = document.getElementById("countdown");
-  countdownElement.innerHTML = "Live Sale <span>Begins</span> in: " + hours + "h " + minutes + "m " + seconds + "s ";
+  countdownElement.innerHTML = "<p>Live Sale <span>Begins</span> in:</p> " + hours + "h " + minutes + "m " + seconds + "s ";
   
   if (distance < 0) { 
     clearInterval(x);
@@ -488,11 +488,12 @@ var x = setInterval(function() {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownElement.innerHTML = "Live Sale <span>Ends</span> in: " + hours + "h " + minutes + "m " + seconds + "s ";
+    //   countdownElement.innerHTML = "Live Sale <span>Ends</span> in: " + hours + "h " + minutes + "m " + seconds + "s ";
+      countdownElement.innerHTML = "<p>Live Sale <span>Ends</span> in:</p> " + hours + "h " + minutes + "m " + seconds + "s ";
 
       if (distance < 0) {
         clearInterval(x);
-        countdownElement.innerHTML = "Live Sale <span>Ended</span> !";
+        countdownElement.innerHTML = "<p>Live Sale <span>Ended</span> !</p>";
       }
     }, 1000);
   }

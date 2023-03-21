@@ -73,14 +73,33 @@ display: block;
                 </div>
                 <div class="navi">
                     <ul>
+                        <li class="logoMob">
+                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+                            alt=""></a>
+                        </li>
                         <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <a href="{{ route('howItWorksforSeller') }}">
-                            <li>How It Works</li>
-                        </a>
-                        <a href="{{ route('reviews') }}">
-                            <li>Reviews</li>
-                        </a>
-                        <li><a href="#">Help</a></li>
+                        <li>
+                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('reviews') }}">Reviews</a>
+                        </li>
+                        <li>
+                            <a href="#">Help</a>
+                        </li>
+                    @guest
+                    <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                    
+                        <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                        @endguest
+                        @guest
+                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+
+                            </li>
+                        @endguest
+
+                    </div>
+                        
                     </ul>
                 </div>
             </div>
@@ -95,43 +114,71 @@ display: block;
                 </div>
                 <div class="">
                 <h3>GJ65 YUA</h3>
-                <p>Volkswagen Golf R DSG</p>
+                <p class="p-0">Volkswagen Golf R DSG</p>
                 </div>
             </div>
         </div>
     </section>
+    
+<!--Forgott Password Section-->
 
-    <!-- REGISTRATION-FORM -->
-    <div class="registration-form">
-        <div class="reg-form-heading">
-            <h3>Enter Your Email To Get Your Password</h3>
-            {{-- <p>It will take 60 seconds</p> --}}
-        </div>
-
-        <div class="container-700">
-            <div class="form-main text-center">
-                <form method="POST" action="{{ route('forgotPass') }}">
-                    @csrf
-                    <div>
-
-                        <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-
-                    </div>
-
-                    <br>
-                    <div>
-                        <button type="submit " class="m-0"> Send Password Reset Link</button>
-                    </div>
-                </form>
-                <a href="{{route('myLogin')}}">Login</a>
-            </div>
+<section class="userform-sec forgott">
+    <div class="container-1151">
+        <div class="form-box">
+            <h2>Enter Your Email To Get Your Password</h2>
+            <form method="POST" action="{{ route('forgotPass') }}">
+            @csrf
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="" name="email" class="@error('email') is-invalid @enderror form-control" name="email" value="{{ old('email') }}">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group form-btn">
+                    <button>Reset Password</button>
+                    <a href="{{route('myLogin')}}" class="fw-bold">Login</a>
+                </div>
+            </form>
+            
         </div>
     </div>
+</section>
+<!--Forgott Password Section End-->
+
+    <!-- REGISTRATION-FORM -->
+    <!--<div class="registration-form">-->
+    <!--    <div class="reg-form-heading">-->
+    <!--        <h3>Enter Your Email To Get Your Password</h3>-->
+    <!--        {{-- <p>It will take 60 seconds</p> --}}-->
+    <!--    </div>-->
+
+    <!--    <div class="container-700">-->
+    <!--        <div class="form-main text-center">-->
+    <!--            <form method="POST" action="{{ route('forgotPass') }}">-->
+    <!--                @csrf-->
+    <!--                <div>-->
+
+    <!--                    <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">-->
+    <!--                    @error('email')-->
+    <!--                        <span class="invalid-feedback" role="alert">-->
+    <!--                            <strong>{{ $message }}</strong>-->
+    <!--                        </span>-->
+    <!--                    @enderror-->
+
+    <!--                </div>-->
+
+    <!--                <br>-->
+    <!--                <div>-->
+    <!--                    <button type="submit " class="m-0"> Send Password Reset Link</button>-->
+    <!--                </div>-->
+    <!--            </form>-->
+    <!--            <a href="{{route('myLogin')}}">Login</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
 
 @endsection

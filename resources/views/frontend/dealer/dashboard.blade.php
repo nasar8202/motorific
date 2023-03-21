@@ -502,7 +502,7 @@
     <section class="stock-cta">
         <div class="container-1170">
             <h2>Motorific</h2>
-            Supercharge your inventory acquisition and purchase direct with Motorific. connecting sellers direct with Dealers 
+            <p>Supercharge your inventory acquisition and purchase direct with Motorific. connecting sellers direct with Dealers </p>
             <a href="{{ route('dealer.dashboard') }}" class="prim-btn">Browse Vechicles</a>
         </div>
     </section>
