@@ -301,7 +301,7 @@ class RegisterController extends Controller
                     //return redirect()->route('sellerRegistrationThankyou')->with('success', 'Register Successfully. Check Your Email For Password To Login!');
                 }
             } else {
-                return back()->with('error', 'Enter The Right Post Code');
+                return back()->with('error', 'Enter The Right Post Code')->withInput()->withErrors($validator);;
             }
 
         } catch (\Exception $e) {

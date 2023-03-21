@@ -2482,7 +2482,7 @@ display: block;
                                             					<p>No Data Found</p>
                                             				</td>
                                             				<td>
-                                            					<span class="stepOpener" data-title="VehicleFeatures" >
+                                            					<span class="stepOpener" data-title="VehicleFeatures" style="cursor: pointer">
                                             						<i class="fa fa-pencil"></i>
                                             					</span>
                                             				</td>
@@ -2756,6 +2756,9 @@ display: block;
                     </div>
                     <div class="photo-up-sec-2-btn photo-up-sec-2-box-btn text-center clr-s-gr">
                         <button class="submitBtn-photos-sec" type="submit">Submit</button>
+                        <br>
+                        <br>
+                        <span class="alertDisable">First Complete The Details.</span>
                     </div>
 
             </div>
@@ -3417,6 +3420,7 @@ $("#store").click(function(){
 <script>
 $(".submitBtn-photos-sec").attr("disabled", false);
 $('.completeStatus-vehicelInfo-qa').removeClass('d-none');
+$(".alertDisable").html(" ");
 </script>
 @else
 <script>
@@ -3424,11 +3428,13 @@ $('.completeStatus-vehicelInfo-qa').removeClass('d-none');
         $(".submitBtn-photos-sec").attr("disabled", true);
         // SYBMIT SUMMARY STEP 
         $('.submitVehicleInfo-qa').on('click', function(){
+            console.log("asnjha");
             myFunction2()
             $('#startBtn-vehicleInfo').text('Edit')
             $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
             $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
             $(".submitBtn-photos-sec").attr("disabled", false);
+            $(".alertDisable").html(" ");
         });
         
     </script>

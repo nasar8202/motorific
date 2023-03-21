@@ -21,39 +21,42 @@
                     </li>
                 </ul>
             </div>
-            <div class="footer-sub product">
+              <div class="footer-sub product">
                 <h5>Product</h5>
                 <ul>
                     <li>
-                        <a href="#">Sell my car</a>
+                        <a href="{{route('CarValueTracker')}}">Sell my car</a>
                     </li>
                     <li>
-                        <a href="#">Sell my van</a>
+                        <a href="{{route('CarValueTracker')}}">Sell my van</a>
                     </li>
                     <li>
-                        <a href="#">Car buyers</a>
+                        <a href="{{route('CarValueTracker')}}">Car buyers</a>
+                    </li>
+                    <!--<li>-->
+                    <!--    <a href="">Cash for cars</a>-->
+                    <!--</li>-->
+                    <li>
+                        <a href="{{route('SellMyCarOnFinance')}}">Sell My Car On Finance</a>
                     </li>
                     <li>
-                        <a href="#">Cash for cars</a>
+                        <a href="{{route('CarValueTracker')}}">Car Valuation</a>
                     </li>
                     <li>
-                        <a href="#">Car Valuation</a>
-                    </li>
-                    <li>
-                        <a href="#">Who will buy my car?</a>
+                        <a href="{{route('CarValueTracker')}}">Who will buy my car?</a>
                     </li>
                 </ul>
             </div>
             <div class="footer-sub product-2">
                 <ul>
                     <li>
-                        <a  href="#">Car buying sites</a>
+                        <a href="{{route('CarValueTracker')}}">Car buying sites</a>
                     </li>
                     <li>
-                        <a href="#">Sell to a dealer</a>
+                        <a href="{{route('sellToADealer')}}">Sell to a dealer</a>
                     </li>
                     <li>
-                        <a href="#">Sell my electric car</a>
+                        <a href="{{route('sellMyElectricCars')}}">Sell my electric car</a>
                     </li>
                 </ul>
             </div>
