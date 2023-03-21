@@ -62,7 +62,10 @@ class SellVehicleCron extends Command
 
                  $BidedVehicle = BidedVehicle::where('vehicle_id',$vehicle->id)
                  ->groupBy('id','status','user_id','vehicle_id')
+                 ->orderBy("bid_price","DESC")
                  ->first(['id','status','vehicle_id','user_id', DB::raw('max(bid_price) as max_bid_price')]);
+                   print_r($BidedVehicle);
+                    die();
                 if($BidedVehicle == null || $BidedVehicle != null){
 
                        if($BidedVehicle == null){
@@ -91,7 +94,7 @@ class SellVehicleCron extends Command
                                             
                                             'front'=>$vehicleImage->front
                                         ]);
-                                $vehicle->status = 2;
+                                $vehicle->status = 1;
                                 $vehicle->save();
                                 Mail::to($user->email)->send(new WinnerBiddedPerson($data));
                        }
