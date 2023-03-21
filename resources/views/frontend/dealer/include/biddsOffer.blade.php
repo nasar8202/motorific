@@ -15,8 +15,8 @@
             </button>
             <div id="Bids_and_offers" class="collapse">
                 <br>
-                <p><a href="{{ route('bids.ActiveBiddedVehicle') }}" class="active">Active</a></p><br>
-                <p><a href="{{ route('bids.UnderBiddedOfferVehicle') }}">Under Offer</a></p><br>
+                <p><a href="{{ route('bids.UnderBiddedOfferVehicle') }}" class="active">Active</a></p><br>
+                <p><a href="{{ route('bids.ActiveBiddedVehicle') }}">Wins</a></p><br>
                 <p><a href="{{ route('bids.DidnotWinBiddedVehicle') }}">Didn't Win</a></p>
             </div>
         </div>
