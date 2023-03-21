@@ -8,7 +8,10 @@
     }
 </style>
 <main class="topPadingPage">
-    <section>
+    <section class="veh-detail-sec">
+        <div class="backBtn">
+                <a href="{{route('dealer.dashboard')}}">Back to Vehicles</a>
+            </div>
         <div class="sliderImgVehicleDetail">
             <div class="sliderImgVehicleDetailRepeater">
                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}">
@@ -254,7 +257,7 @@
                                 <li >Higesht Offer<span> <a href="#">@if(isset($order->request_price)) {{$order->request_price}}@endif</a></span></li>
                                 @else
                                 <li>Total Bids: <span>{{$allbids??'No Bids Yet'}}</span></li>
-                                <li >Live Sales end <span>3h 53m 26s <a href="#"></a></span></li>
+                                <li  class="sale-timer"><div id="countdown"></li>
                                 @endif
                                 <ul class="valuation">
                                     <li id="dynamic-ar">valuation <span><i class="fas fa-chevron-down"></i></span></li>

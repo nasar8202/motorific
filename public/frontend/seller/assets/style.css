@@ -17,7 +17,9 @@ body {
 main {
     overflow-x: hidden;
 }
-
+input:focus, button:focus{
+    outline:none;
+}
 .mob-menu {
     display: none;
 }
@@ -1127,7 +1129,8 @@ section.photo-up-sec-2 {
 }
 
 .registration-form{
-    padding: 200px 0px;
+    /*padding: 200px 0px;*/
+    padding: 100px 0px 130px;
 }
 
 .reg-page-sec1 div h3{
@@ -2945,3 +2948,115 @@ ol.tagLines li::marker {
     margin-top: 30px;
 }
 /*cookies modal*/
+
+/*Seller Login and Reg Form*/
+.userform-sec {
+    padding: 7vw 0;
+}
+
+.form-box {
+    max-width: 28vw;
+    margin: 0 auto;
+    background: #7977a2;
+    padding: 2.5vw 2vw;
+    border-radius: .55vw;
+    box-shadow: 10px 10px 15px -2px rgb(0 0 0 / 10%);
+}
+
+.form-box h2 {
+    color: #fff;
+    font-size: 2.2vw;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1vw;
+}
+
+.form-box form label {
+    font-size: .85vw;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: .2vw;
+}
+
+.form-box form .form-group {
+    margin-bottom: 1.1vw;
+}
+
+.form-box form input {
+    border-radius: 100px;
+    padding: .6vw 1.4vw;
+    box-shadow: none !important;
+    font-size: .85vw;
+    line-height: 1.2;
+}
+
+.form-box form .form-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-box form .form-btn button {
+    border: none;
+    background: #05eab5;
+    padding: .6vw 1.5vw;
+    border-radius: 100px;
+    font-size: .8vw;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.form-box form .form-btn a {
+    color: #fff;
+    text-decoration: none;
+    font-size: .8vw;
+}
+
+.form-box form .formLink {
+    text-align: center;
+}
+
+.formLink {
+    text-align: center;
+    color: #fff;
+    font-size: .8vw;
+}
+
+.formLink a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+.form-box .invalid-feedback {
+    color: #fff;
+    background: #dc3545;
+    display: inline-block;
+    padding: .4vw 1vw;
+    font-size: .65vw;
+    border-radius: 100px;
+    line-height: 1.2;
+    margin-top: .5vw;
+}
+
+.form-box .invalid-feedback strong {
+    font-weight: 400;
+}
+.forgott .form-box h2 {
+    font-size: 1.8vw;
+}
+.reg .form-box h2 {
+    font-size: 1.8vw;
+}
+
+.reg .form-box > p {
+    text-align: center;
+    color: #fff;
+    font-size: .85vw;
+    margin-bottom: 1.5vw;
+}
+
+/*Seller Login and Reg Form End*/
+.reg-contBox p:empty {
+    display: none;
+}

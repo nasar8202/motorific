@@ -22,8 +22,8 @@ class Seller
 
 
         if (Auth::user()->role_id == 1 && Auth::user()->status == 1) {
-            return redirect()->route('seller');
-
+           // return redirect()->route('seller');
+           return redirect()->route('admin');
         }
         if (Auth::user()->role_id == 2) {
 

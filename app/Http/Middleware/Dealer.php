@@ -22,7 +22,8 @@ class Dealer
 
 
         if (Auth::user()->role_id == 1 && Auth::user()->status == 1) {
-            return $next($request);
+            return redirect()->route('admin');
+            //return $next($request);
         }
         if (Auth::user()->role_id == 2 && Auth::user()->status == 1) {
             return redirect()->route('seller');

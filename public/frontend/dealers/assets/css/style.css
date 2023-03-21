@@ -1831,6 +1831,11 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     left: 50%;
     transform: translateX(-50%);
 }
+.stock-cta p {
+    max-width: 45%;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
 
 
 /* End */
@@ -2085,7 +2090,76 @@ button.btn-Next svg {
     color: #fff;
 }
 
+.simple-pagination li a, .simple-pagination li span {
+    background: #7977a2 !important;
+    border: none;
+}
+.filterIn #slider .ui-corner-all {
+    border-radius: 50%;
+    background: #7977a2;
+    border: none;
+    outline:none;
+}
 
 
+.filterIn #slider {
+    background: #d3d3d3c4;
+    border-radius: 100px;
+    border-color: #d3d3d3c4;
+}
 
+.filterIn #slider .ui-slider-range {
+    border-radius: 0;
+    background: #05eab5;
+    border: 1px solid #05eab5;
+}
+
+/*Dealer Login Form*/
+.form-input-wraper .inputBox {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+.form-input-wraper {
+    padding: 0 !important;
+}
+
+.form-btnBox button {
+    margin-left: 0 !important;
+}
+
+
+/*End*/
+#countdown p {
+    all: unset;
+}
+.sale-timer #countdown {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sale-timer #countdown span {
+    font-weight: 400;
+}
+
+/*Vehicle Back Btn*/
+.backBtn a {
+    text-decoration: none;
+    background: #05eab5;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 100px;
+    transition: all .4s ease-in;
+}
+
+.backBtn {
+    padding: 0 0 30px 10px;
+}
+
+.backBtn a:hover {
+    background: #7a77a2;
+}
+/*End*/
 

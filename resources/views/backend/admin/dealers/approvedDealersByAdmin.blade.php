@@ -38,7 +38,9 @@
                             <th>Email</th>
                             <th>Phone Number</th>
                             <th>Company Name</th>
-                            <th>Position</th>
+                            {{-- <th>Position</th> --}}
+                            <th>ID</th>
+                            <th>Documents</th>
                            
                             <th>Action</th>
                         </tr>
@@ -50,7 +52,9 @@
                             <td>{{ $dealer->email }}</td>
                             <td>{{ $dealer->phone_number }}</td>
                             <td>{{ $dealer->company_name }}</td>
-                            <td>{{ $dealer->position }}</td>
+                            {{-- <td>{{ $dealer->position }}</td> --}}
+                            <td><img src="{{ asset('/dealers/documents/'.$dealer->userDetails->dealer_identity_card) }}" width="150px" height="150px"></td>
+                            <td><img src="{{ asset('/dealers/documents/'.$dealer->userDetails->dealer_documents) }}" width="150px" height="150px"></td>
                             
                             <td>
                                 <a href="{{route('dealersPurchase',$dealer->id)}}"><span class="badge bg-success badge-success">View Dealer Purchases</span></a>
