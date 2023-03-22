@@ -89,7 +89,7 @@
                     </a>
                     <li><a href="#">Help</a></li>
                     @guest
-                        <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                        <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                         </li>
                     @endguest

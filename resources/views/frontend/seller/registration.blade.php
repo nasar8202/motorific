@@ -60,7 +60,7 @@ input[type=number] {
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -95,7 +95,7 @@ input[type=number] {
                         <li><a href="{{ route('registration') }}">Sign Up</a></li>
                         @endguest
                         @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                             </li>
                         @endguest

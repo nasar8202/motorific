@@ -48,7 +48,7 @@ display: block;
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -142,7 +142,7 @@ display: block;
                 </div>
                 @endif
                     @guest
-                        <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                        <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                         </li>
                     @endguest
