@@ -207,6 +207,8 @@ div#filter-price {
                                     <option selected disabled value=""> Select Fuel Type </option>
                                     <option value="diesel"> Diesel</option>
                                     <option value="petrol"> Petrol</option>
+                                    <option value="hybrid"> Hybrid</option>
+                                    <option value="electric"> Electric</option>
                                 </select>
                             </label>
                         </div>

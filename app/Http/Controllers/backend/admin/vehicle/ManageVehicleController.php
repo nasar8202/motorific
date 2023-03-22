@@ -475,7 +475,7 @@ class ManageVehicleController extends Controller
                 $end_time = null;
             } else {
                 $mytime = Carbon::now();
-                if($mytime->toTimeString() >= "08:00:00" && $mytime->toTimeString() <= "16:00:00"){
+                if($mytime->toTimeString() >= "16:00:00" && $mytime->toTimeString() <= "16:00:00"){
                     return back()->with('error','Can not update rightnow');
                 }
                 else{

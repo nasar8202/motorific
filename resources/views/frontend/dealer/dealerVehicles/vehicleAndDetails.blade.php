@@ -368,8 +368,8 @@
                             <div class="mt-40">
                                 <label for="condition_damage" class="label-main-text f-20"> Estimated Preparation Cost
                                 </label>
-                                <textarea class="textarea-qa textarea-qa-sm" name="condition_damage" id="condition_damage" cols="30"
-                                    rows="10">{{ old('condition_damage') ??request()->session()->get('condition_damage') }}£45</textarea>
+                                <textarea class="textarea-qa textarea-qa-sm" name="condition_damage" id="condition_damage" placeholder="£" cols="30"
+                                    rows="10">{{ old('condition_damage') ??request()->session()->get('condition_damage') }}45</textarea>
                             </div>
 
                             {{-- <div class="mt-40">

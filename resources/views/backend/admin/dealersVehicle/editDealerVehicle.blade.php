@@ -303,7 +303,7 @@ p {
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="reserve_price">Vehicle Reserve Price </label>
-                                                    <input type="number" id="reserve_price" value="{{$vehicle->reserve_price ?? old('reserve_price')}}"  class="form-control"
+                                                    <input readonly type="number" id="reserve_price" value="{{$vehicle->reserve_price ?? old('reserve_price')}}"  class="form-control"
                                                        name="reserve_price" placeholder="" >
 
                                                 </div>

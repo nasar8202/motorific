@@ -124,14 +124,14 @@ class AddDealerVehicleController extends Controller
         // dd($request->all());
         $request->validate([
             
-            'stand_in_value' => 'required',
+            'reservePrice' => 'required',
             'vat' => 'required',
             'confirm' => 'required',
 
         ]);
         Session::put('listing_type', "staticaly now");
         // Session::put('listing_type', $request->listing_type);
-        Session::put('stand_in_value', $request->stand_in_value);
+        Session::put('reservePrice', $request->reservePrice);
         Session::put('vat', $request->vat);
         Session::put('confirm', $request->confirm);
         return redirect()->route('dealer.vehicleListing');
@@ -173,13 +173,15 @@ class AddDealerVehicleController extends Controller
             $dealers_vehicle->previous_owners = session()->get('previous_owners');
             $dealers_vehicle->vehicle_tank = session()->get('vehicle_transmission');
             $dealers_vehicle->vehicle_mileage = session()->get('vehicle_mileage');
+            $dealers_vehicle->reserve_price = session()->get('reservePrice');
+            
             $dealers_vehicle->status = 0;
             $dealers_vehicle->save();
 
             $dealer_advert_vehicle = new DealerAdvertVehicleDetail;
             $dealer_advert_vehicle->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_advert_vehicle->listing_type = "live auction statically";
-            $dealer_advert_vehicle->stand_in_value = session()->get('stand_in_value');
+            // $dealer_advert_vehicle->stand_in_value = session()->get('stand_in_value');
             $dealer_advert_vehicle->vat = session()->get('vat');
             $dealer_advert_vehicle->confirm = session()->get('confirm');
             $dealer_advert_vehicle->save();

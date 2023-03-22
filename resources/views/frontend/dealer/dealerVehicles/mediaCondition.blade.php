@@ -51,10 +51,10 @@
                     </div> --}}
 
                     <div class="details-field-main">
-                        <label class="label-main-text f-20"> Stand in value </label>
-                        <input class="inp-qa f-20" type="number" placeholder="0" name="stand_in_value" value="{{ old('stand_in_value') ?? request()->session()->get('stand_in_value') }}" >
-                        @if ($errors->has('stand_in_value'))
-                        <span class="text-danger">{{ $errors->first('stand_in_value') }}</span>
+                        <label class="label-main-text f-20"> Reserve Price </label>
+                        <input class="inp-qa f-20" type="number" placeholder="0" name="reservePrice" value="{{ old('reservePrice') ?? request()->session()->get('reservePrice') }}" min="1" >
+                        @if ($errors->has('reservePrice'))
+                        <span class="text-danger">{{ $errors->first('reservePrice') }}</span>
                         @endif
                     </div>
 
