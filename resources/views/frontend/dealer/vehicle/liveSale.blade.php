@@ -166,7 +166,7 @@ div#filter-price {
                             </select>
                         </label>
                     </div>
-                    <div class="filterIn">
+                    {{-- <div class="filterIn">
                         <h4>Previous Owners</h4>
                         <label class="selectCommon selectSingle">
                             <select name="previousOwnersPro" id="previousOwnersPro">
@@ -175,7 +175,7 @@ div#filter-price {
     							<option value="5"> < 5</option>
                             </select>
                         </label>
-                    </div>
+                    </div> --}}
                     {{-- <div class="filterIn">
                         <h4>Distance From SL1 2LX</h4>
                         <label class="selectCommon selectSingle">
@@ -291,7 +291,7 @@ div#filter-price {
                                                 <span class="p-location">
                                                 <i class="fas fa-map-marker-alt"></i>
                                                 <?php
-                                                /*
+                                                
                                                 $current_user = Illuminate\Support\Facades\Auth::user();
         $user = App\Models\User::where('id',$vehicle->user_id)->first();
         
@@ -308,7 +308,7 @@ div#filter-price {
         $urlk = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zipk'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
         $result_stringk = file_get_contents($urlk);
         $resultk = json_decode($result_stringk, true);
-
+        if( json_decode($result_string)->status == "OK"){
         
         $resultk1[]=$resultk['results'][0];
         $resultk2[]=$resultk1[0]['geometry'];
@@ -337,7 +337,9 @@ div#filter-price {
           
        $distance = floor($res*$radius);
               echo $distance.' Mi away'; 
-              */
+            }else{
+                echo ' 100 Mi away';  
+            }       
               ?>
                                                 </span>
                                             </div>
@@ -449,7 +451,7 @@ $(document).ready(function(){
             $.each(resultData,function(resultData,row){
                 bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >£' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >£' + row.reserve_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
 
                                 $("#filter-price").html(bodyData);
@@ -505,7 +507,7 @@ $( "#makePro").change(function(){
             $.each(resultData,function(resultData,row){
                 bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.vehicle_image.front+'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.reserve_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
 
                                 $("#filter-price").html(bodyData);
@@ -574,7 +576,7 @@ $( "#makePro").change(function(){
 
                 bodyData += '<div class="col-lg-4 col-sm-6" ><a href="/dealer/dealer-vehicle-detail/' + row.id + '" class="product-main"><div class="product-card">'
                                         bodyData += '<div class="produc-img"> <img src="'+path+'vehicles/vehicles_images/'+row.front+'"></div>'
-                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.vehicle_price + '</span></h5></div>'
+                                        bodyData +=  '<div class="p-content"><h3 class="p-title">'+ row.vehicle_name +'</h3> <ul class="p-spec"><li>' + row.vehicle_year + '</li><li>' + row.vehicle_mileage + '</li><li>' + row.vehicle_type + '</li><li>' + row.vehicle_tank + '</li> </ul><div class="p-cate-list"><span class="p-code gold">' + row.vehicle_registartion_number + '</span><span class="p-location"> <i class="fas fa-map-marker-alt"></i> 161 Mi away</span></div><h5 class="p-price">Reserve price: <span >$' + row.reserve_price + '</span></h5></div>'
                                         bodyData += '</div> </a></div>'
                     
                                 $("#filter-price").html(bodyData);
