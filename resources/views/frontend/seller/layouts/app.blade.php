@@ -18,6 +18,9 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <title>Motorific- @yield('title')</title>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a" data-blockingmode="auto" type="text/javascript"></script>
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a/cd.js" type="text/javascript" async></script>
+
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -71,7 +74,6 @@
 </body>
 
 </html>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" > </script>
 <script>
