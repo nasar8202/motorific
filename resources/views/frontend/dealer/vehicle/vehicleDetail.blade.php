@@ -308,7 +308,7 @@
                             <center class="info_txt mb-2"><span class="info_txt text-center ">Your Request Price Is <span class="userRequestedPrice" > {{$order->request_price}} </span></span>
                             </center>   
                             <center><a data-id="{{$order->id}}" class="btn btn-success btn-sm updatePrice btn_success"> Update My Price</a>
-                            <a href="{{route('cancelRequest',$order->id)}}" class="btn btn-danger btn-sm btn_danger"> Cancel My Request</a>
+                            <a href="{{route('cancelRequest',$order->id)}}" class="btn btn-danger btn-sm btn_danger">Cancel purchase </a>
                             
                         </center>   
                         <br>    
