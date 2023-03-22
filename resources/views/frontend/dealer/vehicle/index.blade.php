@@ -79,7 +79,7 @@ div#filter-price {
                 <div class="col-12">
                     <div class="banner-content">
                         <h2 class="sec-heading fs-50 text-white">All Vehicles</h2>
-                        <p class="text-white">Next live sale begins tomorrow at 11am</p>
+                        <p class="text-white">Next live sale begins tomorrow at 08 am</p>
                     </div>
                 </div>
             </div>

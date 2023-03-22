@@ -185,6 +185,8 @@ p {
                         <li>Passenger Seat<span>{{$vehicle->DealerVehicleInteriorDetails->passenger_seat ?? 'No Detail'}}</span></li>
                         <li>Driver Seat <span>{{$vehicle->DealerVehicleInteriorDetails->driver_seat ?? 'No Detail'}} </span></li>
                         <li>Rear Seats<span>{{$vehicle->DealerVehicleInteriorDetails->rear_seats ?? 'No Detail'}}</span></li>
+                        <li>Passenger back door<span>{{$vehicle->DealerVehicleInteriorDetails->passenger_back_door ?? 'No Detail'}}</span></li>
+                        <li>Driver back door<span>{{$vehicle->DealerVehicleInteriorDetails->driver_back_door ?? 'No Detail'}}</span></li>
                     </ul>
                 </div>
             </div>
@@ -200,6 +202,7 @@ p {
                         <li>Bonut<span>{{$vehicle->DealerVehicleExteriorDetails->bonut ?? 'No Detail'}}</span></li>
                         <li>Front<span>{{$vehicle->DealerVehicleExteriorDetails->front ?? 'No Detail'}}</span></li>
                         <li>Back<span>{{$vehicle->DealerVehicleExteriorDetails->back ?? 'No Detail'}}</span></li>
+                        <li>Wind screen<span>{{$vehicle->DealerVehicleExteriorDetails->windscreen ?? 'No Detail'}}</span></li>
                     </ul>
                 </div>
             </div>

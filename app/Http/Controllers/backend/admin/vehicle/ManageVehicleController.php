@@ -540,8 +540,6 @@ class ManageVehicleController extends Controller
                 'vehicle_registration'=>$vehicle->vehicle_registartion_number,
                 'vehicle_name'=>$vehicle->vehicle_name,
                 'vehicle_mileage'=>$vehicle->vehicle_mileage,
-                
-
             ]);
 
             Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));

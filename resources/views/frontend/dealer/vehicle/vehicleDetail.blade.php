@@ -212,6 +212,8 @@
                                 <li>Passenger Seat<span>{{$interior->passenger_seat ?? 'No Damage'}}</span></li>
                                 <li>Driver Seat <span>{{$interior->driver_seat ?? 'No Damage'}} </span></li>
                                 <li>Rear Seats<span>{{$interior->rear_seats ?? 'No Damage'}}</span></li>
+                                <li>Passenger Back Door<span>{{$interior->passenger_back_door ?? 'No Damage'}}</span></li>
+                                <li>Back Driver Door<span>{{$interior->driver_back_door ?? 'No Damage'}}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -229,6 +231,7 @@
                                 <li>Bonut<span>{{$exterior->bonut ?? 'No Damage'}}</span></li>
                                 <li>Front<span>{{$exterior->front ?? 'No Damage'}}</span></li>
                                 <li>Back<span>{{$exterior->back ?? 'No Damage'}}</span></li>
+                                <li>Wind screen<span>{{$exterior->windscreen ?? 'No Damage'}}</span></li>
                             </ul>
                         </div>
                     </div>

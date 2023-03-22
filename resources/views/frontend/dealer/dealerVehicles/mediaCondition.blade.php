@@ -19,7 +19,7 @@
             <div class="advert-details-form step1 show">
                 <form action="{{ route('dealer.mediaConditionPost') }}" method="POST">
                     @csrf
-                    <h2 class="headingqa-2 f-40">Advertise details</h2>
+                    {{-- <h2 class="headingqa-2 f-40">Advertise details</h2>
                     <div class="details-field-main">
                         <p class="label-main-text f-20"> Listing type </p>
                         <div>
@@ -48,7 +48,7 @@
                             <span class="text-danger">{{ $errors->first('listing_type') }}</span>
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="details-field-main">
                         <label class="label-main-text f-20"> Stand in value </label>

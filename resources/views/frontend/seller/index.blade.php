@@ -475,7 +475,7 @@
                 <!--        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by-->
                 <!--    5,000+ Users</p>-->
                 <p>Rated  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 3thousands Customers </p>
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by our Customers </p>
             </div>
             <div class="sec-6-boxes d-flex">
                 <div class="sec-6-main-box col-lg-4 col-md-6">

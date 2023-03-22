@@ -69,5 +69,13 @@
     </div>
 </div>
 @endsection
-
-
+@push('child-scripts')
+<script  type="text/javascript">
+    $(document).ready(function() {
+        
+        $(document).on('submit', 'form', function() {
+            $('button').attr('disabled', 'disabled');
+        });
+    });
+    </script>
+@endpush
