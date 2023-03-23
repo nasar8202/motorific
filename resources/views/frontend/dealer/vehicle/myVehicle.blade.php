@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-9">
-                    <h5>My Vehicle</h5>
+                    <h5>My Vehicles</h5>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
@@ -46,7 +46,7 @@
                                                 style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $vehicle->vehicle_registartion_number }}</span>
                                         </h1>
                                         <p>{{ $vehicle->vehicle_name }}</p>
-                                        <p>Vehicle Price : {{ $vehicle->vehicle_price }}</p>
+                                        <p>Vehicle Price :£ {{ $vehicle->vehicle_price??"No Price Yet" }}</p>
                                         @if ($vehicle->status == 1)
                                             <span class="badge badge-success">Approved </span>
                                         @elseif($vehicle->status == 2)
@@ -55,7 +55,7 @@
                                             <span class="badge badge-danger">Pending </span>
                                         @endif
 
-                                        <span style="padding-left: 60px;">{{ $vehicle->created_at->format('m/d/Y') }}</span>
+                                        <span style="padding-left: 60px;">{{ $vehicle->created_at->format('d/m/Y') }}</span>
                                         {{-- <a href="{{route('markAsSoldDealerVehicle',$vehicle->id)}}">Marks As Sold ?</a> --}}
 
                                         <span style="padding-left: 200px;">
@@ -66,7 +66,7 @@
 
                                         </span>
                                         <div class="btn-bids">
-                                            <a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Biddes On Vehicle</a>
+                                            <a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Bids on my vehicle</a>
                                         </div>
                                         {{-- <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$vehicle->id}}">...</button>
 

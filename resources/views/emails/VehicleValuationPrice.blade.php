@@ -160,16 +160,16 @@
           </p>
 
           <div class="mail-img-one">
-            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> <br />
-            {{-- <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> --}}
+            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" width="100px" height="50px" alt="" /> <br />
+            
           </div>
         </div>
         <div class="mail-content">
             <h2>Valuation!</h2>
             <p>Hi {{ $data['name'] }}!</p>
             <p>
-              Congratulations - Your Vehicle valuation has been added by admin
-              <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['reserve_price'] }}.
+              Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
+               for the price of £{{ $data['reserve_price'] }}.
 
           </p>
             <p>Car Details</p>
@@ -186,22 +186,7 @@
             </div>
           </div>
         <div class="customer-detail">
-          {{-- <strong>Customer Contact Details</strong>
-          <div class="car-det">
-            <span>Name: Carter</span>
-            <span> Phone: +447703287219 </span>
-            <span>Phone: +447703287219</span>
-            <span>Postcode: SY20 9LR</span>
-          </div>
-          <span
-            ><strong
-              >Now it’s time to arrange inspection, collection and payment with
-              the seller.</strong
-            ></span
-          > --}}
-          {{-- <div class="btn-mail">
-            <a href="">Contact the seller here </a>
-          </div> --}}
+          
           <div class="qa-ans">
             <p><strong>You Can Approved Or Reject Valuation </strong></p>
             <a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

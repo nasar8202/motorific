@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers\frontend\dealer;
 
+use Swift;
+use Exception;
 use App\Models\User;
+use TransportException;
 use App\Models\UserDetail;
 use Illuminate\Http\Request;
-
+use Swift_TransportException;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Mail\WelcomeDealerRegistrationRequestMail;
 use App\Notifications\NewDealerRequestNotification;
-use Exception;
-use Illuminate\Support\Facades\DB;
 
 class MultiStepRegistration extends Controller
 {
@@ -234,10 +237,12 @@ class MultiStepRegistration extends Controller
                 DB::rollBack();
                 return back()->with('error', 'Enter The Right Post Code');
             }
-        } catch (\Exception $e) {
+        } catch (Swift_TransportException $e) {
             DB::rollBack();
-            return $e;
-            return back()->with('error', 'Something Went Wrong');
+           // return $e;
+           Log::error($e->getMessage()); // log the error message
+    return redirect()->back()->withErrors(['error' => 'An error occurred while sending the email. Please try again later.']); // display user-friendly error message
+            //return back()->with('error', 'Something Went Wrong');
         }
     }
 

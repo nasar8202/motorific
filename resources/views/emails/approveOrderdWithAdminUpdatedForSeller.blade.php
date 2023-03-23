@@ -35,10 +35,15 @@
       align-items: center;
       gap: 30px;
       padding-left: 2rem;
+      flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row-reverse;
     }
 
     .content-img img {
-      width: 800px;
+      width: 300px;
+      height: 200px;
+      display: flex
     }
     .social-icon {
     text-align: center;
