@@ -40,7 +40,7 @@ class OrderVehicleRequestController extends Controller
         $order->save();
     
         if($order){
-            return response()->json(['success' => 'Order Request successfully Added . Wait For Seller Approvel']);
+            return response()->json(['success' => 'Your Offer successfully Added . Wait For Seller Approvel']);
         }
         else{
             return 0;

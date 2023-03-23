@@ -364,7 +364,7 @@
                             <h4>Live Sales In Progress</h4>
                             <div class="reserveDetail">
                                 <ul>
-                                    <li>Reserve Price: <span>£{{ $vehicle->vehicle_price }}</span></li>
+                                    <li>Reserve Price: <span>£{{ $vehicle->reserve_price }}</span></li>
                                     <ul class="valuation">
                                         <li id="dynamic-ar" ><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" style="cursor: pointer;"></i></span></li>
                                         <li class="hidden">Retail:<span> £{{ $vehicle->retail_price }} </span></li>
