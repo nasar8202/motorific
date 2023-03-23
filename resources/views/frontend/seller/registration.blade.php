@@ -226,7 +226,7 @@ input[type=number] {
 
 
                 <div>
-                    <button>CONTINUE</button>
+                    <button id="submitId">CONTINUE</button>
                 </div>
 
             </form>
@@ -610,6 +610,7 @@ $(document).ready(function() {
         
         $(document).on('submit', 'form', function() {
             $('#submitId').attr('disabled', 'disabled');
+            $('#submitId').html('Submitting...');
         });
     });
 $(document).ready(function() {

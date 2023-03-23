@@ -2826,6 +2826,7 @@ $(document).ready(function() {
         $(document).on('submit', '#createVehicle', function() {
             $('.submitBtn-photos-sec').attr('disabled', 'disabled');
             $(".submitBtn-photos-sec").attr("disabled", true);
+            $('.submitBtn-photos-sec').html('Submitting...');
         });
     });
 $(".spinnerVehicle").hide();
