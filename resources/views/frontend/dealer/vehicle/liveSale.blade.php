@@ -79,7 +79,7 @@ div#filter-price {
                 <div class="col-12">
                     <div class="banner-content">
                         <h2 class="sec-heading fs-50 text-white">Live Sell</h2>
-                        <p class="text-white">Next live sale begins tomorrow at 11am</p>
+                        <p class="text-white">Next live sale begins tomorrow at 08 am</p>
                     </div>
                 </div>
             </div>
@@ -204,6 +204,8 @@ div#filter-price {
                                 <option selected disabled value=""> Select Fuel Type </option>
                                 <option value="diesel"> Diesel</option>
     							<option value="petrol"> Petrol</option>
+                                <option value="hybrid"> Hybrid</option>
+                                <option value="electric"> Electric</option>
                             </select>
                         </label>
                     </div>

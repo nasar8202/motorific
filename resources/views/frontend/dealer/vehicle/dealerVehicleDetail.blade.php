@@ -272,6 +272,8 @@
                                     <li>Rear
                                         Seats<span>{{ $vehicle->DealerVehicleInteriorDetails->rear_seats ?? 'No Damage' }}</span>
                                     </li>
+                                    <li>Passenger Back Door<span>{{$vehicle->DealerVehicleInteriorDetails->passenger_back_door ?? 'No Damage'}}</span></li>
+                                <li>Back Driver Door<span>{{$vehicle->DealerVehicleInteriorDetails->driver_back_door ?? 'No Damage'}}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -301,6 +303,7 @@
                                     </li>
                                     <li>Back<span>{{ $vehicle->DealerVehicleExteriorDetails->back ?? 'No Damage' }}</span>
                                     </li>
+                                    <li>Wind screen<span>{{$vehicle->DealerVehicleExteriorDetails->windscreen ?? 'No Damage'}}</span></li>
                                 </ul>
                             </div>
                         </div>

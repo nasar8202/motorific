@@ -51,7 +51,7 @@ display: block;
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -96,7 +96,7 @@ display: block;
                         <li><a href="{{ route('registration') }}">Sign Up</a></li>
                         @endguest
                         @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                             </li>
                         @endguest
@@ -129,8 +129,8 @@ display: block;
             <div class="row">
                 <div class="col-md-6">
                     <div class="contact-content">
-                        <h3>DON'T BE SHY</h3>
-                        <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                        
+                        <p>Our friendly team are happy to help with any query you may have. Please leave us a message, We will be in touch shortly.                        </p>
                         <ul class="contact-info">
                             <li><span>Mail Me:</span> <a href="info@motorific.co.uk">info@motorific.co.uk</a></li>
                             <li><span>Call Me:</span> <a href="tel:+447593839364">+44 7593 839364</a></li>

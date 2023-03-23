@@ -42,11 +42,13 @@ class DealerDashboardController extends Controller
     public function index()
     {
 
-      $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->distinct('vehicle_name')->pluck('vehicle_name');
+      $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
+      $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+        ->where('end_vehicle_date',$start_end_vehicle_date)->distinct('vehicle_name')->pluck('vehicle_name');
+        $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+        ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
-        $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->get();
-
-        $countAllVehicle = Vehicle::where('status',1)->count();
+        $countAllVehicle = count($allVehicles);
 
         return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle','allVehiclesName'));
 
@@ -463,7 +465,7 @@ $current_date = ($mytime->toDateString());
             $query_string_second_part[] = " AND v.deleted_at IS NULL";
             $query_string_second_part[] = " AND vimg.deleted_at IS NULL";
 
-            $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type,
+            $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.reserve_price,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type,
              v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price,
               v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,
               vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,
@@ -501,7 +503,7 @@ $current_date = ($mytime->toDateString());
             $query_string_second_part[] = " AND dvmedia.deleted_at IS NULL";
             $query_string_second_part[] = " AND dvhistory.deleted_at IS NULL";
 
-            $query_string_First_Part= "SELECT  vd.id,vd.vehicle_registartion_number,vd.vehicle_name, vd.vehicle_year,vd.vehicle_color, vd.vehicle_type,vd.previous_owners,
+            $query_string_First_Part= "SELECT  vd.id,vd.reserve_price,vd.vehicle_registartion_number,vd.vehicle_name, vd.vehicle_year,vd.vehicle_color, vd.vehicle_type,vd.previous_owners,
             vd.vehicle_tank, vd.vehicle_mileage, vd.vehicle_price,  vd.retail_price,  vd.status,
             dvhistory.keys,dvhistory.previous_owners,dvhistory.service_history_title,dvhistory.mileage,
             dvhistory.v5_status,dvhistory.origin,dvhistory.interior,dvhistory.exterior,dvhistory.audio_and_communications,dvhistory.drivers_assistance,
@@ -547,7 +549,7 @@ $current_date = ($mytime->toDateString());
 
          //  fuel tank  + previours owners + price range + milage + age year filter combine case
          case($request->previousOwnersPro && $request->fuelType && $request->mileAgePro && $request->range && $request->agePro ):
-
+          $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
             $current_year = date("Y");
             $total = $current_year - $request->agePro;
             $range = explode('-',$request->range);
@@ -560,7 +562,8 @@ $current_date = ($mytime->toDateString());
             ->where('vehicle_tank',$request->fuelType)
             ->where('status',1)
             ->with('vehicleInformation')
-            ->with('VehicleImage')->get();
+            ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+            ->where('end_vehicle_date',$start_end_vehicle_date)->get();
            //dd($age_milage_price_filter);
               return $owner_milage_price_filter;
          break;
@@ -568,7 +571,7 @@ $current_date = ($mytime->toDateString());
 
             //    previours owners + price range + milage + age year filter combine case
             case($request->previousOwnersPro && $request->mileAgePro && $request->range && $request->agePro ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
@@ -580,7 +583,8 @@ $current_date = ($mytime->toDateString());
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                //dd($age_milage_price_filter);
                   return $owner_milage_price_filter;
              break;
@@ -588,7 +592,7 @@ $current_date = ($mytime->toDateString());
 
                  //   fuel type + Mileage + Price + Age filter combine case
                  case($request->fuelType && $request->mileAgePro && $request->range && $request->agePro ):
-
+                  $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $current_year = date("Y");
                     $total = $current_year - $request->agePro;
                     $range = explode('-',$request->range);
@@ -600,7 +604,8 @@ $current_date = ($mytime->toDateString());
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                    //dd($fuel_age_milage_price_filter);
                       return $fuel_age_milage_price_filter;
                  break;
@@ -608,7 +613,7 @@ $current_date = ($mytime->toDateString());
 
                  // fuel type + Mileage + age year + previous owners filter combine case
                  case($request->fuelType && $request->mileAgePro && $request->previousOwnersPro && $request->agePro ):
-
+                  $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $current_year = date("Y");
                     $total = $current_year - $request->agePro;
 
@@ -619,14 +624,15 @@ $current_date = ($mytime->toDateString());
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                    //dd($fuel_age_milage_price_filter);
                       return $fuel_age_milage_owner_filter;
                  break;
 
                  //new
                  case($request->fuelType &&  $request->range && $request->previousOwnersPro && $request->agePro ):
-
+                  $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                   $current_year = date("Y");
                   $total = $current_year - $request->agePro;
                   $range = explode('-',$request->range);
@@ -638,7 +644,8 @@ $current_date = ($mytime->toDateString());
                   ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                   ->where('status',1)
                   ->with('vehicleInformation')
-                  ->with('VehicleImage')->get();
+                  ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                  ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                  //dd($fuel_age_milage_price_filter);
                  return $fuel_age_range_owner_filter;
 
@@ -647,7 +654,7 @@ $current_date = ($mytime->toDateString());
 
         //    age milage and price filter combine case
             case($request->agePro && $request->mileAgePro && $request->range ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
@@ -657,7 +664,8 @@ $current_date = ($mytime->toDateString());
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                //dd($age_milage_price_filter);
                   return $age_milage_price_filter;
               break;
@@ -665,7 +673,7 @@ $current_date = ($mytime->toDateString());
 
                //    previours owners + price range + milage filter combine case
             case($request->previousOwnersPro && $request->mileAgePro && $request->range ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $range = explode('-',$request->range);
 
                 $owner_milage_price_filter = Vehicle::where('vehicle_price', '>=', $range[0])
@@ -674,7 +682,8 @@ $current_date = ($mytime->toDateString());
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                //dd($age_milage_price_filter);
                   return $owner_milage_price_filter;
               break;
@@ -682,7 +691,7 @@ $current_date = ($mytime->toDateString());
 
                //    previours owners + price range + age filter combine case
             case($request->previousOwnersPro && $request->agePro && $request->range ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
@@ -693,7 +702,8 @@ $current_date = ($mytime->toDateString());
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                //dd($age_milage_price_filter);
                   return $owner_milage_price_filter;
               break;
@@ -701,7 +711,7 @@ $current_date = ($mytime->toDateString());
 
                              //    previours owners + price range + age filter combine case
             case($request->previousOwnersPro && $request->agePro && $request->mileAgePro ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
 
@@ -711,14 +721,15 @@ $current_date = ($mytime->toDateString());
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                //dd($age_milage_price_filter);
                   return $owner_milage_price_filter;
               break;
 
                  // fuel type and  previous owner and age filter case
                  case($request->fuelType && $request->previousOwnersPro && $request->agePro):
-
+                  $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $current_year = date("Y");
                     $total = $current_year - $request->agePro;
 
@@ -728,7 +739,8 @@ $current_date = ($mytime->toDateString());
                     ->where('previous_owners', '<=', $request->previousOwnersPro)
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                       return $fuel_owner_age_filter;
@@ -737,14 +749,15 @@ $current_date = ($mytime->toDateString());
 
                      // fuel type and  previous owner and milage filter case
                  case($request->fuelType && $request->previousOwnersPro && $request->mileAgePro):
-
+                  $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
 
                     $fuel_owner_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('previous_owners', '<=', $request->previousOwnersPro)
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                       return $fuel_owner_milage_filter;
@@ -753,7 +766,7 @@ $current_date = ($mytime->toDateString());
 
                      // fuel type and  previous owner and Price filter case
                      case($request->fuelType && $request->previousOwnersPro && $request->range):
-
+                      $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                         $range = explode('-',$request->range);
                         $fuel_owner_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                         ->where('vehicle_price', '>=', $range[0])
@@ -761,7 +774,8 @@ $current_date = ($mytime->toDateString());
                         ->where('previous_owners', '<=', $request->previousOwnersPro)
                         ->where('status',1)
                         ->with('vehicleInformation')
-                        ->with('VehicleImage')->get();
+                        ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                        ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                           return $fuel_owner_milage_filter;
@@ -770,7 +784,7 @@ $current_date = ($mytime->toDateString());
 
                        // fuel type and  year  and milage filter case
                      case($request->fuelType && $request->agePro && $request->mileAgePro ):
-
+                      $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                         $current_year = date("Y");
                         $total = $current_year - $request->agePro;
                         $fuel_owner_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
@@ -778,7 +792,8 @@ $current_date = ($mytime->toDateString());
                         ->where('vehicle_mileage','<=',$request->mileAgePro)
                         ->where('status',1)
                         ->with('vehicleInformation')
-                        ->with('VehicleImage')->get();
+                        ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                        ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                           return $fuel_owner_milage_filter;
@@ -787,7 +802,7 @@ $current_date = ($mytime->toDateString());
 
                    // fuel type and  age year and Price filter case
                    case($request->fuelType && $request->agePro && $request->range ):
-
+                    $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $current_year = date("Y");
                     $total = $current_year - $request->agePro;
                     $range = explode('-',$request->range);
@@ -797,7 +812,8 @@ $current_date = ($mytime->toDateString());
                     ->where('vehicle_price', '<=', $range[1])
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                       return $fuel_age_price_filter;
@@ -806,7 +822,7 @@ $current_date = ($mytime->toDateString());
 
                 // fuel type and  milage and Price filter case
                 case($request->fuelType && $request->mileAgePro && $request->range ):
-
+                  $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $range = explode('-',$request->range);
                     $fuel_milage_price_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
@@ -814,7 +830,8 @@ $current_date = ($mytime->toDateString());
                     ->where('vehicle_price', '<=', $range[1])
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                       return $fuel_milage_price_filter;
@@ -823,7 +840,7 @@ $current_date = ($mytime->toDateString());
 
               // age and millage filter combine case
             case($request->agePro && $request->mileAgePro ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
 
@@ -831,14 +848,15 @@ $current_date = ($mytime->toDateString());
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
                   return $age_milage_filter;
               break;
 
             // age and price filter combine case
             case($request->agePro && $request->range ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
@@ -846,7 +864,8 @@ $current_date = ($mytime->toDateString());
                 ->where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
                   return $age_price_filter;
               break;
@@ -854,13 +873,14 @@ $current_date = ($mytime->toDateString());
 
              // milage and price filter combine case
              case($request->range && $request->mileAgePro ):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $range = explode('-',$request->range);
                 $milage_price_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->
                 where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
                 return $milage_price_filter;
             break;
@@ -869,12 +889,13 @@ $current_date = ($mytime->toDateString());
              // previous owner and milage filter combine case
              case($request->previousOwnersPro && $request->mileAgePro ):
 
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $previous_milage_filter =Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
             // dd($previous_milage_filter);
                 return $previous_milage_filter;
@@ -882,7 +903,7 @@ $current_date = ($mytime->toDateString());
 
               // previous owner and age filter combine case
               case($request->previousOwnersPro && $request->agePro ):
-
+                $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
 
@@ -891,7 +912,8 @@ $current_date = ($mytime->toDateString());
                 ->where('vehicle_year', '<=', $current_year)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
             // dd($previous_milage_filter);
                 return $previous_age_filter;
@@ -900,14 +922,15 @@ $current_date = ($mytime->toDateString());
 
               // previous owner and price range filter combine case
               case($request->previousOwnersPro && $request->range  ):
-
+                $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $range = explode('-',$request->range);
                 $previous_price_filter =Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('vehicle_price', '>=', $range[0])
                 ->where('vehicle_price', '<=', $range[1])
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
             // dd($previous_milage_filter);
                 return $previous_price_filter;
@@ -917,19 +940,20 @@ $current_date = ($mytime->toDateString());
             case($request->fuelType && $request->previousOwnersPro):
 
 
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $fuel_owner_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                   return $fuel_owner_filter;
               break;
             // fuel type and  age filter case
               case($request->fuelType && $request->agePro):
-
+                $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
 
@@ -938,7 +962,8 @@ $current_date = ($mytime->toDateString());
                 ->where('vehicle_year', '<=', $current_year)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                   return $fuel_age_filter;
@@ -948,13 +973,14 @@ $current_date = ($mytime->toDateString());
               // fuel type and  milage filter case
               case($request->fuelType && $request->mileAgePro):
 
-
+                $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
 
                 $fuel_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                   return $fuel_milage_filter;
@@ -963,14 +989,15 @@ $current_date = ($mytime->toDateString());
 
                 // fuel type and  price range filter case
                 case($request->fuelType && $request->range):
-
+                  $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $range = explode('-',$request->range);
 
                     $fuel_price_filter = Vehicle::where('vehicle_tank',$request->fuelType)
                     ->where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
                     ->where('status',1)
                     ->with('vehicleInformation')
-                    ->with('VehicleImage')->get();
+                    ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                       return $fuel_price_filter;
@@ -979,29 +1006,33 @@ $current_date = ($mytime->toDateString());
 
             // price range filter case
             case($request->range):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $range = explode('-',$request->range);
                 $price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->where('status',1)->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                 return $price_filter;
             break;
 
 
             // milage range filter case
             case($request->mileAgePro):
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $milage_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->where('status',1)->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
                 return $milage_filter;
             break;
 
             // age filter case
             case($request->agePro):
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
               $current_year = date("Y");
               $total = $current_year - $request->agePro;
 
               $age_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->where('status',1)->with('vehicleInformation')
-              ->with('VehicleImage')->get();
+              ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+              ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
                 return $age_filter;
             break;
@@ -1009,12 +1040,13 @@ $current_date = ($mytime->toDateString());
             // previous owner filter case
             case($request->previousOwnersPro):
 
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
 
                 $previous_owners = Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
 //   dd($previous_owners);
@@ -1026,12 +1058,13 @@ $current_date = ($mytime->toDateString());
             // fuel type filter case
             case($request->fuelType):
 
-
+              $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
 
                 $fuel_type = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('status',1)
                 ->with('vehicleInformation')
-                ->with('VehicleImage')->get();
+                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
 
                   return $fuel_type;
@@ -1296,7 +1329,7 @@ die();
         $query_string_second_part[] = " AND v.all_auction ='all'";
         $query_string_second_part[] = " AND v.deleted_at IS NULL";
         $query_string_second_part[] = " AND vimg.deleted_at IS NULL";
-        $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type, v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price, v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard FROM vehicles AS v JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
+        $query_string_First_Part= "SELECT  v.vehicle_registartion_number,v.reserve_price,v.vehicle_name, v.vehicle_year,v.vehicle_color, v.vehicle_type, v.vehicle_type,v.previous_owners, v.vehicle_tank, v.previous_owners, v.vehicle_mileage, v.vehicle_price, v.all_auction, v.retail_price, v.clean_price, v.average_price, v.hidden_price,v.vehicle_category, v.status,vi.location,vi.interior,vi.body_type,vi.engine_size,vi.HPI_history_check,vi.vin,vi.first_registered,vi.keeper_start_date,vi.last_mot_date,vi.previous_owners,vi.seller_keeping_plate,vimg.vehicle_id, vimg.front,vimg.passenger_rare_side_corner,vimg.driver_rare_side_corner,vimg.interior_front,vimg.dashboard FROM vehicles AS v JOIN vehicle_information AS vi ON vi.vehicle_id = v.id
         JOIN vehicle_images AS vimg ON vimg.vehicle_id = v.id WHERE ";
         $query_string_third_part = ' ORDER BY v.id';
         $query_string_second_part= implode(" ", $query_string_second_part);

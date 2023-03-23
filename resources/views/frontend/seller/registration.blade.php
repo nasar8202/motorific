@@ -60,7 +60,7 @@ input[type=number] {
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -95,7 +95,7 @@ input[type=number] {
                         <li><a href="{{ route('registration') }}">Sign Up</a></li>
                         @endguest
                         @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                             </li>
                         @endguest
@@ -196,7 +196,7 @@ input[type=number] {
             </div>
 
                 <div class="form-group form-btn">
-                    <button class="w-100">Continue</button>
+                    <button id="submitId" class="w-100">Continue</button>
                 </div>
             </form>
             <div class="formLink"><span>If You Have Already Account. <a href="{{route('myLogin')}}"> Login</a></span></div>
@@ -505,7 +505,14 @@ input[type=number] {
     <!--</section>-->
 @endsection
 @push('child-scripts')
+
 <script type="text/javascript">
+$(document).ready(function() {
+        
+        $(document).on('submit', 'form', function() {
+            $('#submitId').attr('disabled', 'disabled');
+        });
+    });
 $(document).ready(function() {
     // let api = "https://corona.lmao.ninja/v2/countries/";
     

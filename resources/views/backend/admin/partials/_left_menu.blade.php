@@ -38,82 +38,7 @@
 
         </ul>
     </li>
-    <li class="sidebar-item  has-sub {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? 'active open' : '') }} ">
-        <a href="#" class='sidebar-link'>
-            <i class="bi bi-stack"></i>
-            <span>Manage User Side Qts </span>
-        </a>
-        <ul class="submenu">
-            <li class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? '' : '') }}'>
-                    <i class="bi bi-stack"></i>
-                    <span>Vehicle Details </span>
-                </a>
-                <ul class="submenu">
-                    <li class="submenu-item {{ request()->IS('admin/view-vehicle-features') ? 'active' : '' }}">
-                        <a href="{{ route('ViewVehicleFeatures') }}">Vehicle Feature</a>
-                    </li>
-                    <li class="submenu-item {{ request()->IS('admin/view-seat-materials') ? 'active' : '' }}">
-                        <a href="{{ route('ViewSeatMaterials') }}">View Seat Materials</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('ViewNumberOfkeys') }}">Number of keys</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('ViewToolPack') }}">Tools Pack</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('viewWheelNut') }}">Wheel Nut</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('viewSmooking') }}">Smooking</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('viewlogbook') }}">Logbook</a>
-                    </li>
-                     <li class="submenu-item">
-                        <a href="{{ route('viewVehicalOwner') }}">Vehicle Owner</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('viewPrivatePlate') }}">Private plate</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('viewFinance') }}">Finance</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{ route('viewVehicleHistory') }}">Vehicle History</a>
-                    </li>
-                </ul>
-            </li>
-           
-            {{-- <li class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-stack"></i>
-                    <span>Pictures </span>
-                </a>
-                <ul class="submenu">
-                    <li class="submenu-item">
-                        <a href="">Vehicle Feature</a>
-                    </li>
-
-                </ul>
-            </li> --}}
-
-            <li class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-stack"></i>
-                    <span>Vehicle Category</span>
-                </a>
-                <ul class="submenu">
-                   
-                    <li class="submenu-item">
-                        <a href="{{route('viewCategories')}}">View Category</a>
-                    </li>
-
-                </ul>
-            </li>
-        </ul>
-    </li>
+   
   
     <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
         <a href="#" class='sidebar-link'>
@@ -225,6 +150,7 @@
             
         </ul>
     </li>
+    
     <li class="   {{ (Request::is('admin') || request()->IS('/admin/get-contacts') || request()->IS('/admin/get-contacts') ? 'active' : '') }} ">
         
         <a href="{{route('getContacts')}}" class='sidebar-link'>
@@ -258,6 +184,82 @@
             
             
         </a>
+    </li>
+    <li class="sidebar-item  has-sub {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? 'active open' : '') }} ">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Manage User Side Qts </span>
+        </a>
+        <ul class="submenu">
+            <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? '' : '') }}'>
+                    <i class="bi bi-stack"></i>
+                    <span>Vehicle Details </span>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item {{ request()->IS('admin/view-vehicle-features') ? 'active' : '' }}">
+                        <a href="{{ route('ViewVehicleFeatures') }}">Vehicle Feature</a>
+                    </li>
+                    <li class="submenu-item {{ request()->IS('admin/view-seat-materials') ? 'active' : '' }}">
+                        <a href="{{ route('ViewSeatMaterials') }}">View Seat Materials</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('ViewNumberOfkeys') }}">Number of keys</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('ViewToolPack') }}">Tools Pack</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewWheelNut') }}">Wheel Nut</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewSmooking') }}">Smooking</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewlogbook') }}">Logbook</a>
+                    </li>
+                     <li class="submenu-item">
+                        <a href="{{ route('viewVehicalOwner') }}">Vehicle Owner</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewPrivatePlate') }}">Private plate</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewFinance') }}">Finance</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewVehicleHistory') }}">Vehicle History</a>
+                    </li>
+                </ul>
+            </li>
+           
+            {{-- <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Pictures </span>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item">
+                        <a href="">Vehicle Feature</a>
+                    </li>
+
+                </ul>
+            </li> --}}
+
+            <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Vehicle Category</span>
+                </a>
+                <ul class="submenu">
+                   
+                    <li class="submenu-item">
+                        <a href="{{route('viewCategories')}}">View Category</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
     </li>
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>

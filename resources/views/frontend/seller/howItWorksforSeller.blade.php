@@ -48,7 +48,7 @@ display: block;
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -142,7 +142,7 @@ display: block;
                 </div>
                 @endif
                     @guest
-                        <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                        <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                         </li>
                     @endguest
@@ -434,7 +434,7 @@ display: block;
             Trusted:
         </h4>
         <p class="car-selling__benefits-list-item-desc">
-            Over thousands people have sold their used cars with Motorific. We enjoy 5-star ratings on TrustPilot. 
+            Over thousands people have sold their used cars with Motorific. We enjoy 4.5+ star ratings on TrustPilot & GoogleReview 
         </p>
         </li>
         </ul>

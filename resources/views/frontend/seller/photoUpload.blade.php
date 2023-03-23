@@ -49,7 +49,7 @@ display: block;
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -132,7 +132,7 @@ display: block;
 </section>
 
 <!-- PHOTO-UPLOAD-SECTION-1 -->
-<form action="{{route('createVehicle')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('createVehicle')}}" id="createVehicle" method="POST" enctype="multipart/form-data">
     @csrf
     <section class="photo-up-sec-2">
         <div class="container-1151">
@@ -2821,6 +2821,13 @@ display: block;
 @endsection
 @push('child-scripts')
 <script type="text/javascript">
+$(document).ready(function() {
+        
+        $(document).on('submit', '#createVehicle', function() {
+            $('.submitBtn-photos-sec').attr('disabled', 'disabled');
+            $(".submitBtn-photos-sec").attr("disabled", true);
+        });
+    });
 $(".spinnerVehicle").hide();
 $(".spinnerDamages").hide();
 

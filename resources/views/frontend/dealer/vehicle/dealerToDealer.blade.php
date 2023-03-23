@@ -87,7 +87,7 @@
                 <div class="col-12">
                     <div class="banner-content">
                         <h2 class="sec-heading fs-50 text-white">Dealer To Dealer</h2>
-                        <p class="text-white">Next live sale begins tomorrow at 11am</p>
+                        <p class="text-white">Next live sale begins tomorrow at 08 am</p>
                     </div>
                 </div>
             </div>
@@ -217,6 +217,8 @@
                                             <option selected disabled value=""> Select Fuel Type </option>
                                             <option value="diesel"> Diesel</option>
                                             <option value="petrol"> Petrol</option>
+                                            <option value="hybrid"> Hybrid</option>
+                                            <option value="electric"> Electric</option>
                                         </select>
                                     </label>
                                 </div>
@@ -607,7 +609,7 @@
                     },
 
                     success: function(response) {
-
+console.log(response);
                         if (response != '') {
                             $('.blur_action').css('filter', 'blur(0px)');
                             var resultData = response.dealerToDealerVehicleFilter;
