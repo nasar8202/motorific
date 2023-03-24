@@ -272,6 +272,8 @@
                                     <li>Rear
                                         Seats<span>{{ $vehicle->DealerVehicleInteriorDetails->rear_seats ?? 'No Damage' }}</span>
                                     </li>
+                                    <li>Passenger Back Door<span>{{$vehicle->DealerVehicleInteriorDetails->passenger_back_door ?? 'No Damage'}}</span></li>
+                                <li>Back Driver Door<span>{{$vehicle->DealerVehicleInteriorDetails->driver_back_door ?? 'No Damage'}}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -301,6 +303,7 @@
                                     </li>
                                     <li>Back<span>{{ $vehicle->DealerVehicleExteriorDetails->back ?? 'No Damage' }}</span>
                                     </li>
+                                    <li>Wind screen<span>{{$vehicle->DealerVehicleExteriorDetails->windscreen ?? 'No Damage'}}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -364,7 +367,7 @@
                             <h4>Live Sales In Progress</h4>
                             <div class="reserveDetail">
                                 <ul>
-                                    <li>Reserve Price: <span>£{{ $vehicle->vehicle_price }}</span></li>
+                                    <li>Reserve Price: <span>£{{ $vehicle->reserve_price }}</span></li>
                                     <ul class="valuation">
                                         <li id="dynamic-ar" ><strong>Valuation </strong><span><i class="far fa-arrow-alt-circle-down" style="cursor: pointer;"></i></span></li>
                                         <li class="hidden">Retail:<span> £{{ $vehicle->retail_price }} </span></li>

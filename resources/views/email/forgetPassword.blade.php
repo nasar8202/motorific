@@ -333,18 +333,20 @@
                 <div class="footer-wraper">
                     <div class="footer-addr">
                         <p>
-                            Motorific online limited <br>
-                            55 armoury Way london sw18 1jz
+                            <?php echo date("Y"); ?>
+                            motorific Ltd, All rights reserved. motorific Ltd, registered in
+                            England & Wales, registered office Verde Building, 83 Fairslands Avenue, Thornton Health, England, CR7 6HD. our site trading address 55 armory way london sw18 1jz Company number 14710738. <br />
+                            
                         </p>
                         <ul>
                             <li><a href="{{route('index')}}">www.motorific.co.uk</a></li>
                             <li><a href="mailto:info@motorific.co.uk">info@motorific.co.uk</a></li>
                         </ul>
                     </div>
-                    <ul class="footer-social">
+                    {{-- <ul class="footer-social">
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </footer>

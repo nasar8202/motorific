@@ -48,7 +48,7 @@
                             <span>More</span>
                             <div class="dropdown-content">
 
-                                <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                                <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
 
 
                                 <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -140,7 +140,7 @@
                     </div>
                     @endif
                         @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                            <li> <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
 
                             </li>
                         @endguest
@@ -202,7 +202,7 @@
     
     <!---->
     <!-- Career Modal Form -->
-<div class="modal fade cookies-modal" id="cokies" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade cookies-modal" id="cokies" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -222,7 +222,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
     <!---->
     <!-- SECTION-2 -->
@@ -475,7 +475,7 @@
                 <!--        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by-->
                 <!--    5,000+ Users</p>-->
                 <p>Rated  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 3thousands Customers </p>
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by our Customers </p>
             </div>
             <div class="sec-6-boxes d-flex">
                 <div class="sec-6-main-box col-lg-4 col-md-6">

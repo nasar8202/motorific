@@ -60,7 +60,7 @@ input[type=number] {
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -95,7 +95,7 @@ input[type=number] {
                         <li><a href="{{ route('registration') }}">Sign Up</a></li>
                         @endguest
                         @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                             </li>
                         @endguest
@@ -134,8 +134,107 @@ input[type=number] {
 
 
 <!--Registration Form Section-->
+<div class="registration-form">
+    <div class="reg-form-heading">
+        <h3>Fill in the form below</h3>
+        <p>It will take 60 seconds</p>
+    </div>
 
-<section class="userform-sec reg">
+    <div class="container-700">
+        <div class="form-main text-center">
+            <form method="get" action="{{ route('create_user') }}">
+                @csrf
+                <div class="row signup-input">
+                        <div class="col-lg-12 col-md-12">
+                                <div>
+                                    @if (isset($data))
+
+                                <input type="hidden" name="millage" value="{{ $data->millage }}">
+                                <input type="hidden" name="registeration" value="{{ $data->registeration }}">
+                                <input type="hidden" name="registeration_with_pass" value="yes">
+
+@endif
+                                <input type="email" placeholder="E-mail Address" required name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                                @error('email')
+    
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+    
+@enderror
+                                {{-- <input type="password" placeholder="password" name="password" class="@error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror --}}
+                                  </div>
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 ">
+                            <div>
+                                <input type="text" placeholder="Full Name" required name="name" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
+                                @error('name')
+    
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+    
+@enderror
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                                <div class="mar-remov">
+                                 <input type="number" required placeholder="Phone" name="phone_number" class="@error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}">
+                                @error('phone_number')
+    
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+    
+@enderror
+                                </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                        <div>
+
+                         <input type="text" placeholder="Postcode"  name="post_code"  class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}" required>
+                    @error('post_code')
+    
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+    
+@enderror
+                    <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                        </div>
+                        </div>
+                        {{-- <div class="col-lg-6 col-md-6">
+                            <div>
+                                <input type="number" placeholder="Car Mileage" name="mile_age" class="@error('mile_age') is-invalid @enderror" name="mile_age" value="{{ old('mile_age') }}">
+                        @error('mile_age')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div>
+                            </div> --}}
+                        <span>If You Have Already Account. <a style="text-decoration: none;" href="{{ route('myLogin') }}"> Login</a></span>
+            </div>
+
+
+
+                <div>
+                    <button id="submitId">CONTINUE</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- <section class="userform-sec reg">
     <div class="container-1151">
         <div class="form-box">
             <h2>Fill in the form below</h2>
@@ -196,14 +295,14 @@ input[type=number] {
             </div>
 
                 <div class="form-group form-btn">
-                    <button class="w-100">Continue</button>
+                    <button id="submitId" class="w-100">Continue</button>
                 </div>
             </form>
             <div class="formLink"><span>If You Have Already Account. <a href="{{route('myLogin')}}"> Login</a></span></div>
             
         </div>
     </div>
-</section>
+</section> --}}
 <!--Registration Form Section End-->
 
      <!--REGISTRATION-FORM -->
@@ -505,7 +604,15 @@ input[type=number] {
     <!--</section>-->
 @endsection
 @push('child-scripts')
+
 <script type="text/javascript">
+$(document).ready(function() {
+        
+        $(document).on('submit', 'form', function() {
+            $('#submitId').attr('disabled', 'disabled');
+            $('#submitId').html('Submitting...');
+        });
+    });
 $(document).ready(function() {
     // let api = "https://corona.lmao.ninja/v2/countries/";
     

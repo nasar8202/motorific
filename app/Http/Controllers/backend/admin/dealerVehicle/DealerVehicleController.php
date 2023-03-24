@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\backend\admin\dealerVehicle;
 
+use App\Models\User;
 use App\Models\LiveSaleTime;
 use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
 use App\Models\DealerVehicleMedia;
 use App\Models\DealerVehicleTyres;
 use Illuminate\Support\Facades\DB;
+use App\Mail\VehicleValuationPrice;
 use App\Http\Controllers\Controller;
 use App\Models\DealerVehicleHistory;
 use Illuminate\Support\Facades\Mail;
@@ -121,9 +123,25 @@ class DealerVehicleController extends Controller
         $vehicle->average_price = $request->average_price;
         $vehicle->hidden_price = $request->hidden_price;
         $vehicle->status = 0;
-
-
         $vehicle->save();
+        $seller = User::find($vehicle->user_id);
+           
+            $originalDate = $vehicle->updated_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+            $data = ([
+                'name' => $seller->name,
+                'vehicle_id' => $vehicle->id,
+                'user_id' => $seller->id,
+                'date' => $winDate.' at '.$winTime,
+                'reserve_price'=>$request->reserve_price,
+                'vehicle_registration'=>$vehicle->vehicle_registartion_number,
+                'vehicle_name'=>$vehicle->vehicle_name,
+                'vehicle_mileage'=>$vehicle->vehicle_mileage,
+            ]);
+
+            Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
+            
         return redirect()->route('viewDealerVehicle')->with('success', 'Vehicle Updated  Successfully!');
     }
     public function viewDealerVehicleDetail($id)

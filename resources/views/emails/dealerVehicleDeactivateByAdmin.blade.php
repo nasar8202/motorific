@@ -146,14 +146,14 @@
         <div class="mail-name">
           <p>
             <strong>From: </strong> Motorofic
-            <span style="color: blue"> {{ $data['email'] }}</span> >
+            <span style="color: blue"> info@motorific.co.uk </span> >
           </p>
           <p><strong>Date: </strong> {{ $data['date'] }}</p>
           <p>
             <strong>To: </strong
-            ><span style="color: blue"> info@smartautosuk.co.uk</span>
+            ><span style="color: blue"> {{ $data['email'] }}</span>
           </p>
-          <p><strong>Subject: You bought a car!</strong></p>
+          <p><strong>Subject: Deactivate by Motorific!</strong></p>
           <p>
             <strong>Reply-To</strong
             ><span style="color: blue"> noreply@motorific.co.uk</span>
@@ -161,26 +161,25 @@
 
           <div class="mail-img-one">
             <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> <br />
-            {{-- <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> --}}
+           
           </div>
         </div>
         <div class="mail-content">
-            <h2>Deactivate by Admin!</h2>
+            <h2>Deactivate by Motorific!</h2>
             <p>Hi {{ $data['name'] }}!</p>
             <p>
-              Sorry! - Your Vehicle has been Deactivated by admin
-              <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
+              Sorry! - Your  Vehicle <strong>{{ $data['vehicle_name'] }}</strong> has been Deactivated by Motorific
+               for the price of £{{ $data['bidded_price'] }}.
 
           </p>
             <p>Car Details</p>
 
             <div class="content-img">
-              <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
+              <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " width="100px" height="100px" alt="" />
               <div class="car-det">
                 <span>Model: {{ $data['vehicle_name'] }} </span>
                 <span> Reg: {{ $data['vehicle_registration'] }} </span>
-                {{-- <span>Fee: £175 </span> --}}
-                {{-- <span> Distance: 174 miles </span> --}}
+                
                 <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
                 <span>Car age:{{ $data['age'] }} </span>
                 <span>Colour: {{ $data['colour'] }} </span>
@@ -188,22 +187,7 @@
             </div>
           </div>
         <div class="customer-detail">
-          {{-- <strong>Customer Contact Details</strong>
-          <div class="car-det">
-            <span>Name: Carter</span>
-            <span> Phone: +447703287219 </span>
-            <span>Phone: +447703287219</span>
-            <span>Postcode: SY20 9LR</span>
-          </div>
-          <span
-            ><strong
-              >Now it’s time to arrange inspection, collection and payment with
-              the seller.</strong
-            ></span
-          > --}}
-          {{-- <div class="btn-mail">
-            <a href="">Contact the seller here </a>
-          </div> --}}
+         
           <div class="qa-ans">
             <p><strong>What next? </strong></p>
             <p>
@@ -221,7 +205,7 @@
             <p>
               Drop us an email -
               <span style="color: #2196f3"
-                >partner.operations@motorific.co.uk</span
+                >info@motorific.co.uk</span
               >
               and we’ll get back to you as soon as possible.
             </p>
@@ -254,12 +238,12 @@
         </div>
 
 
-            <span
-              >© 2022 motorific Ltd, All rights reserved. motorific Ltd, registered in
-              England & Wales, registered office Verde Building, 10 Bressenden
-              Pl, Victoria, London SW1E 5DH. Company number 07103079. <br />
-              You can unsubscribe from these emails at any time.
-            </span>
+        <span
+        >© <?php echo date("Y"); ?>
+        motorific Ltd, All rights reserved. motorific Ltd, registered in
+        England & Wales, registered office Verde Building, 83 Fairslands Avenue, Thornton Health, England, CR7 6HD. our site trading address 55 armory way london sw18 1jz Company number 14710738. <br />
+        
+      </span>
           </div>
         </div>
       </section>

@@ -35,7 +35,7 @@
                     @if($pricing->dealer_status == null)
                     <div class="bottomList">
                         <button class="btn btn-info meeting">Schedule A Meeting</button>
-                        <button class="btn btn-danger cancelRequest">Cancel My Request</button>
+                        <button class="btn btn-danger cancelRequest">Cancel purchase </button>
                         <div class="form-group mt-4 reviewSection">
                             <form method="POST" action="{{route('reviewForCancel')}}" enctype="multipart/form-data">
                                 @csrf
@@ -142,7 +142,7 @@
 
                             <form action="#">
                                 <div class="form-group">
-                                   <center> <a href="{{route('completedVehicleDetails',$allVehicles)}}"> <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->dashboard ?? "") }}" width="350px"></a>
+                                   <center> <a href="{{route('completedVehicleDetails',$allVehicles)}}"> <img src="{{ asset('/vehicles/vehicles_images/'.$allVehicles->VehicleImage->front ?? "") }}" width="350px"></a>
                                    </center>
 
                                    <br>

@@ -51,7 +51,7 @@ display: block;
                     <span>More</span>
                     <div class="dropdown-content">
 
-                    <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
 
                    <a href="{{ route('sellMyCar') }}">Sell My Car</a>
@@ -95,7 +95,7 @@ display: block;
                         <li><a href="{{ route('registration') }}">Sign Up</a></li>
                         @endguest
                         @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}">For Dealers</a>
+                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
                             </li>
                         @endguest
@@ -124,7 +124,47 @@ display: block;
 
 <!--Login Form Section-->
 
-<section class="userform-sec login">
+
+<div class="registration-form">
+    <div class="reg-form-heading">
+        <h3>Login</h3>
+        <p>It will take 60 seconds</p> 
+    </div>
+
+    <div class="container-700">
+        <div class="form-main text-center">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div>
+
+                    <input type="email" placeholder="E-mail Address" required name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <input type="password" placeholder="password" required name="password" class="@error('password') is-invalid @enderror" name="password" value="">
+                    <input type="hidden" name="type" value="seller">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong> 
+                        </span>
+                    @enderror
+                </div>
+
+                <span>If You Are New User. <a style="text-decoration: none;" href="{{route('registration')}}"> Register</a></span>
+                <br>
+                <div class="mt-2">
+                    <button>CONTINUE</button>
+                </div>
+            </form>
+             
+            <a style="text-decoration: none;" href="{{route('forgotPassPage')}}">Forgot Your Password ?</a>
+        </div>
+    </div>
+ </div>
+
+{{-- <section class="userform-sec login">
     <div class="container-1151">
         <div class="form-box">
             <h2>Login</h2>
@@ -158,7 +198,7 @@ display: block;
             
         </div>
     </div>
-</section>
+</section> --}}
 <!--Login Form Section End-->
 
 

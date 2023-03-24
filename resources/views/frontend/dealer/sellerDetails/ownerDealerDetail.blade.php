@@ -34,7 +34,7 @@
                     @if($pricing->dealer_status == null)
                     <div class="bottomList">
                         <button class="btn btn-info meeting">Schedule A Meeting</button>
-                        <button class="btn btn-danger cancelRequest">Cancel My Request</button>
+                        <button class="btn btn-danger cancelRequest">Cancel purchase </button>
                         <div class="form-group mt-4 reviewSection">
                             <form method="POST" action="{{route('reviewForCancel')}}">
                                 @csrf
