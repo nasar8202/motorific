@@ -3084,3 +3084,60 @@ ol.tagLines li::marker {
 .reg-contBox p:empty {
     display: none;
 }
+
+/*Seller User Forms*/
+.reg-form-heading h3 {
+    margin-bottom: 18px;
+}
+.sellerForm .forgott-link {
+    text-decoration:none;
+}
+div.sellerReg form span.invalid-feedback {
+    position: static !important;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 6px 0 0 !important;
+}
+div.sellerReg form span.invalid-feedback strong {
+    font-weight: 500;
+}
+.form-main form .row.signup-input div input::placeholder {
+    font-weight: 400;
+}
+.forgott-form form {
+    max-width: 360px;
+    margin: 0 auto !important;
+}
+
+.forgott-form form input {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.forgott-form form .inputBox {
+    padding: 0 !important;
+}
+
+.forgott-form form button {
+    width: 100% !important;
+    max-width: 100%;
+}
+
+.forgott-form form input::placeholder {
+    font-weight: 500 !important;
+}
+.forgott-form form .inputBox .invalid-feedback {
+    position: static !important;
+    text-align: left;
+    margin: 8px 0 0 !important;
+}
+
+.forgott-form form .inputBox .invalid-feedback strong {
+    font-weight: 500;
+}
+.forgott-form .reg-form-heading h3 {
+    font-size: 2.4vw;
+}
+
+/*Seller User Forms End*/

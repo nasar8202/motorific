@@ -2208,9 +2208,9 @@ button.btn-Next svg {
     text-decoration: none;
     background: #05eab5;
     margin-left: auto;
-    font-size: 14px;
+    font-size: 13.5px;
     color: #fff;
-    border-radius: 4px;
+    border-radius: 100px;
     margin-top: 4px;
     padding: 2px 15px;
 }
@@ -2229,3 +2229,29 @@ button.btn-Next svg {
     width: 100%;
 }
 /*Dealer User Forms End*/
+
+.mx-bix {
+    padding: 10px 0;
+}
+
+.mx-bix label {
+    color: #fff;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.mx-bix input {
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 100px;
+}
+
+.mx-bix button {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 100px;
+    margin-top: 15px;
+    font-weight: 500;
+    background: #05eab5;
+    color: #fff;
+}

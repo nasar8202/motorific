@@ -398,10 +398,13 @@
                                 @else
                                     <form action="#">
                                         <div class="form-group">
-                                            <label>Enter Maximum Bid</label>
-                                            <input type="number" name="bid" placeholder="£" class="bid_price" />
-                                            <input type="hidden" name="hidden_price" class="hidden_price"
-                                                value="{{ $vehicle->hidden_price }}" />
+                                            <div class="mx-bix">
+                                                
+                                                <label>Enter Maximum Bid</label>
+                                                <input type="number" name="bid" placeholder="£" class="bid_price" />
+                                                <input type="hidden" name="hidden_price" class="hidden_price"
+                                                    value="{{ $vehicle->hidden_price }}" />
+                                            
                                             <input type="hidden" name="vehicle_id" class="vehicle_id"
                                                 value="{{ $vehicle->id }}" />
                                             <div class="spinner-border" style="margin-left: 150px; " role="status">
@@ -410,6 +413,7 @@
                                             <button type="button" class="bid">Submit Bid</button>
                                             <span class="text-danger warning"></span>
                                             <span class="text-danger error"></span>
+                                        </div>
                                         </div>
                                     </form>
                                 @endif

@@ -134,7 +134,7 @@ input[type=number] {
 
 
 <!--Registration Form Section-->
-<div class="registration-form">
+<div class="registration-form sellerReg">
     <div class="reg-form-heading">
         <h3>Fill in the form below</h3>
         <p>It will take 60 seconds</p>
@@ -146,14 +146,14 @@ input[type=number] {
                 @csrf
                 <div class="row signup-input">
                         <div class="col-lg-12 col-md-12">
-                                <div>
+                                <div class="inputBox">
                                     @if (isset($data))
 
                                 <input type="hidden" name="millage" value="{{ $data->millage }}">
                                 <input type="hidden" name="registeration" value="{{ $data->registeration }}">
                                 <input type="hidden" name="registeration_with_pass" value="yes">
 
-@endif
+                                @endif
                                 <input type="email" placeholder="E-mail Address" required name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                                 @error('email')
     
@@ -161,7 +161,7 @@ input[type=number] {
                                             <strong>{{ $message }}</strong>
                                         </span>
     
-@enderror
+                                @enderror
                                 {{-- <input type="password" placeholder="password" name="password" class="@error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -172,7 +172,7 @@ input[type=number] {
 
                         </div>
                         <div class="col-lg-6 col-md-6 ">
-                            <div>
+                            <div class="inputBox">
                                 <input type="text" placeholder="Full Name" required name="name" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
                                 @error('name')
     
@@ -185,7 +185,7 @@ input[type=number] {
                         </div>
 
                         <div class="col-lg-6 col-md-6">
-                                <div class="mar-remov">
+                                <div class="mar-remov inputBox">
                                  <input type="number" required placeholder="Phone" name="phone_number" class="@error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}">
                                 @error('phone_number')
     
@@ -197,7 +197,7 @@ input[type=number] {
                                 </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
-                        <div>
+                        <div class="inputBox">
 
                          <input type="text" placeholder="Postcode"  name="post_code"  class="@error('post_code') is-invalid @enderror" name="post_code" value="{{ old('post_code') }}" required>
                     @error('post_code')
@@ -220,15 +220,17 @@ input[type=number] {
                         @enderror
                         </div>
                             </div> --}}
-                        <span>If You Have Already Account. <a style="text-decoration: none;" href="{{ route('myLogin') }}"> Login</a></span>
-            </div>
+                        <span class="new-user">If You Have Already Account. <a style="text-decoration: none;" href="{{ route('myLogin') }}"> Login</a></span>
+            
 
 
 
-                <div>
-                    <button id="submitId">CONTINUE</button>
+                <div class="col-12">
+                    <div class="inputBox">
+                        <button id="submitId">CONTINUE</button>
+                    </div>
                 </div>
-
+            </div>
             </form>
         </div>
     </div>
