@@ -908,6 +908,19 @@ section.photo-up-sec-2 {
 }
 /*carrermodal*/
 
+/*Seller Main Page*/
+section.seller-main-banner:after {
+    width: 45%;
+    height: 60%;
+    background-size: cover;
+}
+
+section.seller-main-banner .banner-content h2 {
+    font-size: 32px;
+}
+
+/*Seller Main Page End*/
+
 }
 
 /* 768 */
@@ -971,10 +984,16 @@ section.photo-up-sec-2 {
     min-height: auto;
     }
 
-    section.sec-1::after {
+    /*section.sec-1::after {*/
+    /*    background-size: cover;*/
+    /*    width: 58%;*/
+    /*    height: 93%;*/
+    /*}*/
+    
+    section.seller-main-banner:after {
+        width: 45%;
+        height: 60%;
         background-size: cover;
-        width: 58%;
-        height: 93%;
     }
 
     .sec-1-txt p {
@@ -1023,7 +1042,7 @@ section.photo-up-sec-2 {
 
     .how-work h3 {
         text-align: center;
-        font-size: 42px;
+        font-size: 34px;
     }
 
     .how-work {
@@ -1516,8 +1535,109 @@ section.thanks {
     white-space: nowrap;
     padding: 10px 20px;
 }
+.forgott-form .reg-form-heading h3 {
+    font-size: 22px;
+}
+
+.forgott-form .reg-form-heading {
+    margin: 0;
+}
 
 /*End*/
+
+/*Seller Main Page */
+.seller-main-banner .check_area {
+    margin-top: 10px;
+}
+
+.seller-main-banner .check_area input {
+    width: 90%;
+    padding: 10px 20px;
+}
+
+.seller-main-banner.check_area button {
+    padding: 12px 20px;
+}
+
+ol.tagLines {
+    display: block;
+}
+
+ol.tagLines li {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+section.seller-main-banner {
+    padding-bottom: 0px;
+    padding-top: 140px;
+}
+.howitwork-main p::after {
+    display: none;
+}
+
+.howitwork-main p {
+    font-size: 14px;
+    min-height: unset;
+    height: unset;
+}
+
+.line-sec-2 {
+    display: none;
+}
+
+.who-sec {
+    padding: 30px 0;
+    margin-top: 50px !important;
+}
+
+.who-sec::after {
+    background-size: cover !important;
+}
+
+.who-content p {
+    font-size: 12px;
+}
+
+.ycp-sec .sec-4-txt h4 {
+    font-size: 34px;
+}
+
+.ycp-sec .sec-4-txt p {
+    max-width: unset;
+}
+
+.ycp-sec a button {
+    max-width: unset;
+    width: unset;
+    padding: 8px 20px;
+}
+.ycp-sec .sec-4-box-sec-2 {
+    transform: unset;
+}
+
+.ycp-sec .sec-4-box {
+    width: 100%;
+    margin-bottom: 20px !important;
+}
+
+.ycp-sec .sec-4-box p {
+    font-size: 12px;
+}
+
+.ycp-sec .sec-4-txt {
+    margin-bottom: 50px;
+}
+
+section.ycp-sec {
+    padding-top: 20px;
+}
+.wsy-sec {
+    background: #05eab5;
+}
+
+
+/*Seller Main Page End*/
 
 
 }
@@ -1658,7 +1778,7 @@ section.thanks {
     /* MENU */
 
     section.sec-1::after{
-        display: none;
+        /*display: none;*/
     }
 
     .sec-1-txt h2 {
@@ -2395,6 +2515,22 @@ section.sec-2.productPageTn .vec-box {
 }
 div.sellerForm div.form-inputs input {
     max-width: 88% !important;
+}
+.forgott-form .reg-form-heading h3 {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.forgott-form form {
+    max-width: 88%;
+}
+
+.forgott-form form .inputBox {
+    margin-bottom: 15px !important;
+}
+
+.forgott-form form input, .forgott-form form button,.login-link {
+    font-size: 14px;
 }
 /*Seller Login and Reg FormEnd*/
 

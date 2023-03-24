@@ -47,14 +47,15 @@
                     </thead>
                     <tbody>
                         @foreach ($approvedDealersByAdmin as $dealer)
+                        
                         <tr>
                             <td>{{ $dealer->name }}</td>
                             <td>{{ $dealer->email }}</td>
                             <td>{{ $dealer->phone_number }}</td>
                             <td>{{ $dealer->company_name }}</td>
                             {{-- <td>{{ $dealer->position }}</td> --}}
-                            <td><img src="{{ asset('/dealers/documents/'.$dealer->userDetails->dealer_identity_card) }}" width="150px" height="150px"></td>
-                            <td><img src="{{ asset('/dealers/documents/'.$dealer->userDetails->dealer_documents) }}" width="150px" height="150px"></td>
+                            <td><img src="{{ asset('/dealers/documents/'.$dealer->userDetails->dealer_identity_card??"") }}" width="150px" height="150px"></td>
+                            <td><img src="{{ asset('/dealers/documents/'.$dealer->userDetails->dealer_documents??"") }}" width="150px" height="150px"></td>
                             
                             <td>
                                 <a href="{{route('dealersPurchase',$dealer->id)}}"><span class="badge bg-success badge-success">View Dealer Purchases</span></a>

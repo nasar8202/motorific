@@ -155,10 +155,10 @@
 
     <!-- SECTION-1 -->
 
-    <section class="sec-1" id="vehicle_registration">
+    <section class="sec-1 seller-main-banner" id="vehicle_registration">
         <div class="container-1151">
-            <div class="row">
-                <div class="sec-1-txt col-lg-6">
+            <div class="row banner-content">
+                <div class="sec-1-txt col-md-6">
                     <h2>Sell your car 
                         with  <span>Motorific</span></h2>
                         
@@ -185,7 +185,7 @@
                         <span class="text-danger">{{ $errors->first('millage') }}</span>
                     @endif
                 </div>
-                <div class="sec-1-img col-lg-6">
+                <div class="sec-1-img col-md-6">
                     <img src="{{ URL::asset('frontend/seller/assets/image/sec-1-vector.png') }}" alt="">
                 </div>
             </div>
@@ -229,69 +229,15 @@
     
     
 
-    <section class="sec-2">
+    <section class="sec-2 how-sec">
         <div class="container-1151">
-            <!--<div class="sec-2-txt pb-4">-->
-            <!--    <h2>Just sold the <span>Motorific</span> way</h2>-->
-            <!--    <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-
-                
-            <!--    <div class="col-lg-4 col-md-6">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-1.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP Avantgarde...,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-                
-            <!--    <div class="col-lg-4 col-md-6">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-2.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-                 
-            <!--    <div class="col-lg-4 col-md-6 mx-auto">-->
-            <!--        <div class="box">-->
-            <!--            <h4>Sold by Sydney</h4>-->
-            <!--            <div class="box-img">-->
-            <!--                <img src="{{ URL::asset('frontend/seller/assets/image/box-3.png') }}" alt="">-->
-            <!--            </div>-->
-            <!--            <h5>Mercedes C180 KOMP. Avantgarde…,</h5>-->
-            <!--            <div class="d-flex justify-content-between">-->
-            <!--                <p>Sold for £1,400</p>-->
-            <!--                <h5>a day ago</h5>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-            <!--</div>-->
-
-            
             <div class="row">
                 <div class="col-12">
                     <div class="how-work">
                         <h3>How it works</h3>
                     </div>
                 </div>
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3 col-md-6">
                     <div class="step-nmbr">
                         <h5>1</h5>
                     </div>
@@ -304,7 +250,7 @@
                     <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. maximise  profits.</p>
                 </div>
 
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3  col-md-6">
                     <div class="step-nmbr">
                         <h5>2</h5>
                     </div>
@@ -317,7 +263,7 @@
                     <p>Our online sale invites over thousands car dealers across the UK to present their top bids for your car.</p>
                 </div>
 
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3  col-md-6">
                     <div class="step-nmbr">
                         <h5>3</h5>
                     </div>
@@ -330,7 +276,7 @@
                     <p>You pick the dealer who pays the most or makes the highest bid. </p>
                 </div>
 
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3  col-md-6">
                     <div class="step-nmbr">
                         <h5>4</h5>
                     </div>
@@ -352,17 +298,19 @@
 
     <!-- SECTION-3 -->
 
-    <section class="sec-3 mt-4 mb-5">
+    <section class="sec-3 mt-4 mb-5 who-sec">
         <div class="container-1151">
             <div class="row">
-                <div class="sec-3-txt col-lg-6">
-                    <h4>Who We Are</h4>
-                    <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
-                    <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
-                    <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over thousands verified dealers nationwide and present you with the highest bid for your car.</p>
-                    <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
-                    <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                    <button><a href="{{route('GetInTouchSellerForm')}}" style="text-decoration: none;background-color:#e3e3f0;color:#7977a2">GET IN TOUCH</a></button>
+                <div class="who-content">
+                        <div class="sec-3-txt col-lg-6">
+                        <h4>Who We Are</h4>
+                        <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
+                        <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
+                        <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over thousands verified dealers nationwide and present you with the highest bid for your car.</p>
+                        <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
+                        <a href="#vehicle_registration"><button class="mx-0">VALUE YOUR CAR</button></a>
+                        <button><a href="{{route('GetInTouchSellerForm')}}" style="text-decoration: none;background-color:#e3e3f0;color:#7977a2">GET IN TOUCH</a></button>
+                    </div>
                 </div>
                 <div class="col-lg-6">
 
@@ -373,7 +321,7 @@
 
     <!-- SECTION-4 -->
 
-    <section class="sec-4">
+    <section class="sec-4 ycp-sec">
         <div class="container-1151">
             <div class="row">
                 <div class="col-lg-6 my-auto">
@@ -428,7 +376,7 @@
 
     <!-- SECTION-5 -->
 
-    <section class="sec-5">
+    <section class="sec-5 wsy-sec">
         <div class="container-1600">
             <div class="sec-5-txt">
                 <div class="container-1151">
@@ -466,7 +414,7 @@
 
     <!-- SECTION-6 -->
 
-    <section class="sec-6">
+    <section class="sec-6 testi-sec">
         <div class="container-1151">
             <div class="sec-6-heading">
                 <!--<h5>Our happy customers</h5>-->

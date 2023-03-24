@@ -3105,5 +3105,39 @@ div.sellerReg form span.invalid-feedback strong {
 .form-main form .row.signup-input div input::placeholder {
     font-weight: 400;
 }
+.forgott-form form {
+    max-width: 360px;
+    margin: 0 auto !important;
+}
+
+.forgott-form form input {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.forgott-form form .inputBox {
+    padding: 0 !important;
+}
+
+.forgott-form form button {
+    width: 100% !important;
+    max-width: 100%;
+}
+
+.forgott-form form input::placeholder {
+    font-weight: 500 !important;
+}
+.forgott-form form .inputBox .invalid-feedback {
+    position: static !important;
+    text-align: left;
+    margin: 8px 0 0 !important;
+}
+
+.forgott-form form .inputBox .invalid-feedback strong {
+    font-weight: 500;
+}
+.forgott-form .reg-form-heading h3 {
+    font-size: 2.4vw;
+}
 
 /*Seller User Forms End*/

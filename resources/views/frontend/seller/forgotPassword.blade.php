@@ -150,7 +150,7 @@ display: block;
 <!--Forgott Password Section End-->
 
     <!-- REGISTRATION-FORM -->
-    <div class="registration-form">
+    <div class="registration-form forgott-form">
         <div class="reg-form-heading">
             <h3>Enter Your Email To Get Your Password</h3>
             {{-- <p>It will take 60 seconds</p> --}}
@@ -160,7 +160,7 @@ display: block;
             <div class="form-main text-center">
                 <form method="POST" action="{{ route('forgotPass') }}">
                     @csrf
-                    <div>
+                    <div class="inputBox">
 
                         <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                         @error('email')
@@ -171,12 +171,11 @@ display: block;
 
                     </div>
 
-                    <br>
                     <div>
                         <button type="submit " class="m-0"> Send Password Reset Link</button>
                     </div>
                 </form>
-                <a href="{{route('myLogin')}}">Login</a>
+                <a href="{{route('myLogin')}}" class="login-link">Login</a>
             </div>
         </div>
     </div>
