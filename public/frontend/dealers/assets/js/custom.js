@@ -1,5 +1,8 @@
 
 
+
+// Live Sell Timer Function End
+
 // Producst Card Equal Height
 $(document).ready(function () {
   $('.product-card').matchHeight();
@@ -456,46 +459,49 @@ $(document).ready(function () {
 
 
 
-// live sell begeins and ends 
-var countDownDate = new Date();
-countDownDate.setHours(15);
-countDownDate.setMinutes(0);
-countDownDate.setSeconds(0);
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  
-  
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 01)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-  var countdownElement = document.getElementById("countdown");
-  countdownElement.innerHTML = "<p>Live Sale <span>Begins</span> in:</p> " + hours + "h " + minutes + "m " + seconds + "s ";
-  
-  if (distance < 0) { 
-    clearInterval(x);
-    countdownElement.innerHTML = "Live Sale Started!";
-    // Start new countdown from 3:00 PM to 8:00 PM
-    countDownDate.setHours(20); // 8 PM
-    countDownDate.setMinutes(0);
-    countDownDate.setSeconds(0);
-    x = setInterval(function() {
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
 
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    //   countdownElement.innerHTML = "Live Sale <span>Ends</span> in: " + hours + "h " + minutes + "m " + seconds + "s ";
-      countdownElement.innerHTML = "<p>Live Sale <span>Ends</span> in:</p> " + hours + "h " + minutes + "m " + seconds + "s ";
 
-      if (distance < 0) {
-        clearInterval(x);
-        countdownElement.innerHTML = "<p>Live Sale <span>Ended</span> !</p>";
-      }
-    }, 1000);
+
+// live sell begeins and Start 
+
+
+function startCountdown() {
+  var now = new Date(); // get current date and time
+  var target; // define target time for countdown
+
+  // check if current time is between 8am and 4pm
+  if (now.getHours() >= 8 && now.getHours() < 16) {
+    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 0, 0); // set target time to 4pm today
+    document.getElementById("message").innerHTML = "Live Sale <span>Ends</span> in: ";
+  } 
+  else {
+    target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 8, 0, 0); // set target time to 8am tomorrow
+    document.getElementById("message").innerHTML = "live Sale <span>Start</span> in: ";
   }
-}, 1000);
-// live sell begeins and ends 
+
+  var countdown = setInterval(function() {
+    var now = new Date(); // get current date and time
+    var distance = target - now; // calculate time remaining
+
+    // calculate hours, minutes, and seconds remaining
+    var hours = Math.floor((distance % (1000 * 60 *  60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // display the countdown in the HTML element with id="countdown"
+    document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+    // if the countdown is finished, clear the interval and start a new countdown
+    if (distance <= 0) {
+      clearInterval(countdown);
+      startCountdown();
+    }
+  }, 1000); // update the countdown every second
+}
+
+// start the initial countdown
+startCountdown();
+
+
+// live sell begeins and End 

@@ -718,7 +718,21 @@ section.services-sec {
 .stock-cta p {
     max-width: 80%;
 }
-
+.v-details-number span {
+    all: unset;
+    max-width: unset;
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background: black;
+    color: #fff;
+    border-radius: 6px;
+    margin-right: 8px;
+}
+#vehBox {
+    margin-top: 70px;
+}
 
 /* End */
 
@@ -1196,4 +1210,52 @@ ul.parts-content li span {
     max-width: 100%;
 }
 
+.vehicle-list {
+    width: 340px;
+    overflow-x: scroll;
+}
+.vehicle-list li {
+    font-size: 12px;
+    width: fit-content;
+    white-space: nowrap;
+}
+#vehBox > h4 {
+    font-size: 14px;
+    padding: 0;
+}
+.bottomListTitle h4 {
+    font-size: 20px;
+}
+
+.bottomListTitle h4 svg {
+    margin-right: 10px;
+}
+
+.bottomListTitle ul li {
+    font-size: 13px;
+}
+
+.bottomListTitle ul li span {
+    text-align: right;
+}
+.bottomListTitle.service ul li span {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.bottomListTitle.service ul li {
+    flex-wrap: wrap;
+}
+.bottomListTitle ul li svg {
+    margin-right: 10px;
+}
+.vehicleDetailGalrepeatMain {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+.vehicleDetailGalrepeatMain .imgVehicle {
+    flex: unset;
+    width: 40%;
+}
 }

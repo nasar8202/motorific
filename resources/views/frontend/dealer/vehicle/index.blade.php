@@ -78,7 +78,7 @@ div#filter-price {
             <div class="row">
                 <div class="col-12">
                     <div class="banner-content">
-                        <h2 class="sec-heading fs-50 text-white">All Vehicles</h2>
+                        <h2 class="sec-heading fs-50 text-white">All Vehicles </h2>
                         <p class="text-white">Next live sale begins tomorrow at 11am</p>
                     </div>
                 </div>
@@ -248,8 +248,11 @@ div#filter-price {
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="sec-2-txt pb-4">
-                <!--<h2>Live Sell <span id="word"> ends </span> in <span id="counter"></span></h2>-->
-                <h2 id="countdown"></h2>
+                <!--<h2>Live Sell <span id="word"> ends </span> in <span id="countdown"></span></h2>-->
+                <div class="sale-countdown">
+                    <h2 id="message"></h2>
+                    <h2 id="countdown"></h2>
+                </div>
                 <div class="category-btn">
                     <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/browse-vehicles') ? 'active' : '' }}">All </a>
                 <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
@@ -789,6 +792,9 @@ var items = $(".list-wraper .reviews-add");
             items.hide().slice(showFrom, showTo).show();
         }
     });
+    
+    
+ 
 </script>
 
 @endpush
