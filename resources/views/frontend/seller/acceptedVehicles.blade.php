@@ -229,7 +229,7 @@
                                     <h4 class="vp-code">{{ $allVehicle->vehicle_name }}</h3>
                                     <div class="vp-spec-box">
                                         <p><strong> Price:</strong> £ {{ $allVehicle->vehicle_price }}</p>
-                                        <p> <strong>Date:</strong> {{ $allVehicle->created_at->format('m/d/Y') }}</p>
+                                        <p> <strong>Date:</strong> {{ $allVehicle->created_at->format('d/m/Y') }}</p>
                                     </div>
                                     <div class="vp-btns">
                                         @if ($allVehicle->all_auction == null)
