@@ -14,7 +14,7 @@ use App\Models\DealerWinningCharges;
 use App\Models\NewsletterSubscriber;
 use App\Notifications\RejectDealerNotification;
 use App\Notifications\ApprovedDealerNotification;
-use Swift_TransportException;
+
 
 class AdminDashboardController extends Controller
 {
@@ -37,9 +37,7 @@ class AdminDashboardController extends Controller
     }
     public function approveRequestDocuments(Request $request)
     {
-        try {
-
-        
+       
         $dealerDetails = UserDetail::where('user_id',$request->id)->first();
         if( $dealerDetails->dealer_documents== null && $dealerDetails->dealer_identity_card == null ){
             $request->validate([
@@ -171,10 +169,6 @@ class AdminDashboardController extends Controller
 
        return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
        }
-    } catch (Swift_TransportException $e) {
-        // Handle the exception here
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
     }
     public function approveDealer($id)
     {
