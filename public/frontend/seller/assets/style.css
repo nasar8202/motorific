@@ -1541,7 +1541,8 @@ main.topPadingPage {
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
-    background: rgba(0,0,0,.3);
+    /*background: rgba(0,0,0,.3);*/
+    background: rgb(5 234 181 / 93%);
     border: 0;
     border-radius: 50%;
     width: 50px;
@@ -1551,6 +1552,28 @@ main.topPadingPage {
     align-items: center;
     transition: all .3s linear 0s;
 }
+.sliderImgVehicleDetail button.slick-arrow:before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    display: block;
+}
+
+.sliderImgVehicleDetail button.slick-arrow.slick-prev:before {
+    border-bottom: 3px solid #fff;
+    border-left: 3px solid #fff;
+}
+
+.sliderImgVehicleDetail button.slick-arrow.slick-next:before {
+    border-right: 3px solid #fff;
+    border-top: 3px solid #fff;
+}
+
 .sliderImgVehicleDetail button.slick-arrow.slick-next {
     left: auto;
     right: 30px;
@@ -1572,7 +1595,8 @@ main.topPadingPage {
     font-size: 30px;
 }
 .sliderImgVehicleDetail button.slick-arrow:hover {
-    background: #000;
+    /*background: #000;*/
+    background: #7a77a2;
 }
 .numberStarDiv span {
     padding: 10px 30px;

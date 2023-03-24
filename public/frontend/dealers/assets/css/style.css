@@ -70,7 +70,10 @@ ul{
     font-weight: 400;
 }
 
-
+input, button{
+    border:none;
+    outline:none;
+}
 
 
 /* COLORS CLASSES */
@@ -200,6 +203,9 @@ header.header {
     font-weight: 700;
     font-size: var(--f14);
     transition: background-color .5s ease-in-out;
+}
+.btn-mts a{
+    display:block;
 }
 .header-btns .btn-mts:first-child{
     background-color: #7977a2;
@@ -1883,7 +1889,16 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
 }
 
 
-.vehicle-list li:not(:last-child):after {
+/*.vehicle-list li:not(:last-child):after {*/
+/*    content: '';*/
+/*    height: 100%;*/
+/*    border-right: 2px solid #e3e3e3;*/
+/*    margin: 0 auto;*/
+/*    position: absolute;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*}*/
+.vehicle-list li:after {
     content: '';
     height: 100%;
     border-right: 2px solid #e3e3e3;
@@ -2131,13 +2146,39 @@ button.btn-Next svg {
 
 
 /*End*/
-#countdown p {
-    all: unset;
+.sale-countdown {
+    display: flex;
+    align-items: center;
+}
+
+.sale-countdown #message {
+    margin-right: 16px;
+}
+.sale-timer .sale-countdown {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.sale-timer .sale-countdown #countdown {
+    font-weight: 600 !important;
+}
+
+.sale-timer .sale-countdown span {
+    all: unset !important;
+}
+
+
+#countdown p{
+    all:unset;
+}
+.sale-timer #countdown p {
+    font-weight:400;
 }
 .sale-timer #countdown {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    font-weight:700;
 }
 
 .sale-timer #countdown span {
@@ -2161,5 +2202,30 @@ button.btn-Next svg {
 .backBtn a:hover {
     background: #7a77a2;
 }
+.sale-timer a {
+    width: fit-content;
+    text-align: center;
+    text-decoration: none;
+    background: #05eab5;
+    margin-left: auto;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 4px;
+    padding: 2px 15px;
+}
+
+.sale-timer {
+    flex-wrap: wrap;
+}
+
 /*End*/
 
+/*Dealer User Forms*/
+.user-dealer.reg .form-box {
+    max-width: 40vw;
+}
+.user-dealer form input {
+    width: 100%;
+}
+/*Dealer User Forms End*/

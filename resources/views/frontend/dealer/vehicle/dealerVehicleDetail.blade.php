@@ -39,7 +39,7 @@
                     <div class="col-lg-8 vehicleDetailLeft">
                         <div class="row">
                             <div class="col-12">
-                                <div class="numberStarDiv">
+                                <div class="numberStarDiv v-details-number">
                             <span>{{ $vehicle->vehicle_registartion_number }}</span>
                             <i class="fa-regular fa-star"></i>
                         </div>
@@ -375,7 +375,12 @@
                                         <li class="hidden">Average:<span> £{{ $vehicle->average_price }} </span></li>
                                     </ul>
                                     <!--<li>Live Salaes end <span>3h 53m 26s <a href="#">-->
-                                    <li class="sale-timer"><div id="countdown"> <a href="#">
+                                    <li class="sale-timer">
+                                         <div class="sale-countdown">
+                                            <span id="message"></span>
+                                            <span id="countdown"></span>
+                                        </div>
+                                         <a href="#">
                                                 @if ($allbid)
                                                     {{ $allbid }}
                                                 @else

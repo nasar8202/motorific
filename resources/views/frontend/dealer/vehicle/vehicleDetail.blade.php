@@ -35,7 +35,7 @@
                 <div class="col-lg-8 vehicleDetailLeft">
                     <div class="row">
                         <div class="col-12">
-                            <div class="numberStarDiv">
+                            <div class="numberStarDiv v-details-number">
                         <span>{{$vehicle->vehicle_registartion_number}}</span>
                         <i class="fa-regular fa-star"></i>
                     </div>
@@ -67,7 +67,7 @@
                         {{-- @dd($lat,$lng) --}}
                     </div>
                     {{-- <div class="bottomList">
-                        <div class="bottomListTitle">
+                        <div class="bottomListTitle ">
                             <h4><i class="fas fa-wrench"></i> Service History</h4>
                             <ul>
                                 <li>Service record <span>Full</span></li>
@@ -238,7 +238,7 @@
                 </div>
                 <div class="col-12">
                     <div class="bottomList">
-                        <div class="bottomListTitle">
+                        <div class="bottomListTitle service">
                             <h4><i class="fas fa-wrench"></i>Service History</h4>
                             <ul>
                                 <li>Service Record<span>{{$vehicle_history->title ??""}}</span></li>
@@ -260,7 +260,12 @@
                                 <li >Higesht Offer<span> <a href="#">@if(isset($order->request_price)) {{$order->request_price}}@endif</a></span></li>
                                 @else
                                 <li>Total Bids: <span>{{$allbids??'No Bids Yet'}}</span></li>
-                                <li  class="sale-timer"><div id="countdown"></li>
+                                <li  class="sale-timer">
+                                    <div class="sale-countdown">
+                                        <span id="message"></span>
+                                        <span id="countdown"></span>
+                                    </div>
+                                </li>
                                 @endif
                                 <ul class="valuation">
                                     <li id="dynamic-ar">valuation <span><i class="fas fa-chevron-down"></i></span></li>
