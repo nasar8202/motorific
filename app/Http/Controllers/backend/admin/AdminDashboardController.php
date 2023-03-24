@@ -41,8 +41,8 @@ class AdminDashboardController extends Controller
         $dealerDetails = UserDetail::where('user_id',$request->id)->first();
         if( $dealerDetails->dealer_documents== null && $dealerDetails->dealer_identity_card == null ){
             $request->validate([
-                'dealer_identity_card' => 'required',
-                'dealer_documents' => 'required',
+                'dealer_identity_card' => 'required|image',
+                'dealer_documents' => 'required|image',
                 
             ]);
        
@@ -75,7 +75,7 @@ class AdminDashboardController extends Controller
         }
         else if($dealerDetails->dealer_identity_card == null ){
             $request->validate([
-                'dealer_identity_card' => 'required',
+                'dealer_identity_card' => 'required|image',
                 
             ]);
        
@@ -104,7 +104,7 @@ class AdminDashboardController extends Controller
            elseif( $dealerDetails->dealer_documents== null){
                 $request->validate([
                     
-                    'dealer_documents' => 'required',
+                    'dealer_documents' => 'required|image',
                 ]);
             $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
             $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
@@ -143,7 +143,7 @@ class AdminDashboardController extends Controller
                 $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
                 $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
     
-                $dealerDetails->dealer_identity_card = $dealer_identity_card ;
+                // $dealerDetails->dealer_documents = $dealer_documents ;
                 $dealerDetails->dealer_documents =  $dealer_documents;
                 $dealerDetails->save();   
             }

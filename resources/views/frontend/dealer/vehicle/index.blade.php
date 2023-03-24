@@ -78,13 +78,10 @@ div#filter-price {
             <div class="row">
                 <div class="col-12">
                     <div class="banner-content">
-<<<<<<< HEAD
-                        <h2 class="sec-heading fs-50 text-white">All Vehicles </h2>
-                        <p class="text-white">Next live sale begins tomorrow at 11am</p>
-=======
+
                         <h2 class="sec-heading fs-50 text-white">All Vehicles</h2>
                         <p class="text-white">Next live sale begins tomorrow at 08 am</p>
->>>>>>> 4cfe5ec1c8d61e29398ca34e54573f123714d0c7
+
                     </div>
                 </div>
             </div>

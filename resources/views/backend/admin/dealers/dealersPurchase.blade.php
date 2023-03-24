@@ -39,6 +39,7 @@
                             <th>Vehicle Reg Number</th>
                             <th>Vehicle Name</th>
                             <th>Vehicle Price</th>
+                            <th>Date & time</th>
                             <th>Vehicle Charges</th>
                            
                         </tr>
@@ -51,6 +52,7 @@
                             <td>{{ $dealer->vehicle->vehicle_registartion_number }}</td>
                             <td>{{ $dealer->vehicle->vehicle_name }}</td>
                             <td>{{ $dealer->vehicle->vehicle_price }}</td>
+                            <td>{{ $dealer->vehicle->updated_at }}</td>
                             <td>{{ $dealer->vehicle_charges }}</td>
                             
                            
