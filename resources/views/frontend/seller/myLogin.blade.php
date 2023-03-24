@@ -125,17 +125,17 @@ display: block;
 <!--Login Form Section-->
 
 
-<div class="registration-form">
+<div class="registration-form sellerForm">
     <div class="reg-form-heading">
         <h3>Login</h3>
         <p>It will take 60 seconds</p> 
     </div>
 
     <div class="container-700">
-        <div class="form-main text-center">
+        <div class="form-main text-center ">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div>
+                <div class="form-inputs">
 
                     <input type="email" placeholder="E-mail Address" required name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                     @error('email')
@@ -152,14 +152,14 @@ display: block;
                     @enderror
                 </div>
 
-                <span>If You Are New User. <a style="text-decoration: none;" href="{{route('registration')}}"> Register</a></span>
-                <br>
+                <span class="new-user">If You Are New User. <a style="text-decoration: none;" href="{{route('registration')}}"> Register</a></span>
+                
                 <div class="mt-2">
                     <button>CONTINUE</button>
                 </div>
             </form>
              
-            <a style="text-decoration: none;" href="{{route('forgotPassPage')}}">Forgot Your Password ?</a>
+            <a class="forgott-link" href="{{route('forgotPassPage')}}">Forgot Your Password ?</a>
         </div>
     </div>
  </div>

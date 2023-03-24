@@ -122,63 +122,64 @@ display: block;
     
 <!--Forgott Password Section-->
 
-<section class="userform-sec forgott">
-    <div class="container-1151">
-        <div class="form-box">
-            <h2>Enter Your Email To Get Your Password</h2>
-            <form method="POST" action="{{ route('forgotPass') }}">
-            @csrf
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="" name="email" class="@error('email') is-invalid @enderror form-control" name="email" value="{{ old('email') }}">
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="form-group form-btn">
-                    <button>Reset Password</button>
-                    <a href="{{route('myLogin')}}" class="fw-bold">Login</a>
-                </div>
-            </form>
+<!--<section class="userform-sec forgott">-->
+<!--    <div class="container-1151">-->
+<!--        <div class="form-box">-->
+<!--            <h2>Enter Your Email To Get Your Password</h2>-->
+<!--            <form method="POST" action="{{ route('forgotPass') }}">-->
+<!--            @csrf-->
+<!--                <div class="form-group">-->
+<!--                    <label>Email Address</label>-->
+<!--                    <input type="email" placeholder="" name="email" class="@error('email') is-invalid @enderror form-control" name="email" value="{{ old('email') }}">-->
+<!--                    @error('email')-->
+<!--                        <span class="invalid-feedback" role="alert">-->
+<!--                            <strong>{{ $message }}</strong>-->
+<!--                        </span>-->
+<!--                    @enderror-->
+<!--                </div>-->
+<!--                <div class="form-group form-btn">-->
+<!--                    <button>Reset Password</button>-->
+<!--                    <a href="{{route('myLogin')}}" class="fw-bold">Login</a>-->
+<!--                </div>-->
+<!--            </form>-->
             
-        </div>
-    </div>
-</section>
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
 <!--Forgott Password Section End-->
 
     <!-- REGISTRATION-FORM -->
-    <!--<div class="registration-form">-->
-    <!--    <div class="reg-form-heading">-->
-    <!--        <h3>Enter Your Email To Get Your Password</h3>-->
-    <!--        {{-- <p>It will take 60 seconds</p> --}}-->
-    <!--    </div>-->
+    <div class="registration-form">
+        <div class="reg-form-heading">
+            <h3>Enter Your Email To Get Your Password</h3>
+            {{-- <p>It will take 60 seconds</p> --}}
+        </div>
 
-    <!--    <div class="container-700">-->
-    <!--        <div class="form-main text-center">-->
-    <!--            <form method="POST" action="{{ route('forgotPass') }}">-->
-    <!--                @csrf-->
-    <!--                <div>-->
+        <div class="container-700">
+            <div class="form-main text-center">
+                <form method="POST" action="{{ route('forgotPass') }}">
+                    @csrf
+                    <div>
 
-    <!--                    <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">-->
-    <!--                    @error('email')-->
-    <!--                        <span class="invalid-feedback" role="alert">-->
-    <!--                            <strong>{{ $message }}</strong>-->
-    <!--                        </span>-->
-    <!--                    @enderror-->
+                        <input type="email" placeholder="E-mail Address" name="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 
-    <!--                </div>-->
+                    </div>
 
-    <!--                <br>-->
-    <!--                <div>-->
-    <!--                    <button type="submit " class="m-0"> Send Password Reset Link</button>-->
-    <!--                </div>-->
-    <!--            </form>-->
-    <!--            <a href="{{route('myLogin')}}">Login</a>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
+                    <br>
+                    <div>
+                        <button type="submit " class="m-0"> Send Password Reset Link</button>
+                    </div>
+                </form>
+                <a href="{{route('myLogin')}}">Login</a>
+            </div>
+        </div>
+    </div>
 
 
 @endsection
