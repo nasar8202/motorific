@@ -508,7 +508,7 @@ class FrontController extends Controller
         }catch(\Exception $e)
         {
             DB::rollback();
-            return $e;
+           // return $e;
             return Redirect()->back()
                 ->with('error',$e->getMessage() )
                 ->withInput();

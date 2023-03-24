@@ -64,7 +64,7 @@ class AdminDashboardController extends Controller
                 'body' => 'Your Request Has Been Approved',
                 'thanks' => 'Thank you for using motorific.co.uk ',
                 'actionText' => 'Login',
-                'actionURL' => url('/dealer-login'),
+                'actionURL' =>   url('/dealer-login?email=' . urlencode($user->email)),
                 'order_id' => 101
             ];
     
@@ -92,7 +92,7 @@ class AdminDashboardController extends Controller
                 'body' => 'Your Request Has Been Approved',
                 'thanks' => 'Thank you for using motorific.co.uk ',
                 'actionText' => 'Login',
-                'actionURL' => url('/dealer-login'),
+                'actionURL' => url('/dealer-login?email=' . urlencode($user->email)),
                 'order_id' => 101
             ];
     
@@ -121,7 +121,7 @@ class AdminDashboardController extends Controller
                 'body' => 'Your Request Has Been Approved',
                 'thanks' => 'Thank you for using motorific.co.uk ',
                 'actionText' => 'Login',
-                'actionURL' => url('/dealer-login'),
+                'actionURL' => url('/dealer-login?email=' . urlencode($user->email)),
                 'order_id' => 101
             ];
     
@@ -160,7 +160,7 @@ class AdminDashboardController extends Controller
             'body' => 'Your Request Has Been Approved',
             'thanks' => 'Thank you for using motorific.co.uk ',
             'actionText' => 'Login',
-            'actionURL' => url('/dealer-login'),
+            'actionURL' => url('/dealer-login?email=' . urlencode($user->email)),
             'order_id' => 101
         ];
 
@@ -202,7 +202,7 @@ class AdminDashboardController extends Controller
             'body' => 'Your Are Block By Admin From Motorific. Contact Admin For More Dealers',
             'thanks' => 'Thank you for using motorific.co.uk ',
             'actionText' => 'Login',
-            'actionURL' => url('/dealer-login'),
+            'actionURL' => url('/dealer-login?email=' . urlencode($user->email)),
             'order_id' => 101
         ];
 
