@@ -1635,6 +1635,13 @@ section.ycp-sec {
 .wsy-sec {
     background: #05eab5;
 }
+.testi-sec .sec-6-heading {
+    text-align: left;
+}
+
+.testi-sec .sec-6-heading h5 {
+    font-size: 30px;
+}
 
 
 /*Seller Main Page End*/
@@ -2283,6 +2290,101 @@ div.sellerForm div.form-inputs input {
     font-size: 14px;
 }
 
+.seller-main-banner .banner-content {
+    flex-direction: column-reverse !important;
+}
+
+header {
+    position: static;
+}
+
+section.seller-main-banner:after {
+    width: 100%;
+    height: 40%;
+    top: 20px;
+}
+
+section.seller-main-banner img {
+    margin-bottom: 60px;
+}
+
+section.seller-main-banner .banner-content h2 {
+    font-size: 24px;
+}
+
+section.seller-main-banner .banner-content p {
+    font-size: 13px;
+}
+
+.seller-main-banner .check_area input {
+    width: 100%;
+    padding: 10px 20px;
+    box-shadow: 0 0 20px rgba(0,0,0, .15);
+    border-width: 1px;
+}
+
+.seller-main-banner .check_area button {
+    width: 100%;
+    padding: 12px 10px;
+}
+
+ol.tagLines {
+    list-style-position: outside;
+    padding-left: 15px;
+}
+
+ol.tagLines li {
+    line-height: 1.6;
+}
+
+.how-sec .how-work {
+    padding-top: 20px;
+}
+
+.how-sec .howitwork-main {
+    margin-bottom: 30px;
+}
+
+.how-sec .sec-2-btns {
+    margin-top: 0;
+}
+
+.who-sec button {
+    font-size: 12px;
+    padding: 8px 22px;
+    width: auto;
+    margin-top: 20px;
+}
+.ycp-sec .sec-4-txt h4 {
+    font-size: 28px;
+    line-height: 1.4;
+}
+
+.ycp-sec .sec-4-txt p {
+    font-size: 13px;
+}
+
+.ycp-sec .sec-4-box p {
+    font-size: 13px;
+}
+
+
+.wsy-sec h5 {
+    font-size: 21px;
+    text-align: left;
+}
+
+.wsy-sec p {
+    font-size: 13px;
+}
+
+.wsy-sec {
+    padding: 30px 0;
+}
+
+.testiSlider p {
+    text-align: left;
+}
 
 /*Seller User Forms End*/
 

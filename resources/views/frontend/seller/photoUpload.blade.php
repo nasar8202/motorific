@@ -1875,7 +1875,7 @@ display: block;
 
                                     <div class="col-lg-5">
                                         <div class="info-box">
-                                            <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
+                                            <!--<p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>-->
                                             <div class="info-box-image">
                                                 <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" alt="">
                                             </div>
@@ -2416,9 +2416,9 @@ display: block;
                                     @endif
                                     </div>
                                     <div class="col-lg-5">
-                                        <div class="info-box">
-                                            <p>If your vehicle currently has any finance remaining, whether PCP or HP, or any other type of loan or finance, please select “On finance”.</p>
-                                        </div>
+                                        <!--<div class="info-box">-->
+                                        <!--    <p>If your vehicle currently has any finance remaining, whether PCP or HP, or any other type of loan or finance, please select “On finance”.</p>-->
+                                        <!--</div>-->
                                     </div>
                                 </div>
                                 <!--Next Previous Button-->

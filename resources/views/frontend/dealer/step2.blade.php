@@ -75,15 +75,18 @@
                                         <input type="number" name="company_phone"  placeholder="Enter Phone Number" value="{{ session()->get('company_phone') ?? old('company_phone') }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Upload ID Card</label>
+                                        <label>Upload ID Card (Passport, driving license)</label>
                                         <input type="file" name="dealer_identity_card" >
                                             
                                     </div>
                                     <div>
-                                        <label for="documents">Upload Documents</label>
+                                        <label for="documents">Upload Documents
+                                        (motor trade insurance)
+                                        </label>
+                                        
                                         <input type="file" name="dealer_documents" >
                                     </div>
-                                    <div>Note (No ID? You can submit at a later date, to continue simply clicking on the Submit tab)</div>
+                                    <div style="color:red;">Note (No ID? You can submit at a later date, to continue simply clicking on the Submit tab)</div>
                                 </div>
                                 {{-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="button" name="next" class="next action-button" value="Next Step"/> --}}
@@ -107,6 +110,7 @@
         
         $(document).on('submit', 'form', function() {
             $('button').attr('disabled', 'disabled');
+            $('.btn-success').html('Its take 20 seconds');
         });
     });
     </script>
