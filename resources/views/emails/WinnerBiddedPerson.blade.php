@@ -191,13 +191,13 @@
           </div>
         </div>
         <div class="customer-detail">
-          <strong>Customer Contact Details</strong>
+          {{-- <strong>Customer Contact Details</strong>
           <div class="car-det">
             <span>Name: Carter</span>
             <span> Phone: +447703287219 </span>
             <span>Phone: +447703287219</span>
             <span>Postcode: SY20 9LR</span>
-          </div>
+          </div> --}}
           <span
             ><strong
               >Now it’s time to arrange inspection, collection and payment with
@@ -205,7 +205,7 @@
             ></span
           >
           <div class="btn-mail">
-            <a href="">Contact the seller here </a>
+            <a href="{{route('DealerLogin')}}">Contact the seller here </a>
           </div>
           <div class="qa-ans">
             <p><strong>What next? </strong></p>
@@ -224,7 +224,7 @@
             <p>
               Drop us an email -
               <span style="color: #2196f3"
-                >partner.operations@motorific.co.uk</span
+                >info@motorific.co.uk</span
               >
               and we’ll get back to you as soon as possible.
             </p>
@@ -258,10 +258,9 @@
 
 
             <span
-              >© 2022 motorific Ltd, All rights reserved. motorific Ltd, registered in
-              England & Wales, registered office Verde Building, 10 Bressenden
-              Pl, Victoria, London SW1E 5DH. Company number 07103079. <br />
-              You can unsubscribe from these emails at any time.
+              >© <?php echo date("Y"); ?>
+              Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ. <br />
+           
             </span>
           </div>
         </div>

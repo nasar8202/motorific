@@ -151,12 +151,12 @@
         <div class="mail-name">
           <p>
             <strong>From: </strong> Motorofic
-            <span style="color: blue"> {{ $data['email'] }}</span> >
+            <span style="color: blue">info@smartautosuk.co.uk</span> >
           </p>
           <p><strong>Date: </strong> {{ $data['date'] }}</p>
           <p>
             <strong>To: </strong
-            ><span style="color: blue"> info@smartautosuk.co.uk</span>
+            ><span style="color: blue"> {{ $data['email'] }} </span>
           </p>
           <p><strong>Subject: You bought a car!</strong></p>
           <p>
@@ -225,7 +225,7 @@
             <p>
               Drop us an email -
               <span style="color: #2196f3"
-                >partner.operations@motorific.co.uk</span
+                >info@motorific.co.uk</span
               >
               and we’ll get back to you as soon as possible.
             </p>
@@ -259,10 +259,9 @@
 
 
             <span
-              >© 2022 motorific Ltd, All rights reserved. motorific Ltd, registered in
-              England & Wales, registered office Verde Building, 10 Bressenden
-              Pl, Victoria, London SW1E 5DH. Company number 07103079. <br />
-              You can unsubscribe from these emails at any time.
+              >© <?php echo date("Y"); ?>
+              Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ. <br />
+           
             </span>
           </div>
         </div>
