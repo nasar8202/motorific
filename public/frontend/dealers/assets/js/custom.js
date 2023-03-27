@@ -467,30 +467,34 @@ $(document).ready(function () {
 
 
 function startCountdown() {
-  var now = new Date(); // get current date and time
+  var now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"}); // get current date and time in London timezone
+  now = new Date(now); // convert to Date object
   var target; // define target time for countdown
 
-  // check if current time is between 8am and 4pm
-  if (now.getHours() >= 8 && now.getHours() < 16) {
-    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 0, 0); // set target time to 4pm today
-    document.getElementById("message").innerHTML = "Live Sale <span>Ends</span> in: ";
+  // check if current time is between 8am and 3pm
+  if (now.getHours() >= 8 && now.getHours() < 15) {
+    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0); // set target time to 3pm today
+    document.getElementById("message").innerHTML = "Live Sale Ends in";
   } 
-  else {
-    target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 8, 0, 0); // set target time to 8am tomorrow
-    document.getElementById("message").innerHTML = "live Sale <span>Start</span> in: ";
+  // check if current time is between 3pm and 8am
+  else if (now.getHours() >= 15 || now.getHours() < 8) {
+    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0); // set target time to 8am tomorrow
+    document.getElementById("message").innerHTML = "live Sale Start in ";
   }
 
   var countdown = setInterval(function() {
-    var now = new Date(); // get current date and time
+    var now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"}); // get current date and time in London timezone
+    now = new Date(now); // convert to Date object
     var distance = target - now; // calculate time remaining
 
     // calculate hours, minutes, and seconds remaining
-    var hours = Math.floor((distance % (1000 * 60 *  60 * 24)) / (1000 * 60 * 60));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // display the countdown in the HTML element with id="countdown"
-    document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+    document.getElementById("countdown").innerHTML = hours + "h "
+    + minutes + "m " + seconds + "s ";
 
     // if the countdown is finished, clear the interval and start a new countdown
     if (distance <= 0) {
