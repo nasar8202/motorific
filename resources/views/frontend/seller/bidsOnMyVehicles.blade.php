@@ -169,7 +169,7 @@ display: block;
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Vehilce Name</th>
+                                <th scope="col">Vehicle Name</th>
                                 <th scope="col">Vehicle Price</th>
                                 <th scope="col">Dealer Name</th>
                                 <th scope="col">Dealer Number</th>
@@ -249,7 +249,7 @@ display: block;
                                  </td>
                                     @endif
                                 @empty
-                                <td colspan="8" style="text-align: center">No Order Found On This Vehicle</td>
+                                <td colspan="8" style="text-align: center">No Bids/Offer Found For This Vehicle</td>
 
                             </tr>
                             @endforelse
