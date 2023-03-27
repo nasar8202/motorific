@@ -1892,6 +1892,13 @@
     </script>
 
 <script type="text/javascript">
+  $(document).ready(function() {
+        
+        $(document).on('submit', 'form', function() {
+            $('.btn-publish').attr('disabled', 'disabled');
+            $('.btn-publish').html('Publishing...');
+        });
+    });
     function addSubscriber() {
         var subscriber_email = $("#subscriber_email").val();
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;

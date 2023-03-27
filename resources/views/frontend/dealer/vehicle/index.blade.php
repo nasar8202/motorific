@@ -259,7 +259,7 @@ div#filter-price {
                 </div>
                 <div class="category-btn">
                     <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/browse-vehicles') ? 'active' : '' }}">All </a>
-                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
+                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sale </a>
                 <a href="{{route('buyItNow')}}">Buy It Now</a>
                 <a href="{{route('dealerToDealer')}}">Dealer To Dealer</a>
             </div>
