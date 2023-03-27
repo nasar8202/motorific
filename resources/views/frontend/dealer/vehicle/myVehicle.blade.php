@@ -81,7 +81,7 @@
 
                                     </div>
                                 @empty
-                                    <div class="col-sm-12">No My Vehicle Found!</div>
+                                    <div class="col-sm-12">No Vehicle Found!</div>
                                 @endforelse
 
                             </div>

@@ -1818,7 +1818,7 @@ display: block;
                             <div class="vehicleSteps" data-id="SeatMaterial">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Seat material</h3>
-                                <p>Select the material your seats are upholstered with.</p>
+                                {{-- <p>Select the material your seats are upholstered with.</p> --}}
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
@@ -1875,7 +1875,6 @@ display: block;
 
                                     <div class="col-lg-5">
                                         <div class="info-box">
-                                            <!--<p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>-->
                                             <div class="info-box-image">
                                                 <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" alt="">
                                             </div>

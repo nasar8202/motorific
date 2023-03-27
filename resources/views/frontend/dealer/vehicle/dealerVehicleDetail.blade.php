@@ -132,7 +132,21 @@
                             </div>
                         </div>
                     </div> --}}
-                    
+                    <div class="col-12">
+                        <div class="bottomList">
+                            <div class="bottomListTitle">
+                                <h4><i class="fas fa-bolt"></i> Attention Grabber</h4>
+                                <ul>
+                                    {{-- <li>Estimated Cost<span>{{ $vehicle->DealerVehicleMedia->condition_damage }}</span> --}}
+                            
+                                    <li>Attention Grabber
+                                        <span>{{ $vehicle->DealerVehicleMedia->attention_grabber }}</span>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-12">
                         <div class="bottomList mainSpec">
                                 <div class="bottomListTitle">
@@ -323,9 +337,9 @@
                     <div class="col-12">
                         <div class="bottomList">
                             <div class="bottomListTitle">
-                                <h4><i class="fas fa-pound-sign"></i>&nbsp;&nbsp;Estimated Cost</h4>
+                                <h4><i class="fas fa-pound-sign"></i>&nbsp;&nbsp;Estimated Prepration Cost</h4>
                                 <ul>
-                                    <li>Estimated Prepration Cost ( please provide estimated prep cost if any) 
+                                    <li>Estimated Prepration Cost (  The dealer has provided an estimated preparation cost) 
                                         <span>{{ $vehicle->DealerVehicleMedia->condition_damage ?? 'No Cost'}}</span>
                                     </li>
                                 </ul>

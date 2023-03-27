@@ -79,7 +79,7 @@ div#filter-price {
                 <div class="col-12">
                     <div class="banner-content">
                         <h2 class="sec-heading fs-50 text-white">Live Sell</h2>
-                        <p class="text-white">Next live sale begins tomorrow at 08 am</p>
+                        <p class="text-white">Next sales begins at 8AM </p>
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@ div#filter-price {
                 </div>
                 <div class="category-btn">
                     <a href="{{ route('dealer.dashboard') }}" class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
-                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
+                <a href="{{ route('vehicle.liveSell') }}" class="abcd {{ request()->IS('dealer/live-sell') ? 'active' : '' }}">Live Sale </a>
                 <a href="{{route('buyItNow')}}">Buy It Now</a>
                 <a href="{{route('dealerToDealer')}}">Dealer To Dealer</a>
             </div>

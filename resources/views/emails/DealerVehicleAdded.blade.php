@@ -29,13 +29,20 @@
         header.header {
             padding: 15px 0;
             text-align: center;
-            background: #7977a2;
+            background: #fff;
         }
 
         header.header .logo a {
             font-size: 30px;
             font-weight: 700;
-            color: #fff;
+            color: black;
+            text-decoration: none;
+        }
+
+        header.header .title-name  {
+            font-size: 30px;
+            font-weight: 700;
+            color: #7977a2;
             text-decoration: none;
         }
 
@@ -208,6 +215,54 @@
             margin-top: 15px;
         }
 
+        .veh-detail .congt-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 80%;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .veh-detail .congt-box .veh-img {
+            width: 100%;
+            max-width: 20vw;
+            height: 12vw;
+        }
+
+        .veh-detail .congt-box .veh-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .veh-text {
+            max-width: 100%;
+            margin-top: 15px;
+        }
+
+        .veh-text h5 {
+            font-weight: 700;
+            font-size: .94vw;
+            color: #7977a2;
+            margin: 0;
+        }
+
+        .veh-text p {
+            font-size: .86vw;
+            margin: .95vw 0;
+        }
+
+        .veh-text h6 {
+            font-size: .88vw;
+        }
+
+        .unsub.veh-detail .prim-btn {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            max-width: fit-content;
+        }
+
         /* End */
 
         /* Responsive */
@@ -253,6 +308,27 @@
             ul.reg-detail li {
                 font-size: 14px;
             }
+            .veh-detail .congt-box {
+                max-width: 100%;
+            }
+            .veh-detail .congt-box .veh-img {
+                max-width: 250px;
+                height: 140px;
+            }
+
+            .veh-text p {
+                font-size: 12px;
+                margin: 12px 0;
+            }
+
+            .veh-text h5 {
+                font-size: 14px;
+            }
+
+            .veh-text h6 {
+                font-size: 12px;
+            }
+
 
         }
 
@@ -317,6 +393,20 @@
             ul.site-links li a {
                 font-size: 14px;
             }
+            .veh-detail .congt-box .veh-img {
+                max-width: 200px;
+                height: 110px;
+            }
+
+            header.veh-dt .title-name {
+                font-size: 22px;
+            }
+
+            header.veh-dt p {
+                font-size: 14px;
+            }
+
+
 
 
         }
@@ -347,6 +437,10 @@
             ul.reg-detail li {
                 font-size: 12px;
             }
+            .veh-detail .congt-box .veh-img {
+                max-width: 160px;
+                height: 100px;
+            }
 
 
         }
@@ -357,25 +451,39 @@
 </head>
 <body>
     <main>
-        <header class="header">
+        <header class="header veh-dt">
             <div class="container">
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
+                <br>
+                <h3 class="title-name">Hi {{ $data['name'] }}!</h3>
+                <p>your advertisement is now live for other dealers to bed. Good luck</p>
+                
+                <h3 class="title-name">Car Details</h3>
             </div>
         </header>
 
         <div class="main-content">
             <div class="container">
-                <div class="cont-main  unsub">
+                <div class="cont-main  unsub veh-detail">
+                    
                     <div class="congt-box">
-                        <h4>thank you for registrating as a dealer with motorific</h4>
-                        <p>we are checking your information and revert back to you if we require any further information</p>
+                        
                         <ul class="reg-detail">
-                            <li><span>User Name:</span> {{ $data['name'] }} </li>
-                            <li><span>Email:</span> {{ $data['email'] }}</li>
-                            
+                            <li><span>Model:</span> {{ $data['vehicle_name'] }} </li>
+                            <li><span>Reg:</span> {{ $data['vehicle_registration'] }}</li>
+                            <li><span>Mileage:</span>{{ $data['vehicle_mileage'] }}</li>
+                            <li><span>Car Age:</span> {{ $data['age'] }} </li>
+                           
                         </ul>
-                        <a href="{{route('myLogin')}}" class="prim-btn green-btn">Login</a>
-                        <h4>Motorific</h4>
+                        
+                        <div class="veh-text">
+                            <h5>The Next Step?</h5>
+                            <p>Your valuation is being worked on b Motorifics experts valuation team.
+                                The tools we use as industry experts will ensure you receive the best, genuine prce for your car in today's market.</p>
+                            <h6>Want your valuation sooner?</h6>
+                            <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: 44 7593 839364</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -385,7 +493,7 @@
             <div class="container">
                 <div class="footer-wraper">
                     <div class="footer-addr">
-                        <p>
+                        <p>©
                             <?php echo date("Y"); ?>
                             Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ.<br />
                             

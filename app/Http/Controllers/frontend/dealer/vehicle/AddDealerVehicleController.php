@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\frontend\dealer\vehicle;
 
 use Exception;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
+use App\Mail\DealerVehicleAdded;
 use App\Models\DealerVehicleMedia;
 use App\Models\DealerVehicleTyres;
 use Illuminate\Support\Facades\DB;
@@ -12,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DealerVehicleHistory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
 use Illuminate\Support\Facades\Session;
@@ -175,6 +178,8 @@ class AddDealerVehicleController extends Controller
             $dealers_vehicle->vehicle_mileage = session()->get('vehicle_mileage');
             $dealers_vehicle->reserve_price = session()->get('reservePrice');
             
+
+
             $dealers_vehicle->status = 0;
             $dealers_vehicle->save();
 
@@ -337,6 +342,29 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             $dealer_exterior_detail->back = $request->back;
             $dealer_exterior_detail->windscreen = $request->windscreen;
             $dealer_exterior_detail->save();
+
+            $originalDate = $dealers_vehicle->created_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+
+            // $users = User::where('id',Auth::user()->id)->first();
+
+            
+            // $data = ([
+            //     'name' => $users->name,
+            //     'email' => $users->email,
+            //     'date' => $winDate.' at '.$winTime,
+            //     'vehicle_registration'=>session()->get('vehicle_registartion_number'),
+            //     'vehicle_name'=>session()->get('vehicle_name'),
+            //     'vehicle_mileage'=>session()->get('vehicle_mileage'),
+               
+            //     'bidded_price'=>session()->get('reservePrice')??"No Price Yet!",
+            //     'age'=>session()->get('vehicle_year'),
+
+            // ]);
+
+            // Mail::to($users->email)->send(new DealerVehicleAdded($data));
+
         }
 
             }

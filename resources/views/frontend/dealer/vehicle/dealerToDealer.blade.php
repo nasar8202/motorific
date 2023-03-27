@@ -87,7 +87,7 @@
                 <div class="col-12">
                     <div class="banner-content">
                         <h2 class="sec-heading fs-50 text-white">Dealer To Dealer</h2>
-                        <p class="text-white">Next live sale begins tomorrow at 08 am</p>
+                        <p class="text-white">Next sales begins at 8AM </p>
                     </div>
                 </div>
             </div>
@@ -269,7 +269,7 @@
                             <a href="{{ route('dealer.dashboard') }}"
                                 class="abcd {{ request()->IS('dealer/dashboard') ? 'active' : '' }}">All </a>
                             <a href="{{ route('vehicle.liveSell') }}"
-                                class="abcd {{ request()->IS('/dealer/live-sell') ? 'active' : '' }}">Live Sell </a>
+                                class="abcd {{ request()->IS('/dealer/live-sell') ? 'active' : '' }}">Live Sale </a>
                             <a href="{{ route('buyItNow') }}">Buy It Now</a>
                             <a href="{{ route('dealerToDealer') }}"
                                 class="abcd {{ request()->IS('dealer/dealer-to-dealer') ? 'active' : '' }}">Dealer To
