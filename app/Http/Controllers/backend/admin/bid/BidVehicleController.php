@@ -76,7 +76,7 @@ class BidVehicleController extends Controller
         'name' => $orders->user->name,
         'email' => $orders->user->email,
         'date' => $winDate . ' at ' . $winTime,
-        'bidded_price' => $orders->request_price,
+        'bidded_price' => $orders->bid_price,
         'vehicle_registration' => $orders->vehicle->vehicle_registartion_number,
         'vehicle_name' => $orders->vehicle->vehicle_name,
         'vehicle_mileage' => $orders->vehicle->vehicle_mileage,
