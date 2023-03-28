@@ -212,6 +212,8 @@ class AddDealerVehicleController extends Controller
             // Session::forget('performance');
             // Session::forget('safety_and_security');
 
+           
+
             $dealer_vehicle_history = new DealerVehicleHistory;
             $dealer_vehicle_history->dealer_vehicle_id = $dealers_vehicle->id;
             $dealer_vehicle_history->keys = session()->get('keys');
@@ -248,6 +250,8 @@ class AddDealerVehicleController extends Controller
             if(!empty(session()->get('safety_and_security'))){
                 $dealer_vehicle_history->safety_and_security = session()->get('safety_and_security');
             }
+
+           
             // $dealer_vehicle_history->audio_and_communications = session()->get('audio_and_communications');
             // $dealer_vehicle_history->drivers_assistance = session()->get('drivers_assistance');
             // $dealer_vehicle_history->checkbox_questions = session()->get('checkbox_questions');
@@ -271,12 +275,11 @@ class AddDealerVehicleController extends Controller
             $dealer_vehicle_media->offside_front = $request->offside_front;
             $dealer_vehicle_media->offside_rear = $request->offside_rear;
             $dealer_vehicle_media->save();
-            // dd($request->image_1);
-            // die();
+           
             foreach($request->image_1 as $exterior_images){
 
             $image_1 = time() . '_' . $exterior_images->getClientOriginalName();
-$exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
+            $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
 
 
             $dealer_vehicle_exterior = new DealerVehicleExterior;
@@ -312,6 +315,29 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
                 //$image_1 = Session::get('image_1');
                 }
 
+                $request->session()->forget(['vehicle_registartion_number', 'vehicle_name','vehicle_mileage','reservePrice','vat','confirm','keys','previous_owners','service_history_title','origin','checkbox_questions','image_1','interior_image_1','tyre_image','advert_description','attention_grabber']);
+           // $request->session()->flush();
+                $originalDate = $dealers_vehicle->created_at;
+                $winDate = date("d F Y ", strtotime($originalDate));
+                $winTime = date("H:i:s a", strtotime($originalDate));
+    
+                 $users = User::where('id',Auth::user()->id)->first();
+    // dd($users);
+                
+                $data = ([
+                    'name' => $users->name,
+                    'email' => $users->email,
+                    'date' => $winDate.' at '.$winTime,
+                    'vehicle_registration'=>session()->get('vehicle_registartion_number'),
+                    'vehicle_name'=>session()->get('vehicle_name'),
+                    'vehicle_mileage'=>session()->get('vehicle_mileage'),
+                    'front'=>$image_1,
+                    'bidded_price'=>session()->get('reservePrice')??"No Price Yet!",
+                    'age'=>session()->get('vehicle_year'),
+    
+                ]);
+    
+                Mail::to($users->email)->send(new DealerVehicleAdded($data));
                 if($request->any_damage_checked == 1) {
             $dealer_interior_detail = new DealerVehicleInteriorDetails;
             $dealer_interior_detail->dealer_vehicle_id = $dealers_vehicle->id;
@@ -343,27 +369,27 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             $dealer_exterior_detail->windscreen = $request->windscreen;
             $dealer_exterior_detail->save();
 
-            $originalDate = $dealers_vehicle->created_at;
-            $winDate = date("d F Y ", strtotime($originalDate));
-            $winTime = date("H:i:s a", strtotime($originalDate));
+//             $originalDate = $dealers_vehicle->created_at;
+//             $winDate = date("d F Y ", strtotime($originalDate));
+//             $winTime = date("H:i:s a", strtotime($originalDate));
 
-            // $users = User::where('id',Auth::user()->id)->first();
-
+//              $users = User::where('id',Auth::user()->id)->first();
+// dd($users);
             
-            // $data = ([
-            //     'name' => $users->name,
-            //     'email' => $users->email,
-            //     'date' => $winDate.' at '.$winTime,
-            //     'vehicle_registration'=>session()->get('vehicle_registartion_number'),
-            //     'vehicle_name'=>session()->get('vehicle_name'),
-            //     'vehicle_mileage'=>session()->get('vehicle_mileage'),
+//             $data = ([
+//                 'name' => $users->name,
+//                 'email' => $users->email,
+//                 'date' => $winDate.' at '.$winTime,
+//                 'vehicle_registration'=>session()->get('vehicle_registartion_number'),
+//                 'vehicle_name'=>session()->get('vehicle_name'),
+//                 'vehicle_mileage'=>session()->get('vehicle_mileage'),
                
-            //     'bidded_price'=>session()->get('reservePrice')??"No Price Yet!",
-            //     'age'=>session()->get('vehicle_year'),
+//                 'bidded_price'=>session()->get('reservePrice')??"No Price Yet!",
+//                 'age'=>session()->get('vehicle_year'),
 
-            // ]);
+//             ]);
 
-            // Mail::to($users->email)->send(new DealerVehicleAdded($data));
+//             Mail::to($users->email)->send(new DealerVehicleAdded($data));
 
         }
 
@@ -377,8 +403,8 @@ $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $ima
             }
             DB::commit();
             
-             return view('frontend.dealer.dealerVehicles.thankyou');
-            //return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully. Wait For Admin Approvel!');
+             //return view('frontend.dealer.dealerVehicles.thankyou');
+            return redirect()->route('dealerToDealer')->with('success', 'Vehicle added  Successfully. Wait For Admin Approvel!');
     }
     public function vehicleListing(Request $request)
     {

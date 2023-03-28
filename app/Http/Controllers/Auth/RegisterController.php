@@ -307,7 +307,7 @@ class RegisterController extends Controller
         } catch (\Exception $e) {
 
             DB::rollBack();
-            return $e;
+           // return $e;
             if(isset($e)){
                   return $e;
                 return back()->with('error', 'Something went wrong!');

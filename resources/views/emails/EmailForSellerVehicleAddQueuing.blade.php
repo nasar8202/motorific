@@ -455,9 +455,9 @@
             <div class="container">
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
-                <h3 class="title-name">Hi {{ $data['name'] }}!</h3>
-                <p>your advertisement is now live for other dealers to bed. Good luck</p>
-                
+                <h3 class="title-name">Hi {{ $details['name'] }}!</h3>
+                <p>Your Vehicle details have been  successfully recieved for valuation</p>
+                <p>team to  review</p>
                 <h3 class="title-name">Car Details</h3>
             </div>
         </header>
@@ -469,14 +469,14 @@
                     <div class="congt-box">
                         
                         <ul class="reg-detail">
-                            <li><span>Model:</span> {{ $data['vehicle_name'] }} </li>
-                            <li><span>Reg:</span> {{ $data['vehicle_registration'] }}</li>
-                            <li><span>Mileage:</span>{{ $data['vehicle_mileage'] }}</li>
-                            <li><span>Car Age:</span> {{ $data['age'] }} </li>
-                           
+                            <li><span>Model:</span> {{ $details['vehicle_name'] }} </li>
+                            <li><span>Reg:</span> {{ $details['vehicle_registration'] }}</li>
+                            <li><span>Mileage:</span>{{ $details['vehicle_mileage'] }}</li>
+                            <li><span>Car Age:</span> {{ $details['age'] }} </li>
+                            <li><span>Color:</span>{{ $details['colour'] }}</li>
                         </ul>
                         <div class="veh-img">
-                            <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$data['front']) }}" width="80px" height="80px" alt="">
+                            <img src="{{ asset('/vehicles/vehicles_images/'.$details['front']) }}" width="80px" height="80px" alt="">
                         </div>
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
