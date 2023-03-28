@@ -230,7 +230,6 @@ class FrontController extends Controller
         $request->session()->put('finance',$request->finance);
         $request->session()->put('categ',$request->categ);
         $request->session()->put('VehicleHistory',$request->VehicleHistory);
-
         $feature = explode(',',$request->the_value);
         foreach($feature as $f){
             $VehicleFeature[] = VehicleFeature::where('id',$f)->first();
@@ -520,6 +519,11 @@ class FrontController extends Controller
                 //$details = ['email' => $users->email];
                 //SendEmailForSellerVehicleAddQueuing::dispatch($details);
                 dispatch(new SendEmailForSellerVehicleAddQueuing($details));
+                
+                //Mail::to($users->email)->send(new SellerVehicleAdded($data));
+                $request->session()->forget(['vehicle_feature','seat_material','number_of_keys','tool_pack','locking_wheel_nut','smoked_in','log_book','location','HouseName'
+                ,'vehicle_owner','private_plate','finance','categ','VehicleHistory' ]);
+
         }catch(\Exception $e)
         {
             DB::rollback();
