@@ -20,6 +20,9 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+        .head-btns a {
+    text-decoration: none;
+}
     </style>
     <header>
         <div class="container-1600 d-flex justify-content-between pt-4">
@@ -60,9 +63,9 @@
 
             <div class="head-btns  justify-content-between">
                 @guest
-                    <button><a href="{{ route('myLogin') }}">Sign In</a></button>
+                   <a href="{{ route('myLogin') }}"> <button>Sign In</button></a>
                     @if (Route::has('register'))
-                        <button><a href="{{ route('registration') }}">Sign Up</a></button>
+                       <a href="{{ route('registration') }}"> <button>Sign Up</button></a>
                     @endif
                 @else
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
