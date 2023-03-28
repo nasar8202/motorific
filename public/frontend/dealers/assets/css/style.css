@@ -2255,3 +2255,54 @@ button.btn-Next svg {
     background: #05eab5;
     color: #fff;
 }
+.ban-vehicles {
+    background: #525252;
+    color: white;
+    padding: 60px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ban-vehicles p {
+    color: white;
+}
+
+.ban-vehicles h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+}
+
+.ban-vehicles a {
+    color: white;
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    line-height: 50px;
+    margin-top: 20px;
+}
+
+.ban-vehicles a:hover {
+    color: black;
+    background: white;
+}
+
+ section.sec-2.productPageTn.requested-vehicles .col-sm-8{
+
+
+
+}
+section.sec-2.productPageTn.requested-vehicles .col-sm-4, section.sec-2.productPageTn.requested-vehicles .col-sm-8{
+     margin-bottom: 19px; 
+ 
+    background: #202543cc;
+
+}
+section.sec-2.productPageTn.requested-vehicles div#filter{background: transparent;}

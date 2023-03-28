@@ -11,11 +11,15 @@
     <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!--Slick Css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" >
+        <!--Slick Css End-->
     <!-- CUSTOM-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 
     <title>Motorific- @yield('title')</title>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a" data-blockingmode="auto" type="text/javascript"></script>
@@ -67,6 +71,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Slick Js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!--End-->
     
     <script src="{{ URL::asset('frontend/seller/assets/script.js') }}"></script>
     
