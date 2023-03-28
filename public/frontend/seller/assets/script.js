@@ -1,3 +1,8 @@
+
+// Seller Testimonial Slider
+
+// Seller Testimonial Slider En
+
 // Loader
 var i = 0;
 

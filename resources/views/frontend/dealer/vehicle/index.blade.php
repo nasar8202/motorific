@@ -263,6 +263,7 @@ div#filter-price {
                 <a href="{{route('buyItNow')}}">Buy It Now</a>
                 <a href="{{route('dealerToDealer')}}">Dealer To Dealer</a>
             </div>
+             
                 <h4 class="count">Showing  {{ $countAllVehicle }} vehicles</h4>
             </div>
             <div class="row" id="load-data">
@@ -373,7 +374,7 @@ div#filter-price {
               <div id="pagination-container"></div>
 
                     <!-- Products Cards New Design End -->
-
+ 
 
                 <!-- <div id="first">
                 @forelse ($allVehicles as $vehicle)
@@ -420,7 +421,14 @@ div#filter-price {
 
 
         </div>
+               <div class="ban-vehicles">
+                    <h1>New Vehicles Comming soon</h1>
+                    <p>Come back soon to see what soon stock we have.</p>
+                    <a href="" class="" >Go to buy Its Now</a>
+                </div>
+       
     </div>
+
 </div>
 </section>
 

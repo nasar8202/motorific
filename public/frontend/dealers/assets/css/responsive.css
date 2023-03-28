@@ -105,6 +105,9 @@ section.services-sec {
     .logo-text {
         transform: unset;
     }
+    .ban-vehicles h1 {
+    font-size: 32px;
+}
     .header-nav ul {
         margin-left: 180px;
     }
@@ -324,6 +327,9 @@ div#loop .box {
 @media only screen and (max-width: 991px) {
    header.header {
     padding: 10px 0 0;
+}
+.ban-vehicles h1 {
+    font-size: 27px;
 }
 .header-submenu {
     justify-content: space-between;
@@ -744,7 +750,9 @@ section.services-sec {
 .dealer-banner .banner-content p {
     font-size: 17px;
 }
-
+.sale-countdown h2 {
+    font-size: 17px;
+}
 .header-submenu a {
     font-size: 12px;
     padding: 10px 13px;
@@ -1117,6 +1125,15 @@ section.sec-2.productPageTn span {
     padding: 90px 0px 0;
     /* margin-left: 160px; */
 }
+.ban-vehicles h1 {
+    font-size: 23px;
+    text-align: center;
+    padding: 0 10px;
+}
+.ban-vehicles p {
+    color: white;
+    text-align: center;
+}
 section.create-advert-sec.section {
     padding-top: 40px;
 }
@@ -1257,5 +1274,17 @@ ul.parts-content li span {
 .vehicleDetailGalrepeatMain .imgVehicle {
     flex: unset;
     width: 40%;
+}
+
+ section.sec-2.productPageTn.requested-vehicles .col-sm-8{
+   margin-bottom: 19px; 
+
+
+}
+section.sec-2.productPageTn.requested-vehicles .col-sm-4{
+     margin-bottom: 0px; 
+ 
+
+
 }
 }

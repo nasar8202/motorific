@@ -258,12 +258,9 @@
         </div>
 
 
-            <span
-              >© 2022 motorific Ltd, All rights reserved. motorific Ltd, registered in
-              England & Wales, registered office Verde Building, 10 Bressenden
-              Pl, Victoria, London SW1E 5DH. Company number 07103079. <br />
-              You can unsubscribe from these emails at any time.
-            </span>
+        <span
+        ><?php echo date('Y')?>© Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ.
+      </span>
           </div>
         </div>
       </section>
