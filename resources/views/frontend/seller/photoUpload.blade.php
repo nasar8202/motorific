@@ -21,6 +21,24 @@ z-index: 1;
 .dropdown:hover .dropdown-content {
 display: block;
 }
+
+@media only screen and (max-width:767px ){
+    .photo-up-sec-2-vehicle-information {
+    padding: 30px 10px;
+}
+
+.photo-up-sec-2-box-btn button {
+    font-size: 10px;
+    width: 80px;
+    padding: 7px 0px;
+}
+
+
+
+.photo-up-sec-2-vi-bnch-btns {
+    bottom: 20px;
+}
+}
     </style>
  <!-- HEADER -->
  <header>
@@ -60,9 +78,9 @@ display: block;
         </div>
         <div class="head-btns  justify-content-between">
             @guest
-            <button><a href="{{ route('myLogin') }}">Sign In</a></button>
+           <a href="{{ route('myLogin') }}"> <button>Sign In</button></a>
             @if (Route::has('register'))
-            <button><a href="{{ route('registration') }}">Sign Up</a></button>
+            <a href="{{ route('registration') }}"><button>Sign Up</button></a>
             @endif
             @else
 
