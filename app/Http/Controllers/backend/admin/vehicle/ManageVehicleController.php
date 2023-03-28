@@ -474,11 +474,11 @@ class ManageVehicleController extends Controller
                 $end_date = null;
                 $end_time = null;
             } else {
-                $mytime = Carbon::now();
-                if($mytime->toTimeString() >= "16:00:00" && $mytime->toTimeString() <= "16:00:00"){
-                    return back()->with('error','Can not update rightnow');
-                }
-                else{
+                // $mytime = Carbon::now();
+                // if($mytime->toTimeString() >= "16:00:00" && $mytime->toTimeString() <= "16:00:00"){
+                //     return back()->with('error','Can not update rightnow');
+                // }
+                // else{
 
                 
                 $start_date = $request->start_vehicle_date;
@@ -486,7 +486,7 @@ class ManageVehicleController extends Controller
                 $end_date = $request->start_vehicle_date;
                 $end_time = $request->end_vehicle_time;
                 $auction_date_time = null;
-            }
+           // }
             }
 
             $vehicle = Vehicle::find($id);
