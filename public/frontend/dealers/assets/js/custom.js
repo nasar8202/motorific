@@ -509,3 +509,35 @@ startCountdown();
 
 
 // live sell begeins and End 
+
+
+// live sale banner js 
+
+// get current time in London
+let now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"});
+let time = new Date(now);
+
+// get hours from the time
+let hours = time.getHours();
+
+// get the div to modify
+let div = document.getElementById("vehicles-displayed");
+let div2 = document.getElementById("vehicle-banner");
+
+// check if the current time is between 3pm and 8am
+if (hours >= 15 || hours < 8) {
+  // add class if the time is between 3pm and 8am
+  div.classList.add("vehiclehide");
+  div2.classList.add("vehiclebannershow");
+} else {
+  // remove class if the time is not between 3pm and 8am
+  div.classList.remove("vehiclehide");
+  div2.classList.remove("vehiclebannershow");
+  
+}
+// live sale banner js 
+
+
+let a = $('#selectedFiles').children().first().children('img').attr('src');
+
+$('.description-box .item-img').children('img').attr('src', a);

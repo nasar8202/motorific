@@ -2716,6 +2716,7 @@ display: block;
                     <div class="add-photos-inner row">
                         <div class="add-photos-box1 col-lg-6">
                             <label class="labelForFile" for="photo1">
+                                <span><i class="fas fa-times"></i></span>
                                 <div class="add-photos-numbering">
                                     <h3>1</h3>
                                 </div>

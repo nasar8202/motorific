@@ -260,7 +260,7 @@ div#filter-price {
             </div>
                 <h4 class="count">Showing  {{ $countLiveSellVehicle }} vehicles</h4>
             </div>
-            <div class="row">
+            <div class="row " id="vehicles-displayed">
                 <div class="col-lg-12 col-md-12">
                     <div class="topRightFilter">
                         <select id="dropdownfilter">
@@ -412,6 +412,11 @@ div#filter-price {
 
 
         </div>
+        <div class="ban-vehicles" id="vehicle-banner">
+                    <h1>New Vehicles Comming soon</h1>
+                    <p>Come back soon to see what soon stock we have.</p>
+                    <a href="" class="" >Go to buy Its Now</a>
+                </div>
     </div>
 </div>
 </section>
