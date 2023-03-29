@@ -17,10 +17,19 @@ class AdminCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() ||  (Auth::check() && Auth::user()->role_id != 1)) {
-                return $next($request);
+        if (Auth::check()  ) {
+                if(Auth::check() && Auth::user()->role_id == 1){
+                    return  redirect()->route('admin');
+                  
+            }
+            elseif(Auth::check() && Auth::user()->role_id == 3){
+                return  redirect()->route('dealer.newDashboard');
+            }
+            elseif(Auth::check() && Auth::user()->role_id == 4){
+                return  redirect()->route('dashboard');
+            }
             } else {
-                return  redirect()->route('admin');
+                return $next($request);
             }
         
     }

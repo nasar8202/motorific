@@ -125,7 +125,7 @@ p {
                                         <div class="form-group">
                                             <label for="first-name-column">Vehicle Registartion Number</label>
                                             <input type="text" id="first-name-column" class="form-control"
-                                                placeholder="Registartion Number" value="{{$vehicles->vehicle_registartion_number}}" name="register_number">
+                                                placeholder="Registartion Number" value="{{$vehicles->vehicle_registartion_number}}" name="register_number" style="text-transform: uppercase">
                                         </div>
                                         @if ($errors->has('register_number'))
                                     <span class="text-danger">{{ $errors->first('register_number') }}</span>

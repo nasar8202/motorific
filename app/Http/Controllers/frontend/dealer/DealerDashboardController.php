@@ -1293,7 +1293,8 @@ die();
     }
     public function buyItNow()
     {
-        $buyItNowVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all' )->get();
+        $buyItNowVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->with('highestOffer')->where('all_auction','all' )->get();
+       
         $countbuyItNoVehicle = Vehicle::where('status',1)->where('all_auction','all' )->count();
         $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all' )->distinct('vehicle_name')->pluck('vehicle_name');
 
