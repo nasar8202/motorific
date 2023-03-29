@@ -69,7 +69,7 @@
                                             <div class="form-group">
                                                 <label for="first-name-column">Vehicle Registartion Number</label>
                                                 <input type="text" id="first-name-column" class="form-control"
-                                                    placeholder="Registartion Number" name="register_number" readonly
+                                                    placeholder="Registartion Number" name="register_number" style="text-transform: uppercase" readonly
                                                     value="{{ $res->registrationNumber ?? old('register_number') }}">
                                             </div>
                                             @if ($errors->has('register_number'))

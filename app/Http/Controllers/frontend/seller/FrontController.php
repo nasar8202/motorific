@@ -17,6 +17,7 @@ use App\Models\VehicleImage;
 use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
+use App\Models\VehicleHistory;
 use App\Models\LockingWheelNut;
 use App\Models\VehicleExterior;
 use App\Models\VehicleInterior;
@@ -24,15 +25,15 @@ use App\Mail\SellerVehicleAdded;
 use App\Models\vehicleCategories;
 use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Models\vehicleConditionAndDamage;
-use App\Models\VehicleHistory;
+use App\Jobs\SendEmailForSellerVehicleAddQueuing;
 
 class FrontController extends Controller
 {
@@ -229,7 +230,6 @@ class FrontController extends Controller
         $request->session()->put('finance',$request->finance);
         $request->session()->put('categ',$request->categ);
         $request->session()->put('VehicleHistory',$request->VehicleHistory);
-
         $feature = explode(',',$request->the_value);
         foreach($feature as $f){
             $VehicleFeature[] = VehicleFeature::where('id',$f)->first();
@@ -489,7 +489,21 @@ class FrontController extends Controller
 
                 $users = User::where('id',$request->user_id)->first();
 
-                $data = ([
+                // $data = ([
+                //     'name' => $users->name,
+                //     'email' => $users->email,
+                //     'date' => $winDate.' at '.$winTime,
+                //     'vehicle_registration'=>$request->RegisterationNumber,
+                //     'vehicle_name'=>$request->VehicleName,
+                //     'vehicle_mileage'=>$request->VehicleMileage,
+                //     'front'=> $front,
+                //     'colour'=>$vehicle->vehicle_color,
+                //     'bidded_price'=>$request->VehiclePrice??"No Price Yet!",
+                //     'age'=>$request->VehicleYear,
+    
+                // ]);
+                //Mail::to($users->email)->send(new SellerVehicleAdded($data));
+                $vehicle_details = [
                     'name' => $users->name,
                     'email' => $users->email,
                     'date' => $winDate.' at '.$winTime,
@@ -501,9 +515,14 @@ class FrontController extends Controller
                     'bidded_price'=>$request->VehiclePrice??"No Price Yet!",
                     'age'=>$request->VehicleYear,
     
-                ]);
-                Mail::to($users->email)->send(new SellerVehicleAdded($data));
-
+                ];
+                //$details = ['email' => $users->email];
+                //SendEmailForSellerVehicleAddQueuing::dispatch($details);
+                dispatch(new SendEmailForSellerVehicleAddQueuing($vehicle_details));
+                
+                //Mail::to($users->email)->send(new SellerVehicleAdded($data));
+                $request->session()->forget(['vehicle_feature','seat_material','number_of_keys','tool_pack','locking_wheel_nut','smoked_in','log_book','location','HouseName'
+                ,'vehicle_owner','private_plate','finance','categ','VehicleHistory' ]);
 
         }catch(\Exception $e)
         {

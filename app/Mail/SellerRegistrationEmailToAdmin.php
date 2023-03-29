@@ -11,15 +11,15 @@ class SellerRegistrationEmailToAdmin extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $seller_registration_email_to_admin;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($seller_registration_email_to_admin)
     {
-        $this->data = $data;
+        $this->seller_registration_email_to_admin = $seller_registration_email_to_admin;
     }
 
 

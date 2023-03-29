@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Mail\WelcomeDealerRegistrationRequestMail;
+use App\Jobs\SendEmailForDealerRegistrationQueuing;
 use App\Notifications\NewDealerRequestNotification;
 
 class MultiStepRegistration extends Controller
@@ -222,15 +223,21 @@ class MultiStepRegistration extends Controller
                 'actionURL' => url('/admin/requests-dealers'),
                 'order_id' => 101
             ];
-            $users = User::where('role_id','1')->first();
-            $data = ([
+             $users = User::where('role_id','1')->first();
+            // $users = User::where('email','nasrullahkhan1011@gmail.com')->first();
+            $users->notify(new NewDealerRequestNotification($details));
+            // $data = ([
+            //     'name' => $user->name,
+            //     'email' => $user->email,
+    
+            // ]);
+            $queue_details = [
                 'name' => $user->name,
                 'email' => $user->email,
-    
-            ]);
-            Mail::to($user->email)->send(new WelcomeDealerRegistrationRequestMail($data));
+            ];
+           // Mail::to($user->email)->send(new WelcomeDealerRegistrationRequestMail($data));
             // Notification::send($user->email, new MyFirstNotification($details));
-            $users->notify(new NewDealerRequestNotification($details));
+            dispatch(new SendEmailForDealerRegistrationQueuing($queue_details));
             return redirect()->route('DealerLogin')->with("success", "Account Create Successfully! Waiting For Admin Approval");
                 //return redirect()->route('register.create.step.3');
             } else {

@@ -2,28 +2,28 @@
 
 namespace App\Jobs;
 
-use App\Mail\SellerDetails;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class SellerDetail implements ShouldQueue
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use App\Mail\EmailForDealerRegistrationQueuing;
+
+class SendEmailForDealerRegistrationQueuing implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
+    protected $queue_details;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public $seller_details;
-    public function __construct($seller_details)
+    public function __construct($queue_details)
     {
-        $this->seller_details = $seller_details;
+        $this->queue_details = $queue_details;
     }
 
     /**
@@ -33,7 +33,7 @@ class SellerDetail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SellerDetails($this->seller_details);
-        Mail::to($this->seller_details['email'])->send($email);
+        $email = new EmailForDealerRegistrationQueuing($this->queue_details);
+        Mail::to($this->queue_details['email'])->send($email);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Mail\SellerDetails;
+use App\Mail\SellerRegistrationEmailToAdmin;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
@@ -11,7 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class SellerDetail implements ShouldQueue
+class SellerRegistrationEmailToAdminJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -20,10 +20,10 @@ class SellerDetail implements ShouldQueue
      *
      * @return void
      */
-    public $seller_details;
-    public function __construct($seller_details)
+    public $seller_registration_email_to_admin;
+    public function __construct($seller_registration_email_to_admin)
     {
-        $this->seller_details = $seller_details;
+        $this->seller_registration_email_to_admin = $seller_registration_email_to_admin;
     }
 
     /**
@@ -33,7 +33,7 @@ class SellerDetail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SellerDetails($this->seller_details);
-        Mail::to($this->seller_details['email'])->send($email);
+        $email = new SellerRegistrationEmailToAdmin($this->seller_registration_email_to_admin);
+        Mail::to('webuyurcars121@gmail.com')->send($email);
     }
 }

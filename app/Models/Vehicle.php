@@ -82,6 +82,13 @@ class Vehicle extends Model
 
     }
 
+    public function highestOffer()
+
+    {
+
+        return $this->hasOne(OrderVehicleRequest::class,'vehicle_id','id')->OrderBy('request_price','ASC');
+
+    }
   
 
 }

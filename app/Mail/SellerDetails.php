@@ -16,10 +16,10 @@ class SellerDetails extends Mailable
      *
      * @return void
      */
-    public $details;
-    public function __construct($details)
+    public $seller_details;
+    public function __construct($seller_details)
     {
-        $this->details = $details;
+        $this->seller_details = $seller_details;
     }
 
     /**

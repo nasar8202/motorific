@@ -97,14 +97,16 @@ class SellVehicleCron extends Command
                                 $vehicle->status = 2;
                                 $vehicle->save();
                                 Mail::to($user->email)->send(new WinnerBiddedPerson($data));
+                                Log::info("crone job working fine");
                        }
                 }
 
 
             }
-
-        }else{
-               Log::info("error1");
+            Log::info("Working Fine");
+        }
+        else{
+               Log::info("No Vehicle Found Crone Job Working");
            }
 
 
