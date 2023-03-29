@@ -14,15 +14,15 @@ use Illuminate\Contracts\Queue\ShouldBeUnique;
 class SendEmailForSellerVehicleAddQueuing implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $details;
+    protected $vehicle_details;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($vehicle_details)
     {
-        $this->details = $details;
+        $this->vehicle_details = $vehicle_details;
     }
 
     /**
@@ -32,7 +32,7 @@ class SendEmailForSellerVehicleAddQueuing implements ShouldQueue
      */
     public function handle()
     {
-        $email = new EmailForSellerVehicleAddQueuing($this->details);
-        Mail::to($this->details['email'])->send($email);
+        $email = new EmailForSellerVehicleAddQueuing($this->vehicle_details);
+        Mail::to($this->vehicle_details['email'])->send($email);
     }
 }

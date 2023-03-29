@@ -469,14 +469,14 @@
                     <div class="congt-box">
                         
                         <ul class="reg-detail">
-                            <li><span>Model:</span> {{ $details['vehicle_name'] }} </li>
-                            <li><span>Reg:</span> {{ $details['vehicle_registration'] }}</li>
-                            <li><span>Mileage:</span>{{ $details['vehicle_mileage'] }}</li>
-                            <li><span>Car Age:</span> {{ $details['age'] }} </li>
-                            <li><span>Color:</span>{{ $details['colour'] }}</li>
+                            <li><span>Model:</span> {{ $vehicle_details['vehicle_name'] }} </li>
+                            <li><span>Reg:</span> {{ $vehicle_details['vehicle_registration'] }}</li>
+                            <li><span>Mileage:</span>{{ $vehicle_details['vehicle_mileage'] }}</li>
+                            <li><span>Car Age:</span> {{ $vehicle_details['age'] }} </li>
+                            <li><span>Color:</span>{{ $vehicle_details['colour'] }}</li>
                         </ul>
                         <div class="veh-img">
-                            <img src="{{ asset('/vehicles/vehicles_images/'.$details['front']) }}" width="80px" height="80px" alt="">
+                            <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle_details['front']) }}" width="80px" height="80px" alt="">
                         </div>
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
