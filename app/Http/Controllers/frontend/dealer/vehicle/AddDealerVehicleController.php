@@ -316,7 +316,7 @@ class AddDealerVehicleController extends Controller
                 //$image_1 = Session::get('image_1');
                 }
 
-                $request->session()->forget(['vehicle_registartion_number', 'vehicle_name','vehicle_mileage','reservePrice','vat','confirm','keys','previous_owners','service_history_title','origin','checkbox_questions','image_1','interior_image_1','tyre_image','advert_description','attention_grabber']);
+               
            // $request->session()->flush();
                 $originalDate = $dealers_vehicle->created_at;
                 $winDate = date("d F Y ", strtotime($originalDate));
@@ -382,7 +382,7 @@ class AddDealerVehicleController extends Controller
             $dealer_exterior_detail->back = $request->back;
             $dealer_exterior_detail->windscreen = $request->windscreen;
             $dealer_exterior_detail->save();
-
+            $request->session()->forget(['vehicle_registartion_number', 'vehicle_name','vehicle_mileage','reservePrice','vat','confirm','keys','previous_owners','service_history_title','origin','checkbox_questions','image_1','interior_image_1','tyre_image','advert_description','attention_grabber']);
 //             $originalDate = $dealers_vehicle->created_at;
 //             $winDate = date("d F Y ", strtotime($originalDate));
 //             $winTime = date("H:i:s a", strtotime($originalDate));
