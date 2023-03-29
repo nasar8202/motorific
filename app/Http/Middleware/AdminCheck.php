@@ -17,6 +17,9 @@ class AdminCheck
      */
     public function handle(Request $request, Closure $next)
     {
+        if(!Auth::check() || (Auth::check()  && Auth::user()->role_id == 2)){
+            return $next($request);
+        }
         if (Auth::check()  ) {
                 if(Auth::check() && Auth::user()->role_id == 1){
                     return  redirect()->route('admin');
