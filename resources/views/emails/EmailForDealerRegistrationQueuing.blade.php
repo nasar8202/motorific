@@ -370,8 +370,8 @@
                         <h4>thank you for registrating as a dealer with motorific</h4>
                         <p>we are checking your information and revert back to you if we require any further information</p>
                         <ul class="reg-detail">
-                            <li><span>User Name:</span> {{ $dealerQueueData['name'] }} </li>
-                            <li><span>Email:</span> {{ $dealerQueueData['email'] }}</li>
+                            <li><span>User Name:</span> {{ $queue_details['name'] }} </li>
+                            <li><span>Email:</span> {{ $queue_details['email'] }}</li>
                             
                         </ul>
                         <a href="{{route('myLogin')}}" class="prim-btn green-btn">Login</a>
