@@ -369,11 +369,11 @@
                     <div class="congt-box">
                         <h3>Your Registration is Complete</h3>
                         <ul class="reg-detail">
-                            <li><span>User Name:</span> {{ $details['greeting'] }}</li>
-                            <li><span>Email:</span> {{ $details['email'] }}</li>
-                            <li><span>Phone Number:</span>{{ $details['phone_number'] }}</li>
-                            <li><span>Post Code:</span>{{ $details['body1'] }}</li>
-                            <li><span>Your Password is:</span>{{ $details['body'] }}</li>
+                            <li><span>User Name:</span> {{ $seller_details['greeting'] }}</li>
+                            <li><span>Email:</span> {{ $seller_details['email'] }}</li>
+                            <li><span>Phone Number:</span>{{ $seller_details['phone_number'] }}</li>
+                            <li><span>Post Code:</span>{{ $seller_details['body1'] }}</li>
+                            <li><span>Your Password is:</span>{{ $seller_details['body'] }}</li>
                         </ul>
                         <a href="{{route('myLogin')}}" class="prim-btn green-btn">Login</a>
                         <h4>Motorific</h4>

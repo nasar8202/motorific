@@ -179,7 +179,7 @@ class RegisterController extends Controller
                 ];
                 //     $abc = Auth::attempt(['email' => $user->email, 'password' => $password]);
 
-                $details = [
+                $seller_details = [
                     'greeting' => $user->name,
                     'email' => $user->email,
                     'body' => $password,
@@ -212,7 +212,7 @@ class RegisterController extends Controller
                 //   dd($details);
                 Mail::to("webuyurcars121@gmail.com")->send(new SellerRegistrationEmailToAdmin($data));
                 // Mail::to("nasar.ullah@oip.com.pk")->send(new SellerRegistrationEmailToAdmin($data));
-                dispatch(new SellerDetail($details));
+                dispatch(new SellerDetail($seller_details));
                 // Notification::send($user->email, new MyFirstNotification($details));
                 // $user->notify(new SellerDetailsNotification($details));
                 if ($request->registeration_with_pass == "yes") {
