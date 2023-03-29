@@ -228,7 +228,7 @@
                                     <h3 class="vp-code">{{ $allVehicle->vehicle_registartion_number }}</h3>
                                     <h4 class="vp-code">{{ $allVehicle->vehicle_name }}</h3>
                                     <div class="vp-spec-box">
-                                        <p><strong> Price:</strong> @if($allVehicle->vehicle_price == null) {{ 'No Price added!'}} @else {{ £  $allVehicle->vehicle_price}} @endif </p>
+                                        <p><strong> Price:</strong> @if($allVehicle->vehicle_price == null) {{ 'No Price added!'}} @else £ {{   $allVehicle->vehicle_price}} @endif </p>
                                         <p> <strong>Date:</strong> {{ $allVehicle->created_at->format('d/m/Y') }}</p>
                                     </div>
                                     <div class="vp-btns">
