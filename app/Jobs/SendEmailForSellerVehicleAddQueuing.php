@@ -14,7 +14,7 @@ use Illuminate\Contracts\Queue\ShouldBeUnique;
 class SendEmailForSellerVehicleAddQueuing implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $vehicle_details;
+    public $vehicle_details;
     /**
      * Create a new job instance.
      *
