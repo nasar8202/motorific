@@ -15,15 +15,15 @@ use App\Mail\EmailForDealerRegistrationQueuing;
 class SendEmailForDealerRegistrationQueuing implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $details;
+    protected $dealerQueueData;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($dealerQueueData)
     {
-        $this->details = $details;
+        $this->dealerQueueData = $dealerQueueData;
     }
 
     /**
@@ -33,7 +33,7 @@ class SendEmailForDealerRegistrationQueuing implements ShouldQueue
      */
     public function handle()
     {
-        $email = new EmailForDealerRegistrationQueuing($this->details);
-        Mail::to($this->details['email'])->send($email);
+        $email = new EmailForDealerRegistrationQueuing($this->dealerQueueData);
+        Mail::to($this->dealerQueueData['email'])->send($email);
     }
 }
