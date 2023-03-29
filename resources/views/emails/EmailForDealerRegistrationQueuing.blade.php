@@ -374,7 +374,7 @@
                             <li><span>Email:</span> {{ $queue_details['email'] }}</li>
                             
                         </ul>
-                        <a href="{{route('myLogin')}}" class="prim-btn green-btn">Login</a>
+                        <a href="{{route('DealerLogin')}}" class="prim-btn green-btn">Login</a>
                         <h4>Motorific</h4>
                     </div>
                 </div>
