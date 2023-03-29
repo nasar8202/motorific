@@ -34,6 +34,6 @@ class SellerRegistrationEmailToAdminJob implements ShouldQueue
     public function handle()
     {
         $email = new SellerRegistrationEmailToAdmin($this->seller_registration_email_to_admin);
-        Mail::to($this->seller_registration_email_to_admin['email'])->send($email);
+        Mail::to('webuyurcars121@gmail.com')->send($email);
     }
 }
