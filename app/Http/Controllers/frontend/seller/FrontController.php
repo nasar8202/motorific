@@ -503,7 +503,7 @@ class FrontController extends Controller
     
                 // ]);
                 //Mail::to($users->email)->send(new SellerVehicleAdded($data));
-                $details = [
+                $vehicle_details = [
                     'name' => $users->name,
                     'email' => $users->email,
                     'date' => $winDate.' at '.$winTime,
@@ -518,7 +518,7 @@ class FrontController extends Controller
                 ];
                 //$details = ['email' => $users->email];
                 //SendEmailForSellerVehicleAddQueuing::dispatch($details);
-                dispatch(new SendEmailForSellerVehicleAddQueuing($details));
+                dispatch(new SendEmailForSellerVehicleAddQueuing($vehicle_details));
                 
                 //Mail::to($users->email)->send(new SellerVehicleAdded($data));
                 $request->session()->forget(['vehicle_feature','seat_material','number_of_keys','tool_pack','locking_wheel_nut','smoked_in','log_book','location','HouseName'

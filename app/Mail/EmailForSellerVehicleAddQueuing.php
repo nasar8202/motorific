@@ -16,10 +16,10 @@ class EmailForSellerVehicleAddQueuing extends Mailable
      *
      * @return void
      */
-    public $details;
-    public function __construct($details)
+    public $vehicle_details;
+    public function __construct($vehicle_details)
     {
-        $this->details = $details;
+        $this->vehicle_details = $vehicle_details;
     }
 
     /**

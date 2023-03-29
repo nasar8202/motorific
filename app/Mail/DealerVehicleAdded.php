@@ -11,15 +11,15 @@ class DealerVehicleAdded extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $queue_details;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($queue_details)
     {
-        $this->data = $data;
+        $this->queue_details = $queue_details;
     }
 
 

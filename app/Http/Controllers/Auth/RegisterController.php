@@ -31,6 +31,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\SellerRegistrationEmailToAdmin;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Jobs\SellerRegistrationEmailToAdminJob;
 use App\Notifications\SellerDetailsNotification;
 
 class RegisterController extends Controller
@@ -179,7 +180,7 @@ class RegisterController extends Controller
                 ];
                 //     $abc = Auth::attempt(['email' => $user->email, 'password' => $password]);
 
-                $details = [
+                $seller_details = [
                     'greeting' => $user->name,
                     'email' => $user->email,
                     'body' => $password,
@@ -195,7 +196,7 @@ class RegisterController extends Controller
                     'order_id' => 101
                 ];
 
-                $data = [
+                $seller_registration_email_to_admin = [
                     'greeting' => $user->name,
                     'email' => $user->email,
                     'body' => $password,
@@ -210,9 +211,10 @@ class RegisterController extends Controller
                     'order_id' => 101
                 ];
                 //   dd($details);
-                Mail::to("webuyurcars121@gmail.com")->send(new SellerRegistrationEmailToAdmin($data));
+                // Mail::to("webuyurcars121@gmail.com")->send(new SellerRegistrationEmailToAdmin($data));
                 // Mail::to("nasar.ullah@oip.com.pk")->send(new SellerRegistrationEmailToAdmin($data));
-                dispatch(new SellerDetail($details));
+                dispatch(new SellerDetail($seller_details));
+                dispatch(new SellerRegistrationEmailToAdminJob($seller_registration_email_to_admin));
                 // Notification::send($user->email, new MyFirstNotification($details));
                 // $user->notify(new SellerDetailsNotification($details));
                 if ($request->registeration_with_pass == "yes") {

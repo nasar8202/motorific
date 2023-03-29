@@ -16,10 +16,10 @@ class EmailForDealerRegistrationQueuing extends Mailable
      *
      * @return void
      */
-    public $details;
-    public function __construct($details)
+    public $queue_details;
+    public function __construct($queue_details)
     {
-        $this->details = $details;
+        $this->queue_details = $queue_details;
     }
 
     /**

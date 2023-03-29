@@ -231,13 +231,13 @@ class MultiStepRegistration extends Controller
             //     'email' => $user->email,
     
             // ]);
-            $details = [
+            $queue_details = [
                 'name' => $user->name,
                 'email' => $user->email,
             ];
            // Mail::to($user->email)->send(new WelcomeDealerRegistrationRequestMail($data));
             // Notification::send($user->email, new MyFirstNotification($details));
-            dispatch(new SendEmailForDealerRegistrationQueuing($details));
+            dispatch(new SendEmailForDealerRegistrationQueuing($queue_details));
             return redirect()->route('DealerLogin')->with("success", "Account Create Successfully! Waiting For Admin Approval");
                 //return redirect()->route('register.create.step.3');
             } else {

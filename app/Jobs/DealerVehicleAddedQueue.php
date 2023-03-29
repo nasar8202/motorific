@@ -8,21 +8,22 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use App\Mail\EmailForSellerVehicleAddQueuing;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class SendEmailForSellerVehicleAddQueuing implements ShouldQueue
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use App\Mail\DealerVehicleAdded;
+
+class DealerVehicleAddedQueue implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    public $vehicle_details;
+    protected $queue_details;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($vehicle_details)
+    public function __construct($queue_details)
     {
-        $this->vehicle_details = $vehicle_details;
+        $this->queue_details = $queue_details;
     }
 
     /**
@@ -32,7 +33,7 @@ class SendEmailForSellerVehicleAddQueuing implements ShouldQueue
      */
     public function handle()
     {
-        $email = new EmailForSellerVehicleAddQueuing($this->vehicle_details);
-        Mail::to($this->vehicle_details['email'])->send($email);
+        $email = new DealerVehicleAdded($this->queue_details);
+        Mail::to($this->queue_details['email'])->send($email);
     }
 }

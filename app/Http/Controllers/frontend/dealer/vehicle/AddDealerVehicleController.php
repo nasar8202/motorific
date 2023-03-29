@@ -15,6 +15,7 @@ use App\Models\DealerVehicleHistory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\DealerVehicleAddedQueue;
 use App\Models\DealerVehicleExterior;
 use App\Models\DealerVehicleInterior;
 use Illuminate\Support\Facades\Session;
@@ -315,7 +316,7 @@ class AddDealerVehicleController extends Controller
                 //$image_1 = Session::get('image_1');
                 }
 
-                $request->session()->forget(['vehicle_registartion_number', 'vehicle_name','vehicle_mileage','reservePrice','vat','confirm','keys','previous_owners','service_history_title','origin','checkbox_questions','image_1','interior_image_1','tyre_image','advert_description','attention_grabber']);
+               
            // $request->session()->flush();
                 $originalDate = $dealers_vehicle->created_at;
                 $winDate = date("d F Y ", strtotime($originalDate));
@@ -324,7 +325,19 @@ class AddDealerVehicleController extends Controller
                  $users = User::where('id',Auth::user()->id)->first();
     // dd($users);
                 
-                $data = ([
+                // $data = ([
+                //     'name' => $users->name,
+                //     'email' => $users->email,
+                //     'date' => $winDate.' at '.$winTime,
+                //     'vehicle_registration'=>session()->get('vehicle_registartion_number'),
+                //     'vehicle_name'=>session()->get('vehicle_name'),
+                //     'vehicle_mileage'=>session()->get('vehicle_mileage'),
+                //     'front'=>$image_1,
+                //     'bidded_price'=>session()->get('reservePrice')??"No Price Yet!",
+                //     'age'=>session()->get('vehicle_year'),
+    
+                // ]);
+                $queue_details = ([
                     'name' => $users->name,
                     'email' => $users->email,
                     'date' => $winDate.' at '.$winTime,
@@ -336,8 +349,9 @@ class AddDealerVehicleController extends Controller
                     'age'=>session()->get('vehicle_year'),
     
                 ]);
+                 dispatch(new DealerVehicleAddedQueue($queue_details));
     
-                Mail::to($users->email)->send(new DealerVehicleAdded($data));
+                // Mail::to($users->email)->send(new DealerVehicleAdded($data));
                 if($request->any_damage_checked == 1) {
             $dealer_interior_detail = new DealerVehicleInteriorDetails;
             $dealer_interior_detail->dealer_vehicle_id = $dealers_vehicle->id;
@@ -368,7 +382,7 @@ class AddDealerVehicleController extends Controller
             $dealer_exterior_detail->back = $request->back;
             $dealer_exterior_detail->windscreen = $request->windscreen;
             $dealer_exterior_detail->save();
-
+            $request->session()->forget(['vehicle_registartion_number', 'vehicle_name','vehicle_mileage','reservePrice','vat','confirm','keys','previous_owners','service_history_title','origin','checkbox_questions','image_1','interior_image_1','tyre_image','advert_description','attention_grabber']);
 //             $originalDate = $dealers_vehicle->created_at;
 //             $winDate = date("d F Y ", strtotime($originalDate));
 //             $winTime = date("H:i:s a", strtotime($originalDate));

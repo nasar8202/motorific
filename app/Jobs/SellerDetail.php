@@ -20,10 +20,10 @@ class SellerDetail implements ShouldQueue
      *
      * @return void
      */
-    public $details;
-    public function __construct($details)
+    public $seller_details;
+    public function __construct($seller_details)
     {
-        $this->details = $details;
+        $this->seller_details = $seller_details;
     }
 
     /**
@@ -33,7 +33,7 @@ class SellerDetail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SellerDetails($this->details);
-        Mail::to($this->details['email'])->send($email);
+        $email = new SellerDetails($this->seller_details);
+        Mail::to($this->seller_details['email'])->send($email);
     }
 }
