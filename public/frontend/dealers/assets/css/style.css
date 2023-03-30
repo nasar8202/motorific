@@ -2317,3 +2317,8 @@ section.sec-2.productPageTn.requested-vehicles .col-sm-4, section.sec-2.productP
 
 }
 section.sec-2.productPageTn.requested-vehicles div#filter{background: transparent;}
+
+
+td.set-scr img {
+    width: 100%;
+}

@@ -113,13 +113,19 @@
                         <li>
                             <a href="{{ route('reviews') }}">Reviews</a>
                         </li>
+                     
+                          
                         <li>
                             <a href="#">Help</a>
+                        </li>
+                          <li>
+                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
                         </li>
                         @guest
                         <li><a href="{{ route('myLogin') }}">Sign In</a></li>
                         
                             <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                            
                             @endguest
                         @if(Auth::check())
                         <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
@@ -424,7 +430,7 @@
             <p>Rated <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                     class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by our Customers </p>
         </div>
-        <div class="sec-6-boxes testiSlider ">
+        <div class="row testiSlider ">
             <div class="sec-6-main-box col-lg-4 col-md-6">
                 <p style="font-style:italic;">I was a little hesitant to sell my car online, but Motorific made the
                     process incredibly easy and stress-free. Their platform connects car sellers with verified dealers,
@@ -460,18 +466,19 @@
                 </div>
             </div>
             <div class="sec-6-main-box col-lg-4 col-md-6">
-                <p style="" font-style: italic;">Sold my Peugeot e-208 through Motorific - it was easy, fast, and
+                 <p style="font-style:italic;">Sold my Peugeot e-208 through Motorific - it was easy, fast, and
                     stress-free! I got a great price for my car and was able to complete the transaction quickly. Highly
                     recommend Motorific for anyone looking to sell their car fastly!</p>
                 <div class="sec-6-box-pfp d-flex align-items-center">
                     <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp3.png') }}" alt="">
-                    <div>
-                        <h5>Mark,Homestay</h5>
-                        <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                    </div>
+                        <div>
+                            <h5>Mark,Homestay</h5>
+                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
+                        </div>
                 </div>
             </div>
-        </div>
+            
+         </div>
     </div>
 </section>
 
