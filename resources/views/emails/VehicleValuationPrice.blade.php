@@ -1,205 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
-    />
-    <title>Email</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Complete</title>
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: sans-serif;
-    }
-    .mail-img-one {
-      text-align: center;
-    }
+    <!-- Custom Css -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;   
+        }
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        .container{
+            width: 100%;
+            max-width: 75vw;
+            margin: 0 auto;
+        }
+        /* Header  */
+        header.header {
+            padding: 15px 0;
+            text-align: center;
+            background: #fff;
+        }
 
-    .mail-img-one img {
-      width: 520px;
-    }
-    .car-det {
-      display: flex;
-      flex-direction: column;
-    }
-    .social-icon a {
-    text-decoration: none;
-    color: #000000ba;
-}
-    .content-img {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      padding-left: 2rem;
-    }
+        header.header .logo a {
+            font-size: 30px;
+            font-weight: 700;
+            color: black;
+            text-decoration: none;
+        }
 
-    .content-img img {
-      width: 800px;
-    }
-    .social-icon {
-    text-align: center;
-    padding-bottom: 30px;
-    padding-top: 30px;
-}
-    .mail-content {
-      margin-left: 1.5rem;
-      border-left: 1px solid #5c5a5a87;
-      padding-left: 1rem;
-      margin-top: 2rem;
-    }
-    .customer-detail {
-      margin-left: 1.5rem;
-      border-left: 1px solid #5c5a5a87;
-      padding-left: 1rem;
-      margin-top: 2rem;
-      padding-bottom: 1rem;
-    }
-    .customer-detail .car-det {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-    .btn-mail {
-      padding-top: 3rem;
-      text-align: center;
-      padding-bottom: 3rem;
-    }
+        header.header .title-name  {
+            font-size: 30px;
+            font-weight: 700;
+            color: #7977a2;
+            text-decoration: none;
+        }
 
-    .btn-mail a {
-      background: #2196f3;
-      padding: 1rem 9rem;
-      text-decoration: none;
-      border-radius: 18px;
-      color: white;
-    }
-    .qa-ans {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      border-top: 1px solid #cfcfcf;
-      border-bottom: 1px solid #cfcfcf;
-    }
-    .footer-mail img {
-      width: 20%;
-      text-align: center;
-    }
-    main {
-      overflow-x: hidden;
-    }
-    @media only screen and (max-width: 1200px) {
-      .content-img img {
-        width: 580px;
-      }
-      .mail-img-one img {
-        width: 400px;
-      }
-    }
-    @media only screen and (max-width: 991px) {
-      .content-img img {
-        width: 400px;
-      }
-    }
-    @media only screen and (max-width: 767px) {
-      .mail-img-one img {
-        width: 240px;
-      }
-      .content-img {
-        display: block;
-        padding-left: 5px;
-        width: 91%;
-      }
-      .content-img img {
-        width: 100%;
-      }
-      p {
-        font-size: 14px;
-      }
-      .btn-mail a {
-        padding: 1rem 2rem;
-      }
-      .car-det span {
-        font-size: 14px;
-      }
-      .mail-content {
-    margin-left: 0.5rem;
+        header.header .logo {
+            margin: 0;
+        }
 
-}
-.footer-mail img {
-    width: 210px;
+        /* End */
 
-}
-.footer-mail > span {
-    font-size: 11px;
-}
+        /* Main Content */
+        .cont-main {
+            max-width: 50vw;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-.footer-mail > span br{
-    display:none;
-}
-    }
-  </style>
+        .main-content {
+            padding: 65px 0;
+        }
 
-  <body>
+        .congt-box h3 {
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        /* End */
+
+        /* Footer */
+        footer.footer {
+            padding: 15px 0;
+            background: #7977a2;
+        }
+
+        .footer-wraper {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-addr p {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .footer-addr ul {
+            list-style: none;
+        }
+
+        .footer-addr ul li a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-social {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-social li a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 14px;
+            border: 3px solid #ffffff;
+            transition: all .3s ease-in;
+            opacity: .4;
+        }
+
+        .footer-social li a:hover {
+            opacity: 1;
+            background: #fff;
+            color: #7977a2;
+        }
+        .price {
+            font-size: 30px;
+            padding: 4px 40px;
+            max-width: fit-content;
+            margin: 30px auto;
+            background: #05eab5;
+        }
+
+        .accept-msg {
+            font-weight: 600;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .prim-btn {
+            font-weight: 600;
+            padding: 8px 30px;
+            background: #7977a2;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            margin: 30px 0;
+        }
+
+        .prim-btn span {
+            margin-left: 8px;
+            transition: all .3s ease-in;
+        }
+        .prim-btn:hover span {
+            margin-left: 0;
+        }
+        .tos-box h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .tos-box {
+            max-width: 600px;
+            background: #05eab559;
+            margin: 0 auto;
+            padding: 40px 20px;
+            border-radius: 12px;
+        }
+        .icon {
+            font-size: 70px;
+            color: #05eab5;
+        }
+        .green-btn {
+            background: #05eab5;
+            color: #000;
+            font-weight: 700;
+        }
+        .forget-pass h3 {
+            margin-bottom: 8px;
+        }
+
+        .forget-pass .green-btn {
+            margin-top: 20px;
+        }
+        ul.site-links {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        ul.site-links li a {
+            text-decoration: none;
+            color: #000;
+        }
+        .unsub .prim-btn {
+            margin-bottom: 0;
+        }
+        .cont-main.unsub {
+            text-align: left;
+        }
+
+        ul.reg-detail {
+            list-style: none;
+        }
+
+        ul.reg-detail li span {
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        ul.reg-detail li {
+            margin-bottom: 4px;
+        }
+
+        .cont-main.unsub h4 {
+            margin-top: 15px;
+        }
+
+        .veh-detail .congt-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 80%;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .veh-detail .congt-box .veh-img {
+            width: 100%;
+            max-width: 20vw;
+            height: 12vw;
+        }
+
+        .veh-detail .congt-box .veh-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .veh-text {
+            max-width: 100%;
+            margin-top: 15px;
+        }
+
+        .veh-text h5 {
+            font-weight: 700;
+            font-size: .94vw;
+            color: #7977a2;
+            margin: 0;
+        }
+
+        .veh-text p {
+            font-size: .86vw;
+            margin: .95vw 0;
+        }
+
+        .veh-text h6 {
+            font-size: .88vw;
+        }
+
+        .unsub.veh-detail .prim-btn {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            max-width: fit-content;
+        }
+
+        /* End */
+
+        /* Responsive */
+        @media(max-width:991px){
+            .cont-main {
+                max-width: 70vw;
+            }
+            .congt-box h3 {
+                font-size: 20px;
+            }
+
+            .congt-msg {
+                font-size: 14px;
+            }
+
+            .price {
+                font-size: 26px;
+                margin: 24px auto;
+            }
+
+            .accept-msg {
+                font-size: 14px;
+            }
+
+            .prim-btn {
+                font-size: 14px;
+            }
+
+            .tos-box {
+                padding: 30px 20px;
+            }
+
+            .tos-box h2 {
+                font-size: 18px;
+            }
+
+            .tos-box p {
+                font-size: 14px;
+            }
+            .icon {
+                font-size: 55px;
+            }
+            ul.reg-detail li {
+                font-size: 14px;
+            }
+            .veh-detail .congt-box {
+                max-width: 100%;
+            }
+            .veh-detail .congt-box .veh-img {
+                max-width: 250px;
+                height: 140px;
+            }
+
+            .veh-text p {
+                font-size: 12px;
+                margin: 12px 0;
+            }
+
+            .veh-text h5 {
+                font-size: 14px;
+            }
+
+            .veh-text h6 {
+                font-size: 12px;
+            }
+
+
+        }
+
+        @media(max-width:767px){
+            .congt-box h3 {
+                font-size: 18px;
+            }
+
+            .congt-msg {
+                font-size: 12px;
+            }
+
+            .price {
+                font-size: 20px;
+                margin: 20px auto;
+            }
+
+            .accept-msg {
+                font-size: 12px;
+            }
+
+            .prim-btn {
+                font-size: 13px;
+            }
+
+            .tos-box h2 {
+                font-size: 16px;
+            }
+
+            .tos-box p {
+                font-size: 12px;
+            }
+
+            .main-content {
+                padding: 40px 0;
+            }
+
+            .footer-addr p {
+                font-size: 12px;
+            }
+
+            .footer-addr ul li a {
+                font-size: 12px;
+            }
+
+            .container {
+                max-width: 90vw;
+            }
+
+            .footer-social {
+                gap: 15px;
+            }
+
+            .footer-social li a {
+                width: 35px;
+                height: 35px;
+                border-width: 2px;
+            }
+            .icon {
+                font-size: 45px;
+            }
+            ul.site-links li a {
+                font-size: 14px;
+            }
+            .veh-detail .congt-box .veh-img {
+                max-width: 200px;
+                height: 110px;
+            }
+
+            header.veh-dt .title-name {
+                font-size: 22px;
+            }
+
+            header.veh-dt p {
+                font-size: 14px;
+            }
+
+
+
+
+        }
+
+        @media(max-width:575px){
+            .cont-main {
+                max-width: 85vw;
+            }
+            header.header .logo a {
+                font-size: 24px;
+            }
+
+            header.header {
+                padding: 12px 0;
+            }
+
+            .main-content {
+                padding: 30px 0 40px;
+            }
+            ul.site-links li a {
+                font-size: 13px;
+            }
+            .unsub .congt-box h3 {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            ul.reg-detail li {
+                font-size: 12px;
+            }
+            .veh-detail .congt-box .veh-img {
+                max-width: 160px;
+                height: 100px;
+            }
+
+
+        }
+
+        /* End */
+    </style>
+    <!-- End -->
+</head>
+<body>
     <main>
-      <section class="mail-sec">
-        <div class="mail-name">
-          <p>
-            <strong>From: </strong> Motorofic
-            <span style="color: blue"> info@motorific.co.uk</span> >
-          </p>
-          <p><strong>Date: </strong> {{ $data['date'] }}</p>
-          <p>
-            <strong>To: </strong
-            ><span style="color: blue"> info@motorific.co.uk</span>
-          </p>
-          <p><strong>Subject: Your Vehicle Valuation!</strong></p>
-          <p>
-            <strong>Reply-To</strong
-            ><span style="color: blue"> noreply@motorific.co.uk</span>
-          </p>
-
-          <div class="mail-img-one">
-            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" width="100px" height="50px" alt="" /> <br />
-            
-          </div>
-        </div>
-        <div class="mail-content">
-            <h2>Valuation!</h2>
-            <p>Hi {{ $data['name'] }}!</p>
-            <p>
-              Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
-               for the price of £{{ $data['reserve_price'] }}.
-
-          </p>
-            <p>Car Details</p>
-
-            <div class="content-img">
-              
-              <div class="car-det">
-                <span>Model: {{ $data['vehicle_name'] }} </span>
-                <span> Reg: {{ $data['vehicle_registration'] }} </span>
-               
-                <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-              
-              </div>
+        <header class="header veh-dt">
+            <div class="container">
+                <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
+                <br>
+                <h3 class="title-name">Hi {{ $data['name'] }}!</h3>
+                
+                <p>Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
+                    for the price of £{{ $data['reserve_price'] }}.</p>
+                <h3 class="title-name">Car Details</h3>
             </div>
-          </div>
-        <div class="customer-detail">
-          
-          <div class="qa-ans">
-            <p><strong>You Can Approved Or Reject Valuation </strong></p>
-            <a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>
-          </div>
-          
+        </header>
 
-         
-          </div>
+        <div class="main-content">
+            <div class="container">
+                <div class="cont-main  unsub veh-detail">
+                    
+                    <div class="congt-box">
+                        
+                        <ul class="reg-detail">
+                            <li><span>Model:</span> {{ $data['vehicle_name'] }} </li>
+                            <li><span>Reg:</span> {{ $data['vehicle_registration'] }}</li>
+                            <li><span>Mileage:</span>{{ $data['vehicle_mileage'] }}</li>
+                            <li><span>Car Age:</span> {{ $data['age'] }} </li>
+                            <li><span>Color:</span>{{ $data['colour'] }}</li>
+                        </ul>
+                        <div class="veh-img">
+                            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" width="80px" height="80px" alt="">
+                        </div>
+                        <div class="veh-text">
+                            <h5>You Can Approved Or Reject Valuation</h5>
+                            <p>
+                            <a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>
+                            </p>
+                        </div>
+                        <div class="veh-text">
+                            <h5>The Next Step?</h5>
+                            <p>Your valuation is being worked on b Motorifics experts valuation team.
+                                The tools we use as industry experts will ensure you receive the best, genuine prce for your car in today's market.</p>
+                            <h6>Want your valuation sooner?</h6>
+                            <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: 44 7593 839364</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  </body>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-wraper">
+                    <div class="footer-addr">
+                        <p>©
+                            <?php echo date("Y"); ?>
+                            Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ.<br />
+                            
+                        </p>
+                        <ul>
+                            <li><a href="{{route('index')}}">www.motorific.co.uk</a></li>
+                            <li><a href="mailto:info@motorific.co.uk">info@motorific.co.uk</a></li>
+                        </ul>
+                    </div>
+                    {{-- <ul class="footer-social">
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    </ul> --}}
+                </div>
+            </div>
+        </footer>
+    </main>    
+</body>
 </html>

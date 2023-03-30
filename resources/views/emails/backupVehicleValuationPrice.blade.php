@@ -35,15 +35,10 @@
       align-items: center;
       gap: 30px;
       padding-left: 2rem;
-      flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row-reverse;
     }
 
     .content-img img {
-      width: 300px;
-      height: 200px;
-      display: flex
+      width: 800px;
     }
     .social-icon {
     text-align: center;
@@ -151,29 +146,29 @@
         <div class="mail-name">
           <p>
             <strong>From: </strong> Motorofic
-            <span style="color: blue"> info@motorific.co.uk</span> 
+            <span style="color: blue"> info@motorific.co.uk</span> >
           </p>
           <p><strong>Date: </strong> {{ $data['date'] }}</p>
           <p>
             <strong>To: </strong
             ><span style="color: blue"> info@motorific.co.uk</span>
           </p>
-          <p><strong>Subject: Approved Vehicle Valuation!</strong></p>
+          <p><strong>Subject: Your Vehicle Valuation!</strong></p>
           <p>
             <strong>Reply-To</strong
             ><span style="color: blue"> noreply@motorific.co.uk</span>
           </p>
 
           <div class="mail-img-one">
-            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> <br />
-            {{-- <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> --}}
+            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" width="100px" height="50px" alt="" /> <br />
+            
           </div>
         </div>
         <div class="mail-content">
-            <h2>Valuation Accepted by Seller!</h2>
-            
+            <h2>Valuation!</h2>
+            <p>Hi {{ $data['name'] }}!</p>
             <p>
-              Congratulations - This Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been Approved by Seller
+              Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
                for the price of £{{ $data['reserve_price'] }}.
 
           </p>
@@ -184,70 +179,23 @@
               <div class="car-det">
                 <span>Model: {{ $data['vehicle_name'] }} </span>
                 <span> Reg: {{ $data['vehicle_registration'] }} </span>
-                {{-- <span>Fee: £175 </span> --}}
-                {{-- <span> Distance: 174 miles </span> --}}
+               
                 <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-                
+              
               </div>
             </div>
-            <div class="customer-detail">
-         
-              <div class="qa-ans">
-                <p><strong>What next? </strong></p>
-                <p>
-                  You’ll need to find a time that’s right for both parties so you
-                  can inspect the vehicle and make sure it looks as good as
-                  advertised.
-                </p>
-                <p>
-                  If you're happy you can either ask us to collect the car or pick
-                  it up yourself and arrange payment with the seller.
-                </p>
-              </div>
-              <div class="qa-ans">
-                <p><strong>What next? </strong></p>
-                <p>
-                  Drop us an email -
-                  <span style="color: #2196f3"
-                    >info@motorific.co.uk</span
-                  >
-                  and we’ll get back to you as soon as possible.
-                </p>
-                <p>Thanks</p>
-                <p>The motorific team.</p>
-              </div>
-    
-              <div class="footer-mail">
-                <div class="social-icon">
-                    <a href=""> <span class="fa-stack fa-lg">
-    
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                </span></a>
-                <a href=""><span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-                </span></a>
-                <a href=""><span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                </span></a>
-                <a href=""> <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                </span></a>
-                <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
-    
-                <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
-            </div>
-    
-    
-                <span
-                  >© <?php echo date("Y"); ?>
-                  Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ.<br />
-                </span>
           </div>
-        
+        <div class="customer-detail">
+          
+          <div class="qa-ans">
+            <p><strong>You Can Approved Or Reject Valuation </strong></p>
+            <a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>
+          </div>
+          
+
+         
+          </div>
         </div>
       </section>
     </main>
