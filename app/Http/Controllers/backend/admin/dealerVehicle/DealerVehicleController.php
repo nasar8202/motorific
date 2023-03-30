@@ -126,7 +126,7 @@ class DealerVehicleController extends Controller
         $vehicle->save();
         $seller = User::find($vehicle->user_id);
            $dealerVehicleImage = DealerVehicleExterior::where('dealer_vehicle_id',$vehicle->id)->first();
-           dd($dealerVehicleImage);
+        //    dd($dealerVehicleImage);
             $originalDate = $vehicle->updated_at;
             $winDate = date("d F Y ", strtotime($originalDate));
             $winTime = date("H:i:s a", strtotime($originalDate));
