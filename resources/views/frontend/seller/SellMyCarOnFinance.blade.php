@@ -115,6 +115,9 @@
                         <li>
                             <a href="#">Help</a>
                         </li>
+                            <li>
+                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
+                        </li>
                         @guest
                         <li><a href="{{ route('myLogin') }}">Sign In</a></li>
                         

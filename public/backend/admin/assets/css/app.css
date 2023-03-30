@@ -16,6 +16,9 @@
     background-color: #435ebe;
     color: #fff;
 }
+td.set-scr img {
+    object-fit: cover;
+}
 .alert-primary a {
     color: #fff;
     font-weight: 700;
@@ -742,6 +745,7 @@ td.set-scr  span.text-danger {
 }
 #sidebar:not(.active) ~ #main {
     margin-left: 0;
+        overflow-x: hidden;
 }
 .sidebar-wrapper {
     width: 300px;

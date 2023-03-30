@@ -49,10 +49,10 @@
         <div class="loader-img">
             <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">
         </div>
-      <!-- <div id="myBar">
-          <span id="bar"></span>
-          <span id="bar-txt">0%</span>
-      </div> -->
+      <!--<div id="myBar">-->
+      <!--    <span id="bar"></span>-->
+      <!--    <span id="bar-txt">0%</span>-->
+      <!--</div> -->
     </div>
     
     
@@ -69,7 +69,8 @@
 
 </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>-->
+    <script src="{{ URL::asset('frontend/seller/assets/jquery-3.6.1.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <!--Slick Js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

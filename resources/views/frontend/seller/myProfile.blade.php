@@ -135,6 +135,9 @@
                         <li>
                             <a href="#">Help</a>
                         </li>
+                            <li>
+                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
+                        </li>
                         <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}

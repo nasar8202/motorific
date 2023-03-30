@@ -221,6 +221,13 @@ a.action_btn:nth-child(2) {
     .prof-stats .card .card-body h6 {
         font-size: 13px;
 }
+td.set-scr img {
+    width: 100%;
+}
+.student-profile .table th, .student-profile .table td {
+
+    width: 100%;
+}
 .prof-stats .card {
     margin-bottom: 24px;
 }
@@ -288,6 +295,9 @@ footer.footer_copyright p{
     .prof-stats .row .col-6{
         width:100%;
     }
+    .student-profile .table th, .student-profile .table td {
+    width: 230px;
+}
     .prof-stats .card {
         align-items: center;
         text-align: center;
@@ -331,5 +341,25 @@ footer.footer_copyright p{
     width:160px;
 }
 
+
+}
+
+@media(max-width:380px){
+
+
+form > div {
+    display: block !important;
+    width: 100%;
+    margin: 0;
+    font-size: 10px;
+}
+
+form > div button {
+    width: 100%;
+       font-size: 12px;
+}
+.student-profile .table th, .student-profile .table td {
+    width: 180px;
+}
 
 }

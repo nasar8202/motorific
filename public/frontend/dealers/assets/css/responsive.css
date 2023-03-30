@@ -1098,12 +1098,34 @@ section.sec-2.productPageTn span {
 
 /* End */
 
+.registration-form .form-main.text-center div span {
+    font-size: 11px;
+    position: absolute;
+    bottom: -33px;
+    width: 100%;
+    left: 0;
+}
+.item-features {
 
-
+    gap: 19px;
+}
+.description-box .item-descp {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
 }
 
 
 @media (max-width: 575px) {
+    
+ .category-btn a {
+
+    padding: 10px 12px;
+    font-size: 12px;
+}   
+ .sale-countdown h2 {
+    font-size: 15px;
+}   
     .category-btn {
     flex-flow: wrap;
 }
@@ -1287,4 +1309,31 @@ section.sec-2.productPageTn.requested-vehicles .col-sm-4{
 
 
 }
+.userBtns a {
+
+    padding: 5px 13px;
+
+    font-size: 11px;
+
+}
+}
+@media (max-width: 380px) {
+    .userBtns a {
+    padding: 5px 13px;
+    font-size: 10px;
+}
+.row.header-nav-row {
+    left: -130%;}
+    .fs-50 {
+    font-size: 22px;
+}
+.hw-sec .btn-wraper a:first-child {
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+ brand.slick-slide img {
+    margin: 0 auto;
+    max-width: 60px;
+}   
+    
 }
