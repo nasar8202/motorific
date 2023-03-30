@@ -173,8 +173,8 @@
             <h2>Valuation Reject by Seller!</h2>
             
             <p>
-              Congratulations - This Vehicle valuation has been Rejected by Seller
-              <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['reserve_price'] }}.
+               This Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been Rejected by Seller
+               for the price of £{{ $data['reserve_price'] }}.
 
           </p>
             <p>Car Details</p>
@@ -190,9 +190,66 @@
                 
               </div>
             </div>
+           
           </div>
         
         </div>
+        <div class="customer-detail">
+         
+          <div class="qa-ans">
+            <p><strong>What next? </strong></p>
+            <p>
+              You’ll need to find a time that’s right for both parties so you
+              can inspect the vehicle and make sure it looks as good as
+              advertised.
+            </p>
+            <p>
+              If you're happy you can either ask us to collect the car or pick
+              it up yourself and arrange payment with the seller.
+            </p>
+          </div>
+          <div class="qa-ans">
+            <p><strong>What next? </strong></p>
+            <p>
+              Drop us an email -
+              <span style="color: #2196f3"
+                >info@motorific.co.uk</span
+              >
+              and we’ll get back to you as soon as possible.
+            </p>
+            <p>Thanks</p>
+            <p>The motorific team.</p>
+          </div>
+
+          <div class="footer-mail">
+            <div class="social-icon">
+                <a href=""> <span class="fa-stack fa-lg">
+
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <a href=""><span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <a href=""><span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <a href=""> <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+            </span></a>
+            <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
+
+            <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
+        </div>
+
+
+            <span
+              >© <?php echo date("Y"); ?>
+              Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ.<br />
+            </span>
       </section>
     </main>
 

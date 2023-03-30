@@ -528,21 +528,7 @@ class ManageVehicleController extends Controller
             $seller->phone_number = $request->phone_number;
             // $seller->password = Hash::make($request->password);
             $seller->save();
-            $originalDate = $vehicle->updated_at;
-            $winDate = date("d F Y ", strtotime($originalDate));
-            $winTime = date("H:i:s a", strtotime($originalDate));
-            $data = ([
-                'name' => $seller->name,
-                'vehicle_id' => $vehicle->id,
-                'user_id' => $seller->id,
-                'date' => $winDate.' at '.$winTime,
-                'reserve_price'=>$request->reserve_price,
-                'vehicle_registration'=>$vehicle->vehicle_registartion_number,
-                'vehicle_name'=>$vehicle->vehicle_name,
-                'vehicle_mileage'=>$vehicle->vehicle_mileage,
-            ]);
-
-            Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
+           
             $vehicle_feature_id =  implode(',', $request->vehicle_feature);
 
             $vehicleInformation = vehicleInformation::where('vehicle_id', $id)->first();
@@ -662,6 +648,25 @@ class ManageVehicleController extends Controller
             $VehicleImage->vehicle_id =  $vehicle->id;
 
             $VehicleImage->save();
+
+            $originalDate = $vehicle->updated_at;
+            $winDate = date("d F Y ", strtotime($originalDate));
+            $winTime = date("H:i:s a", strtotime($originalDate));
+            $data = ([
+                'name' => $seller->name,
+                'vehicle_id' => $vehicle->id,
+                'user_id' => $seller->id,
+                'front'=> $VehicleImage->front,
+                'date' => $winDate.' at '.$winTime,
+                'reserve_price'=>$request->reserve_price,
+                'vehicle_registration'=>$vehicle->vehicle_registartion_number,
+                'vehicle_name'=>$vehicle->vehicle_name,
+                'vehicle_mileage'=>$vehicle->vehicle_mileage,
+                'age'=>$vehicle->vehicle_year,
+                'colour'=>$vehicle->vehicle_color,
+            ]);
+
+            Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
         } catch (\Exception $e) {
            // return $e;
             DB::rollback();
