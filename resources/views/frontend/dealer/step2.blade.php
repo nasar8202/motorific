@@ -110,7 +110,7 @@
         
         $(document).on('submit', 'form', function() {
             $('button').attr('disabled', 'disabled');
-            $('.btn-success').html('Its take 20 seconds');
+            $('.btn-success').html('Please Wait Submitting...');
         });
     });
     </script>
