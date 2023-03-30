@@ -178,7 +178,7 @@
               <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" width="50px" height="50px" alt="" />
               <div class="car-det">
                 <span>Model: {{ $data['vehicle_name'] }} </span>
-                <span> Reg: {{ $data['vehicle_registration'] }} </span>
+                <span> Reg: {{ strtoupper($data['vehicle_registration']) }} </span>
                 
                 <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
                 <span>Car age:{{ $data['age'] }} </span>
@@ -232,7 +232,7 @@
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
             </span></a>
-            <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
+            {{-- <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p> --}}
 
             <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
         </div>

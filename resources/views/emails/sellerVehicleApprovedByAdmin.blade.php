@@ -192,7 +192,7 @@
               <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} "  alt="" />
               <div class="car-det">
                 <span>Model: {{ $data['vehicle_name'] }} </span>
-                <span> Reg: {{ $data['vehicle_registration'] }} </span>
+                <span> Reg: {{ strtoupper($data['vehicle_registration'] )}} </span>
                 <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
                 <span>Car age:{{ $data['age'] }} </span>
                 <span>Colour: {{ $data['colour'] }} </span>

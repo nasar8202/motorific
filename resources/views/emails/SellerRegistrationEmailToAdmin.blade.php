@@ -38,7 +38,7 @@
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">User Name : {{ $seller_registration_email_to_admin['greeting'] }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email : {{ $seller_registration_email_to_admin['email'] }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Phone Number : {{ $seller_registration_email_to_admin['phone_number'] }}</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Registration Number : {{ $seller_registration_email_to_admin['registration_number'] }}</p>
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Registration Number : {{ strtoupper($seller_registration_email_to_admin['registration_number']) }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Mile Age : {{ $seller_registration_email_to_admin['mile_age'] }}</p>
 
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Post Code : {{ $seller_registration_email_to_admin['body1'] }}</p>

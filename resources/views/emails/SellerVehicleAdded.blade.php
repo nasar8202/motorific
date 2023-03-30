@@ -470,7 +470,7 @@
                         
                         <ul class="reg-detail">
                             <li><span>Model:</span> {{ $data['vehicle_name'] }} </li>
-                            <li><span>Reg:</span> {{ $data['vehicle_registration'] }}</li>
+                            <li><span>Reg:</span> {{ strtoupper($data['vehicle_registration']) }}</li>
                             <li><span>Mileage:</span>{{ $data['vehicle_mileage'] }}</li>
                             <li><span>Car Age:</span> {{ $data['age'] }} </li>
                             <li><span>Color:</span>{{ $data['colour'] }}</li>

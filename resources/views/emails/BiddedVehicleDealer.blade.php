@@ -156,7 +156,7 @@
           <p><strong>Date: </strong> {{ $data['date'] }}</p>
           <p>
             <strong>To: </strong
-            ><span style="color: blue"> info@smartautosuk.co.uk</span>
+            ><span style="color: blue"> info@motorific.co.uk</span>
           </p>
           <p><strong>Subject: You've just Schedule Meeting!</strong></p>
           <p>
@@ -225,7 +225,7 @@
             <p>
               Drop us an email -
               <span style="color: #2196f3"
-                >partner.operations@motorific.co.uk</span
+                >info@motorific.co.uk</span
               >
               and we’ll get back to you as soon as possible.
             </p>
@@ -252,7 +252,7 @@
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
             </span></a>
-            <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
+            {{-- <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p> --}}
 
             <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
         </div>

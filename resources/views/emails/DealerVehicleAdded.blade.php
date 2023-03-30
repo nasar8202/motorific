@@ -456,7 +456,7 @@
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
                 <h3 class="title-name">Hi {{ $queue_details['name'] }}!</h3>
-                <p>your advertisement is now live for other dealers to bed. Good luck</p>
+                <p>your advertisement is now live for other dealers to bid. Good luck</p>
                 
                 <h3 class="title-name">Car Details</h3>
             </div>
@@ -470,7 +470,7 @@
                         
                         <ul class="reg-detail">
                             <li><span>Model:</span> {{ $queue_details['vehicle_name'] }} </li>
-                            <li><span>Reg:</span> {{ $queue_details['vehicle_registration'] }}</li>
+                            <li><span>Reg:</span> {{ strtoupper($queue_details['vehicle_registration']) }}</li>
                             <li><span>Mileage:</span>{{ $queue_details['vehicle_mileage'] }}</li>
                             <li><span>Car Age:</span> {{ $queue_details['age'] }} </li>
                            
@@ -480,10 +480,10 @@
                         </div>
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
-                            <p>Your valuation is being worked on b Motorifics experts valuation team.
-                                The tools we use as industry experts will ensure you receive the best, genuine prce for your car in today's market.</p>
+                            <p>Your valuation is being worked on b Motorific experts valuation team.
+                                The tools we use as industry experts will ensure you receive the best, genuine price for your car in today's market.</p>
                             <h6>Want your valuation sooner?</h6>
-                            <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: 44 7593 839364</a>
+                            <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: +44 7593 839364</a>
                         </div>
 
                     </div>

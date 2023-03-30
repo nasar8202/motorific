@@ -151,7 +151,7 @@
           <p><strong>Date: </strong> {{ $data['date'] }}</p>
           <p>
             <strong>To: </strong
-            ><span style="color: blue"> info@smartautosuk.co.uk</span>
+            ><span style="color: blue"> info@motorific.co.uk</span>
           </p>
           <p><strong>Subject: You bought a car!</strong></p>
           <p>
@@ -169,7 +169,7 @@
           <p>Hi {{ $data['name'] }}!</p>
           <p>
            
-            Congratulations Motorific has added your Vehicle registration number <strong>{{ $data['vehicle_registration'] }}</strong>. Below are your login details to check the status of your vehicle.
+            Congratulations Motorific has added your Vehicle registration number <strong>{{ strtoupper($data['vehicle_registration']) }}</strong>. Below are your login details to check the status of your vehicle.
           </p>
           <p>Personal Details</p>
           <div class="content-img">
@@ -185,7 +185,7 @@
             <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " width="100px" height="100px" alt="" />
             <div class="car-det">
               <span>Model: {{ $data['vehicle_name'] }}</span>
-              <span> Reg: {{ $data['vehicle_registration'] }} </span>
+              <span> Reg: {{ strtoupper($data['vehicle_registration']) }} </span>
              
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
               <span>Car age:{{ $data['age'] }}  </span>
@@ -239,7 +239,7 @@
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
             </span></a>
-            <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
+            {{-- <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p> --}}
 
             <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
         </div>
