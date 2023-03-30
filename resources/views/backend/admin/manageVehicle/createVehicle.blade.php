@@ -145,7 +145,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Vehicle Registartion Number</label>
-                                                <input type="text" id="first-name-column" class="form-control"
+                                                <input type="text" id="first-name-column" class="form-control" style="text-transform: uppercase"
                                                     placeholder="Registartion Number" name="register_number" readonly
                                                     value="{{ $res->registrationNumber ?? old('register_number') }}">
                                             </div>

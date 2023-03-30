@@ -2264,6 +2264,8 @@ button.btn-Next svg {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    display: none;
+    text-align: center;
 }
 
 .ban-vehicles p {
@@ -2286,7 +2288,16 @@ button.btn-Next svg {
     justify-content: center;
     align-items: baseline;
     line-height: 50px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20px;
+}
+.vehiclehide {
+    display: none;
+}
+
+.vehiclebannershow {
+    display: block;
 }
 
 .ban-vehicles a:hover {
