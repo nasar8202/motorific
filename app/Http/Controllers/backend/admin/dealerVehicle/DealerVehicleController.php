@@ -125,7 +125,8 @@ class DealerVehicleController extends Controller
         $vehicle->status = 0;
         $vehicle->save();
         $seller = User::find($vehicle->user_id);
-           
+           $dealerVehicleImage = DealerVehicleExterior::where('dealer_vehicle_id',$vehicle->id)->first();
+           dd($dealerVehicleImage);
             $originalDate = $vehicle->updated_at;
             $winDate = date("d F Y ", strtotime($originalDate));
             $winTime = date("H:i:s a", strtotime($originalDate));
@@ -133,11 +134,14 @@ class DealerVehicleController extends Controller
                 'name' => $seller->name,
                 'vehicle_id' => $vehicle->id,
                 'user_id' => $seller->id,
+                'front'=> $dealerVehicleImage->exterior_image,
                 'date' => $winDate.' at '.$winTime,
                 'reserve_price'=>$request->reserve_price,
                 'vehicle_registration'=>$vehicle->vehicle_registartion_number,
                 'vehicle_name'=>$vehicle->vehicle_name,
                 'vehicle_mileage'=>$vehicle->vehicle_mileage,
+                'age'=>$vehicle->vehicle_year,
+                'colour'=>$vehicle->vehicle_color,
             ]);
 
             Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
