@@ -3079,6 +3079,23 @@ ol.tagLines li::marker {
     font-size: .85vw;
     margin-bottom: 1.5vw;
 }
+label.labelForFile span {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    position: absolute;
+    background: #ededed;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label.labelForFile span i {
+    color: #979797;
+}
 
 /*Seller Login and Reg Form End*/
 .reg-contBox p:empty {
@@ -3139,5 +3156,6 @@ div.sellerReg form span.invalid-feedback strong {
 .forgott-form .reg-form-heading h3 {
     font-size: 2.4vw;
 }
+
 
 /*Seller User Forms End*/
