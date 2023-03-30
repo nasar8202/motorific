@@ -41,8 +41,9 @@ class SellerDashboardController extends Controller
             
 
         ]);
+        
         $admin = User::where('id',1)->first();
-        Mail::to($admin->email)->send(new sellerVehicleApprovedBySeller($data));
+        Mail::to("nasar.ullah@oip.com.pk")->send(new sellerVehicleApprovedBySeller($data));
 
         return redirect()->route('myLogin')->with('success', 'You Have Approved Your Valuation, Login To System So Further Process');
     }
@@ -81,7 +82,7 @@ class SellerDashboardController extends Controller
 
         ]);
         $admin = User::where('role_id',1)->first();
-        Mail::to($admin->email)->send(new sellerVehicleRejectBySeller($data));
+        Mail::to("nasar.ullah@oip.com.pk")->send(new sellerVehicleRejectBySeller($data));
 
         return redirect()->route('myLogin')->with('warning', 'You have reject valuation');
       }

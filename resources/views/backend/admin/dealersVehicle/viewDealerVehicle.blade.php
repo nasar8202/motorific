@@ -52,9 +52,10 @@
                         @php
                             $i = 1;
                         @endphp
+                        
                         @forelse ($DealerVehicles as $DealerVehicle)
                         <tr>
-
+                            
                             <td>{{ $i++ }}</td>
                             <td>{{ $DealerVehicle->vehicle_registartion_number}}</td>
                             <td>{{ $DealerVehicle->vehicle_name}}</td>

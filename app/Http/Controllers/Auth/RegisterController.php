@@ -161,7 +161,7 @@ class RegisterController extends Controller
         try {
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
-// dd($result['results'][0]['formatted_address']);
+
             if (count($result['results']) != 0) {
                 $password = Str::random(10);
                 $user = new User;
@@ -259,33 +259,11 @@ class RegisterController extends Controller
                         //echo $response;
                         $res = json_decode($response);
 
-                        //return $response;
-                        // $res = $res['result'];
-                        // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
-                        // $date = $res['basic_vehicle_info']['first_registration_date'];
+                       
                         if (isset($res->registrationNumber)) {
                             $milage = $request->millage;
 
-                            // $res = Http::withHeaders([
-                            //     'accept' => 'application/json',
-                            //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-                            // ])
-                            // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
-                            // ->json();
-                            // if($res['success'] == 'false'){
-                            //     return back()->with('error','Record not found');
-                            // }
-                            // $res = $res['result'];
-                            // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
-                            // $date = $res['basic_vehicle_info']['first_registration_date'];
-                            //$milage = $request->millage;
-                            // $milage= Http::withHeaders([
-                            //     'accept' => 'application/json',
-                            //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-                            // ])
-                            // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
-                            // ->json();
-                            // $milage = $milage['result'];
+                          
                             DB::commit();
                             return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances','VehicleHistories', 'user'));
                         } else {
