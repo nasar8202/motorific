@@ -24,7 +24,8 @@
     }
     .car-det {
       display: flex;
-      flex-direction: column;
+    flex-direction: column;
+    flex: 0 0 50%;
     }
     .social-icon a {
     text-decoration: none;
@@ -32,14 +33,43 @@
 }
     .content-img {
       display: flex;
-      align-items: center;
-      gap: 30px;
-      padding-left: 2rem;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+    flex-direction: row-reverse;
     }
+    .content-img.content-img1 {
+    flex-direction: row;
+        padding-left: 0;
+}
 
     .content-img img {
-      width: 800px;
+      object-fit: cover;
+      flex: 0 0 50%;
+      height: 200px;
+
     }
+    .content-img span {
+      font-size: 18px;
+      color: #000;
+    }
+    .mail-sec .mail-content p.detail {
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #7977a2;
+    margin-top: 10px;
+}
+.qa-ans p {
+    font-size: 15px;
+    color: #000;
+}
+.qa-ans p strong {
+    font-size: 20px;
+    color: #7977a2;
+    margin-bottom: 10px;
+}
     .social-icon {
     text-align: center;
     padding-bottom: 30px;
@@ -172,7 +202,7 @@
             Congratulations Motorific has added your Vehicle registration number <strong>{{ strtoupper($data['vehicle_registration']) }}</strong>. Below are your login details to check the status of your vehicle.
           </p>
           <p>Personal Details</p>
-          <div class="content-img">
+          <div class="content-img content-img1">
             <div class="car-det">
               <span>Your Name: {{ $data['name'] }}</span>
               <span> Your Email: {{ $data['email'] }} </span>
@@ -180,9 +210,9 @@
              
             </div>
           </div>
-          <p>Car Details</p>
+          <p class="detail">Car Details</p>
           <div class="content-img">
-            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " width="100px" height="100px" alt="" />
+            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " width="100px" style="object-fit: cover" alt="" />
             <div class="car-det">
               <span>Model: {{ $data['vehicle_name'] }}</span>
               <span> Reg: {{ strtoupper($data['vehicle_registration']) }} </span>
