@@ -357,11 +357,11 @@ class FrontController extends Controller
             // 'previous_owner' => 'required',
             // 'keeping_plate' => 'required',
             // 'additional' => 'required',
-            'image1' => 'required|mimes:jpeg,png,jpg,|max:1024',
-            'image2' => 'required|mimes:jpeg,png,jpg,|max:1024',
-            'image3' => 'required|mimes:jpeg,png,jpg,|max:1024',
-            'image4' => 'required|mimes:jpeg,png,jpg,|max:1024',
-            'image5' => 'required|mimes:jpeg,png,jpg,|max:1024',
+            'image1' => 'required|mimes:jpeg,png,jpg,|max:5020',
+            'image2' => 'required|mimes:jpeg,png,jpg,|max:5020',
+            'image3' => 'required|mimes:jpeg,png,jpg,|max:5020',
+            'image4' => 'required|mimes:jpeg,png,jpg,|max:5020',
+            'image5' => 'required|mimes:jpeg,png,jpg,|max:5020',
 
 
         ]);

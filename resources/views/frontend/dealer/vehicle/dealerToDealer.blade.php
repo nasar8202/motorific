@@ -87,7 +87,7 @@
                 <div class="col-12">
                     <div class="banner-content">
                         <h2 class="sec-heading fs-50 text-white">Dealer To Dealer</h2>
-                        <p class="text-white">Next sales begins at 8AM </p>
+                        {{-- <p class="text-white">Next sales begins at 8AM </p> --}}
                     </div>
                 </div>
             </div>

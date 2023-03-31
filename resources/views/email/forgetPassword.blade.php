@@ -321,7 +321,7 @@
                             <i class="fas fa-unlock-alt"></i>
                         </div>
                         <h3>Forget Password Email</h3>
-                        <p class="congt-msg"> You can reset password from bellow link</p>
+                        <p class="congt-msg"> You can reset password from below link</p>
                         <a href="{{ route('reset.password.get', $token) }}" class="prim-btn green-btn">RESET PASSWORD</a>
                     </div>
                 </div>

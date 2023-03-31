@@ -214,7 +214,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputCity">Email Addres</label>
+                                    <label for="inputCity">Email address </label>
                                     <input type="email" name="email" class="form-control"
                                         value="{{ $currentUser->email }}" id="inputCity" placeholder="abc@gmail.com">
                                     @if ($errors->has('email'))

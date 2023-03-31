@@ -174,9 +174,18 @@ class SellerDashboardController extends Controller
             'name' => 'required|regex:/(([a-zA-Z]+)(\d+)?$)/u|max:256',
             'post_code' => 'required|max:10|min:5',
             'email' => 'required',
-            'phone_number' => 'required|max:256|min:14',
+            'phone_number' => 'required|max:256|min:11',
 
         ]);
+        $zip = ($request->post_code);
+        $postcode = str_replace(' ', '', $zip);
+       
+
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        try {
+        $result_string = file_get_contents($url);
+        $result = json_decode($result_string, true);
+        if (count($result['results']) != 0) {
         // dd($request->all());
         $user = User::find($id);
         $user->name = $request->name;
@@ -185,7 +194,19 @@ class SellerDashboardController extends Controller
         $user->phone_number = $request->phone_number;
         $user->save();
         return redirect()->back()->with('success', 'Profile Updated Successfully!');
-        
+        }
+        else{
+            return back()->with('error', 'Enter The Right Post Code');
+        }
+    }
+    catch (\Exception $e) {
+        return $e->getMessage();
+
+        //return $e;
+        return Redirect()->back()
+            ->with('error', $e->getMessage())
+            ->withInput();
+    }
 
     }
     public function updateMyPassword(Request $request, $id)

@@ -480,7 +480,7 @@
                         </div>
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
-                            <p>Your valuation is being worked on b Motorific experts valuation team.
+                            <p>Your valuation is being worked on by Motorific experts valuation team.
                                 The tools we use as industry experts will ensure you receive the best, genuine price for your car in today's market.</p>
                             <h6>Want your valuation sooner?</h6>
                             <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: +44 7593 839364</a>
