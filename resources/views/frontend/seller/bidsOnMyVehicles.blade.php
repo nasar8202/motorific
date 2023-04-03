@@ -40,9 +40,9 @@ display: block;
                     <li>Reviews</li>
                 </a>
                 </a>
-                <a href="#">
+                {{-- <a href="#">
                     <li>Help</li>
-                </a>
+                </a> --}}
 
                 @auth
 
@@ -115,9 +115,9 @@ display: block;
                         <li>
                             <a href="{{ route('reviews') }}">Reviews</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#">Help</a>
-                        </li>
+                        </li> --}}
                             <li>
                             <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
                         </li>
