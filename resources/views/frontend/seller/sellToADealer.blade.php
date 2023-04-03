@@ -36,9 +36,9 @@
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
-                    <a href="#">
+                    {{-- <a href="#">
                         <li>Help</li>
-                    </a>
+                    </a> --}}
                     @auth
 
                     @endauth
@@ -110,9 +110,9 @@
                         <li>
                             <a href="{{ route('reviews') }}">Reviews</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#">Help</a>
-                        </li>
+                        </li> --}}
                         @guest
                         <li><a href="{{ route('myLogin') }}">Sign In</a></li>
                         

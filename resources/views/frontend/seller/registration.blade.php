@@ -48,9 +48,9 @@ input[type=number] {
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
-                    <a href="#">
+                    {{-- <a href="#">
                         <li>Help</li>
-                    </a>
+                    </a> --}}
                     @auth
 
                 @endauth
@@ -87,7 +87,7 @@ input[type=number] {
                         <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
                         <li><a href="#">How It Works</a></li>
                         <li><a href="#">Reviews</a></li>
-                        <li><a href="#">Help</a></li>
+                        {{-- <li><a href="#">Help</a></li> --}}
                             <li>
                             <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
                         </li>

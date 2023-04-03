@@ -16,9 +16,9 @@
                 <a href="{{ route('reviews') }}">
                     <li>Reviews</li>
                 </a>
-                <a href="#">
+                {{-- <a href="#">
                     <li>Help</li>
-                </a>
+                </a> --}}
 
                 @auth
 
@@ -91,9 +91,9 @@
                         <li>
                             <a href="{{ route('reviews') }}">Reviews</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#">Help</a>
-                        </li>
+                        </li> --}}
                             <li>
                             <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
                         </li>

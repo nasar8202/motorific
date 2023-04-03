@@ -37,9 +37,9 @@ display: block;
                 <a href="#">
                     <li>Reviews</li>
                 </a>
-                <a href="#">
+                {{-- <a href="#">
                     <li>Help</li>
-                </a>
+                </a> --}}
                 @auth
 
                 @endauth
@@ -76,7 +76,7 @@ display: block;
                     <li><a  href="{{ route('sellMyCar') }}">Sell My Car</a></li>
                     <li><a href="#">How It Works</a></li>
                     <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Help</a></li>
+                    {{-- <li><a href="#">Help</a></li> --}}
                 </ul>
             </div>
         </div>

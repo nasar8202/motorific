@@ -15,9 +15,9 @@
                     <li>
                         <a href="{{route('GetInTouchSellerForm')}}">Contact us</a>
                     </li>
-                    {{-- <a href="#">
-                        <li>Press</li>
-                    </a> --}}
+                    <a href="#">
+                        <li>Help</li>
+                    </a>
                     <li href="#">
                         <a href="{{route('careers')}}">Careers</a>
                     </li>
