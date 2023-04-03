@@ -389,6 +389,8 @@ let fileListArr;
 function uploadFile(elem) {
   let files = elem.files;
   console.log('files ', elem.files)
+  
+  $('#selected-first-img-qa').attr('src', URL.createObjectURL(elem.files[0]));
   let imgsDiv = elem.nextElementSibling.nextElementSibling.nextElementSibling;
   imgsDiv.innerHTML = ''
   let errorDiv = elem.nextElementSibling.nextElementSibling;
@@ -411,6 +413,7 @@ function uploadFile(elem) {
       reader.readAsDataURL(f);
     });
   }
+    
 }
 
 
@@ -424,11 +427,16 @@ function Remove(elem) {
     if (index !== i)
       dt.items.add(file) // here you exclude the file. thus removing it.
   }
+    if(inp.files.length === 0){
+        $('#selected-first-img-qa').attr('src', '');
+    }
   inp.files = dt.files;
   console.log('inp.files ', inp.files);
   fileListArr.splice(index,1)
   console.log('index ', index);
   $(elem).parent('.image-box').remove()
+  console.log('URL.createObjectURL(inp.files[0]) ',URL.createObjectURL(inp.files[0]))
+  $('#selected-first-img-qa').attr('src', URL.createObjectURL(inp.files[0]));
 }
 
 

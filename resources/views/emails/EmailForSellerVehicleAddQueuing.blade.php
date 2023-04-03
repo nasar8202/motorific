@@ -411,7 +411,8 @@
 
         }
 
-        @media(max-width:575px){
+        
+        @media only screen and (max-width: 600px){
             .cont-main {
                 max-width: 85vw;
             }
@@ -441,7 +442,32 @@
                 max-width: 160px;
                 height: 100px;
             }
+            
+             header.veh-dt .title-name {
+                font-size: 21px;
+            }
+            .main-content {
+                padding: 25px 0px;
+            }
+            .cont-main {
+                max-width: 100%;
+            }
+            .veh-img img {
+                    width: 100%;
+                height: 100%;
+            }
+            .veh-text h5 {
+                font-size: 19px;
+            }
+             .veh-text p {
+                    font-size: 14px;
 
+            }
+             .veh-text a.prim-btn {
+                   font-size: 11px;
+
+            }
+            
 
         }
 

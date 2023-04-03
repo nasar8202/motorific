@@ -950,6 +950,7 @@
     </script>
     <!--jQuery UI-->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--<script src="{{ URL::asset('frontend/dealers/assets/js/sticky.jquery.js') }}"></script>-->
     <script src="{{ URL::asset('frontend/dealers/assets/js/scrollWithPage.min.js') }}"></script>
     <!--Drag JS-->
@@ -963,9 +964,12 @@
                     $(this).attr('data-id', '');
                     $(this).attr('data-id', 'num_' + num++ + '');
                 });
+                let first_img_src = $('.selectedFilesTn .image-box[data-id="num_1"] img').attr('src')
+                $('#selected-first-img-qa').attr('src',first_img_src);
 
             }
         });
+        
     </script>
 
     <script>
