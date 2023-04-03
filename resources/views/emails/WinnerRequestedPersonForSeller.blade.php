@@ -149,7 +149,7 @@
     <main>
       <section class="mail-sec">
         <div class="mail-name">
-          <p>
+          {{-- <p>
             <strong>From: </strong> Motorofic
             <span style="color: blue"> {{ $data['email'] }}</span> >
           </p>
@@ -162,7 +162,7 @@
           <p>
             <strong>Reply-To</strong
             ><span style="color: blue"> noreply@motorofic.co.uk</span>
-          </p>
+          </p> --}}
 
           <div class="mail-img-one">
             <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt="" /> <br />

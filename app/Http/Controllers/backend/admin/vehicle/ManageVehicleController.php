@@ -668,11 +668,13 @@ class ManageVehicleController extends Controller
 
             Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
         } catch (\Exception $e) {
-           // return $e;
+           
             DB::rollback();
+            return $e;
             return Redirect()->back()
                 ->with('error', $e->getMessage())
                 ->withInput();
+
         }
         DB::commit();
 

@@ -479,18 +479,25 @@
                         <div class="veh-img">
                             <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" width="80px" height="80px" alt="">
                         </div>
-                        <div class="veh-text">
+                        {{-- <div class="veh-text">
                             <h5>You Can Approved Or Reject Valuation</h5>
                             <p>
                             <a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>
                             </p>
-                        </div>
+                        </div> --}}
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
-                            <p>Your valuation is being worked on by Motorific experts valuation team.
+                            <p> 1) accept the reserve price 
+                                (<a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>)
+                            </p>
+                            <p>2)will add you vehicle to our daily sale to more then 1000 dealers .</p>
+                            <p>3)at 4pm on the day the sales goes live you will receive a email with the outcomer </p>
+                            <p>4) if your vehicle has reached your reservation price the winning dealer will contact you to arrange payment and collection  </p>
+                            {{-- <p>5)Your valuation is being worked on by Motorific experts valuation team.
                                 The tools we use as industry experts will ensure you receive the best, genuine price for your car in today's market.</p>
-                            <h6>Want your valuation sooner?</h6>
+                            <h6>Want your valuation sooner?</h6> --}}
                             <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: +44 7593 839364</a>
                         </div>
 
