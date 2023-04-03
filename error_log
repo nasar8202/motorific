@@ -4,3 +4,36 @@
 [13-Mar-2023 07:24:14 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/digikalv/motorific.co.uk/public/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/digikalv/motorific.co.uk/public/index.php on line 34
 [13-Mar-2023 07:24:17 America/New_York] PHP Warning:  require(/home/digikalv/motorific.co.uk/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home/digikalv/motorific.co.uk/public/index.php on line 34
 [13-Mar-2023 07:24:17 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/digikalv/motorific.co.uk/public/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/digikalv/motorific.co.uk/public/index.php on line 34
+[02-Apr-2023 02:58:21 UTC] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): Read of 1833 bytes failed with errno=12 Cannot allocate memory in /home/digikalv/motorific.co.uk/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/digikalv/motorific.co.uk/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+#1 /home/digikalv/motorific.co.uk/vendor/composer/ClassLoader.php(571): include()
+#2 /home/digikalv/motorific.co.uk/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile()
+#3 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Route.php(23): Composer\Autoload\ClassLoader->loadClass()
+#4 /home/digikalv/motorific.co.uk/vendor/composer/ClassLoader.php(571): include('/home/digikalv/...')
+#5 /home/digikalv/motorific.co.uk/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile()
+#6 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Router.php(583): Composer\Autoload\ClassLoader->loadClass()
+#7 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Router.php(476): Illuminate\Routing\Router->newRoute()
+#8 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Router.php(455): Illuminate\Routing\Router->createRoute()
+#9 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Router.php(295): Illuminate\Routing\Router->addRoute()
+#10 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Broadcasting/BroadcastManager.php(74): Illuminate\Routing\Router->match()
+#11 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Router.php(423): Illuminate\Broadcasting\BroadcastManager->Illuminate\Broadcasting\{closure}()
+#12 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Router.php(382): Illuminate\Routing\Router->loadRoutes()
+#13 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Broadcasting/BroadcastManager.php(76): Illuminate\Routing\Router->group()
+#14 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(261): Illuminate\Broadcasting\BroadcastManager->routes()
+#15 /home/digikalv/motorific.co.uk/app/Providers/BroadcastServiceProvider.php(17): Illuminate\Support\Facades\Facade::__callStatic()
+#16 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): App\Providers\BroadcastServiceProvider->boot()
+#17 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Container/Util.php(40): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#18 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure()
+#19 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(37): Illuminate\Container\BoundMethod::callBoundMethod()
+#20 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Container/Container.php(653): Illuminate\Container\BoundMethod::call()
+#21 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(924): Illuminate\Container\Container->call()
+#22 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(905): Illuminate\Foundation\Application->bootProvider()
+#23 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}()
+#24 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(906): array_walk()
+#25 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\Foundation\Application->boot()
+#26 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(237): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap()
+#27 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(310): Illuminate\Foundation\Application->bootstrapWith()
+#28 /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(127): Illuminate\Foundation\Console\Kernel->bootstrap()
+#29 /home/digikalv/motorific.co.uk/artisan(37): Illuminate\Foundation\Console\Kernel->handle()
+#30 {main} in /home/digikalv/motorific.co.uk/vendor/laravel/framework/src/Illuminate/Routing/Route.php on line 23
