@@ -8,16 +8,16 @@
                 <h5>About</h5>
                 <ul>
                     <li>
-                        <a href="#">About us</a>
+                        <a href="{{route('GetInTouchSellerForm')}}">About us</a>
                     </li>
                     <li>
-                        <a href="#">Contact us</a>
+                        <a href="{{route('GetInTouchSellerForm')}}">Contact us</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#">Press</a>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="#">Careers</a>
+                        <a href="{{route('careers')}}">Careers</a>
                     </li>
                 </ul>
             </div>

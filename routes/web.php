@@ -96,6 +96,10 @@ Route::get('/reviews', [HowItWorksController::class,'reviews'])->name('reviews')
 Route::get('/sell-my-electric-cars', [FrontController::class,'sellMyElectricCars'])->name('sellMyElectricCars');
 Route::get('/sell-to-a-dealer', [FrontController::class,'sellToADealer'])->name('sellToADealer');
 Route::get('/car-value-tracker', [FrontController::class,'CarValueTracker'])->name('CarValueTracker');
+Route::get('/car-buyer', [FrontController::class,'CarBuyer'])->name('CarBuyer');
+Route::get('/car-valuation', [FrontController::class,'CarValuation'])->name('CarValuation');
+Route::get('/who-will-buy-my-car', [FrontController::class,'whoWillBuyMyCar'])->name('whoWillBuyMyCar');
+Route::get('/car-buying-sites', [FrontController::class,'CarBuyingSites'])->name('CarBuyingSites');
 Route::get('/sell-my-car-on-finance', [FrontController::class,'SellMyCarOnFinance'])->name('SellMyCarOnFinance');
 // end sell my electric car
 

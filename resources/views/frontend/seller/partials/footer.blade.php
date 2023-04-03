@@ -33,7 +33,7 @@
                         <a href="{{route('CarValueTracker')}}">Sell my van</a>
                     </li>
                     <li>
-                        <a href="{{route('CarValueTracker')}}">Car buyers</a>
+                        <a href="{{route('CarBuyer')}}">Car buyers</a>
                     </li>
                     <!--<li>-->
                     <!--    <a href="">Cash for cars</a>-->
@@ -42,17 +42,17 @@
                         <a href="{{route('SellMyCarOnFinance')}}">Sell My Car On Finance</a>
                     </li>
                     <li>
-                        <a href="{{route('CarValueTracker')}}">Car Valuation</a>
+                        <a href="{{route('CarValuation')}}">Car Valuation</a>
                     </li>
                     <li>
-                        <a href="{{route('CarValueTracker')}}">Who will buy my car?</a>
+                        <a href="{{route('whoWillBuyMyCar')}}">Who will buy my car?</a>
                     </li>
                 </ul>
             </div>
             <div class="footer-sub product-2">
                 <ul>
                     <li>
-                        <a href="{{route('CarValueTracker')}}">Car buying sites</a>
+                        <a href="{{route('CarBuyingSites')}}">Car buying sites</a>
                     </li>
                     <li>
                         <a href="{{route('sellToADealer')}}">Sell to a dealer</a>
