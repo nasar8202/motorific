@@ -363,7 +363,7 @@
                                                             ?>
                                                         </span>
                                                     </div>
-                                                    <h5 class="p-price">Reserve price:
+                                                    <h5 class="p-price">Buy it now:
                                                         <span>£{{ $vehicle->vehicle_price }}</span>
                                                     </h5>
                                                     @if(isset($vehicle->highestOffer->request_price) )

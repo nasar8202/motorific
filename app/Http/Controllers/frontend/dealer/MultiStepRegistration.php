@@ -77,17 +77,7 @@ class MultiStepRegistration extends Controller
         $request->session()->put('email', $request->input('email'));
         $request->session()->put('hear_about_us', $request->input('hear_about_us'));
         $request->session()->put('privacy_policy', $request->input('privacy_policy'));
-        if (empty($request->session()->get('register'))) {
-            $register = new User();
-            // $register->role_id = 3;
-            $register->fill($validatedData);
-            $request->session()->put('register', $register);
-        } else {
-            $register = $request->session()->get('register');
-            $register->fill($validatedData);
-            // $register->role_id = 3;
-            $request->session()->put('register', $register);
-        }
+      
         return redirect('/register-create-step-2');
     }
 
@@ -212,8 +202,7 @@ class MultiStepRegistration extends Controller
             // $user_detail->any_thing_else = $request->session()->get('any_thing_else');
     
             $user_detail->save();
-            DB::commit();
-            Session::flush();
+           
     
             $details = [
                 'greeting' => 'New Request Dealer Name :' . $user->name . " And  Email :" . $user->email,
@@ -238,7 +227,10 @@ class MultiStepRegistration extends Controller
            // Mail::to($user->email)->send(new WelcomeDealerRegistrationRequestMail($data));
             // Notification::send($user->email, new MyFirstNotification($details));
             dispatch(new SendEmailForDealerRegistrationQueuing($queue_details));
+            DB::commit();
+            Session::flush();
             return redirect()->route('DealerLogin')->with("success", "Account Create Successfully! Waiting For Admin Approval");
+
                 //return redirect()->route('register.create.step.3');
             } else {
                 DB::rollBack();

@@ -82,10 +82,10 @@
                     <a href="#">
                         <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>
                     </a>
-                    <a href="#">
+                    <a href="https://www.facebook.com/Motorific-100480046330830">
                         <div class="footer-icon-bg"><i class="fa-brands fa-facebook-f"></i></div>
                     </a>
-                    <a href="#">
+                    <a href="https://www.instagram.com/motorific_1/">
                         <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>
                     </a>
                 </div>
