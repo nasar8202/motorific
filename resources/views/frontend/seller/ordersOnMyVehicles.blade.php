@@ -41,9 +41,9 @@
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
-                    <a href="#">
+                    {{-- <a href="#">
                         <li>Help</li>
-                    </a>
+                    </a> --}}
 
                     @auth
 
@@ -132,9 +132,9 @@
                         <li>
                             <a href="{{ route('reviews') }}">Reviews</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#">Help</a>
-                        </li>
+                        </li> --}}
                         <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}

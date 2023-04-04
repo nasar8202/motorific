@@ -23,6 +23,63 @@
         .head-btns a {
     text-decoration: none;
 }
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Spinner */
+.spinner {
+	--spinner-color: black;
+
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+
+	animation-name: spin;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+.spinner--dotted {
+	width: 28px;
+	border: 5px dotted var(--spinner-color);
+
+	animation-duration: 5s;
+}
+.spinner-container {
+    margin: 0 0;
+    margin-left: -60px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -40px;
+}
+@media(max-width:767px){
+    .spinner-container {
+    margin: 0 0;
+    margin-left: -5px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: -35px;
+}
+.spinner--dotted {
+	width: 25px;
+	border: 5px dotted var(--spinner-color);
+
+	animation-duration: 5s;
+}
+}
     </style>
     <header>
         <div class="container-1600 d-flex justify-content-between pt-4">
@@ -39,9 +96,9 @@
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
-                    <a href="#">
+                    {{-- <a href="#">
                         <li>Help</li>
-                    </a>
+                    </a> --}}
                     @auth
 
                     @endauth
@@ -115,9 +172,9 @@
                         </li>
                      
                           
-                        <li>
+                        {{-- <li>
                             <a href="#">Help</a>
-                        </li>
+                        </li> --}}
                           <li>
                             <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
                         </li>
@@ -186,9 +243,12 @@
                     <div class="check_area">
 
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
-                            value="{{ old('registeration') }}" style="text-transform: uppercase">
+                            value="{{ old('registeration') }}" style="text-transform: uppercase" required>
                         <span class="text-danger show_error"></span>
                         <button type="button" id="check_registeration">Value Your Car</button>
+                        <div class="spinner-container">
+                        <span class="spinner spinner--dotted sfirst"></span>
+                        </div>
                     </div>
                     @if ($errors->has('millage'))
                         <span class="text-danger">{{ $errors->first('millage') }}</span>
@@ -510,6 +570,9 @@
                                 value="{{ old('registeration') }}" style="text-transform: uppercase">
                             <span class="text-danger show_error1"></span>
                             <button type="button" id="check_registeration1">Value Your Car</button>
+                            <div class="spinner-container">
+                                <span class="spinner spinner--dotted sSecond"></span>
+                                </div>
                         </div>
                         @if ($errors->has('millage'))
                         <span class="text-danger">{{ $errors->first('millage') }}</span>
@@ -573,11 +636,14 @@
           }
         $('.millage_area').hide();
         $('.show_error').hide();
+        $('.sfirst').hide();
+        $('.sSecond').hide();
 
         $('.millage_area1').hide();
         $('.show_error1').hide();
         // $('.found').hide();
         $("#check_registeration1").on("click",function(e){
+            $('.sSecond').show();
             var registeration = $("#registeration1").val();
        
             e.preventDefault(); // prevent the form submission
@@ -603,11 +669,13 @@
                         $('.millage_area1').show();
                         $('.found1').show();
                         $('.registeration1').val(registeration);
+                        $('.sSecond').hide();
                     }
                     
                     else {
                         $('.show_error1').show();
                         $('.show_error1').text('Record Not Found')
+                        $('.sSecond').hide();
 
 
 
@@ -616,6 +684,7 @@
         });
     });
         $("#check_registeration").on("click", function(e) {
+            $('.sfirst').show();
             var registeration = $("#registeration").val();
             e.preventDefault(); // prevent the form submission
 
@@ -630,7 +699,7 @@
                     registeration,
                     registeration
                 },
-
+              
                 success: function(response) {
                     console.log(response.registrationNumber);
 
@@ -640,11 +709,13 @@
                         $('.millage_area').show();
                         $('.found').show();
                         $('.registeration').val(registeration);
+                        $('.sfirst').hide();
                     }
                     
                     else {
                         $('.show_error').show();
                         $('.show_error').text('Record Not Found')
+                        $('.sfirst').hide();
 
 
 

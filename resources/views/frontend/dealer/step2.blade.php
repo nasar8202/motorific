@@ -41,16 +41,16 @@
                                     <div class="form-group">
                                         <label>Postcode *</label>
                                         <input type="text" name="postcode"  placeholder="Enter Post Code" id="search" value="{{ session()->get('postcode')?? old('postcode') }}" required>
-                                        
+                                        <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
                                     </div>
                                     <div class="form-group">
                                         <label>Address line 1 *</label>
                                         <input type="text" name="address_line_1" id="searchAddress" placeholder="Enter Address Line 1" value="{{ session()->get('address_line_1') ?? old('address_line_1') }}" required>
                                     </div>
-                                    <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                    
                                     <div class="form-group">
-                                        <label>Address line 2 *</label>
-                                        <input type="text" name="address_line_2"  placeholder="Enter Address line 2" value="{{ session()->get('address_line_2')?? old('address_line_2') }}" >
+                                        <label>Premises name / Number *</label>
+                                        <input type="text" name="address_line_2"  placeholder="Premises name / Number 2" value="{{ session()->get('address_line_2')?? old('address_line_2') }}" >
                                     </div>
                                     <div class="form-group">
                                         <label>Town / city *</label>

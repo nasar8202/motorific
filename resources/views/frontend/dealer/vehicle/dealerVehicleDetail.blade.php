@@ -6,7 +6,7 @@
     <main class="topPadingPage">
         <section class="veh-detail-sec">
             <div class="backBtn">
-                <a href="{{route('dealer.dashboard')}}">Back to Vehicles</a>
+                <a href="{{route('dealerToDealer')}}">Back to Vehicles</a>
             </div>
             <div class="sliderImgVehicleDetail">
                 
@@ -41,7 +41,7 @@
                             <div class="col-12">
                                 <div class="numberStarDiv v-details-number">
                             <span>{{ $vehicle->vehicle_registartion_number }}</span>
-                            <i class="fa-regular fa-star"></i>
+                            {{-- <i class="fa-regular fa-star"></i> --}}
                         </div>
                         <div class="titleVehicle">
                             <h2>{{ $vehicle->vehicle_name }}</h2>
@@ -142,6 +142,9 @@
                                     <li>Attention Grabber
                                         <span>{{ $vehicle->DealerVehicleMedia->attention_grabber }}</span>
                                     </li>
+                                    <li>Advert description
+                                        <span>{{ $vehicle->DealerVehicleMedia->advert_description }}</span>
+                                    </li>
                                     
                                 </ul>
                             </div>
@@ -239,12 +242,12 @@
                                     <li>Is there any damage on your vehicle?
                                         <span>{{ $vehicle->DealerVehicleMedia->any_damage_checked }}</span>
                                     </li>
-                                    <li>Advert description
+                                    {{-- <li>Advert description
                                         <span>{{ $vehicle->DealerVehicleMedia->advert_description }}</span>
-                                    </li>
-                                    <li>Attention Grabber
+                                    </li> --}}
+                                    {{-- <li>Attention Grabber
                                         <span>{{ $vehicle->DealerVehicleMedia->attention_grabber }}</span>
-                                    </li>
+                                    </li> --}}
                                     {{-- <li>Nearside Front<span>{{ $vehicle->DealerVehicleMedia->nearside_front }}</span></li>
                                     <li>Nearside Rear<span>{{ $vehicle->DealerVehicleMedia->nearside_rear }}</span></li>
                                     <li>Offside Front <span>{{ $vehicle->DealerVehicleMedia->offside_front }} </span></li>
@@ -400,8 +403,12 @@
                                                 @else
                                                     No Bid Yet
                                                 @endif
-                                            </a></div></li>
+                                            </a>
+                                        </li>
+                                        </div>
+                                            
                                 </ul>
+                                
                                 <?php
                            $bid = App\Models\DealersOrderVehicleRequest::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
                             if($bid == null){
@@ -410,7 +417,15 @@
                                 @if ($vehicle->user_id == Auth::user()->id)
                                     <h2 class="text text-danger  p-2 dealerOwnVehilcle">This Is Your Own Vehicle</h2>
                                 @else
+                                <div  class="reserveDetail">
+                                <ul>
+                                <li class="justify-content-center">
+                                   <a>Buy Now : £{{$vehicle->reserve_price}}</a>
+                                   </li>
+                                </ul>
+                            </div>
                                     <form action="#">
+                                       
                                         <div class="form-group">
                                             <div class="mx-bix">
                                                 
@@ -441,10 +456,13 @@
                                 <center><span class="text-danger "> You've already placed a bid on this car. 
                                     Your bid is for £
                                     
-                                     {{ $bid->bid_price }}</span>
+                                     {{ $bid->request_price }}</span>
                                 </center>
-                                <center><a href="{{ route('cancelDealerRequest', $bid->id) }}"
+                                <center>
+                                    <a href="{{ route('cancelDealerRequest', $bid->id) }}"
                                         class="btn btn-danger btn-sm"> Cancel Bid</a>
+                                        <a href="{{route('dealerToDealer')}}"
+                                            class="btn btn-success btn-sm"> Back To Vehicle</a>
                                 </center>
                                 <?php } ?>
                             </div>
