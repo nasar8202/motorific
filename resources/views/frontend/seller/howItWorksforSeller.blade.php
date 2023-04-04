@@ -183,7 +183,7 @@ display: block;
                 <div class="check_area">
 
                     <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
-                        value="{{ old('registeration') }}">
+                        value="{{ old('registeration') }}" style="text-transform: uppercase">
                     <span class="text-danger show_error"></span>
                     <button type="button" id="check_registeration">Value Your Car</button>
                 </div>

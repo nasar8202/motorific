@@ -413,8 +413,8 @@ div#filter-price {
 
         </div>
         <div class="ban-vehicles" id="vehicle-banner">
-                    <h1>New Vehicles Comming soon</h1>
-                    <p>Come back soon to see what soon stock we have.</p>
+                    <h1 style="display: inline; white-space: nowrap">New Vehicles Coming soon</h1>
+                    <p style="display: inline; white-space: nowrap">Come back soon to see new stock we have.</p>
                     <a href="" class="" >Go to buy Its Now</a>
                 </div>
     </div>

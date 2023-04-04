@@ -29,6 +29,7 @@ use App\Mail\VehicleValuationPrice;
 use App\Mail\WinnerRequestedPerson;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
+use App\Mail\EveryDayEightAm;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -667,10 +668,12 @@ class ManageVehicleController extends Controller
             ]);
 
             Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
+            // Mail::to($vehicle->user->email)->send(new EveryDayEightAm($data));
+            
         } catch (\Exception $e) {
            
             DB::rollback();
-            return $e;
+            
             return Redirect()->back()
                 ->with('error', $e->getMessage())
                 ->withInput();

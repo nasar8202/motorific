@@ -79,7 +79,7 @@
    <!-- End -->
 
     <!-- Products Section -->
-    <section class="products-sec sec-padding">
+    {{-- <section class="products-sec sec-padding">
         <div class="container-1170">
             <div class="row">
                 <div class="col-md-8">
@@ -227,7 +227,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- End -->
 

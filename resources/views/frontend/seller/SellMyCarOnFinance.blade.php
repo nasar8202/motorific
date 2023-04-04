@@ -177,7 +177,7 @@
                     <div class="check_area">
 
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
-                            value="{{ old('registeration') }}">
+                            value="{{ old('registeration') }}" style="text-transform: uppercase">
                         <span class="text-danger show_error"></span>
                         <button type="button" id="check_registeration">Value Your Car</button>
                     </div>
@@ -403,7 +403,7 @@
                             <div class="check_area1">
 
                                 <input type="text" name="registeration1" id="registeration1" placeholder="Enter REG"
-                                    value="{{ old('registeration') }}">
+                                    value="{{ old('registeration') }}" style="text-transform: uppercase">
                                 <span class="text-danger show_error1"></span>
                                 <button type="button" id="check_registeration1">Value Your Car</button>
                             </div>

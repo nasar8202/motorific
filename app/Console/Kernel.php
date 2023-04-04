@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\SellVehicleCron::class,
         Commands\QueueListenCommand::class,
+        Commands\EveryDayEightAm::class,
     ];
 
     /**
@@ -30,6 +31,8 @@ class Kernel extends ConsoleKernel
                  ->everyMinute();
         $schedule->command('QueueListenCommand:cron')
                  ->everyMinute();
+        $schedule->command('EveryDayEightAm:cron')
+                 ->everyMinute();         
     }
 
     /**

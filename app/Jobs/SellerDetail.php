@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Mail\SellerDetails;
+use App\Mail\YourLoginDetailsForMotorific;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
@@ -33,7 +33,7 @@ class SellerDetail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SellerDetails($this->seller_details);
+        $email = new YourLoginDetailsForMotorific($this->seller_details);
         Mail::to($this->seller_details['email'])->send($email);
     }
 }
