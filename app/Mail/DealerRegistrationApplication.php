@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EmailForDealerRegistrationQueuing extends Mailable
+class DealerRegistrationApplication extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,6 +29,9 @@ class EmailForDealerRegistrationQueuing extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.EmailForDealerRegistrationQueuing');
+        return $this->view('emails.DealerRegistrationApplication');
     }
 }
+
+
+// EmailForDealerRegistrationQueuing.blade

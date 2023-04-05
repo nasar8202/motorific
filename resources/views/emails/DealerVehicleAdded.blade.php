@@ -456,8 +456,8 @@
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
                 <h3 class="title-name">Hi {{ $queue_details['name'] }}!</h3>
-                <p style="display: inline; white-space: nowrap">Your advertisement is now live for other dealers to bid. Good luck</p>
-                
+                <p style="display: block; ">Thank you for adding your vehicle to our dealer portal for sale.</p>
+                <p style="display: block; ">Our team is reviewing your advertisement and will notify you as soon as it goes live.</p>
                 <h3 class="title-name">Car Details</h3>
             </div>
         </header>
@@ -475,9 +475,9 @@
                             <li><span>Car Age:</span> {{ $queue_details['age'] }} </li>
                            
                         </ul>
-                        <div class="veh-img">
+                        {{-- <div class="veh-img">
                             <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$queue_details['front']) }}" width="80px" height="80px" alt="">
-                        </div>
+                        </div> --}}
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
                             <p>Your valuation is being worked on by Motorific experts valuation team.

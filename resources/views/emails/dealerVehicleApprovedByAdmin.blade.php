@@ -165,10 +165,10 @@
           </div>
         </div>
         <div class="mail-content">
-            <h2>Approved by Motorific!</h2>
+            <h2>Motorific has given their approval!</h2>
             <p>Hi {{ $data['name'] }}!</p>
             <p>
-              Your <strong>{{ $data['vehicle_name'] }}</strong> has been Approved by Motorific for the price of <strong>{{ $data['bidded_price'] }}</strong> to go live on daily auction. We will update you with the results of auction at the end of the auction day. 
+              Your <strong>{{ $data['vehicle_name'] }}</strong> has been approved by Motorific for  <strong>{{ $data['bidded_price'] }}</strong> to go live on the dealer-to-dealer Portal. When we receive offers on your vehicle, we will notify you of the sale results. Best of luck. 
 
 
           </p>

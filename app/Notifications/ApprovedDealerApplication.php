@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ApprovedDealerNotification extends Notification
+class ApprovedDealerApplication extends Notification
 {
     use Queueable;
 
@@ -46,6 +46,9 @@ class ApprovedDealerNotification extends Notification
                     ->greeting($this->details['greeting'])
                     ->line($this->details['body'])
                     ->action($this->details['actionText'], $this->details['actionURL'])
+                    ->line($this->details['body2'])
+                    ->line($this->details['body3'])
+                    ->line($this->details['body4'])
                     ->line($this->details['thanks']);
     }
 

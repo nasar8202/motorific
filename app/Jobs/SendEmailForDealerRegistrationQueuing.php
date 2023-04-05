@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 use Illuminate\Contracts\Queue\ShouldBeUnique;
-use App\Mail\EmailForDealerRegistrationQueuing;
+use App\Mail\DealerRegistrationApplication;
 
 class SendEmailForDealerRegistrationQueuing implements ShouldQueue
 {
@@ -33,7 +33,7 @@ class SendEmailForDealerRegistrationQueuing implements ShouldQueue
      */
     public function handle()
     {
-        $email = new EmailForDealerRegistrationQueuing($this->queue_details);
+        $email = new DealerRegistrationApplication($this->queue_details);
         Mail::to($this->queue_details['email'])->send($email);
     }
 }

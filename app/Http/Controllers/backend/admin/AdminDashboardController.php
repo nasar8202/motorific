@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DealerWinningCharges;
 use App\Models\NewsletterSubscriber;
 use App\Notifications\RejectDealerNotification;
+use App\Notifications\ApprovedDealerApplication;
 use App\Notifications\ApprovedDealerNotification;
 
 
@@ -61,15 +62,20 @@ class AdminDashboardController extends Controller
             
             $details = [
                 'greeting' => 'Hi ' . $user->name,
-                'body' => 'Your Request Has Been Approved',
-                'thanks' => 'Thank you for using motorific.co.uk ',
-                'actionText' => 'Login',
+                'body' => "The application you submitted for becoming a Motorific approved dealer has been approved 
+            Our daily stock availability can now be viewed through your dealer portal
+            Your slow moving stock can also be advertised in the portal for the dealer community to purchase. \n",
+            'body2' => "Our daily auction timings are 8AM to 3PM . \n",
+            'body3' => "With 100s of new cars listed daily on our website, we provide a large selection of high-quality private sale and trade-in vehicles. \n",
+            'body4' => "Each vehicle is fully profiled by our team, including photos, specs, condition, and service history. We vet sellers and set the price expectations to ensure a hassle-free transaction. \n",
+            'thanks' => "Welcome to the motorific family . \n",
+            'actionText' => 'Login',
                 'actionURL' =>   url('/dealer-login?email=' . urlencode($user->email)),
                 'order_id' => 101
             ];
     
             // Notification::send($user->email, new MyFirstNotification($details));
-            $user->notify(new ApprovedDealerNotification($details));
+            $user->notify(new ApprovedDealerApplication($details));
     
            return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
         }
@@ -89,15 +95,20 @@ class AdminDashboardController extends Controller
             
             $details = [
                 'greeting' => 'Hi ' . $user->name,
-                'body' => 'Your Request Has Been Approved',
-                'thanks' => 'Thank you for using motorific.co.uk ',
+                'body' => "The application you submitted for becoming a Motorific approved dealer has been approved 
+                Our daily stock availability can now be viewed through your dealer portal
+                Your slow moving stock can also be advertised in the portal for the dealer community to purchase. \n",
+                'body2' => "Our daily auction timings are 8AM to 3PM . \n",
+                'body3' => "With 100s of new cars listed daily on our website, we provide a large selection of high-quality private sale and trade-in vehicles. \n",
+                'body4' => "Each vehicle is fully profiled by our team, including photos, specs, condition, and service history. We vet sellers and set the price expectations to ensure a hassle-free transaction. \n",
+                'thanks' => "Welcome to the motorific family . \n",
                 'actionText' => 'Login',
                 'actionURL' => url('/dealer-login?email=' . urlencode($user->email)),
                 'order_id' => 101
             ];
     
             // Notification::send($user->email, new MyFirstNotification($details));
-            $user->notify(new ApprovedDealerNotification($details));
+            $user->notify(new ApprovedDealerApplication($details));
     
            return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
         }
@@ -118,15 +129,20 @@ class AdminDashboardController extends Controller
             
             $details = [
                 'greeting' => 'Hi ' . $user->name,
-                'body' => 'Your Request Has Been Approved',
-                'thanks' => 'Thank you for using motorific.co.uk ',
-                'actionText' => 'Login',
+                'body' => "The application you submitted for becoming a Motorific approved dealer has been approved 
+                Our daily stock availability can now be viewed through your dealer portal
+                Your slow moving stock can also be advertised in the portal for the dealer community to purchase. \n",
+                'body2' => "Our daily auction timings are 8AM to 3PM . \n",
+                'body3' => "With 100s of new cars listed daily on our website, we provide a large selection of high-quality private sale and trade-in vehicles. \n",
+                'body4' => "Each vehicle is fully profiled by our team, including photos, specs, condition, and service history. We vet sellers and set the price expectations to ensure a hassle-free transaction. \n",
+                'thanks' => "Welcome to the motorific family . \n",
+                 'actionText' => 'Login',
                 'actionURL' => url('/dealer-login?email=' . urlencode($user->email)),
                 'order_id' => 101
             ];
     
             // Notification::send($user->email, new MyFirstNotification($details));
-            $user->notify(new ApprovedDealerNotification($details));
+            $user->notify(new ApprovedDealerApplication($details));
     
            return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
             
@@ -157,15 +173,20 @@ class AdminDashboardController extends Controller
         
         $details = [
             'greeting' => 'Hi ' . $user->name,
-            'body' => 'Your Request Has Been Approved',
-            'thanks' => 'Thank you for using motorific.co.uk ',
+            'body' => "The application you submitted for becoming a Motorific approved dealer has been approved 
+            Our daily stock availability can now be viewed through your dealer portal
+            Your slow moving stock can also be advertised in the portal for the dealer community to purchase. \n",
+            'body2' => "Our daily auction timings are 8AM to 3PM . \n",
+            'body3' => "With 100s of new cars listed daily on our website, we provide a large selection of high-quality private sale and trade-in vehicles. \n",
+            'body4' => "Each vehicle is fully profiled by our team, including photos, specs, condition, and service history. We vet sellers and set the price expectations to ensure a hassle-free transaction. \n",
+            'thanks' => "Welcome to the motorific family . \n",
             'actionText' => 'Login',
             'actionURL' => url('/dealer-login?email=' . urlencode($user->email)),
             'order_id' => 101
         ];
 
         // Notification::send($user->email, new MyFirstNotification($details));
-        $user->notify(new ApprovedDealerNotification($details));
+        $user->notify(new ApprovedDealerApplication($details));
 
        return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
        }
@@ -179,15 +200,20 @@ class AdminDashboardController extends Controller
 
         $details = [
             'greeting' => 'Hi ' . $user->name,
-            'body' => 'Your Request Has Been Approved',
-            'thanks' => 'Thank you for using motorific.co.uk ',
+            'body' => "The application you submitted for becoming a Motorific approved dealer has been approved 
+            Our daily stock availability can now be viewed through your dealer portal
+            Your slow moving stock can also be advertised in the portal for the dealer community to purchase. \n",
+            'body2' => "Our daily auction timings are 8AM to 3PM . \n",
+            'body3' => "With 100s of new cars listed daily on our website, we provide a large selection of high-quality private sale and trade-in vehicles. \n",
+            'body4' => "Each vehicle is fully profiled by our team, including photos, specs, condition, and service history. We vet sellers and set the price expectations to ensure a hassle-free transaction. \n",
+            'thanks' => "Welcome to the motorific family . \n",
             'actionText' => 'Login',
             'actionURL' => url('/register-step-1'),
             'order_id' => 101
         ];
 
         // Notification::send($user->email, new MyFirstNotification($details));
-        $user->notify(new ApprovedDealerNotification($details));
+        $user->notify(new ApprovedDealerApplication($details));
 
        return redirect()->back()->with('success', 'Dealer approved Successfully!');
         //return view('backend.admin.dealers.viewDealers',compact('dealers'));

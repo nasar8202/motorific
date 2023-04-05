@@ -30,7 +30,7 @@ class DealerVehicleAdded extends Mailable
      */
     public function build()
     {
-        $subject = 'Congratulations';
+        $subject = 'Vehicle submission dealer to dealer';
         return $this->view('emails.DealerVehicleAdded')->subject($subject);
 
         //return $this->view('view.name');

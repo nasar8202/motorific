@@ -30,7 +30,7 @@ class dealerVehicleApprovedByAdmin extends Mailable
      */
     public function build()
     {
-        $subject = 'Congratulations';
+        $subject = 'Motorific has given their approval!';
         return $this->view('emails.dealerVehicleApprovedByAdmin')->subject($subject);
 
         //return $this->view('view.name');
