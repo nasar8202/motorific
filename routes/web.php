@@ -70,6 +70,8 @@ Route::get('/careers', [NewsletterSubscribers::class,'careers'])->name('careers'
 Route::post('/apply-for-job', [NewsletterSubscribers::class,'applyForJob'])->name('applyForJob');
 Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmail'])->name('subscribeEmail');
 Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
+Route::get('about-us',[NewsletterSubscribers::class,'aboutUs'])->name('aboutUs');
+Route::get('help',[NewsletterSubscribers::class,'help'])->name('help');
 Route::post('get-intouch-post',[NewsletterSubscribers::class,'getIntouchPost'])->name('getIntouchPost');
 //end
 // Route::get('test', function () {

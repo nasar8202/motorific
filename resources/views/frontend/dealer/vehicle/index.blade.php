@@ -98,7 +98,7 @@ div#filter-price {
 </div>
 <section class="sec-2 productPageTn">
     <input type="hidden" id="path" value="{{ asset('')}}">
-    
+    @dd($liveSellVehicles)
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">

@@ -43,14 +43,23 @@ class DealerDashboardController extends Controller
     {
 
       $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
-      $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-        ->where('end_vehicle_date',$start_end_vehicle_date)->distinct('vehicle_name')->pluck('vehicle_name');
-        $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-        ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+      $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')
+        ->where('all_auction','all')->distinct('vehicle_name')->pluck('vehicle_name');
 
+        $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all')->get();
+
+        $mytime = Carbon::now();
+        $current_date = ($mytime->toDateString());
+                $liveSellVehicles = Vehicle::
+                Where('status',1)
+                ->where('start_vehicle_date',$current_date)
+                ->where('end_vehicle_date',$current_date)
+                ->with('vehicleInformation')
+                ->with('VehicleImage')
+                ->where('all_auction',null )->get();
         $countAllVehicle = count($allVehicles);
 
-        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle','allVehiclesName'));
+        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle','allVehiclesName','liveSellVehicles'));
 
     }
     public function loadmoredata(Request $request)
@@ -312,8 +321,9 @@ class DealerDashboardController extends Controller
         $allVehicles = Vehicle::Where('status',1)->Where('vehicle_category',$category->id)->with('vehicleInformation')->with('VehicleImage')->get();
 
         $countAllVehicle = Vehicle::where('status',1)->Where('vehicle_category',$category->id)->count();
-
-        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle'));
+        $allVehiclesName = Vehicle::Where('status',1)->Where('vehicle_category',$category->id)
+        ->distinct('vehicle_name')->pluck('vehicle_name');
+        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle','allVehiclesName'));
 
     }
 
@@ -324,8 +334,9 @@ class DealerDashboardController extends Controller
         $allVehicles = Vehicle::Where('status',1)->Where('vehicle_category',$category->id)->with('vehicleInformation')->with('VehicleImage')->get();
 
         $countAllVehicle = Vehicle::where('status',1)->Where('vehicle_category',$category->id)->count();
-
-        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle'));
+        $allVehiclesName = Vehicle::Where('status',1)->Where('vehicle_category',$category->id)
+        ->distinct('vehicle_name')->pluck('vehicle_name');
+        return view('frontend.dealer.vehicle.index',compact('allVehicles','countAllVehicle','allVehiclesName'));
 
     }
     public function liveSell()
