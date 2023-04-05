@@ -48,8 +48,8 @@ class QueueListenCommand extends Command
     public function handle()
     {
 
-        $exitCode = Artisan::call('queue:listen');
-        return "works queue listen!";
+        // $exitCode = Artisan::call('queue:listen');
+        
 
     }
 }

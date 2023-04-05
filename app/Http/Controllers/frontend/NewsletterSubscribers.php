@@ -17,6 +17,12 @@ class NewsletterSubscribers extends Controller
     public function careers(){
         return view("frontend.seller.careers");
     }
+    public function aboutUs(){
+        return view("frontend.seller.aboutUs");
+    }
+    public function help(){
+        return view("frontend.seller.help");
+    }
     public function applyForJob(Request $request)
     {
         // dd($request->all(),$request->file('cv'));

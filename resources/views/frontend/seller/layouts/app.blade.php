@@ -16,6 +16,7 @@
         <!--Slick Css End-->
     <!-- CUSTOM-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/custom.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -45,15 +46,11 @@
 </head>
 
 <body onload="move()" id="contentBody">
-    <div id="myProgress">
-        <div class="loader-img">
-            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">
-        </div>
-      <!--<div id="myBar">-->
-      <!--    <span id="bar"></span>-->
-      <!--    <span id="bar-txt">0%</span>-->
-      <!--</div> -->
-    </div>
+    <!--<div id="myProgress">-->
+    <!--    <div class="loader-img">-->
+    <!--        <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">-->
+    <!--    </div>-->
+    <!--</div>-->
     
     
     

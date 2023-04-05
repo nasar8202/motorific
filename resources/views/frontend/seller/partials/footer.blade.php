@@ -9,13 +9,13 @@
                 <ul>
                     <li>
                         
-                        <a href="{{route('GetInTouchSellerForm')}}">About us</a>
+                        <a href="{{route('aboutUs')}}">About us</a>
                     </li>
                     <li><a href="{{ route('dealer.newDashboard') }}">For Dealers </a></li>
                     <li>
                         <a href="{{route('GetInTouchSellerForm')}}">Contact us</a>
                     </li>
-                    <a href="#">
+                    <a href="{{route('help')}}">
                         <li>Help</li>
                     </a>
                     <li href="#">
