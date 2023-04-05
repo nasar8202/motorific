@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendEmailForSellerVehicle;
 use App\Models\vehicleConditionAndDamage;
 use App\Jobs\SendEmailForSellerVehicleAddQueuing;
 
@@ -534,7 +535,7 @@ class FrontController extends Controller
                 ];
                 //$details = ['email' => $users->email];
                 //SendEmailForSellerVehicleAddQueuing::dispatch($details);
-                dispatch(new SendEmailForSellerVehicleAddQueuing($vehicle_details));
+                dispatch(new SendEmailForSellerVehicle($vehicle_details));
                 
                 //Mail::to($users->email)->send(new SellerVehicleAdded($data));
                 $request->session()->forget(['vehicle_feature','seat_material','number_of_keys','tool_pack','locking_wheel_nut','smoked_in','log_book','location','HouseName'

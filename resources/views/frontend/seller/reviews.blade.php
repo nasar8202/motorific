@@ -161,7 +161,7 @@ display: block;
             <div class="sec-1-txt col-lg-6">
                 <h2>Sell your car 
                     with <span>Motorific</span></h2>
-                <p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>
+                <p> Find your best offer from over thousands of dealers and sell for up to £1,000* more. It’s that easy.</p>
                 <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                     <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -175,7 +175,7 @@ display: block;
                 <div class="check_area">
 
                     <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
-                        value="{{ old('registeration') }}">
+                        value="{{ old('registeration') }}" style="text-transform: uppercase">
                     <span class="text-danger show_error"></span>
                     <button type="button" id="check_registeration">Value Your Car</button>
                 </div>

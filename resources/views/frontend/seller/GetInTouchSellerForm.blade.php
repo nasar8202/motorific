@@ -197,14 +197,15 @@ display: block;
         
                                 <br>
                                 <input type="number" name="millage" placeholder="Enter Millage" required>
-                                <input type="hidden" name="registeration" class="registeration1" value="">
+                                <input type="hidden" name="registeration1" class="registeration1" value="">
                                 <button type="submit">Continue</button>
         
                             </form>
+                            
                             <div class="check_area1">
 
                                 <input type="text" name="registeration1" id="registeration1" placeholder="Enter REG"
-                                    value="{{ old('registeration') }}">
+                                    value="{{ old('registeration') }}" style="text-transform: uppercase">
                                 <span class="text-danger show_error1"></span>
                                 <button type="button" id="check_registeration1">Value Your Car</button>
                             </div>

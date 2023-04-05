@@ -14,21 +14,21 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Artisan;
 
-class QueueListenCommand extends Command
+class EveryDayEightAm extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'QueueListenCommand:cron';
+    protected $signature = 'EveryDayEightAm:cron';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Every Day Eight Am';
 
     /**
      * Create a new command instance.
@@ -47,9 +47,8 @@ class QueueListenCommand extends Command
      */
     public function handle()
     {
-
-        // $exitCode = Artisan::call('queue:listen');
-        
+            $log = Log::info('working fine');
+        return "work";
 
     }
 }

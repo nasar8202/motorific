@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Complete</title>
+    {{-- <title>Registration Complete</title> --}}
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <!-- Google Fonts -->
@@ -488,13 +488,13 @@
                         </div> --}}
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
-                            <p> 1) accept the reserve price 
+                            <p> 1)  I accept the reserve price
                                 (<a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>)
+                                <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>).
                             </p>
-                            <p>2)will add you vehicle to our daily sale to more then 1000 dealers .</p>
-                            <p>3)at 4pm on the day the sales goes live you will receive a email with the outcomer </p>
-                            <p>4) if your vehicle has reached your reservation price the winning dealer will contact you to arrange payment and collection  </p>
+                            <p>2)Your vehicle will be added by our daily bidding platform, where thousands of dealers can bid on it. </p>
+                            <p>3)At 4pm on the day the sale goes live you will receive an email with the outcome. </p>
+                            <p>4) If your vehicle has reached your reservation price, the winning dealer will contact you to arrange payment and collection.    </p>
                             {{-- <p>5)Your valuation is being worked on by Motorific experts valuation team.
                                 The tools we use as industry experts will ensure you receive the best, genuine price for your car in today's market.</p>
                             <h6>Want your valuation sooner?</h6> --}}

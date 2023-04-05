@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Complete</title>
+    {{-- <title>Registration Complete</title> --}}
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <!-- Google Fonts -->
@@ -456,7 +456,7 @@
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
                 <h3 class="title-name">Hi {{ $queue_details['name'] }}!</h3>
-                <p>your advertisement is now live for other dealers to bid. Good luck</p>
+                <p style="display: inline; white-space: nowrap">Your advertisement is now live for other dealers to bid. Good luck</p>
                 
                 <h3 class="title-name">Car Details</h3>
             </div>

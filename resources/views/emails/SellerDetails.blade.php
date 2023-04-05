@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Complete</title>
+    {{-- <title>Registration Complete</title> --}}
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <!-- Google Fonts -->
@@ -367,14 +367,17 @@
             <div class="container">
                 <div class="cont-main  unsub">
                     <div class="congt-box">
-                        <h3>Your Registration is Complete</h3>
+                        <h3>Registration on Motorific</h3>
+                        <span>Here are you login details for motorific </span><br>
                         <ul class="reg-detail">
                             <li><span>User Name:</span> {{ $seller_details['greeting'] }}</li>
                             <li><span>Email:</span> {{ $seller_details['email'] }}</li>
                             <li><span>Phone Number:</span>{{ $seller_details['phone_number'] }}</li>
                             <li><span>Post Code:</span>{{ $seller_details['body1'] }}</li>
-                            <li><span>Your Password is:</span>{{ $seller_details['body'] }}</li>
+                            <li><span>Your Password is: </span>{{ $seller_details['body'] }}</li>
                         </ul>
+                        <p style="display: inline; white-space: nowrap ;"><span>Login now and complete your vehicles profile. </span></p>
+                        <p>1000s of eager cars traders are waiting to compete against each other to give you the highest offer.</p>
                         <a href="{{route('myLogin')}}" class="prim-btn green-btn">Login</a>
                         <h4>Motorific</h4>
                     </div>
