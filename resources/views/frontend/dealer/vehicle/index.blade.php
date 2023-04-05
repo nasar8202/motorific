@@ -98,31 +98,31 @@ div#filter-price {
 </div>
 <section class="sec-2 productPageTn">
     <input type="hidden" id="path" value="{{ asset('')}}">
-    @dd($liveSellVehicles)
+    
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 productsFiltersCol">
             <div class="productsFilters">
                 <h2 class="filter-head">Filters <span class="filterToggle"><i class="fa-solid fa-sliders"></i></span></h2>
                 <div class="filterWraper">
-                    <div class="filterIn">
+                    {{-- <div class="filterIn">
                         <h4>Type</h4>
                         <label class="checkboxCommon" for="typeAll">
                             <a href="{{route('dealer.dashboard')}}" id="typeAll" >All</a>
-                            {{-- <input type="radio" class="type"  name="typePro" value="All" id="typeAll"/>
-                            <span>All</span> --}}
+                            <input type="radio" class="type"  name="typePro" value="All" id="typeAll"/>
+                            <span>All</span>
                         </label>
                         <label class="checkboxCommon" for="typeCar">
                             <a href="{{route('onlyCars')}}" id="typeAll" >Cars</a>
-                            {{-- <input type="radio" class="type" name="typePro" value="Car" id="typeCar"/>
-                            <span>Car</span> --}}
+                            <input type="radio" class="type" name="typePro" value="Car" id="typeCar"/>
+                            <span>Car</span>
                         </label>
                         <label class="checkboxCommon" for="typeVan">
                             <a href="{{route('onlyVans')}}"  >Vans</a>
-                            {{-- <input type="radio" class="type" name="typePro" value="Van" id="typeVan"/>
-                            <span>Van</span> --}}
+                            <input type="radio" class="type" name="typePro" value="Van" id="typeVan"/>
+                            <span>Van</span>
                         </label>
-                    </div>
+                    </div> --}}
                      
                         <div class="filterIn">
                             <h4>Makes</h4>
