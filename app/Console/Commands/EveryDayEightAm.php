@@ -47,7 +47,9 @@ class EveryDayEightAm extends Command
      */
     public function handle()
     {
-            $log = Log::info('working fine');
+        // $dealers = User::where('role_id','3')->get();
+        // dd($dealers);
+           $log = Log::info('working fine');
         return "work";
 
     }

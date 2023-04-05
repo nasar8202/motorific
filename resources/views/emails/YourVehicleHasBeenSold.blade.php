@@ -455,10 +455,10 @@
             <div class="container">
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
-                <h3 class="title-name">Hi {{ $queue_details['name'] }}!</h3>
-                <p style="display: block; ">Thank you for adding your vehicle to our dealer portal for sale.</p>
-                <p style="display: block; ">Our team is reviewing your advertisement and will notify you as soon as it goes live.</p>
-                <h3 class="title-name">Car Details</h3>
+                <h3 class="title-name">Hello {{ $details['name'] }}!</h3>
+                
+                <p>Congratulations on selling your vehicle via Motorific dealer to dealer portal.</p>
+                
             </div>
         </header>
 
@@ -469,20 +469,24 @@
                     <div class="congt-box">
                         
                         <ul class="reg-detail">
-                            <li><span>Model:</span> {{ $queue_details['vehicle_name'] }} </li>
-                            <li><span>Reg:</span> {{ strtoupper($queue_details['vehicle_registration']) }}</li>
-                            <li><span>Mileage:</span>{{ $queue_details['vehicle_mileage'] }}</li>
-                            <li><span>Car Age:</span> {{ $queue_details['age'] }} </li>
+                            <li><span>Model:</span> {{ $details['vehicle_name'] }} </li>
+                            <li><span>Reg:</span> {{ strtoupper($details['vehicle_registration']) }}</li>
+                            <li><span>Mileage:</span>{{ $details['vehicle_mileage'] }}</li>
+                            <li><span>Car Age:</span> {{ $details['age'] }} </li>
+                            <li><span>Color:</span>{{ $details['colour'] }}</li>
+                        </ul>
+                        <h4 class="title-name">Sale price :</h4>
+                        <h4 class="title-name">Dealer information:</h4>
+                        <ul class="reg-detail">
+                            <li><span>Name:</span> {{ $details['dealer_name'] }} </li>
+                            <li><span>Email:</span> {{ $details['dealer_email'] }}</li>
+                            <li><span>Phone Number:</span>{{ $details['dealer_phone_number'] }}</li>
                            
                         </ul>
-                        {{-- <div class="veh-img">
-                            <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$queue_details['front']) }}" width="80px" height="80px" alt="">
-                        </div> --}}
                         <div class="veh-text">
-                            <h5>The Next Step?</h5>
-                            <p>Your valuation is being worked on by Motorific experts valuation team.
-                                The tools we use as industry experts will ensure you receive the best, genuine price for your car in today's market.</p>
-                            <h6>Want your valuation sooner?</h6>
+                            <h5>The dealer will contact you to arrange payment and pickup.</h5>
+                           
+                           
                             <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: +44 7593 839364</a>
                         </div>
 

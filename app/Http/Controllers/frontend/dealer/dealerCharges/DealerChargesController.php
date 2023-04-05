@@ -20,9 +20,11 @@ use App\Mail\BiddedVehicleSeller;
 use Illuminate\Support\Facades\DB;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
+use App\Mail\YourVehicleHasBeenSold;
 use App\Models\DealerWinningCharges;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\YourVehicleHasBeenSolds;
 use App\Models\VehicleWinningCharges;
 use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
@@ -518,10 +520,26 @@ class DealerChargesController extends Controller
                     $chargesDetails->vehicle_charges = $charges_payment;
                     $chargesDetails->status = 1;
                     $chargesDetails->save();
-                    
+                   
                     $user = User::where('id', $allVehicles->user_id)->first();
+                    $dealer = User::where('id', Auth::user()->id)->first();
+                    // dd($user,$dealer);
                     $current = Auth::user()->id;
                     $pricing = DealersOrderVehicleRequest::where('vehicle_id', $id)->where('user_id', $current)->first();
+                    $details = [
+                        'name'=>$user->name,
+                        'email'=>"$user->email",
+                        'dealer_phone_number'=>$dealer->phone_number,
+                        'dealer_email'=>$dealer->email,
+                        'dealer_name'=>$dealer->name,
+                        'vehicle_name'=>$allVehicles->vehicle_name,
+                        'vehicle_registration'=>$allVehicles->vehicle_registartion_number,
+                        'vehicle_mileage'=>$allVehicles->vehicle_mileage,
+                        'age'=>$allVehicles->vehicle_year,
+                        'reserve_price'=>$allVehicles->reserve_price,
+                        'colour'=>$allVehicles->vehicle_color,
+                    ];
+                    dispatch(new YourVehicleHasBeenSolds($details));
                     Session::flash('success', 'Your '.$charges_payment.' Payment Has Been Charged From Your Card'); 
                     return view('frontend.dealer.sellerDetails.ownerDealerDetail', compact('user', 'role', 'allVehicles', 'current', 'pricing'));
                
@@ -537,7 +555,7 @@ class DealerChargesController extends Controller
                 return view('frontend.dealer.sellerDetails.ownerDealerDetail', compact('user', 'allVehicles', 'pricing', 'current', 'role'));
             }
         } catch (\Exception $e) {
-            //return $e;
+           // return $e;
             return Redirect()->back()
                 ->with('error', $e->getMessage())
                 ->withInput();

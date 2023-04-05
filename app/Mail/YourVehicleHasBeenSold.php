@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EmailForDealerRegistrationQueuing extends Mailable
+class YourVehicleHasBeenSold extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,10 +16,10 @@ class EmailForDealerRegistrationQueuing extends Mailable
      *
      * @return void
      */
-    public $queue_details;
-    public function __construct($queue_details)
+    public $details;
+    public function __construct($details)
     {
-        $this->queue_details = $queue_details;
+        $this->details = $details;
     }
 
     /**
@@ -29,6 +29,8 @@ class EmailForDealerRegistrationQueuing extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.EmailForDealerRegistrationQueuing');
+        return $this->view('emails.YourVehicleHasBeenSold');
     }
 }
+
+// SellerDetails

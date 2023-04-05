@@ -8,6 +8,7 @@
             <div class="backBtn">
                 <a href="{{route('dealerToDealer')}}">Back to Vehicles</a>
             </div>
+            <input type="hidden" class="get-route" value="{{route('dealerToDealer')}}">
             <div class="sliderImgVehicleDetail">
                 
                 @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
@@ -393,10 +394,10 @@
                                     </ul>
                                     <!--<li>Live Salaes end <span>3h 53m 26s <a href="#">-->
                                     <li class="sale-timer">
-                                         <div class="sale-countdown">
+                                         {{-- <div class="sale-countdown">
                                             <span id="message"></span>
                                             <span id="countdown"></span>
-                                        </div>
+                                        </div> --}}
                                          <a href="#">
                                                 @if ($allbid)
                                                     {{ $allbid }}
@@ -420,7 +421,7 @@
                                 <div  class="reserveDetail">
                                 <ul>
                                 <li class="justify-content-center">
-                                   <a>Buy Now : £{{$vehicle->reserve_price}}</a>
+                                   <a href="{{route('buyNowFromDealer',$vehicle->id)}}">Buy Now : £{{$vehicle->reserve_price}}</a>
                                    </li>
                                 </ul>
                             </div>
@@ -512,7 +513,9 @@
                             if (resultData != null) {
                                 $(".spinner-border").show();
                                 setTimeout(function() {
-                                    location.reload();
+                                    // location.reload();
+                                    // history.back();
+                                    window.location = $('.get-route').val();
                                 }, 1000);
                                 toastr.success(resultData.success);
                             } else {

@@ -367,8 +367,9 @@
             <div class="container">
                 <div class="cont-main  unsub">
                     <div class="congt-box">
-                        <h4>thank you for registrating as a dealer with motorific</h4>
-                        <p>we are checking your information and revert back to you if we require any further information</p>
+                        {{-- <h4>thank you for registrating as a dealer with motorific</h4> --}}
+                        <p>We appreciate your interest in becoming a motorific dealer
+                            We are checking your information and will contact you if we need additional information</p>
                         <ul class="reg-detail">
                             <li><span>User Name:</span> {{ $queue_details['name'] }} </li>
                             <li><span>Email:</span> {{ $queue_details['email'] }}</li>
