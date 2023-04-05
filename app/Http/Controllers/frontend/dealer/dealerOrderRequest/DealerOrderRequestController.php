@@ -28,6 +28,7 @@ class DealerOrderRequestController extends Controller
         // }
 
         $vehicle = DealerVehicle::where('status',1)->where('id',$request->VehicleId)->first();
+        
         if( $request->BidPrice >= $vehicle->reserve_price ){
         $order = new DealersOrderVehicleRequest;
         $order->user_id = Auth::user()->id;
@@ -65,11 +66,28 @@ class DealerOrderRequestController extends Controller
         
     }
     public function cancelDealerRequest($id)
-    {
+    {   
+        
         $cancelbid = DealersOrderVehicleRequest::where('id',$id)->first();
+        
         $cancelbid->delete();
         return back()->with('error', 'Order Cancel Succesfully');
 
     }
+    public function buyNowFromDealer($id)
+  {
+    $vehicle = DealerVehicle::where('status',1)->where('id',$id)->first();
+        
+    
+    $order = new DealersOrderVehicleRequest;
+    $order->user_id = Auth::user()->id;
+    $order->vehicle_id = $id;
+    $order->request_price = $vehicle->reserve_price;
+    $order->status = 1;
+    $order->save();
+    $vehicle->status = 2;
+    $vehicle->save();
+    return redirect()->route('dealerToDealer')->with('success', 'Vehicle Succesfully Purchase. Check Your Purchases For More Details');
+  }
 }
 
