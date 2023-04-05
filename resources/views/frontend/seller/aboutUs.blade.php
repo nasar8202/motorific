@@ -1,30 +1,10 @@
 @extends('frontend.seller.layouts.app')
-@section('title','Careers')
+@section('title','About Us')
 @section('section')
-<style>
-.dropdown > span{
-    position: relative;
-    display: inline-block;
-    color:white;
-}
 
-.dropdown-content {
-display: none;
-position: absolute;
-background-color: #f9f9f9;
-min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-padding: 12px 16px;
-z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-display: block;
-}
-    </style>
     <!-- HEADER -->
-    <header class="header-career">
-        <div class="container-1600 d-flex justify-content-between">
+    <header>
+        <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
                 <ul class="navlinks navlinks-w mb-0 align-items-center">
@@ -112,137 +92,133 @@ display: block;
         </div>
     </header>
     
-    
-    <div class="career-sec">
+    <section class="inner-banner about">
         <div class="container-1151">
-            <div class="career-top-content">
-                <span class="tag">We're hiring!</span>
-                <h1>Be Part of Our Mission</h1>
-                <p>We're looking for passionate people to join our mission. We value flat hierarchies, clear communication, and full ownership and responsibility.</p>
+            <div class="banner-inner-cont">
+                <h1>About Us</h1>
+                <p>
+                    Motorway started in 2017 with a vision to build a better car market for everyone, harnessing the power of technology to deliver an amazing experience.
+                </p>
+                <p>
+                    We help everyone to quickly and easily sell their car for the best price from the comfort of home, using only a phone.
+                </p>
             </div>
-            @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-  @endif
-  @if ($message = Session::get('success'))
-  <div class="alert alert-success">
-      <strong>{{ $message }}</strong>
-  </div>
-@endif
-            <div class="jobs-wraper">
-                <ul class="tags-wraper">
-                    <li>
-                        <a class="job-tag active">View All</a>
-                    </li>
-                    <li>
-                        <a class="job-tag">Development</a>
-                    </li>
-                    <li>
-                        <a class="job-tag">Design</a>
-                    </li>
-                </ul>
-                
-                <div class="jobs-box">
-                    <div class="job-content">
-                        <h2>Product Designer</h2>
-                        <p>We're looking for a mid-level product designer to join our team.</p>
-                        <ul class="job-times">
-                            <li><p><span><i class="fas fa-map-marker-alt"></i> </span> 100%</p></li>
-                            <li><p><span><i class="fas fa-clock"></i> </span> Full-time</p></li>
-                        </ul>
+        </div>
+    </section>
+    
+    <section class="about-sec2">
+        <div class="container-1151">
+            <div class="row align-items-center abt-cont-wraper1">
+                <div class=col-lg-6>
+                    <div class="about-content">
+                        <p>
+                            With our network of more than 5,000 professional car dealers directly bidding on vehicles, we enable our customers to sell their cars in as little as 24 hours – whilst supporting our car dealer partners to acquire the best possible used car stock, 100% online.<br> <br>
+
+                                This is the way to sell your car. This is the Motorway.
+                        </p>
                     </div>
-                    <a href="#careerForm" class="job-btn" data-bs-toggle="modal" >Apply <span><i class="fas fa-arrow-up"></i></span></a>
                 </div>
-                <div class="jobs-box">
-                    <div class="job-content">
-                        <h2>Product Designer</h2>
-                        <p>We're looking for a mid-level product designer to join our team.</p>
-                        <ul class="job-times">
-                            <li><p><span><i class="fas fa-map-marker-alt"></i> </span> 100%</p></li>
-                            <li><p><span><i class="fas fa-clock"></i> </span> Full-time</p></li>
-                        </ul>
+                <div class=col-lg-6>
+                    <div class="about-img-box">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/abt-img.webp') }}">
                     </div>
-                    <a href="#careerForm" class="job-btn"  data-bs-toggle="modal">Apply <span><i class="fas fa-arrow-up"></i></span></a>
                 </div>
-                <div class="jobs-box">
-                    <div class="job-content">
-                        <h2>Product Designer</h2>
-                        <p>We're looking for a mid-level product designer to join our team.</p>
-                        <ul class="job-times">
-                            <li><p><span><i class="fas fa-map-marker-alt"></i> </span> 100%</p></li>
-                            <li><p><span><i class="fas fa-clock"></i> </span> Full-time</p></li>
-                        </ul>
+            </div>
+            <div class="row align-items-center abt-cont-wraper2">
+                <div class=col-lg-6>
+                    <div class="about-img-box">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/abt2-img.webp') }}">
                     </div>
-                    <a href="#careerForm" class="job-btn" data-bs-toggle="modal">Apply <span><i class="fas fa-arrow-up"></i></span></a>
+                </div>
+                <div class=col-lg-6>
+                    <div class="about-content">
+                        <p>
+                            With our network of more than 5,000 professional car dealers directly bidding on vehicles, we enable our customers to sell their cars in as little as 24 hours – whilst supporting our car dealer partners to acquire the best possible used car stock, 100% online.<br> <br>
+
+                                This is the way to sell your car. This is the Motorway.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-<!-- Career Modal Form -->
-<div class="modal fade careerFormModal" id="careerForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Work With Us</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="careerForm">
-            <form action="{{route('applyForJob')}}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="first_name" placeholder="First Name">
+    </section>
+    
+    <section class="team-sec">
+        <div class="container-1151">
+            <h2 class="sec-title">Our team</h2>
+            <p class="sec-desc">Motorway is a team of over 400 people located across our two offices - London and Brighton, as well as remotely around the world. Our team includes world-class talent in engineering, product design, operations, customer service, sales and marketing.
+            </p>
+            <div class="team-main">
+                <h3 class="sec-title">Executive team</h3>
+                <div class="team-wraper">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img1.jpg') }}">
+                            
                         </div>
+                        <h4 class="t-name">Tom Leathes</h4>
+                        <p class="t-designation">Co-founder & CEO</p>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img2.jpg') }}">
+                            
                         </div>
+                        <h4 class="t-name">Harry Jones</h4>
+                        <p class="t-designation">Co-founder & CPO</p>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img3.jpg') }}">
+                            
                         </div>
+                        <h4 class="t-name">James Wilson</h4>
+                        <p class="t-designation">COO</p>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="number" class="form-control" name="phone_number" placeholder="Phone Number">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img4.jpg') }}">
+                            
                         </div>
+                        <h4 class="t-name">Lloyd Page</h4>
+                        <p class="t-designation">CMO</p>
                     </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <input type="file" name="cv" class="form-control" >
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img5.jpg') }}">
+                            
                         </div>
+                        <h4 class="t-name">Alex Buttle</h4>
+                        <p class="t-designation">Co-founder & VP Growth</p>
                     </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <textarea class="form-control" name="description"></textarea>
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img6.jpg') }}">
+                            
                         </div>
+                        <h4 class="t-name">Jen Craddock</h4>
+                        <p class="t-designation">VP People</p>
                     </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <button class="btn-submit">Submit</button>
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img7.jpg') }}">
+                            
                         </div>
+                        <h4 class="t-name">Asif Ghulamali</h4>
+                        <p class="t-designation">VP Finance</p>
                     </div>
-                    
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/img8.jpg') }}">
+                            
+                        </div>
+                        <h4 class="t-name">Matt Sleeman</h4>
+                        <p class="t-designation">VP Engineering</p>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+    </section>
 
  
     

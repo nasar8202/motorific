@@ -48,13 +48,10 @@ display: block;
 
                 @guest
                 <div class="dropdown">
-                    <span>More</span>
+                    <span>MORE</span>
                     <div class="dropdown-content">
 
                     <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-
-
-                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
                 @endguest

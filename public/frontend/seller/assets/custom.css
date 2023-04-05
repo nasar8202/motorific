@@ -1,0 +1,115 @@
+header {
+    z-index: 9;
+}
+.inner-banner {
+    padding: 210px 0 160px 0;
+    background: url('https://www.webprojectmockup.com/custom/motorific/public/frontend/seller/assets/image/PU-sec-1.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.inner-banner:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(25,23,56,1) 0%, rgba(30,28,61,1) 18%, rgba(31,29,62,0.9444152661064426) 45%, rgba(33,31,63,0.6615021008403361) 60%, rgba(2,0,36,0) 100%);
+    z-index: -1;
+}
+
+.banner-inner-cont h1 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+}
+.banner-inner-cont p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.4;
+    max-width: 50%;
+    font-weight: 300;
+}
+.about-sec2 {
+    padding: 100px 0;
+}
+
+
+.about-sec2 .about-img-box img {
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid #f1f1f1;
+}
+
+.about-sec2 .about-content {
+    max-width: 85%;
+}
+
+.about-sec2 .about-content p {
+    line-height: 1.5;
+    font-weight: 400;
+}
+.about-sec2 .abt-cont-wraper2 .about-content {
+    padding-left: 40px;
+}
+
+.about-sec2 .abt-cont-wraper1 {
+    margin-bottom: 60px;
+}
+
+h2.sec-title {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+}
+
+.team-sec .sec-desc {
+    max-width: 60%;
+    margin: 30px auto 50px;
+    text-align: center;
+}
+
+.team-main .sec-title {
+    text-align: center;
+    font-weight: 600;
+    color: #000;
+    font-size: 30px;
+}
+
+.team-wraper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px 25px;
+    justify-content: center;
+}
+
+.team-wraper .team-box {
+    width: 100%;
+    max-width: calc(33.33% - 20px);
+    background: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.team-wraper .team-box .team-img {
+    width: 170px;
+    height: 170px;
+    box-shadow: 0 0 4px 0 #1d1d1b26;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto -60px;
+    transform: translateY(-50%);
+}
+
+.team-wraper .team-box .team-img img {
+    width: 100%;
+    height: 100%;
+}
+
+
