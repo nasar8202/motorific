@@ -27,10 +27,10 @@
                 <h5>Product</h5>
                 <ul>
                     <li>
-                        <a href="{{route('CarValueTracker')}}">Sell my car</a>
+                        <a href="{{route('sellMyCar')}}">Sell my car</a>
                     </li>
                     <li>
-                        <a href="{{route('CarValueTracker')}}">Sell my van</a>
+                        <a href="{{route('CarValueTracker')}}">Car Value Tracker</a>
                     </li>
                     <li>
                         <a href="{{route('CarBuyer')}}">Car buyers</a>
