@@ -662,7 +662,7 @@ $("#slider").slider({
     range: true,
     min: 1000,
     max: 100000,
-    values: [ 1000, 2000 ],
+    values: [ 1000, 10000 ],
     slide: function( event, ui ) {
 
 

@@ -1,30 +1,10 @@
 @extends('frontend.seller.layouts.app')
-@section('title','Careers')
+@section('title','Help')
 @section('section')
-<style>
-.dropdown > span{
-    position: relative;
-    display: inline-block;
-    color:white;
-}
 
-.dropdown-content {
-display: none;
-position: absolute;
-background-color: #f9f9f9;
-min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-padding: 12px 16px;
-z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-display: block;
-}
-    </style>
-    <!-- HEADER -->
-    <header class="header-career">
-        <div class="container-1600 d-flex justify-content-between">
+<!-- HEADER -->
+    <header class="transparent-header">
+        <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
                 <ul class="navlinks navlinks-w mb-0 align-items-center">
@@ -48,13 +28,11 @@ display: block;
 
                 @guest
                 <div class="dropdown">
-                    <span>More</span>
+                    <span>MORE</span>
                     <div class="dropdown-content">
 
                     <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
-
-                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
                 @endguest
@@ -112,136 +90,120 @@ display: block;
         </div>
     </header>
     
-    
-    <div class="career-sec">
+    <section class="inner-banner help">
         <div class="container-1151">
-            <div class="career-top-content">
-                <span class="tag">We're hiring!</span>
-                <h1>Be Part of Our Mission</h1>
-                <p>We're looking for passionate people to join our mission. We value flat hierarchies, clear communication, and full ownership and responsibility.</p>
-            </div>
-            @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-  @endif
-  @if ($message = Session::get('success'))
-  <div class="alert alert-success">
-      <strong>{{ $message }}</strong>
-  </div>
-@endif
-            <div class="jobs-wraper">
-                <ul class="tags-wraper">
-                    <li>
-                        <a class="job-tag active">View All</a>
-                    </li>
-                    <li>
-                        <a class="job-tag">Development</a>
-                    </li>
-                    <li>
-                        <a class="job-tag">Design</a>
-                    </li>
-                </ul>
-                
-                <div class="jobs-box">
-                    <div class="job-content">
-                        <h2>Product Designer</h2>
-                        <p>We're looking for a mid-level product designer to join our team.</p>
-                        <ul class="job-times">
-                            <li><p><span><i class="fas fa-map-marker-alt"></i> </span> 100%</p></li>
-                            <li><p><span><i class="fas fa-clock"></i> </span> Full-time</p></li>
-                        </ul>
-                    </div>
-                    <a href="#careerForm" class="job-btn" data-bs-toggle="modal" >Apply <span><i class="fas fa-arrow-up"></i></span></a>
-                </div>
-                <div class="jobs-box">
-                    <div class="job-content">
-                        <h2>Product Designer</h2>
-                        <p>We're looking for a mid-level product designer to join our team.</p>
-                        <ul class="job-times">
-                            <li><p><span><i class="fas fa-map-marker-alt"></i> </span> 100%</p></li>
-                            <li><p><span><i class="fas fa-clock"></i> </span> Full-time</p></li>
-                        </ul>
-                    </div>
-                    <a href="#careerForm" class="job-btn"  data-bs-toggle="modal">Apply <span><i class="fas fa-arrow-up"></i></span></a>
-                </div>
-                <div class="jobs-box">
-                    <div class="job-content">
-                        <h2>Product Designer</h2>
-                        <p>We're looking for a mid-level product designer to join our team.</p>
-                        <ul class="job-times">
-                            <li><p><span><i class="fas fa-map-marker-alt"></i> </span> 100%</p></li>
-                            <li><p><span><i class="fas fa-clock"></i> </span> Full-time</p></li>
-                        </ul>
-                    </div>
-                    <a href="#careerForm" class="job-btn" data-bs-toggle="modal">Apply <span><i class="fas fa-arrow-up"></i></span></a>
-                </div>
+            <div class="banner-inner-cont">
+                <h1>Welcome to the Motorway <br> help centre</h1>
             </div>
         </div>
-    </div>
-
-
-<!-- Career Modal Form -->
-<div class="modal fade careerFormModal" id="careerForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Work With Us</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="careerForm">
-            <form action="{{route('applyForJob')}}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="first_name" placeholder="First Name">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="last_name" placeholder="Last Name">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="number" class="form-control" name="phone_number" placeholder="Phone Number">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <input type="file" name="cv" class="form-control" >
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <textarea class="form-control" name="description"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <button class="btn-submit">Submit</button>
-                        </div>
-                    </div>
-                    
+    </section>
+    
+    <section class="help-acc-sec">
+        <div class="container-1151">
+            <h2 class="sec-title">Selling with Motorway</h2>
+            <div class="accordion" id="help-accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" >
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc1" aria-expanded="true" aria-controls="collapseOne">
+                    What is Motorway?
+                  </button>
+                </h2>
+                <div id="helpacc1" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#help-accordion">
+                  <div class="accordion-body">
+                      <p>
+                          Every day, Motorway helps hundreds of people to sell their vehicles quickly and easily, by finding them the dealer that’ll pay the most for it.
+                      </p>
+                        
+                        <p>
+                            We don’t make you choose between price and convenience - you can have both, with no extra effort. It’s also 100% free to sell with us, and we’ll guide you through the process to get a great result.
+                        </p>
+                        
+                        <p>
+                            We work with more than 5,000 verified dealers nationwide and use our smart technology to connect you with the right buyer in a few simple steps. By removing the middlemen and moving the process online, we help everyone get a better deal - quickly, safely, and without leaving home. 
+                        </p>
+                        
+                        <p>
+                            Based on your valuation and the vehicle details you share with us, we'll help you to create a professional online profile, establish a realistic reserve price and then share details about your vehicle with thousands of verified dealers across our nationwide network in an online daily sale.
+                        </p>
+                  </div>
                 </div>
-            </form>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" >
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc2" aria-expanded="false" aria-controls="collapseTwo">
+                    Is it complicated to sell through Motorway?
+                  </button>
+                </h2>
+                <div id="helpacc2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#help-accordion">
+                  <div class="accordion-body">
+                    <p>
+                        No. To sell a vehicle with Motorway, all you need to do is enter your reg, provide the details and photos requested, accept your highest offer from our verified dealer network, then arrange free collection with the dealer at a time suitable for you. Motorway handles everything else for you.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc3" aria-expanded="false" aria-controls="collapseThree">
+                    How do you find my highest offer?
+                  </button>
+                </h2>
+                <div id="helpacc3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#help-accordion">
+                  <div class="accordion-body">
+                    <p>
+                        We find your highest offer by allowing the 5,000+ verified dealers in our network to compete to buy your car in a daily sale. Dealers will have the opportunity to view your vehicle description and photos, and can submit a bid for your car.  
+                    </p>
+                    <p>
+                        Dealers will see your reserve price and it will tell them the price you’re happy to accept for your car; however, your reserve price is only a guide. As dealers bid against each other to buy your car, you may receive far more than this amount. Our daily sales are highly competitive, with dealers nationwide competing to give you the best price, it’s therefore little wonder that more than 50% of cars that go for sale at the reserve price on Motorway achieve more than expected!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" >
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc4" aria-expanded="false" aria-controls="collapseThree">
+                   What are the fees to sell my vehicle through Motorway?
+                  </button>
+                </h2>
+                <div id="helpacc4" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#help-accordion">
+                  <div class="accordion-body">
+                    <p>
+                        Selling your vehicle with Motorway is completely free. There are no fees. Dealers pay to buy and collect your vehicle, meaning you don't have to pay a penny.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" >
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc5" aria-expanded="false" aria-controls="collapseThree">
+                   How is my vehicle presented to your dealer network?
+                  </button>
+                </h2>
+                <div id="helpacc5" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#help-accordion">
+                  <div class="accordion-body">
+                    <p>
+                         When you complete your online profile, you will be asked to include info about your vehicle, including any damage. You also need to provide photos that our network of dealers will see that will inform their highest offer. Our profiles are designed to appeal directly to our dealers, showcasing your vehicle in the best way during the daily sale.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+    </section>
+    
+    <section class="career-sec-cta contact-cta">
+         <div class="container-1151">
+             <div class="career-content">
+                 <h2 class="sec-title">Have more questions?</h2>
+                 <p class="sec-desc">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                        numquam
+                 </p>
+                 <a href="#" class="globel-btn career-btn">Contact us</a>
+             </div>
+         </div>
+    </section>
 
 
  

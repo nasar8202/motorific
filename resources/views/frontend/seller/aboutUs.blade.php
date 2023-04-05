@@ -3,7 +3,7 @@
 @section('section')
 
     <!-- HEADER -->
-    <header>
+    <header class="transparent-header">
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
@@ -28,24 +28,22 @@
 
                 @guest
                 <div class="dropdown">
-                    <span>More</span>
+                    <span>MORE</span>
                     <div class="dropdown-content">
 
                     <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-
-
-                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
                 @endguest
                 </ul>
             </div>
             <div class="head-btns  justify-content-between">
-                <button><a href="{{ route('myLogin') }}">Sign In</a></button>
+                <a href="{{ route('myLogin') }}"><button>Sign In</button></a>
                 @if (Route::has('register'))
-                <button><a href="{{ route('registration') }}">Sign Up</a></button>
+                <a href="{{ route('registration') }}"><button>Sign Up</button></a>
                 @endif
-                <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
+                <a href="{{ url("/get-in-touch") }}"><button>Contact Us</button></a>
+                <!--<button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>-->
             </div>
             <div class="menu">
                 <div class="toggle">
@@ -109,7 +107,7 @@
     <section class="about-sec2">
         <div class="container-1151">
             <div class="row align-items-center abt-cont-wraper1">
-                <div class=col-lg-6>
+                <div class=col-md-6>
                     <div class="about-content">
                         <p>
                             With our network of more than 5,000 professional car dealers directly bidding on vehicles, we enable our customers to sell their cars in as little as 24 hours – whilst supporting our car dealer partners to acquire the best possible used car stock, 100% online.<br> <br>
@@ -118,19 +116,19 @@
                         </p>
                     </div>
                 </div>
-                <div class=col-lg-6>
+                <div class=col-md-6>
                     <div class="about-img-box">
                         <img src="{{ URL::asset('frontend/seller/assets/image/abt-img.webp') }}">
                     </div>
                 </div>
             </div>
             <div class="row align-items-center abt-cont-wraper2">
-                <div class=col-lg-6>
+                <div class=col-md-6>
                     <div class="about-img-box">
                         <img src="{{ URL::asset('frontend/seller/assets/image/abt2-img.webp') }}">
                     </div>
                 </div>
-                <div class=col-lg-6>
+                <div class=col-md-6>
                     <div class="about-content">
                         <p>
                             With our network of more than 5,000 professional car dealers directly bidding on vehicles, we enable our customers to sell their cars in as little as 24 hours – whilst supporting our car dealer partners to acquire the best possible used car stock, 100% online.<br> <br>
@@ -219,9 +217,59 @@
             </div>
         </div>
     </section>
-
- 
     
+    <section class="career-sec-cta">
+         <div class="container-1151">
+             <div class="career-content">
+                 <h2 class="sec-title">Careers</h2>
+                 <p class="sec-desc">We are always looking for talented, driven individuals to join the team. You can read more about working at Motorway and our open positions on our careers page.
+                 </p>
+                 <a href="#" class="globel-btn career-btn">Find out more</a>
+             </div>
+         </div>
+    </section>
+    
+    <section class="invest-sec">
+         <div class="container-1151">
+             <div class="invest-content">
+                 <h2 class="sec-title">Investors</h2>
+                 <p class="sec-desc">Motorway is backed by some of the world’s leading technology and marketplace investors.
+                 </p>
+                 <div class="invest-logos">
+                     <a href="#">
+                         <img src="{{ URL::asset('frontend/seller/assets/image/logo1.webp') }}" class="logo">
+                     </a>
+                     <a href="#">
+                         <img src="{{ URL::asset('frontend/seller/assets/image/logo2.webp') }}" class="logo">
+                     </a>
+                     <a href="#">
+                         <img src="{{ URL::asset('frontend/seller/assets/image/logo3.webp') }}" class="logo">
+                     </a>
+                     <a href="#">
+                         <img src="{{ URL::asset('frontend/seller/assets/image/logo4.webp') }}" class="logo">
+                     </a>
+                     <a href="#">
+                         <img src="{{ URL::asset('frontend/seller/assets/image/logo5.webp') }}" class="logo">
+                     </a>
+                 </div>
+             </div>
+         </div>
+    </section>
+    
+    <section class="sellCar-sec">
+         <div class="container-1151">
+             <div class="invest-content">
+                 <h2 class="sec-title">Sell your car the Motorway way</h2>
+                 <form class="sell-form">
+                     <div class="form-group">
+                         <input type="text" class="form-control" placeholder="Enter Your Reg">
+                         <button type="submit" class="globel-btn">Value your car</button>
+                     </div>
+                 </form>
+                 </div>
+             </div>
+         </div>
+    </section>
 
 @endsection
 @push('child-scripts')

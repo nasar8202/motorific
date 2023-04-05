@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/custom.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive-new.css') }}">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 

@@ -2299,7 +2299,7 @@ div.sellerForm div.form-inputs input {
 }
 
 header {
-    position: static;
+    /*position: static;*/
 }
 
 section.seller-main-banner:after {

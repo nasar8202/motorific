@@ -1,6 +1,14 @@
 header {
     z-index: 9;
 }
+.head-btns a {
+    text-decoration: none;
+}
+.transparent-header .head-btns button {
+    padding: 12px 40px;
+    min-width: auto;
+}
+/*About Page Css*/
 .inner-banner {
     padding: 210px 0 160px 0;
     background: url('https://www.webprojectmockup.com/custom/motorific/public/frontend/seller/assets/image/PU-sec-1.png');
@@ -60,13 +68,16 @@ header {
     margin-bottom: 60px;
 }
 
-h2.sec-title {
+.sec-title {
     font-size: 40px;
     font-weight: 600;
     text-align: center;
     color: #000;
 }
 
+.team-sec {
+    padding-bottom: 110px;
+}
 .team-sec .sec-desc {
     max-width: 60%;
     margin: 30px auto 50px;
@@ -85,6 +96,7 @@ h2.sec-title {
     flex-wrap: wrap;
     gap: 100px 25px;
     justify-content: center;
+    padding-top:110px;
 }
 
 .team-wraper .team-box {
@@ -111,5 +123,149 @@ h2.sec-title {
     width: 100%;
     height: 100%;
 }
+.team-box .t-name {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 4px;
+}
+.team-box .t-designation {
+    font-size: 16px;
+    color: #000;
+}
+.career-sec-cta {
+    padding: 100px 0;
+    background: #202543;
+}
+
+.career-sec-cta .sec-title {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.career-sec-cta .sec-desc {
+    color: #fff;
+    max-width: 70%;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+.globel-btn {
+    padding: 12px 30px;
+    background: #05eab5;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto;
+    border: 2px solid transparent;
+    line-height: 1.3;
+    display: block;
+    width: fit-content;
+    transition: all .4s ease-in;
+}
+
+.globel-btn:hover {
+    color: #05eab5;
+    background: transparent;
+    border-color: #05eab5;
+}
+.invest-sec {
+    padding: 70px 0;
+}
+.invest-sec .sec-title {
+    margin-bottom: 20px;
+}
+.invest-sec .sec-desc {
+    max-width: 50%;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.invest-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 60px 50px;
+    box-shadow: 0 0 4px 0 #1d1d1b26;
+    margin-top: 60px;
+}
+
+.invest-logos a {
+    display: block;
+}
+
+.invest-logos .logo {
+    width: 160px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.sellCar-sec {
+    padding: 90px 0 100px;
+    background: #202543;
+    margin-bottom: 80px;
+}
+
+.sellCar-sec .sec-title {
+    color: #fff;
+    margin-bottom: 40px; 
+}
+
+.sellCar-sec .sell-form {
+    max-width: 35%;
+    margin: 0 auto;
+}
+
+.sellCar-sec .sell-form input {
+    box-shadow: none;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: none;
+    color: #000;
+}
+.sellCar-sec .sell-form .globel-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px 20px;
+}
+/*About Page End*/
+
+/*Help Page Css*/
+.help-acc-sec {
+    padding: 90px 0;
+}
+
+.help-acc-sec .sec-title {
+    margin-bottom: 40px;
+}
+.help-acc-sec .accordion-button {
+    box-shadow: none ;
+    font-size: 18px;
+    font-weight: 600;
+    padding:20px 30px;
+}
+
+.help-acc-sec .accordion-button:not(.collapsed) {
+    background: #202543;
+    color: #fff;
+}
+
+.help-acc-sec .accordion-button:not(.collapsed):after {
+    filter: invert(1) brightness(100);
+}
+
+.help-acc-sec .accordion-body {
+    padding: 40px 40px 25px;
+}
 
 
+
+.contact-cta {
+    margin-bottom: 80px;
+}
+
+
+
+/*Help Page End*/
