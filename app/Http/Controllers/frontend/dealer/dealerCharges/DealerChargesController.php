@@ -194,9 +194,9 @@ class DealerChargesController extends Controller
                     $user = User::where('id', $allVehicles->user_id)->first();
                     $current = Auth::user()->id;
                     $pricing = BidedVehicle::where('vehicle_id', $id)->where('user_id', $current)->first();
-                    Session::flash('success', 'Your '.$charges_payment.' Payment Has Been Charged From Your Card'); 
-                    return view('frontend.dealer.sellerDetails.sellerDetail', compact('user', 'role', 'allVehicles', 'current', 'pricing'));
-               
+                    // Session::flash('success', 'Your '.$charges_payment.' Payment Has Been Charged From Your Card'); 
+                    // return view('frontend.dealer.sellerDetails.sellerDetail', compact('user', 'role', 'allVehicles', 'current', 'pricing'));
+                    return redirect()->back()->with('success', 'Your '.$charges_payment.' Payment Has Been Charged From Your Card');
                 }
             } else {
                 $allVehicles = Vehicle::Where('status', 2)->where('id', $id)->with('vehicleInformation')->with('VehicleImage')->first();
@@ -523,7 +523,7 @@ class DealerChargesController extends Controller
                     $current = Auth::user()->id;
                     $pricing = DealersOrderVehicleRequest::where('vehicle_id', $id)->where('user_id', $current)->first();
                     Session::flash('success', 'Your '.$charges_payment.' Payment Has Been Charged From Your Card'); 
-                    return view('frontend.dealer.sellerDetails.ownerDealerDetail', compact('user', 'role', 'allVehicles', 'current', 'pricing', 'bided'));
+                    return view('frontend.dealer.sellerDetails.ownerDealerDetail', compact('user', 'role', 'allVehicles', 'current', 'pricing'));
                
                 }
             }  else {
