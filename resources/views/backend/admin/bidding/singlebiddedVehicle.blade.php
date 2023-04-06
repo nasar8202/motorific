@@ -175,7 +175,7 @@
     <script>
         $(document).ready(function() {
             $('.price').on('click', function() {
-                var id = $('.price').attr("data-id");
+                var id = $(this).attr("data-id");
                 $("#orderId").val(id);
 
                 $('#newPrice').on('keyup', function() {
