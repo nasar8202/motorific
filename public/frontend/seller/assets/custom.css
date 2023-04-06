@@ -8,6 +8,34 @@ header {
     padding: 12px 40px;
     min-width: auto;
 }
+
+/*Footer */
+.footer-social {
+    display: flex;
+    gap: 14px;
+}
+
+.footer-social li a {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: #05eab5;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    text-align: center;
+    transition: all .4s ease-in;
+}
+
+.footer-social li a:hover {
+    background: #7977a2;
+}
+
+/*Footer End */
+
+
 /*About Page Css*/
 .inner-banner {
     padding: 210px 0 160px 0;

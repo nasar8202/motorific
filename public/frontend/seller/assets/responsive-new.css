@@ -5,7 +5,9 @@
   .transparent-header .navlinks .dropdown a{
       font-size:14px;
   }
-
+  .transparent-header .navlinks .dropdown span{
+    display: block;
+  }
   /* Transparent Header Css End */
 
   .banner-inner-cont h1 {
@@ -190,7 +192,43 @@
 .help-acc-sec .accordion-body p {
     font-size: 14px;
 }
+/* Seller Footer  */
+.footer-sec .main-footer .footer-sub h5 {
+  font-size: 16px;
+}
 
+.footer-sec .footer-sub:nth-child(1) h5, .footer-sec .footer-sub:nth-child(2) h5 {
+  margin-bottom: 10px;
+}
+
+.footer-sec .footer-sub:nth-child(3) {
+  padding-top: 30px;
+}
+
+.footer-sec .footer-sub ul a {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-sec .footer-sub ul li {
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer-sec .main-footer .footer-sub p {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.footer-sec .footer-sub img {
+  max-width: 150px;
+}
+.footer-sec .footer-sub h4 {
+  font-size: 13px;
+}
+/* Seller Footer End */
 
 }
 
@@ -327,11 +365,68 @@
 .help-acc-sec .accordion-body p {
   font-size: 12px;
 }
+/* Footer */
+.footer-sec .main-footer .footer-sub h5 {
+  font-size: 13px;
+}
+
+.footer-sec .footer-sub ul a {
+  font-size: 11px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer-sec .footer-sub ul li {
+  line-height: 1.3;
+}
+
+.footer-sec .main-footer .footer-sub p {
+  font-size: 11px;
+}
+
+.footer-sec .footer-sub img {
+  max-width: 130px;
+}
+
+.footer-social li a {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-social {
+  margin-bottom: 6px;
+}
+
+.footer-sec .footer-sub h4 {
+  font-size: 11px;
+}
+
+/* Footer End */
 
 
 }
 
 @media(max-width:1279px){
+
+/* Transpatent Header */
+
+.transparent-header ul.navlinks {
+  padding-left: 30px;
+  gap: 22px;
+}
+.transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+  font-size: 9px;
+}
+.transparent-header .head-btns button {
+  padding: 8px 22px;
+  font-size: 8px;
+}
+.transparent-header .dropdown-content {
+  min-width: 110px;
+  padding: 8px 16px;
+}
+/* Transpatent Header End */
+
   .banner-inner-cont h1 {
     font-size: 22px;
 }
@@ -470,11 +565,631 @@
 .help-acc-sec .accordion-body p {
   font-size: 10px;
 }
+/* Footer */
+@media(max-width:1750px){
+  /* Transparent Header Css */
+  .transparent-header .navlinks a li,
+  .transparent-header .navlinks .dropdown span,
+  .transparent-header .navlinks .dropdown a{
+      font-size:14px;
+  }
+  .transparent-header .navlinks .dropdown span{
+    display: block;
+  }
+  /* Transparent Header Css End */
+
+  .banner-inner-cont h1 {
+    font-size: 42px;
+}
+
+.banner-inner-cont p {
+    font-size: 15px;
+}
+
+.about-sec2 .about-content p {
+    font-size: 15px;
+}
+
+.about-sec2 {
+    padding: 90px 0;
+}
+
+.sec-title {
+    font-size: 35px;
+}
+
+.sec-desc {
+    font-size: 15px;
+}
+
+.team-main .sec-title {
+    font-size: 24px;
+}
+
+.team-wraper .team-box .team-img {
+    width: 150px;
+    height: 150px;
+}
+
+.team-box .t-name {
+    font-size: 22px;
+}
+
+.team-box .t-designation {
+    font-size: 15px;
+}
+
+.team-sec {
+    padding-bottom: 90px;
+}
+
+.career-sec-cta {
+    padding: 90px 0;
+}
+
+.globel-btn {
+    padding: 10px 28px;
+    font-size: 15px;
+}
+
+.invest-logos {
+    padding: 50px 40px;
+    margin-top: 50px;
+}
+
+.sellCar-sec {
+    padding: 75px 0 80px;
+}
+
+.sellCar-sec .sell-form input {
+    font-size: 18px;
+}
+.help-acc-sec {
+  padding: 70px 0;
+}
+
+.help-acc-sec .accordion-button {
+  font-size: 17px;
+}
+
+.help-acc-sec .accordion-body {
+  padding: 30px;
+}
+
+.help-acc-sec .accordion-body p {
+  font-size: 15px;
+}
+
+
+
+}
+
+@media(max-width:1600px){
+
+  /* Transparent Header */
+  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+    font-size: 13px;
+}
+.transparent-header .head-btns button {
+  padding: 10px 30px;
+}
+  /* Transparent Header End */
+
+  .banner-inner-cont h1 {
+    font-size: 36px;
+}
+
+.banner-inner-cont p {
+    font-size: 14px;
+    max-width: 44%;
+}
+
+.inner-banner {
+    padding: 180px 0 100px 0;
+}
+
+.about-sec2 .about-content p {
+    font-size: 14px;
+}
+
+.about-sec2 {
+    padding: 80px 0;
+}
+
+.sec-title {
+    font-size: 32px;
+}
+
+.team-sec .sec-desc {
+    font-size: 14px;
+    max-width: 52%;
+}
+
+.team-main .sec-title {
+    font-size: 22px;
+}
+
+.team-wraper .team-box .team-img {
+    width: 135px;
+    height: 135px;
+}
+
+.team-box .t-name {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.team-box .t-designation {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.career-sec-cta {
+    padding: 70px 0;
+}
+
+.globel-btn {
+    padding: 9px 26px;
+    font-size: 14px;
+}
+
+.invest-logos {
+    padding: 30px 30px;
+}
+
+.invest-sec {
+    padding: 60px 0 70px;
+}
+
+.sellCar-sec .sec-title {
+    margin-bottom: 30px;
+}
+
+.sellCar-sec .sell-form input {
+    font-size: 16px;
+}
+
+.sellCar-sec {
+    padding: 60px 0 70px;
+}
+
+.help-acc-sec .accordion-button {
+    font-size: 16px;
+}
+
+.help-acc-sec .accordion-body p {
+    font-size: 14px;
+}
+/* Seller Footer  */
+.footer-sec .main-footer .footer-sub h5 {
+  font-size: 16px;
+}
+
+.footer-sec .footer-sub:nth-child(1) h5, .footer-sec .footer-sub:nth-child(2) h5 {
+  margin-bottom: 10px;
+}
+
+.footer-sec .footer-sub:nth-child(3) {
+  padding-top: 30px;
+}
+
+.footer-sec .footer-sub ul a {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-sec .footer-sub ul li {
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer-sec .main-footer .footer-sub p {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.footer-sec .footer-sub img {
+  max-width: 150px;
+}
+.footer-sec .footer-sub h4 {
+  font-size: 13px;
+}
+/* Seller Footer End */
+
+}
+
+@media(max-width:1440px){
+
+  /* TRansparent Header */
+  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+    font-size: 11px;
+}
+  /* TRansparent Header End */
+
+  .banner-inner-cont h1 {
+    font-size: 28px;
+}
+
+.banner-inner-cont p {
+    font-size: 12px;
+}
+
+.inner-banner {
+    padding: 160px 0 80px 0;
+}
+
+.about-sec2 {
+    padding: 70px 0;
+}
+
+.about-sec2 .about-content p {
+    font-size: 12px;
+}
+
+.about-sec2 .abt-cont-wraper1 {
+    margin-bottom: 45px;
+}
+
+.sec-title {
+    font-size: 26px;
+}
+
+.team-sec .sec-desc {
+    font-size: 12px;
+    max-width: 53%;
+    margin: 12px auto 35px;
+}
+
+.sec-desc {
+    font-size: 12px;
+}
+
+.team-main .sec-title {
+    font-size: 18px;
+}
+
+.team-wraper .team-box .team-img {
+    width: 110px;
+    height: 110px;
+}
+
+.team-box .t-name {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.team-box .t-designation {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.team-wraper {
+    gap: 80px 25px;
+}
+
+.team-sec {
+    padding-bottom: 70px;
+}
+
+.career-sec-cta {
+    padding: 50px 0;
+}
+
+.career-sec-cta .sec-desc {
+    max-width: 60%;
+}
+
+.globel-btn {
+    padding: 7px 22px;
+    font-size: 12px;
+}
+
+.invest-sec {
+    padding: 50px 0 60px;
+}
+
+.invest-sec .sec-desc {
+    margin: 0 auto;
+}
+
+.invest-logos {
+    padding: 25px 30px;
+    margin-top: 40px;
+}
+
+.invest-logos .logo {
+    width: 130px;
+    height: 54px;
+}
+
+.sellCar-sec {
+    padding: 45px 0 60px;
+}
+
+.sellCar-sec .sec-title {
+    margin-bottom: 25px;
+}
+
+.sellCar-sec .sell-form input {
+    font-size: 13px;
+    padding: 9px 30px;
+}
+
+.sellCar-sec .sell-form .globel-btn {
+    margin-top: 15px;
+    padding: 9px 18px;
+}
+.help-acc-sec {
+  padding: 60px 0;
+}
+
+.help-acc-sec .accordion-button {
+  font-size: 14px;
+  padding: 16px 30px;
+}
+
+.help-acc-sec .accordion-body p {
+  font-size: 12px;
+}
+/* Footer */
+.footer-sec .main-footer .footer-sub h5 {
+  font-size: 13px;
+}
+
+.footer-sec .footer-sub ul a {
+  font-size: 11px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer-sec .footer-sub ul li {
+  line-height: 1.3;
+}
+
+.footer-sec .main-footer .footer-sub p {
+  font-size: 11px;
+}
+
+.footer-sec .footer-sub img {
+  max-width: 130px;
+}
+
+.footer-social li a {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-social {
+  margin-bottom: 6px;
+}
+
+.footer-sec .footer-sub h4 {
+  font-size: 11px;
+}
+
+/* Footer End */
+
+
+}
+
+@media(max-width:1279px){
+
+/* Transpatent Header */
+
+.transparent-header ul.navlinks {
+  padding-left: 30px;
+  gap: 22px;
+}
+.transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+  font-size: 9px;
+}
+.transparent-header .head-btns button {
+  padding: 8px 22px;
+  font-size: 8px;
+}
+.transparent-header .dropdown-content {
+  min-width: 110px;
+  padding: 8px 16px;
+}
+/* Transpatent Header End */
+
+  .banner-inner-cont h1 {
+    font-size: 22px;
+}
+
+.banner-inner-cont p {
+    font-size: 10px;
+}
+
+.inner-banner {
+    padding: 140px 0 60px 0;
+}
+
+.about-sec2 {
+    padding: 55px 0;
+}
+
+.about-sec2 .about-content p {
+    font-size: 10px;
+}
+
+.about-sec2 .abt-cont-wraper1 {
+    margin-bottom: 35px;
+}
+
+
+.sec-title {
+    font-size: 22px;
+}
+
+.team-sec .sec-desc {
+    font-size: 10px;
+}
+
+.team-main .sec-title {
+    font-size: 16px;
+}
+
+.team-wraper {
+    padding-top: 60px;
+    gap: 60px 15px;
+}
+
+.team-wraper .team-box .team-img {
+    width: 90px;
+    height: 90px;
+}
+
+.team-wraper .team-box {
+    max-width: calc(33.33% - 10px);
+}
+
+.team-box .t-name {
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.team-box .t-designation {
+    font-size: 10px;
+}
+
+.career-sec-cta {
+    padding: 40px 0;
+}
+
+.career-sec-cta .sec-title {
+    margin-bottom: 15px;
+}
+
+.sec-desc {
+    font-size: 10px;
+}
+
+
+.globel-btn {
+    padding: 6px 20px;
+    font-size: 10px;
+}
+
+.invest-sec {
+    padding: 40px 0 50px;
+}
+
+.invest-sec .sec-title {
+    margin-bottom: 15px;
+}
+
+.career-sec-cta .sec-desc {
+    margin: 0 auto 20px;
+}
+
+.invest-sec .sec-desc {
+    max-width: 42%;
+}
+
+.invest-logos .logo {
+    width: 110px;
+    height: 44px;
+}
+
+.sellCar-sec {
+    padding: 40px 0 50px;
+    margin-bottom: 70px;
+}
+
+.sellCar-sec .sec-title {
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.sellCar-sec .sell-form input {
+    font-size: 12px;
+    padding: 8px 22px;
+}
+
+.sellCar-sec .sell-form .globel-btn {
+    margin-top: 12px;
+    padding: 8px 15px;
+}
+.help-acc-sec {
+  padding: 50px 0;
+}
+
+.help-acc-sec .sec-title {
+  margin-bottom: 30px;
+}
+
+.help-acc-sec .accordion-button {
+  font-size: 12px;
+  padding: 16px 20px;
+}
+
+.help-acc-sec .accordion-body {
+  padding: 20px;
+}
+
+.help-acc-sec .accordion-body p {
+  font-size: 10px;
+}
+.footer-sec .main-footer .footer-sub h5 {
+  font-size: 11px;
+}
+
+.footer-sec .footer-sub ul a {
+  font-size: 9px;
+}
+
+.footer-sec .footer-sub ul li {
+  line-height: 1.1;
+}
+
+.footer-sec .main-footer .footer-sub p {
+  font-size: 9px;
+}
+
+.footer-sec .footer-sub img {
+  max-width: 110px;
+}
+
+.footer-sec .footer-sub h4 {
+  font-size: 9px;
+}
+
+.footer-social li a {
+  width: 25px;
+  height: 25px;
+}
 
 
 }
 
 @media(max-width:991px){
+
+  /* Transparent Header */
+  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+    font-size: 10px;
+}
+.transparent-header ul.navlinks {
+  padding-left: 20px;
+  gap: 15px;
+}
+.transparent-header .toggle {
+  border-color: #fff;
+  border-width: 2px;
+}
+
+.transparent-header .toggle span {
+  background: #fff;
+}
+.transparent-header  .toggle.active span:nth-child(1),
+.transparent-header  .toggle.active span:nth-child(3){
+  background: #fff !important;
+}
+
+  /* Transparent Header End */
+
 
 .banner-inner-cont p {
   font-size: 12px;
@@ -641,6 +1356,227 @@
 .sellCar-sec .sell-form .globel-btn {
     padding: 9px 15px;
 }
+.contact-cta {
+  margin-bottom: 60px;
+}
+}
+
+@media(max-width:575px){
+  .team-wraper .team-box {
+    max-width: calc(100% - 10px);
+}
+
+.team-wraper {
+    row-gap: 50px;
+}
+.sellCar-sec .sell-form {
+  max-width: 100%;
+}
+
+}
+/* Footer End */
+
+}
+
+@media(max-width:991px){
+
+  /* Transparent Header */
+  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+    font-size: 10px;
+}
+.transparent-header ul.navlinks {
+  padding-left: 20px;
+  gap: 15px;
+}
+.transparent-header .toggle {
+  border-color: #fff;
+  border-width: 2px;
+}
+
+.transparent-header .toggle span {
+  background: #fff;
+}
+.transparent-header  .toggle.active span:nth-child(1),
+.transparent-header  .toggle.active span:nth-child(3){
+  background: #fff !important;
+}
+
+  /* Transparent Header End */
+
+
+.banner-inner-cont p {
+  font-size: 12px;
+  max-width: 55%;
+}
+
+.about-sec2 .about-content p {
+  font-size: 12px;
+}
+
+.team-sec .sec-desc {
+  font-size: 12px;
+  max-width: 80%;
+}
+
+.team-main .sec-title {
+  font-size: 18px;
+}
+
+.team-box .t-name {
+  font-size: 14px;
+}
+
+.team-box .t-designation {
+  font-size: 12px;
+}
+
+.sec-desc {
+  font-size: 12px;
+}
+
+.career-sec-cta .sec-desc {
+  max-width: 80%;
+}
+
+.globel-btn {
+  font-size: 12px;
+  padding: 7px 22px;
+}
+
+.invest-sec .sec-desc {
+  max-width: 60%;
+}
+
+.sellCar-sec .sell-form input {
+  font-size: 13px;
+  padding: 8px 22px;
+}
+
+.sellCar-sec .sell-form .globel-btn {
+  padding: 8px 15px;
+}
+
+.sellCar-sec {
+  margin-bottom: 35px;
+}
+.about-sec2 .about-content {
+  max-width: 100%;
+}
+
+.about-sec2 .abt-cont-wraper2 .about-content {
+  padding-left: 0;
+}
+.help-acc-sec .accordion-body p {
+  font-size: 13px;
+}
+
+.help-acc-sec .accordion-button {
+  font-size: 14px;
+}
+
+
+}
+
+@media(max-width:767px){
+  .banner-inner-cont p {
+    font-size: 13px;
+    max-width: 100%;
+}
+
+.about-sec2 .about-content p {
+    font-size: 13px;
+}
+
+.about-sec2 .abt-cont-wraper1 {
+    flex-direction: column-reverse;
+}
+
+.about-sec2 .about-content {
+    margin-top: 20px;
+}
+
+.sec-title {
+    font-size: 22px;
+}
+
+.team-sec .sec-desc {
+    font-size: 13px;
+    max-width: 100%;
+}
+
+.team-main .sec-title {
+    font-size: 22px;
+}
+
+.team-wraper .team-box {
+    max-width: calc(50% - 10px);
+}
+
+.team-box .t-name {
+    font-size: 16px;
+}
+
+.team-box .t-designation {
+    font-size: 14px;
+}
+
+.career-sec-cta .sec-desc {
+}
+
+.sec-desc {
+    font-size: 13px;
+    max-width: 80%;
+}
+
+.career-sec-cta .sec-desc {
+    max-width: 95%;
+}
+
+.globel-btn {
+    font-size: 14px;
+    padding: 9px 25px;
+}
+
+.invest-sec .sec-desc {
+    max-width: 100%;
+}
+
+.invest-logos {
+    justify-content: center;
+}
+
+.invest-logos a {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.invest-logos .logo {
+    width: 160px;
+    height: 44px;
+    height: auto;
+}
+
+.sellCar-sec .sell-form {
+    max-width: 65%;
+}
+
+.sellCar-sec .sell-form input {
+    font-size: 14px;
+    padding: 10px 24px;
+}
+
+.sellCar-sec .sell-form .globel-btn {
+    padding: 9px 15px;
+}
+/* footer */
+.footer-sec .footer-sub ul li {
+  line-height: 1.4;
+}
+.footer-sec .footer-sub ul a {
+  font-size: 13px;
+}
+/* footer End*/
 
 }
 
