@@ -1,95 +1,12 @@
 @extends('frontend.seller.layouts.app')
 @section('title','About Us')
 @section('section')
+@section('headerClass','transparent-header')
+@section('headerUlClass','navlinks-w')
+@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 
-    <!-- HEADER -->
-    <header class="transparent-header">
-        <div class="container-1600 d-flex justify-content-between pt-4">
-            <div class="logo-navlinks d-flex align-items-center">
-                <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
-                <ul class="navlinks navlinks-w mb-0 align-items-center">
-                    <a href="{{ route('sellMyCar') }}">
-                        <li>Sell My Car</li>
-                    </a>
-                    
-                    <a href="{{ route('howItWorksforSeller') }}">
-                        <li>How It Works</li>
-                    </a>
-                    <a href="{{ route('reviews') }}">
-                        <li>Reviews</li>
-                    </a>
-                    {{-- <a href="#">
-                        <li>Help</li>
-                    </a> --}}
-                    
-                    @auth
 
-                @endauth
-
-                @guest
-                <div class="dropdown">
-                    <span>MORE</span>
-                    <div class="dropdown-content">
-
-                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-                    </div>
-                </div>
-                @endguest
-                </ul>
-            </div>
-            <div class="head-btns  justify-content-between">
-                <a href="{{ route('myLogin') }}"><button>Sign In</button></a>
-                @if (Route::has('register'))
-                <a href="{{ route('registration') }}"><button>Sign Up</button></a>
-                @endif
-                <a href="{{ url("/get-in-touch") }}"><button>Contact Us</button></a>
-                <!--<button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>-->
-            </div>
-            <div class="menu">
-                <div class="toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li class="logoMob">
-                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
-                            alt=""></a>
-                        </li>
-                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <li>
-                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('reviews') }}">Reviews</a>
-                        </li>
-                        {{-- <li>
-                            <a href="#">Help</a>
-                        </li> --}}
-                            <li>
-                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
-                        </li>
-                        
-                    @guest
-                    <li><a href="{{ route('myLogin') }}">Sign In</a></li>
-                    
-                        <li><a href="{{ route('registration') }}">Sign Up</a></li>
-                        @endguest
-                        @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-
-                            </li>
-                        @endguest
-
-                    </div>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    
     <section class="inner-banner about">
         <div class="container-1151">
             <div class="banner-inner-cont">
@@ -224,7 +141,7 @@
                  <h2 class="sec-title">Careers</h2>
                  <p class="sec-desc">We are always looking for talented, driven individuals to join the team. You can read more about working at Motorway and our open positions on our careers page.
                  </p>
-                 <a href="#" class="globel-btn career-btn">Find out more</a>
+                 <a href="/careers" class="globel-btn career-btn">Find out more</a>
              </div>
          </div>
     </section>

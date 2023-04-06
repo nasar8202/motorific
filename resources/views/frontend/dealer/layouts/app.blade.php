@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ URL::asset('frontend/seller/assets/image/M-Logo.png') }}" type="image/x-icon" defer>
+    
     <!-- FONTAWESOME -->
     {{-- <link rel="stylesheet" href="{{URL::asset('backend/admin/assets/vendors/fontawesome/all.min.css')}}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -636,13 +638,259 @@
 <body>
     <main>
         <!-- HEADER -->
-        @include('frontend.dealer.partials.header')
+        <style>
+            a.disabled {
+                pointer-events: none;
+                cursor: default;
+                opacity: .6;
+                }
+                .logo-text a{
+                    text-decoration: none;
+                    color: white
+                }
+        </style>
+        <header class="header">
+            <!--<h2 class="logo-text">motorific</h2>-->
+            <div class="container-1400 position-relative">
+                <div class="row header-nav-row align-items-center">
+                    <div class="col-lg-2 d-lg-block d-none">
+                        @if(Auth::check())
+                        <h2 class="logoMain"><a  href="{{route('dealer.newDashboard')}}" class="d-block">motorific</a></h2>
+                        @else
+                        <h2 class="logoMain"><a  href="{{route('myLogin')}}" class="d-block">motorific</a></h2>
+                        @endif
+                    </div>
+                    <div class="col-lg-7 desktop-header">
+                        <div class="header-nav dflex-gap10">
+                            @if(\Request::route()->getName() == 'dealer.newDashboard' || \Request::route()->getName() == 'dealer.dashboard' || \Request::route()->getName() == 'howItWorks' || \Request::route()->getName() == 'pricing' || \Request::route()->getName() == 'onlyCars' || \Request::route()->getName() == 'onlyVans' || \Request::route()->getName() == 'vehicle.vehicleDetail' || \Request::route()->getName() == 'vehicle.liveSell' || \Request::route()->getName() == 'buyItNow' || \Request::route()->getName() == 'dealerToDealer' || \Request::route()->getName() == 'dealersVehicleDetail' || \Request::route()->getName() == 'dealer.BidsAndOffers' || \Request::route()->getName() == 'bids.ActiveBiddedVehicle' || \Request::route()->getName() == 'bids.UnderBiddedOfferVehicle' || \Request::route()->getName() == 'bids.DidnotWinBiddedVehicle' || \Request::route()->getName() == 'dealer.PurchasesVehicle' || \Request::route()->getName() == 'bids.CompletedBiddedVehicle' || \Request::route()->getName() == 'bids.CancelledBiddedOfferVehicle' || \Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.vehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing' || \Request::route()->getName() == 'CompletedRequestedVehicle' || \Request::route()->getName() == 'CancelRequestedVehicle' || \Request::route()->getName() == 'myVehicles' || \Request::route()->getName() == 'orderOnMyVehicle'  || \Request::route()->getName() == 'sellerDetails' || \Request::route()->getName() == 'ownerDealerRequestedDetails' || \Request::route()->getName() == 'sellerRequestedDetails' || \Request::route()->getName() == 'dealer.vehicleAndDetailsPost')
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a  class="{{ Request::route()->getName() == 'dealer.dashboard'  ? 'active' : ''}}" href="{{route('dealer.dashboard')}}">
+                                            Browse vehicles
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('howItWorks')}}" class="{{ Request::route()->getName() == 'howItWorks'  ? 'active' : ''}}">
+                                                How it works
+                                        </a>
+                                    </li>
+                                    <!--<li>-->
+                                    <!--    <a class="" href="javascript:void(0)">-->
+                                    <!--            Reviews-->
+                                    <!--    </a>-->
+                                    <!--</li>-->
+                                    <li>
+                                        <a  href="{{route('pricing')}}" class="{{ Request::route()->getName() == 'pricing'  ? 'active' : ''}}">
+                                                Pricing
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-3 desktop-header user">
+                        <div class="header-btns dealer">
+                            <!--<button class="btn-mts" > Sign In </button>-->
+                            <!--<button class="btn-mts"> Contact Us </button>-->
+
+                            @guest
+
+                            <button class="btn-mts header-btn "><a href="{{ route('signup') }}">Sign Up</a></button>
+                            <button class="btn-mts header-btn "><a href="{{ route('DealerLogin') }}">Sign In</a></button>
+                            @else
+
+                            
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('bids.ActiveBiddedVehicle') }}">
+                                    {{ __('Bids & offers') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('CompletedRequestedVehicle') }}">
+                                    {{ __('Purchases') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('dealer.addVehicleToSellFromDealer') }}">
+                                    {{ __('Add Vehicle To Sell') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('myVehicles') }}">
+                                    {{ __('My Vehicles') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+
+                            @endguest
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-12 mob-header">
+                        
+
+                        @if(Auth::check())
+                        <h3><a  href="{{route('dealer.newDashboard')}}" class="d-block">motorific</a></h3>
+                        @else
+                        <h2 class="logoMain"><a  href="{{route('myLogin')}}" class="d-block">motorific</a></h2>
+                        @endif
+
+                        <div class="mob-header-nav dealer align-items-center">
+                        @guest
+                            <div class="userBtns">
+                                <a href="{{ route('signup') }}">Sign Up</a>
+                                <a href="{{ route('DealerLogin') }}">Sign In</a>
+                            </div>
+                            @else
+                            
+                            <button class="btn-icon toglleBtn">
+                                <i class="fa-solid fa-bars"></i>
+                            </button>
+                            @endguest
+                        </div>
+                    </div>
+            </div>
+            {{-- @dd(Request::route()->getName()) --}}
+            @if(\Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.vehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing')
+
+            <div class="container-1200">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="header-submenu d-flex">
+                            <li>
+                                <a href="{{ route('dealer.addVehicleToSellFromDealer') }}" class="{{ Request::route()->getName() == 'dealer.addVehicleToSellFromDealer'  ? 'active' : 'disabled'}}">
+                                        Vehicle Lookup
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('dealer.mediaCondition') }}" class="{{ Request::route()->getName() == 'dealer.mediaCondition'  ? 'active' : 'disabled' }} ">
+                                        Media & Condition
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="{{ route('dealer.vehicleListing') }}" class="{{ Request::route()->getName() == 'dealer.vehicleListing'  ? 'active' : 'disabled' }} ">
+                                        Listing Details
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="{{ route('dealer.vehicleAndDetails') }}" class="{{ Request::route()->getName() == 'dealer.vehicleAndDetails'  ? 'active' : 'disabled' }} ">
+                                        Vehicle & Details
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endif
+        </header>
 
         @yield('section')
 
+        
         <!-- FOOTER -->
 
-        @include('frontend.dealer.partials.footer')
+        <section class="sec-8">
+                <div class="container-1151">
+                    <div class="main-footer">
+                        <div class="footer-sub about">
+                            <h5>About</h5>
+                            <ul>
+                                <li>
+                                    
+                                    <a href="{{route('aboutUs')}}">About us</a>
+                                </li>
+                                <li><a href="{{ route('dealer.newDashboard') }}">For Dealers </a></li>
+                                <li>
+                                    <a href="{{route('GetInTouchSellerForm')}}">Contact us</a>
+                                </li>
+                                <a href="{{route('help')}}">
+                                    <li>Help</li>
+                                </a>
+                                <li href="#">
+                                    <a href="{{route('careers')}}">Careers</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-sub product">
+                            <h5>Product</h5>
+                            <ul>
+                                <li>
+                                    <a href="{{route('sellMyCar')}}">Sell my car</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('CarValueTracker')}}">Car Value Tracker</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('CarBuyer')}}">Car buyers</a>
+                                </li>
+                                <!--<li>-->
+                                <!--    <a href="">Cash for cars</a>-->
+                                <!--</li>-->
+                                <li>
+                                    <a href="{{route('SellMyCarOnFinance')}}">Sell My Car On Finance</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('CarValuation')}}">Car Valuation</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('whoWillBuyMyCar')}}">Who will buy my car?</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-sub product-2">
+                            <ul>
+                                <li>
+                                    <a href="{{route('CarBuyingSites')}}">Car buying sites</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('sellToADealer')}}">Sell to a dealer</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('sellMyElectricCars')}}">Sell my electric car</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-sub contact">
+                            <div>
+                                <h5>Whatsapp</h5>
+                                <p><a href="https://api.whatsapp.com/send?phone=+447593839364">+44 7593 839364</a></p>
+                            </div>
+                            <div>
+                                <h5>Customer Support </h5>
+                                <p><a href="tel:+447593839364"> +44 7593 839364 </a></p>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p><a href="mailto:info@motorific.co.uk"> info@motorific.co.uk </a></p>
+                            </div>
+                        </div>
+                        <div class="footer-sub contact-2">
+                        <a href="{{ route('index') }}"> <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt=""></a>
+                            <div class="d-flex mt-4 mb-4">
+                                <a href="#">
+                                    <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>
+                                </a>
+                                <a href="https://www.facebook.com/Motorific-100480046330830">
+                                    <div class="footer-icon-bg"><i class="fa-brands fa-facebook-f"></i></div>
+                                </a>
+                                <a href="https://www.instagram.com/motorific_1/">
+                                    <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>
+                                </a>
+                            </div>
+                            <h4>© Motorific Online Ltd. <?php echo date("Y"); ?></h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
     </main>
 

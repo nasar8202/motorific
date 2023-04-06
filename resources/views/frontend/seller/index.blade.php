@@ -1,7 +1,11 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Sell your car  with the Motorific')
 @section('section')
-    <style>
+@section('headerClass','')
+@section('headerUlClass','')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
+<style>
         .dropdown {
             position: relative;
             display: inline-block;
@@ -21,201 +25,67 @@
             display: block;
         }
         .head-btns a {
-    text-decoration: none;
-}
+                    text-decoration: none;
+                }
 
-@keyframes spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-/* Spinner */
-.spinner {
-	--spinner-color: black;
+        /* Spinner */
+        .spinner {
+            --spinner-color: black;
 
-	aspect-ratio: 1/1;
-	border-radius: 50%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
 
-	animation-name: spin;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-.spinner--dotted {
-	width: 28px;
-	border: 5px dotted var(--spinner-color);
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        .spinner--dotted {
+            width: 28px;
+            border: 5px dotted var(--spinner-color);
 
-	animation-duration: 5s;
-}
-.spinner-container {
-    margin: 0 0;
-    margin-left: -60px;
-    width: 100%;
-    max-width: 100%;
-    min-height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -40px;
-}
-@media(max-width:767px){
-    .spinner-container {
-    margin: 0 0;
-    margin-left: -5px;
-    width: 100%;
-    max-width: 100%;
-    min-height: 30px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-top: -35px;
-}
-.spinner--dotted {
-	width: 25px;
-	border: 5px dotted var(--spinner-color);
+            animation-duration: 5s;
+        }
+        .spinner-container {
+            margin: 0 0;
+            margin-left: -60px;
+            width: 100%;
+            max-width: 100%;
+            min-height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -40px;
+        }
+        @media(max-width:767px){
+            .spinner-container {
+            margin: 0 0;
+            margin-left: -5px;
+            width: 100%;
+            max-width: 100%;
+            min-height: 30px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            margin-top: -35px;
+        }
+        .spinner--dotted {
+            width: 25px;
+            border: 5px dotted var(--spinner-color);
 
-	animation-duration: 5s;
-}
-}
-    </style>
-    <header>
-        <div class="container-1600 d-flex justify-content-between pt-4">
-            <div class="logo-navlinks d-flex align-items-center">
-                <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
-                        alt=""></a>
-                <ul class="navlinks mb-0 align-items-center">
-                    <a href="{{ route('sellMyCar') }}">
-                        <li>Sell My Car</li>
-                    </a>
-                    <a href="{{ route('howItWorksforSeller') }}">
-                        <li>How It Works</li>
-                    </a>
-                    <a href="{{ route('reviews') }}">
-                        <li>Reviews</li>
-                    </a>
-                    {{-- <a href="#">
-                        <li>Help</li>
-                    </a> --}}
-                    @auth
-
-                    @endauth
-
-                    @guest
-                        <div class="dropdown">
-                            <span>More</span>
-                            <div class="dropdown-content">
-
-                                <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
-
-
-                                <a href="{{ route('sellMyCar') }}">Sell My Car</a>
-                            </div>
-                        </div>
-                    @endguest
-                </ul>
-            </div>
-
-            <div class="head-btns  justify-content-between">
-                @guest
-                   <a href="{{ route('myLogin') }}"> <button>Sign In</button></a>
-                    @if (Route::has('register'))
-                       <a href="{{ route('registration') }}"> <button>Sign Up</button></a>
-                    @endif
-                @else
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                    </div>
-
-                @endguest
-
-                <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
-            </div>
-            <div class="menu">
-                <div class="toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li class="logoMob">
-                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
-                            alt=""></a>
-                        </li>
-                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <li>
-                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('reviews') }}">Reviews</a>
-                        </li>
-                     
-                          
-                        {{-- <li>
-                            <a href="#">Help</a>
-                        </li> --}}
-                          <li>
-                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
-                        </li>
-                        @guest
-                        <li><a href="{{ route('myLogin') }}">Sign In</a></li>
-                        
-                            <li><a href="{{ route('registration') }}">Sign Up</a></li>
-                            
-                            @endguest
-                        @if(Auth::check())
-                        <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </button>
-
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                    </div>
-                    @endif
-                        @guest
-                            <li> <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
-
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-        </div>
-            </div>
-        </div>
-    </header>
+            animation-duration: 5s;
+        }
+        }
+</style>
+    
     
     
 
@@ -295,9 +165,6 @@
 
     <!---->
     <!-- SECTION-2 -->
-    
-    
-
     <section class="sec-2 how-sec">
         <div class="container-1151">
             <div class="row">
@@ -363,10 +230,7 @@
             </div>
         </div>
     </section>
-
-
     <!-- SECTION-3 -->
-
     <section class="sec-3 mt-4 mb-5 who-sec">
         <div class="container-1151">
             <div class="row">
@@ -387,9 +251,7 @@
             </div>
         </div>
     </section>
-
     <!-- SECTION-4 -->
-
     <section class="sec-4 ycp-sec">
         <div class="container-1151">
             <div class="row">
@@ -442,9 +304,7 @@
             </div>
         </div>
     </section>
-
     <!-- SECTION-5 -->
-
     <section class="sec-5 wsy-sec">
         <div class="container-1600">
             <div class="sec-5-txt">
@@ -480,121 +340,116 @@
             </div>
         </div>
     </section>
-
     <!-- SECTION-6 -->
-
     <section class="sec-6 testi-sec">
-    <div class="container-1151">
-        <div class="sec-6-heading">
-            <h5>Hear From Our Satisfied Customers</h5>
-            <p>Rated <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by our Customers </p>
-        </div>
-        <div class="row testiSlider ">
-            <div class="sec-6-main-box col-lg-4 col-md-6">
-                <p style="font-style:italic;">I was a little hesitant to sell my car online, but Motorific made the
-                    process incredibly easy and stress-free. Their platform connects car sellers with verified dealers,
-                    which gave me peace of mind knowing that I was dealing with reputable buyers. The whole process was
-                    seamless - I entered registration number and created my car and within hours, I had multiple offers
-                    from interested dealers. I was able to compare the offers and choose the one that worked best for
-                    me. The team at Motorific was also very helpful and responsive throughout the process, answering any
-                    questions I had and providing updates on the status of my listing. I highly recommend Motorific to
-                    anyone looking to sell their car - it's a great way to get a fair price without the hassle of
-                    dealing with private buyers.</p>
-                <div class="sec-6-box-pfp d-flex align-items-center">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp.png') }}" alt="">
-                    <div>
-                        <h5>Mark,Homestay</h5>
-                        <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                    </div>
-                </div>
+        <div class="container-1151">
+            <div class="sec-6-heading">
+                <h5>Hear From Our Satisfied Customers</h5>
+                <p>Rated <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by our Customers </p>
             </div>
-            <div class="sec-6-main-box col-lg-4 col-md-6">
-                <p style="font-style:italic;">From my experience, I can vouch that Motorific is the best way to sell
-                    used car! I tried selling my car through traditional methods and it turned out to be a big headache.
-                    But then a friend of mine recommended Motorific. As soon as I created profile, I was able to get
-                    multiple offers from verified dealers instantly. The whole process was seamless, prompt and
-                    hassle-free. What I appreciates the most about Motorific is the transparency of the platform, and
-                    the fact that I could compare offers and choose the one that worked best for me. Thanks to
-                    Motorific, I got the best value for my MG HS!</p>
-                <div class="sec-6-box-pfp d-flex align-items-center">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp2.png') }}" alt="">
-                    <div>
-                        <h5>Mark,Homestay</h5>
-                        <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="sec-6-main-box col-lg-4 col-md-6">
-                 <p style="font-style:italic;">Sold my Peugeot e-208 through Motorific - it was easy, fast, and
-                    stress-free! I got a great price for my car and was able to complete the transaction quickly. Highly
-                    recommend Motorific for anyone looking to sell their car fastly!</p>
-                <div class="sec-6-box-pfp d-flex align-items-center">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp3.png') }}" alt="">
+            <div class="row testiSlider ">
+                <div class="sec-6-main-box col-lg-4 col-md-6">
+                    <p style="font-style:italic;">I was a little hesitant to sell my car online, but Motorific made the
+                        process incredibly easy and stress-free. Their platform connects car sellers with verified dealers,
+                        which gave me peace of mind knowing that I was dealing with reputable buyers. The whole process was
+                        seamless - I entered registration number and created my car and within hours, I had multiple offers
+                        from interested dealers. I was able to compare the offers and choose the one that worked best for
+                        me. The team at Motorific was also very helpful and responsive throughout the process, answering any
+                        questions I had and providing updates on the status of my listing. I highly recommend Motorific to
+                        anyone looking to sell their car - it's a great way to get a fair price without the hassle of
+                        dealing with private buyers.</p>
+                    <div class="sec-6-box-pfp d-flex align-items-center">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp.png') }}" alt="">
                         <div>
                             <h5>Mark,Homestay</h5>
                             <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
                         </div>
-                </div>
-            </div>
-            
-         </div>
-    </div>
-</section>
-
-
-
-    <section class="sec-7">
-    <div class="sec-7-bg-img sec-1-txt">
-        <div class="container-1151">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="sec-7-box">
-                        <h4>What are you waiting for?</h4>
-                        <p>Bid to traditional used car selling methods and join strong community of thousands happy
-                            customers!</p>
-                        <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
-
-                            <span class="text mt-4 found1" style="color: white">Enter Mileage <i
-                                    class="fa-solid fa-check"></i></span>
-
-                            <br>
-                            <input type="number" name="millage" placeholder="Enter Millage" required>
-                            <input type="hidden" name="registeration" class="registeration1" value="">
-                            <button type="submit">Continue</button>
-
-                        </form>
-                        <div class="check_area1">
-
-                            <input type="text" name="registeration1" id="registeration1" style="text-transform: uppercase" placeholder="Enter REG"
-                                value="{{ old('registeration') }}" style="text-transform: uppercase">
-                            <span class="text-danger show_error1"></span>
-                            <button type="button" id="check_registeration1">Value Your Car</button>
-                            <div class="spinner-container">
-                                <span class="spinner spinner--dotted sSecond"></span>
-                                </div>
-                        </div>
-                        @if ($errors->has('millage'))
-                        <span class="text-danger">{{ $errors->first('millage') }}</span>
-                        @endif
-
-
                     </div>
                 </div>
+                <div class="sec-6-main-box col-lg-4 col-md-6">
+                    <p style="font-style:italic;">From my experience, I can vouch that Motorific is the best way to sell
+                        used car! I tried selling my car through traditional methods and it turned out to be a big headache.
+                        But then a friend of mine recommended Motorific. As soon as I created profile, I was able to get
+                        multiple offers from verified dealers instantly. The whole process was seamless, prompt and
+                        hassle-free. What I appreciates the most about Motorific is the transparency of the platform, and
+                        the fact that I could compare offers and choose the one that worked best for me. Thanks to
+                        Motorific, I got the best value for my MG HS!</p>
+                    <div class="sec-6-box-pfp d-flex align-items-center">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp2.png') }}" alt="">
+                        <div>
+                            <h5>Mark,Homestay</h5>
+                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="sec-6-main-box col-lg-4 col-md-6">
+                    <p style="font-style:italic;">Sold my Peugeot e-208 through Motorific - it was easy, fast, and
+                        stress-free! I got a great price for my car and was able to complete the transaction quickly. Highly
+                        recommend Motorific for anyone looking to sell their car fastly!</p>
+                    <div class="sec-6-box-pfp d-flex align-items-center">
+                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp3.png') }}" alt="">
+                            <div>
+                                <h5>Mark,Homestay</h5>
+                                <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
+                            </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="sec-7">
+        <div class="sec-7-bg-img sec-1-txt">
+            <div class="container-1151">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="sec-7-box">
+                            <h4>What are you waiting for?</h4>
+                            <p>Bid to traditional used car selling methods and join strong community of thousands happy
+                                customers!</p>
+                            <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="sec-7-box">
-                        <h4>Newsletter</h4>
-                        <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                        <input class="mb-3" type="text" placeholder="email" name="subscriber_email"
-                            id="subscriber_email">
-                        <button onclick="addSubscriber()">SUBSCRIBE</button>
+                                <span class="text mt-4 found1" style="color: white">Enter Mileage <i
+                                        class="fa-solid fa-check"></i></span>
+
+                                <br>
+                                <input type="number" name="millage" placeholder="Enter Millage" required>
+                                <input type="hidden" name="registeration" class="registeration1" value="">
+                                <button type="submit">Continue</button>
+
+                            </form>
+                            <div class="check_area1">
+
+                                <input type="text" name="registeration1" id="registeration1" style="text-transform: uppercase" placeholder="Enter REG"
+                                    value="{{ old('registeration') }}" style="text-transform: uppercase">
+                                <span class="text-danger show_error1"></span>
+                                <button type="button" id="check_registeration1">Value Your Car</button>
+                                <div class="spinner-container">
+                                    <span class="spinner spinner--dotted sSecond"></span>
+                                    </div>
+                            </div>
+                            @if ($errors->has('millage'))
+                            <span class="text-danger">{{ $errors->first('millage') }}</span>
+                            @endif
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="sec-7-box">
+                            <h4>Newsletter</h4>
+                            <p>Subscribe to our newsletter and stay on top of industry news. </p>
+                            <input class="mb-3" type="text" placeholder="email" name="subscriber_email"
+                                id="subscriber_email">
+                            <button onclick="addSubscriber()">SUBSCRIBE</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection
 @push('child-scripts')
     <script type="text/javascript">
