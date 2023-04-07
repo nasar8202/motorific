@@ -167,7 +167,7 @@
 
 $(document).ready(function(){
     $('.price').on('click', function() {
-        var id = $('.price').attr("data-id");
+        var id = $(this).attr("data-id");
         // console.log('dsadasa');
         $("#orderId").val(id);
         

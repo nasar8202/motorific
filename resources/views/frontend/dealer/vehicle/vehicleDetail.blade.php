@@ -273,6 +273,10 @@
                                     <li class="hidden">Clean:<span> £{{$vehicle->clean_price}} </span></li>
                                     <li class="hidden">Average:<span> £{{$vehicle->average_price}} </span></li>
                                 </ul>
+                                <ul class="">
+                                    <li class="justify-content-center"><a href="{{route('buyItNowFromSeller',$vehicle->id)}}">Buy Now : £{{$vehicle->reserve_price}}</a></li>
+                                    
+                                </ul>
                             </ul>
                             <?php
                            $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();

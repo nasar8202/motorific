@@ -171,16 +171,17 @@
         </div>
         <div class="mail-content">
           <h2>You've just bought a car!</h2>
-          <p>Hi !</p>
+          <p>Hi {{$data['name']}}!</p>
           <p>
-            Congratulations - your price has been Updated successfully by admin 
+            Congratulations on purchasing the (<strong>{{ $data['vehicle_name'] }}</strong>) via the motorific dealer to dealer portal.
+            {{-- Congratulations - your price has been Updated successfully by admin 
             <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
-        Your Car Offer Price Updated By Motorific
+        Your Car Offer Price Updated By Motorific --}}
         </p>
-          <p>Car Details</p>
+          <p>Details about the vehicle:</p>
 
           <div class="content-img">
-            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
+            {{-- <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" /> --}}
             <div class="car-det">
               <span>Model: {{ $data['vehicle_name'] }} </span>
               <span> Reg: {{ strtoupper($data['vehicle_registration']) }} </span>
@@ -189,6 +190,13 @@
               <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
               <span>Car age: {{ $data['age'] }} </span>
               <span>Colour:  {{ $data['colour'] }}  </span>
+            </div>
+          </div>
+          <div class="content-img">
+            
+            <div class="car-det">
+              <span>Price of sale:: {{ $data['bidded_price'] }} </span>
+              
             </div>
           </div>
         </div>
@@ -210,6 +218,11 @@
             <a href="">Contact the seller here </a>
           </div> --}}
           <div class="qa-ans">
+            <p>Please log in to the dealer portal to view the seller's contact information and set up a time to pick up the vehicle.</p>
+            
+            
+          </div>
+          <div class="qa-ans">
             <p><strong>What next? </strong></p>
             <p>
               You’ll need to find a time that’s right for both parties so you
@@ -230,8 +243,8 @@
               >
               and we’ll get back to you as soon as possible.
             </p>
-            <p>Thanks</p>
-            <p>The motorific team.</p>
+            <p>Thank you for using Motorific .</p>
+            {{-- <p>The motorific team.</p> --}}
           </div>
 
           <div class="footer-mail">

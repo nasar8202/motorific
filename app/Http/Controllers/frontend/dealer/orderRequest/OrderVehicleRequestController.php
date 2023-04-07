@@ -74,4 +74,19 @@ class OrderVehicleRequestController extends Controller
         }
         
     }
+    public function buyItNowFromSeller($id)
+    {
+      $vehicle = Vehicle::where('status',1)->where('id',$id)->first();
+          
+      
+      $order = new OrderVehicleRequest;
+      $order->user_id = Auth::user()->id;
+      $order->vehicle_id = $id;
+      $order->request_price = $vehicle->reserve_price;
+      $order->status = 1;
+      $order->save();
+      $vehicle->status = 2;
+      $vehicle->save();
+      return redirect()->route('dealer.dashboard')->with('success', 'Vehicle Succesfully Purchase. Check Your Purchases For More Details');
+    }
 }
