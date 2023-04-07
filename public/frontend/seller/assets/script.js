@@ -22,13 +22,9 @@ function move() {
         progessMain.style.display = "none";
         clearInterval(id);
         i = 0;
-        // loadedPage.classList.remove("overflow-hidden");
         loadedPage.style.display = "block";
       } else {
         width++;
-        // loadedPage.classList.add("overflow-hidden");
-        // elem.style.width = width + "%";
-        // barTxt.innerHTML = width + "%";
       }
     }
   }

@@ -101,7 +101,7 @@ div#filter-price {
     
 <div class="container">
     <div class="row">
-        <div class="col-lg-3 col-md-3 productsFiltersCol">
+        <div class="col-lg-3 productsFiltersCol">
             <div class="productsFilters">
                 <h2 class="filter-head">Filters <span class="filterToggle"><i class="fa-solid fa-sliders"></i></span></h2>
                 <div class="filterWraper">
@@ -250,7 +250,7 @@ div#filter-price {
                 </div>
             </div>
         </div>
-        <div class="col-lg-9 col-md-9">
+        <div class="col-lg-9 ">
             <div class="sec-2-txt pb-4">
                 <!--<h2>Live Sell <span id="word"> ends </span> in <span id="countdown"></span></h2>-->
                 <div class="sale-countdown">

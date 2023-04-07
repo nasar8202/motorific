@@ -7,6 +7,71 @@
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 
 
+                @endauth
+
+                @guest
+                <div class="dropdown">
+                    <span>MORE</span>
+                    <div class="dropdown-content">
+
+                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
+                    </div>
+                </div>
+                @endguest
+                </ul>
+            </div>
+            <div class="head-btns  justify-content-between">
+                <button><a href="{{ route('myLogin') }}">Sign In</a></button>
+                @if (Route::has('register'))
+                <button><a href="{{ route('registration') }}">Sign Up</a></button>
+                @endif
+                <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>
+            </div>
+            <div class="menu">
+                <div class="toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li class="logoMob">
+                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+                            alt=""></a>
+                        </li>
+                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
+                        <li>
+                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('reviews') }}">Reviews</a>
+                        </li>
+                        {{-- <li>
+                            <a href="#">Help</a>
+                        </li> --}}
+                            <li>
+                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
+                        </li>
+                        
+                    @guest
+                    <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                    
+                        <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                        @endguest
+                        @guest
+                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
+
+                            </li>
+                        @endguest
+
+                    </div>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <section class="inner-banner about">
         <div class="container-1151">
             <div class="banner-inner-cont">

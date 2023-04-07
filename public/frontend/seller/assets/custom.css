@@ -1,14 +1,44 @@
 header {
     z-index: 9;
 }
-.head-btns a {
-    text-decoration: none;
-}
-.transparent-header .head-btns button {
-    padding: 12px 40px;
-    min-width: auto;
+header .logo-navlinks a img {
+    vertical-align: unset !important;
 }
 
+.navlinks .dropdown span{
+    display:block;
+    text-transform:uppercase;
+}
+.head-btns button {
+    all: unset !important;
+}
+
+.head-btns button a {
+    padding: 12px 35px;
+    width: 100%;
+    font-weight: 600;
+    margin:0;
+    font-size: 14px;
+    background: #202543;
+    color: #fff;
+    border-radius: 100px;
+    transition: all .4s ease-in;
+    text-transform: uppercase;
+    line-height: 1.3;
+    display: block;
+    text-decoration: none;
+}
+
+.head-btns button a:hover {
+    background: #05eab5;
+}
+.head-btns {
+    gap: 15px;
+}
+.header-light .navlinks .dropdown span {
+    color: #000;
+}
+/*Header End*/
 /*Footer */
 .footer-social {
     display: flex;
@@ -181,7 +211,8 @@ header {
     background: #05eab5;
     border-radius: 100px;
     text-decoration: none;
-    font-weight: 500;
+    text-transform: uppercase;
+    font-weight: 600;
     color: #fff;
     margin: 0 auto;
     border: 2px solid transparent;
@@ -294,6 +325,263 @@ header {
     margin-bottom: 80px;
 }
 
-
-
 /*Help Page End*/
+
+/*Seller Index Css*/
+.banner-sec .banner-title {
+    line-height: 1.2;
+    font-size:50px;
+}
+
+.banner-sec .banner-desc {
+    font-size: 16px;
+    margin: 20px 0 25px;
+    padding: 0;
+}
+
+.banner-sec .check_area input,
+.banner-sec .millage_area input[type="number"]{
+    width: 60%;
+    font-size: 24px;
+    padding: 12px 24px;
+    line-height: 1.2;
+    display:block;
+}
+.btn-prim,
+.btn-submit {
+    all: unset !important;
+}
+.btn-prim a,
+.btn-submit span {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #fff;
+    background: #05eab5;
+    border-radius: 100px;
+    cursor:pointer;
+    transition: all .4s ease-in;
+}
+.btn-prim a:hover,
+.btn-submit span:hover{
+    background:#7977a2;
+}
+.btn-second a {
+    background: #7977a2;
+}
+
+.btn-second a:hover {
+    background: #05eab5;
+}
+
+.banner-sec .check_area button {
+    margin-top: 18px !important;
+}
+.millage_area input[type="number"]::-webkit-outer-spin-button, .millage_area input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+.sec-heading {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.how-sec .how-work {
+    padding-top: 0;
+}
+
+.how-sec .sec-2-btns {
+    margin-bottom: 0;
+}
+
+.how-sec {
+    padding: 0 0 60px;
+}
+
+.how-sec .how-work-img {
+    margin-bottom: 25px;
+}
+
+.how-sec .howitwork-main h4 {
+    font-weight: 600;
+}
+.btns-wraper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.who-sec p {
+    font-size: 16px;
+}
+.who-sec .btns-wraper {
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+
+.who-sec .btns-wraper .btn-prim:first-child a:hover {
+    background: #e4e3f1;
+    color: #7977a2;
+}
+
+.who-sec .btns-wraper .btn-prim:last-child a {
+    background: #e4e3f1;
+    color: #7977a2;
+}
+
+.who-sec .btns-wraper .btn-prim:last-child a:hover {
+    background: #05eab5;
+    color: #fff;
+}
+.who-sec .whoContent {
+    padding: 70px 0 100px;
+}
+.who-sec::after {
+    width: 45%;
+    background-size: cover;
+}
+.ycp-sec .btn-prim {
+    margin-top: 30px !important;
+}
+.ycp-sec .sec-4-box {
+    padding: 30px;
+}
+
+.ycp-sec .sec-4-box h4 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 15px 0;
+}
+
+.ycp-sec .sec-4-box p {
+    font-size: 16px;
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+.ycp-sec .sec-4-box img {
+    height: 60px;
+}
+section.ycp-sec {
+    margin-bottom: 30px;
+}
+
+.wsy-sec .sec-5-inner-txt {
+    padding-left: 50px;
+    min-height: 140px;
+}
+.wsy-sec .sec-heading {
+    margin-bottom: 30px;
+}
+.testi-sec .sec-6-main-box p {
+    padding-top: 0;
+}
+
+.testi-sec .sec-6-main-box {
+    margin-top: 44px;
+}
+.subs-wraper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 40px;
+}
+
+.subs-wraper .sec-7-box {
+    width: 100%;
+    border-radius: 30px;
+    padding: 35px 40px;
+    min-height: 300px;
+}
+
+.subs-wraper .sec-7-box h4 {
+    font-weight: 600;
+    margin: 0;
+}
+
+.subs-wraper .sec-7-box p {
+    padding: 10px 0 14px;
+    line-height: 1.4;
+}
+
+.subs-wraper .sec-7-box input {
+    margin-bottom: 18px !important;
+    padding: 14px 28px;
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.subs-wraper .btn-submit,
+.subs-wraper .btn-prim {
+    margin-top: 10px !important;
+}
+.subs-wraper .btn-prim a:hover, .subs-wraper .btn-submit span:hover {
+    background: #e4e3f1;
+    color: #7977a2;
+}
+.subs-wraper .show_error1 {
+    display: block;
+    margin-bottom: 20px;
+    background: #e4e3f1;
+    width: fit-content;
+    padding: 3px 10px;
+    color: #7977a2 !important;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+/*Seller Index Css End*/
+
+.hts-sec .sec-heading {
+    margin-bottom: 60px;
+}
+
+.hts-sec .overview-section__icon {
+    width: 60px;
+    height: 60px;
+    background: #05eab5;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hts-sec .overview-section__icon svg path {
+}
+
+.hts-sec .overview-section__icon svg {
+    stroke: #fff;
+    width: 26px;
+}
+
+.hts-sec .overview-section h3 {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.hts-sec .overview-section {
+    padding: 30px;
+}
+
+.hts-sec .overview-section p {
+    margin: 0;
+    font-size: 15px;
+}
+
+h3.overview-section__heading {
+}
+
+.hts-sec {
+    padding-bottom: 80px;
+}
+
+.car-benefit {
+    padding-bottom: 0;
+}
+.car-benefit .how-work {
+    padding-top: 50px;
+}

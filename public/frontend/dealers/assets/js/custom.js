@@ -451,7 +451,7 @@ $(document).ready(function () {
   var width = $(window).width();
 
   $('.filterToggle').hide();
-  if (width < 767) {
+  if (width < 800) {
     $('.filterWraper').hide();
     $('.filterToggle').show();
     $('.filterToggle').click(function () {

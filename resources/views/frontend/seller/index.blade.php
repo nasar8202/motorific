@@ -81,25 +81,172 @@
             width: 25px;
             border: 5px dotted var(--spinner-color);
 
+<<<<<<< HEAD
+	animation-duration: 5s;
+}
+}
+    </style>
+    <header class="header-light">
+        <div class="container-1600 d-flex justify-content-between pt-4">
+            <div class="logo-navlinks d-flex align-items-center">
+                <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+                        alt=""></a>
+                <ul class="navlinks mb-0 align-items-center">
+                    <a href="{{ route('sellMyCar') }}">
+                        <li>Sell My Car</li>
+                    </a>
+                    <a href="{{ route('howItWorksforSeller') }}">
+                        <li>How It Works</li>
+                    </a>
+                    <a href="{{ route('reviews') }}">
+                        <li>Reviews</li>
+                    </a>
+                    {{-- <a href="#">
+                        <li>Help</li>
+                    </a> --}}
+                    @auth
+
+                    @endauth
+
+                    @guest
+                        <div class="dropdown">
+                            <span>More</span>
+                            <div class="dropdown-content">
+
+                                <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
+
+                            </div>
+                        </div>
+                    @endguest
+                </ul>
+            </div>
+
+            <div class="head-btns  justify-content-between">
+                @guest
+                   <button><a href="{{ route('myLogin') }}"> Sign In</a></button>
+                    @if (Route::has('register'))
+                       <button><a href="{{ route('registration') }}"> Sign Up</a></button>
+                    @endif
+                @else
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    </div>
+
+                @endguest
+
+                <button><a href="{{ url("/get-in-touch") }}"> Contact Us</a></button>
+                <!--<button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>-->
+            </div>
+            <!--<div class="head-btns  justify-content-between">-->
+            <!--    <button><a href="{{ route('myLogin') }}">Sign In</a></button>-->
+            <!--    @if (Route::has('register'))-->
+            <!--    <button><a href="{{ route('registration') }}">Sign Up</a></button>-->
+            <!--    @endif-->
+            <!--    <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>-->
+            <!--</div>-->
+            <div class="menu">
+                <div class="toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li class="logoMob">
+                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+                            alt=""></a>
+                        </li>
+                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
+                        <li>
+                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('reviews') }}">Reviews</a>
+                        </li>
+                     
+                          
+                        {{-- <li>
+                            <a href="#">Help</a>
+                        </li> --}}
+                          <li>
+                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
+                        </li>
+                        @guest
+                        <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                        
+                            <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                            
+                            @endguest
+                        @if(Auth::check())
+                        <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    </div>
+                    @endif
+                        @guest
+                            <li> <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
+
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+        </div>
+            </div>
+        </div>
+    </header>
+=======
             animation-duration: 5s;
         }
         }
 </style>
     
+>>>>>>> 03c95c422616f73bc33ec474854cd5d8b453e04b
     
     
 
     <!-- SECTION-1 -->
 
-    <section class="sec-1 seller-main-banner" id="vehicle_registration">
+    <section class="sec-1 seller-main-banner banner-sec seller-main" id="vehicle_registration">
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-md-6">
-                    <h2>Sell your car 
-                        with  <span>Motorific</span></h2>
+                    <h2 class="banner-title">Sell your car with  <span>Motorific</span></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p>
+                    <p class=banner-desc>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -107,7 +254,7 @@
                         <br>
                         <input type="number" name="millage" placeholder="Enter Millage" required>
                         <input type="hidden" name="registeration" class="registeration" value="">
-                        <button type="submit">Continue</button>
+                        <button type="submit" class="btn-submit"><span>Continue</span></button>
 
                     </form>
                     <div class="check_area">
@@ -115,7 +262,7 @@
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
                             value="{{ old('registeration') }}" style="text-transform: uppercase" required>
                         <span class="text-danger show_error"></span>
-                        <button type="button" id="check_registeration">Value Your Car</button>
+                        <button type="button" id="check_registeration" class="btn-prim"><a href="javascript:void(0)">Value Your Car</a></button>
                         <div class="spinner-container">
                         <span class="spinner spinner--dotted sfirst"></span>
                         </div>
@@ -165,6 +312,14 @@
 
     <!---->
     <!-- SECTION-2 -->
+<<<<<<< HEAD
+    
+    
+
+    @include('frontend.seller.partials.how-work')
+
+
+=======
     <section class="sec-2 how-sec">
         <div class="container-1151">
             <div class="row">
@@ -230,19 +385,21 @@
             </div>
         </div>
     </section>
+>>>>>>> 03c95c422616f73bc33ec474854cd5d8b453e04b
     <!-- SECTION-3 -->
     <section class="sec-3 mt-4 mb-5 who-sec">
         <div class="container-1151">
             <div class="row">
                 <div class="who-content">
-                        <div class="sec-3-txt col-lg-6">
-                        <h4>Who We Are</h4>
-                        <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
-                        <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
+                        <div class="sec-3-txt col-lg-6 whoContent">
+                        <h2 class="sec-heading text-white">Who We Are</h2>
                         <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over thousands verified dealers nationwide and present you with the highest bid for your car.</p>
                         <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
-                        <a href="#vehicle_registration"><button class="mx-0">VALUE YOUR CAR</button></a>
-                        <button><a href="{{route('GetInTouchSellerForm')}}" style="text-decoration: none;background-color:#e3e3f0;color:#7977a2">GET IN TOUCH</a></button>
+                        
+                        <div class="btns-wraper">
+                            <button class="mx-0 btn-prim"><a href="#vehicle_registration">VALUE YOUR CAR</a></button>
+                            <button class="btn-prim"><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -260,11 +417,11 @@
                         <!--<h4>This is the way.</h4>-->
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
-                        <h4>Your Car. Your Price - with Motorific</h4>
+                        <h2 class="sec-heading">Your Car. Your Price - with Motorific</h2>
                         <p>With over thousands dealers eager to purchase your car, Motorific ensure you get for your car.</p>
                         <div class="sec-1-txt">
-                            <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
-                                    CAR</button></a>
+                            <button class="btn-prim"><a href="#vehicle_registration">VALUE YOUR
+                                    CAR</a></button>
                         </div>
                     </div>
                 </div>
@@ -309,7 +466,7 @@
         <div class="container-1600">
             <div class="sec-5-txt">
                 <div class="container-1151">
-                    <h5>Why Sell Your <br> Used Car With Motorofic? </h5>
+                    <h2 class="sec-heading text-white">Why Sell Your <br> Used Car With Motorofic? </h2>
                     <div class="row sec-5-txt-sub">
                         <div class="col-lg-6 col-md-6">
                             <div class="sec-5-inner-txt mt-4">
@@ -341,6 +498,14 @@
         </div>
     </section>
     <!-- SECTION-6 -->
+<<<<<<< HEAD
+
+    @include('frontend.seller.partials.testimonials')
+
+<!--Subscribe Sec-->
+@include('frontend.seller.partials.subscribe')
+    
+=======
     <section class="sec-6 testi-sec">
         <div class="container-1151">
             <div class="sec-6-heading">
@@ -450,6 +615,7 @@
             </div>
         </div>
     </section>
+>>>>>>> 03c95c422616f73bc33ec474854cd5d8b453e04b
 @endsection
 @push('child-scripts')
     <script type="text/javascript">
