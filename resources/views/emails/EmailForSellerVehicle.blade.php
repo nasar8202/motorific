@@ -482,7 +482,7 @@
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
                 <h3 class="title-name">Hi {{ $vehicle_details['name'] }}!</h3>
-                <p style="display: inline; white-space: nowrap">Your Vehicle details have been  successfully recieved for valuation</p>
+                <p>Your Vehicle details have been  successfully recieved for valuation</p>
                 {{-- <p>team to  review</p> --}}
                 <h3 class="title-name">Car Details</h3>
             </div>
@@ -501,9 +501,9 @@
                             <li><span>Car Age:</span> {{ $vehicle_details['age'] }} </li>
                             <li><span>Color:</span>{{ $vehicle_details['colour'] }}</li>
                         </ul>
-                        <div class="veh-img">
+                        {{-- <div class="veh-img">
                             <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle_details['front']) }}" width="80px" height="80px" alt="">
-                        </div>
+                        </div> --}}
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
                             <p>Your valuation is being worked on by Motorific experts valuation team.

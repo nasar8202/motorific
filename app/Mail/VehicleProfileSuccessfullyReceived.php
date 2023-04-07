@@ -3,25 +3,24 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EveryDayEightAm extends Mailable
+class VehicleProfileSuccessfullyReceived extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public $vehicle_details;
+    public function __construct($vehicle_details)
     {
-        $this->data = $data;
+        $this->vehicle_details = $vehicle_details;
     }
-
 
     /**
      * Build the message.
@@ -30,9 +29,6 @@ class EveryDayEightAm extends Mailable
      */
     public function build()
     {
-        $subject = "It's time for today's Motorific vehicle sale";
-        return $this->view('emails.EveryDayEightAm')->subject($subject);
-
-        //return $this->view('view.name');
+        return $this->view('emails.EmailForSellerVehicle');
     }
 }

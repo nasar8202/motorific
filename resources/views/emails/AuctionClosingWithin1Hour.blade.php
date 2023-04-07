@@ -133,7 +133,7 @@ a, a:hover {
 			padding-top: 25px; 
 			color: #000000;
 			font-family: sans-serif;" class="paragraph">
-				Our daily sale now has {{$data['count']}} vehicles available.
+				Our daily sale now has  vehicles available.
                 
 		</td>
 	</tr>

@@ -558,6 +558,7 @@ class FrontController extends Controller
 
     public function photoUpload(Request $request)
     {
+        
         $request->validate([
             'millage' => 'required|numeric|min:1000',
       ]);

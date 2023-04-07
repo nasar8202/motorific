@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use App\Mail\EmailForSellerVehicle;
+use App\Mail\VehicleProfileSuccessfullyReceived;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 
 class SendEmailForSellerVehicle implements ShouldQueue
@@ -32,7 +32,7 @@ class SendEmailForSellerVehicle implements ShouldQueue
      */
     public function handle()
     {
-        $email = new EmailForSellerVehicle($this->vehicle_details);
+        $email = new  VehicleProfileSuccessfullyReceived($this->vehicle_details);
         Mail::to($this->vehicle_details['email'])->send($email);
     }
 }
