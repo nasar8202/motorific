@@ -6,7 +6,6 @@
 @section('logoMain','frontend/seller/assets/image/logo-w.png')
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 
-<<<<<<< HEAD
 <!-- HEADER -->
     <header class="transparent-header">
         <div class="container-1600 d-flex justify-content-between pt-4">
@@ -94,8 +93,6 @@
             </div>
         </div>
     </header>
-=======
->>>>>>> 03c95c422616f73bc33ec474854cd5d8b453e04b
     
     <section class="inner-banner help">
         <div class="container-1151">
