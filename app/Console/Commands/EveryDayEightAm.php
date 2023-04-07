@@ -49,14 +49,11 @@ class EveryDayEightAm extends Command
     public function handle()
     {
         $dealers = User::where('role_id','3')->where('status',1)->get();
-        $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
         
-        $vehicles =   Vehicle::where('status',1)->where('start_vehicle_date',$start_end_vehicle_date)
-        ->where('end_vehicle_date',$start_end_vehicle_date)->get();
         
-        foreach ($dealers as  $data1) {
-            $data = ['count'=>count($vehicles)];
-            Mail::to($data1->email)->send(new EveryDayEightAmMail($data));
+        foreach ($dealers as  $data) {
+            
+            Mail::to($data->email)->send(new EveryDayEightAmMail($data));
         }
      
            $log = Log::info($data);

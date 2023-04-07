@@ -44,11 +44,10 @@ class DealerDashboardController extends Controller
 
       $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
       $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')
-        ->where('all_auction','all')->orWhere(['all_auction'=>null,'start_vehicle_date'=>$start_end_vehicle_date,'end_vehicle_date'=>$start_end_vehicle_date])->distinct('vehicle_name')->pluck('vehicle_name');
-       
-            $live_sale_Vehicles = Vehicle::where('status',1)->where('start_vehicle_date',$start_end_vehicle_date)->with('vehicleInformation')->with('VehicleImage')->get();
-        $browse_Vehicles = Vehicle::where('status',1)->where('start_vehicle_date',null)->with('vehicleInformation')->with('VehicleImage')->get();
-        $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+        ->where('all_auction','all')->distinct('vehicle_name')->pluck('vehicle_name');
+
+        $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all')->get();
+
         
         $countAllVehicle = count($allVehicles);
 

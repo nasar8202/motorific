@@ -109,7 +109,7 @@ a, a:hover {
 			padding-top: 25px;
 			color: #000000;
 			font-family: sans-serif;" class="header">
-				The following vehicles are for sale on Motorific:<?php echo date("d/m/Y");?>
+				Good Afternoon Dealers, <?php echo date("d/m/Y");?>
 		</td>
 	</tr>
 	
@@ -133,7 +133,8 @@ a, a:hover {
 			padding-top: 25px; 
 			color: #000000;
 			font-family: sans-serif;" class="paragraph">
-				Our daily sale now has  vehicles available.
+				Our daily sale is about to end so hurry and login to update your bids.
+				Dont miss out on great stock for your forecourt. 				
                 
 		</td>
 	</tr>
