@@ -219,7 +219,7 @@ section.services-sec {
 
 @media only screen and (max-width: 1200px) {
     section.sec-2.productPageTn span {
-        padding: 10px 20px !important;
+        /*padding: 10px 20px !important;*/
     }
     .container-1200 {
         width: 1040px;
@@ -325,6 +325,26 @@ div#loop .box {
 
 
 @media only screen and (max-width: 991px) {
+    .sale-countdown h2 {
+    font-size: 28px;
+}
+.filter-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f1f1;
+    padding: 15px 20px;
+    border-radius: 15px;
+}
+.topRightFilter {
+    float: none;
+}
+.productsFiltersCol:before{
+    display:none;
+}
+.sale-countdown {
+    padding-top: 30px;
+}
    header.header {
     padding: 10px 0 0;
 }
@@ -1075,7 +1095,10 @@ section.sec-2.productPageTn span.filterToggle {
 }
 
 section.sec-2.productPageTn span {
-    padding: 0 !important;
+    /*padding: 0 !important;*/
+}
+.p-cate-list .p-code {
+    padding: 3px 20px !important;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 20px !important;
@@ -1118,11 +1141,27 @@ section.sec-2.productPageTn span {
 
 @media (max-width: 575px) {
     
- .category-btn a {
+/* .category-btn a {*/
 
-    padding: 10px 12px;
-    font-size: 12px;
-}   
+/*    padding: 10px 12px;*/
+/*    font-size: 12px;*/
+/*}   */
+
+
+.category-btn a {
+    width: 100%;
+    max-width: calc(25% - 6px);
+    line-height: 1.2;
+    padding: 0 10px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+}
+
+
  .sale-countdown h2 {
     font-size: 15px;
 }   

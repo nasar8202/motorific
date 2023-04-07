@@ -512,7 +512,7 @@ section.sec-2.productPageTn span.alert.alert-success {
        max-width: 130px;
     }
 section.sec-2.productPageTn span {
-    padding-left: 0px !important;
+    /*padding-left: 0px !important;*/
 }
     ul.navlinks {
         padding-left: 15px;
@@ -2299,7 +2299,7 @@ div.sellerForm div.form-inputs input {
 }
 
 header {
-    /*position: static;*/
+    position: static;
 }
 
 section.seller-main-banner:after {

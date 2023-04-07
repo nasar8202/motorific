@@ -24,7 +24,7 @@ z-index: 1;
 display: block;
 }
 </style>
-<header>
+<header class="header-light">
     <div class="container-1600 d-flex justify-content-between pt-4" >
         <div class="logo-navlinks d-flex align-items-center">
             <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt=""></a>
@@ -49,8 +49,6 @@ display: block;
 
                     <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
-
-                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                     </div>
                 </div>
                 @endguest
@@ -88,7 +86,8 @@ display: block;
                     @endif
             @endguest
 
-            <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
+            <button class="btn-prim"><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>
+            <!--<button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>-->
         </div>
         <div class="menu">
             <div class="toggle">
@@ -155,7 +154,7 @@ display: block;
 
 <!-- SECTION-1 -->
 
-<section class="sec-1" id="vehicle_registration">
+<section class="sec-1 seller-main-banner banner-sec seller-main" id="vehicle_registration">
     <div class="container-1151">
         <div class="row">
             <div class="sec-1-txt col-lg-6">

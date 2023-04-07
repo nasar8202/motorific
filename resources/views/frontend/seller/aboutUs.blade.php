@@ -38,12 +38,11 @@
                 </ul>
             </div>
             <div class="head-btns  justify-content-between">
-                <a href="{{ route('myLogin') }}"><button>Sign In</button></a>
+                <button><a href="{{ route('myLogin') }}">Sign In</a></button>
                 @if (Route::has('register'))
-                <a href="{{ route('registration') }}"><button>Sign Up</button></a>
+                <button><a href="{{ route('registration') }}">Sign Up</a></button>
                 @endif
-                <a href="{{ url("/get-in-touch") }}"><button>Contact Us</button></a>
-                <!--<button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>-->
+                <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>
             </div>
             <div class="menu">
                 <div class="toggle">
@@ -89,7 +88,6 @@
             </div>
         </div>
     </header>
-    
     <section class="inner-banner about">
         <div class="container-1151">
             <div class="banner-inner-cont">

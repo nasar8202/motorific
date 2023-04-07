@@ -1509,7 +1509,8 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     overflow: hidden;
 }
 .produc-img {
-    max-height: 250px;
+    /*max-height: 250px;*/
+    height: 200px;
     position: relative;
     overflow: hidden;
     border-radius: inherit;
@@ -1872,7 +1873,7 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     display: flex;
     align-items: center;
     border: 2px solid #e3e3e3;
-    border-right: none;
+    /*border-right: none;*/
     width: fit-content;
 }
 
@@ -1906,6 +1907,9 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     position: absolute;
     right: 0;
     top: 0;
+}
+.vehicle-list li:last-child:after{
+    display:none;
 }
 .liveSalesInProgress {
     background: #7a77a2;
@@ -2322,3 +2326,78 @@ section.sec-2.productPageTn.requested-vehicles div#filter{background: transparen
 td.set-scr img {
     width: 100%;
 }
+
+/*New Footer Css Dealer*/
+.footer-sec {
+    padding: 70px 0;
+    text-align: center;
+    background: #414061;
+}
+
+.footer-wraper .footer-logo {
+    filter: invert(1);
+    display: block;
+}
+
+.footer-wraper .footer-social {
+    justify-content: center;
+    margin: 30px 0;
+}
+.footer-wraper .footer-social li a {
+    background: #fff;
+    color: #414061;
+}
+
+.footer-wraper .footer-social li a:hover {
+    background: #05eab5;
+    color: #fff;
+}
+
+.footer-wraper .prim-btn {
+    margin-bottom: 30px;
+}
+
+.footer-wraper .footer-links li {
+    display: inline-block;
+}
+
+.footer-wraper .footer-links li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.footer-wraper .footer-links li a:after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    transform: translateY(-50%);
+}
+
+.footer-wraper .footer-links li:last-child a:after {
+    display: none !important;
+}
+
+.footer-links-wraper .cpyright-txt {
+    color: #fff;
+    margin-top: 20px;
+}
+.procuts-wraper .reviews-add {
+    background: none;
+    box-shadow: none;
+    border-radius: unset;
+}
+
+.procuts-wraper .reviews-add .product-card {
+    box-shadow: 0px 0px 25px 0px rgb(62 62 62 / 7%);
+}
+
+/*New Footer Css End*/

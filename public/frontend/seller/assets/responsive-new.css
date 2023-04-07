@@ -1,14 +1,21 @@
 @media(max-width:1750px){
-  /* Transparent Header Css */
-  .transparent-header .navlinks a li,
-  .transparent-header .navlinks .dropdown span,
-  .transparent-header .navlinks .dropdown a{
-      font-size:14px;
+  /* Header Css */
+  header .navlinks a li,
+  header .navlinks .dropdown span,
+  header .navlinks .dropdown a{
+      font-size:13px;
   }
-  .transparent-header .navlinks .dropdown span{
+  header .navlinks .dropdown span{
     display: block;
   }
-  /* Transparent Header Css End */
+  .head-btns button a {
+    padding: 12px 32px;
+    font-size: 13px;
+  }
+  header .navlinks a li::after{
+    height: 3px;
+  }
+  /* Header Css End */
 
   .banner-inner-cont h1 {
     font-size: 42px;
@@ -92,20 +99,248 @@
   font-size: 15px;
 }
 
+/* Seller index page */
+.banner-sec .banner-title {
+  max-width: unset;
+  font-size: 44px;
+}
+
+.banner-sec .banner-desc {
+  font-size: 14px;
+}
+
+.banner-sec .check_area input, .banner-sec .millage_area input[type="number"] {
+  width: 60%;
+  font-size: 22px;
+  padding: 10px 24px;
+}
+
+.btn-prim a, .btn-submit span {
+  padding: 13px 34px;
+  font-size: 14px;
+  margin: 0 !important;
+}
+
+.banner-sec .tagLines {
+  margin-top: 50px;
+}
+
+.banner-sec .tagLines li {
+  font-size: 14px;
+}
+
+.sec-heading {
+  font-size: 38px;
+}
+
+.howitwork-main h4 {
+  font-size: 17px;
+}
+
+.howitwork-main p {
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+.howitwork-main p::after {
+  height: 6px;
+}
+
+.how-sec .how-work {
+  padding-bottom: 45px;
+}
+
+.who-sec p {
+  font-size: 14px;
+}
+
+.ycp-sec p {
+  font-size: 17px;
+}
+
+.ycp-sec .sec-4-box img {
+  height: 50px;
+}
+
+.ycp-sec .sec-4-box h4 {
+  font-size: 19px;
+}
+
+.ycp-sec .sec-4-box p {
+  font-size: 14px;
+}
+
+.sec-5-inner-txt h4 {
+  font-size: 20px;
+}
+
+.sec-5-inner-txt h4::after {
+  width: 25px;
+  height: 25px;
+  background-size: 100%;
+}
+
+
+section.wsy-sec {
+  margin-bottom: 80px;
+}
+
+.testi-sec .sec-6-heading p {
+  font-size: 22px;
+}
+
+.testi-sec .sec-6-main-box p {
+  font-size: 14px;
+}
+
+section.testi-sec {
+  margin-bottom: 90px;
+}
+
+.subscribe-sec {
+  padding: 90px 0;
+}
+
+.subs-wraper .sec-7-box h4 {
+  font-size: 20px;
+}
+
+.subs-wraper .sec-7-box p {
+  font-size: 15px;
+}
+
+.subs-wraper .sec-7-box input {
+  padding: 12px 28px;
+  font-size: 20px;
+}
+
+
+/* Seller index page End */
+/* Header Css */
+header .navlinks a li,
+header .navlinks .dropdown span,
+header .navlinks .dropdown a{
+    font-size:14px;
+}
+header .navlinks .dropdown span{
+  display: block;
+}
+/* Header Css End */
+
+.banner-inner-cont h1 {
+  font-size: 42px;
+}
+
+.banner-inner-cont p {
+  font-size: 15px;
+}
+
+.about-sec2 .about-content p {
+  font-size: 15px;
+}
+
+.about-sec2 {
+  padding: 90px 0;
+}
+
+.sec-title {
+  font-size: 35px;
+}
+
+.sec-desc {
+  font-size: 15px;
+}
+
+.team-main .sec-title {
+  font-size: 24px;
+}
+
+.team-wraper .team-box .team-img {
+  width: 150px;
+  height: 150px;
+}
+
+.team-box .t-name {
+  font-size: 22px;
+}
+
+.team-box .t-designation {
+  font-size: 15px;
+}
+
+.team-sec {
+  padding-bottom: 90px;
+}
+
+.career-sec-cta {
+  padding: 90px 0;
+}
+
+.globel-btn {
+  padding: 10px 28px;
+  font-size: 15px;
+}
+
+.invest-logos {
+  padding: 50px 40px;
+  margin-top: 50px;
+}
+
+.sellCar-sec {
+  padding: 75px 0 80px;
+}
+
+.sellCar-sec .sell-form input {
+  font-size: 18px;
+}
+.help-acc-sec {
+padding: 70px 0;
+}
+
+.help-acc-sec .accordion-button {
+font-size: 17px;
+}
+
+.help-acc-sec .accordion-body {
+padding: 30px;
+}
+
+.help-acc-sec .accordion-body p {
+font-size: 15px;
+}
+.hts-sec .overview-section h3 {
+  font-size: 18px;
+}
+
+.hts-sec .overview-section p {
+  font-size: 14px;
+}
+
+.list-icon.car-selling__benefits-list .car-selling__benefits-list-item-title {
+  font-size: 17px;
+}
+
+.list-icon.car-selling__benefits-list p {
+  font-size: 14px;
+}
 
 
 }
 
 @media(max-width:1600px){
 
-  /* Transparent Header */
-  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
-    font-size: 13px;
+  /* Header */
+  header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
+    font-size: 12px;
 }
-.transparent-header .head-btns button {
-  padding: 10px 30px;
+header .head-btns button a {
+  padding: 10px 28px;
+  font-size: 12px;
 }
-  /* Transparent Header End */
+header .navlinks a li::after {
+  height: 2.5px;
+}
+  /* Header End */
 
   .banner-inner-cont h1 {
     font-size: 36px;
@@ -230,15 +465,334 @@
 }
 /* Seller Footer End */
 
+/* Seller index page */
+.banner-sec .banner-title {
+  font-size: 42px;
+}
+
+.banner-sec .banner-desc {
+  font-size: 13px;
+  max-width: 70%;
+}
+
+.banner-sec .check_area input, .banner-sec .millage_area input[type="number"] {
+  font-size: 20px;
+}
+
+.btn-prim a, .btn-submit span {
+  padding: 11px 32px;
+  font-size: 13px;
+}
+
+.banner-sec .tagLines li {
+  font-size: 13px;
+}
+
+.banner-sec .tagLines {
+  row-gap: 10px;
+}
+
+.sec-heading {
+  font-size: 35px;
+}
+
+.howitwork-main h4 {
+  font-size: 15px;
+}
+
+.howitwork-main p {
+  font-size: 13px;
+  height: 100px;
+}
+
+.howitwork-main p::after {
+  height: 5px;
+}
+
+.who-sec p {
+  font-size: 13px;
+}
+
+.who-sec .whoContent {
+  padding: 60px 0 80px;
+}
+
+.ycp-sec p {
+  font-size: 14px;
+}
+
+.ycp-sec .sec-4-box img {
+  height: 44px;
+}
+
+.ycp-sec .sec-4-box h4 {
+  font-size: 16px;
+  max-width: 80%;
+}
+
+.ycp-sec .sec-4-box p {
+  font-size: 13px;
+}
+
+section.sec-4 {
+  margin-bottom: 30px;
+}
+
+.wsy-sec .sec-heading {
+  margin-bottom: 20px;
+}
+
+.sec-5-inner-txt h4 {
+  font-size: 18px;
+}
+
+.sec-5-inner-txt h4::after {
+  width: 22px;
+  height: 22px;
+}
+
+.sec-5-inner-txt p {
+  font-size: 13px;
+}
+
+.wsy-sec .sec-5-inner-txt {
+  min-height: 100px;
+}
+
+.testi-sec .sec-6-heading p {
+  font-size: 18px;
+}
+
+.testi-sec .sec-6-main-box p {
+  font-size: 13px;
+}
+
+.testi-sec .sec-6-main-box {
+  margin-top: 35px;
+}
+
+.testi-sec .sec-6-box-pfp > img {
+  max-width: 17%;
+  width: 100%;
+}
+
+.testi-sec .sec-6-box-pfp div h5 {
+  font-size: 15px;
+}
+
+.testi-sec .sec-6-box-pfp > div img {
+  max-width: 65%;
+}
+
+.subscribe-sec {
+  padding: 75px 0;
+  margin-bottom: 80px;
+}
+
+.subs-wraper .sec-7-box h4 {
+  font-size: 18px;
+}
+
+.subs-wraper .sec-7-box p {
+  font-size: 14px;
+}
+
+.subs-wraper .sec-7-box input {
+  padding: 11px 24px;
+  font-size: 18px;
+}
+
+.subs-wraper .btn-submit, .subs-wraper .btn-prim {
+  margin-top: 4px !important;
+}
+
+.subs-wraper .sec-7-box {
+  min-height: 260px;
+}
+.wsy-sec .sec-5-txt {
+  padding: 60px 0px;
+}
+section.banner-sec::after {
+  width: 40%;
+}
+.banner-sec img {
+  max-width: 520px;
+}
+/* Seller index page end*/
+/* Header */
+header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
+  font-size: 13px;
+}
+header .head-btns button {
+padding: 10px 30px;
+}
+/* Header End */
+
+.banner-inner-cont h1 {
+  font-size: 36px;
+}
+
+.banner-inner-cont p {
+  font-size: 14px;
+  max-width: 44%;
+}
+
+.inner-banner {
+  padding: 180px 0 100px 0;
+}
+
+.about-sec2 .about-content p {
+  font-size: 14px;
+}
+
+.about-sec2 {
+  padding: 80px 0;
+}
+
+.sec-title {
+  font-size: 32px;
+}
+
+.team-sec .sec-desc {
+  font-size: 14px;
+  max-width: 52%;
+}
+
+.team-main .sec-title {
+  font-size: 22px;
+}
+
+.team-wraper .team-box .team-img {
+  width: 135px;
+  height: 135px;
+}
+
+.team-box .t-name {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.team-box .t-designation {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.career-sec-cta {
+  padding: 70px 0;
+}
+
+.globel-btn {
+  padding: 9px 26px;
+  font-size: 14px;
+}
+
+.invest-logos {
+  padding: 30px 30px;
+}
+
+.invest-sec {
+  padding: 60px 0 70px;
+}
+
+.sellCar-sec .sec-title {
+  margin-bottom: 30px;
+}
+
+.sellCar-sec .sell-form input {
+  font-size: 16px;
+}
+
+.sellCar-sec {
+  padding: 60px 0 70px;
+}
+
+.help-acc-sec .accordion-button {
+  font-size: 16px;
+}
+
+.help-acc-sec .accordion-body p {
+  font-size: 14px;
+}
+/* Seller Footer  */
+.footer-sec .main-footer .footer-sub h5 {
+font-size: 16px;
+}
+
+.footer-sec .footer-sub:nth-child(1) h5, .footer-sec .footer-sub:nth-child(2) h5 {
+margin-bottom: 10px;
+}
+
+.footer-sec .footer-sub:nth-child(3) {
+padding-top: 30px;
+}
+
+.footer-sec .footer-sub ul a {
+font-size: 13px;
+margin: 0;
+padding: 0;
+}
+
+.footer-sec .footer-sub ul li {
+padding: 0;
+margin: 0;
+line-height: 1.6;
+}
+
+.footer-sec .main-footer .footer-sub p {
+font-size: 13px;
+margin-bottom: 12px;
+}
+
+.footer-sec .footer-sub img {
+max-width: 150px;
+}
+.footer-sec .footer-sub h4 {
+font-size: 13px;
+}
+/* Seller Footer End */
+.hts-sec .overview-section__icon {
+  width: 50px;
+  height: 50px;
+}
+
+.hts-sec .overview-section__icon svg {
+  width: 22px;
+}
+
+.hts-sec .overview-section h3 {
+  font-size: 15px;
+}
+
+.hts-sec .overview-section p {
+  font-size: 13px;
+}
+
+.list-icon.car-selling__benefits-list .car-selling__benefits-list-item-title {
+  font-size: 15px;
+}
+
+.list-icon.car-selling__benefits-list p {
+  font-size: 13px;
+}
+
+
+
 }
 
 @media(max-width:1440px){
 
-  /* TRansparent Header */
-  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
-    font-size: 11px;
+  /* Header */
+  header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
+    font-size: 10px;
 }
-  /* TRansparent Header End */
+header ul.navlinks {
+  gap: 30px;
+}
+header .head-btns button a {
+  padding: 8px 22px;
+  font-size: 10px;
+}
+  /* Header End */
 
   .banner-inner-cont h1 {
     font-size: 28px;
@@ -403,6 +957,399 @@
 
 /* Footer End */
 
+/* Seller index page */
+section.banner-sec {
+  padding: 130px 0 80px;
+}
+
+.banner-sec .banner-title {
+  font-size: 35px;
+}
+
+.banner-sec .banner-desc {
+  font-size: 11px;
+}
+
+.banner-sec .check_area input, .banner-sec .millage_area input[type="number"] {
+  font-size: 16px;
+}
+
+.btn-prim a, .btn-submit span {
+  padding: 10px 26px;
+  font-size: 11px;
+}
+
+.banner-sec .check_area button {
+  margin-top: 8px !important;
+}
+
+.banner-sec img {
+  max-width: 410px;
+}
+
+section.banner-sec::after {
+  width: 38%;
+  background-size: cover;
+}
+
+.banner-sec .tagLines li {
+  font-size: 11px;
+}
+
+.sec-heading {
+  font-size: 28px;
+}
+
+.howitwork-main .step-nmbr h5 {
+  font-size: 15px;
+}
+
+.howitwork-main .step-nmbr::after {
+  height: 30px;
+  width: 30px;
+}
+
+.how-work-img img {
+  width: 35px;
+  height: 55px;
+  display: block;
+  margin: 0 auto;
+}
+
+.how-work-img::after {
+  height: 70px;
+  width: 70px;
+}
+
+.howitwork-main h4 {
+  font-size: 13px;
+}
+
+.how-sec .how-work-img {
+  margin-bottom: 10px;
+}
+
+.howitwork-main p {
+  font-size: 11px;
+  height: 80px;
+}
+
+.who-sec p {
+  font-size: 11px;
+}
+
+.who-sec .whoContent {
+  padding: 50px 0 65px;
+}
+
+.ycp-sec p {
+  font-size: 12px;
+  padding: 0;
+}
+
+.ycp-sec .btn-prim {
+  margin-top: 22px !important;
+}
+
+.ycp-sec .sec-4-box img {
+  height: 34px;
+}
+
+.ycp-sec .sec-4-box h4 {
+  font-size: 13px;
+  max-width: 90%;
+}
+
+.ycp-sec .sec-4-box p {
+  font-size: 11px;
+}
+
+.ycp-sec .sec-4-box {
+  padding: 20px;
+}
+
+section.ycp-sec {
+  padding-top: 0;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.wsy-sec .sec-5-txt {
+  padding: 50px 0px 40px;
+}
+
+.wsy-sec .sec-heading {
+  margin-bottom: 10px;
+}
+
+.sec-5-inner-txt h4 {
+  font-size: 15px;
+}
+
+.sec-5-inner-txt p {
+  font-size: 11px;
+}
+
+.wsy-sec .sec-5-inner-txt {
+  min-height: 70px;
+}
+
+section.wsy-sec {
+  margin-bottom: 60px;
+}
+
+.testi-sec .sec-6-heading p {
+  font-size: 15px;
+}
+
+.testi-sec .sec-6-main-box p {
+  font-size: 11px;
+}
+
+.testi-sec .sec-6-box-pfp div h5 {
+  font-size: 13px;
+}
+
+.testi-sec .sec-6-box-pfp > div img {
+  max-width: 55%;
+}
+
+section.testi-sec {
+  margin-bottom: 70px;
+}
+
+.subscribe-sec {
+  padding: 65px 0;
+  margin-bottom: 70px;
+}
+
+.subs-wraper .sec-7-box h4 {
+  font-size: 15px;
+}
+
+.subs-wraper .sec-7-box p {
+  font-size: 11px;
+}
+
+.subs-wraper .sec-7-box input {
+  padding: 10px 22px;
+  font-size: 14px;
+}
+
+.subs-wraper .btn-submit, .subs-wraper .btn-prim {
+  margin-top: 0px !important;
+}
+
+.subs-wraper .sec-7-box {
+  padding: 30px 30px;
+  min-height: 230px;
+  border-radius: 20px;
+}
+
+/* Seller index page end */
+ /* Header */
+ header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
+  font-size: 11px;
+}
+/* Header End */
+
+.banner-inner-cont h1 {
+  font-size: 28px;
+}
+
+.banner-inner-cont p {
+  font-size: 12px;
+}
+
+.inner-banner {
+  padding: 160px 0 80px 0;
+}
+
+.about-sec2 {
+  padding: 70px 0;
+}
+
+.about-sec2 .about-content p {
+  font-size: 12px;
+}
+
+.about-sec2 .abt-cont-wraper1 {
+  margin-bottom: 45px;
+}
+
+.sec-title {
+  font-size: 26px;
+}
+
+.team-sec .sec-desc {
+  font-size: 12px;
+  max-width: 53%;
+  margin: 12px auto 35px;
+}
+
+.sec-desc {
+  font-size: 12px;
+}
+
+.team-main .sec-title {
+  font-size: 18px;
+}
+
+.team-wraper .team-box .team-img {
+  width: 110px;
+  height: 110px;
+}
+
+.team-box .t-name {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.team-box .t-designation {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.team-wraper {
+  gap: 80px 25px;
+}
+
+.team-sec {
+  padding-bottom: 70px;
+}
+
+.career-sec-cta {
+  padding: 50px 0;
+}
+
+.career-sec-cta .sec-desc {
+  max-width: 60%;
+}
+
+.globel-btn {
+  padding: 7px 22px;
+  font-size: 12px;
+}
+
+.invest-sec {
+  padding: 50px 0 60px;
+}
+
+.invest-sec .sec-desc {
+  margin: 0 auto;
+}
+
+.invest-logos {
+  padding: 25px 30px;
+  margin-top: 40px;
+}
+
+.invest-logos .logo {
+  width: 130px;
+  height: 54px;
+}
+
+.sellCar-sec {
+  padding: 45px 0 60px;
+}
+
+.sellCar-sec .sec-title {
+  margin-bottom: 25px;
+}
+
+.sellCar-sec .sell-form input {
+  font-size: 13px;
+  padding: 9px 30px;
+}
+
+.sellCar-sec .sell-form .globel-btn {
+  margin-top: 15px;
+  padding: 9px 18px;
+}
+.help-acc-sec {
+padding: 60px 0;
+}
+
+.help-acc-sec .accordion-button {
+font-size: 14px;
+padding: 16px 30px;
+}
+
+.help-acc-sec .accordion-body p {
+font-size: 12px;
+}
+/* Footer */
+.footer-sec .main-footer .footer-sub h5 {
+font-size: 13px;
+}
+
+.footer-sec .footer-sub ul a {
+font-size: 11px;
+margin: 0 !important;
+padding: 0 !important;
+}
+
+.footer-sec .footer-sub ul li {
+line-height: 1.3;
+}
+
+.footer-sec .main-footer .footer-sub p {
+font-size: 11px;
+}
+
+.footer-sec .footer-sub img {
+max-width: 130px;
+}
+
+.footer-social li a {
+width: 30px;
+height: 30px;
+}
+
+.footer-social {
+margin-bottom: 6px;
+}
+
+.footer-sec .footer-sub h4 {
+font-size: 11px;
+}
+.hts-sec {
+  padding-top: 20px;
+}
+
+.hts-sec .sec-heading {
+    margin-bottom: 40px;
+}
+
+.hts-sec .overview-section h3 {
+    font-size: 13px;
+}
+
+.hts-sec .overview-section p {
+    font-size: 11px;
+}
+
+.car-benefit .how-work {
+    padding: 20px 0 40px;
+}
+
+.list-icon.car-selling__benefits-list .car-selling__benefits-list-item-title {
+    font-size: 13px;
+}
+
+.list-icon.car-selling__benefits-list p {
+    font-size: 11px;
+}
+
+.car-ft-sec .how-work {
+    padding: 40px 0;
+}
+
+.car-ft-sec .car-selling__benefits {
+    padding-bottom: 40px;
+}
+
+
 
 }
 
@@ -410,18 +1357,18 @@
 
 /* Transpatent Header */
 
-.transparent-header ul.navlinks {
+header ul.navlinks {
   padding-left: 30px;
   gap: 22px;
 }
-.transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
   font-size: 9px;
 }
-.transparent-header .head-btns button {
+header .head-btns button {
   padding: 8px 22px;
   font-size: 8px;
 }
-.transparent-header .dropdown-content {
+header .dropdown-content {
   min-width: 110px;
   padding: 8px 16px;
 }
@@ -565,431 +1512,236 @@
 .help-acc-sec .accordion-body p {
   font-size: 10px;
 }
-/* Footer */
-@media(max-width:1750px){
-  /* Transparent Header Css */
-  .transparent-header .navlinks a li,
-  .transparent-header .navlinks .dropdown span,
-  .transparent-header .navlinks .dropdown a{
-      font-size:14px;
-  }
-  .transparent-header .navlinks .dropdown span{
-    display: block;
-  }
-  /* Transparent Header Css End */
 
-  .banner-inner-cont h1 {
-    font-size: 42px;
+/* Seller index page */
+section.seller-main-banner .banner-content h2 {
+  font-size: 26px;
+  max-width: 80%;
 }
 
-.banner-inner-cont p {
-    font-size: 15px;
+.banner-sec .banner-desc {
+  font-size: 9px;
+  margin: 17px 0;
 }
 
-.about-sec2 .about-content p {
-    font-size: 15px;
-}
-
-.about-sec2 {
-    padding: 90px 0;
-}
-
-.sec-title {
-    font-size: 35px;
-}
-
-.sec-desc {
-    font-size: 15px;
-}
-
-.team-main .sec-title {
-    font-size: 24px;
-}
-
-.team-wraper .team-box .team-img {
-    width: 150px;
-    height: 150px;
-}
-
-.team-box .t-name {
-    font-size: 22px;
-}
-
-.team-box .t-designation {
-    font-size: 15px;
-}
-
-.team-sec {
-    padding-bottom: 90px;
-}
-
-.career-sec-cta {
-    padding: 90px 0;
-}
-
-.globel-btn {
-    padding: 10px 28px;
-    font-size: 15px;
-}
-
-.invest-logos {
-    padding: 50px 40px;
-    margin-top: 50px;
-}
-
-.sellCar-sec {
-    padding: 75px 0 80px;
-}
-
-.sellCar-sec .sell-form input {
-    font-size: 18px;
-}
-.help-acc-sec {
-  padding: 70px 0;
-}
-
-.help-acc-sec .accordion-button {
-  font-size: 17px;
-}
-
-.help-acc-sec .accordion-body {
-  padding: 30px;
-}
-
-.help-acc-sec .accordion-body p {
-  font-size: 15px;
-}
-
-
-
-}
-
-@media(max-width:1600px){
-
-  /* Transparent Header */
-  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
-    font-size: 13px;
-}
-.transparent-header .head-btns button {
-  padding: 10px 30px;
-}
-  /* Transparent Header End */
-
-  .banner-inner-cont h1 {
-    font-size: 36px;
-}
-
-.banner-inner-cont p {
-    font-size: 14px;
-    max-width: 44%;
-}
-
-.inner-banner {
-    padding: 180px 0 100px 0;
-}
-
-.about-sec2 .about-content p {
-    font-size: 14px;
-}
-
-.about-sec2 {
-    padding: 80px 0;
-}
-
-.sec-title {
-    font-size: 32px;
-}
-
-.team-sec .sec-desc {
-    font-size: 14px;
-    max-width: 52%;
-}
-
-.team-main .sec-title {
-    font-size: 22px;
-}
-
-.team-wraper .team-box .team-img {
-    width: 135px;
-    height: 135px;
-}
-
-.team-box .t-name {
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-.team-box .t-designation {
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.career-sec-cta {
-    padding: 70px 0;
-}
-
-.globel-btn {
-    padding: 9px 26px;
-    font-size: 14px;
-}
-
-.invest-logos {
-    padding: 30px 30px;
-}
-
-.invest-sec {
-    padding: 60px 0 70px;
-}
-
-.sellCar-sec .sec-title {
-    margin-bottom: 30px;
-}
-
-.sellCar-sec .sell-form input {
-    font-size: 16px;
-}
-
-.sellCar-sec {
-    padding: 60px 0 70px;
-}
-
-.help-acc-sec .accordion-button {
-    font-size: 16px;
-}
-
-.help-acc-sec .accordion-body p {
-    font-size: 14px;
-}
-/* Seller Footer  */
-.footer-sec .main-footer .footer-sub h5 {
-  font-size: 16px;
-}
-
-.footer-sec .footer-sub:nth-child(1) h5, .footer-sec .footer-sub:nth-child(2) h5 {
-  margin-bottom: 10px;
-}
-
-.footer-sec .footer-sub:nth-child(3) {
-  padding-top: 30px;
-}
-
-.footer-sec .footer-sub ul a {
-  font-size: 13px;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-sec .footer-sub ul li {
-  padding: 0;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.footer-sec .main-footer .footer-sub p {
-  font-size: 13px;
-  margin-bottom: 12px;
-}
-
-.footer-sec .footer-sub img {
-  max-width: 150px;
-}
-.footer-sec .footer-sub h4 {
-  font-size: 13px;
-}
-/* Seller Footer End */
-
-}
-
-@media(max-width:1440px){
-
-  /* TRansparent Header */
-  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
-    font-size: 11px;
-}
-  /* TRansparent Header End */
-
-  .banner-inner-cont h1 {
-    font-size: 28px;
-}
-
-.banner-inner-cont p {
-    font-size: 12px;
-}
-
-.inner-banner {
-    padding: 160px 0 80px 0;
-}
-
-.about-sec2 {
-    padding: 70px 0;
-}
-
-.about-sec2 .about-content p {
-    font-size: 12px;
-}
-
-.about-sec2 .abt-cont-wraper1 {
-    margin-bottom: 45px;
-}
-
-.sec-title {
-    font-size: 26px;
-}
-
-.team-sec .sec-desc {
-    font-size: 12px;
-    max-width: 53%;
-    margin: 12px auto 35px;
-}
-
-.sec-desc {
-    font-size: 12px;
-}
-
-.team-main .sec-title {
-    font-size: 18px;
-}
-
-.team-wraper .team-box .team-img {
-    width: 110px;
-    height: 110px;
-}
-
-.team-box .t-name {
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-.team-box .t-designation {
-    font-size: 12px;
-    margin-bottom: 4px;
-}
-
-.team-wraper {
-    gap: 80px 25px;
-}
-
-.team-sec {
-    padding-bottom: 70px;
-}
-
-.career-sec-cta {
-    padding: 50px 0;
-}
-
-.career-sec-cta .sec-desc {
-    max-width: 60%;
-}
-
-.globel-btn {
-    padding: 7px 22px;
-    font-size: 12px;
-}
-
-.invest-sec {
-    padding: 50px 0 60px;
-}
-
-.invest-sec .sec-desc {
-    margin: 0 auto;
-}
-
-.invest-logos {
-    padding: 25px 30px;
-    margin-top: 40px;
-}
-
-.invest-logos .logo {
-    width: 130px;
-    height: 54px;
-}
-
-.sellCar-sec {
-    padding: 45px 0 60px;
-}
-
-.sellCar-sec .sec-title {
-    margin-bottom: 25px;
-}
-
-.sellCar-sec .sell-form input {
-    font-size: 13px;
-    padding: 9px 30px;
-}
-
-.sellCar-sec .sell-form .globel-btn {
-    margin-top: 15px;
-    padding: 9px 18px;
-}
-.help-acc-sec {
-  padding: 60px 0;
-}
-
-.help-acc-sec .accordion-button {
+.banner-sec .check_area input, .banner-sec .millage_area input[type="number"] {
   font-size: 14px;
-  padding: 16px 30px;
+  padding: 8px 18px;
 }
 
-.help-acc-sec .accordion-body p {
+.btn-prim a, .btn-submit span {
+  padding: 8px 22px;
+  font-size: 9px;
+}
+
+.banner-sec .check_area button {
+  margin-top: 4px !important;
+}
+
+.banner-sec img {
+  max-width: 340px;
+}
+
+section.banner-sec::after {
+  height: 90%;
+}
+
+.banner-sec .tagLines li {
+  font-size: 9px;
+}
+
+.banner-sec .tagLines {
+  margin-top: 40px;
+  row-gap: 6px;
+}
+
+section.banner-sec {
+  padding: 110px 0 60px;
+}
+
+.sec-heading {
+  font-size: 22px;
+}
+
+.how-sec .how-work {
+  padding-bottom: 35px;
+}
+
+.howitwork-main .step-nmbr h5 {
   font-size: 12px;
 }
-/* Footer */
-.footer-sec .main-footer .footer-sub h5 {
-  font-size: 13px;
+
+.howitwork-main .step-nmbr::after {
+  height: 27px;
+  width: 27px;
 }
 
-.footer-sec .footer-sub ul a {
-  font-size: 11px;
-  margin: 0 !important;
-  padding: 0 !important;
+.how-work-img::after {
+  height: 60px;
+  width: 60px;
 }
 
-.footer-sec .footer-sub ul li {
-  line-height: 1.3;
-}
-
-.footer-sec .main-footer .footer-sub p {
+.howitwork-main h4 {
   font-size: 11px;
 }
 
-.footer-sec .footer-sub img {
-  max-width: 130px;
+.howitwork-main p {
+  font-size: 9px;
+  height: 70px;
 }
 
-.footer-social li a {
-  width: 30px;
+.howitwork-main p::after {
+  height: 4px;
+}
+
+.how-sec {
+  padding: 0 0 30px;
+}
+
+.who-sec p {
+  font-size: 9px;
+}
+
+.who-sec .btns-wraper {
+  padding-top: 8px;
+}
+
+.who-sec .whoContent {
+  padding: 40px 0 50px;
+}
+
+.ycp-sec p {
+  font-size: 9px;
+  max-width: 60%;
+}
+
+.ycp-sec .btn-prim {
+  margin-top: 16px !important;
+}
+
+.ycp-sec .sec-4-box img {
   height: 30px;
 }
 
-.footer-social {
-  margin-bottom: 6px;
+.ycp-sec .sec-4-box h4 {
+  font-size: 11px;
+  max-width: 100%;
+  padding: 10px 0;
 }
 
-.footer-sec .footer-sub h4 {
+.ycp-sec .sec-4-box p {
+  font-size: 9px;
+  max-width: 100%;
+}
+
+.ycp-sec .row:first-child {
+  flex-direction: row;
+}
+
+.sec-4-box {
+  width: 100%;
+}
+
+.ycp-sec .sec-4-box {
+  width: 100%;
+}
+
+.wsy-sec .sec-5-txt {
+  padding: 40px 0px 35px;
+}
+
+.wsy-sec .sec-5-inner-txt {
+  padding-left: 29px;
+}
+
+.sec-5-inner-txt h4 {
+  font-size: 13px;
+}
+
+.sec-5-inner-txt p {
+  font-size: 9px;
+}
+
+.sec-5-inner-txt h4::after {
+  width: 18px;
+  height: 18px;
+  left: -28px;
+  top: 0;
+}
+
+section.wsy-sec {
+  margin-bottom: 50px;
+}
+
+.testi-sec .sec-6-heading p {
+  font-size: 13px;
+}
+
+.testi-sec .sec-6-main-box p {
+  font-size: 9px;
+}
+
+.testi-sec .sec-6-main-box {
+  margin-top: 25px;
+}
+
+.testi-sec .sec-6-box-pfp div h5 {
   font-size: 11px;
 }
 
-/* Footer End */
-
-
+.testi-sec .sec-6-box-pfp > div img {
+  max-width: 45%;
 }
 
-@media(max-width:1279px){
+section.testi-sec {
+  margin-bottom: 55px;
+}
 
+.subscribe-sec {
+  padding: 55px 0;
+  margin-bottom: 60px;
+}
+
+.subs-wraper .sec-7-box h4 {
+  font-size: 13px;
+}
+
+.subs-wraper .sec-7-box p {
+  font-size: 9px;
+}
+
+.subs-wraper .sec-7-box input {
+  padding: 9px 18px;
+  font-size: 12px;
+  margin-bottom: 10px !important;
+}
+
+.subs-wraper .sec-7-box {
+  min-height: 220px;
+}
+
+/* Seller index page end */
+/* Footer */
 /* Transpatent Header */
 
-.transparent-header ul.navlinks {
+header ul.navlinks {
   padding-left: 30px;
   gap: 22px;
 }
-.transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
   font-size: 9px;
 }
-.transparent-header .head-btns button {
+header .navlinks a li::after {
+  height: 2px;
+}
+header .head-btns button a{
   padding: 8px 22px;
   font-size: 8px;
 }
-.transparent-header .dropdown-content {
+.head-btns {
+  gap: 10px;
+}
+header .dropdown-content {
   min-width: 110px;
   padding: 8px 16px;
 }
@@ -1161,34 +1913,71 @@
   width: 25px;
   height: 25px;
 }
+.hts-sec .overview-section__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.hts-sec .overview-section__icon svg {
+  width: 18px;
+  stroke-width: 1px;
+}
+
+.hts-sec .overview-section h3 {
+  font-size: 11px;
+}
+
+.hts-sec .overview-section p {
+  font-size: 9px;
+}
+
+.hts-sec {
+  padding-bottom: 55px;
+}
+
+.car-benefit .how-work {
+  padding: 30px 0 40px;
+}
+
+.list-icon.car-selling__benefits-list .car-selling__benefits-list-item-title {
+  font-size: 11px;
+}
+
+.list-icon.car-selling__benefits-list p {
+  font-size: 10px;
+}
+
 
 
 }
+
+
+
 
 @media(max-width:991px){
 
-  /* Transparent Header */
-  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
+  /* Header */
+  header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
     font-size: 10px;
 }
-.transparent-header ul.navlinks {
+header ul.navlinks {
   padding-left: 20px;
   gap: 15px;
 }
-.transparent-header .toggle {
+header .toggle {
   border-color: #fff;
   border-width: 2px;
 }
 
-.transparent-header .toggle span {
+header .toggle span {
   background: #fff;
 }
-.transparent-header  .toggle.active span:nth-child(1),
-.transparent-header  .toggle.active span:nth-child(3){
+header  .toggle.active span:nth-child(1),
+header  .toggle.active span:nth-child(3){
   background: #fff !important;
 }
 
-  /* Transparent Header End */
+  /* Header End */
 
 
 .banner-inner-cont p {
@@ -1260,219 +2049,257 @@
 .help-acc-sec .accordion-button {
   font-size: 14px;
 }
-
-
+/* Header */
+header .navlinks a li, header .navlinks .dropdown span, header .navlinks .dropdown a {
+  font-size: 10px;
+}
+header ul.navlinks {
+padding-left: 20px;
+gap: 15px;
+}
+header .toggle {
+/* border-color: #fff !important; */
+border-color: #000 !important;
+border-width: 2px;
 }
 
-@media(max-width:767px){
-  .banner-inner-cont p {
-    font-size: 13px;
-    max-width: 100%;
+header .toggle span {
+background: #000;
+}
+header  .toggle.active span:nth-child(1),
+header  .toggle.active span:nth-child(3){
+background: #000 !important;
 }
 
-.about-sec2 .about-content p {
-    font-size: 13px;
-}
-
-.about-sec2 .abt-cont-wraper1 {
-    flex-direction: column-reverse;
-}
-
-.about-sec2 .about-content {
-    margin-top: 20px;
-}
-
-.sec-title {
-    font-size: 22px;
-}
-
-.team-sec .sec-desc {
-    font-size: 13px;
-    max-width: 100%;
-}
-
-.team-main .sec-title {
-    font-size: 22px;
-}
-
-.team-wraper .team-box {
-    max-width: calc(50% - 10px);
-}
-
-.team-box .t-name {
-    font-size: 16px;
-}
-
-.team-box .t-designation {
-    font-size: 14px;
-}
-
-.career-sec-cta .sec-desc {
-}
-
-.sec-desc {
-    font-size: 13px;
-    max-width: 80%;
-}
-
-.career-sec-cta .sec-desc {
-    max-width: 95%;
-}
-
-.globel-btn {
-    font-size: 14px;
-    padding: 9px 25px;
-}
-
-.invest-sec .sec-desc {
-    max-width: 100%;
-}
-
-.invest-logos {
-    justify-content: center;
-}
-
-.invest-logos a {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.invest-logos .logo {
-    width: 160px;
-    height: 44px;
-    height: auto;
-}
-
-.sellCar-sec .sell-form {
-    max-width: 65%;
-}
-
-.sellCar-sec .sell-form input {
-    font-size: 14px;
-    padding: 10px 24px;
-}
-
-.sellCar-sec .sell-form .globel-btn {
-    padding: 9px 15px;
-}
-.contact-cta {
-  margin-bottom: 60px;
-}
-}
-
-@media(max-width:575px){
-  .team-wraper .team-box {
-    max-width: calc(100% - 10px);
-}
-
-.team-wraper {
-    row-gap: 50px;
-}
-.sellCar-sec .sell-form {
-  max-width: 100%;
-}
-
-}
-/* Footer End */
-
-}
-
-@media(max-width:991px){
-
-  /* Transparent Header */
-  .transparent-header .navlinks a li, .transparent-header .navlinks .dropdown span, .transparent-header .navlinks .dropdown a {
-    font-size: 10px;
-}
-.transparent-header ul.navlinks {
-  padding-left: 20px;
-  gap: 15px;
-}
-.transparent-header .toggle {
-  border-color: #fff;
-  border-width: 2px;
-}
-
-.transparent-header .toggle span {
-  background: #fff;
-}
-.transparent-header  .toggle.active span:nth-child(1),
-.transparent-header  .toggle.active span:nth-child(3){
-  background: #fff !important;
-}
-
-  /* Transparent Header End */
+/* Header End */
 
 
 .banner-inner-cont p {
-  font-size: 12px;
-  max-width: 55%;
+font-size: 12px;
+max-width: 55%;
 }
 
 .about-sec2 .about-content p {
-  font-size: 12px;
+font-size: 12px;
 }
 
 .team-sec .sec-desc {
-  font-size: 12px;
-  max-width: 80%;
+font-size: 12px;
+max-width: 80%;
 }
 
 .team-main .sec-title {
-  font-size: 18px;
+font-size: 18px;
 }
 
 .team-box .t-name {
-  font-size: 14px;
+font-size: 14px;
 }
 
 .team-box .t-designation {
-  font-size: 12px;
+font-size: 12px;
 }
 
 .sec-desc {
-  font-size: 12px;
+font-size: 12px;
 }
 
 .career-sec-cta .sec-desc {
-  max-width: 80%;
+max-width: 80%;
 }
 
 .globel-btn {
-  font-size: 12px;
-  padding: 7px 22px;
+font-size: 12px;
+padding: 7px 22px;
 }
 
 .invest-sec .sec-desc {
-  max-width: 60%;
+max-width: 60%;
 }
 
 .sellCar-sec .sell-form input {
-  font-size: 13px;
-  padding: 8px 22px;
+font-size: 13px;
+padding: 8px 22px;
 }
 
 .sellCar-sec .sell-form .globel-btn {
-  padding: 8px 15px;
+padding: 8px 15px;
 }
 
 .sellCar-sec {
-  margin-bottom: 35px;
+margin-bottom: 35px;
 }
 .about-sec2 .about-content {
-  max-width: 100%;
+max-width: 100%;
 }
 
 .about-sec2 .abt-cont-wraper2 .about-content {
-  padding-left: 0;
+padding-left: 0;
 }
 .help-acc-sec .accordion-body p {
-  font-size: 13px;
+font-size: 13px;
 }
 
 .help-acc-sec .accordion-button {
+font-size: 14px;
+}
+/* seller index page */
+.banner-sec .banner-desc {
+  font-size: 12px;
+  max-width: 90%;
+}
+
+.banner-sec .check_area input, .banner-sec .millage_area input[type="number"] {
+  width: 80%;
+  padding: 10px 20px;
+}
+
+.btn-prim a, .btn-submit span {
+  padding: 10px 24px;
+  font-size: 12px;
+}
+
+.banner-sec .tagLines li {
+  font-size: 12px;
+}
+
+section.banner-sec::after {
+  width: 45%;
+}
+
+.sec-heading {
+}
+
+.howitwork-main h4 {
   font-size: 14px;
 }
+
+.howitwork-main p {
+  font-size: 13px;
+}
+
+.who-sec p {
+  font-size: 12px;
+}
+
+.ycp-sec p {
+  font-size: 13px;
+  text-align: center;
+  max-width: 60% !important;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ycp-sec .sec-heading {
+  text-align: center;
+}
+
+.ycp-sec .btn-prim {
+  margin: 0 auto;
+}
+
+.ycp-sec .sec-1-txt {
+  text-align: center;
+  padding-top: 12px;
+}
+
+.ycp-sec .row:first-child {
+  flex-direction: column;
+}
+
+.ycp-sec .sec-4-box img {
+  height: 40px;
+  margin: 0 auto;
+  display: block;
+}
+
+.ycp-sec .sec-4-box h4 {
+  font-size: 14px;
+  text-align: center;
+}
+
+.ycp-sec .sec-4-box p {
+  font-size: 12px;
+  max-width: 100% !important;
+  line-height: 1.4;
+}
+
+.ycp-sec .sec-4-box {
+  min-height: 210px;
+}
+
+section.ycp-sec {
+  margin: 0;
+  padding: 30px 0 50px;
+}
+
+.sec-5-inner-txt h4 {
+  font-size: 15px;
+}
+
+.sec-5-inner-txt p {
+  font-size: 12px;
+  height: unset;
+  min-height: unset;
+}
+
+.testi-sec .sec-6-main-box p {
+  font-size: 12px;
+}
+
+.subs-wraper {
+  gap: 20px;
+}
+
+.subs-wraper .sec-7-box h4 {
+  font-size: 14px;
+}
+
+.subs-wraper .sec-7-box p {
+  font-size: 12px;
+}
+
+.subs-wraper .sec-7-box input {
+  padding: 10px 22px;
+  font-size: 13px;
+  margin-bottom: 17px !important;
+}
+
+.subscribe-sec {
+  margin-bottom: 35px;
+}
+
+/* seller index page end */
+.hts-sec .overview-sections {
+  margin: 0 !important;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hts-sec .overview-sections .overview-section {
+  margin: 0;
+}
+
+.hts-sec .overview-section h3 {
+  font-size: 14px;
+}
+
+.hts-sec .overview-section p {
+  font-size: 12px;
+}
+
+.list-icon.car-selling__benefits-list .car-selling__benefits-list-item-title {
+  font-size: 14px;
+}
+
+.list-icon.car-selling__benefits-list p {
+  font-size: 12px;
+}
+
+.car-ft-sec .car-selling__benefits {
+  padding-bottom: 30px;
+}
+
 
 
 }
@@ -1576,7 +2403,169 @@
 .footer-sec .footer-sub ul a {
   font-size: 13px;
 }
+.footer-sec .main-footer .footer-sub h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-sec .main-footer .footer-sub p {
+  font-size: 13px;
+}
+
+.footer-sec .footer-sub img {
+  margin: 0 auto;
+  display: block;
+}
+
+.footer-social li a {
+  width: 40px;
+  height: 40px;
+  font-size: 14px !important;
+}
+
+.footer-sec .footer-sub h4 {
+  font-size: 13px;
+}
+
+.footer-sec .footer-sub:nth-child(3) {
+  padding-top: 0;
+}
+.footer-sec {
+  padding: 30px 0 !important;
+  margin: 0 !important;
+}
 /* footer End*/
+
+/* seller index page */
+section.banner-sec::after {
+  width: 100%;
+  height: 60%;
+  background-size: 100%;
+}
+
+section.seller-main-banner img {
+  max-width: 85%;
+  margin: 0 auto 60px;
+}
+
+section.seller-main-banner .banner-content h2 {
+  font-size: 24px;
+  max-width: 70%;
+}
+
+section.seller-main-banner .banner-content p {
+  font-size: 14px;
+  max-width: 100%;
+}
+
+.banner-sec .check_area input, .banner-sec .millage_area input[type="number"] {
+  width: 100%;
+  padding: 15px 24px;
+  font-size: 17px;
+}
+
+.btn-prim a, .btn-submit span {
+  padding: 12px 24px;
+  font-size: 12px;
+}
+
+.banner-sec button a,.banner-sec button span {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  font-size: 13px;
+}
+
+.banner-sec button {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block;
+}
+
+.banner-sec .tagLines li {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.how-work-img img {
+  width: 55px;
+  height: 55px;
+}
+
+.howitwork-main h4 {
+  font-size: 16px;
+}
+
+.howitwork-main p {
+  font-size: 14px;
+  height: auto;
+}
+
+.howitwork-main .step-nmbr h5 {
+  font-size: 13px;
+}
+
+.howitwork-main .step-nmbr::after {
+  height: 30px;
+  width: 30px;
+}
+
+.who-sec p {
+  font-size: 13px;
+  max-width: 100%;
+}
+
+.who-sec .btns-wraper {
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.subs-wraper {
+  flex-direction: column;
+}
+
+.subs-wraper .sec-7-box h4 {
+  font-size: 18px;
+}
+
+.subs-wraper .sec-7-box p {
+  font-size: 13px;
+}
+
+.subs-wraper .sec-7-box input {
+  padding: 12px 22px;
+  font-size: 14px;
+}
+.testi-sec .sec-6-box-pfp div h5 {
+  font-size: 14px;
+}
+
+.testi-sec .sec-6-box-pfp > div img {
+  max-width: 53%;
+}
+.testi-sec .sec-6-box-pfp > img {
+  max-width: 12%;
+}
+/* seller index page end */
+
+.car-selling__benefits .sec-heading {
+  text-align: left;
+}
+
+.hts-sec .overview-section p {
+  font-size: 13px;
+}
+
+.hts-sec .overview-section h3 {
+  font-size: 16px;
+}
+
+.list-icon.car-selling__benefits-list p {
+  font-size: 13px;
+}
+
 
 }
 
@@ -1591,5 +2580,32 @@
 .sellCar-sec .sell-form {
   max-width: 100%;
 }
+/* seller index page */
+.how-sec .sec-2-btns {
+  gap: 10px;
+}
 
+.how-sec .sec-2-btns .btn-prim a {
+  padding: 10px 18px;
+}
+section.banner-sec {
+  padding: 90px 0 30px;
+}
+.who-sec .btns-wraper {
+  gap: 10px;
+}
+
+.who-sec .btns-wraper .btn-prim a {
+  padding: 10px 18px;
+}
+.ycp-sec .sec-4-txt p {
+  max-width: 100% !important;
+}
+.wsy-sec .sec-heading br {
+  display: none;
+}
+.hts-sec .overview-section {
+  padding: 20px;
+}
+/* seller index page end */
 }

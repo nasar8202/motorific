@@ -23,7 +23,7 @@
             display: block;
         }
     </style>
-    <header>
+    <header class="header-light">
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
@@ -52,8 +52,6 @@
 
                                 <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
-
-                                <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                             </div>
                         </div>
                     @endguest
@@ -62,9 +60,9 @@
 
             <div class="head-btns  justify-content-between">
                 @guest
-                  <a href="{{ route('myLogin') }}">  <button>Sign In</button></a>
+                  <button><a href="{{ route('myLogin') }}">  Sign In</a></button>
                     @if (Route::has('register'))
-                        <a href="{{ route('registration') }}"><button>Sign Up</button></a>
+                        <button><a href="{{ route('registration') }}">Sign Up</a></button>
                     @endif
                 @else
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -91,7 +89,7 @@
 
                 @endguest
 
-                <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
+                <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>
             </div>
             <div class="menu">
                 <div class="toggle">

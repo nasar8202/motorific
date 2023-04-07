@@ -81,7 +81,7 @@
 }
 }
     </style>
-    <header>
+    <header class="header-light">
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
@@ -110,8 +110,6 @@
 
                                 <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
 
-
-                                <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                             </div>
                         </div>
                     @endguest
@@ -120,9 +118,9 @@
 
             <div class="head-btns  justify-content-between">
                 @guest
-                   <a href="{{ route('myLogin') }}"> <button>Sign In</button></a>
+                   <button><a href="{{ route('myLogin') }}"> Sign In</a></button>
                     @if (Route::has('register'))
-                       <a href="{{ route('registration') }}"> <button>Sign Up</button></a>
+                       <button><a href="{{ route('registration') }}"> Sign Up</a></button>
                     @endif
                 @else
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -149,8 +147,16 @@
 
                 @endguest
 
-                <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
+                <button><a href="{{ url("/get-in-touch") }}"> Contact Us</a></button>
+                <!--<button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>-->
             </div>
+            <!--<div class="head-btns  justify-content-between">-->
+            <!--    <button><a href="{{ route('myLogin') }}">Sign In</a></button>-->
+            <!--    @if (Route::has('register'))-->
+            <!--    <button><a href="{{ route('registration') }}">Sign Up</a></button>-->
+            <!--    @endif-->
+            <!--    <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>-->
+            <!--</div>-->
             <div class="menu">
                 <div class="toggle">
                     <span></span>
@@ -221,15 +227,14 @@
 
     <!-- SECTION-1 -->
 
-    <section class="sec-1 seller-main-banner" id="vehicle_registration">
+    <section class="sec-1 seller-main-banner banner-sec seller-main" id="vehicle_registration">
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-md-6">
-                    <h2>Sell your car 
-                        with  <span>Motorific</span></h2>
+                    <h2 class="banner-title">Sell your car with  <span>Motorific</span></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p>
+                    <p class=banner-desc>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -237,7 +242,7 @@
                         <br>
                         <input type="number" name="millage" placeholder="Enter Millage" required>
                         <input type="hidden" name="registeration" class="registeration" value="">
-                        <button type="submit">Continue</button>
+                        <button type="submit" class="btn-submit"><span>Continue</span></button>
 
                     </form>
                     <div class="check_area">
@@ -245,7 +250,7 @@
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
                             value="{{ old('registeration') }}" style="text-transform: uppercase" required>
                         <span class="text-danger show_error"></span>
-                        <button type="button" id="check_registeration">Value Your Car</button>
+                        <button type="button" id="check_registeration" class="btn-prim"><a href="javascript:void(0)">Value Your Car</a></button>
                         <div class="spinner-container">
                         <span class="spinner spinner--dotted sfirst"></span>
                         </div>
@@ -298,71 +303,7 @@
     
     
 
-    <section class="sec-2 how-sec">
-        <div class="container-1151">
-            <div class="row">
-                <div class="col-12">
-                    <div class="how-work">
-                        <h3>How it works</h3>
-                    </div>
-                </div>
-                <div class="howitwork-main col-lg-3 col-md-6">
-                    <div class="step-nmbr">
-                        <h5>1</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/car.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Profile Your Car</h4>
-                    <p>Discover your car's true value. Enter reg for an instant valuation. Create a car profile on mobile. maximise  profits.</p>
-                </div>
-
-                <div class="howitwork-main col-lg-3  col-md-6">
-                    <div class="step-nmbr">
-                        <h5>2</h5>
-                    </div>
-                    <div class="how-work-img d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/megaphone.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Motorific Alerts Dealers</h4>
-                    <p>Our online sale invites over thousands car dealers across the UK to present their top bids for your car.</p>
-                </div>
-
-                <div class="howitwork-main col-lg-3  col-md-6">
-                    <div class="step-nmbr">
-                        <h5>3</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/price.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Pick Highest Bid</h4>
-                    <p>You pick the dealer who pays the most or makes the highest bid. </p>
-                </div>
-
-                <div class="howitwork-main col-lg-3  col-md-6">
-                    <div class="step-nmbr">
-                        <h5>4</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
-                    </div>
-                    <h4>Free Home Collection</h4>
-                    <p>Sell your car and receive full payment within 24 hours as we charge nothing. Welcome to the Motorific way!</p>
-                </div>
-            </div>
-            <div class="sec-2-btns text-center">
-                <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button class="green-btn"><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
-                
-            </div>
-        </div>
-    </section>
+    @include('frontend.seller.partials.how-work')
 
 
     <!-- SECTION-3 -->
@@ -371,14 +312,15 @@
         <div class="container-1151">
             <div class="row">
                 <div class="who-content">
-                        <div class="sec-3-txt col-lg-6">
-                        <h4>Who We Are</h4>
-                        <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
-                        <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
+                        <div class="sec-3-txt col-lg-6 whoContent">
+                        <h2 class="sec-heading text-white">Who We Are</h2>
                         <p>We are Motorific - a team of car enthusiasts. We are on a mission to revolutionize the whole car sale process. Motorific offers you the UK’s biggest platform where you can sell your car from the comfort of your home. We connect you with over thousands verified dealers nationwide and present you with the highest bid for your car.</p>
                         <p>The winning dealer will even collect your car for free, and you get paid within 24 hours. The Motorific way of selling your car is quick, reliable, easy, and completely online. On top of it, the platform is 100% free.</p>
-                        <a href="#vehicle_registration"><button class="mx-0">VALUE YOUR CAR</button></a>
-                        <button><a href="{{route('GetInTouchSellerForm')}}" style="text-decoration: none;background-color:#e3e3f0;color:#7977a2">GET IN TOUCH</a></button>
+                        
+                        <div class="btns-wraper">
+                            <button class="mx-0 btn-prim"><a href="#vehicle_registration">VALUE YOUR CAR</a></button>
+                            <button class="btn-prim"><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -398,11 +340,11 @@
                         <!--<h4>This is the way.</h4>-->
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
-                        <h4>Your Car. Your Price - with Motorific</h4>
+                        <h2 class="sec-heading">Your Car. Your Price - with Motorific</h2>
                         <p>With over thousands dealers eager to purchase your car, Motorific ensure you get for your car.</p>
                         <div class="sec-1-txt">
-                            <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
-                                    CAR</button></a>
+                            <button class="btn-prim"><a href="#vehicle_registration">VALUE YOUR
+                                    CAR</a></button>
                         </div>
                     </div>
                 </div>
@@ -449,7 +391,7 @@
         <div class="container-1600">
             <div class="sec-5-txt">
                 <div class="container-1151">
-                    <h5>Why Sell Your <br> Used Car With Motorofic? </h5>
+                    <h2 class="sec-heading text-white">Why Sell Your <br> Used Car With Motorofic? </h2>
                     <div class="row sec-5-txt-sub">
                         <div class="col-lg-6 col-md-6">
                             <div class="sec-5-inner-txt mt-4">
@@ -483,118 +425,11 @@
 
     <!-- SECTION-6 -->
 
-    <section class="sec-6 testi-sec">
-    <div class="container-1151">
-        <div class="sec-6-heading">
-            <h5>Hear From Our Satisfied Customers</h5>
-            <p>Rated <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by our Customers </p>
-        </div>
-        <div class="row testiSlider ">
-            <div class="sec-6-main-box col-lg-4 col-md-6">
-                <p style="font-style:italic;">I was a little hesitant to sell my car online, but Motorific made the
-                    process incredibly easy and stress-free. Their platform connects car sellers with verified dealers,
-                    which gave me peace of mind knowing that I was dealing with reputable buyers. The whole process was
-                    seamless - I entered registration number and created my car and within hours, I had multiple offers
-                    from interested dealers. I was able to compare the offers and choose the one that worked best for
-                    me. The team at Motorific was also very helpful and responsive throughout the process, answering any
-                    questions I had and providing updates on the status of my listing. I highly recommend Motorific to
-                    anyone looking to sell their car - it's a great way to get a fair price without the hassle of
-                    dealing with private buyers.</p>
-                <div class="sec-6-box-pfp d-flex align-items-center">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp.png') }}" alt="">
-                    <div>
-                        <h5>Mark,Homestay</h5>
-                        <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="sec-6-main-box col-lg-4 col-md-6">
-                <p style="font-style:italic;">From my experience, I can vouch that Motorific is the best way to sell
-                    used car! I tried selling my car through traditional methods and it turned out to be a big headache.
-                    But then a friend of mine recommended Motorific. As soon as I created profile, I was able to get
-                    multiple offers from verified dealers instantly. The whole process was seamless, prompt and
-                    hassle-free. What I appreciates the most about Motorific is the transparency of the platform, and
-                    the fact that I could compare offers and choose the one that worked best for me. Thanks to
-                    Motorific, I got the best value for my MG HS!</p>
-                <div class="sec-6-box-pfp d-flex align-items-center">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp2.png') }}" alt="">
-                    <div>
-                        <h5>Mark,Homestay</h5>
-                        <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="sec-6-main-box col-lg-4 col-md-6">
-                 <p style="font-style:italic;">Sold my Peugeot e-208 through Motorific - it was easy, fast, and
-                    stress-free! I got a great price for my car and was able to complete the transaction quickly. Highly
-                    recommend Motorific for anyone looking to sell their car fastly!</p>
-                <div class="sec-6-box-pfp d-flex align-items-center">
-                    <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp3.png') }}" alt="">
-                        <div>
-                            <h5>Mark,Homestay</h5>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                        </div>
-                </div>
-            </div>
-            
-         </div>
-    </div>
-</section>
+    @include('frontend.seller.partials.testimonials')
 
-
-
-    <section class="sec-7">
-    <div class="sec-7-bg-img sec-1-txt">
-        <div class="container-1151">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="sec-7-box">
-                        <h4>What are you waiting for?</h4>
-                        <p>Bid to traditional used car selling methods and join strong community of thousands happy
-                            customers!</p>
-                        <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
-
-                            <span class="text mt-4 found1" style="color: white">Enter Mileage <i
-                                    class="fa-solid fa-check"></i></span>
-
-                            <br>
-                            <input type="number" name="millage" placeholder="Enter Millage" required>
-                            <input type="hidden" name="registeration" class="registeration1" value="">
-                            <button type="submit">Continue</button>
-
-                        </form>
-                        <div class="check_area1">
-
-                            <input type="text" name="registeration1" id="registeration1" style="text-transform: uppercase" placeholder="Enter REG"
-                                value="{{ old('registeration') }}" style="text-transform: uppercase">
-                            <span class="text-danger show_error1"></span>
-                            <button type="button" id="check_registeration1">Value Your Car</button>
-                            <div class="spinner-container">
-                                <span class="spinner spinner--dotted sSecond"></span>
-                                </div>
-                        </div>
-                        @if ($errors->has('millage'))
-                        <span class="text-danger">{{ $errors->first('millage') }}</span>
-                        @endif
-
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="sec-7-box">
-                        <h4>Newsletter</h4>
-                        <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                        <input class="mb-3" type="text" placeholder="email" name="subscriber_email"
-                            id="subscriber_email">
-                        <button onclick="addSubscriber()">SUBSCRIBE</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--Subscribe Sec-->
+@include('frontend.seller.partials.subscribe')
+    
 @endsection
 @push('child-scripts')
     <script type="text/javascript">

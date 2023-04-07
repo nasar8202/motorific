@@ -43,7 +43,7 @@
                 @if (Route::has('register'))
                 <button><a href="{{ route('registration') }}">Sign Up</a></button>
                 @endif
-                <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
+                <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>
             </div>
             <div class="menu">
                 <div class="toggle">

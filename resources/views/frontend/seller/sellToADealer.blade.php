@@ -21,7 +21,7 @@
             display: block;
         }
     </style>
-    <header>
+    <header class="header-light">
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
@@ -50,8 +50,6 @@
 
                                 <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
 
-
-                                <a href="{{ route('sellMyCar') }}">Sell My Car</a>
                             </div>
                         </div>
                     @endguest
@@ -89,7 +87,7 @@
 
                 @endguest
 
-                <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
+               <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>
             </div>
             <div class="menu">
                 <div class="toggle">
