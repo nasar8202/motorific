@@ -1,11 +1,16 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Sell your car the with Motorific')
 @section('section')
+@section('headerClass','')
+@section('headerUlClass','')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 <style>
     .dropdown {
-position: relative;
-display: inline-block;
-}
+        position: relative;
+        display: inline-block;
+    }
+
 
 .dropdown-content {
 display: none;
@@ -155,6 +160,7 @@ z-index: 1;
     </div>
     </div>
 </header>
+
 
 <!-- SECTION-1 -->
 

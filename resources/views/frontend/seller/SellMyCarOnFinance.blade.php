@@ -1,6 +1,10 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Sell My Car On Finance')
 @section('section')
+@section('headerClass','')
+@section('headerUlClass','')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
     <style>
         .dropdown {
             position: relative;
@@ -16,13 +20,14 @@
             padding: 12px 16px;
             z-index: 1;
         }
-.head-btns a {
-    text-decoration: none;
-}
+        .head-btns a {
+            text-decoration: none;
+        }
         .dropdown:hover .dropdown-content {
             display: block;
         }
     </style>
+
     <header class="header-light">
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">

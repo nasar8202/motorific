@@ -1,7 +1,12 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Help')
 @section('section')
+@section('headerClass','transparent-header')
+@section('headerUlClass','navlinks-w')
+@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 
+<<<<<<< HEAD
 <!-- HEADER -->
     <header class="transparent-header">
         <div class="container-1600 d-flex justify-content-between pt-4">
@@ -89,6 +94,8 @@
             </div>
         </div>
     </header>
+=======
+>>>>>>> 03c95c422616f73bc33ec474854cd5d8b453e04b
     
     <section class="inner-banner help">
         <div class="container-1151">
@@ -200,7 +207,7 @@
                         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam
                  </p>
-                 <a href="#" class="globel-btn career-btn">Contact us</a>
+                 <a href="/get-in-touch" class="globel-btn career-btn">Contact us</a>
              </div>
          </div>
     </section>

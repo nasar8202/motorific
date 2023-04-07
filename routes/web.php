@@ -526,6 +526,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/bid-cancel/{id}', [BidedVehicleController::class,'cancelBid'])->name('cancelBid');
     Route::post('/order-vehicle-request', [OrderVehicleRequestController::class,'vehicleRequest'])->name('vehicleRequest');
     Route::get('/cancel-request/{id}', [OrderVehicleRequestController::class,'cancelRequest'])->name('cancelRequest');
+    Route::get('/buy-it-now-from-seller/{id}', [OrderVehicleRequestController::class,'buyItNowFromSeller'])->name('buyItNowFromSeller');
     Route::post('/update-my-amount', [OrderVehicleRequestController::class,'updateAmount'])->name('updateAmount');
     Route::post('/dealer-vehicle-request', [DealerOrderRequestController::class,'orderVehicleRequest'])->name('orderVehicleRequest');
     Route::get('/dealer-vehicle-request-cancel/{id}', [DealerOrderRequestController::class,'cancelDealerRequest'])->name('cancelDealerRequest');

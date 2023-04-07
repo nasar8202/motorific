@@ -1,21 +1,25 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Car Value Tracker')
 @section('section')
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+@section('headerClass','')
+@section('headerUlClass','')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
+<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            padding: 12px 16px;
-            z-index: 1;
-        }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
 
         .dropdown:hover .dropdown-content {
             display: block;
@@ -152,6 +156,7 @@
             </div>
         </div>
     </header>
+
 
     <!-- SECTION-1 -->
 
@@ -313,7 +318,7 @@
             </div>
             <div class="sec-2-btns text-center">
                 <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button ><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
+                <button class="green-btn"><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
                 
             </div>
         </div>

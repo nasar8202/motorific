@@ -118,7 +118,7 @@
                 </div>
             </div>
     </div>
-{{-- @dd(Request::route()->getName()) --}}
+    {{-- @dd(Request::route()->getName()) --}}
     @if(\Request::route()->getName() == 'dealer.addVehicleToSellFromDealer' || \Request::route()->getName() == 'dealer.mediaCondition' || \Request::route()->getName() == 'dealer.vehicleAndDetails' || \Request::route()->getName() == 'dealer.vehicleListing')
 
     <div class="container-1200">

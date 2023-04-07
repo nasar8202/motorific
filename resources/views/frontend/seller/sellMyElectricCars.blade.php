@@ -1,11 +1,16 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Sell My Electric Car')
 @section('section')
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+@section('headerClass','')
+@section('headerUlClass','')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
+<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
 
         .dropdown-content {
             display: none;
@@ -152,6 +157,7 @@
         </div>
     </header>
 
+    
     <!-- SECTION-1 -->
 
     <section class="sec-1" id="vehicle_registration">
@@ -256,7 +262,7 @@
             </div>
             <div class="sec-2-btns text-center">
                 <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button ><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
+                <button class="green-btn"><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
                 
             </div>
         </div>

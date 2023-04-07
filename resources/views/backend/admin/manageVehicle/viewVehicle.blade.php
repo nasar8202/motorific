@@ -79,7 +79,7 @@
                             @elseif($vehicle->start_vehicle_date == date('Y-m-d') && $vehicle->start_vehicle_date != null)
                             <td class=""><span class="badge badge-info"> Today </span></td>
                           @else
-                            <td class=""><span class="badge badge-success"> Not In Sale </span></td>
+                            <td class=""><span class="badge badge-success"> Buy It Now </span></td>
                             @endif
                             <td>
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">

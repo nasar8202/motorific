@@ -1,28 +1,11 @@
 @extends('frontend.seller.layouts.app')
 @section('title','About Us')
 @section('section')
+@section('headerClass','transparent-header')
+@section('headerUlClass','navlinks-w')
+@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 
-    <!-- HEADER -->
-    <header class="transparent-header">
-        <div class="container-1600 d-flex justify-content-between pt-4">
-            <div class="logo-navlinks d-flex align-items-center">
-                <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
-                <ul class="navlinks navlinks-w mb-0 align-items-center">
-                    <a href="{{ route('sellMyCar') }}">
-                        <li>Sell My Car</li>
-                    </a>
-                    
-                    <a href="{{ route('howItWorksforSeller') }}">
-                        <li>How It Works</li>
-                    </a>
-                    <a href="{{ route('reviews') }}">
-                        <li>Reviews</li>
-                    </a>
-                    {{-- <a href="#">
-                        <li>Help</li>
-                    </a> --}}
-                    
-                    @auth
 
                 @endauth
 
@@ -88,6 +71,7 @@
             </div>
         </div>
     </header>
+
     <section class="inner-banner about">
         <div class="container-1151">
             <div class="banner-inner-cont">
@@ -222,7 +206,7 @@
                  <h2 class="sec-title">Careers</h2>
                  <p class="sec-desc">We are always looking for talented, driven individuals to join the team. You can read more about working at Motorway and our open positions on our careers page.
                  </p>
-                 <a href="#" class="globel-btn career-btn">Find out more</a>
+                 <a href="/careers" class="globel-btn career-btn">Find out more</a>
              </div>
          </div>
     </section>

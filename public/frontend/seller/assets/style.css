@@ -97,8 +97,8 @@ ul.navlinks {
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    width: 48%;
-    padding: 12px 0px;
+    /* width: 48%; */
+    padding: 12px 30px;
     border-radius: 50px;
     transition:all .3s linear 0s;
 }
@@ -159,7 +159,7 @@ section.sec-1::after {
     font-weight: 700;
     color: black;
     max-width: 500px;
-    line-height: 45px;
+    line-height: 1.1;
 }
 
 .sec-1-txt h2 span {
@@ -199,8 +199,8 @@ section.sec-1::after {
     border-radius: 50px;
     font-size: 15px;
     text-transform: uppercase;
-    width: 35%;
-    padding: 15px 0px;
+    width: auto;
+    padding: 15px 30px;
     font-weight: 700;
     font-family: 'Montserrat', 'sans-serif';
 }
@@ -1876,7 +1876,7 @@ i.circleI {
 .head-btns button {
     width: auto;
     display: block;
-    min-width: 130px;
+    /* min-width: 130px; */
     margin-left: 10px;
 }
 .head-btns {
@@ -3176,6 +3176,46 @@ div.sellerReg form span.invalid-feedback strong {
 .forgott-form .reg-form-heading h3 {
     font-size: 2.4vw;
 }
-
+ 
 
 /*Seller User Forms End*/
+
+/* 6-4-23 */
+.footer-sub.contact a {
+    color: inherit;
+    padding-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+.footer-sub.contact a:hover,.footer-sub ul a:hover {
+    opacity: .8;
+}
+.dropdown > span {
+    color: inherit;
+}
+.transparent-header .dropdown > span {
+    color: #fff;
+}
+.form-main a {
+    color: #05eab5;
+}
+.sec-1-txt button:hover {
+    background-color: #202543;
+}
+.sec-1-txt button,.sec-2-btns button,.sec-3-txt button {
+    transition: all .3s linear 0s;
+}
+.sec-2-btns button:hover,.sec-3-txt button:hover {
+    background: #202543;
+    color:#fff;
+}
+sec-3-txt button a{
+    background:transparent !important;
+}
+.sec-3-txt button:hover a{
+    background:transparent !important;
+    color:#fff;
+}
+button.green-btn:hover {
+    background: #202543 !important;
+}

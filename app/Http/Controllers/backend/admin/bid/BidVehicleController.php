@@ -100,7 +100,7 @@ class BidVehicleController extends Controller
 
   public function approveBidWithAdminUpdated(Request $request)
   {
-
+    
     $request->validate([
       'updatedPrice' => 'required',
     ]);
@@ -109,7 +109,7 @@ class BidVehicleController extends Controller
 
       $orders = BidedVehicle::where('id', $request->orderId)->with('user')->with('vehicle')->first();
       $vehicle = BidedVehicle::where('vehicle_id', $orders->vehicle_id)->get();
-
+      
       foreach ($vehicle as $ord) {
         if ($ord->status == 1) {
           return redirect()->back()->with('warning', 'Vehicle Already Assign To Another User!');

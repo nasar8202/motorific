@@ -1,6 +1,10 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Car Valuation')
 @section('section')
+@section('headerClass','')
+@section('headerUlClass','')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
     <style>
         .dropdown {
             position: relative;
@@ -21,6 +25,7 @@
             display: block;
         }
     </style>
+
     <header class="header-light">
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
@@ -313,7 +318,7 @@
             </div>
             <div class="sec-2-btns text-center">
                 <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button ><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
+                <button class="green-btn"><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
                 
             </div>
         </div>

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ URL::asset('frontend/seller/assets/image/M-Logo.png') }}" type="image/x-icon" defer>
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script>
     <!-- BOOTSTRAP-5 -->
@@ -59,13 +60,240 @@
     
 <main id="loadedPage">
     <!-- HEADER -->
-    {{-- @include('frontend.seller.partials.header') --}}
+    
+    <header class="@yield('headerClass')">
+        <div class="@yield('ContainerHeader')">
+            <div class="logo-navlinks d-flex align-items-center">
+                <a href="{{ route('index') }}"><img src="@yield('logoMain')" alt=""></a>
+                <ul class="navlinks mb-0 align-items-center @yield('headerUlClass') ">
+                    <a href="{{ route('sellMyCar') }}">
+                        <li>Sell My Car</li>
+                    </a>
+                    <a href="{{ route('howItWorksforSeller') }}">
+                        <li>How It Works</li>
+                    </a>
+                    <a href="{{ route('reviews') }}">
+                        <li>Reviews</li>
+                    </a>
+                    {{-- <a href="#">
+                        <li>Help</li>
+                    </a> --}}
+                    @auth
+
+                    @endauth
+
+                    @guest
+                        <div class="dropdown">
+                            <span>More</span>
+                            <div class="dropdown-content">
+
+                                <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
+                            </div>
+                        </div>
+                    @endguest
+                </ul>
+            </div>
+
+            <div class="head-btns  justify-content-between">
+                @guest
+                   <a href="{{ route('myLogin') }}"> <button>Sign In</button></a>
+                    @if (Route::has('register'))
+                       <a href="{{ route('registration') }}"> <button>Sign Up</button></a>
+                    @endif
+                @else
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    </div>
+
+                @endguest
+
+                <button onclick="window.location='{{ url('/get-in-touch') }}'">Contact Us</button>
+            </div>
+            <div class="menu">
+                <div class="toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li class="logoMob">
+                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+                            alt=""></a>
+                        </li>
+                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
+                        <li>
+                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('reviews') }}">Reviews</a>
+                        </li>
+                     
+                          
+                        {{-- <li>
+                            <a href="#">Help</a>
+                        </li> --}}
+                          <li>
+                            <a onclick="window.location='{{ url('/get-in-touch') }}'">Contact Us</a>
+                        </li>
+                        @guest
+                        <li><a href="{{ route('myLogin') }}">Sign In</a></li>
+                        
+                            <li><a href="{{ route('registration') }}">Sign Up</a></li>
+                            
+                            @endguest
+                        @if(Auth::check())
+                        <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </button>
+
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    </div>
+                    @endif
+                        @guest
+                            <li> <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
+
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+        </div>
+            </div>
+        </div>
+    </header>
 
     @yield('section')
 
     <!-- FOOTER -->
 
-    @include('frontend.seller.partials.footer')
+    
+    <!-- FOOTER -->
+
+    <section class="sec-8">
+        <div class="container-1151">
+            <div class="main-footer">
+                <div class="footer-sub about">
+                    <h5>About</h5>
+                    <ul>
+                        <li>
+                            
+                            <a href="{{route('aboutUs')}}">About us</a>
+                        </li>
+                        <li><a href="{{ route('dealer.newDashboard') }}">For Dealers </a></li>
+                        <li>
+                            <a href="{{route('GetInTouchSellerForm')}}">Contact us</a>
+                        </li>
+                        <a href="{{route('help')}}">
+                            <li>Help</li>
+                        </a>
+                        <li href="#">
+                            <a href="{{route('careers')}}">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-sub product">
+                    <h5>Product</h5>
+                    <ul>
+                        <li>
+                            <a href="{{route('sellMyCar')}}">Sell my car</a>
+                        </li>
+                        <li>
+                            <a href="{{route('CarValueTracker')}}">Car Value Tracker</a>
+                        </li>
+                        <li>
+                            <a href="{{route('CarBuyer')}}">Car buyers</a>
+                        </li>
+                        <!--<li>-->
+                        <!--    <a href="">Cash for cars</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="{{route('SellMyCarOnFinance')}}">Sell My Car On Finance</a>
+                        </li>
+                        <li>
+                            <a href="{{route('CarValuation')}}">Car Valuation</a>
+                        </li>
+                        <li>
+                            <a href="{{route('whoWillBuyMyCar')}}">Who will buy my car?</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-sub product-2">
+                    <ul>
+                        <li>
+                            <a href="{{route('CarBuyingSites')}}">Car buying sites</a>
+                        </li>
+                        <li>
+                            <a href="{{route('sellToADealer')}}">Sell to a dealer</a>
+                        </li>
+                        <li>
+                            <a href="{{route('sellMyElectricCars')}}">Sell my electric car</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-sub contact">
+                    <div>
+                        <h5>Whatsapp</h5>
+                        <p><a href="https://api.whatsapp.com/send?phone=+447593839364">+44 7593 839364</a></p>
+                    </div>
+                    <div>
+                        <h5>Customer Support </h5>
+                        <p><a href="tel:+447593839364"> +44 7593 839364 </a></p>
+                    </div>
+                    <div>
+                        <h5>Email</h5>
+                        <p><a href="mailto:info@motorific.co.uk"> info@motorific.co.uk </a></p>
+                    </div>
+                </div>
+                <div class="footer-sub contact-2">
+                <a href="{{ route('index') }}"> <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt=""></a>
+                    <div class="d-flex mt-4 mb-4">
+                        <a href="#">
+                            <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>
+                        </a>
+                        <a href="https://www.facebook.com/Motorific-100480046330830">
+                            <div class="footer-icon-bg"><i class="fa-brands fa-facebook-f"></i></div>
+                        </a>
+                        <a href="https://www.instagram.com/motorific_1/">
+                            <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>
+                        </a>
+                    </div>
+                    <h4>© Motorific Online Ltd. <?php echo date("Y"); ?></h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 </main>
 

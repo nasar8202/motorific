@@ -1,6 +1,11 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Careers')
 @section('section')
+@section('headerClass','header-career')
+@section('headerUlClass','navlinks-w')
+@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between')
+
 <style>
 .dropdown > span{
     position: relative;
@@ -22,6 +27,7 @@ z-index: 1;
 display: block;
 }
     </style>
+
     <!-- HEADER -->
     <header class="header-career">
         <div class="container-1600 d-flex justify-content-between">
@@ -110,7 +116,7 @@ display: block;
         </div>
     </header>
     
-    
+
     <div class="career-sec">
         <div class="container-1151">
             <div class="career-top-content">

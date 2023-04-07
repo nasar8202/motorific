@@ -307,6 +307,7 @@ div#filter-price {
                                                 $user = App\Models\User::where('id',$vehicle->user_id)->first();
                                                 $zip = $current_user->post_code;
                                                 $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$zip'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+                                                
                                                 $result_string = file_get_contents($url);
                                                 $result = json_decode($result_string, true);
                                                 
