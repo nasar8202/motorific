@@ -3219,3 +3219,6 @@ sec-3-txt button a{
 button.green-btn:hover {
     background: #202543 !important;
 }
+.head-btns button a:not([href]):not([class]) {
+    color: #ffff;
+}

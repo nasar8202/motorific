@@ -22,96 +22,10 @@
         z-index: 1;
     }
 
-.dropdown:hover .dropdown-content {
-display: block;
-}
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
     </style>
-    <!-- HEADER -->
-    <header>
-        <div class="container-1600 d-flex justify-content-between pt-4">
-            <div class="logo-navlinks d-flex align-items-center">
-                <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
-                <ul class="navlinks navlinks-w mb-0 align-items-center">
-                    <a href="{{ route('sellMyCar') }}">
-                        <li>Sell My Car</li>
-                    </a>
-                    
-                    <a href="{{ route('howItWorksforSeller') }}">
-                        <li>How It Works</li>
-                    </a>
-                    <a href="{{ route('reviews') }}">
-                        <li>Reviews</li>
-                    </a>
-                    {{-- <a href="#">
-                        <li>Help</li>
-                    </a> --}}
-                    
-                    @auth
-
-                @endauth
-
-                @guest
-                <div class="dropdown">
-                    <span>MORE</span>
-                    <div class="dropdown-content">
-
-                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-                    </div>
-                </div>
-                @endguest
-                </ul>
-            </div>
-            <div class="head-btns  justify-content-between">
-                <button><a href="{{ route('myLogin') }}">Sign In</a></button>
-                @if (Route::has('register'))
-                <button><a href="{{ route('registration') }}">Sign Up</a></button>
-                @endif
-                <button><a href="{{ url("/get-in-touch") }}">Contact Us</a></button>
-            </div>
-            <div class="menu">
-                <div class="toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li class="logoMob">
-                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
-                            alt=""></a>
-                        </li>
-                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <li>
-                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('reviews') }}">Reviews</a>
-                        </li>
-                        {{-- <li>
-                            <a href="#">Help</a>
-                        </li> --}}
-                            <li>
-                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
-                        </li>
-                        
-                    @guest
-                    <li><a href="{{ route('myLogin') }}">Sign In</a></li>
-                    
-                        <li><a href="{{ route('registration') }}">Sign Up</a></li>
-                        @endguest
-                        @guest
-                            <li> <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-
-                            </li>
-                        @endguest
-
-                    </div>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
 
       <!-- PHOTO-UPLOAD-SECTION-1 -->
       <section class="photo-up-sec-1 reg-page-sec1">

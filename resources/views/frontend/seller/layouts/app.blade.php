@@ -2,31 +2,35 @@
 <html lang="en">
 
 <head>
+    <?php $currentUrl = url()->full();?>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Uhn45gp6a7f2vzRBJ3kAYDPiA1mgia0KtWeC9jvz5vU" />
+    <link rel="canonical" href="<?php echo $currentUrl?>" defer>
     <link rel="icon" href="{{ URL::asset('frontend/seller/assets/image/M-Logo.png') }}" type="image/x-icon" defer>
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script>
     <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <!--Slick Css-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" >
-        <!--Slick Css End-->
+    <!--Slick Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" >
+    <!--Slick Css End-->
     <!-- CUSTOM-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/style.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/custom.css') }}">
     <!-- RESPONSIVE-CSS -->
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('frontend/seller/assets/responsive-new.css') }}">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
     <title>Motorific- @yield('title')</title>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a" data-blockingmode="auto" type="text/javascript"></script>
-<script id="CookieDeclaration" src="https://consent.cookiebot.com/9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a/cd.js" type="text/javascript" async></script>
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a/cd.js" type="text/javascript" async></script>
 
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -34,17 +38,27 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KJ4758N');</script>
 
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4758N"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T31HYRPFV9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4758N"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- Google tag (gtag.js) -->
+            <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-T31HYRPFV9"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-  gtag('config', 'G-T31HYRPFV9');
-</script>
+                gtag('config', 'G-T31HYRPFV9');
+            </script> -->
+
+           <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2YY4GLBSW"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-C2YY4GLBSW');
+            </script>
 </head>
 
 
@@ -96,9 +110,17 @@
 
             <div class="head-btns  justify-content-between">
                 @guest
-                   <a href="{{ route('myLogin') }}"> <button>Sign In</button></a>
+                    <button>
+                       <a href="{{ route('myLogin') }}"> 
+                           Sign In
+                        </a>
+                    </button>
                     @if (Route::has('register'))
-                       <a href="{{ route('registration') }}"> <button>Sign Up</button></a>
+                        <button>
+                           <a href="{{ route('registration') }}"> 
+                            Sign Up
+                            </a>
+                        </button>
                     @endif
                 @else
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -125,7 +147,11 @@
 
                 @endguest
 
-                <button onclick="window.location='{{ url('/get-in-touch') }}'">Contact Us</button>
+                <button>
+                    <a onclick="window.location='{{ url('/get-in-touch') }}'">
+                        Contact Us
+                    </a>
+                </button>
             </div>
             <div class="menu">
                 <div class="toggle">
