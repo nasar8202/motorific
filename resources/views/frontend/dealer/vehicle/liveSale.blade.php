@@ -348,7 +348,7 @@ div#filter-price {
               ?>
                                                 </span>
                                             </div>
-                                            <h5 class="p-price">Reserve price: <span >£{{ $vehicle->vehicle_price }}</span></h5>
+                                            <h5 class="p-price">Reserve price: <span >£{{ $vehicle->reserve_price }}</span></h5>
                                         </div>
                                     </div>
                                 </a>

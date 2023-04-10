@@ -245,7 +245,7 @@
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
             </span></a>
-            <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
+            {{-- <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p> --}}
 
             <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
         </div>
