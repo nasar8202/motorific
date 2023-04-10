@@ -109,7 +109,7 @@
 <!--                        <li><a href="https://www.instagram.com/motorific_1/"><i class="fa-brands fa-instagram"></i></a></li>-->
 <!--                    </ul>-->
 <!--                </div>-->
-<!--                <h4 class="copyright-txt">© Motorific Online Ltd. <?php echo date("Y"); ?></h4>-->
+<!--                <h4 class="copyright-txt">© Motorific Online Ltd. <?php// echo date("Y"); ?></h4>-->
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
