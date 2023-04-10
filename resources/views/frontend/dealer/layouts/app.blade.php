@@ -2,10 +2,15 @@
 <html lang="en">
 
 <head>
+
+    <?php $currentUrl = url()->full();?>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Uhn45gp6a7f2vzRBJ3kAYDPiA1mgia0KtWeC9jvz5vU" />
+    <link rel="canonical" href="<?php echo $currentUrl ?>" defer>
     <link rel="icon" href="{{ URL::asset('frontend/seller/assets/image/M-Logo.png') }}" type="image/x-icon" defer>
     
     <!-- FONTAWESOME -->
@@ -622,19 +627,29 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KJ4758N');</script>
 
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4758N"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4758N"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T31HYRPFV9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <!-- Google tag (gtag.js) -->
+        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-T31HYRPFV9"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-T31HYRPFV9');
-</script>
+        gtag('config', 'G-T31HYRPFV9');
+        </script> -->
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2YY4GLBSW"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-C2YY4GLBSW');
+        </script>
 <body>
     <main>
         <!-- HEADER -->
