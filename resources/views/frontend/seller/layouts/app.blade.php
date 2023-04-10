@@ -63,6 +63,7 @@
 
 
 
+<!--<body>-->
 <body onload="move()" id="contentBody">
     <div id="myProgress">
         <div class="loader-img">
@@ -226,7 +227,7 @@
     
     <!-- FOOTER -->
 
-    <section class="sec-8">
+    <section class="footer-sec">
         <div class="container-1151">
             <div class="main-footer">
                 <div class="footer-sub about">
@@ -303,17 +304,22 @@
                 </div>
                 <div class="footer-sub contact-2">
                 <a href="{{ route('index') }}"> <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}" alt=""></a>
-                    <div class="d-flex mt-4 mb-4">
-                        <a href="#">
-                            <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>
-                        </a>
-                        <a href="https://www.facebook.com/Motorific-100480046330830">
-                            <div class="footer-icon-bg"><i class="fa-brands fa-facebook-f"></i></div>
-                        </a>
-                        <a href="https://www.instagram.com/motorific_1/">
-                            <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>
-                        </a>
-                    </div>
+                    <!--<div class="d-flex mt-4 mb-4">-->
+                    <!--    <a href="#">-->
+                    <!--        <div class="footer-icon-bg"><i class="fa-brands fa-twitter"></i></div>-->
+                    <!--    </a>-->
+                    <!--    <a href="https://www.facebook.com/Motorific-100480046330830">-->
+                    <!--        <div class="footer-icon-bg"><i class="fa-brands fa-facebook-f"></i></div>-->
+                    <!--    </a>-->
+                    <!--    <a href="https://www.instagram.com/motorific_1/">-->
+                    <!--        <div class="footer-icon-bg"><i class="fa-brands fa-instagram"></i></div>-->
+                    <!--    </a>-->
+                    <!--</div>-->
+                    <ul class="footer-social my-3">
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://www.facebook.com/Motorific-100480046330830"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.instagram.com/motorific_1/"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
                     <h4>© Motorific Online Ltd. <?php echo date("Y"); ?></h4>
                 </div>
             </div>

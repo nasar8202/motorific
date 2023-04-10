@@ -100,7 +100,8 @@
 }
 
 /* Seller index page */
-.banner-sec .banner-title {
+.banner-sec h2 ,
+.banner-inner-title {
   max-width: unset;
   font-size: 44px;
 }
@@ -226,7 +227,9 @@ header .navlinks .dropdown span{
   display: block;
 }
 /* Header Css End */
-
+section.banner-sec{
+  padding-bottom: 110px;
+}
 .banner-inner-cont h1 {
   font-size: 42px;
 }
@@ -321,6 +324,32 @@ font-size: 15px;
 }
 
 .list-icon.car-selling__benefits-list p {
+  font-size: 14px;
+}
+/* Reviews Page */
+.sec-review p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.sec-review .time-period {
+  font-size: 15px;
+}
+
+.sec-review .tit-par h2 {
+  font-size: 20px;
+}
+
+/* Reviews Page End */
+.fin-content h3 {
+  font-size: 20px;
+}
+
+.sell-car-sec p {
+  font-size: 14px;
+}
+
+.sell-car-sec ul li {
   font-size: 14px;
 }
 
@@ -466,7 +495,8 @@ header .navlinks a li::after {
 /* Seller Footer End */
 
 /* Seller index page */
-.banner-sec .banner-title {
+.banner-sec h2 ,
+.banner-inner-title {
   font-size: 42px;
 }
 
@@ -551,7 +581,8 @@ section.sec-4 {
   height: 22px;
 }
 
-.sec-5-inner-txt p {
+.sec-5-inner-txt p,
+.wsy-sec .fct-cont p {
   font-size: 13px;
 }
 
@@ -774,6 +805,63 @@ font-size: 13px;
 .list-icon.car-selling__benefits-list p {
   font-size: 13px;
 }
+/* review page  */
+section.banner-sec {
+  padding-bottom: 140px;
+}
+.sec-review p {
+  font-size: 13px;
+}
+
+.sec-review .time-period {
+  font-size: 13px;
+}
+
+.sec-review .tit-par h2 {
+  font-size: 18px;
+}
+
+.exelent span {
+  width: 24px;
+  height: 24px;
+}
+
+.sec-review .exelent span i {
+  font-size: 12px;
+}
+
+/* review page end */
+.who-sec h5 {
+  font-size: 16px;
+}
+.bst-price-sec h6 {
+  font-size: 24px;
+}
+
+.fin-content h3 {
+  font-size: 18px;
+}
+
+.fin-content p {
+  font-size: 13px;
+}
+
+
+.sell-car-sec p {
+  font-size: 13px;
+}
+
+.sell-car-sec ul li {
+  font-size: 13px;
+}
+
+.finance-sec {
+  padding-bottom: 75px;
+}
+
+.sell-car-sec {
+  padding-bottom: 70px;
+}
 
 
 
@@ -962,7 +1050,8 @@ section.banner-sec {
   padding: 130px 0 80px;
 }
 
-.banner-sec .banner-title {
+.banner-sec h2 ,
+.banner-inner-title {
   font-size: 35px;
 }
 
@@ -1086,7 +1175,8 @@ section.ycp-sec {
   font-size: 15px;
 }
 
-.sec-5-inner-txt p {
+.sec-5-inner-txt p,
+.wsy-sec .fct-cont p {
   font-size: 11px;
 }
 
@@ -1348,7 +1438,71 @@ font-size: 11px;
 .car-ft-sec .car-selling__benefits {
     padding-bottom: 40px;
 }
+/* review page */
+.sec-review p {
+  font-size: 11px;
+}
 
+.sec-review .time-period {
+  font-size: 12px;
+}
+
+.sec-review .tit-par h2 {
+  font-size: 16px;
+}
+
+.exelent span {
+  width: 20px;
+  height: 20px;
+}
+
+.sec-review .exelent span i {
+  font-size: 9px;
+}
+
+.exelent.scnd strong {
+  font-size: 12px;
+}
+
+/* review page  end*/
+.who-sec h5 {
+  font-size: 14px;
+}
+.wsy-sec h6 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.fin-content h3 {
+  font-size: 15px;
+}
+
+.fin-content p {
+  font-size: 11px;
+}
+
+.fin-content {
+  padding: 35px;
+}
+
+.sell-car-sec h2 {
+  font-size: 28px;
+}
+
+.sell-car-sec p {
+  font-size: 11px;
+}
+
+.sell-car-sec ul li {
+  font-size: 11px;
+}
+
+.sell-car-sec {
+  padding-bottom: 40px;
+}
+
+.finance-sec {
+  padding-bottom: 50px;
+}
 
 
 }
@@ -1514,7 +1668,8 @@ header .dropdown-content {
 }
 
 /* Seller index page */
-section.seller-main-banner .banner-content h2 {
+section.seller-main-banner .banner-content h2,
+.banner-inner-title {
   font-size: 26px;
   max-width: 80%;
 }
@@ -1658,7 +1813,8 @@ section.banner-sec {
   font-size: 13px;
 }
 
-.sec-5-inner-txt p {
+.sec-5-inner-txt p,
+.wsy-sec .fct-cont p {
   font-size: 9px;
 }
 
@@ -1946,6 +2102,74 @@ header .dropdown-content {
 .list-icon.car-selling__benefits-list p {
   font-size: 10px;
 }
+/* review page */
+.exelent span {
+  width: 18px;
+  height: 18px;
+}
+
+.sec-review .exelent span i {
+  font-size: 8px;
+}
+
+.sec-review p {
+  font-size: 9px;
+}
+
+.exelent.scnd strong {
+  font-size: 10px;
+}
+
+.sec-review .time-period {
+  font-size: 10px;
+}
+
+.sec-review .tit-par h2 {
+  font-size: 14px;
+}
+
+.simple-pagination li a,.simple-pagination li span {
+  padding: 0;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exelent {
+  gap: 5px;
+}
+.exelent .sec-heading{
+  margin-bottom: 0;
+}
+
+/* review page end */
+.who-sec h5 {
+  font-size: 12px;
+}
+section.sec-2.py-5.how-sec.value-sec {
+  padding: 20px 0 !important;
+}
+.fin-content h3 {
+  font-size: 13px;
+}
+
+.fin-content p {
+  font-size: 9px;
+}
+
+.sell-car-sec h2 {
+  font-size: 22px;
+}
+
+.sell-car-sec p {
+  font-size: 9px;
+}
+
+.sell-car-sec ul li {
+  font-size: 9px;
+}
 
 
 
@@ -1974,6 +2198,10 @@ header .toggle span {
 }
 header  .toggle.active span:nth-child(1),
 header  .toggle.active span:nth-child(3){
+  background: #fff !important;
+}
+header.transparent-header .toggle.active span:nth-child(1),
+header.transparent-header .toggle.active span:nth-child(3){
   background: #fff !important;
 }
 
@@ -2070,6 +2298,17 @@ header  .toggle.active span:nth-child(1),
 header  .toggle.active span:nth-child(3){
 background: #000 !important;
 }
+header.transparent-header {
+    position: absolute;
+}
+
+header.transparent-header .toggle {
+    border-color: #fff !important;
+}
+
+header.transparent-header .toggle span {
+    background: #fff !important;
+}
 
 /* Header End */
 
@@ -2146,7 +2385,7 @@ font-size: 14px;
 /* seller index page */
 .banner-sec .banner-desc {
   font-size: 12px;
-  max-width: 90%;
+  max-width: 60%;
 }
 
 .banner-sec .check_area input, .banner-sec .millage_area input[type="number"] {
@@ -2237,7 +2476,8 @@ section.ycp-sec {
   font-size: 15px;
 }
 
-.sec-5-inner-txt p {
+.sec-5-inner-txt p,
+.wsy-sec .fct-cont p {
   font-size: 12px;
   height: unset;
   min-height: unset;
@@ -2299,7 +2539,86 @@ section.ycp-sec {
 .car-ft-sec .car-selling__benefits {
   padding-bottom: 30px;
 }
+/* review page */
+.sec-review p {
+  font-size: 12px;
+}
 
+.exelent.scnd strong {
+  font-size: 12px;
+}
+
+.sec-review .time-period {
+  font-size: 12px;
+}
+
+.sec-review .tit-par h2 {
+  font-size: 16px;
+}
+
+.tit-par p {
+  width: 90%;
+}
+.simple-pagination li a, .simple-pagination li span {
+  font-size: 12px;
+  width: 25px;
+  height: 25px;
+}
+.who-sec::after{
+  background-size: cover;
+}
+
+/* review page end */
+.who-sec h5 {
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 50%;
+}
+.value-sec .howitwork-main {
+  margin-bottom: 20px;
+}
+
+.value-sec .howitwork-main p {
+  margin: 0;
+  padding: 0;
+}
+.who-sec.fin h2 {
+  max-width: 50%;
+}
+.wsy-sec h6 {
+  font-size: 16px;
+}
+section.value-sec {
+  padding-bottom: 0 !important;
+}
+
+.who-sec.fin {
+  margin-top: 0 !important;
+}
+
+.fin-content h3 {
+  font-size: 14px;
+}
+
+.fin-content p {
+  font-size: 12px;
+}
+
+.fin-content {
+  padding: 25px;
+}
+
+.finance-sec {
+  padding-bottom: 20px;
+}
+
+.sell-car-sec p {
+  font-size: 12px;
+}
+
+.sell-car-sec ul li {
+  font-size: 12px;
+}
 
 
 }
@@ -2448,7 +2767,8 @@ section.seller-main-banner img {
   margin: 0 auto 60px;
 }
 
-section.seller-main-banner .banner-content h2 {
+section.seller-main-banner .banner-content h2,
+.banner-inner-title {
   font-size: 24px;
   max-width: 70%;
 }
@@ -2566,6 +2886,32 @@ section.seller-main-banner .banner-content p {
   font-size: 13px;
 }
 
+.footer-social{
+    justify-content:center;
+}
+.exelent {
+  margin-bottom: 20px;
+}
+section.sec-review {
+  padding-bottom: 40px;
+}
+.who-sec h5 {
+  max-width: 100%;
+}
+.wsy-sec .fct-cont{
+  margin-top: 20px;
+}
+section.value-sec {
+  padding: 10px !important;
+}
+.who-sec.fin h2 {
+  max-width: 100%;
+}
+section.sec-2.py-5.how-sec.value-sec {
+  padding-bottom: 35px !important;
+}
+
+
 
 }
 
@@ -2608,4 +2954,8 @@ section.banner-sec {
   padding: 20px;
 }
 /* seller index page end */
+.tit-par p {
+  width: 100%;
+}
+
 }

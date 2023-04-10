@@ -67,7 +67,10 @@
                                 $map = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk&q=$lat,$lng";
                             @endphp
                             {{-- <iframe src="https://www.google.com//maps?q='.$lat.','.$lng.'.&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
-                            <iframe src="{{ $map }}"></iframe>
+                            <!--<iframe src="{{ $map }}" class="veh-map"></iframe>-->
+                            <iframe src="{{ $map }}" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen ></iframe>
+                            
+                            </div>
                         </div>
                         {{-- <div class="features bottomList">
                         <div class="bottomListTitle">
@@ -376,11 +379,7 @@
                             </div>
                             
                         </div>
-                        
-                            
-                        
-                    </div>
-                    <div class="col-lg-4 vehicleDetailRight">
+                     <div class="col-lg-4 vehicleDetailRight">
                         <div class="liveSalesInProgress live_sell" id="vehBox">
                             <h4>Live Sales In Progress</h4>
                             <div class="reserveDetail">
@@ -468,7 +467,11 @@
                                 <?php } ?>
                             </div>
                         </div>
+                    </div>   
+                            
+                        
                     </div>
+                    
                 </div>
                 
 

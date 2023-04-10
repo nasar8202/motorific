@@ -34,11 +34,11 @@
 
 <section class="sec-1 seller-main-banner banner-sec seller-main" id="vehicle_registration">
     <div class="container-1151">
-        <div class="row">
+        <div class="row banner-content">
             <div class="sec-1-txt col-lg-6">
                 <h2>Sell your car 
                     with <span>Motorific</span></h2>
-                <p> Find your best offer from over thousands of dealers and sell for up to £1,000* more. It’s that easy.</p>
+                <p class="banner-desc"> Find your best offer from over thousands of dealers and sell for up to £1,000* more. It’s that easy.</p>
                 <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                     <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -46,7 +46,7 @@
                     <br>
                     <input type="number" name="millage" placeholder="Enter Millage" required>
                     <input type="hidden" name="registeration" class="registeration" value="">
-                    <button type="submit">Continue</button>
+                    <button type="submit" class="btn-prim"><a href="javascript:void(0)">Continue</a></button>
 
                 </form>
                 <div class="check_area">
@@ -54,7 +54,7 @@
                     <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
                         value="{{ old('registeration') }}" style="text-transform: uppercase">
                     <span class="text-danger show_error"></span>
-                    <button type="button" id="check_registeration">Value Your Car</button>
+                    <button type="button" id="check_registeration" class="btn-prim"><a href="javascript:void(0);">Value Your Car</a></button>
                 </div>
                 @if ($errors->has('millage'))
                     <span class="text-danger">{{ $errors->first('millage') }}</span>
@@ -71,7 +71,7 @@
  <div class="container-1151">
      
      <div class="exelent">
-         <h2>Excellent</h2>
+         <h2  class="sec-heading">Excellent</h2>
         <span> <i class="fa fa-star"></i></span>
           <span> <i class="fa fa-star"></i></span>
             <span> <i class="fa fa-star"></i></span>

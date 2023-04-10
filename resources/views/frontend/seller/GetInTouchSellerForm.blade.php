@@ -1,7 +1,7 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Get In Touch')
 @section('section')
-@section('headerClass','')
+@section('headerClass','transparent-header')
 @section('headerUlClass','navlinks-w')
 @section('logoMain','frontend/seller/assets/image/logo-w.png')
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
@@ -23,7 +23,7 @@
     }
 
     .dropdown:hover .dropdown-content {
-        display: block;
+        display: block;ba
     }
     </style>
 
@@ -31,11 +31,8 @@
       <section class="photo-up-sec-1 reg-page-sec1">
         <div class="container-1151">
             <div class="d-flex">
-                <div class="my-auto">
-                {{-- <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt=""> --}}
-                </div>
                 <div class="">
-                <h3>Contact Us</h3>
+                <h2 class="banner-inner-title">Contact Us</h2>
                 </div>
             </div>
         </div>
@@ -96,55 +93,9 @@
     
 
     
+    <!--Subscribe Sec-->
+@include('frontend.seller.partials.subscribe')
 
-    <!-- SECTION-7 -->
-
-    <section class="sec-7">
-        <div class="sec-7-bg-img sec-1-txt">
-            <div class="container-1151">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="sec-7-box">
-                            <h4>What are you waiting for?</h4>
-                            <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
-                            <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
-
-                                <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>
-        
-                                <br>
-                                <input type="number" name="millage" placeholder="Enter Millage" required>
-                                <input type="hidden" name="registeration1" class="registeration1" value="">
-                                <button type="submit">Continue</button>
-        
-                            </form>
-                            
-                            <div class="check_area1">
-
-                                <input type="text" name="registeration1" id="registeration1" placeholder="Enter REG"
-                                    value="{{ old('registeration') }}" style="text-transform: uppercase">
-                                <span class="text-danger show_error1"></span>
-                                <button type="button" id="check_registeration1">Value Your Car</button>
-                            </div>
-                            @if ($errors->has('millage'))
-                                <span class="text-danger">{{ $errors->first('millage') }}</span>
-                            @endif
-                            
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="sec-7-box">
-                            <h4>Newsletter</h4>
-                            <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                            <input class="mb-3" type="text" name="subscriber_email" placeholder="email" id="subscriber_email" >
-                            <button onclick="addSubscriber()">SUBSCRIBE</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
 @push('child-scripts')
     <script type="text/javascript">

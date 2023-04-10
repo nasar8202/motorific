@@ -31,12 +31,12 @@
 
     <!-- SECTION-1 -->
 
-    <section class="sec-1" id="vehicle_registration">
+    <section class="sec-1 seller-main-banner banner-sec seller-main" id="vehicle_registration">
         <div class="container-1151">
-            <div class="row">
+            <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
                     <h2>Sell My Car On Finance </h2>
-                    <p>Our thousands verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>
+                    <p class="banner-desc">Our thousands verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -44,7 +44,9 @@
                         <br>
                         <input type="number" name="millage" placeholder="Enter Millage" required>
                         <input type="hidden" name="registeration" class="registeration" value="">
-                        <button type="submit">Continue</button>
+                        <button type="submit" class="btn-submit"><span>
+                            Continue
+                        </span></button>
 
                     </form>
                     <div class="check_area">
@@ -52,7 +54,7 @@
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
                             value="{{ old('registeration') }}" style="text-transform: uppercase">
                         <span class="text-danger show_error"></span>
-                        <button type="button" id="check_registeration">Value Your Car</button>
+                        <button type="button" id="check_registeration" class="btn-prim"><a href="javascript:void(0);">Value Your Car </a></button>
                     </div>
                     @if ($errors->has('millage'))
                         <span class="text-danger">{{ $errors->first('millage') }}</span>
@@ -68,30 +70,30 @@
     <!--<section class="" id="vehicle_registration_details"></section>-->
     <!-- SECTION-2 -->
 
-    <section class="sec-2 py-5">
+    <section class="sec-2 py-5 how-sec value-sec">
         <div class="container-1151">
            
             <div class="row">
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3 col-md-6">
                     
                     <h4>Instant Valuation:</h4>
                     <p> Our live-market-data-powered technology provides an accurate estimate of your car’s value. 
                     </p>
                 </div>
 
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3 col-md-6">
                     
                     <h4>Get Your Highest Price:</h4>
                     <p>We alert dealers every time a new listing comes up. They compete to give you the best price for your used car. We connect you with the dealer offering the highest </p>
                 </div>
 
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3 col-md-6">
                     
                     <h4>Free Home Collection: </h4>
                     <p>Once you accept the bid, a verified dealer will collect your car from your home for free. You get paid in full. </p>
                 </div>
 
-                <div class="howitwork-main col-lg-3 col-md-3">
+                <div class="howitwork-main col-lg-3 col-md-6">
                     
                     <h4>Motorific Is Free: </h4>
                     <p> We don’t charge used car owners any fee. We collect fees from verified dealers. </p>
@@ -103,12 +105,12 @@
 
     <!-- SECTION-3 -->
 
-    <section class="sec-3 mt-4 mb-5">
+    <section class="sec-3 mt-4 mb-5 who-sec fin">
         <div class="container-1151">
             <div class="row">
                 <div class="sec-3-txt col-lg-6">
-                    <h4>Fast, Efficient, & Advanced Way of Selling Your Used Cars on Finance 
-                    </h4>
+                    <h2 class="sec-heading text-white">Fast, Efficient, & Advanced Way of Selling Your Used Cars on Finance 
+                    </h2>
                     <p>Motorific is home to thousands verified dealers who compete daily to get the best cars for stock acquisition. They are willing to pay the best possible prices. 
                     </p>
                     
@@ -179,11 +181,11 @@
 
     <!-- SECTION-5 -->
 
-    <section class="sec-5">
+    <section class="sec-5 wsy-sec">
         <div class="container-1600">
             <div class="sec-5-txt bst-price-sec">
                 <div class="container-1151">
-                    <h5>Over 250,000 Owners Have Got The Best Price For Their Cars. </h5>
+                    <h2 class="sec-heading text-white">Over 250,000 Owners Have Got The Best <br> Price For Their Cars. </h2>
                     <h6>How Motorific Works To Sell Cars On Finance</h6>
                     <div class="fct-text">
                         <div class="fct-cont">
@@ -217,13 +219,13 @@
     <section class="finance-sec">
         <div class="container-1151">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="fin-content">
                         <h3>Sell My Car On Finance Through Motorific</h3>
                         <p>As per the latest stats, 85% of people buy cars through some sort of finance agreement. With flexible payment plans, it becomes easy for people to pay for cars and own a vehicle. However, complexities arise when car owners go to sell their cars on finance. However, Motorific has a solution for you as we can help you sell your car on finance.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="fin-content">
                         <h3>Can You Sell Your 1st Car On Finance?</h3>
                         <p>With Motorific, you always can. Our verified dealers have bought cars that came with outstanding finance. However, to sell my car on finance, all you need to do is to settle the outstanding balance. This act of settling balance is called the settlement figure. Then, you will submit proof of payment clearance and you are all set to sell your car.</p>
@@ -239,7 +241,7 @@
     <!--Sell Car Sec-->
     <section class="sell-car-sec">
         <div class="container-1151">
-            <h2>How to sell my financed car through Motorific?</h2>
+            <h2 class="sec-heading">How to sell my financed car through Motorific?</h2>
             <p>If you have bought a car on finance, then you should know it already that you are not the legal owner of the car. The ownership will be only transferred to you when you have submitted all payments to your lender. This whole complex concept of ownership gives birth to the ambiguity that you can’t sell your car on finance until all your outstanding payments are cleared. Fortunately, that’s not the case.</p>
             <ul>
                 <li>You can voluntarily terminate your finance agreement provided that you have paid 50% or more of the agreed amount.</li>
@@ -254,52 +256,9 @@
     
 
     <!-- SECTION-7 -->
+    
+    @include('frontend.seller.partials.subscribe')
 
-    <section class="sec-7">
-        <div class="sec-7-bg-img sec-1-txt">
-            <div class="container-1151">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="sec-7-box">
-                            <h4>What are you waiting for?</h4>
-                            <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
-                            <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
-
-                                <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>
-        
-                                <br>
-                                <input type="number" name="millage" placeholder="Enter Millage" required>
-                                <input type="hidden" name="registeration" class="registeration1" value="">
-                                <button type="submit">Continue</button>
-        
-                            </form>
-                            <div class="check_area1">
-
-                                <input type="text" name="registeration1" id="registeration1" placeholder="Enter REG"
-                                    value="{{ old('registeration') }}" style="text-transform: uppercase">
-                                <span class="text-danger show_error1"></span>
-                                <button type="button" id="check_registeration1">Value Your Car</button>
-                            </div>
-                            @if ($errors->has('millage'))
-                                <span class="text-danger">{{ $errors->first('millage') }}</span>
-                            @endif
-                            
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="sec-7-box">
-                            <h4>Newsletter</h4>
-                            <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                            <input class="mb-3" type="text" name="subscriber_email" placeholder="email" id="subscriber_email" >
-                            <button onclick="addSubscriber()">SUBSCRIBE</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
 @push('child-scripts')
     <script type="text/javascript">
