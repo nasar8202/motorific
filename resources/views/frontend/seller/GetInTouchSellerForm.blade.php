@@ -55,28 +55,30 @@
                 </div>
                 <div class="col-md-6">
                     <div class="contact-form">
-                        <form action="">
+                        <form action="{{route('getIntouchPost')}}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Full Name</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" class="form-control" name="name"  required>
+                                        <input type="hidden" class="form-control" name="getintouchfromsellerform"  value="1">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" required>
+                                        <input type="email" class="form-control" required name="email">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Subject</label>
                                 <input type="text" class="form-control">
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label>Message</label>
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" name="description"></textarea>
                             </div>
                             <button class="btn submit-btn btn-green prim-btn">Send Message</button>
                         </form>

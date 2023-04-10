@@ -62,9 +62,9 @@ a, a:hover {
 
 			<!-- PREHEADER -->
 			<!-- Set text color to background color -->
-			<div style="display: none; visibility: hidden; overflow: hidden; opacity: 0; font-size: 1px; line-height: 1px; height: 0; max-height: 0; max-width: 0;
+			{{-- <div style="display: none; visibility: hidden; overflow: hidden; opacity: 0; font-size: 1px; line-height: 1px; height: 0; max-height: 0; max-width: 0;
 			color: #F0F0F0;" class="preheader">
-				Available on&nbsp;GitHub and&nbsp;CodePen. Highly compatible. Designer friendly. More than 50%&nbsp;of&nbsp;total email opens occurred on&nbsp;a&nbsp;mobile device&nbsp;— a&nbsp;mobile-friendly design is&nbsp;a&nbsp;must for&nbsp;email campaigns.</div>
+				Available on&nbsp;GitHub and&nbsp;CodePen. Highly compatible. Designer friendly. More than 50%&nbsp;of&nbsp;total email opens occurred on&nbsp;a&nbsp;mobile device&nbsp;— a&nbsp;mobile-friendly design is&nbsp;a&nbsp;must for&nbsp;email campaigns.</div> --}}
 
 			<!-- LOGO -->
 			<a target="_blank" style="text-decoration: none;"
@@ -91,7 +91,7 @@ a, a:hover {
 	<!-- HEADER -->
     <!-- HERO IMAGE -->
 	
-    <tr>
+    {{-- <tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;
 			padding-top: 20px;" class="hero"><a target="_blank" style="text-decoration: none;"
 			href="{{route('index')}}"><img border="0" vspace="0" hspace="0"
@@ -102,7 +102,7 @@ a, a:hover {
 			max-width: 560px;
             max-height:auto;
 			color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;"/></a></td>
-	</tr>
+	</tr> --}}
 	<!-- Set text color and font family ("sans-serif" or "Georgia, serif") -->
 	<tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 24px; font-weight: bold; line-height: 130%;
@@ -193,7 +193,7 @@ a, a:hover {
 				</td>
 
 			</tr>
-            <tr>
+            {{-- <tr>
                 <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;
                     padding-top: 20px;" class="hero"><a target="_blank" style="text-decoration: none;"
                     href="https://github.com/konsav/email-templates/"><img border="0" vspace="0" hspace="0"
@@ -203,7 +203,7 @@ a, a:hover {
                     width: 100%;
                     max-width: 560px;
                     color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;"/></a></td>
-            </tr>
+            </tr> --}}
 			<!-- LIST ITEM -->
 			
 
@@ -227,7 +227,10 @@ a, a:hover {
 			padding-bottom: 25px;
 			color: #000000;
 			font-family: sans-serif;" class="paragraph">
-				Have a&nbsp;question? <a href="mailto:info@motorific.co.uk" target="_blank" style="color: #127DB3; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 160%;">info@motorific.co.uk</a>
+				©
+				<?php echo date("Y"); ?>
+				Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ.<br />
+				
 		</td>
 	</tr>
 

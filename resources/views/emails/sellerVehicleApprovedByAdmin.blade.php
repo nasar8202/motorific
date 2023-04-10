@@ -208,13 +208,13 @@
               can inspect the vehicle and make sure it looks as good as
               advertised.
             </p>
-            <p>
+            {{-- <p>
               If you're happy you can either ask us to collect the car or pick
               it up yourself and arrange payment with the seller.
-            </p>
+            </p> --}}
           </div>
           <div class="qa-ans">
-            <p><strong>What next? </strong></p>
+            {{-- <p><strong>What next? </strong></p> --}}
             <p>
               Drop us an email -
               <span style="color: #2196f3"
@@ -245,7 +245,7 @@
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
             </span></a>
-            <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p>
+            {{-- <p><strong>Rated 4.7/5 from 28,673 reviews </strong></p> --}}
 
             <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
         </div>

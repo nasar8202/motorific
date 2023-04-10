@@ -1,6 +1,10 @@
 @extends('frontend.seller.layouts.app')
-@section('title','Sell Login')
+@section('title','Forget password')
 @section('section')
+@section('headerClass','')
+@section('headerUlClass','navlinks')
+@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 <style>
 .dropdown > span{
     position: relative;
@@ -23,7 +27,7 @@ display: block;
 }
     </style>
     <!-- HEADER -->
-    <header>
+    {{-- <header>
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
@@ -37,9 +41,7 @@ display: block;
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
-                    {{-- <a href="#">
-                        <li>Help</li>
-                    </a> --}}
+                    
                     @auth
 
                 @endauth
@@ -76,7 +78,7 @@ display: block;
                         <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
                         <li><a href="#">How It Works</a></li>
                         <li><a href="#">Reviews</a></li>
-                        {{-- <li><a href="#">Help</a></li> --}}
+                       
                             <li>
                             <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
                         </li>
@@ -84,7 +86,7 @@ display: block;
                 </div>
             </div>
         </div>
-    </header>
+    </header> --}}
       <!-- PHOTO-UPLOAD-SECTION-1 -->
       <section class="photo-up-sec-1 reg-page-sec1">
         <div class="container-1151">

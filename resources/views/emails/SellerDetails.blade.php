@@ -368,7 +368,7 @@
                 <div class="cont-main  unsub">
                     <div class="congt-box">
                         <h3>Registration on Motorific</h3>
-                        <span>Here are you login details for motorific </span><br>
+                        <span>Here are Your login details for motorific </span><br>
                         <ul class="reg-detail">
                             <li><span>User Name:</span> {{ $seller_details['greeting'] }}</li>
                             <li><span>Email:</span> {{ $seller_details['email'] }}</li>

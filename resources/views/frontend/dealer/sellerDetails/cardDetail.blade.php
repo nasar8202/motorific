@@ -7,7 +7,7 @@
 <div class="topPadingPage">
     <center><b>Motorific</b> 
         <p>
-        Please pay buys fee of £{{$charges_payment}} to view sellers details
+        Please pay buys fee of <a href="{{route('pricing')}}">£{{$charges_payment}}</a> to view sellers details
     </p>
 </center>
 </div>

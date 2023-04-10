@@ -389,7 +389,7 @@ class FrontController extends Controller
             // dd($users);
             $vehicle = new Vehicle;
             $vehicle->user_id = $request->user_id;
-            $vehicle->vehicle_registartion_number = $request->RegisterationNumber;
+            $vehicle->vehicle_registartion_number = strtoupper($request->RegisterationNumber);
             $vehicle->vehicle_name = $request->VehicleName;
             $vehicle->vehicle_year = $request->VehicleYear;
             $vehicle->vehicle_color = $request->VehicleColor;
