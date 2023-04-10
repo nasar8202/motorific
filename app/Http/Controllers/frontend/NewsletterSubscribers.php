@@ -136,6 +136,6 @@ class NewsletterSubscribers extends Controller
                 ->withInput();
        }
        DB::commit();
-            return redirect()->route('GetInTouchSellerForm')->with('success', 'Thanks for contacting us we will get back soon!');
+            return view('frontend.seller.thankYouGetInTouch');
     }
 }

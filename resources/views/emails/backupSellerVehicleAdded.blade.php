@@ -210,13 +210,13 @@
               can inspect the vehicle and make sure it looks as good as
               advertised.
             </p>
-            <p>
+            {{-- <p>
               If you're happy you can either ask us to collect the car or pick
               it up yourself and arrange payment with the seller.
-            </p>
+            </p> --}}
           </div>
           <div class="qa-ans">
-            <p><strong>What next? </strong></p>
+            {{-- <p><strong>What next? </strong></p> --}}
             <p>
               Drop us an email -
               <span style="color: #2196f3"

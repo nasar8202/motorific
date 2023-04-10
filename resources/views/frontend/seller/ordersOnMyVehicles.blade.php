@@ -1,7 +1,10 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell your car with Motorific')
+@section('title', 'Order my vehicle')
 @section('section')
-
+@section('headerClass','')
+@section('headerUlClass','navlinks')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
     <style>
         .dropdown {
             position: relative;
@@ -26,7 +29,7 @@
             display: block;
         }
     </style>
-    <header>
+    {{-- <header>
         <div class="container-1600 d-flex justify-content-between pt-4">
             <div class="logo-navlinks d-flex align-items-center">
                 <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
@@ -41,9 +44,7 @@
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
-                    {{-- <a href="#">
-                        <li>Help</li>
-                    </a> --}}
+                   
 
                     @auth
 
@@ -132,9 +133,7 @@
                         <li>
                             <a href="{{ route('reviews') }}">Reviews</a>
                         </li>
-                        {{-- <li>
-                            <a href="#">Help</a>
-                        </li> --}}
+                        
                         <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -164,7 +163,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> --}}
 
     <!-- SECTION-1 -->
     <section class="sec-2 productPageTn">

@@ -1,6 +1,10 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Photo Upload | Motorific')
 @section('section')
+@section('headerClass','transparent-header')
+@section('headerUlClass','navlinks-w')
+@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 <style>
     .dropdown {
 position: relative;
@@ -41,135 +45,7 @@ display: block;
 }
     </style>
  <!-- HEADER -->
- <header>
-    <div class="container-1600 d-flex justify-content-between pt-4">
-        <div class="logo-navlinks d-flex align-items-center">
-            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
-            <ul class="navlinks navlinks-w mb-0 align-items-center">
-                <a href="{{ route('sellMyCar') }}">
-                    <li>Sell My Car</li>
-                </a>
-                <a href="{{ route('howItWorksforSeller') }}">
-                    <li>How It Works</li>
-                </a>
-                <a href="{{ route('reviews') }}">
-                    <li>Reviews</li>
-                </a>
-                {{-- <a href="#">
-                    <li>Help</li>
-                </a> --}}
-                @auth
-
-                @endauth
-
-                @guest
-                <div class="dropdown">
-                    <span>More</span>
-                    <div class="dropdown-content">
-
-                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-
-
-                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
-                    </div>
-                </div>
-                @endguest
-            </ul>
-        </div>
-        <div class="head-btns  justify-content-between">
-            @guest
-           <a href="{{ route('myLogin') }}"> <button>Sign In</button></a>
-            @if (Route::has('register'))
-            <a href="{{ route('registration') }}"><button>Sign Up</button></a>
-            @endif
-            @else
-
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('acceptedVehicles')}}">My Account</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                    </div>
-
-            @endguest
-
-            <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
-        </div>
-        <div class="menu">
-            <div class="toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="navi">
-                    <ul>
-                        <li class="logoMob">
-                            <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
-                            alt=""></a>
-                        </li>
-                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <li>
-                            <a href="{{ route('howItWorksforSeller') }}">How It Works</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('reviews') }}">Reviews</a>
-                        </li>
-                        {{-- <li>
-                            <a href="#">Help</a>
-                        </li> --}}
-                            <li>
-                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
-                        </li>
-                        @guest
-                        <li><a href="{{ route('myLogin') }}">Sign In</a></li>
-                        
-                            <li><a href="{{ route('registration') }}">Sign Up</a></li>
-                            @endguest
-                        @if(Auth::check())
-                        <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </button>
-
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                    </div>
-                    @endif
-                        @guest
-                            <li> <a href="{{ route('dealer.newDashboard')  }}" target="_blank">For Dealers</a>
-
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-        </div>
-    </div>
-</header>
+ 
   <!-- PHOTO-UPLOAD-SECTION-1 -->
   <section class="photo-up-sec-1">
     <div class="container-1151">
@@ -179,11 +55,11 @@ display: block;
         <p> {{$res->make}}   {{$res->wheelplan}}</p>
         <div class="chart">
             <ul>
-                <li>{{$res->yearOfManufacture}}</li>
-                <li>{{$milage}} Mileage</li>
-                <li>{{$res->colour}}</li>
-                <li>{{$res->wheelplan}}</li>
-                <li>{{$res->fuelType}}</li>
+                <li>{{$res->yearOfManufacture??"year of manufacture"}}</li>
+                    <li>{{$data->milage??"mileage"}} </li>
+                    <li>{{$res->colour??"colour"}}</li>
+                    <li>{{$res->wheelplan??"wheelplan"}}</li>
+                    <li>{{$res->fuelType??"fueltype"}}</li>
                 {{-- <li>43,000 miles</li>
                 <li>Grey</li>
                 <li>Hatchback</li>

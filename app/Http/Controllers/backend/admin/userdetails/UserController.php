@@ -195,7 +195,7 @@ class UserController extends Controller
 
                 $vehicle = new Vehicle;
                 $vehicle->user_id = $id;
-                $vehicle->vehicle_registartion_number = $request->register_number;
+                $vehicle->vehicle_registartion_number = strtoupper($request->register_number);
                 $vehicle->vehicle_name = $request->vehicle_name;
                 $vehicle->vehicle_year = $request->vehicle_year;
                 $vehicle->vehicle_color = $request->vehicle_color;

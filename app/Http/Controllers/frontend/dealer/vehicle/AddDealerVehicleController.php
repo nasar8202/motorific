@@ -169,7 +169,7 @@ class AddDealerVehicleController extends Controller
         try{
             $dealers_vehicle = new DealerVehicle;
             $dealers_vehicle->user_id = Auth::user()->id;
-            $dealers_vehicle->vehicle_registartion_number = session()->get('vehicle_registartion_number');
+            $dealers_vehicle->vehicle_registartion_number = strtoupper(session()->get('vehicle_registartion_number'));
             $dealers_vehicle->vehicle_name = session()->get('vehicle_name');
             $dealers_vehicle->vehicle_year = session()->get('vehicle_year');
             $dealers_vehicle->vehicle_color = session()->get('vehicle_color');

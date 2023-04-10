@@ -338,7 +338,7 @@ class DealerChargesController extends Controller
     public function scheduleMeeting(Request $request)
     {
         
-
+        
         //dd($meeting = BidedVehicle::where('id', $request->order_id)->first());
         if ($request->bided == 'bided') {
             $dealer = BidedVehicle::where('id', $request->order_id)->with('user')->with('vehicle')->first();
@@ -365,7 +365,7 @@ class DealerChargesController extends Controller
               'age' => $vehicle->vehicle_year,
               'meeting_schedule' => $request->date_time
             ]);
-
+            
 
             $data1 = ([
                 'name' => $seller->name,
@@ -389,9 +389,10 @@ class DealerChargesController extends Controller
             $meeting = OrderVehicleRequest::where('id', $request->order_id)->with('user')->with('vehicle')->first();
             $meeting->meeting_date_time = $request->date_time;
             
-            $meeting->save();
+            // $meeting->save();
             
             $vehicle  = Vehicle::where('id', $meeting->vehicle->id)->with('VehicleImage')->first();
+            
             $seller = User::where('id', $vehicle->user_id)->first();
             $originalDate = $meeting->created_at;
             $winDate = date("d F Y ", strtotime($originalDate));
@@ -401,7 +402,7 @@ class DealerChargesController extends Controller
               'name' => $meeting->user->name,
               'email' => $meeting->user->email,
               'date' => $winDate . ' at ' . $winTime,
-              'bidded_price' => $vehicle->request_price,
+              'bidded_price' => $meeting->request_price,
               'vehicle_registration' => $vehicle->vehicle_registartion_number,
               'vehicle_name' => $vehicle->vehicle_name,
               'vehicle_mileage' => $vehicle->vehicle_mileage,
@@ -415,7 +416,7 @@ class DealerChargesController extends Controller
                 'name' => $meeting->name,
                 'email' => $meeting->email,
                 'date' => $winDate . ' at ' . $winTime,
-                'bidded_price' => $vehicle->request_price,
+                'bidded_price' => $meeting->request_price,
                 'vehicle_registration' => $vehicle->vehicle_registartion_number,
                 'vehicle_name' => $vehicle->vehicle_name,
                 'vehicle_mileage' => $vehicle->vehicle_mileage,

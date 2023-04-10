@@ -1,8 +1,11 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Sell your car the with Motorific')
 @section('section')
-
-<header class="thnkPage">
+@section('headerClass','thnkPage')
+@section('headerUlClass','navlinks')
+@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
+{{-- <header class="thnkPage">
     <div class="container-1600 d-flex justify-content-between pt-4" >
         <div class="logo-navlinks d-flex align-items-center">
             <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}" alt=""></a>
@@ -16,9 +19,7 @@
                 <a href="{{ route('reviews') }}">
                     <li>Reviews</li>
                 </a>
-                {{-- <a href="#">
-                    <li>Help</li>
-                </a> --}}
+                
 
                 @auth
 
@@ -91,9 +92,7 @@
                         <li>
                             <a href="{{ route('reviews') }}">Reviews</a>
                         </li>
-                        {{-- <li>
-                            <a href="#">Help</a>
-                        </li> --}}
+                        
                             <li>
                             <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
                         </li>
@@ -132,7 +131,7 @@
                 </div>
         </div>
     </div>
-</header>
+</header> --}}
 
 
 <section class="thanks">
