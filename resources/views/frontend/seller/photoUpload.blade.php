@@ -1,9 +1,11 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Photo Upload | Motorific')
 @section('section')
-@section('headerClass','transparent-header')
-@section('headerUlClass','navlinks-w')
-@section('logoMain','frontend/seller/assets/image/logo-w.png')
+
+@section('headerClass','')
+@section('headerUlClass','navlinks navlinks-w')
+@section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo-w.png')
+
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 <style>
     .dropdown {
@@ -45,7 +47,7 @@ display: block;
 }
     </style>
  <!-- HEADER -->
- 
+
   <!-- PHOTO-UPLOAD-SECTION-1 -->
   <section class="photo-up-sec-1">
     <div class="container-1151">
@@ -56,7 +58,7 @@ display: block;
         <div class="chart">
             <ul>
                 <li>{{$res->yearOfManufacture??"year of manufacture"}}</li>
-                    <li>{{$data->milage??"mileage"}} </li>
+                    <li>{{$data->millage??"mileage"}} </li>
                     <li>{{$res->colour??"colour"}}</li>
                     <li>{{$res->wheelplan??"wheelplan"}}</li>
                     <li>{{$res->fuelType??"fueltype"}}</li>
