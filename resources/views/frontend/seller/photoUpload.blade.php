@@ -1,9 +1,15 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Photo Upload | Motorific')
 @section('section')
+<<<<<<< HEAD
 @section('headerClass','transparent-header')
 @section('headerUlClass','navlinks-w')
 @section('logoMain','frontend/seller/assets/image/logo-w.png')
+=======
+@section('headerClass','')
+@section('headerUlClass','navlinks navlinks-w')
+@section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo-w.png')
+>>>>>>> a6b7f956 (ad logo)
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 <style>
     .dropdown {
@@ -45,7 +51,10 @@ display: block;
 }
     </style>
  <!-- HEADER -->
+<<<<<<< HEAD
  
+=======
+>>>>>>> a6b7f956 (ad logo)
   <!-- PHOTO-UPLOAD-SECTION-1 -->
   <section class="photo-up-sec-1">
     <div class="container-1151">
