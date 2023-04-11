@@ -27,6 +27,62 @@ z-index: 1;
 .dropdown:hover .dropdown-content {
     display: block;
 }
+@keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Spinner */
+        .spinner {
+            --spinner-color: black;
+
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        .spinner--dotted {
+            width: 28px;
+            border: 5px dotted var(--spinner-color);
+
+            animation-duration: 5s;
+        }
+        .spinner-container {
+            margin: 0 0;
+            margin-left: -60px;
+            width: 100%;
+            max-width: 100%;
+            min-height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -40px;
+        }
+        @media(max-width:767px){
+            .spinner-container {
+            margin: 0 0;
+            margin-left: -5px;
+            width: 100%;
+            max-width: 100%;
+            min-height: 30px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            margin-top: -35px;
+        }
+        .spinner--dotted {
+            width: 25px;
+            border: 5px dotted var(--spinner-color);
+
+	animation-duration: 5s;
+}
+}
 </style>
 
 
@@ -51,7 +107,7 @@ z-index: 1;
                     <br>
                     <input type="number" name="millage" placeholder="Enter Millage" required>
                     <input type="hidden" name="registeration" class="registeration" value="">
-                    <button type="submit"class="btn-prim"><span>Continue</span></button>
+                    <button type="submit"class="btn-submit"><span>Continue</span></button>
 
                 </form>
                 <div class="check_area">
@@ -60,6 +116,9 @@ z-index: 1;
                         value="{{ old('registeration') }}" style="text-transform: uppercase">
                     <span class="text-danger show_error"></span>
                     <button type="button" id="check_registeration" class="btn-prim"><a href="javascript:void(0);">Value Your Car</a></button>
+                    <div class="spinner-container">
+                    <span class="spinner spinner--dotted sfirst"></span>
+                    </div>
                 </div>
                 @if ($errors->has('millage'))
                     <span class="text-danger">{{ $errors->first('millage') }}</span>
@@ -281,9 +340,10 @@ z-index: 1;
 <script type="text/javascript">
 $('.millage_area').hide();
         $('.show_error').hide();
-
+        $('.sfirst').hide();
  $("#check_registeration").on("click", function(e) {
             var registeration = $("#registeration").val();
+            $('.sfirst').show();
             e.preventDefault(); // prevent the form submission
 
             $.ajax({
@@ -307,13 +367,14 @@ $('.millage_area').hide();
                         $('.millage_area').show();
                         $('.found').show();
                         $('.registeration').val(registeration);
+                        $('.sfirst').hide();
                     }
                     
                     else {
                         $('.show_error').show();
                         $('.show_error').text('Record Not Found')
 
-
+                        $('.sfirst').hide();
 
                     }
                 }
