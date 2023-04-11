@@ -1,14 +1,14 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Seller Profile')
 @section('section')
-@section('headerClass','header-career transparent-header')
+{{-- @section('headerClass','header-career transparent-header')
 @section('headerUlClass','navlinks-w')
 @section('logoMain','frontend/seller/assets/image/logo-w.png')
-@section('ContainerHeader','container-1600 d-flex justify-content-between')
-{{-- @section('headerClass','')
+@section('ContainerHeader','container-1600 d-flex justify-content-between') --}}
+@section('headerClass','')
 @section('headerUlClass','navlinks')
 @section('logoMain','frontend/seller/assets/image/logo.png')
-@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4') --}}
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
     <style>
         .dropdown {
             position: relative;
