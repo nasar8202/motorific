@@ -29,14 +29,14 @@
     
     <!-- SECTION-1 -->
 
-    <section class="sec-1" id="vehicle_registration">
+    <section class="sec-1 seller-main-banner banner-sec seller-main" id="vehicle_registration">
         <div class="container-1151">
-            <div class="row">
+            <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
                     <h2>Sell My Electric Car</h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p>Connect with thousands verified dealers in London and across the UK and sell your electric car for the highest price. 
+                    <p class="banner-desc">Connect with thousands verified dealers in London and across the UK and sell your electric car for the highest price. 
                     </p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
@@ -45,7 +45,7 @@
                         <br>
                         <input type="number" name="millage" placeholder="Enter Millage" required>
                         <input type="hidden" name="registeration" class="registeration" value="">
-                        <button type="submit">Continue</button>
+                        <button type="submit" class="btn-submit"><span>Continue</span></button>
 
                     </form>
                     <div class="check_area">
@@ -53,7 +53,7 @@
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
                             value="{{ old('registeration') }}" style="text-transform: uppercase">
                         <span class="text-danger show_error"></span>
-                        <button type="button" id="check_registeration">Value Your Car</button>
+                        <button type="button" id="check_registeration" class="btn-prim"><a href="javascript:void(0);"> Value Your Car</a></button>
                     </div>
                     @if ($errors->has('millage'))
                         <span class="text-danger">{{ $errors->first('millage') }}</span>
@@ -69,83 +69,17 @@
     <!--<section class="" id="vehicle_registration_details"></section>-->
     <!-- SECTION-2 -->
 
-    <section class="sec-2">
-        <div class="container-1151">
-           
-            <div class="row">
-                <div class="col-12">
-                    <div class="how-work">
-                        <h3>How it works</h3>
-                    </div>
-                </div>
-                <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>1</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/car.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Car Profiling:</h4>
-                    <p>You create an awesome profile for your electric car through your mobile. To begin, you need to enter the registration number of your vehicle. 
-                    </p>
-                </div>
-
-                <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>2</h5>
-                    </div>
-                    <div class="how-work-img d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/megaphone.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Motorific Alerts Dealers:</h4>
-                    <p>As soon as you finish profiling your car, our automated system alerts thousands verified dealers to get the job done. </p>
-                </div>
-
-                <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>3</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/price.png') }}" alt="">
-                        <div class="line-sec-2">
-                        </div>
-                    </div>
-                    <h4>Get Maximum Value: </h4>
-                    <p>Of all the bids, Motorific connects you with the person willing to pay you the most for your electric car. You approve the offer and the dealer makes a free car collection. </p>
-                </div>
-
-                <div class="howitwork-main col-lg-3 col-md-3">
-                    <div class="step-nmbr">
-                        <h5>4</h5>
-                    </div>
-                    <div class="how-work-img">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
-                    </div>
-                    <h4>Get Paid In Full:</h4>
-                    <p> You receive full payment for your electric car within 24 hours of collection. We charge fees from dealers.</p>
-                </div>
-            </div>
-            <div class="sec-2-btns text-center">
-                <a href="#vehicle_registration"><button>VALUE YOUR CAR</button></a>
-                <button class="green-btn"><a href="{{route('GetInTouchSellerForm')}}">GET IN TOUCH</a></button>
-                
-            </div>
-        </div>
-    </section>
+    @include('frontend.seller.partials.how-work')
 
 
     <!-- SECTION-3 -->
 
-    <section class="sec-3 mt-4 mb-5">
+    <section class="sec-3 mt-4 mb-5 who-sec">
         <div class="container-1151">
             <div class="row">
                 <div class="sec-3-txt col-lg-6">
-                    <h4>Motorific Is Home To thousands Verified Dealers 
-                    </h4>
+                    <h2 class="sec-heading text-white">Motorific Is Home To thousands Verified Dealers 
+                    </h2>
                     <!--<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut-->
                     <!--    labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</h6>-->
                     <p>Motorific brings thousands verified dealers on board who compete to give you the highest price for your electric car. Motorific is a fast, efficient, trusted, and advanced way of selling your electric car. 
@@ -163,7 +97,7 @@
 
     <!-- SECTION-4 -->
 
-    <section class="sec-4">
+    <section class="sec-4 ycp-sec">
         <div class="container-1151">
             <div class="row">
                 <div class="col-lg-6 my-auto">
@@ -171,11 +105,12 @@
                         <!--<h4>This is the way.</h4>-->
                         <!--<h4>This is the</h4>-->
                         <!--<h4>motorific.</h4>-->
-                        <h4>Your Car. Your Price - with Motorific</h4>
+                        <h2 class="sec-heading">Your Car. Your Price - with Motorific</h2>
                         <p>Motorific brings transparency so that you get the highest bid for your car. With over thousands dealers eager to bid for your car, we ensure you sell your car for its authentic worth. </p>
                         <div class="sec-1-txt">
-                            <a href="#vehicle_registration" style="text-decoration: none"><button>VALUE YOUR
-                                    CAR</button></a>
+                            <button class="btn-prim">
+                            <a href="#vehicle_registration" style="text-decoration: none">VALUE YOUR
+                                    CAR</a></button>
                         </div>
                     </div>
                 </div>
@@ -220,11 +155,11 @@
 
     <!-- SECTION-5 -->
 
-    <section class="sec-5">
+    <section class="sec-5 wsy-sec pt-5">
         <div class="container-1600">
             <div class="sec-5-txt">
                 <div class="container-1151">
-                    <h5>Why Sell Your <br> Used Car With Motorofic? </h5>
+                    <h2 class="sec-heading text-white">Why Sell Your <br> Used Car With Motorofic? </h2>
                     <div class="row sec-5-txt-sub">
                         <div class="col-lg-6 col-md-6">
                             <div class="sec-5-inner-txt mt-4">
@@ -258,99 +193,11 @@
 
     <!-- SECTION-6 -->
 
-    <section class="sec-6">
-        <div class="container-1151">
-            <div class="sec-6-heading">
-                <!--<h5>Our happy customers</h5>-->
-                <h5>Hear From Our Satisfied Customers</h5>
-                <!--<p>Rated Excellent <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i-->
-                <!--        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by-->
-                <!--    5,000+ Users</p>-->
-                <p>Rated  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> by 3thousands Customers </p>
-            </div>
-            <div class="sec-6-boxes d-flex">
-                <div class="sec-6-main-box col-lg-4 col-md-6">
-                    <p style="font-style:italic;">I was a little hesitant to sell my car online, but Motorific made the process incredibly easy and stress-free. Their platform connects car sellers with verified dealers, which gave me peace of mind knowing that I was dealing with reputable buyers. The whole process was seamless - I entered registration number and created my car and within hours, I had multiple offers from interested dealers. I was able to compare the offers and choose the one that worked best for me. The team at Motorific was also very helpful and responsive throughout the process, answering any questions I had and providing updates on the status of my listing. I highly recommend Motorific to anyone looking to sell their car - it's a great way to get a fair price without the hassle of dealing with private buyers.</p>
-                    <div class="sec-6-box-pfp d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp.png') }}" alt="">
-                        <div>
-                            <h5>Mark,Homestay</h5>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="sec-6-main-box col-lg-4 col-md-6">
-                    <p style="font-style:italic;">From my experience, I can vouch that Motorific is the best way to sell used car! I tried selling my car through traditional methods and it turned out to be a big headache. But then a friend of mine recommended Motorific. As soon as I created profile, I was able to get multiple offers from verified dealers instantly. The whole process was seamless, prompt and hassle-free. What I appreciates the most about Motorific is the transparency of the platform, and the fact that I could compare offers and choose the one that worked best for me. Thanks to Motorific, I got the best value for my MG HS!</p>
-                    <div class="sec-6-box-pfp d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp2.png') }}" alt="">
-                        <div>
-                            <h5>Mark,Homestay</h5>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="sec-6-main-box col-lg-4 col-md-6 mx-auto">
-                    <p style=""font-style: italic;">Sold my Peugeot e-208 through Motorific - it was easy, fast, and stress-free! I got a great price for my car and was able to complete the transaction quickly. Highly recommend Motorific for anyone looking to sell their car fastly!</p>
-                    <div class="sec-6-box-pfp d-flex align-items-center">
-                        <img src="{{ URL::asset('frontend/seller/assets/image/sec-5pfp3.png') }}" alt="">
-                        <div>
-                            <h5>Mark,Homestay</h5>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/review.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('frontend.seller.partials.testimonials')
 
     <!-- SECTION-7 -->
+    @include('frontend.seller.partials.subscribe')
 
-    <section class="sec-7">
-        <div class="sec-7-bg-img sec-1-txt">
-            <div class="container-1151">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="sec-7-box">
-                            <h4>What are you waiting for?</h4>
-                            <p>Bid to traditional used car selling methods and join strong community of thousands happy customers!</p>
-                            <form class="millage_area1" method="get" action="{{ route('photoUpload') }}">
-
-                                <span class="text mt-4 found1" style="color: white">Enter Mileage <i class="fa-solid fa-check"></i></span>
-        
-                                <br>
-                                <input type="number" name="millage" placeholder="Enter Millage" required>
-                                <input type="hidden" name="registeration" class="registeration1" value="">
-                                <button type="submit">Continue</button>
-        
-                            </form>
-                            <div class="check_area1">
-
-                                <input type="text" name="registeration1" id="registeration1" placeholder="Enter REG"
-                                    value="{{ old('registeration') }}" style="text-transform: uppercase">
-                                <span class="text-danger show_error1"></span>
-                                <button type="button" id="check_registeration1">Value Your Car</button>
-                            </div>
-                            @if ($errors->has('millage'))
-                                <span class="text-danger">{{ $errors->first('millage') }}</span>
-                            @endif
-                            
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="sec-7-box">
-                            <h4>Newsletter</h4>
-                            <p>Subscribe to our newsletter and stay on top of industry news. </p>
-                            <input class="mb-3" type="text" name="subscriber_email" placeholder="email" id="subscriber_email" >
-                            <button onclick="addSubscriber()">SUBSCRIBE</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
 @push('child-scripts')
     <script type="text/javascript">
