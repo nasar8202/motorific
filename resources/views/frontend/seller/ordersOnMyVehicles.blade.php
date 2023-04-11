@@ -1,10 +1,14 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Order my vehicle')
 @section('section')
-@section('headerClass','')
+{{-- @section('headerClass','')
 @section('headerUlClass','navlinks')
 @section('logoMain','frontend/seller/assets/image/logo.png')
-@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4') --}}
+@section('headerClass','header-career transparent-header')
+@section('headerUlClass','navlinks-w')
+@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('ContainerHeader','container-1600 d-flex justify-content-between')
     <style>
         .dropdown {
             position: relative;
