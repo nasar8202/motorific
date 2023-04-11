@@ -268,9 +268,9 @@ $(document).ready(function () {
 
 
   
-   $(window).on('load',function(){
-        $('#cokies').modal('show');
-    });
+  //  $(window).on('load',function(){
+  //       $('#cokies').modal('show');
+  //   });
 
 
 $('.submitVehicleInfo-qa').on('click', function(){
