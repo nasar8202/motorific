@@ -677,6 +677,7 @@ class FrontController extends Controller
         }else{
             return back()->with('error','Record not found');
         }
+        // dd($milage);
         return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','VehicleHistories','user'));
     
     }

@@ -418,11 +418,7 @@
                                     <h2 class="text text-danger  p-2 dealerOwnVehilcle">This Is Your Own Vehicle</h2>
                                 @else
                                 <div  class="reserveDetail">
-                                <ul>
-                                <li class="justify-content-center">
-                                   <a href="{{route('buyNowFromDealer',$vehicle->id)}}">Buy Now : £{{$vehicle->reserve_price}}</a>
-                                   </li>
-                                </ul>
+                                
                             </div>
                                     <form action="#">
                                        
@@ -440,6 +436,7 @@
                                                 <span class="sr-only">Loading...</span>
                                             </div>
                                             <button type="button" class="bid">Submit Bid</button>
+                                            <a href="{{route('buyItNowFromSeller',$vehicle->id)}}" class="text-decoration-none text-white"><button type="button" class="mt-2">Buy Now : £{{$vehicle->reserve_price}}</button></a>
                                             <span class="text-danger warning"></span>
                                             <span class="text-danger error"></span>
                                         </div>

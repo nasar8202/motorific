@@ -273,10 +273,10 @@
                                     <li class="hidden">Clean:<span> £{{$vehicle->clean_price}} </span></li>
                                     <li class="hidden">Average:<span> £{{$vehicle->average_price}} </span></li>
                                 </ul>
-                                <ul class="">
-                                    <li class="justify-content-center"><a href="{{route('buyItNowFromSeller',$vehicle->id)}}">Buy Now : £{{$vehicle->reserve_price}}</a></li>
+                                {{-- <ul class="">
+                                    <li class="justify-content-center"><a href="{{route('buyItNowFromSeller',$vehicle->id)}}" style="text-decoration: none;background:#05eab5;border: 1px solid #05eab5;color:aliceblue;width:400px; text-align:center; border-radius:20px">Buy Now : £{{$vehicle->reserve_price}}</a></li>
                                     
-                                </ul>
+                                </ul> --}}
                             </ul>
                             <?php
                            $bid = App\Models\BidedVehicle::where('vehicle_id',$vehicle->id)->where('user_id',\Auth::user()->id)->first();
@@ -300,6 +300,7 @@
                                       @else
                                       <button type="button" class="bid">Submit Bid</button>
                                       @endif
+                                      <a href="{{route('buyItNowFromSeller',$vehicle->id)}}" class="text-decoration-none text-white"><button type="button" class="mt-2">Buy Now : £{{$vehicle->reserve_price}}</button></a>
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
                                 
