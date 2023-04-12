@@ -204,9 +204,7 @@
           <div class="qa-ans">
             <p><strong>What next? </strong></p>
             <p>
-              You’ll need to find a time that’s right for both parties so you
-              can inspect the vehicle and make sure it looks as good as
-              advertised.
+              As soon as the auction results are announced, the winning dealer will contact you. You'll need to schedule a time for both parties so they can inspect the vehicle and arrange payment and collection of your  vehicle .
             </p>
             {{-- <p>
               If you're happy you can either ask us to collect the car or pick

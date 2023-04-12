@@ -251,7 +251,11 @@
                 </div> 
                 <div class="col-lg-4 vehicleDetailRight">
                     <div class="liveSalesInProgress" id="vehBox">
-                        <h4>Live Sales In Progress</h4>
+                        @if($vehicle->all_auction == 'all')
+                        <h4>Buy It Now</h4>
+                        @else
+                        <h4>Live Sale</h4>
+@endif
                         <div class="reserveDetail vehicle">
                             <ul >
                                 <li>Reserve Price: <span>£{{$vehicle->reserve_price}}</span></li>

@@ -381,7 +381,7 @@
                         </div>
                      <div class="col-lg-4 vehicleDetailRight">
                         <div class="liveSalesInProgress live_sell" id="vehBox">
-                            <h4>Live Sales In Progress</h4>
+                            <h4>Buy It Now</h4>
                             <div class="reserveDetail">
                                 <ul>
                                     <li>Reserve Price: <span>£{{ $vehicle->reserve_price }}</span></li>
