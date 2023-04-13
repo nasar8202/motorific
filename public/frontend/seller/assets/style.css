@@ -10,6 +10,7 @@
 /* .new{
 
 } */
+
 body {
     scroll-behavior: smooth;
 }
@@ -3212,13 +3213,23 @@ div.sellerReg form span.invalid-feedback strong {
 sec-3-txt button a{
     background:transparent !important;
 }
-.sec-3-txt button:hover a{
-    background:transparent !important;
-    color:#fff;
-}
+/*.sec-3-txt button:hover a{*/
+/*    background:transparent !important;*/
+/*    color:#fff;*/
+/*}*/
 button.green-btn:hover {
     background: #202543 !important;
 }
 .head-btns button a:not([href]):not([class]) {
     color: #ffff;
 }
+
+/*hamza css */
+.btn-second a, .btn-prim a {
+    display: inline-block;
+
+}
+.btn-submit span {
+    display: inline-block;
+}
+/*hamza css */

@@ -1924,6 +1924,9 @@ div.reserveDetail ul li {
     display: flex;
     align-items: center;
 }
+.reserveDetail li a {
+    color: #fff;
+}
 
 .reserveDetail ul li:nth-child(2) span {
     font-size: 20px;

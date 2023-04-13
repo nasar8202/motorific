@@ -41,31 +41,36 @@
 // Loader
 var i = 0;
 
-function move() {
-  if (i == 0) {
-    i = 1;
-    var loadedPage = document.getElementById("loadedPage");
-    var progessMain = document.getElementById("myProgress");
-    var elem = document.getElementById("bar");
-    var barTxt = document.getElementById("bar-txt");
-    loadedPage.style.transform = "none";
-    var width = 0;
-    var id = setInterval(frame, 15);
-    function frame() {
-      if (width >= 100) {
-        progessMain.style.opacity = 0.5;
-        progessMain.style.display = "none";
-        clearInterval(id);
-        i = 0;
-        loadedPage.style.display = "block";
-      } else {
-        width++;
-      }
-    }
-  }
-}
+// function move() {
+//   if (i == 0) {
+//     i = 1;
+//     var loadedPage = document.getElementById("loadedPage");
+//     var progessMain = document.getElementById("myProgress");
+//     var elem = document.getElementById("bar");
+//     var barTxt = document.getElementById("bar-txt");
+//     loadedPage.style.transform = "none";
+//     var width = 0;
+//     var id = setInterval(frame, 15);
+//     function frame() {
+//       if (width >= 100) {
+//         progessMain.style.opacity = 0.5;
+//         progessMain.style.display = "none";
+//         clearInterval(id);
+//         i = 0;
+//         loadedPage.style.display = "block";
+//       } else {
+//         width++;
+//       }
+//     }
+//   }
+// }
 
 // End
+
+// preloader
+$(window).on('load', function(){
+   $('#myProgress').fadeOut('slow');
+});
 
 // Step Form Toggle by As
 $(document).ready(function () {

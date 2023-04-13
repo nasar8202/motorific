@@ -62,9 +62,12 @@
 </head>
 
 
-{{-- 
-<body> --}}
+
+<!--<body>-->
+<!--<body onload="move()" id="contentBody">-->
+
 <body onload="move()" id="contentBody">
+
     <div id="myProgress">
         <div class="loader-img">
             <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">
