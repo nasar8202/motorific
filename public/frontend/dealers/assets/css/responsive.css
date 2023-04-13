@@ -1331,10 +1331,15 @@ ul.parts-content li span {
 .vehicleDetailGalrepeatMain {
     flex-wrap: nowrap;
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;
 }
 .vehicleDetailGalrepeatMain .imgVehicle {
-    flex: unset;
-    width: 40%;
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: start;
+}
+.imgVehicle img {
+    height: 200px;
 }
 
  section.sec-2.productPageTn.requested-vehicles .col-sm-8{

@@ -57,8 +57,8 @@
 
                     @guest
 
-                    <button class="btn-mts header-btn "><a href="{{ route('signup') }}">Sign Up</a></button>
-                    <button class="btn-mts header-btn "><a href="{{ route('DealerLogin') }}">Sign In</a></button>
+                    <button class="btn-mts header-btn"><a href="{{ route('signup') }}">Sign Up</a></button>
+                    <button class="btn-mts header-btn"><a href="{{ route('DealerLogin') }}">Sign In</a></button>
                     @else
 
                     

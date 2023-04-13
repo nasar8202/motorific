@@ -483,16 +483,27 @@ function startCountdown() {
   if (now.getHours() >= 8 && now.getHours() < 15) {
     target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0); // set target time to 3pm today
     document.getElementById("message").innerHTML = "Live Sale Ends in";
+    
   } 
   // check if current time is between 3pm and 8am
   else if (now.getHours() >= 15 || now.getHours() < 8) {
     target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0); // set target time to 8am tomorrow
-    document.getElementById("message").innerHTML = "live Sale Start in ";
+    document.getElementById("message").innerHTML = "Live Sale Starts in ";
+  
   }
 
   var countdown = setInterval(function() {
     var now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"}); // get current date and time in London timezone
     now = new Date(now); // convert to Date object
+
+    // check if it's a weekend (Saturday or Sunday)
+    if (now.getDay() === 6 || now.getDay() === 0) { // 6 = Saturday, 0 = Sunday
+      clearInterval(countdown); // stop the countdown
+      document.getElementById("countdown").innerHTML = "Sale is Closed on Weekends"; // display custom message
+      document.getElementById("message").innerHTML = "";
+      return; // exit the function
+    }
+
     var distance = target - now; // calculate time remaining
 
     // calculate hours, minutes, and seconds remaining
@@ -521,28 +532,68 @@ startCountdown();
 
 // live sale banner js 
 
-// get current time in London
+    // // get current time in London
+    // let now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"});
+    // let time = new Date(now);
+    
+    // // get hours from the time
+    // let hours = time.getHours();
+    
+    // // get the div to modify
+    // let div = document.getElementById("vehicles-displayed");
+    // let div2 = document.getElementById("vehicle-banner");
+    
+    // // check if the current time is between 3pm and 8am
+    // if (hours >= 15 || hours < 8) {
+    //   // add class if the time is between 3pm and 8am
+    //   div.classList.add("vehiclehide");
+    //   div2.classList.add("vehiclebannershow");
+    // } else {
+    //   // remove class if the time is not between 3pm and 8am
+    //   div.classList.remove("vehiclehide");
+    //   div2.classList.remove("vehiclebannershow");
+      
+    // }
+    
+    // Get current time in London
 let now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"});
 let time = new Date(now);
 
-// get hours from the time
+// Get day of the week (0 = Sunday, 6 = Saturday)
+let dayOfWeek = time.getDay();
+
+// Get hours from the time
 let hours = time.getHours();
 
-// get the div to modify
+// Get the div to modify
 let div = document.getElementById("vehicles-displayed");
-let div2 = document.getElementById("vehicle-banner");
+    let div2 = document.getElementById("vehicle-banner");
 
-// check if the current time is between 3pm and 8am
-if (hours >= 15 || hours < 8) {
-  // add class if the time is between 3pm and 8am
-  div.classList.add("vehiclehide");
-  div2.classList.add("vehiclebannershow");
-} else {
-  // remove class if the time is not between 3pm and 8am
-  div.classList.remove("vehiclehide");
-  div2.classList.remove("vehiclebannershow");
+// Check if the current time is between 8am and 3pm
+if (hours >= 8 && hours < 15) {
+  // Add class if the time is between 8am and 3pm
+
   
+} else {
+  // Remove class if the time is not between 8am and 3pm
+    div.classList.add("vehiclehide")
+    div2.classList.add("vehiclebannershow");
 }
+
+// Check if the day is Saturday or Sunday
+if (dayOfWeek === 0 || dayOfWeek === 6) {
+  // Add class if the day is Saturday or Sunday
+    div.classList.add("vehiclehide")
+    div2.classList.add("vehiclebannershow");
+
+} else {
+  // Remove class if the day is not Saturday or Sunday
+  div.classList.remove("vehiclehide")
+div2.classList.remove("vehiclebannershow");
+}
+
+// start the initial countdown
+startCountdown();
 // live sale banner js 
 
 
