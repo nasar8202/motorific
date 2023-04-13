@@ -98,7 +98,15 @@
                     <h2 class="banner-title">Sell your car with  <span>Motorific</span></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
+
                     {{-- <p class=banner-desc>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p> --}}
+
+                    <p class=banner-desc>Motorific is an online marketplace where you'll find excellent bargains on new or
+                        used vehicles today. Obtain the best price for your car while putting in the
+                        smallest amount of effort. We provide the most fantastic offers so you may sell
+                        your car right now.
+                        </p>
+
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
@@ -260,7 +268,10 @@
 
                             <div class="sec-5-inner-txt mt-4">
                                 <h4>Simple & Straightforward Process</h4>
-                                <p>The whole process of selling your used car is simple, transparent, and straightforward. You do the whole process through your phone. From creating car profile to receiving bids, you can get a sale agreed in as little as 24 hours.</p>
+                                <p>The whole process of selling your used car is simple, transparent, and
+                                    straightforward. You can quickly sell your used car through your phone. From
+                                    creating a car profile to receiving bids, you can get a sale agreed upon in as little
+                                    as 24 hours.</p>
                             </div>
                         </div>
 
@@ -272,7 +283,9 @@
 
                             <div class="sec-5-inner-txt mt-4">
                                 <h4>Fast & Full Payments</h4>
-                                <p>Motorific ensures that you receive payments promptly and fastly. You will receive full payment from the dealer as we charge you nothing!</p>
+                                <p>Sell your used car instantly with Motorific which ensures that you receive
+                                    payments promptly and fastly. You will receive full payment from the dealer as we
+                                    charge you nothing!</p>
                             </div>
                         </div>
 

@@ -109,9 +109,9 @@
         <div class="container-1151">
             <div class="row">
                 <div class="sec-3-txt col-lg-6">
-                    <h2 class="sec-heading text-white">Fast, Efficient, & Advanced Way of Selling Your Used Cars on Finance 
+                    <h2 class="sec-heading text-white">Fast, Efficient, & Advanced Way of Selling My Car on Finance 
                     </h2>
-                    <p>Motorific is home to thousands verified dealers who compete daily to get the best cars for stock acquisition. They are willing to pay the best possible prices. 
+                    <p>Motorific is home to thousands of verified dealers who compete daily to get the best cars for stock acquisition. At Motorific you can get instant value for your car and meet the dealers that are willing to pay the best possible prices. 
                     </p>
                     
                 </div>

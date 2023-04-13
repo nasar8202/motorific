@@ -53,7 +53,8 @@
                         <img src="{{ URL::asset('frontend/seller/assets/image/sale.png') }}" alt="">
                     </div>
                     <h4>Free Home Collection</h4>
-                    <p>Sell your car and receive full payment within 24 hours as we charge nothing. Welcome to the Motorific way!</p>
+                    <p>Sell a vehicle and receive full payment within 24 hours as we charge nothing. Welcome to the Motorific Way!
+                    </p>
                 </div>
             </div>
             <!--<div class="sec-2-btns text-center">-->

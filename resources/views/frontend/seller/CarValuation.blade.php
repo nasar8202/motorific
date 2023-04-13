@@ -36,7 +36,8 @@
                         with  <span>Motorific</span></h2></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p class="banner-desc">Motorific’s car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>
+                    <p class="banner-desc">Motorific’s car value tracker uses live market data to offer you free and instant car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits.
+</p>
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>

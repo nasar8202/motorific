@@ -33,7 +33,7 @@
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
-                    <h2>Sell My Car Motorific Way </h2>
+                    <h2>Sell My Car To a Dealer In a Motorific Way </h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p class="banner-dec">Connect with thousands verified dealers in London and across the UK and sell your car for the highest price.
