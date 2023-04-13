@@ -1525,5 +1525,77 @@ die();
     }
     return ['vehicle'=>$vehicle,'dealervehicle'=>$dealervehicle];
   }
+
+  public function myProfile(){
+    $user_id = Auth::user()->id;
+    $currentUser =  User::where('id',$user_id)->first();
+    return view('frontend.dealer.myProfile',compact('currentUser'));
+   
+  }
+  public function updateMyProfileDealer(Request $request, $id)
+    {
+
+        $request->validate([
+            'name' => 'required|regex:/(([a-zA-Z]+)(\d+)?$)/u|max:256',
+            'post_code' => 'required|max:10|min:5',
+            'email' => 'required',
+            'phone_number' => 'required|max:256|min:11',
+
+        ]);
+        $zip = ($request->post_code);
+        $postcode = str_replace(' ', '', $zip);
+       
+
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
+        try {
+        $result_string = file_get_contents($url);
+        $result = json_decode($result_string, true);
+        if (count($result['results']) != 0) {
+        // dd($request->all());
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->post_code = $request->post_code;
+        $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->save();
+        return redirect()->back()->with('success', 'Profile Updated Successfully!');
+        }
+        else{
+            return back()->with('error', 'Enter The Right Post Code');
+        }
+    }
+    catch (\Exception $e) {
+        return $e->getMessage();
+
+        //return $e;
+        return Redirect()->back()
+            ->with('error', $e->getMessage())
+            ->withInput();
+    }
+
+    }
+    public function updateMyPasswordDealer(Request $request, $id)
+    {
+      
+        $request->validate([
+            'current_pass' => [
+                'required', function ($attribute, $value, $fail) {
+                    if (!Hash::check($value, Auth::user()->password)) {
+                        $fail('Old Password didn\'t match');
+                    }
+                }],
+            'new_pass' => 'required|required_with:confirm_pass|same:confirm_pass|min:8|max:12',
+            'confirm_pass' => 'required|min:8|max:12',
+           
+
+        ]);
+        // dd($request->all());
+        $user = User::find($id);
+        $user->password =  Hash::make($request->new_pass);
+        $user->save();
+        return redirect()->back()->with('success', 'Password Updated Successfully!');
+        
+
+    }
 }
 

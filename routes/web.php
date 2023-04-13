@@ -535,6 +535,9 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/purchasesBids', [DealerDashboardController::class,'purchasesBids'])->name('purchasesBids');
     Route::get('/completedRequestPurchase', [DealerDashboardController::class,'completedRequestPurchase'])->name('completedRequestPurchase');
 
+    Route::get('/myProfile', [DealerDashboardController::class,'myProfile'])->name('myProfile');
+    Route::post('/updateMyProfileDealer/{id}', [DealerDashboardController::class,'updateMyProfileDealer'])->name('updateMyProfileDealer');
+    Route::post('/update-my-password-dealer/{id}', [DealerDashboardController::class,'updateMyPasswordDealer'])->name('updateMyPasswordDealer');
 
 
     //

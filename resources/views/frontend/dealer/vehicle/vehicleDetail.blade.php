@@ -301,10 +301,11 @@
                                       </div>
                                       @if($vehicle->all_auction == 'all')
                                       <button type="button" class="requestVehicle" >Request Price</button>
+                                      <a href="{{route('buyItNowFromSeller',$vehicle->id)}}" class="text-decoration-none text-white"><button type="button" class="mt-2">Buy Now : £{{$vehicle->reserve_price}}</button></a>
+                                   
                                       @else
                                       <button type="button" class="bid">Submit Bid</button>
                                       @endif
-                                      <a href="{{route('buyItNowFromSeller',$vehicle->id)}}" class="text-decoration-none text-white"><button type="button" class="mt-2">Buy Now : £{{$vehicle->reserve_price}}</button></a>
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>
                                 

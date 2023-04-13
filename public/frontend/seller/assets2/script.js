@@ -118,49 +118,49 @@ $(document).ready(function () {
   $(".completed-status").hide();
   var child = 1;
   
-  $(".step-button-qambar").click(function () {
-    var classname = $(this).attr("class");
-    var length_steps = $(this).parent().prevAll("section.step-sec-qambar").length - 1
-    var isNextBtn = $(this).hasClass("next-qambar");
-    var isPrevBtn = $(this).hasClass("prev-qambar");
+  // $(".step-button-qambar").click(function () {
+  //   var classname = $(this).attr("class");
+  //   var length_steps = $(this).parent().prevAll("section.step-sec-qambar").length - 1
+  //   var isNextBtn = $(this).hasClass("next-qambar");
+  //   var isPrevBtn = $(this).hasClass("prev-qambar");
      
-    if (isNextBtn) {
-      $(this).prev().removeClass("disabled");
-      if (child > length_steps) {
-        $(this).parent().parent().slideToggle(500);
-        $(this).parent().parent().prev(".row").children(".col-sm-6").children(".completed-status").show();
-        length_steps = $(this).parent().prevAll("section.step-sec-qambar").length - 1
-        child = 1;
-      }
-      if (child === length_steps) {
-        $(this).text("Submit");
-        $(this).parent().parent().prev(".row").children(".col-sm-6").children(".f-btn").children(".form-toggle-btn").text("EDIT");
-        $(this).parent().parent().prev(".row").children(".col-sm-6").children(".f-btn").children(".form-toggle-btn").css({ background: "#7977a2" });
-      }
-      if (child <= length_steps) {
-        child++;
-      }
-    } 
-    else if (isPrevBtn) {
-      $(this).next().text("Next");
-      $(this).next().removeClass("disabled");
-      if (child <= 2) {
-        $(this).addClass("disabled");
-      }
-      if (child > 1) {
-        child--;
-      }
-    }
-    // console.log('length_steps ',length_steps)
-    // console.log("child ", child);
-    var currentSection = $("section.step-sec-qambar:nth-of-type(" + child + ")");
-    currentSection.fadeIn();
-    currentSection.css("transform", "translateX(0)");
-    currentSection.prevAll("section.step-sec-qambar").css("transform", "translateX(-100px)");
-    currentSection.nextAll("section.step-sec-qambar").css("transform", "translateX(100px)");
-    $("section.step-sec-qambar").not(currentSection).hide();
-    $("section.step-sec-qambar:last-child()").next(".next-qambar").hide();
-  });
+  //   if (isNextBtn) {
+  //     $(this).prev().removeClass("disabled");
+  //     if (child > length_steps) {
+  //       $(this).parent().parent().slideToggle(500);
+  //       $(this).parent().parent().prev(".row").children(".col-sm-6").children(".completed-status").show();
+  //       length_steps = $(this).parent().prevAll("section.step-sec-qambar").length - 1
+  //       child = 1;
+  //     }
+  //     if (child === length_steps) {
+  //       $(this).text("Submit");
+  //       $(this).parent().parent().prev(".row").children(".col-sm-6").children(".f-btn").children(".form-toggle-btn").text("EDIT");
+  //       $(this).parent().parent().prev(".row").children(".col-sm-6").children(".f-btn").children(".form-toggle-btn").css({ background: "#7977a2" });
+  //     }
+  //     if (child <= length_steps) {
+  //       child++;
+  //     }
+  //   } 
+  //   else if (isPrevBtn) {
+  //     $(this).next().text("Next");
+  //     $(this).next().removeClass("disabled");
+  //     if (child <= 2) {
+  //       $(this).addClass("disabled");
+  //     }
+  //     if (child > 1) {
+  //       child--;
+  //     }
+  //   }
+  //   // console.log('length_steps ',length_steps)
+  //   // console.log("child ", child);
+  //   var currentSection = $("section.step-sec-qambar:nth-of-type(" + child + ")");
+  //   currentSection.fadeIn();
+  //   currentSection.css("transform", "translateX(0)");
+  //   currentSection.prevAll("section.step-sec-qambar").css("transform", "translateX(-100px)");
+  //   currentSection.nextAll("section.step-sec-qambar").css("transform", "translateX(100px)");
+  //   $("section.step-sec-qambar").not(currentSection).hide();
+  //   $("section.step-sec-qambar:last-child()").next(".next-qambar").hide();
+  // });
   
   
   

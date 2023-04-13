@@ -47,7 +47,7 @@
             <div id="vehicles" class="collapse">
                 <br>
                 <p><a href="{{ route('myVehicles') }}"> My Vehicles</a></p><br>
-
+                <p><a href="{{ route('myProfile') }}"> My Account</a></p>
             </div>
     </div>
 

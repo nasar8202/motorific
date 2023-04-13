@@ -54,13 +54,13 @@
 
         /* Main Content */
         .cont-main {
-            max-width: 50vw;
+            max-width: 100%;
             margin: 0 auto;
             text-align: center;
         }
 
         .main-content {
-            padding: 65px 0;
+            padding: 8% 0;
         }
 
         .congt-box h3 {
@@ -72,7 +72,7 @@
 
         /* Footer */
         footer.footer {
-            padding: 15px 0;
+            padding: 15px;
             background: #7977a2;
         }
 
@@ -219,7 +219,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 80%;
+            max-width: 85%;
             flex-wrap: wrap;
             margin: 0 auto;
         }
@@ -242,18 +242,22 @@
 
         .veh-text h5 {
             font-weight: 700;
-            font-size: .94vw;
+            font-size: 18px;
             color: #7977a2;
             margin: 0;
         }
 
         .veh-text p {
-            font-size: .86vw;
+            font-size: 16px;
             margin: .95vw 0;
         }
 
         .veh-text h6 {
-            font-size: .88vw;
+            font-size: 16px;
+        }
+        .veh-text a.prim-btn {
+            padding: 6px 11px;
+            font-size: 12px;
         }
 
         .unsub.veh-detail .prim-btn {
@@ -411,8 +415,7 @@
 
         }
 
-        
-        @media only screen and (max-width: 600px){
+        @media(max-width:575px){
             .cont-main {
                 max-width: 85vw;
             }
@@ -442,32 +445,7 @@
                 max-width: 160px;
                 height: 100px;
             }
-            
-             header.veh-dt .title-name {
-                font-size: 21px;
-            }
-            .main-content {
-                padding: 25px 0px;
-            }
-            .cont-main {
-                max-width: 100%;
-            }
-            .veh-img img {
-                    width: 100%;
-                height: 100%;
-            }
-            .veh-text h5 {
-                font-size: 19px;
-            }
-             .veh-text p {
-                    font-size: 14px;
 
-            }
-             .veh-text a.prim-btn {
-                   font-size: 11px;
-
-            }
-            
 
         }
 

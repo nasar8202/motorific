@@ -54,13 +54,13 @@
 
         /* Main Content */
         .cont-main {
-            max-width: 50vw;
+            max-width: 100%;
             margin: 0 auto;
             text-align: center;
         }
 
         .main-content {
-            padding: 65px 0;
+            padding: 8% 0;
         }
 
         .congt-box h3 {
@@ -72,7 +72,7 @@
 
         /* Footer */
         footer.footer {
-            padding: 15px 0;
+            padding: 15px 20px;
             background: #7977a2;
         }
 
@@ -216,18 +216,32 @@
         }
 
         .veh-detail .congt-box {
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: space-between; */
+            max-width: 85%;
+            /* flex-wrap: wrap; */
+            margin: 0 auto;
+        }
+        .veh-detail .congt-box .congt-box-inner {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            max-width: 80%;
             flex-wrap: wrap;
-            margin: 0 auto;
+            align-items: center;
+           
+            
+        }
+        .veh-detail .congt-box .congt-box-inner ul,  .veh-detail .congt-box .congt-box-inner .veh-img {
+            width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+            max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+            flex-grow: 1;
+            flex-shrink: 0;
         }
 
         .veh-detail .congt-box .veh-img {
             width: 100%;
-            max-width: 20vw;
-            height: 12vw;
+            max-width: 100%;
+            height: 220px;
         }
 
         .veh-detail .congt-box .veh-img img {
@@ -242,18 +256,25 @@
 
         .veh-text h5 {
             font-weight: 700;
-            font-size: .94vw;
+            font-size: 18px;
             color: #7977a2;
             margin: 0;
         }
+        /* .veh-text-desc {
+
+        } */
 
         .veh-text p {
-            font-size: .86vw;
+            font-size: 15px;
             margin: .95vw 0;
         }
 
         .veh-text h6 {
             font-size: .88vw;
+        }
+        .veh-text .prim-btn {
+            padding: 8px 15px;
+            font-size: 13px;
         }
 
         .unsub.veh-detail .prim-btn {
@@ -262,7 +283,15 @@
             display: block;
             max-width: fit-content;
         }
-
+        .hm-link-btn {
+            background: rgb(5, 234, 181);
+            color: rgb(0, 0, 0);
+            padding: 6px 4px;
+            display: inline-block;
+        }
+        .hm-link-btn:last-child {
+            margin-top: 5px;
+        }
         /* End */
 
         /* Responsive */
@@ -468,17 +497,19 @@
                 <div class="cont-main  unsub veh-detail">
                     
                     <div class="congt-box">
-                        
-                        <ul class="reg-detail">
-                            <li><span>Model:</span> {{ $data['vehicle_name'] }} </li>
-                            <li><span>Reg:</span> {{ strtoupper($data['vehicle_registration']) }}</li>
-                            <li><span>Mileage:</span>{{ $data['vehicle_mileage'] }}</li>
-                            <li><span>Car Age:</span> {{ $data['age'] }} </li>
-                            <li><span>Color:</span>{{ $data['colour'] }}</li>
-                        </ul>
-                        <div class="veh-img">
-                            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" width="80px" height="80px" alt="">
+                        <div class="congt-box-inner">
+                            <ul class="reg-detail">
+                                <li><span>Model:</span> {{ $data['vehicle_name'] }} </li>
+                                <li><span>Reg:</span> {{ strtoupper($data['vehicle_registration']) }}</li>
+                                <li><span>Mileage:</span>{{ $data['vehicle_mileage'] }}</li>
+                                <li><span>Car Age:</span> {{ $data['age'] }} </li>
+                                <li><span>Color:</span>{{ $data['colour'] }}</li>
+                            </ul>
+                            <div class="veh-img">
+                                <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" width="80px" height="80px" alt="">
+                            </div>
                         </div>
+                        
                         {{-- <div class="veh-text">
                             <h5>You Can Approved Or Reject Valuation</h5>
                             <p>
@@ -488,9 +519,9 @@
                         </div> --}}
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
-                            <p> 1)  I accept the reserve price
-                                (<a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>).
+                            <p class="veh-text-desc"> 1)  I accept the reserve price
+                                (<a class="hm-link-btn" href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="hm-link-btn" href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>).
                             </p>
                             <p>2)Your vehicle will be added by our daily bidding platform, where thousands of dealers can bid on it. </p>
                             <p>3)At 4pm on the day the sale goes live you will receive an email with the outcome. </p>

@@ -20,7 +20,7 @@
     }
 
     .mail-img-one img {
-      width: 520px;
+      width: 160px;
     }
     .car-det {
       display: flex;
@@ -34,10 +34,11 @@
       display: flex;
       align-items: center;
       gap: 30px;
-      padding-left: 2rem;
+      padding-left: 0;
+      
       flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    margin-top: 20px;
     }
 
     .content-img img {
@@ -54,13 +55,15 @@
       margin-left: 1.5rem;
       border-left: 1px solid #5c5a5a87;
       padding-left: 1rem;
+      padding-right: 1rem;
       margin-top: 2rem;
     }
     .customer-detail {
       margin-left: 1.5rem;
       border-left: 1px solid #5c5a5a87;
       padding-left: 1rem;
-      margin-top: 2rem;
+      padding-right: 1rem;
+      margin-top: 0;
       padding-bottom: 1rem;
     }
     .customer-detail .car-det {
@@ -180,7 +183,6 @@
           <p>Car Details</p>
 
           <div class="content-img">
-            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
             <div class="car-det">
               <span>Model: {{ $data['vehicle_name'] }} </span>
               <span> Reg: {{ strtoupper($data['vehicle_registration'] )}} </span>
@@ -189,6 +191,7 @@
               <span>Car age:{{ $data['age'] }} </span>
               <span>Colour: {{ $data['colour'] }} </span>
             </div>
+            <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " alt="" />
           </div>
         </div>
         <div class="customer-detail">

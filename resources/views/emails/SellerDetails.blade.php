@@ -47,15 +47,18 @@
 
         /* Main Content */
         .cont-main {
-            max-width: 50vw;
+            max-width: 100%;
             margin: 0 auto;
             text-align: center;
         }
 
         .main-content {
-            padding: 65px 0;
+            padding: 8% 0;
         }
-
+        .congt-box {
+            padding: 0 1.2rem;
+        }
+    
         .congt-box h3 {
             margin-bottom: 20px;
             font-size: 26px;
@@ -65,7 +68,7 @@
 
         /* Footer */
         footer.footer {
-            padding: 15px 0;
+            padding: 15px;
             background: #7977a2;
         }
 
@@ -376,7 +379,7 @@
                             <li><span>Post Code:</span>{{ $seller_details['body1'] }}</li>
                             <li><span>Your Password is: </span>{{ $seller_details['body'] }}</li>
                         </ul>
-                        <p style="display: inline; white-space: nowrap ;"><span>Login now and complete your vehicles profile. </span></p>
+                        <p><span>Login now and complete your vehicles profile. </span></p>
                         <p>1000s of eager cars traders are waiting to compete against each other to give you the highest offer.</p>
                         <a href="{{route('myLogin')}}" class="prim-btn green-btn">Login</a>
                         <h4>Motorific</h4>
