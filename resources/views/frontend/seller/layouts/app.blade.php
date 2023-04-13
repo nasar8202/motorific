@@ -63,8 +63,11 @@
 
 
 
-<body>
+<!--<body>-->
 <!--<body onload="move()" id="contentBody">-->
+
+<body onload="move()" id="contentBody">
+
     <div id="myProgress">
         <div class="loader-img">
             <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">
@@ -124,7 +127,7 @@
                         </button>
                     @endif
                 @else
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    <a id="navbarDropdown" style="color: black" class="nav-link dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
@@ -188,7 +191,7 @@
                             
                             @endguest
                         @if(Auth::check())
-                        <button id="navbarDropdown" class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
+                        <button id="navbarDropdown"  class="nav-link dropdown-toggle userPro-btn" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </button>

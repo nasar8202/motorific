@@ -1,14 +1,14 @@
 @extends('frontend.seller.layouts.app')
 @section('title', 'Sell your car the with Motorific')
 @section('section')
-{{-- @section('headerClass','')
+@section('headerClass','')
 @section('headerUlClass','navlinks')
 @section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo.png')
-@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4') --}}
-@section('headerClass','header-career transparent-header')
+@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
+{{-- @section('headerClass','header-career transparent-header')
 @section('headerUlClass','navlinks-w')
 @section('logoMain','frontend/seller/assets/image/logo-w.png')
-@section('ContainerHeader','container-1600 d-flex justify-content-between')
+@section('ContainerHeader','container-1600 d-flex justify-content-between') --}}
     <style>
         .dropdown {
             position: relative;

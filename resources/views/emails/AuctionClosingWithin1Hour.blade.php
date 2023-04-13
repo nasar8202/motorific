@@ -71,7 +71,7 @@ a, a:hover {
 				href="{{route('index')}}"><img border="0" vspace="0" hspace="0"
 				src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
 				width="100" height="30"
-				alt="Logo" title="Logo" style="
+				style="
 				color: #000000;
 				font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
 

@@ -44,10 +44,11 @@ class DealerDashboardController extends Controller
 
       $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
       $allVehiclesName = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')
-        ->where('all_auction','all')->distinct('vehicle_name')->pluck('vehicle_name');
-
-        $allVehicles = Vehicle::Where('status',1)->with('vehicleInformation')->with('VehicleImage')->where('all_auction','all')->get();
-
+        ->where('all_auction','all')->orWhere(['all_auction'=>null,'start_vehicle_date'=>$start_end_vehicle_date,'end_vehicle_date'=>$start_end_vehicle_date])->distinct('vehicle_name')->pluck('vehicle_name');
+       
+            $live_sale_Vehicles = Vehicle::where('status',1)->where('start_vehicle_date',$start_end_vehicle_date)->with('vehicleInformation')->with('VehicleImage')->get();
+        $browse_Vehicles = Vehicle::where('status',1)->where('start_vehicle_date',null)->with('vehicleInformation')->with('VehicleImage')->get();
+        $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
         
         $countAllVehicle = count($allVehicles);
 
@@ -558,7 +559,7 @@ $current_date = ($mytime->toDateString());
             $total = $current_year - $request->agePro;
             $range = explode('-',$request->range);
 
-            $owner_milage_price_filter = Vehicle::where('vehicle_price', '>=', $range[0])
+            $live_sale_Vehicles = Vehicle::where('vehicle_price', '>=', $range[0])
             ->where('vehicle_price', '<=', $range[1])
             ->where('vehicle_mileage','<=',$request->mileAgePro)
             ->where('previous_owners', '<=', $request->previousOwnersPro)
@@ -568,8 +569,18 @@ $current_date = ($mytime->toDateString());
             ->with('vehicleInformation')
             ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
             ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+            $browse_Vehicles = Vehicle::where('vehicle_price', '>=', $range[0])
+            ->where('vehicle_price', '<=', $range[1])
+            ->where('vehicle_mileage','<=',$request->mileAgePro)
+            ->where('previous_owners', '<=', $request->previousOwnersPro)
+            ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+            ->where('vehicle_tank',$request->fuelType)
+            ->where('status',1)
+            ->with('vehicleInformation')
+            ->with('VehicleImage')->where('all_auction','all')->get();
+            $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
            //dd($age_milage_price_filter);
-              return $owner_milage_price_filter;
+              return $allVehicles;
          break;
 
 
@@ -580,8 +591,8 @@ $current_date = ($mytime->toDateString());
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
 
-                $owner_milage_price_filter = Vehicle::where('vehicle_price', '>=', $range[0])
-                ->where('vehicle_price', '<=', $range[1])
+                $live_sale_Vehicles = Vehicle::where('reserve_price', '>=', $range[0])
+                ->where('reserve_price', '<=', $range[1])
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
@@ -589,29 +600,48 @@ $current_date = ($mytime->toDateString());
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
                 ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                $browse_Vehicles = Vehicle::where('reserve_price', '>=', $range[0])
+                ->where('reserve_price', '<=', $range[1])
+                ->where('vehicle_mileage','<=',$request->mileAgePro)
+                ->where('previous_owners', '<=', $request->previousOwnersPro)
+                ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('status',1)
+                ->with('vehicleInformation')
+                ->with('VehicleImage')->where('all_auction','all')->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
                //dd($age_milage_price_filter);
-                  return $owner_milage_price_filter;
+                  return $allVehicles;
              break;
 
 
                  //   fuel type + Mileage + Price + Age filter combine case
                  case($request->fuelType && $request->mileAgePro && $request->range && $request->agePro ):
+                  
                   $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $current_year = date("Y");
                     $total = $current_year - $request->agePro;
                     $range = explode('-',$request->range);
 
-                    $fuel_age_milage_price_filter = Vehicle::where('vehicle_tank',$request->fuelType)
-                    ->where('vehicle_price', '>=', $range[0])
-                    ->where('vehicle_price', '<=', $range[1])
+                    $browse_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                    ->where('reserve_price', '>=', $range[0])
+                    ->where('reserve_price', '<=', $range[1])
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                     ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
                     ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                    $live_sale_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                    ->where('reserve_price', '>=', $range[0])
+                    ->where('reserve_price', '<=', $range[1])
+                    ->where('vehicle_mileage','<=',$request->mileAgePro)
+                    ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                    ->where('status',1)
+                    ->with('vehicleInformation')
+                    ->with('VehicleImage')->where('all_auction','all')->get();
                    //dd($fuel_age_milage_price_filter);
-                      return $fuel_age_milage_price_filter;
+                   $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+                      return $allVehicles;
                  break;
 
 
@@ -622,7 +652,7 @@ $current_date = ($mytime->toDateString());
                     $total = $current_year - $request->agePro;
 
 
-                    $fuel_age_milage_owner_filter = Vehicle::where('vehicle_tank',$request->fuelType)
+                    $live_sale_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
                     ->where('previous_owners', '<=', $request->previousOwnersPro)
                     ->where('vehicle_mileage','<=',$request->mileAgePro)
                     ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
@@ -630,8 +660,16 @@ $current_date = ($mytime->toDateString());
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
                     ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                    $browse_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                    ->where('previous_owners', '<=', $request->previousOwnersPro)
+                    ->where('vehicle_mileage','<=',$request->mileAgePro)
+                    ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                    ->where('status',1)
+                    ->with('vehicleInformation')
+                    ->with('VehicleImage')->where('all_auction','all')->get();
                    //dd($fuel_age_milage_price_filter);
-                      return $fuel_age_milage_owner_filter;
+                   $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+                      return $allVehicles;
                  break;
 
                  //new
@@ -641,17 +679,26 @@ $current_date = ($mytime->toDateString());
                   $total = $current_year - $request->agePro;
                   $range = explode('-',$request->range);
 
-                  $fuel_age_range_owner_filter = Vehicle::where('vehicle_tank',$request->fuelType)
+                  $live_sale_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
                   ->where('previous_owners', '<=', $request->previousOwnersPro)
-                  ->where('vehicle_price', '>=', $range[0])
-                  ->where('vehicle_price', '<=', $range[1])
+                  ->where('reserve_price', '>=', $range[0])
+                  ->where('reserve_price', '<=', $range[1])
                   ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                   ->where('status',1)
                   ->with('vehicleInformation')
                   ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
                   ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                  $browse_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                  ->where('previous_owners', '<=', $request->previousOwnersPro)
+                  ->where('reserve_price', '>=', $range[0])
+                  ->where('reserve_price', '<=', $range[1])
+                  ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                  ->where('status',1)
+                  ->with('vehicleInformation')
+                  ->with('VehicleImage')->where('all_auction','all')->get();
                  //dd($fuel_age_milage_price_filter);
-                 return $fuel_age_range_owner_filter;
+                 $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+                 return $allVehicles;
 
                break;
 
@@ -663,15 +710,23 @@ $current_date = ($mytime->toDateString());
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
 
-                $age_milage_price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                $live_sale_Vehicles = Vehicle::where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])
                 ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
                 ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                $browse_Vehicles = Vehicle::where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])
+                ->where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('vehicle_mileage','<=',$request->mileAgePro)
+                ->where('status',1)
+                ->with('vehicleInformation')
+                ->with('VehicleImage')->where('all_auction','all')
+                ->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
                //dd($age_milage_price_filter);
-                  return $age_milage_price_filter;
+                  return $allVehicles;
               break;
 
 
@@ -848,14 +903,20 @@ $current_date = ($mytime->toDateString());
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
 
-                $age_milage_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                $live_sale_Vehicles = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
-
-                  return $age_milage_filter;
+                ->get();
+                $browse_Vehicles = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('vehicle_mileage','<=',$request->mileAgePro)
+                ->where('status',1)
+                ->with('vehicleInformation')
+                ->with('VehicleImage')->where('all_auction','all')
+                ->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+                  return $allVehicles;
               break;
 
             // age and price filter combine case
@@ -864,14 +925,19 @@ $current_date = ($mytime->toDateString());
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
                 $range = explode('-',$request->range);
-                $age_price_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
-                ->where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                $live_sale_Vehicles = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
-
-                  return $age_price_filter;
+                ->get();
+                $browse_Vehicles = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)
+                ->where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])
+                ->where('status',1)
+                ->with('vehicleInformation')
+                ->with('VehicleImage')->where('all_auction','all')->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+                  return $allVehicles;
               break;
 
 
@@ -880,7 +946,7 @@ $current_date = ($mytime->toDateString());
               $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $range = explode('-',$request->range);
                 $milage_price_filter = Vehicle::where('vehicle_mileage','<=',$request->mileAgePro)->
-                where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
@@ -929,8 +995,8 @@ $current_date = ($mytime->toDateString());
                 $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                 $range = explode('-',$request->range);
                 $previous_price_filter =Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
-                ->where('vehicle_price', '>=', $range[0])
-                ->where('vehicle_price', '<=', $range[1])
+                ->where('reserve_price', '>=', $range[0])
+                ->where('reserve_price', '<=', $range[1])
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
@@ -961,7 +1027,7 @@ $current_date = ($mytime->toDateString());
                 $current_year = date("Y");
                 $total = $current_year - $request->agePro;
 
-                $fuel_age_filter = Vehicle::where('vehicle_tank',$request->fuelType)
+                $live_sale_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('vehicle_year', '>=', $total)
                 ->where('vehicle_year', '<=', $current_year)
                 ->where('status',1)
@@ -969,8 +1035,15 @@ $current_date = ($mytime->toDateString());
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
                 ->where('end_vehicle_date',$start_end_vehicle_date)->get();
 
-
-                  return $fuel_age_filter;
+                $browse_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                ->where('vehicle_year', '>=', $total)
+                ->where('vehicle_year', '<=', $current_year)
+                ->where('status',1)
+                ->with('vehicleInformation')
+                ->with('VehicleImage')->where('all_auction','all')
+                ->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+                  return $allVehicles;
               break;
 
 
@@ -979,43 +1052,71 @@ $current_date = ($mytime->toDateString());
 
                 $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
 
-                $fuel_milage_filter = Vehicle::where('vehicle_tank',$request->fuelType)
+                $live_sale_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('vehicle_mileage','<=',$request->mileAgePro)
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                ->get();
+                $browse_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                ->where('vehicle_mileage','<=',$request->mileAgePro)
+                ->where('status',1)
+                ->with('vehicleInformation')
+                ->with('VehicleImage')->where('all_auction','all')
+                ->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
 
-
-                  return $fuel_milage_filter;
+                  return $allVehicles;
               break;
 
 
                 // fuel type and  price range filter case
                 case($request->fuelType && $request->range):
+                  
                   $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
                     $range = explode('-',$request->range);
 
-                    $fuel_price_filter = Vehicle::where('vehicle_tank',$request->fuelType)
-                    ->where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])
+                    $live_sale_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                    ->where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])
                     ->where('status',1)
                     ->with('vehicleInformation')
                     ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-                    ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                    ->get();
+                    
+                    $browse_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
+                    ->where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])
+                    ->where('status',1)
+                    ->with('vehicleInformation')
+                    ->with('VehicleImage')->where('all_auction','all')
+                    ->get();
 
-
-                      return $fuel_price_filter;
+                    $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+                      return $allVehicles;
                   break;
 
 
             // price range filter case
             case($request->range):
+            
               $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
-                $range = explode('-',$request->range);
-                $price_filter = Vehicle::where('vehicle_price', '>=', $range[0])->where('vehicle_price', '<=', $range[1])->where('status',1)->with('vehicleInformation')
-                ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
-                return $price_filter;
+              
+              $range = explode('-',$request->range);
+              // dd($range);
+              $live_sale_Vehicles = Vehicle::where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])->where('status',1)->with('vehicleInformation')
+              ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
+              ->get();
+              $browse_Vehicles = Vehicle::where('reserve_price', '>=', $range[0])->where('reserve_price', '<=', $range[1])->where('status',1)->with('vehicleInformation')
+              ->with('VehicleImage')->where('all_auction','all')
+              ->get();
+              
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+
+                return $allVehicles;
+
+
+                $live_sale_Vehicles = Vehicle::where('status',1)->where('start_vehicle_date',$start_end_vehicle_date)->with('vehicleInformation')->with('VehicleImage')->get();
+        $browse_Vehicles = Vehicle::where('status',1)->where('start_vehicle_date',null)->with('vehicleInformation')->with('VehicleImage')->get();
+      
             break;
 
 
@@ -1034,11 +1135,19 @@ $current_date = ($mytime->toDateString());
               $current_year = date("Y");
               $total = $current_year - $request->agePro;
 
-              $age_filter = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->where('status',1)->with('vehicleInformation')
+              $live_sale_Vehicles = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->where('status',1)->with('vehicleInformation')
               ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-              ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+              ->get();
 
-                return $age_filter;
+
+              $browse_Vehicles = Vehicle::where('vehicle_year', '>=', $total)->where('vehicle_year', '<=', $current_year)->where('status',1)->with('vehicleInformation')
+              ->with('VehicleImage')->where('start_vehicle_date',null)
+              ->get();
+
+              $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+              
+
+                return $allVehicles;
             break;
 
             // previous owner filter case
@@ -1046,15 +1155,20 @@ $current_date = ($mytime->toDateString());
 
               $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
 
-                $previous_owners = Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
+                $live_sale_Vehicles = Vehicle::where('previous_owners', '<=', $request->previousOwnersPro)
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
-
+                ->get();
+                $browse_Vehicles = Vehicle::where('status',1)->
+                where('previous_owners', '<=', $request->previousOwnersPro)
+                ->where('start_vehicle_date',null)->with('vehicleInformation')
+                ->with('VehicleImage')->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+               
 
 //   dd($previous_owners);
-                  return $previous_owners;
+                  return $allVehicles;
               break;
 
 
@@ -1064,14 +1178,19 @@ $current_date = ($mytime->toDateString());
 
               $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
 
-                $fuel_type = Vehicle::where('vehicle_tank',$request->fuelType)
+                $live_sale_Vehicles = Vehicle::where('vehicle_tank',$request->fuelType)
                 ->where('status',1)
                 ->with('vehicleInformation')
                 ->with('VehicleImage')->where('start_vehicle_date',$start_end_vehicle_date)
-                ->where('end_vehicle_date',$start_end_vehicle_date)->get();
+                ->get();
+                $browse_Vehicles = Vehicle::where('status',1)
+                ->where('start_vehicle_date',null)
+                ->where('vehicle_tank',$request->fuelType)
+                ->with('vehicleInformation')->with('VehicleImage')->get();
+                $allVehicles = $live_sale_Vehicles->merge($browse_Vehicles);
+              
 
-
-                  return $fuel_type;
+                  return $allVehicles;
               break;
 
 

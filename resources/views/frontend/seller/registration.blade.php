@@ -52,7 +52,7 @@
             <div class="chart reg">
                 <ul>
                     <li>{{$res->yearOfManufacture??"year of manufacture"}}</li>
-                    <li>{{$data->millage??"mileage"}} </li>
+                    <li>{{$milage??"mileage"}} </li>
                     <li>{{$res->colour??"colour"}}</li>
                     <li>{{$res->wheelplan??"wheelplan"}}</li>
                     <li>{{$res->fuelType??"fueltype"}}</li>
