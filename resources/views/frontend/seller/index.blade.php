@@ -101,11 +101,11 @@
 
                     {{-- <p class=banner-desc>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p> --}}
 
-                    <p class=banner-desc>Motorific is an online marketplace where you'll find excellent bargains on new or
+                    {{-- <p class=banner-desc>Motorific is an online marketplace where you'll find excellent bargains on new or
                         used vehicles today. Obtain the best price for your car while putting in the
                         smallest amount of effort. We provide the most fantastic offers so you may sell
                         your car right now.
-                        </p>
+                        </p> --}}
 
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
