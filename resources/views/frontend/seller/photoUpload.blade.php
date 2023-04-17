@@ -2619,7 +2619,7 @@ display: block;
                                 <div class="add-photos-numbering">
                                     <h3>1</h3>
                                 </div>
-                                <input type="file" name="image1" id="photo1" />
+                                <input type="file" name="image1" id="photo1" accept="image/*" />
                                 <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="" accept="image/*" >
                             </label>
                             @if ($errors->has('image1'))
@@ -2632,7 +2632,7 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>2</h3>
                                     </div>
-                                    <input type="file" name="image2" id="photo2" />
+                                    <input type="file" name="image2" id="photo2" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="" accept="image/*" >
                                 </label>
                                 @if ($errors->has('image2'))
@@ -2644,7 +2644,7 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>3</h3>
                                     </div>
-                                    <input type="file" name="photo1" id="photo3" />
+                                    <input type="file" name="photo1" id="photo3" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-corner.png')}}" alt="" accept="image/*" >
                                 </label>
                             </div> --}}
@@ -2655,9 +2655,9 @@ display: block;
                             <div class="add-photos-box1">
                                 <label class="labelForFile" for="photo4">
                                     <div class="add-photos-numbering">
-                                        <h3>4</h3>
+                                        <h3>3</h3>
                                     </div>
-                                    <input type="file" name="image3" id="photo4" />
+                                    <input type="file" name="image3" id="photo4" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" >
                                 </label>
                             </div>
@@ -2669,9 +2669,9 @@ display: block;
                             <div class="add-photos-box1">
                                 <label class="labelForFile" for="photo5">
                                     <div class="add-photos-numbering">
-                                        <h3>5</h3>
+                                        <h3>4</h3>
                                     </div>
-                                    <input type="file" name="image4" id="photo5" />
+                                    <input type="file" name="image4" id="photo5" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" >
                                 </label>
                             </div>
@@ -2683,9 +2683,9 @@ display: block;
                             <div class="add-photos-box1">
                                 <label class="labelForFile" for="photo6">
                                     <div class="add-photos-numbering">
-                                        <h3>6</h3>
+                                        <h3>5</h3>
                                     </div>
-                                    <input type="file" name="image5" id="photo6" />
+                                    <input type="file" name="image5" id="photo6" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="" accept="image/*" >
                                 </label>
                             </div>
@@ -3320,17 +3320,17 @@ $("#store").click(function(){
         // Images On Change
         $('.labelForFile').each(function(){
        var thisInpt = $(this).find('input');
+
        $(thisInpt).on('change', function(){
-
           var file = $(thisInpt).get(0).files[0];
-
-            if(file){
+          if(file.size > 5000){
+            $(this).parent().append(`<div class="text-danger"> Upload Image upto 5MB </div>`)
+          }
+            else{
                 var reader = new FileReader();
-
                 reader.onload = function(){
                     $(thisInpt).closest('.labelForFile').find('img').attr("src", reader.result);
                 }
-
                 reader.readAsDataURL(file);
             }
        });
