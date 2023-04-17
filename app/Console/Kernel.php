@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\SellVehicleCron::class,
         Commands\QueueListenCommand::class,
         Commands\EveryDayEightAm::class,
+        Commands\AuctionClosingWithinHour::class,
     ];
 
     /**
@@ -30,9 +31,11 @@ class Kernel extends ConsoleKernel
         $schedule->command('SellVehicleCron:cron')
                  ->everyMinute();
         $schedule->command('QueueListenCommand:cron')
-                 ->everyMinute();
+                 ->everyMinute()->withoutOverlapping();
         $schedule->command('EveryDayEightAm:cron')
-                 ->everyMinute();         
+                 ->everyMinute(); 
+        $schedule->command('AuctionClosingWithinHour:cron')
+                 ->everyMinute();          
     }
 
     /**

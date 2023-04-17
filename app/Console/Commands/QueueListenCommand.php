@@ -47,8 +47,9 @@ class QueueListenCommand extends Command
      */
     public function handle()
     {
-
-        // $exitCode = Artisan::call('queue:listen');
+            
+         $exitCode = Artisan::call('queue:listen');
+         return "cron job for email sending";
         
 
     }

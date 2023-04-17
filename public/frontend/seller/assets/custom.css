@@ -20,7 +20,7 @@ header .logo-navlinks a img {
   margin:0;
   font-size: 14px;
   background: #202543;
-  color: #fff;
+  color: #fff !important;
   border-radius: 100px;
   transition: all .4s ease-in;
   text-transform: uppercase;
@@ -28,7 +28,19 @@ header .logo-navlinks a img {
   display: block;
   text-decoration: none;
 }
-
+.head-btns button .dropdown-menu a {
+    background-color: #fff;
+    color: #000 !important;
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: capitalize;
+    padding: 0.25rem 1rem;
+    border-radius: 0px;
+}
+.head-btns button .dropdown-menu a:hover {
+    background-color: #e9ecef;
+    border-radius: 0px;
+}
 .head-btns button a:hover {
   background: #05eab5;
 }
