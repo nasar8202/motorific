@@ -173,7 +173,7 @@
           {{-- <h2>You've just bought a car!</h2> --}}
           <p>Hi!</p>
           <p>
-            Congratulations - your car has been successfully sold to  <b>{{ $data['name'] }}</b>
+            Congratulations - your car has been successfully sold to  <b>{{ ucwords($data['name']) }}</b>
             <strong>{{ $data['vehicle_registration'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
           </p>
             

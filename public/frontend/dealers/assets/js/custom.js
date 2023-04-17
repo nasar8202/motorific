@@ -388,9 +388,11 @@ $(document).ready(function () {
 let fileListArr;
 function uploadFile(elem) {
   let files = elem.files;
-  console.log('files ', elem.files)
-  
-  $('#selected-first-img-qa').attr('src', URL.createObjectURL(elem.files[0]));
+  // console.log('files ', elem.files)
+  let chkIfItsExterior = $(elem).hasClass('uploadfile-exterior')
+  if(chkIfItsExterior){
+    $('#selected-first-img-qa').attr('src', URL.createObjectURL(elem.files[0]));
+  }
   let imgsDiv = elem.nextElementSibling.nextElementSibling.nextElementSibling;
   imgsDiv.innerHTML = ''
   let errorDiv = elem.nextElementSibling.nextElementSibling;

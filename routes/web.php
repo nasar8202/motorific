@@ -462,7 +462,7 @@ Route::get('/mark-as-sold-vehicles/{id}', [SellerDashboardController::class,'mar
 Route::get('/orders-on-my-vehicles/{id}', [SellerDashboardController::class,'ordersOnVehicles'])->name('ordersOnVehicles');
 Route::post('/meeting-status', [SellerDashboardController::class,'meetingStatus'])->name('meetingStatus');
 Route::post('/meeting-bid-status', [SellerDashboardController::class,'meetingBidStatus'])->name('meetingBidStatus');
-Route::get('/my-profile', [SellerDashboardController::class,'myProfile'])->name('myProfile');
+Route::get('/my-profile', [SellerDashboardController::class,'myProfile'])->name('myProfileUpdate');
 Route::post('/update-my-profile/{id}', [SellerDashboardController::class,'updateMyProfile'])->name('updateMyProfile');
 Route::post('/update-my-password/{id}', [SellerDashboardController::class,'updateMyPassword'])->name('updateMyPassword');
 
@@ -535,7 +535,7 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::get('/purchasesBids', [DealerDashboardController::class,'purchasesBids'])->name('purchasesBids');
     Route::get('/completedRequestPurchase', [DealerDashboardController::class,'completedRequestPurchase'])->name('completedRequestPurchase');
 
-    Route::get('/myProfile', [DealerDashboardController::class,'myProfile'])->name('myProfile');
+    Route::get('/update-profile', [DealerDashboardController::class,'myProfile'])->name('myProfile');
     Route::post('/updateMyProfileDealer/{id}', [DealerDashboardController::class,'updateMyProfileDealer'])->name('updateMyProfileDealer');
     Route::post('/update-my-password-dealer/{id}', [DealerDashboardController::class,'updateMyPasswordDealer'])->name('updateMyPasswordDealer');
 

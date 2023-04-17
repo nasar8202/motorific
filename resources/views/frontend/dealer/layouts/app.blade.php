@@ -1238,7 +1238,7 @@
                     $(this).attr('data-id', '');
                     $(this).attr('data-id', 'num_' + num++ + '');
                 });
-                let first_img_src = $('.selectedFilesTn .image-box[data-id="num_1"] img').attr('src')
+                let first_img_src = $('.selectedFilesTn-exterior .image-box[data-id="num_1"] img').attr('src')
                 $('#selected-first-img-qa').attr('src',first_img_src);
 
             }

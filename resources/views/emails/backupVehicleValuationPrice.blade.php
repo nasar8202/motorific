@@ -166,9 +166,9 @@
         </div>
         <div class="mail-content">
             <h2>Valuation!</h2>
-            <p>Hi {{ $data['name'] }}!</p>
+            <p>Hi {{ ucwords($data['name']) }}!</p>
             <p>
-              Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
+              Congratulations - Your Vehicle <strong>{{ ucwords($data['vehicle_name']) }}</strong> valuation has been added by Motorific
                for the price of £{{ $data['reserve_price'] }}.
 
           </p>

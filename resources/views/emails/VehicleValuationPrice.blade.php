@@ -484,7 +484,7 @@
             <div class="container">
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
-                <h3 class="title-name">Hi {{ $data['name'] }}!</h3>
+                <h3 class="title-name">Hi {{ ucwords($data['name']) }}!</h3>
                 
                 <p>Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
                     for the price of £{{ $data['reserve_price'] }}.</p>

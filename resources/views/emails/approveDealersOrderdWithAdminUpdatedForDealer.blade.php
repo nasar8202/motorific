@@ -171,9 +171,9 @@
         </div>
         <div class="mail-content">
           <h2>You've just bought a car!</h2>
-          <p>Hi {{$data['name']}}!</p>
+          <p>Hi {{ ucwords($data['name']) }}!</p>
           <p>
-            Congratulations on purchasing the (<strong>{{ $data['vehicle_name'] }}</strong>) via the motorific dealer to dealer portal.
+            Congratulations on purchasing the (<strong>{{ ucwords($data['vehicle_name']) }}</strong>) via the motorific dealer to dealer portal.
             {{-- Congratulations - your price has been Updated successfully by admin 
             <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
         Your Car Offer Price Updated By Motorific --}}

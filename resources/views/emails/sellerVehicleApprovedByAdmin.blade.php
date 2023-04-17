@@ -183,7 +183,7 @@
         </div>
         <div class="mail-content">
             <h2>Approved by Motorific!</h2>
-            <p>Hi {{ $data['name'] }}!</p>
+            <p>Hi {{ ucwords($data['name']) }}!</p>
             <p>
               Your <strong>{{ $data['vehicle_name'] }}</strong> has been Approved by Motorific for the price of <strong>£{{ $data['bidded_price'] }}</strong> to go live on daily auction. We will update you with the results of auction at the end of the auction day. 
               

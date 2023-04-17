@@ -174,7 +174,7 @@
         </div>
         <div class="mail-content">
             <h2>Motorific has given their approval!</h2>
-            <p>Hi {{ $data['name'] }}!</p>
+            <p>Hi {{ ucwords($data['name']) }}!</p>
             <p>
               Your <strong>{{ $data['vehicle_name'] }}</strong> has been approved by Motorific for  <strong>£{{ $data['bidded_price'] }}</strong> to go live on the dealer-to-dealer Portal. When we receive offers on your vehicle, we will notify you of the sale results. Best of luck. 
 

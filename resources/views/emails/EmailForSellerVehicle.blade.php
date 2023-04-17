@@ -459,7 +459,7 @@
             <div class="container">
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
-                <h3 class="title-name">Hi {{ $vehicle_details['name'] }}!</h3>
+                <h3 class="title-name">Hi {{ ucwords($vehicle_details['name']) }}!</h3>
                 <p>Your Vehicle details have been  successfully recieved for valuation</p>
                 {{-- <p>team to  review</p> --}}
                 <h3 class="title-name">Car Details</h3>

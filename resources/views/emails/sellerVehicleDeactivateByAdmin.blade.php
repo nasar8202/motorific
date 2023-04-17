@@ -174,7 +174,7 @@
         </div>
         <div class="mail-content">
           <h2>Deactivate by Motorific!</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          <p>Hi {{ ucwords($data['name']) }}!</p>
           <p>
              
             Sorry! - Your  Vehicle <strong>{{ $data['vehicle_name'] }}</strong> has been Deactivated by Motorific

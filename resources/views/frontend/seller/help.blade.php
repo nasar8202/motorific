@@ -112,11 +112,11 @@
          <div class="container-1151">
              <div class="career-content">
                  <h2 class="sec-title">Have more questions?</h2>
-                 <p class="sec-desc">
+                 <!-- <p class="sec-desc">
                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam
-                 </p>
+                 </p> -->
                  <a href="/get-in-touch" class="globel-btn career-btn">Contact us</a>
              </div>
          </div>

@@ -36,7 +36,7 @@
                   <td style="padding:0 0 36px 0;color:#153643;">
                     <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">thank you for registrating as a dealer with motorific </h1>
                     <p>we are checking your information and revert back to you if we require any further information</p>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Name : {{ $data['name'] }}</p>
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Name : {{ ucwords($data['name']) }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email : {{ $data['email'] }}</p>
 
                     <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="" style="color:#ee4c50;text-decoration:underline;">Motorofic</a></p>

@@ -459,7 +459,7 @@
             <div class="container">
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
-                <h3 class="title-name">Hi {{ $queue_details['name'] }}!</h3>
+                <h3 class="title-name">Hi {{ ucwords($queue_details['name']) }}!</h3>
                 <p style="display: block; ">Thank you for adding your vehicle to our dealer portal for sale.</p>
                 <p style="display: block; ">Our team is reviewing your advertisement and will notify you as soon as it goes live.</p>
                 <h3 class="title-name">Car Details</h3>

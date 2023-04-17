@@ -171,10 +171,10 @@
         </div>
         <div class="mail-content">
           <h2>You've just bought a car!</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          <p>Hi {{ ucwords($data['name']) }}!</p>
           <p>
             Congratulations - you've successfully bought a
-            <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
+            <strong>{{ ucwords($data['vehicle_name']) }}</strong> for the price of £{{ $data['bidded_price'] }}.
         Your Car Offer Price Updated By Motorific
         </p>
           <p>Car Details</p>

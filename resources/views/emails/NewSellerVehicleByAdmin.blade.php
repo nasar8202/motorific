@@ -196,7 +196,7 @@
         </div>
         <div class="mail-content">
           <h2>Welcome To Motorific</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          <p>Hi {{ ucwords($data['name']) }}!</p>
           <p>
            
             Congratulations Motorific has added your Vehicle registration number <strong>{{ strtoupper($data['vehicle_registration']) }}</strong>. Below are your login details to check the status of your vehicle.

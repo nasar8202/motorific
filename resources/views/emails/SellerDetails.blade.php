@@ -373,7 +373,7 @@
                         <h3>Registration on Motorific</h3>
                         <span>Here are Your login details for motorific </span><br>
                         <ul class="reg-detail">
-                            <li><span>User Name:</span> {{ $seller_details['greeting'] }}</li>
+                            <li><span>User Name:</span> {{ ucwords($seller_details['greeting']) }}</li>
                             <li><span>Email:</span> {{ $seller_details['email'] }}</li>
                             <li><span>Phone Number:</span>{{ $seller_details['phone_number'] }}</li>
                             <li><span>Post Code:</span>{{ $seller_details['body1'] }}</li>
