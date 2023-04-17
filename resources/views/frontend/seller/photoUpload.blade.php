@@ -2621,6 +2621,7 @@ display: block;
                                 </div>
                                 <input type="file" name="image1" id="photo1" accept="image/*" />
                                 <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="" accept="image/*" >
+                                <div class='text-danger error-msg-frontend'></div>
                             </label>
                             @if ($errors->has('image1'))
                             <span class="text-danger">{{ $errors->first('image1') }}</span>
@@ -2634,6 +2635,7 @@ display: block;
                                     </div>
                                     <input type="file" name="image2" id="photo2" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="" accept="image/*" >
+                                    <div class='text-danger error-msg-frontend'></div>
                                 </label>
                                 @if ($errors->has('image2'))
                                         <span class="text-danger">{{ $errors->first('image2') }}</span>
@@ -2646,6 +2648,7 @@ display: block;
                                     </div>
                                     <input type="file" name="photo1" id="photo3" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-corner.png')}}" alt="" accept="image/*" >
+                                    <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div> --}}
                         </div>
@@ -2659,6 +2662,7 @@ display: block;
                                     </div>
                                     <input type="file" name="image3" id="photo4" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" >
+                                    <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
                             @if ($errors->has('image3'))
@@ -2673,6 +2677,7 @@ display: block;
                                     </div>
                                     <input type="file" name="image4" id="photo5" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" >
+                                    <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
                             @if ($errors->has('image4'))
@@ -2687,6 +2692,7 @@ display: block;
                                     </div>
                                     <input type="file" name="image5" id="photo6" accept="image/*" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="" accept="image/*" >
+                                    <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
                             @if ($errors->has('image5'))
@@ -3322,17 +3328,20 @@ $("#store").click(function(){
        var thisInpt = $(this).find('input');
 
        $(thisInpt).on('change', function(){
+        $(this).parent()
           var file = $(thisInpt).get(0).files[0];
+        //   console.log('file.size ',file.size);
           if(file.size > 5000){
-            $(this).parent().append(`<div class="text-danger"> Upload Image upto 5MB </div>`)
+            $(this).parent().children('.error-msg-frontend').text('File size must be less than 5 mb')
           }
-            else{
-                var reader = new FileReader();
-                reader.onload = function(){
-                    $(thisInpt).closest('.labelForFile').find('img').attr("src", reader.result);
-                }
-                reader.readAsDataURL(file);
+          else{
+            var reader = new FileReader();
+            reader.onload = function(){
+                $(thisInpt).closest('.labelForFile').find('img').attr("src", reader.result);
             }
+            reader.readAsDataURL(file);
+            $(this).parent().children('.error-msg-frontend').text('')
+          }
        });
        $("#search").keyup( function() {
 
