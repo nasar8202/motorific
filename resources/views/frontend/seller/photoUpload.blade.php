@@ -3330,8 +3330,8 @@ $("#store").click(function(){
        $(thisInpt).on('change', function(){
         $(this).parent()
           var file = $(thisInpt).get(0).files[0];
-        //   console.log('file.size ',file.size);
-          if(file.size > 5000){
+          console.log('file.size ',file.size);
+          if(file.size > 5000000){
             $(this).parent().children('.error-msg-frontend').text('File size must be less than 5 mb')
           }
           else{
