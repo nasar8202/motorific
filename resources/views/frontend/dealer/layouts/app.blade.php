@@ -811,7 +811,7 @@
                 <li><a href="https://www.instagram.com/motorific_1/"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
             <div class="footer-links-wraper">
-                <a href="{{route('index')}}" class="prim-btn">Motorway for sellers</a>
+                <a href="{{route('index')}}" class="prim-btn">Motorific for sellers</a>
                 <ul class="footer-links">
                     <li><a href="{{route('aboutUs')}}">About us</a></li>
                     <li><a href="{{route('GetInTouchSellerForm')}}">Contact us</a></li>

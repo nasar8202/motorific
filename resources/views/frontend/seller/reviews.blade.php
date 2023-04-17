@@ -101,7 +101,7 @@
                             </div>
                             <div class="tit-par">
                                 <h2>If you want a genuine safe and secure…</h2>
-                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorific way is the way.</span></p>
                             </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="tit-par">
                                 <h2>If you want a genuine safe and secure…</h2>
-                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorific way is the way.</span></p>
                             </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                             </div>
                             <div class="tit-par">
                                 <h2>If you want a genuine safe and secure…</h2>
-                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorific way is the way.</span></p>
                             </div>
                     </div>
                 </div>

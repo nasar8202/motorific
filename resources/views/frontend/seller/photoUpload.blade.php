@@ -2027,7 +2027,7 @@ display: block;
                                         		<i class="fa fa-info-circle" aria-hidden="true"></i>
                                         		<p>We are unable to sell vehicles with a missing V5C log book.</p>
                                         	</article>
-                                        	<p>You can obtain a replacement V5C on the <a class="" href="https://www.gov.uk/vehicle-log-book" rel="noreferrer" target="_blank">DVLA website</a>. Once you have it, return to Motorway and we will be happy to help with your vehicle sale.</p>
+                                        	<p>You can obtain a replacement V5C on the <a class="" href="https://www.gov.uk/vehicle-log-book" rel="noreferrer" target="_blank">DVLA website</a>. Once you have it, return to Motorific and we will be happy to help with your vehicle sale.</p>
                                         </div>
                                         <div class="Modal__dvlaButton">
                                         	<a href="https://www.gov.uk/vehicle-log-book" rel="noopener noreferrer" target="_blank">
