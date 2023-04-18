@@ -54,6 +54,9 @@
 
             animation-duration: 5s;
         }
+        .check_area {
+    position: relative;
+}
         .spinner-container {
             margin: 0 0;
             margin-left: -60px;
@@ -75,7 +78,9 @@
             display: flex;
             justify-content: end;
             align-items: center;
-            margin-top: -35px;
+            margin-top: 0;
+            position: absolute;
+            bottom: -30px;
         }
         .spinner--dotted {
             width: 25px;

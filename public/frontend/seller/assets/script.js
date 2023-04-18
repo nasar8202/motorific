@@ -331,6 +331,26 @@ $('.submitVehicleInfo-qa').on('click', function(){
     $(this).parentsUntil('.photo-up-sec-2-box-main').slideUp();
 })
 
+$(function(){
+    
+    var inputs = $('.step-list-check');
+    var checked = inputs.filter(':checked').val();
+    
+    inputs.on('click', function(){
+        
+        if($(this).val() === checked) {
+            $(this).prop('checked', false);
+            checked = '';
+            
+        } else {
+            $(this).prop('checked', true);
+            checked = $(this).val();
+            
+        }
+    });
+    
+});
+
 // hamza js
 
 
