@@ -2415,6 +2415,7 @@ ol.tagLines li {
 }
 div.chart.reg ul {
     flex-wrap: no-wrap;
+    overflow-x: unset;
 }
 .sec-4-box-sec-1, .sec-4-box-sec-2 {
     flex: 0 0 100%;
@@ -2422,6 +2423,12 @@ div.chart.reg ul {
 }
 .chart ul li {
     font-size: 11px;
+   
+}
+.chart.reg ul li {
+     padding: 6px;
+    flex: 1;
+       white-space: normal;
 }
 
 .photo-up-sec-2-heading h3 {

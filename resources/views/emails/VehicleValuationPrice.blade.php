@@ -228,14 +228,14 @@
             align-items: center;
             flex-wrap: wrap;
             align-items: center;
-           
+           overflow: hidden;
             
         }
         .veh-detail .congt-box .congt-box-inner ul,  .veh-detail .congt-box .congt-box-inner .veh-img {
             width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
             max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
-            flex-grow: 1;
-            flex-shrink: 0;
+           flex-grow: 1;
+            flex-shrink: 1;
         }
 
         .veh-detail .congt-box .veh-img {
@@ -247,7 +247,7 @@
         .veh-detail .congt-box .veh-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+                object-fit: contain;
         }
         .veh-text {
             max-width: 100%;

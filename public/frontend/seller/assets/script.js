@@ -194,9 +194,15 @@ $(document).ready(function () {
         child--;
       }
     }
+
+    // console.log('length_steps ',length_steps)
+    // console.log("child ", child);
+    // var currentSection = $("section.step-sec-qambar:nth-of-type(" + child + ")");
+    
     var currentSection = $(this).parent().parent().children('.step-sec-qambar').eq(child-1)
     // var currentSection = $("section.step-sec-qambar:nth-of-type(" + child + ")");
     console.log('currentSection ',currentSection);
+
     currentSection.fadeIn();
     currentSection.css("transform", "translateX(0)");
     currentSection.prevAll("section.step-sec-qambar").css("transform", "translateX(-100px)");
@@ -205,6 +211,10 @@ $(document).ready(function () {
     // $("section.step-sec-qambar").not(currentSection).hide();
     $("section.step-sec-qambar:last-child()").next(".next-qambar").hide();
   });
+
+
+
+  
   
   
   
@@ -320,6 +330,26 @@ $('.submitVehicleInfo-qa').on('click', function(){
 
     $(this).parentsUntil('.photo-up-sec-2-box-main').slideUp();
 })
+
+$(function(){
+    
+    var inputs = $('.step-list-check');
+    var checked = inputs.filter(':checked').val();
+    
+    inputs.on('click', function(){
+        
+        if($(this).val() === checked) {
+            $(this).prop('checked', false);
+            checked = '';
+            
+        } else {
+            $(this).prop('checked', true);
+            checked = $(this).val();
+            
+        }
+    });
+    
+});
 
 // hamza js
 
