@@ -96,12 +96,12 @@
                                       </div>
                             </div>
                                   <div class="time-period">
-                                <span>Richard Orr,    </span>
-                                <span>59 minutes ago</span>
+                                <span>Antonio,    </span>
+                                <span>5 days ago</span>
                             </div>
                             <div class="tit-par">
-                                <h2>If you want a genuine safe and secure…</h2>
-                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                                <h2>Went above and beyond! Amazing!</h2>
+                                <p><span>The employees made the process so simple but effective! Extremely trustworthy! Will definitely use again; no doubt!</span></p>
                             </div>
                     </div>
                 </div>
@@ -119,12 +119,35 @@
                                       </div>
                             </div>
                                   <div class="time-period">
-                                <span>Richard Orr,    </span>
-                                <span>59 minutes ago</span>
+                                <span>Jason Adams,    </span>
+                                <span>5 days ago</span>
                             </div>
                             <div class="tit-par">
-                                <h2>If you want a genuine safe and secure…</h2>
-                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                                <h2>I had a great experience</h2>
+                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorific way is the way.I had a great experience! Very quick, very reliable. It was my first time using Motorific but I had a great experience. I would highly recommend them.</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Abbas Dhirani (Ace),    </span>
+                                <span>3 weeks ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>I had a great experience</h2>
+                                <p><span>Phenomenal services, the chap managed to go through each and everything with my partner and myself, I was slightly worried, how we they educated us how it all works and can not recommend them enough! Thank you very very much!</span></p>
                             </div>
                     </div>
                 </div>
@@ -142,12 +165,14 @@
                                       </div>
                             </div>
                                   <div class="time-period">
-                                <span>Richard Orr,    </span>
-                                <span>59 minutes ago</span>
+                                <span>Gellert Kiss,    </span>
+                                <span>5 days ago</span>
                             </div>
                             <div class="tit-par">
-                                <h2>If you want a genuine safe and secure…</h2>
-                                <p><span>If you want a genuine safe and secure experience selling your car for the highest possible price and you are prepared to make an effort to take a good number  photos and then to comply with detailed instructions then the Motorway way is the way.</span></p>
+                                <h2>Wow, what an experience!</h2>
+                                <h2>Wow, what a pleasant experience!</h2>
+                                <p><span>I used Motorific to sell my car, and whilst I usually prefer to sell and buy cars privately, Motorific has changed my views. The team was very helpful, and on hand to assist. I got numerous offers for my car, and was sold in no time for the price I wanted without the hassle.
+Don't look further, Motorific is the company you need to use!</span></p>
                             </div>
                     </div>
                 </div>

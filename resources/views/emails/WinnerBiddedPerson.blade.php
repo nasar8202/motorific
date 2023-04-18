@@ -171,7 +171,7 @@
         </div>
         <div class="mail-content">
           <h2>You've just bought a car!</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          <p>Hi {{ ucwords($data['name']) }}!</p>
           <p>
             Congratulations - you've successfully bought a
             <strong>{{ strtoupper($data['vehicle_registration']) }}</strong> for the price of £{{ $data['bidded_price'] }}.

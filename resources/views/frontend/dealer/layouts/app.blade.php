@@ -811,7 +811,7 @@
                 <li><a href="https://www.instagram.com/motorific_1/"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
             <div class="footer-links-wraper">
-                <a href="{{route('index')}}" class="prim-btn">Motorway for sellers</a>
+                <a href="{{route('index')}}" class="prim-btn">Motorific for sellers</a>
                 <ul class="footer-links">
                     <li><a href="{{route('aboutUs')}}">About us</a></li>
                     <li><a href="{{route('GetInTouchSellerForm')}}">Contact us</a></li>
@@ -1238,7 +1238,7 @@
                     $(this).attr('data-id', '');
                     $(this).attr('data-id', 'num_' + num++ + '');
                 });
-                let first_img_src = $('.selectedFilesTn .image-box[data-id="num_1"] img').attr('src')
+                let first_img_src = $('.selectedFilesTn-exterior .image-box[data-id="num_1"] img').attr('src')
                 $('#selected-first-img-qa').attr('src',first_img_src);
 
             }

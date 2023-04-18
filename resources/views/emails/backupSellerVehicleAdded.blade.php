@@ -166,10 +166,10 @@
         </div>
         <div class="mail-content">
           <h2>Your car added Successfully!</h2>
-          <p>Hi {{ $data['name'] }}!</p>
+          <p>Hi {{ ucwords($data['name']) }}!</p>
           <p>
             Congratulations - Your Vehicle Added Successfully wait for admin approvel!
-            <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
+            <strong>{{ ucwords($data['vehicle_name']) }}</strong> for the price of £{{ $data['bidded_price'] }}.
           </p>
           <p>Car Details</p>
 

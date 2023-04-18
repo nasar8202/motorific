@@ -55,7 +55,7 @@
             <div class="car-value">
                 <h2>£17,025*</h2>
             </div>
-            <h6>Based on 64,717 offers for Volkswagen vehicles from 2,420 dealers on Motorway. </h6>
+            <h6>Based on 64,717 offers for Volkswagen vehicles from 2,420 dealers on Motorific. </h6>
         </div>
 
         <div class="valuation-feature-main">

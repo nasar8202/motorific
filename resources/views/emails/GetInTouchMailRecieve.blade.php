@@ -35,7 +35,7 @@
                 <tr>
                   <td style="padding:0 0 36px 0;color:#153643;">
                     <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">New Lead From Get In Touch</h1>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">User Name : {{ $data['greeting'] }}</p>
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">User Name : {{ ucwords($data['greeting']) }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email : {{ $data['email'] }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Description : {{ $data['body1'] }}</p>
 

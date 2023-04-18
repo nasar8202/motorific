@@ -35,7 +35,7 @@
                 <tr>
                   <td style="padding:0 0 36px 0;color:#153643;">
                     <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Your Registeration Is Complete</h1>
-                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">User Name : {{ $details['greeting'] }}</p>
+                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">User Name : {{ ucwords($details['greeting']() }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email : {{ $details['email'] }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Phone Number : {{ $details['phone_number'] }}</p>
                     <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Registration : {{ strtoupper($details['registration_number']) }}</p>

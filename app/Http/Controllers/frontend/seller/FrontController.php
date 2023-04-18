@@ -220,7 +220,7 @@ class FrontController extends Controller
     }
     public function sellMyCar()
     {
-        return view('frontend.seller.index');
+        return view('frontend.seller.sellmycar');
     }
 
     public function valuation()

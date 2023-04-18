@@ -370,7 +370,7 @@
                         <h4>thank you for registrating as a dealer with motorific</h4>
                         <p>we are checking your information and revert back to you if we require any further information</p>
                         <ul class="reg-detail">
-                            <li><span>User Name:</span> {{ $data['name'] }} </li>
+                            <li><span>User Name:</span> {{ ucwords($data['name']) }} </li>
                             <li><span>Email:</span> {{ $data['email'] }}</li>
                             
                         </ul>

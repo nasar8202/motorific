@@ -371,7 +371,7 @@
                         <p>We appreciate your interest in becoming a motorific dealer
                             We are checking your information and will contact you if we need additional information</p>
                         <ul class="reg-detail">
-                            <li><span>User Name:</span> {{ $queue_details['name'] }} </li>
+                            <li><span>User Name:</span> {{ ucwords($queue_details['name']) }} </li>
                             <li><span>Email:</span> {{ $queue_details['email'] }}</li>
                             
                         </ul>

@@ -44,11 +44,11 @@
                             <label class="gallery-top-text mb-10 f-18">Exterior</label>
                             <span>(Upload 5 pictures only)</span>
                             <div class="cts-files">
-                                <input type="file" onchange="uploadFile(this)" class="upload-img-btn" name="image_1[]"
+                                <input type="file" onchange="uploadFile(this)" class="upload-img-btn uploadfile-exterior" name="image_1[]"
                                     class="" multiple id="image_1" accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png') }}">
                                 <div class="upload-imgErros"></div>
-                                <div id="selectedFiles" class="upload-img-wraper selectedFilesTn"></div>
+                                <div id="selectedFiles" class="upload-img-wraper selectedFilesTn selectedFilesTn-exterior"></div>
                             </div>
                             @if ($errors->has('image_1'))
                                 <span class="text-danger">{{ $errors->first('image_1') }}</span>

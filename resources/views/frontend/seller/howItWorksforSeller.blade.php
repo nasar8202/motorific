@@ -94,9 +94,9 @@ z-index: 1;
         <div class="row banner-content">
             <div class="sec-1-txt col-md-6">
                 
-                <h2 class="banner-title mw-100"> Drive Away With A Great Deal - Sell Your Car With Motorific</h2>
+                <h2 class="banner-title mw-100"> Drive Away With A Great Deal Sell Your Car With Motorific</h2>
                 
-                <p class="banner-desc">thousands verified dealers bid to give you the best price for your car. </p>
+                <p class="banner-desc">Thousands verified dealers bid to give you the best price for your car. </p>
                 {{-- <h2>Sell your car
                     with <span>Motorific</span></h2>
                 <p class="banner-desc">Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p> --}}
@@ -179,7 +179,7 @@ z-index: 1;
 
                 </h3>
                 <p class="overview-section__content">
-                    thousands verified dealers make attractive offers on your listing. We connect you with the one offering
+                    Thousands verified dealers make attractive offers on your listing. We connect you with the one offering
                     the highest price.
                 </p>
             </div>
@@ -248,7 +248,7 @@ z-index: 1;
             </li>
             <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
                 <h4 class="car-selling__benefits-list-item-title">
-                    thousands verified dealers
+                    Thousands verified dealers
                 </h4>
                 <p class="car-selling__benefits-list-item-desc">
                     Motorific is accompanied by thousands dealers. You don’t need to spend time hunting for the best
@@ -260,7 +260,7 @@ z-index: 1;
                     Cars on Finance Accepted
                 </h4>
                 <p class="car-selling__benefits-list-item-desc">
-                    Motorific can assist you in selling your car even if it has outstanding finance to pay off.
+                    Motorific can assist you in selling a car even if it has outstanding finance to pay off.
                 </p>
             </li>
             <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">
@@ -277,7 +277,8 @@ z-index: 1;
                     Free Collection
                 </h4>
                 <p class="car-selling__benefits-list-item-desc">
-                    Once you accept an offer from a dealer, he picks your car from your home for free.
+                    Sell a vehicle and receive full payment within 24 hours as we charge nothing.
+                    Welcome to the Motorific Way!
                 </p>
             </li>
             <li class="list-icon__item list-icon__item--check car-selling__benefits-list-item">

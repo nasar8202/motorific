@@ -10,25 +10,25 @@
     <section class="inner-banner help">
         <div class="container-1151">
             <div class="banner-inner-cont">
-                <h1>Welcome to the Motorway <br> help centre</h1>
+                <h1>Welcome to the Motorific <br> help centre</h1>
             </div>
         </div>
     </section>
     
     <section class="help-acc-sec">
         <div class="container-1151">
-            <h2 class="sec-title">Selling with Motorway</h2>
+            <h2 class="sec-title">Selling with Motorific</h2>
             <div class="accordion" id="help-accordion">
               <div class="accordion-item">
                 <h2 class="accordion-header" >
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc1" aria-expanded="true" aria-controls="collapseOne">
-                    What is Motorway?
+                    What is Motorific?
                   </button>
                 </h2>
                 <div id="helpacc1" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#help-accordion">
                   <div class="accordion-body">
                       <p>
-                          Every day, Motorway helps hundreds of people to sell their vehicles quickly and easily, by finding them the dealer that’ll pay the most for it.
+                          Every day, Motorific helps hundreds of people to sell their vehicles quickly and easily, by finding them the dealer that’ll pay the most for it.
                       </p>
                         
                         <p>
@@ -48,13 +48,13 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" >
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc2" aria-expanded="false" aria-controls="collapseTwo">
-                    Is it complicated to sell through Motorway?
+                    Is it complicated to sell through Motorific?
                   </button>
                 </h2>
                 <div id="helpacc2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#help-accordion">
                   <div class="accordion-body">
                     <p>
-                        No. To sell a vehicle with Motorway, all you need to do is enter your reg, provide the details and photos requested, accept your highest offer from our verified dealer network, then arrange free collection with the dealer at a time suitable for you. Motorway handles everything else for you.
+                        No. To sell a vehicle with Motorific, all you need to do is enter your reg, provide the details and photos requested, accept your highest offer from our verified dealer network, then arrange free collection with the dealer at a time suitable for you. Motorific handles everything else for you.
                     </p>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
                         We find your highest offer by allowing the 5,000+ verified dealers in our network to compete to buy your car in a daily sale. Dealers will have the opportunity to view your vehicle description and photos, and can submit a bid for your car.  
                     </p>
                     <p>
-                        Dealers will see your reserve price and it will tell them the price you’re happy to accept for your car; however, your reserve price is only a guide. As dealers bid against each other to buy your car, you may receive far more than this amount. Our daily sales are highly competitive, with dealers nationwide competing to give you the best price, it’s therefore little wonder that more than 50% of cars that go for sale at the reserve price on Motorway achieve more than expected!
+                        Dealers will see your reserve price and it will tell them the price you’re happy to accept for your car; however, your reserve price is only a guide. As dealers bid against each other to buy your car, you may receive far more than this amount. Our daily sales are highly competitive, with dealers nationwide competing to give you the best price, it’s therefore little wonder that more than 50% of cars that go for sale at the reserve price on Motorific achieve more than expected!
                     </p>
                   </div>
                 </div>
@@ -79,13 +79,13 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" >
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpacc4" aria-expanded="false" aria-controls="collapseThree">
-                   What are the fees to sell my vehicle through Motorway?
+                   What are the fees to sell my vehicle through Motorific?
                   </button>
                 </h2>
                 <div id="helpacc4" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#help-accordion">
                   <div class="accordion-body">
                     <p>
-                        Selling your vehicle with Motorway is completely free. There are no fees. Dealers pay to buy and collect your vehicle, meaning you don't have to pay a penny.
+                        Selling your vehicle with Motorific is completely free. There are no fees. Dealers pay to buy and collect your vehicle, meaning you don't have to pay a penny.
                     </p>
                   </div>
                 </div>
@@ -112,11 +112,11 @@
          <div class="container-1151">
              <div class="career-content">
                  <h2 class="sec-title">Have more questions?</h2>
-                 <p class="sec-desc">
+                 <!-- <p class="sec-desc">
                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam
-                 </p>
+                 </p> -->
                  <a href="/get-in-touch" class="globel-btn career-btn">Contact us</a>
              </div>
          </div>

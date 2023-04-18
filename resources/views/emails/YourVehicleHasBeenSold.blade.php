@@ -455,7 +455,7 @@
             <div class="container">
                 <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
                 <br>
-                <h3 class="title-name">Hello {{ $details['name'] }}!</h3>
+                <h3 class="title-name">Hello {{ ucwords($details['name']) }}!</h3>
                 
                 <p>Congratulations on selling your vehicle via Motorific dealer to dealer portal.</p>
                 

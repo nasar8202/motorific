@@ -171,10 +171,10 @@
         </div>
         <div class="mail-content">
           <h2>You've just Schedule Meeting With Seller!</h2>
-          <p> {{ $data['name'] }}!</p>
+          <p> {{ ucwords($data['name']) }}!</p>
           <p>
             Congratulations - your meeting schedule <strong>{{ $data['meeting_schedule'] }} </strong>
-            <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
+            <strong>{{ ucwords($data['vehicle_name']) }}</strong> for the price of £{{ $data['bidded_price'] }}.
           </p>
           <p>Car Details</p>
 

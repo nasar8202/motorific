@@ -12,7 +12,7 @@
     </div>
 
     <div class="filterIn active" >
-      <a href="{{route('myProfile')}}"><h4>Update My Account </h4></a>
+      <a href="{{route('myProfileUpdate')}}"><h4>Update My Account </h4></a>
 
     </div>
   
