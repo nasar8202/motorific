@@ -194,7 +194,8 @@ $(document).ready(function () {
     }
     // console.log('length_steps ',length_steps)
     // console.log("child ", child);
-    var currentSection = $("section.step-sec-qambar:nth-of-type(" + child + ")");
+    // var currentSection = $("section.step-sec-qambar:nth-of-type(" + child + ")");
+    var currentSection = $("section.step-sec-qambar:nth-child(" + child + ")");
     currentSection.fadeIn();
     currentSection.css("transform", "translateX(0)");
     currentSection.prevAll("section.step-sec-qambar").css("transform", "translateX(-100px)");
@@ -202,6 +203,10 @@ $(document).ready(function () {
     $("section.step-sec-qambar").not(currentSection).hide();
     $("section.step-sec-qambar:last-child()").next(".next-qambar").hide();
   });
+
+
+
+  
   
   
   
