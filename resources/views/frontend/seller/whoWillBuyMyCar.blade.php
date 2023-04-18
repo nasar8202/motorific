@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Who Will Buy My car')
+@section('title', 'Sell Old Car At Good Value')
+@section('keyword', 'who will buy my car, sell old car')
+@section('description', 'Stop worrying about who will buy my car and reach out to Motorific where we sell the old car for cash.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')

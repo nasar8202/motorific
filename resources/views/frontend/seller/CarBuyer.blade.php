@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Car Buyer')
+@section('title', 'Sell My Car Today- Motorific')
+@section('keyword', 'sell my car today, sell your car today')
+@section('description', 'Sell your car today with Motorific where we provide a complete guide and assist you in selling your car.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')
@@ -35,7 +37,8 @@
                         with  <span>Motorific</span></h2></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p class="banner-desc">Motorific’s car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>
+                    <p class="banner-desc">Using our straightforward platform, you can quickly sell your car today. We only need a few bits of information to quickly assess your automobile, and we'll get back to you. Motorific is the quickest platform to sell my car today online. </p>
+                    <!--<p class="banner-desc">Motorific’s car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>-->
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>

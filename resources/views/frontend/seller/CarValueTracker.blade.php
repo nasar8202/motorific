@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Car Value Tracker')
+@section('title', 'Value My Car-Sell My Car-Motorific')
+@section('keyword', 'value my car')
+@section('description', 'value my car for free and sell my car online for cash at Motorific which is quick and offers accurate prices.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')
@@ -37,7 +39,8 @@
                         with  <span>Motorific</span></h2></h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p class="banner-desc">Motorific’s car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>
+                    <p class="banner-desc">At Motorific, we value my car accurately and transparently using the most recent technology and industry expertise, our car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>
+                    <!--<p class="banner-desc">Motorific’s car value tracker uses live market data to offer you free car valuation. It also allows you to track ongoing value to sell at the time that produces maximum profits. </p>-->
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>

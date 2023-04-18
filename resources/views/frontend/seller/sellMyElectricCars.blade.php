@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell My Electric Car')
+@section('title', 'Best Way To Sell Your Car At Motorific')
+@section('keyword', 'best way to sell your car')
+@section('description', 'The best way to sell your car is selling your car online where the whole process is effortless and stress-free.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')
@@ -36,8 +38,10 @@
                     <h2>Sell My Electric Car</h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p class="banner-desc">Connect with thousands verified dealers in London and across the UK and sell your electric car for the highest price. 
+                    <p class="banner-desc">If you are searching for the best way to sell my car then you do not need to look further because Motorific is selling my car for cash while generating a considerable amount of earnings and swiftly selling your car within a short period of time.  
                     </p>
+                    <!--<p class="banner-desc">Connect with thousands verified dealers in London and across the UK and sell your electric car for the highest price. -->
+                    <!--</p>-->
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>

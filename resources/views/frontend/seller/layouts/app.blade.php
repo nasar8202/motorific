@@ -28,7 +28,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
-    <title>Motorific- @yield('title')</title>
+    <title>@yield('title')</title>
+    <meta name="keywords" content=" @yield('keyword')">
+    <meta name = "description" content = "@yield('description')" />
+
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a" data-blockingmode="auto" type="text/javascript"></script>
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/9b7b3e4b-5288-4bfc-b8c6-a9f4aee2d92a/cd.js" type="text/javascript" async></script>
 

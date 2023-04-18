@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title','Sell your car the with Motorific')
+@section('title','Selling My Car Is Now Hassle Free')
+@section('keyword', 'selling a car, selling my car, sell a vehicle')
+@section('description', 'Selling my car on Motorific was trouble-free selling a vehicle or car at the right platform with the right tools available.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')
@@ -96,7 +98,7 @@ z-index: 1;
                 
                 <h2 class="banner-title mw-100"> Drive Away With A Great Deal Sell Your Car With Motorific</h2>
                 
-                <p class="banner-desc">Thousands verified dealers bid to give you the best price for your car. </p>
+                <p class="banner-desc">The process of selling a car is indeed a challenging and drawn-out task. But we do not need to stress about it because selling my car is now made simple with motoric. When you sell a vehicle on cash there are no discussions, potential purchasers, or advertisements to worry with. </p>
                 {{-- <h2>Sell your car
                     with <span>Motorific</span></h2>
                 <p class="banner-desc">Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p> --}}

@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell to a dealer')
+@section('title', 'Sell My Car To Dealer- Motorific')
+@section('keyword', 'sell my car to a dealer')
+@section('description', 'Sell my car to a dealer is the easiest way to sell my old car in cash without any worries and hustle.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')
@@ -36,8 +38,10 @@
                     <h2>Sell My Car To a Dealer In a Motorific Way </h2>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
-                    <p class="banner-dec">Connect with thousands verified dealers in London and across the UK and sell your car for the highest price.
+                    <p class="banner-dec">Motorific is an online marketplace to sell my car to a dealer where you'll find excellent bargains on new or used vehicles today. Obtain the best price for your car while putting in the smallest amount of effort. We provide the most fantastic offers so you may sell your car right now.
                     </p>
+                    <!--<p class="banner-dec">Connect with thousands verified dealers in London and across the UK and sell your car for the highest price.-->
+                    <!--</p>-->
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>

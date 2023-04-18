@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell your car  with the Motorific')
+@section('title', 'Sell My Used Car Online - Motorific ')
+@section('keyword', 'sell my car, sell car, sell used car, sell your car instantly')
+@section('description', 'Motorific is the best place to sell your used car instantly. Acquire our hassle-free procedure to get the greatest price for your car.')
 @section('section')
 @section('headerClass','')
 @section('headerUlClass','')
@@ -106,11 +108,11 @@
 
                     {{-- <p class=banner-desc>Get the highest possible sale price for your vehicle with minimal effort. thousands verified dealers await to give you the best offer!</p> --}}
 
-                    {{-- <p class=banner-desc>Motorific is an online marketplace where you'll find excellent bargains on new or
+                     <p class=banner-desc>Motorific is an online marketplace where you'll find excellent bargains on new or
                         used vehicles today. Obtain the best price for your car while putting in the
                         smallest amount of effort. We provide the most fantastic offers so you may sell
                         your car right now.
-                        </p> --}}
+                        </p> 
 
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 

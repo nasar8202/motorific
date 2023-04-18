@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Car Valuation')
+@section('title', 'Instant Car Valuation At Motorific ')
+@section('keyword', 'Instant Car Valuation')
+@section('description', ' Get free instant car valuation and sell your car instantly for cash now with the help and guide of Motorific.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')

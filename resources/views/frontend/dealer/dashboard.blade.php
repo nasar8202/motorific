@@ -1,5 +1,7 @@
     @extends('frontend.dealer.layouts.app')
-    @section('title','Sell your car the with Motorific')
+    @section('title','Sell My Car Online - Motorific')
+    @section('keyword', 'sell car online, sell my car online')
+    @section('description', 'At Motorific we understand the challenges of selling your car. We provide rapid, simple, and hassle-free services where you can sell your car online.')
     @section('section')
     
 

@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell your car  with the Motorific')
+@section('title', 'Sell My Car For Cash Today at Motorific')
+@section('keyword', 'sell my car for cash, sell my car for cash today, sell your car for cash, sell your car')
+@section('description', 'Sell your car for cash with the guidance and help of expert advisors from Motorific. Selling your car is now more convenient.')
 @section('section')
 @section('headerClass','')
 @section('headerUlClass','')

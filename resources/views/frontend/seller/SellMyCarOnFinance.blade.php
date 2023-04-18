@@ -1,5 +1,7 @@
 @extends('frontend.seller.layouts.app')
-@section('title', 'Sell My Car On Finance')
+@section('title', 'Selling My Car On Finance Is Easy Now')
+@section('keyword', 'sell my car on finance, selling my car on finance')
+@section('description', 'You can sell my car on finance on Motorific that offers a stressfree, fast and secure way to sell car online.')
 @section('section')
 @section('headerClass','header-light')
 @section('headerUlClass','')
@@ -36,7 +38,8 @@
             <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
                     <h2>Sell My Car On Finance </h2>
-                    <p class="banner-desc">Our thousands verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>
+                    <p class="banner-desc">Motorific can assist you in locating the best potential option to meet your needs by guiding you through the complexity of how to sell my car on finance. Our thousands of verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits while selling my car on finance. </p>
+                    <!--<p class="banner-desc">Our thousands verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>-->
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 
                         <span class="text text-success mt-4 found">Enter Mileage <i class="fa-solid fa-check"></i></span>
