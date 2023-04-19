@@ -420,38 +420,10 @@
                 </div>
                 <div class="col-12">
                     <div class="row testi-wraper">
-                        <div class="col-12">
+                    <div class="col-12">
                             <div class="testi-box">
                                 <p class="user-comment">
-                                    As a dealer, I have to say that my experience with Motorific is nothing short of
-                                    excellent. Motorific has helped me secure a dozen cars at perfect prices. Thanks
-                                    to their streamlined sales process and responsive support team, I have closed
-                                    more deals in the past 2 months than in the previous 6. Highly recommended for
-                                    dealers!
-                                </p>
-                                <div class="user-profile">
-                                    <div class="img">
-                                        <img src="{{ URL::asset('frontend/dealers/assets/image/images/pro1.png') }}" alt="">
-                                    </div>
-                                    <div class="user-name">
-                                        <h4>George </h4>
-                                        <div class="rated-stars">            
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="testi-box">
-                                <p class="user-comment">
-                                    Motorific has helped me source some truly exceptional vehicles for my
-                                    dealership. Their support team is amazing as they always guide me through the
-                                    intricacies of online bidding, buying, and selling. Thanks to verified listings, I
-                                    always get the best value for my investment as profits continue to roll in.
+                                From start to finish, the experience with Motorific.co.uk was top-notch. The website is incredibly user-friendly and easy to navigate, making it simple to search for the make and model of the car you want to buy. The team behind this website is truly knowledgeable and experienced, and they provide you with all the information you need to make an informed decision about which car to choose.<br><br> What impressed me the most, however, was the efficient and streamlined process of selling my old car. The process was simple and stress-free, and most importantly, the team at Motorific.co.uk gave me a fair price for my car. I was able to sell my car quickly and easily, without any hassle or headache. <br><br> All in all, I highly recommend Motorific.co.uk for anyone looking to buy or sell a car. Whether you're in the market for a new set of wheels or looking
 
                                 </p>
                                 <div class="user-profile">
@@ -459,7 +431,7 @@
                                         <img src="{{ URL::asset('frontend/dealers/assets/image/images/pro2.png') }}" alt="">
                                     </div>
                                     <div class="user-name">
-                                        <h4>Olive </h4>
+                                        <h4>Arish Ukani </h4>
                                         <div class="rated-stars">            
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -473,18 +445,37 @@
                         <div class="col-12">
                             <div class="testi-box">
                                 <p class="user-comment">
-                                    I was struggling to find the right customers and the right prices for my vehicles.
-                                    Also, me being old school was a bit hesitant to try online platforms. But a friend
-                                    of mine who happens to be a dealer pushed me to try Motorific. Since then, I’m
-                                    never short of high-intent buyers and stock acquisition has never been this easy
-                                    for my dealership. Truly an amazing platform! 10/10 for support.
+                                    Motorific sold my Audi A5. Great service, easy process, excellent outcome. Very professional, I'm a happy customer.
+                                </p>
+                                <div class="user-profile">
+                                    <div class="img">
+                                        <img src="{{ URL::asset('frontend/dealers/assets/image/images/pro1.png') }}" alt="">
+                                    </div>
+                                    <div class="user-name">
+                                        <h4>Mrs Kumar</h4>
+                                        <div class="rated-stars">            
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-12">
+                            <div class="testi-box">
+                                <p class="user-comment">
+                                Very professional and dedicated Team with Best Customer Services experience.
+                                Recommend to everyone
                                 </p>
                                 <div class="user-profile">
                                     <div class="img">
                                         <img src="{{ URL::asset('frontend/dealers/assets/image/images/pro3.png') }}" alt="">
                                     </div>
                                     <div class="user-name">
-                                        <h4>Arthur </h4>
+                                        <h4>Very professional and dedicated Team… </h4>
                                         <div class="rated-stars">            
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>

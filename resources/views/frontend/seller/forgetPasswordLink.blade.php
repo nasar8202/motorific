@@ -1,9 +1,9 @@
 @extends('frontend.seller.layouts.app')
 @section('title','Forget password')
 @section('section')
-@section('headerClass','')
-@section('headerUlClass','navlinks')
-@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('headerClass','transparent-header')
+@section('headerUlClass','navlinks navlinks-w')
+@section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo-w.png')
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 <style>
 .dropdown > span{
@@ -27,77 +27,18 @@ display: block;
 }
     </style>
     <!-- HEADER -->
-    {{-- <header>
-        <div class="container-1600 d-flex justify-content-between pt-4">
-            <div class="logo-navlinks d-flex align-items-center">
-                <a href="{{ route('index') }}"><img src="{{ URL::asset('frontend/seller/assets/image/logo-w.png')}}" alt=""></a>
-                <ul class="navlinks navlinks-w mb-0 align-items-center">
-                    <a href="{{ route('sellMyCar') }}">
-                        <li>Sell My Car</li>
-                    </a>
-                    <a href="{{ route('howItWorksforSeller') }}">
-                        <li>How It Works</li>
-                    </a>
-                    <a href="{{ route('reviews') }}">
-                        <li>Reviews</li>
-                    </a>
-                    
-                    @auth
-
-                @endauth
-
-                @guest
-                <div class="dropdown">
-                    <span>More</span>
-                    <div class="dropdown-content">
-
-                    <a href="{{ route('dealer.newDashboard') }}" target="_blank">For Dealers</a>
-
-
-                   <a href="{{ route('sellMyCar') }}">Sell My Car</a>
-                    </div>
-                </div>
-                @endguest
-                </ul>
-            </div>
-            <div class="head-btns  justify-content-between">
-                <button><a href="{{ route('myLogin') }}">Sign In</a></button>
-                @if (Route::has('register'))
-                <button><a href="{{ route('registration') }}">Sign Up</a></button>
-                @endif
-                <button onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</button>
-            </div>
-            <div class="menu">
-                <div class="toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li><a href="{{ route('sellMyCar') }}">Sell My Car</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Reviews</a></li>
-                       
-                            <li>
-                            <a onclick="window.location='{{ url("/get-in-touch") }}'">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header> --}}
+    
       <!-- PHOTO-UPLOAD-SECTION-1 -->
       <section class="photo-up-sec-1 reg-page-sec1">
         <div class="container-1151">
             <div class="d-flex">
-                <div class="my-auto">
-                <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt="">
-                </div>
-                <div class="">
-                <h3>GJ65 YUA</h3>
-                <p>Volkswagen Golf R DSG</p>
-                </div>
+                <!--<div class="my-auto">-->
+                <!--      <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt="">-->
+                <!--</div>-->
+                <!--<div class="">-->
+                <!--    <h3>GJ65 YUA</h3>-->
+                <!--    <p>Volkswagen Golf R DSG</p>-->
+                <!--</div>-->
             </div>
         </div>
     </section>

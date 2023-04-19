@@ -1289,13 +1289,17 @@ ul.parts-content li span {
 }
 
 .vehicle-list {
-    width: 340px;
-    overflow-x: scroll;
+    width: 100%;
+    align-items: stretch;
+    /* overflow-x: scroll; */
 }
 .vehicle-list li {
     font-size: 12px;
-    width: fit-content;
-    white-space: nowrap;
+    flex: 1;
+    padding: 8px 4px;   
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 #vehBox > h4 {
     font-size: 14px;
