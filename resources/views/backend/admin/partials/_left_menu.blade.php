@@ -135,6 +135,16 @@
         </a>
     </li>
 
+    <li class="   {{ (Request::is('admin') || request()->IS('/admin/sold-vehicles') || request()->IS('/admin/sold-vehicles') ? 'active' : '') }} ">
+        
+        <a href="{{route('soldVehicles')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Sold Vehicle </span>
+            
+            
+        </a>
+    </li>
+
     <li class="sidebar-item  has-sub {{ request()->IS('admin/view-seller-persons') ||request()->IS('admin/register-sell-person') ? 'active' : '' }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>

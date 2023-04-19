@@ -326,6 +326,13 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/delete-finance/{id}', [VehicleController::class,'deleteFinance'])->name('deleteFinance');
      // end finance
 
+     // sold vehicle
+
+     Route::get('/sold-vehicles', [VehicleController::class,'soldVehicles'])->name('soldVehicles');
+
+
+     //end sold vehicle
+
     // manage user
     Route::get('/view-user', [UserController::class,'viewUsers'])->name('viewUsers');
     Route::get('/edit-user/{id}', [UserController::class,'editUserForm'])->name('editUserForm');

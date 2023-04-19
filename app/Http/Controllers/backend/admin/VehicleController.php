@@ -16,8 +16,9 @@ use App\Models\LockingWheelNut;
 use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Vehicle;
 use App\Models\VehicleHistory;
-
+use App\Models\VehicleImage;
 class VehicleController extends Controller
 {
 
@@ -82,6 +83,12 @@ class VehicleController extends Controller
         $viewFinances = Finance::where('status',1)->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.vehicles.viewFinance',compact('viewFinances'));
+    }
+    public function soldVehicles()
+    {
+        $soldVehicles = Vehicle::where('vehicle_availability','Sold')->with('vehicleInformation')->with('VehicleImage')->orderBy('id','DESC')->get();
+
+        return view('backend.admin.vehicles.soldVehicles',compact('soldVehicles'));
     }
     public function viewVehicleHistory()
     {

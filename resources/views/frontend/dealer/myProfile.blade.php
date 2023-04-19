@@ -32,8 +32,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">Post Code</label>
-                                <input type="number" name="post_code" class="form-control"
-                                    value="{{ $currentUser->post_code }}" placeholder="7500,7200,etc">
+                                <input type="text" name="post_code" class="form-control"
+                                    value="{{ $currentUser->post_code }}" placeholder="Post Code">
                                 @if ($errors->has('post_code'))
                                     <span class="text-danger">{{ $errors->first('post_code') }}</span>
                                 @endif

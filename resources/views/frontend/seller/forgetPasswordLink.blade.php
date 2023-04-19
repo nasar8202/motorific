@@ -91,13 +91,13 @@ display: block;
       <section class="photo-up-sec-1 reg-page-sec1">
         <div class="container-1151">
             <div class="d-flex">
-                <div class="my-auto">
+                <!-- <div class="my-auto">
                 <img src="{{ URL::asset('frontend/seller/assets/image/bmw.png')}}" alt="">
                 </div>
                 <div class="">
                 <h3>GJ65 YUA</h3>
                 <p>Volkswagen Golf R DSG</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
