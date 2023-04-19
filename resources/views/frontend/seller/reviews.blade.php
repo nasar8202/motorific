@@ -105,7 +105,7 @@
                             </div>
                     </div>
                 </div>
-                    <div class="reviews-add">
+                <div class="reviews-add">
                     <div class="reviews-box">
                
                         <div class="rev-content">
@@ -151,7 +151,7 @@
                             </div>
                     </div>
                 </div>
-                    <div class="reviews-add">
+                <div class="reviews-add">
                     <div class="reviews-box">
                
                         <div class="rev-content">
@@ -173,6 +173,222 @@
                                 <h2>Wow, what a pleasant experience!</h2>
                                 <p><span>I used Motorific to sell my car, and whilst I usually prefer to sell and buy cars privately, Motorific has changed my views. The team was very helpful, and on hand to assist. I got numerous offers for my car, and was sold in no time for the price I wanted without the hassle.
 Don't look further, Motorific is the company you need to use!</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Gellert Kiss    </span>
+                                <span>6 days ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>Wow, what an experience!</h2>
+                                
+                                <p><span>Wow, what a pleasant experience! I used Motorific to sell my car, and whilst I usually prefer to sell and buy cars privately, Motorific has changed my views. The team was very helpful, and on hand to assist. I got numerous offers for my car, and was sold in no time for the price I wanted without the hassle. <br> Don't look further, Motorific is the company you need to use!</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Miss Begum  </span>
+                                <span>5 days ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>I had a great experience</h2>
+                                
+                                <p><span>I had a great experience! Very quick, very reliable. It was my first time using Motorific but I had a great experience. I would highly recommend them.</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Jason Adams</span>
+                                <span>6 days ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>I had a great experience</h2>
+                                
+                                <p><span>I had a great experience! Very quick, very reliable. It was my first time using Motorific but I had a great experience. I would highly recommend them.</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>vj kmr</span>
+                                <span>6 Apr 2023</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>Just sold my bmw 3 series through…</h2>
+                                
+                                <p><span>Just sold my bmw 3 series through Motorific, sale done within two days. Found them to be Professional and helpful, website was user friendly and the whole process was simple and smooth. <br> Dealer was friendly and respectful on collection. Would definitely recommend.</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Zed Sadik</span>
+                                <span>6 Apr 2023</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>Recently I have had my car sold through…</h2>
+                                
+                                <p><span>Recently I have had my car sold through Motorific. I must say the experience was superb, due to its broader customer reach, faster and efficient customer service and reliable payment gateway. Credible and highly recommended!!</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Antonio</span>
+                                <span>6 days ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>Went above and beyond! Amazing!</h2>
+                                
+                                <p><span>The employees made the process so simple but effective! Extremely trustworthy! Will definitely use again; no doubt!</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Mohammad Alam</span>
+                                <span>4 Apr 2023</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>Sold my Peugeot e-208 through Motorific…</h2>
+                                
+                                <p><span>Sold my Peugeot e-208 through Motorific <br><br>it was easy, fast, and stress-free! <br>I got a great price for my car and was able to complete the transaction quickly.<br><br>Highly recommend Motorific for anyone looking to sell their car fastly!</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Gary Carr</span>
+                                <span>30 Mar 2023</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>Sitting on the my drive</h2>
+                                
+                                <p><span>Thank you Motorific, my car was sitting on the driveway for far to long before I was introduced to you guys.I was really taken back and surprised how quickly my car sold. I also received a reasonable price, I will surely tell my family and friends to look you guys up if they want to sell their car hassle free. You can have all my stars *****</span></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="reviews-add">
+                    <div class="reviews-box">
+               
+                        <div class="rev-content">
+                            <div class="exelent scnd">
+                           <span> <i class="fa fa-star"></i></span>
+                             <span> <i class="fa fa-star"></i></span>
+                               <span> <i class="fa fa-star"></i></span>
+                                 <span> <i class="fa fa-star"></i></span>
+                                    <span> <i class="fa fa-star"></i></span>
+                                   <strong><i class="fas fa-check-circle"></i> Invited</strong>
+                                      </div>
+                            </div>
+                                  <div class="time-period">
+                                <span>Haris Ali</span>
+                                <span>7 days ago</span>
+                            </div>
+                            <div class="tit-par">
+                                <h2>Best place to sell your car if you…</h2>
+                                
+                                <p><span>Best place to sell your car if you wanna sell it quickly with a best price go ahead then you're on right page</span></p>
                             </div>
                     </div>
                 </div>
@@ -239,7 +455,7 @@ Don't look further, Motorific is the company you need to use!</span></p>
 
 var items = $(".list-wraper .reviews-add");
     var numItems = items.length;
-    var perPage = 2;
+    var perPage = 8;
 
     items.slice(perPage).hide();
 
