@@ -51,7 +51,7 @@ display: block;
   <!-- PHOTO-UPLOAD-SECTION-1 -->
   <section class="photo-up-sec-1">
     <div class="container-1151">
-        {{-- <img src="{{ URL::asset('frontend/seller/assets/image/ford.png')}}" alt=""> --}}
+       
         <h1>{{$res->make}}</h1>
         <h3>{{$res->registrationNumber}}</h3>
         <p> {{$res->make}}   {{$res->wheelplan}}</p>
@@ -62,10 +62,7 @@ display: block;
                     <li>{{$res->colour??"colour"}}</li>
                     <li>{{$res->wheelplan??"wheelplan"}}</li>
                     <li>{{$res->fuelType??"fueltype"}}</li>
-                {{-- <li>43,000 miles</li>
-                <li>Grey</li>
-                <li>Hatchback</li>
-                <li>Petrol</li> --}}
+                
             </ul>
         </div>
     </div>
@@ -92,7 +89,7 @@ display: block;
                     </div>
                     <div class="prf-complete d-flex align-items-center">
                         <div>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="" />
                         </div>
                         <h3> Complete</h3>
                     </div>
@@ -112,15 +109,15 @@ display: block;
                     <div class="form">
                         <div>
                             <h4>Full Name</h4>
-                            <input type="text" placeholder="Enter Name" class="name"  name="name" value="{{$user->name}}">
+                            <input type="text" placeholder="Enter Name" class="name"  name="name" value="{{$user->name}}" />
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <input type="email" placeholder="Enter E-mail" class="email" name="email" value="{{$user->email}}">
+                            <input type="email" placeholder="Enter E-mail" class="email" name="email" value="{{$user->email}}" />
                         </div>
                         <div>
                             <h4>Phone Number</h4>
-                            <input type="number" placeholder="Enter Phone" class="number" name="number" value="{{$user->phone_number}}">
+                            <input type="number" placeholder="Enter Phone" class="number" name="number" value="{{$user->phone_number}}" />
                             <input type="hidden"  class="userId" name="user_id" value="{{$user->id}}">
 
                         </div>
@@ -149,14 +146,14 @@ display: block;
 
                         <div class="col-2Tn">
                             <h4>Vehicle Registeration Number</h4>
-                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" name="RegisterationNumber" value="{{$res->registrationNumber}}">
+                            <input type="text" placeholder="Registeration Number" class="RegisterationNumber" name="RegisterationNumber" value="{{$res->registrationNumber}}" />
                             @if ($errors->has('RegisterationNumber'))
                             <span class="text-danger">{{ $errors->first('RegisterationNumber') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Name</h4>
-                            <input type="text" placeholder="Vehicle Name" class="VehicleName" name="VehicleName" value="{{$res->make}}">
+                            <input type="text" placeholder="Vehicle Name" class="VehicleName" name="VehicleName" value="{{$res->make}}" />
                             @if ($errors->has('VehicleName'))
                             <span class="text-danger">{{ $errors->first('VehicleName') }}</span>
                         @endif
@@ -164,47 +161,40 @@ display: block;
                         <div class="col-2Tn">
                             <h4>Vehicle Year</h4>
                             <?php $vehicleYear =date_create( $res->yearOfManufacture);?>
-                            <input type="year" placeholder="Vehicle Year" class="VehicleYear" name="VehicleYear" value="{{$res->yearOfManufacture}}">
+                            <input type="year" placeholder="Vehicle Year" class="VehicleYear" name="VehicleYear" value="{{$res->yearOfManufacture}}" />
                             @if ($errors->has('VehicleYear'))
                             <span class="text-danger">{{ $errors->first('VehicleYear') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Color</h4>
-                            <input type="text" placeholder="Vehicle Color" class="VehicleColor" name="VehicleColor" value="{{$res->colour}}">
+                            <input type="text" placeholder="Vehicle Color" class="VehicleColor" name="VehicleColor" value="{{$res->colour}}" />
                             @if ($errors->has('VehicleColor'))
                             <span class="text-danger">{{ $errors->first('VehicleColor') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Type</h4>
-                            <input type="text" placeholder="Vehicle Type" class="VehicleType" name="VehicleType" value="">
+                            <input type="text" placeholder="Vehicle Type" class="VehicleType" name="VehicleType" value="" />
                             @if ($errors->has('VehicleType'))
                             <span class="text-danger">{{ $errors->first('VehicleType') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Fuel type</h4>
-                            <input type="text" placeholder="Fuel type" class="VehicleTank" name="VehicleTank" value="{{$res->fuelType}}">
+                            <input type="text" placeholder="Fuel type" class="VehicleTank" name="VehicleTank" value="{{$res->fuelType}}" />
                             @if ($errors->has('VehicleTank'))
                             <span class="text-danger">{{ $errors->first('VehicleTank') }}</span>
                         @endif
                         </div>
                         <div class="col-2Tn">
                             <h4>Vehicle Mileage</h4>
-                            <input type="number" placeholder="Vehicle Mileage" class="VehicleMileage" name="VehicleMileage" value="{{$milage}}">
+                            <input type="number" placeholder="Vehicle Mileage" class="VehicleMileage" name="VehicleMileage" value="{{$milage}}" />
                             @if ($errors->has('VehicleMileage'))
                             <span class="text-danger">{{ $errors->first('VehicleMileage') }}</span>
                         @endif
                         </div>
-                        {{-- <div class="col-2Tn">
-                            <h4>Vehicle Price</h4>
-
-                            <input type="number" placeholder="Vehicle Price" class="VehiclePrice" name="VehiclePrice" value="{{$milage['retail_valuation'] ?? 0}}">
-                            @if ($errors->has('VehiclePrice'))
-                            <span class="text-danger">{{ $errors->first('VehiclePrice') }}</span>
-                        @endif
-                        </div> --}}
+                        
 
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
                             <div class="spinner-border mt-2 spinnerVehicle"  style="float: right;" role="status">
@@ -217,263 +207,7 @@ display: block;
                 </div>
             </div>
         </div>
-        <!--<div class="photo-up-sec-2-box-main" id="damageSuccess">-->
-        <!--    <span class="alert alert-success temprorySubmitDamages"  style="display: none;"></span>-->
-        <!--    <div class="photo-up-sec-2-box">-->
-        <!--        <div class="photo-up-sec-2-box-txt">-->
-        <!--            <h4>Condition and Damage</h4>-->
-        <!--        </div>-->
-        <!--        <div class="photo-up-sec-2-box-btn clr-prp my-auto">-->
-        <!--            <button onclick="myFunction5()" type="button">EDIT</button>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--    <div class="personal-info-main" id="myDIV5">-->
-
-        <!--        <div class="personal-info-form">-->
-        <!--            <div class="form rowFormTn"> -->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Interior</h4>-->
-        <!--                    <input type="text"  class="form-control"-->
-        <!--                    name="interior"  id="interior" placeholder="Eg : Full Leather, etc"  value="{{session()->get('interior')}}">  -->
-        <!--                    @if ($errors->has('interior'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('interior') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Body Type</h4>-->
-        <!--                    <input type="text" readonly class="form-control"-->
-        {{-- <!--                    name="body_type" id="body_type" placeholder="Eg : Sedan,Coupe,etc"  value="{{$res['basic_vehicle_info']['autotrader_body_type_desc']}}" > --> --}}
-        <!--                    @if ($errors->has('body_type'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('body_type') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Engine Size</h4>-->
-        <!--                    <input type="text"  class="form-control"-->
-        {{-- <!--                    name="engine_size" readonly id="engine_size" placeholder="Eg : 2700cc,3500cc,etc"  value="{{$res['engine_data']['engine_capacity_cc']}}">--> --}}
-        <!--                    @if ($errors->has('engine_size'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('engine_size') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>HPI history check</h4>-->
-        <!--                    <input type="text"  class="form-control"-->
-        <!--                    name="hpi"    id="hpi" placeholder="Enter history check"  value="{{session()->get('hpi')}}">-->
-        <!--                    @if ($errors->has('hpi'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('hpi') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>VIN</h4>-->
-        <!--                    <input type="text"  class="form-control"-->
-        <!--                    name="vin"           id="vin" placeholder="Eg : ZFF82YNC000247970,etc"  value="{{session()->get('vin')}}">-->
-        <!--                    @if ($errors->has('vin'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('vin') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>First Registeration Date</h4>-->
-        <!--                    <input type="date"  class="form-control"-->
-        {{-- <!--                    name="register_date" readonly id="register_date" placeholder=""  value="{{$res['basic_vehicle_info']['first_registration_date']}}"> --> --}}
-        <!--                    @if ($errors->has('register_date'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('register_date') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Keeper Start Date</h4>-->
-        <!--                    <input type="date"  class="form-control"-->
-        <!--                    name="keeper_date" id="keeper_date" placeholder=""  value="{{session()->get('keeperDate')}}">-->
-        <!--                    @if ($errors->has('keeper_date'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('keeper_date') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Last MOT Date</h4>-->
-        <!--                    <input type="date"  class="form-control"-->
-        <!--                    name="mot_date"    id="mot_date" placeholder=""  value="{{session()->get('motDate')}}">-->
-        <!--                    @if ($errors->has('mot_date'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('mot_date') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Previous Owners</h4>-->
-        <!--                    <input type="number"  class="form-control"-->
-        {{-- <!--                    name="previous_owner" readonly id="previous_owner" placeholder="how many previous owners are"   value="{{$res['basic_vehicle_check']['number_previous_keepers']}}">--> --}}
-        <!--                    @if ($errors->has('previous_owner'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('previous_owner') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Seller Keeping Plate</h4>-->
-        <!--                    <input type="text"  class="form-control"-->
-        <!--                    name="keeping_plate"  id="keeping_plate" placeholder="yes or no"  value="{{session()->get('keepingPlate')}}">-->
-        <!--                    @if ($errors->has('keeping_plate'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('keeping_plate') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Additional Information</h4>-->
-        <!--                    <input type="text"  class="form-control"-->
-        <!--                    name="additional"  id="additional" placeholder="Enter Description"  value="{{session()->get('additional')}}">-->
-        <!--                    @if ($errors->has('additional'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('additional') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Your Exterior Grade</h4>-->
-        <!--                    <input type="text" placeholder="Your Exterior Grade" name="YourExteriorGrade" id="YourExteriorGrade"  value="{{session()->get('YourExteriorGrade')}}">    -->
-        <!--                    @if ($errors->has('YourExteriorGrade'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('YourExteriorGrade') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Vehicle Category</h4>-->
-        <!--                    <select name="VehicleCategory" id="vehicle_category">-->
-        <!--                        <option disabled selected>Select Vehicle Type</option>-->
-        <!--                        @foreach($vehicleCategories as $vehicleCategorie)-->
-        <!--                        <option @if($vehicleCategorie->id ==session()->get('vehicleCategory') )  selected @endif value="{{$vehicleCategorie->id}}" >{{$vehicleCategorie->title}}</option>-->
-        <!--                        @endforeach           -->
-
-        <!--                    </select>-->
-        <!--                    @if ($errors->has('VehicleCategory'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('VehicleCategory') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Scratches and Scuffs</h4>-->
-        <!--                    <select name="scratchesandScuffs" id="scrateches">-->
-        <!--                        <option disabled selected>Is it Your car Have Scratches and Scuffs</option>-->
-        <!--                        @if(session()->get('scrateches') == 'yes')-->
-        <!--                                        <option selected value="yes">Yes</option>-->
-        <!--                                        <option value="no">No</option>-->
-        <!--                                        @else-->
-        <!--                                        <option  value="yes">Yes</option>-->
-        <!--                                        <option selected value="no">No</option>-->
-        <!--                                        @endif -->
-
-        <!--                    </select>-->
-        <!--                    @if ($errors->has('scratchesandScuffs'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('scratchesandScuffs') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Dents</h4>-->
-        <!--                    <select name="dents" id="dents">-->
-        <!--                        <option disabled selected>Is it Your car have Dents</option>-->
-        <!--                        @if(session()->get('dents') == 'yes')-->
-        <!--                        <option selected value="yes">Yes</option>-->
-        <!--                        <option value="no">No</option>-->
-        <!--                        @else-->
-        <!--                        <option  value="yes">Yes</option>-->
-        <!--                        <option selected value="no">No</option>-->
-        <!--                        @endif -->
-        <!--                    </select>-->
-        <!--                    @if ($errors->has('dents'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('dents') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Paintwork Problems</h4>-->
-        <!--                    <select name="paintworkProblems" id="paintwork">-->
-        <!--                        <option disabled selected>Is it Your car have Paintwork Problems</option>-->
-        <!--                        @if(session()->get('paintwork') == 'yes')-->
-        <!--                        <option selected value="yes">Yes</option>-->
-        <!--                        <option value="no">No</option>-->
-        <!--                        @else-->
-        <!--                        <option  value="yes">Yes</option>-->
-        <!--                        <option selected value="no">No</option>-->
-        <!--                        @endif -->
-        <!--                    </select>-->
-        <!--                    @if ($errors->has('paintworkProblems'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('paintworkProblems') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Windscreen Damage</h4>-->
-        <!--                    <select name="WindscreenDamage" id="windscreen">-->
-        <!--                        <option disabled selected>Is it Your car's windscreen is damage</option>-->
-        <!--                        @if(session()->get('windscreen') == 'yes')-->
-        <!--                        <option selected value="yes">Yes</option>-->
-        <!--                        <option value="no">No</option>-->
-        <!--                        @else-->
-        <!--                        <option  value="yes">Yes</option>-->
-        <!--                        <option selected value="no">No</option>-->
-        <!--                        @endif -->
-        <!--                    </select>-->
-        <!--                    @if ($errors->has('WindscreenDamage'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('WindscreenDamage') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Broken/Misisng Lights, Mirrors, Trim or fittings</h4>-->
-        <!--                    <select name="brokenMissing" id="brokenmissing">-->
-        <!--                        <option disabled selected>Broken/Misisng Lights, Mirrors, Trim or fittings</option>-->
-        <!--                        @if(session()->get('brokenmissing') == 'yes')-->
-        <!--                        <option selected value="yes">Yes</option>-->
-        <!--                        <option value="no">No</option>-->
-        <!--                        @else-->
-        <!--                        <option  value="yes">Yes</option>-->
-        <!--                        <option selected value="no">No</option>-->
-        <!--                        @endif -->
-        <!--                    </select>-->
-        <!--                    @if ($errors->has('brokenMissing'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('brokenMissing') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Warning Lights on Dashboard</h4>-->
-        <!--                    <select name="WarningLights" id="warninglights">-->
-        <!--                        <option disabled selected>Warning Lights on Dashboard</option>-->
-        <!--                        @if(session()->get('warninglights') == 'yes')-->
-        <!--                        <option selected value="yes">Yes</option>-->
-        <!--                        <option value="no">No</option>-->
-        <!--                        @else-->
-        <!--                        <option  value="yes">Yes</option>-->
-        <!--                        <option selected value="no">No</option>-->
-        <!--                        @endif -->
-        <!--                    </select>-->
-        <!--                    @if ($errors->has('WarningLights'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('WarningLights') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Your Service Record</h4>-->
-        <!--                    <input type="text" placeholder="Your Service Record" name="YourServiceRecord" id="YourServiceRecord" value="{{session()->get('YourServiceRecord')}}">-->
-        <!--                    @if ($errors->has('YourServiceRecord'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('YourServiceRecord') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Main Dealer Services</h4>-->
-        <!--                    <input type="text" placeholder="Main Dealer Services" name="MainDealerServices" id="MainDealerServices" value="{{session()->get('MainDealerServices')}}">-->
-        <!--                    @if ($errors->has('MainDealerServices'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('MainDealerServices') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <div class="col-2Tn">-->
-        <!--                    <h4>Independent Dealer Service</h4>-->
-        <!--                    <input type="text" placeholder="Independent Dealer Service" name="IndependentDealerService" id="IndependentDealerService" value="{{session()->get('IndependentDealerService')}}">-->
-        <!--                    @if ($errors->has('IndependentDealerService'))-->
-        <!--                    <span class="text-danger">{{ $errors->first('IndependentDealerService') }}</span>-->
-        <!--                @endif-->
-        <!--                </div>-->
-        <!--                <br>-->
-
-        <!--        </div>-->
-
-        <!--        <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">-->
-        <!--            <div class="spinner-border mt-2 spinnerDamages"   style="" role="status">-->
-        <!--                <span class="sr-only">Loading...</span>-->
-        <!--              </div>-->
-        <!--              <br>-->
-        <!--            <a href="#damageSuccess"><button class="damagesDatas" type="button">CONFIRM</button></a>-->
-        <!--        </div>-->
-
-        <!--    </div>-->
-        <!--    </div>-->
-        <!--</div>-->
-
+       
 
         <!--Interior Information Form-->
         <section class="step-form-sec">
@@ -507,37 +241,37 @@ display: block;
                                 <span class="checkboxNum" style="display:none;">0</span>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Stained" hidden="">
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Stained" hidden="" />
                                     <span>Stained (ST)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Torn/Ripped" hidden="">
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Torn/Ripped" hidden="" />
                                     <span>Torn / Ripped (T)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Warn" hidden="">
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Warn" hidden="" />
                                     <span>Warn (W)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Dirty" hidden="">
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Dirty" hidden="" />
                                     <span>Dirty (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Broken/Damage" hidden="">
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Broken/Damage" hidden="" />
                                     <span>Broken / Damage (BD)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" class="step-list-check" name="dashboard" value="Burnt" hidden="">
+                                    <input type="radio" class="step-list-check" name="dashboard" value="Burnt" hidden="" />
                                     <span>Burnt (B)</span>
                                 </label>
                             </li>
@@ -545,7 +279,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/dashboard.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/dashboard.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -558,37 +292,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_side_interior" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -596,7 +330,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passenger-side.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passenger-side.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -610,37 +344,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_side_interior" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -648,7 +382,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driver-side.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driver-side.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -661,37 +395,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="floor" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="floor" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="floor" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="floor" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="floor" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="floor" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="floor" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -699,7 +433,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/floor.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/floor.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -712,37 +446,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_back_door" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -750,7 +484,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passengerback.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passengerback.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -763,37 +497,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>
-                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Dirty" hidden="">
+                                    <label> 
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_back_door" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -801,7 +535,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driverback.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driverback.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -814,37 +548,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="ceiling" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="ceiling" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -852,7 +586,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/ceiling.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/ceiling.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -865,37 +599,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="boot" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="boot" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="boot" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="boot" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="boot" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="boot" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="boot" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -903,7 +637,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/boot.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/boot.png" alt="" / />
                             </div>
                         </div>
                     </div>
@@ -916,37 +650,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_windscreen" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -954,7 +688,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/rear-windscreen.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/rear-windscreen.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -967,37 +701,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="passenger_seat" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -1005,7 +739,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passenger-seat.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/passenger-seat.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1018,37 +752,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="driver_seat" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="driver_seat" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -1056,7 +790,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driver-seat.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/driver-seat.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1069,37 +803,37 @@ display: block;
                             <ul class="parts-content">
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Stained" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Stained" hidden="" />
                                         <span>Stained (ST)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Torn/Ripped" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Torn/Ripped" hidden="" />
                                         <span>Torn / Ripped (T)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Warn" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Warn" hidden="" />
                                         <span>Warn (W)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Dirty" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Dirty" hidden="" />
                                         <span>Dirty (D)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Broken/Damage" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Broken/Damage" hidden="" />
                                         <span>Broken / Damage (BD)</span>
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="radio" class="step-list-check" name="rear_seats" value="Burnt" hidden="">
+                                        <input type="radio" class="step-list-check" name="rear_seats" value="Burnt" hidden="" />
                                         <span>Burnt (B)</span>
                                     </label>
                                 </li>
@@ -1107,7 +841,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/rear-seat.png" alt="">
+                                <img src="https://webprojectmockup.com/custom/motorific/public/frontend/dealers/assets/image/rear-seat.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1116,28 +850,20 @@ display: block;
                 <div class="step-button-wrap step2-btns-qambar">
                     <div class="step-button step-button-qambar prev-qambar disabled" id="prev">← Previous</div>
                     <div class="step-button step-button-qambar nxtBtn next-qambar" id="next">Next →</div>
-                    <!-- <div class="step-button subBtn" id="subBtn">Submit</div> -->
+                   
                 </div>
 
                 <p class="pt-4">If no damage to report! Then continue next .</p>
 
             </section>
-            <!--<div class="button" id="submit">Agree and send application</div>-->
+           
         </div>
         </div>
         <!--exterior -->
         <div class="step-main-2">
-            <!-- <div class="parts-hide-show">-->
-            <!--    <form>-->
-            <!--        <p>Do you have any damage on this vehicle</p>-->
-            <!--        <label><input type="radio"  name="damage_any_second" value="yes" class="parts-yes"> Yes</label>-->
-            <!--        <label><input type="radio" name="damage_any_second" value="no" class="parts-no" checked> No</label>-->
-            <!--    </form>-->
-            <!--</div>-->
+           
             <div class="step-main-wrap photo-upload">
-            <!--<div id="svg_wrap_ext"></div>-->
-        
-            
+           
             <div class="row">
                 <div class="col-sm-6">
                     <h1 class="step-main-head">Exterior Information</h1>
@@ -1160,37 +886,37 @@ display: block;
                             <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="front_door_left" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="front_door_left" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_left" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_left" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_left" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_left" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_left" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_left" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1198,7 +924,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-left.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-left.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1210,37 +936,37 @@ display: block;
                             <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="back_door_left" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="back_door_left" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_left" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_left" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_left" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_left" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_left" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_left" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1248,7 +974,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-left.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-left.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1260,37 +986,37 @@ display: block;
                             <ul class="parts-content">
                            <li>
                                 <label>
-                                    <input type="radio" name="front_door_right" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="front_door_right" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_right" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_right" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_right" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_right" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front_door_right" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="front_door_right" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1298,7 +1024,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-right.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front-door-right.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1310,37 +1036,37 @@ display: block;
                            <ul class="parts-content">
                            <li>
                                 <label>
-                                    <input type="radio" name="back_door_right" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="back_door_right" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_right" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_right" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_right" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_right" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back_door_right" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="back_door_right" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1348,7 +1074,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-right.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back-door-right.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1361,37 +1087,37 @@ display: block;
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="top" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="top" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="top" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="top" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="top" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="top" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="top" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="top" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1399,7 +1125,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/top.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/top.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1412,37 +1138,37 @@ display: block;
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="bonut" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="bonut" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="bonut" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="bonut" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="bonut" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="bonut" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="bonut" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="bonut" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1450,7 +1176,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/bonut.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/bonut.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1463,37 +1189,37 @@ display: block;
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="front" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="front" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="front" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="front" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1501,7 +1227,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/front.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/front.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1514,37 +1240,37 @@ display: block;
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="back" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="back" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="back" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="back" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1552,7 +1278,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/back.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/back.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1565,37 +1291,37 @@ display: block;
                            <ul class="parts-content">
                             <li>
                                 <label>
-                                    <input type="radio" name="windscreen" value="Dent" class="step-list-check" hidden>
+                                    <input type="radio" name="windscreen" value="Dent" class="step-list-check" hidden />
                                     <span>Dent (D)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="windscreen" value="Broken" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Broken" class="step-list-check" hidden />
                                     <span>Broken (B)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="windscreen" value="Chips" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Chips" class="step-list-check" hidden />
                                     <span>Chips (CH)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="windscreen" value="Crack/Rust" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Crack/Rust" class="step-list-check" hidden />
                                     <span>Crack / Rust (CR)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="windscreen" value="Scratch" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Scratch" class="step-list-check" hidden />
                                     <span>Scratch (S)</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio"  name="windscreen" value="Wheel Scuff" class="step-list-check" hidden>
+                                    <input type="radio"  name="windscreen" value="Wheel Scuff" class="step-list-check" hidden />
                                     <span>Wheel Scuff (WS)</span>
                                 </label>
                             </li>
@@ -1603,7 +1329,7 @@ display: block;
                         </div>
                         <div class="col-md-6">
                             <div class="step-img">
-                                <img src="{{ URL::asset('frontend/dealers/assets/image/windscreen.png') }}" alt="">
+                                <img src="{{ URL::asset('frontend/dealers/assets/image/windscreen.png') }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -1617,7 +1343,7 @@ display: block;
                 <p class="pt-4">If no damage to report! Then continue next.</p>
 
             </section>
-            <!--<div class="button" id="submit">Agree and send application</div>-->
+           
         </div>
         </div>
 
@@ -1628,8 +1354,7 @@ display: block;
         <!--End-->
 
         <div class="photo-up-sec-2-box-main">
-            {{-- <form method="POST" action="{{route('vehicleInformation')}}"> --}}
-                @csrf
+                
             <div class="photo-up-sec-2-box">
 
                 <div class="photo-up-sec-2-box-txt">
@@ -1640,7 +1365,7 @@ display: block;
                    
                     <div class="prf-complete d-flex align-items-center completeStatus-vehicelInfo-qa d-none">
                         <div>
-                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="">
+                            <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="" />
                         </div>
                         <h3>Complete</h3>
                     </div>
@@ -1651,7 +1376,6 @@ display: block;
             </div>
 
             <div class="photo-up-sec-2" id="myDIV2">
-                {{-- <form class="vehicleinformationForm" > --}}
                     <div class="photo-up-sec-2-vehicle-information">
                         <div class="vehicleStepsMain">
                             <!--0-->
@@ -1676,30 +1400,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="panoramic_roof">
-                                                <input type="checkbox" name="panoramic_roof" value="2" id="panoramic_roof"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Panoramic roof</p>
-                                                </div>
-                                            </label>
-                                            <label for="heated_seats">
-                                                <input type="checkbox" name="heated_seats" value="3" id="heated_seats"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Heated seats</p>
-                                                </div>
-                                            </label>
-                                            <label for="parking_cam">
-                                                <input type="checkbox" name="parking_cam" value="2" id="parking_cam"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Rear parking camera</p>
-                                                </div>
-                                            </label>
-                                            <label for="sound_system">
-                                                <input type="checkbox" name="sound_system" value="3" id="sound_system"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Upgraded sound system</p>
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -1717,7 +1418,7 @@ display: block;
                             <div class="vehicleSteps" data-id="SeatMaterial">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Seat material</h3>
-                                {{-- <p>Select the material your seats are upholstered with.</p> --}}
+                                
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
@@ -1731,41 +1432,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="interiorType-fauxleather">
-                                                <input type="radio" name="interiorType" value="Fauxleather" id="interiorType-fauxleather"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Faux leather</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/fauxLeather.jpg')}}" />
-                                                </div>
-                                            </label>
-                                            <label for="interiorType-halfleather">
-                                                <input type="radio" name="interiorType" value="Halfleather" id="interiorType-halfleather"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Half leather</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" />
-                                                </div>
-                                            </label>
-                                            <label for="interiorType-halfsuede">
-                                                <input type="radio" name="interiorType" value="Cloth" id="interiorType-halfsuede"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Half suede</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/halfSuede.jpg')}}" />
-                                                </div>
-                                            </label>
-                                            <label for="interiorType-leather">
-                                                <input type="radio" name="interiorType" value="Leather" id="interiorType-leather"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Leather</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/leather.jpg')}}" />
-                                                </div>
-                                            </label>
-                                            <label for="interiorType-suede">
-                                                <input type="radio" name="interiorType" value="Suede" id="interiorType-suede"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Suede</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/suede.jpg')}}" />
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                         @if ($errors->has('seat_material'))
                                         <span class="text-danger">{{ $errors->first('seat_material') }}</span>
@@ -1775,7 +1442,7 @@ display: block;
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/halfLeather.jpg')}}" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -1805,18 +1472,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="keysCount2">
-                                                <input type="radio" name="keysCount" value="2" id="keysCount2"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>2 key</p>
-                                                </div>
-                                            </label>
-                                            <label for="keysCount3">
-                                                <input type="radio" name="keysCount" value="3" id="keysCount3"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>3 key</p>
-                                                </div>
-                                            </label> --}}
+                                            
                                         </div>
 
                                     </div>
@@ -1854,12 +1510,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="hasToolsInBoot-missing">
-                                                <input type="radio" name="hasToolsInBoot" value="Missing" id="hasToolsInBoot-missing"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Tool pack missing</p>
-                                                </div>
-                                            </label> --}}
+                                            
                                         </div>
                                         @if ($errors->has('tool_pack'))
                                         <span class="text-danger">{{ $errors->first('tool_pack') }}</span>
@@ -1869,7 +1520,7 @@ display: block;
                                         <div class="info-box">
                                             <p>Check your spare wheel and its compartment — tool packs can usually be found there and should include a jack and wheel wrench.</p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/toolPack.avif')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/toolPack.avif')}}" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -1898,25 +1549,14 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="lockingWheelNut-no">
-                                                <input type="radio" name="lockingWheelNut" value="No" id="lockingWheelNut-no"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Locking wheel nut missing</p>
-                                                </div>
-                                            </label>
-                                            <label for="lockingWheelNut-not_applicable">
-                                                <input type="radio" name="lockingWheelNut" value="Not Applicable" id="lockingWheelNut-not_applicable"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Wheels do not have locking nuts</p>
-                                                </div>
-                                            </label> --}}
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p>The locking wheel nut is a metal part usually located near the tool pack, either in the spare wheel or its compartment.</p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/wheelNut.avif')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/wheelNut.avif')}}" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -1948,12 +1588,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="hasBeenSmokedIn-yes">
-                                                <input type="radio" name="hasBeenSmokedIn" value="Yes" id="hasBeenSmokedIn-yes"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Vehicle has been smoked in</p>
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -1990,19 +1625,14 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="hasV5LogBook-false">
-                                                <input type="radio" name="hasV5LogBook" value="False" id="hasV5LogBook-false"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>I’ve lost the V5C logbook</p>
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="info-box">
                                             <p>The V5C logbook (also known as the V5 form or document) records the Registered Keeper(s) of the vehicle.</p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/V5C-logbook.avif')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/V5C-logbook.avif')}}" alt="" />
                                             </div>
                                         </div>
                                         @if ($errors->has('log_book'))
@@ -2012,7 +1642,7 @@ display: block;
                                 </div>
 
                                 <!-- Modal on false Condition -->
-                                <div class="modal fade modalTN" id="v5Cfalse" tabindex="-1" role="dialog" aria-labelledby="V5CfalseTitle" aria-hidden="true">
+                                <div class="modal fade modalTN" id="v5Cfalse" tabindex="-1" role="dialog" aria-labelledby="V5CfalseTitle" aria-hidden="true" >
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -2068,12 +1698,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="radio-keeperType-other">
-                                                <input type="radio" name="keeperType" value="Other" id="radio-keeperType-other"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Someone Else</p>
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                     </div>
                                     @if ($errors->has('vehicle_owner'))
@@ -2106,13 +1731,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="radio-hasPrivatePlate-true">
-                                                <input type="radio" name="hasPrivatePlate" value="True" id="radio-hasPrivatePlate-true"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Private plate</p>
-                                                    <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" />
-                                                </div>
-                                            </label> --}}
+                                            
                                         </div>
                                         @if ($errors->has('private_plate'))
                                     <span class="text-danger">{{ $errors->first('private_plate') }}</span>
@@ -2122,7 +1741,7 @@ display: block;
                                         <div class="info-box">
                                             <p></p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/hasPrivatePlateTrue.jpg')}}" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -2152,18 +1771,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="radio-keeperType-probate">
-                                                <input type="radio" name="keeperType" value="probate" id="radio-keeperType-probate"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>This is a probate sale</p>
-                                                </div>
-                                            </label>
-                                            <label for="radio-keeperType-company">
-                                                <input type="radio" name="keeperType" value="company" id="radio-keeperType-company"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>It's a company vehicle or owned by a business</p>
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                         @if ($errors->has('finance'))
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
@@ -2173,7 +1781,7 @@ display: block;
                                         <div class="info-box">
                                             <p></p>
                                             <div class="info-box-image">
-                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="">
+                                                <img src="{{ URL::asset('frontend/seller/assets/image/nut.png')}}" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -2261,12 +1869,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="radio-isVehicleOnFinance-false">
-                                                <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Not on finance</p>
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                         @if ($errors->has('finance'))
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
@@ -2290,7 +1893,7 @@ display: block;
                             <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="vehicleCategory">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Vehicle Category</h3>
-                                {{-- <p>Is this vehicle on finance?</p> --}}
+                                
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
@@ -2302,21 +1905,14 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="radio-isVehicleOnFinance-false">
-                                                <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Not on finance</p>
-                                                </div>
-                                            </label> --}}
+                                            
                                         </div>
                                         @if ($errors->has('vehicleCateg'))
                                         <span class="text-danger">{{ $errors->first('vehicleCateg') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-lg-5">
-                                        <!--<div class="info-box">-->
-                                        <!--    <p>If your vehicle currently has any finance remaining, whether PCP or HP, or any other type of loan or finance, please select “On finance”.</p>-->
-                                        <!--</div>-->
+                                        
                                     </div>
                                 </div>
                                 <!--Next Previous Button-->
@@ -2345,22 +1941,13 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            {{-- <label for="radio-isVehicleOnFinance-false">
-                                                <input type="radio" name="isVehicleOnFinance" value="false" id="radio-isVehicleOnFinance-false"/>
-                                                <div class="photo-up-sec-2-vi-btn">
-                                                    <p>Not on finance</p>
-                                                </div>
-                                            </label> --}}
+                                           
                                         </div>
                                         @if ($errors->has('VehicleHistory'))
                                         <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
                                     @endif
                                     </div>
-                                    {{-- <div class="col-lg-5">
-                                        <div class="info-box">
-                                            <p>If your vehicle currently has any finance remaining, whether PCP or HP, or any other type of loan or finance, please select “On finance”.</p>
-                                        </div>
-                                    </div> --}}
+                                    
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -2582,15 +2169,15 @@ display: block;
                         <div class="photo-up-sec-2-vi-btm-btns d-flex justify-content-between">
                             <div class="photo-up-sec-2-vi-btns">
                                 <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                                    {{-- <button type="submit">SAVE AND EXIT</button> --}}
+                                   
                                 </div>
                             </div>
                         </div>
                     </div>
-                {{-- </form> --}}
+               
             </div>
 
-        {{-- </form> --}}
+       
     </div>
 
         <div class="photo-up-sec-2-box-main">
@@ -2620,7 +2207,7 @@ display: block;
                                     <h3>1</h3>
                                 </div>
                                 <input type="file" name="image1" id="photo1" accept="image/*" />
-                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="" accept="image/*" >
+                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="" accept="image/*" />
                                 <div class='text-danger error-msg-frontend'></div>
                             </label>
                             @if ($errors->has('image1'))
@@ -2634,23 +2221,14 @@ display: block;
                                         <h3>2</h3>
                                     </div>
                                     <input type="file" name="image2" id="photo2" accept="image/*" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="" accept="image/*" >
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
                                 @if ($errors->has('image2'))
                                         <span class="text-danger">{{ $errors->first('image2') }}</span>
                                     @endif
                             </div>
-                            {{-- <div class="add-photos-box1">
-                                <label class="labelForFile" for="photo3">
-                                    <div class="add-photos-numbering">
-                                        <h3>3</h3>
-                                    </div>
-                                    <input type="file" name="photo1" id="photo3" accept="image/*" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-corner.png')}}" alt="" accept="image/*" >
-                                    <div class='text-danger error-msg-frontend'></div>
-                                </label>
-                            </div> --}}
+                            
                         </div>
                     </div>
                     <div class="add-p-bottom-row row">
@@ -2661,7 +2239,7 @@ display: block;
                                         <h3>3</h3>
                                     </div>
                                     <input type="file" name="image3" id="photo4" accept="image/*" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" >
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
@@ -2676,7 +2254,7 @@ display: block;
                                         <h3>4</h3>
                                     </div>
                                     <input type="file" name="image4" id="photo5" accept="image/*" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" >
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
@@ -2691,7 +2269,7 @@ display: block;
                                         <h3>5</h3>
                                     </div>
                                     <input type="file" name="image5" id="photo6" accept="image/*" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="" accept="image/*" >
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
@@ -2790,7 +2368,7 @@ $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked1);
 $(".createVehicle").click(function(){
 
     let form =  $(this).closest('#multiwala');
-    console.log(form);
+    // console.log(form);
 });
 
 $(".damagesDatas").click(function(){
@@ -2833,7 +2411,7 @@ $(".damagesDatas").click(function(){
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           success: function(response) {
-            console.log(response);
+            
             if(response == "true"){
                 $(".temprorySubmitDamages").css("display","block");
                 $(".temprorySubmitDamages").html("Your Data Is Submited For Temprory Time Now Move Onto Next Step");
@@ -2949,20 +2527,6 @@ $("#store").click(function(){
 
     
 
-    console.log(the_value);
-    console.log(seatMaterial);
-    console.log(numberOfKeys);
-    console.log(toolPack);
-    console.log(wheelNut);
-    console.log(smoking);
-    console.log(logBook);
-    console.log(location);
-    console.log(vehicleOwner);
-    console.log(privatePlate);
-    console.log(finance);
-    console.log(VehicleHistory);
-    console.log(categ);
-
      $.ajax({
 
             url: 'vehicle_information',
@@ -2976,7 +2540,7 @@ $("#store").click(function(){
             },
 
             success: function(response){
-                console.log(response);
+              
                 var vehicleResponse = response.VehicleFeature;
                 var vehicledata = '';
                 var SeatMaterialsResponse = response.SeatMaterials;
@@ -2993,7 +2557,7 @@ $("#store").click(function(){
                 var Finances = response.Finances;
                 var VehicleHistory = response.VehicleHistory;
                 var categ = response.vehicleCategories;
-                console.log(Finances.title);
+             
                 $.each(vehicleResponse,function(vehicleResponse,row){
                     vehicledata+='<p>'+row.title+'</p>';
 
@@ -3080,7 +2644,7 @@ $("#store").click(function(){
                 }
                },
                error: function(data) {
-                   console.log(data)
+                   console.log('error')
                }
            });
        });
@@ -3130,7 +2694,7 @@ $("#store").click(function(){
             $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked);
 
             var radioVal =  $(this).attr('id');
-                console.log(radioVal);
+                
                 // For Popup on False Condition
                 if( radioVal == 'hasV5LogBook-false'){
                     $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
@@ -3301,7 +2865,7 @@ $("#store").click(function(){
         // Summary Step
         $('.stepOpener').on('click', function(){
             var thisData = $(this).attr('data-title');
-            console.log('thisData',thisData)
+           
             $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
             $(this).closest('.vehicleSteps').slideUp();
             $('.vehicleSteps[data-id="'+ thisData +'"]').slideDown();
@@ -3386,7 +2950,7 @@ $(".alertDisable").html(" ");
         $(".submitBtn-photos-sec").attr("disabled", true);
         // SYBMIT SUMMARY STEP 
         $('.submitVehicleInfo-qa').on('click', function(){
-            console.log("asnjha");
+            
             myFunction2()
             $('#startBtn-vehicleInfo').text('Edit')
             $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
