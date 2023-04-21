@@ -13,6 +13,54 @@
     <link rel="icon" href="{{ URL::asset('frontend/seller/assets/image/M-Logo.png') }}" type="image/x-icon" defer>
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script>
+    <style>
+        /*Loader Css*/
+        div#myProgress {
+            position: fixed;
+            background: #191738;
+            width: 100%;
+            height: 100%;
+            z-index: 99;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform-origin: top;
+            transition: all .4s ease-in;
+            
+        }
+        div#myProgress .loader-img img {
+            filter: invert(1);
+            animation: zoomIn 1.5s ease infinite;
+        }
+        div#myBar {
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+            /* background: #f5f5f5; */
+            display: none;
+        }
+        div#myBar #bar {
+            width: 0%;
+            height: 3px;
+            background-color: #04AA6D;
+            text-align: center;
+            margin: 10px 0;
+            display:block;
+        }
+        @keyframes zoomIn {
+            0% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+    </style>
     <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -66,16 +114,16 @@
 
 
 
-<body>
+<!-- <body> -->
 <!--<body onload="move()" id="contentBody">-->
 
-<!--<body onload="move()" id="contentBody">-->
+<body onload="move()" id="contentBody">
 
-<!--    <div id="myProgress">-->
-<!--        <div class="loader-img">-->
-<!--            <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">-->
-<!--        </div>-->
-<!--    </div>-->
+   <div id="myProgress">
+       <div class="loader-img">
+           <img src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}">
+       </div>
+   </div>
     
     
     
@@ -389,3 +437,5 @@
         toastr.warning("{{ session('warning') }}");
         @endif
 </script>
+
+

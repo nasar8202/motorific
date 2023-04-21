@@ -489,7 +489,10 @@ function startCountdown() {
   } 
   // check if current time is between 3pm and 8am
   else if (now.getHours() >= 15 || now.getHours() < 8) {
-    target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0); // set target time to 8am tomorrow
+    target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 8, 0, 0); // set target time to 8am tomorrow
+    if (now.getHours() >= 15) {
+      target.setDate(target.getDate() + 1); // add one more day if it's currently after 3pm
+    }
     document.getElementById("message").innerHTML = "Live Sale Starts in ";
   
   }
