@@ -1,4 +1,3 @@
-
 @extends('backend.admin.layouts.app')
 @section('title','view Seat Material List')
 @section('secton')
@@ -52,7 +51,7 @@
                     </thead>
                     <tbody>
                         @php
-                            $i = 1;
+                        $i = 1;
                         @endphp
                         @foreach ($vehicles as $vehicle)
                         <tr>
@@ -69,33 +68,35 @@
                             <td class=""><span class="badge badge-danger"> Pending </span></td>
                             @elseif($vehicle->status == 2)
                             <td class=""><span class="badge badge-danger"> Deactivate </span></td>
-                          @else
+                            @else
                             <td class=""><span class="badge badge-success"> Accepted </span></td>
                             @endif
                             @if($vehicle->start_vehicle_date > date('Y-m-d') && $vehicle->start_vehicle_date != null)
                             <td class=""><span class="badge badge-info"> Tomorrow </span></td>
                             @elseif($vehicle->start_vehicle_date < date('Y-m-d') && $vehicle->start_vehicle_date != null)
-                            <td class=""><span class="badge bg-danger"> Sale End </span></td>
-                            @elseif($vehicle->start_vehicle_date == date('Y-m-d') && $vehicle->start_vehicle_date != null)
-                            <td class=""><span class="badge badge-info"> Today </span></td>
-                          @else
-                            <td class=""><span class="badge badge-success"> Buy It Now </span></td>
-                            @endif
-                            <td>
-                                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
-                            </td>
-                            
-                            <td>
-                                
-                                @if($vehicle->status == 0)
-                                <a href="{{ route('approveSellerVehicle',$vehicle->id) }}"><span class="badge badge-success w-100 my-1">Approve</span></a>
-                                @elseif($vehicle->status == 1)
-                                <a href="{{ route('deactivateSellerVehicle',$vehicle->id) }}"><span class="badge badge-danger my-1 w-100">Deactivate</span></a>
-                                
+                                <td class=""><span class="badge bg-danger"> Sale End </span></td>
+                                @elseif($vehicle->start_vehicle_date == date('Y-m-d') && $vehicle->start_vehicle_date != null)
+                                <td class=""><span class="badge badge-info"> Today </span></td>
+                                @else
+                                <td class=""><span class="badge badge-success"> Buy It Now </span></td>
                                 @endif
-                                <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge badge-success w-100">View Details</span></a>
-                                <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge badge-danger w-100 my-1">Delete</span></a>
-                            </td>
+                                <td>
+                                    @if(isset($vehicle->VehicleImage))
+                                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
+                                    @endif
+                                </td>
+
+                                <td>
+
+                                    @if($vehicle->status == 0)
+                                    <a href="{{ route('approveSellerVehicle',$vehicle->id) }}"><span class="badge badge-success w-100 my-1">Approve</span></a>
+                                    @elseif($vehicle->status == 1)
+                                    <a href="{{ route('deactivateSellerVehicle',$vehicle->id) }}"><span class="badge badge-danger my-1 w-100">Deactivate</span></a>
+
+                                    @endif
+                                    <a href="{{ route('editVehicle',$vehicle->id) }}"><span class="badge badge-success w-100">View Details</span></a>
+                                    <a href="{{ route('deleteVehicle',$vehicle->id) }}"><span class="badge badge-danger w-100 my-1">Delete</span></a>
+                                </td>
 
                         </tr>
                         @endforeach
