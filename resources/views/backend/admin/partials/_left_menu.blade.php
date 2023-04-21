@@ -40,17 +40,20 @@
     </li>
    
   
-    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
+    <li class="sidebar-item  has-sub {{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/deleted-vehicles')  || request()->IS('admin/view-vehcile') ? 'active' : '') }} ">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Manage Your Vehicle</span>
         </a>
-        <ul class="submenu" style="display:{{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/view-vehcile') ? 'block' : '') }}">
+        <ul class="submenu" style="display:{{ (Request::is('admin') || request()->IS('admin/add-vehicle') || request()->IS('admin/deleted-vehicles')  || request()->IS('admin/view-vehcile') ? 'block' : '') }}">
             <li class="submenu-item {{ request()->IS('admin/add-vehicle') ? 'active' : '' }}">
                 <a href="{{ route('createVehicleForm') }} ">Add Vehicle</a>
             </li>
             <li class="submenu-item {{ request()->IS('admin/view-vehcile') ? 'active' : '' }}">
                 <a href="{{ route('viewVehicle') }}">View Vehicle</a>
+            </li>
+            <li class="submenu-item {{ request()->IS('admin/deleted-vehicles') ? 'active' : '' }}">
+                <a href="{{ route('deletedVehicleItems') }}">Deleted Vehicle</a>
             </li>
             
         </ul>

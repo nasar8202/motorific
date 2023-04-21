@@ -211,6 +211,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::get('/approved-dealers-list', [AdminDashboardController::class,'approvedDealersByAdmin'])->name('dealer.approvedDealersByAdmin');
     Route::get('/dealers-purchase/{id}', [AdminDashboardController::class,'dealersPurchase'])->name('dealersPurchase');
+    Route::get('/dealers-details/{id}', [AdminDashboardController::class,'dealersDetail'])->name('dealersDetail');
     Route::get('/block-dealers-list', [AdminDashboardController::class,'blockDealersByAdmin'])->name('dealer.blockDealersByAdmin');
     Route::get('/view-new-vehicle', [AdminDashboardController::class,'viewSellerVehicle'])->name('viewSellerVehicle');
     Route::get('/view-seller-deatils/{id}', [SellerVehicleController::class,'viewSellerDetails'])->name('viewSellerDetails');
@@ -366,6 +367,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
      Route::get('/edit-vehicle/{id}', [ManageVehicleController::class,'editVehicle'])->name('editVehicle');
      Route::post('/update-vehicle/{id}', [ManageVehicleController::class,'updateVehicle'])->name('updateVehicle');
      Route::get('/delete-vehicle/{id}', [ManageVehicleController::class,'deleteVehicle'])->name('deleteVehicle');
+     Route::get('/deleted-vehicles', [ManageVehicleController::class,'deletedVehicleItems'])->name('deletedVehicleItems');
+     Route::get('/restore-vehicle/{id}', [ManageVehicleController::class,'restoreVehicle'])->name('restoreVehicle');
      Route::get('/approve-vehicle/{id}', [ManageVehicleController::class,'approveVehicle'])->name('approveVehicle');
      // end vehcile
 

@@ -44,7 +44,7 @@ class ManageVehicleController extends Controller
 
     public function findVehicle(Request $request)
     {
-        $seller = User::where('role_id',2)->where('status',1)->get();
+        $seller = User::where('role_id', 2)->where('status', 1)->get();
         $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
         $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
         $vehicleCategories = vehicleCategories::all();
@@ -58,8 +58,8 @@ class ManageVehicleController extends Controller
         $Finances =  Finance::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $registeration = str_replace(' ', '', $request->registeration);
-        
-       
+
+
 
         $curl = curl_init();
 
@@ -86,14 +86,14 @@ class ManageVehicleController extends Controller
         $res = json_decode($response);
         if (isset($res->registrationNumber)) {
 
-            return view('backend.admin.manageVehicle.createVehicle', compact('VehicleHistories','seller','res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+            return view('backend.admin.manageVehicle.createVehicle', compact('VehicleHistories', 'seller', 'res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         } else {
             return back()->with('error', 'Record not found');
         }
     }
     public function createVehicleForm()
     {
-        $seller = User::where('role_id',2)->where('status',1)->get();
+        $seller = User::where('role_id', 2)->where('status', 1)->get();
         $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
         $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
         $vehicleCategories = vehicleCategories::all();
@@ -106,8 +106,8 @@ class ManageVehicleController extends Controller
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
-        
-        return view('backend.admin.manageVehicle.createVehicle', compact('seller','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
+
+        return view('backend.admin.manageVehicle.createVehicle', compact('seller', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories', 'VehicleHistories'));
     }
     public function StoreVehicleByAdmin(Request $request)
     {
@@ -161,7 +161,7 @@ class ManageVehicleController extends Controller
 
         $zip = ($request->post_code);
         $postcode = str_replace(' ', '', $zip);
-       
+
 
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=.'$postcode'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk";
 
@@ -171,7 +171,7 @@ class ManageVehicleController extends Controller
             $result_string = file_get_contents($url);
             $result = json_decode($result_string, true);
             if (count($result['results']) != 0) {
-                
+
                 $seller = new User;
                 $seller->name = $request->name;
                 $seller->email = $request->email;
@@ -183,7 +183,7 @@ class ManageVehicleController extends Controller
                 $seller->save();
 
                 $seller_id = $seller->id;
-            
+
 
                 $vehicle = new Vehicle;
                 $vehicle->user_id = $seller_id;
@@ -298,7 +298,7 @@ class ManageVehicleController extends Controller
                 $data = ([
                     'name' => $seller->name,
                     'email' => $seller->email,
-                    'date' => $seller->created_at ,
+                    'date' => $seller->created_at,
                     'vehicle_registration' => $vehicle->vehicle_registartion_number,
                     'vehicle_name' => $vehicle->vehicle_name,
                     'vehicle_mileage' => $vehicle->vehicle_mileage,
@@ -306,12 +306,12 @@ class ManageVehicleController extends Controller
                     'colour' => $vehicle->vehicle_color,
                     'age' => $vehicle->vehicle_year,
                     'password' => $request->password,
-                  ]);
-            
-                  Mail::to($seller->email)->send(new NewSellerVehicleByAdmin($data));
-                  DB::commit();
+                ]);
 
-        return redirect()->route('createVehicleForm')->with('success', 'Vehicle added  Successfully!');
+                Mail::to($seller->email)->send(new NewSellerVehicleByAdmin($data));
+                DB::commit();
+
+                return redirect()->route('createVehicleForm')->with('success', 'Vehicle added  Successfully!');
             } else {
                 return back()->with('error', 'Enter The Right Post Code');
             }
@@ -323,12 +323,11 @@ class ManageVehicleController extends Controller
                 ->with('error', $e->getMessage())
                 ->withInput();
         }
-        
     }
     public function viewVehicle()
     {
 
-        $vehicles = Vehicle::where('vehicle_availability','=',null)->with('vehicleInformation')->with('VehicleImage')->orderBy('id','DESC')->get();
+        $vehicles = Vehicle::where('vehicle_availability', '=', null)->with('vehicleInformation')->with('VehicleImage')->orderBy('id', 'DESC')->get();
         //    dd($vehicles);
         return view('backend.admin.manageVehicle.viewVehicle', compact('vehicles'));
     }
@@ -352,36 +351,36 @@ class ManageVehicleController extends Controller
 
 
                 $vehicles = Vehicle::find($id);
-                $vehicleInformation = vehicleInformation::where('vehicle_id', $id)->first();
-                $VehicleImage = VehicleImage::where('vehicle_id', $id)->first();
-                $VehicleInterior = VehicleInterior::where('vehicle_id', $id)->first();
-                $VehicleExterior = VehicleExterior::where('vehicle_id', $id)->first();
+                // $vehicleInformation = vehicleInformation::where('vehicle_id', $id)->first();
+                // $VehicleImage = VehicleImage::where('vehicle_id', $id)->first();
+                // $VehicleInterior = VehicleInterior::where('vehicle_id', $id)->first();
+                // $VehicleExterior = VehicleExterior::where('vehicle_id', $id)->first();
                 $vehicles->delete();
-                $VehicleInterior->delete();
-                $VehicleExterior->delete();
-                $vehicleInformation->delete();
+                // $VehicleInterior->delete();
+                // $VehicleExterior->delete();
+                // $vehicleInformation->delete();
 
 
-                if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->front))) {
-                    unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->front));
-                }
+                // if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->front))) {
+                //     unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->front));
+                // }
 
-                if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->passenger_rare_side_corner))) {
-                    unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->passenger_rare_side_corner));
-                }
+                // if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->passenger_rare_side_corner))) {
+                //     unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->passenger_rare_side_corner));
+                // }
 
-                if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->driver_rare_side_corner))) {
-                    unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->driver_rare_side_corner));
-                }
+                // if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->driver_rare_side_corner))) {
+                //     unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->driver_rare_side_corner));
+                // }
 
-                if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->interior_front))) {
-                    unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->interior_front));
-                }
+                // if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->interior_front))) {
+                //     unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->interior_front));
+                // }
 
-                if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->dashboard))) {
-                    unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->dashboard));
-                }
-                $VehicleImage->delete();
+                // if (file_exists(public_path("/vehicles/vehicles_images/" . $VehicleImage->dashboard))) {
+                //     unlink(public_path("/vehicles/vehicles_images/" . $VehicleImage->dashboard));
+                // }
+                // $VehicleImage->delete();
             }
         } catch (\Exception $e) {
             // return $e;
@@ -392,6 +391,26 @@ class ManageVehicleController extends Controller
         }
         DB::commit();
         return redirect()->route('viewVehicle')->with('success', 'Vehicle Deleted  Successfully!');
+    }
+    public function deletedVehicleItems()
+    {
+        $vehicles = Vehicle::where('vehicle_availability', '=', null)->with('vehicleInformation')->with('VehicleImage')->orderBy('id', 'DESC')->onlyTrashed()->get();
+        return view('backend.admin.manageVehicle.deleteVehicle', compact('vehicles'));
+    }
+    public function restoreVehicle($id)
+    {
+        DB::beginTransaction();
+        try {
+            $alreadyVehicles = Vehicle::withTrashed()->find($id)->restore();
+        } catch (\Exception $e) {
+            // return $e;
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error', $e->getMessage())
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('deletedVehicleItems')->with('success', 'Vehicle Restore  Successfully!');
     }
     public function editVehicle($id)
     {
@@ -404,7 +423,7 @@ class ManageVehicleController extends Controller
         $damages = vehicleConditionAndDamage::where('vehicle_id', $id)->first();
         $exterior = VehicleExterior::where('vehicle_id', $id)->first();
         $interior = VehicleInterior::where('vehicle_id', $id)->first();
-//  dd($interior,$exterior);
+        //  dd($interior,$exterior);
         $vehicleCategories = vehicleCategories::all();
         $VehicleFeatures =  VehicleFeature::where('status', 1)->get();
         $NumberOfKeys =  NumberOfKey::where('status', 1)->get();
@@ -418,7 +437,7 @@ class ManageVehicleController extends Controller
         $Finances =  Finance::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $liveselltime = LiveSaleTime::first();
-        return view('backend.admin.manageVehicle.editVehicle', compact('exterior', 'interior', 'VehicleFeatures', 'seller', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicles', 'vehicleInformation', 'VehicleImage', 'damages', 'vehicleCategories','VehicleHistories', 'liveselltime'));
+        return view('backend.admin.manageVehicle.editVehicle', compact('exterior', 'interior', 'VehicleFeatures', 'seller', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicles', 'vehicleInformation', 'VehicleImage', 'damages', 'vehicleCategories', 'VehicleHistories', 'liveselltime'));
     }
     public function updateVehicle(Request $request, $id)
     {
@@ -481,13 +500,13 @@ class ManageVehicleController extends Controller
                 // }
                 // else{
 
-                
+
                 $start_date = $request->start_vehicle_date;
                 $start_time = $request->start_vehicle_time;
                 $end_date = $request->start_vehicle_date;
                 $end_time = $request->end_vehicle_time;
                 $auction_date_time = null;
-           // }
+                // }
             }
 
             $vehicle = Vehicle::find($id);
@@ -513,7 +532,7 @@ class ManageVehicleController extends Controller
             $vehicle->retail_price = $request->retail_price;
             $vehicle->clean_price = $request->clean_price;
             $vehicle->reserve_price = $request->reserve_price;
-            
+
             $vehicle->average_price = $request->average_price;
             $vehicle->hidden_price = $request->hidden_price;
             $vehicle->status = 0;
@@ -529,7 +548,7 @@ class ManageVehicleController extends Controller
             $seller->phone_number = $request->phone_number;
             // $seller->password = Hash::make($request->password);
             $seller->save();
-           
+
             $vehicle_feature_id =  implode(',', $request->vehicle_feature);
 
             $vehicleInformation = vehicleInformation::where('vehicle_id', $id)->first();
@@ -657,27 +676,26 @@ class ManageVehicleController extends Controller
                 'name' => $seller->name,
                 'vehicle_id' => $vehicle->id,
                 'user_id' => $seller->id,
-                'front'=> $VehicleImage->front,
-                'date' => $winDate.' at '.$winTime,
-                'reserve_price'=>$request->reserve_price,
-                'vehicle_registration'=>$vehicle->vehicle_registartion_number,
-                'vehicle_name'=>$vehicle->vehicle_name,
-                'vehicle_mileage'=>$vehicle->vehicle_mileage,
-                'age'=>$vehicle->vehicle_year,
-                'colour'=>$vehicle->vehicle_color,
+                'front' => $VehicleImage->front,
+                'date' => $winDate . ' at ' . $winTime,
+                'reserve_price' => $request->reserve_price,
+                'vehicle_registration' => $vehicle->vehicle_registartion_number,
+                'vehicle_name' => $vehicle->vehicle_name,
+                'vehicle_mileage' => $vehicle->vehicle_mileage,
+                'age' => $vehicle->vehicle_year,
+                'colour' => $vehicle->vehicle_color,
             ]);
 
             Mail::to($vehicle->user->email)->send(new VehicleValuationPrice($data));
             // Mail::to($vehicle->user->email)->send(new EveryDayEightAm($data));
-            
+
         } catch (\Exception $e) {
-           
+
             DB::rollback();
-            
+
             return Redirect()->back()
                 ->with('error', $e->getMessage())
                 ->withInput();
-
         }
         DB::commit();
 

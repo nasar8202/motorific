@@ -60,6 +60,7 @@
                             <td>
                                 <a href="{{route('dealersPurchase',$dealer->id)}}"><span class="badge bg-success badge-success">View Dealer Purchases</span></a>
                                 <a href="{{ route('dealer.block',$dealer->id) }}"><span class="badge bg-danger">Block</span></a>
+                                <a href="{{route('dealersDetail',$dealer->id)}}"><span class="badge bg-success badge-info text-white">View Dealer Detail</span></a>
                             </td>
                         </tr>
 
