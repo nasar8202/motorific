@@ -2,12 +2,12 @@
 @section('title', 'Seller Profile')
 @section('section')
 {{-- @section('headerClass','header-career transparent-header')
-@section('headerUlClass','navlinks-w')
-@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('headerUlClass','navlinks')
+@section('logoMain','frontend/seller/assets/image/logo.png')
 @section('ContainerHeader','container-1600 d-flex justify-content-between') --}}
 @section('headerClass','')
 @section('headerUlClass','navlinks')
-@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo.png')
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
     <style>
         .dropdown {
@@ -203,8 +203,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">Post Code</label>
-                                <input type="number" name="post_code" class="form-control"
-                                    value="{{ $currentUser->post_code }}" placeholder="7500,7200,etc">
+                                <!-- value="{{ $currentUser->post_code }}" -->
+                                <input type="text" name="post_code" class="form-control" value="{{ $currentUser->post_code }}"
+                                     placeholder="SW18 1JZ">
                                 @if ($errors->has('post_code'))
                                     <span class="text-danger">{{ $errors->first('post_code') }}</span>
                                 @endif

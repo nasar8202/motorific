@@ -44,7 +44,7 @@
                             <label class="gallery-top-text mb-10 f-18">Exterior</label>
                             <span>(Upload 5 pictures only)</span>
                             <div class="cts-files">
-                                <input type="file" onchange="uploadFile(this)" class="upload-img-btn uploadfile-exterior" name="image_1[]"
+                                <input type="file" onchange="uploadFile_1(this)"  class="upload-img-btn-qa-1 upload-img-btn uploadfile-exterior" name="image_1[]"
                                     class="" multiple id="image_1" accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png') }}">
                                 <div class="upload-imgErros"></div>
@@ -126,11 +126,11 @@
                         </div>
 
                         <div class="mt-40">
-
+                            <!-- // qambar-ali  -->
                             <label class="gallery-top-text mb-10 f-18">Interior</label>
                             <span>(Upload 5 pictures only)</span>
                             <div class="cts-files">
-                                <input type="file" onchange='uploadFile(this)' class="upload-img-btn"
+                                <input type="file" onchange="uploadFile_2(this)" class="upload-img-btn-qa-2 upload-img-btn"
                                     id="interior_image_1" name="interior_image_1[]" class="" multiple
                                     accept="image/*">
                                 <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png') }}">
@@ -235,7 +235,7 @@
 
                                 <label class="gallery-top-text mb-10 f-18">Interior</label>
                                 <div class="cts-files">
-                                    <input type="file" onchange='uploadFile(this)' class="upload-img-btn"
+                                    <input type="file" onchange="uploadFile_3(this)" class="upload-img-btn-qa-3 upload-img-btn"
                                         name="tyre_image[]" class="" multiple id="tyre_image" accept="image/*">
                                     <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png') }}">
                                     <div class="upload-imgErros"></div>
@@ -1858,6 +1858,83 @@
 <!--step-form-sec-dealer-main-->
 @push('child-scripts')
     <script type="text/javascript">
+
+function compressimage(e) {
+  var file = e.files[0];
+  var imgPreview = e.nextElementSibling
+
+  
+  var reader = new FileReader();
+  // Read the image file
+  reader.readAsDataURL(file);
+
+  // Resize the image when loaded
+  reader.onload = function () {
+      var img = new Image();
+      img.src = reader.result;
+      img.onload = function () {
+
+          // Set the maximum file size in bytes (500kb)
+          var maxFileSize = 500 * 1024;
+
+          // Resize the image if necessary
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          var width = img.width;
+          var height = img.height;
+          var ratio = width / height;
+          
+          if (file.size > maxFileSize) {
+              width = Math.sqrt(maxFileSize * ratio);
+              height = width / ratio;
+
+          }
+
+          console.log('width3 ',width);
+          console.log('height3 ',height);
+          canvas.width = width;
+          canvas.height = height;
+
+          ctx.drawImage(img, 0, 0, width, height);
+
+          // Set the preview image source to the resized image
+          imgPreview.src = canvas.toDataURL('image/jpeg', 0.8);
+          imgPreview.width = width;
+          imgPreview.height = height;
+      }
+  }
+}
+        //  qambar-ali 
+
+//         function previewImages() {
+//             var preview = document.querySelector('#selectedFiles');
+//             var images = document.querySelector('#image_1').files;
+
+//             function readAndPreview(file) {
+//                 if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+//                     var reader = new FileReader();
+
+//                     reader.addEventListener("load", function () {
+//                         var image = new Image();
+//                         image.height = 100;
+//                         image.title = file.name;
+//                         image.src = this.result;
+//                         preview.appendChild( image );
+//                     }, false);
+
+//                     reader.readAsDataURL(file);
+//                 }
+//             }
+
+//             if (images) {
+//                 [].forEach.call(images, readAndPreview);
+//             }
+//         }
+
+// document.querySelector('#image_1').addEventListener("change", previewImages);
+
+
+
         $(document).ready(function() {
             console.log(' document');
             $(".any_damage_checked_label_no").click(function() {
@@ -1935,7 +2012,11 @@
             }
         });
       }
-   
+
+
+
+
+
    
 </script>
 

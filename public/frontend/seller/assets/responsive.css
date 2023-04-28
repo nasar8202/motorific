@@ -1712,19 +1712,7 @@ section.sec-8 {
 .productsFilters h2 {
     font-size: 31px;
 }
-.col-sm-4.vec-box.p-0 {
-    width: 100%;
-    margin-bottom: 0;
-}
 
-.col-sm-8.vec-box.p-0 {
-    width: 100%;
-    padding-left: 20px !important;
-}
-
-.vec-box img {
-    padding-right: 0px;
-}
 
 .thnk-content h2 {
     font-size: 20px;
@@ -2939,10 +2927,6 @@ section.sec-2.productPageTn .justify-content-between.align-items-center.d-flex {
     padding-bottom: 20px;
 }
 
-section.sec-2.productPageTn .vec-box {
-    height: auto;
-    padding-left: 10px !important;
-}
 .card-body.pt-0.resp-set  table.table.table-bordered tbody tr {
     display: flex;
     flex-direction: column;

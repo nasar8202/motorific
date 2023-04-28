@@ -12,7 +12,7 @@
 
 <!-- MultiStep Form -->
 
-<section class="sec-2 productPageTn">
+<section class="sec-2 productPageTn hm-hiw-sec">
 <div class="container">
     <div class="row">
         

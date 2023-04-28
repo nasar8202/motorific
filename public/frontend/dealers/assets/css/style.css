@@ -246,22 +246,6 @@ header.header {
 
 /* HEADER CSS ENDS */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .btn-icon{
     background: none;
     outline: none;
@@ -470,8 +454,6 @@ header.header {
     border-radius: 30px;
 }
 
-
-
 /* CREATE ADVERT PAGE CSS */
 .create-advert-sec{
     position: relative;
@@ -497,9 +479,6 @@ header.header {
     position: relative;
     z-index: 20;
 }
-
-
-
 
 .create-advert-sec::before {
     content: '';
@@ -1097,11 +1076,27 @@ div#next, div#next-ext {
     background: #05eab5;
     color: #fff;
 }
+.yad-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.yad-card {
+    margin-top: 10px;
+}
 /*hamza css */
 
 
 
 /*usama*/
+.vec-box-row {
+    height: 250px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
 .vec-box {
     background: #3f3f3f;
     color: white;
@@ -1110,15 +1105,15 @@ div#next, div#next-ext {
 .vec-box h1 {
     background: #ffe900;
     width: 200px;
-    margin-top: 20px;
 }
 .vec-box {
-    height: 150px;
-        margin-bottom: 10px;
+    height: 100%;
 }
 
 .vec-box img {
-    height: 150px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .vec-box button.btn.btn-primary.ms-4 {
@@ -1135,6 +1130,26 @@ div#next, div#next-ext {
 .vec-box .card.card-body ul li a {
     color: white;
     text-decoration: none;
+}
+.vec-box-big h1 {
+    font-size: 20px;
+    padding: 5px;
+}
+
+span.req-price {
+    margin-right: 30px;
+}
+
+.vec-box-big .card.card-body {
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    min-width: 250px;
+}
+
+.vec-box-big {
+    position: relative;
+    padding: 20px;
 }
 .filterIn p a {
     text-decoration: none;
@@ -1298,13 +1313,7 @@ div#loop .col-lg-3.col-md-3.blur_action {
 section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     overflow-x: initial;
 }
-.requested-vehicles .vec-box {
-    height: auto;
-    margin-bottom: 10px;
-}
-.requested-vehicles  .vec-box img {
-    height: 100%;
-}
+
 .requested-vehicles .vec-box {
     background: #202543cc;
     color: white;
@@ -1312,9 +1321,6 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
 .requested-vehicles .vec-box h1 {
     background: #202543;
 
-}
-.requested-vehicles .vec-box img {
-    padding-right: 10px;
 }
 /*End*/
 
@@ -1699,6 +1705,10 @@ section.sec-2.productPageTn.requested-vehicles .col-lg-12.col-md-12 {
     left: 60%;
     transform: translate(-50%, -0%);
     z-index: -1;
+}
+.HowItWorks_rightBlock__wZjbr span {
+    font-weight: 700;
+    font-size: 18px;
 }
 
 
@@ -2150,6 +2160,30 @@ button.btn-Next svg {
 .form-btnBox button {
     margin-left: 0 !important;
 }
+.dealerlogins .form-card ~ span a {
+    color: #05eab5;
+}
+.dealerlogins fieldset ~ span a {
+    color: #05eab5;
+}
+.dealerlogins .btn-primary {
+    background: #05eab5;
+    border-color: #05eab5;
+    transition: all .4s ease;
+}
+.dealerlogins .btn-primary:hover {
+    background:  #7977a2;
+    border-color: #7977a2;
+}
+.dealerlogins ~ a {
+    color: #05eab5;
+}
+
+.logins-container#grad1 {
+    padding: 50px 0;
+    border: 0;
+    margin-bottom: 0;
+}
 
 
 /*End*/
@@ -2312,11 +2346,6 @@ button.btn-Next svg {
     background: white;
 }
 
- section.sec-2.productPageTn.requested-vehicles .col-sm-8{
-
-
-
-}
 section.sec-2.productPageTn.requested-vehicles .col-sm-4, section.sec-2.productPageTn.requested-vehicles .col-sm-8{
      margin-bottom: 19px; 
  
@@ -2404,3 +2433,27 @@ td.set-scr img {
 }
 
 /*New Footer Css End*/
+
+/* vehicle index page  */
+.filterbtn {
+    background: #05eab5;
+    border-color: #05eab5;
+    transition: all .4s ease;
+}
+
+.filterbtn:hover {
+    background: #7977a2;
+    border-color: #7977a2;
+}
+
+.clearbtn {
+    background: #7977a2;
+    border-color: #7977a2;
+    transition: all .4s ease;
+}
+
+.clearbtn:hover {
+    background: #05eab5;
+    border-color: #05eab5;
+}
+/* vehicle index page  */

@@ -149,9 +149,9 @@ div#filter-price {
                         <label class="selectCommon selectSingle">
                             <select name="mileAgePro" id="mileAgePro" >
                                 <option disabled selected value=""> Select MileAge </option>
-                                <option value="100000"> < 10,0000</option>
-    							<option value="500000"> < 50,0000</option>
-    							<option value="1000000"> < 100,0000</option>
+                                <option value="100000"> < 10k</option>
+    							<option value="500000"> < 50k</option>
+    							<option value="1000000"> < 100k</option>
                             </select>
                         </label>
                     </div>
@@ -160,9 +160,9 @@ div#filter-price {
                         <label class="selectCommon selectSingle">
                             <select name="agePro1" id="agePro">
                                 <option selected disabled value=""> Select Age </option>
-                                <option value="10"> < 10</option>
-    							<option value="50"> < 50</option>
-    							<option value="100"> < 100</option>
+                                <option value="5"> < 5</option>
+    							<option value="10"> < 10</option>
+    							<option value="15"> < 15</option>
                             </select>
                         </label>
                     </div>

@@ -59,7 +59,7 @@ class AuctionClosingWithinHour extends Command
             Mail::to($data1->email)->send(new AuctionClosingWthinHourMail($data));
         }
      
-           $log = Log::info($data);
+           $log = Log::info('working within hour cron job');
         return "work";
 
     }

@@ -2205,8 +2205,8 @@ display: block;
                                 <div class="add-photos-numbering">
                                     <h3>1</h3>
                                 </div>
-                                <input class="hz-img-input" type="file" name="image1" id="photo1" accept="image/*" maxlength="500000" />
-                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt="" accept="image/*" />
+                                <input class="hz-img-input" type="file" name="image1" id="photo1" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt=""  accept="image/*" />
                                 <div class='text-danger error-msg-frontend'></div>
                             </label>
                             @if ($errors->has('image1'))
@@ -2219,8 +2219,8 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>2</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image2" id="photo2" accept="image/*" maxlength="500000" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}" alt="" accept="image/*" />
+                                    <input class="hz-img-input" type="file" name="image2" id="photo2" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
                                 @if ($errors->has('image2'))
@@ -2237,7 +2237,7 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>3</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image3" id="photo4" accept="image/*" maxlength="500000" />
+                                    <input class="hz-img-input" type="file" name="image3" id="photo4" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2252,8 +2252,8 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>4</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image4" id="photo5" accept="image/*" maxlength="500000" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}" alt="" accept="image/*" />
+                                    <input class="hz-img-input" type="file" name="image4" id="photo5" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
@@ -2267,8 +2267,8 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>5</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image5" id="photo6" accept="image/*" maxlength="500000" />
-                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}" alt="" accept="image/*" />
+                                    <input class="hz-img-input" type="file" name="image5" id="photo6" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                    <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
                             </div>
@@ -2345,11 +2345,106 @@ display: block;
 @push('child-scripts')
 
 <script>
+
+    // photoupload size compress
+    // Get the input field and image preview element
+function compressimage(e) {
+    var file = e.files[0];
+    var imgPreview = e.nextElementSibling
+
+    
+    var reader = new FileReader();
+    // Read the image file
+    reader.readAsDataURL(file);
+
+    // Resize the image when loaded
+    reader.onload = function () {
+        var img = new Image();
+        img.src = reader.result;
+        img.onload = function () {
+
+            // Set the maximum file size in bytes (500kb)
+            var maxFileSize = 500 * 1024;
+
+            // Resize the image if necessary
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            var width = img.width;
+            var height = img.height;
+            var ratio = width / height;
+            
+            if (file.size > maxFileSize) {
+                width = Math.sqrt(maxFileSize * ratio);
+                height = width / ratio;
+
+            }
+
+            console.log('width3 ',width);
+            console.log('height3 ',height);
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // Set the preview image source to the resized image
+            imgPreview.src = canvas.toDataURL('image/jpeg', 0.8);
+            imgPreview.width = width;
+            imgPreview.height = height;
+        }
+    }
+}
+
+        // var fileUpload = document.getElementById('photo1');
+		// var imgPreview = document.getElementById('imgPreview');
+		
+		// // Listen for changes to the input field
+		// fileUpload.addEventListener('change', function() {
+		// 	var file = this.files[0];
+		// 	var reader = new FileReader();
+			
+		// 	// Read the image file
+		// 	reader.readAsDataURL(file);
+			
+		// 	// Resize the image when loaded
+		// 	reader.onload = function() {
+		// 		var img = new Image();
+		// 		img.src = reader.result;
+		// 		img.onload = function() {
+					
+		// 			// Set the maximum file size in bytes (500kb)
+		// 			var maxFileSize = 500 * 1024;
+					
+		// 			// Resize the image if necessary
+		// 			var canvas = document.createElement('canvas');
+		// 			var ctx = canvas.getContext('2d');
+		// 			var width = img.width;
+		// 			var height = img.height;
+		// 			var ratio = width / height;
+					
+		// 			if (file.size > maxFileSize) {
+		// 				width = Math.sqrt(maxFileSize * ratio);
+		// 				height = width / ratio;
+		// 			}
+					
+		// 			canvas.width = width;
+		// 			canvas.height = height;
+					
+		// 			ctx.drawImage(img, 0, 0, width, height);
+					
+		// 			// Set the preview image source to the resized image
+		// 			imgPreview.src = canvas.toDataURL('image/jpeg', 0.8);
+		// 			imgPreview.width = width;
+		// 			imgPreview.height = height;
+		// 		}
+		// 	}
+		// });
+
+    // photoupload size compress
         var form = document.querySelector('.hz-form');
         var input = document.querySelector('.hz-img-input');
         form.addEventListener('submit', function(event) {
-          if (input.files && input.files[0] && input.files[0].size > 500000) {
-            alert('File size must be less than 500KB');
+          if (input.files && input.files[0] && input.files[0].size > 5000000) {
+            alert('File size must be less than 5mb');
             input.value = '';
             event.preventDefault();
           }

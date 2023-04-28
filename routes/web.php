@@ -466,6 +466,8 @@ Route::group(['prefix' => 'seller','middleware'=>['auth','seller']], function ()
     Route::get('/thankyou', [SellerDashboardController::class,'thankyou'])->name('thankyou');
 Route::get('/dashboard', [SellerDashboardController::class,'seller'])->name('seller');
 Route::get('/accepted-vehicles', [SellerDashboardController::class,'acceptedVehicles'])->name('acceptedVehicles');
+Route::get('/complete-profile-vehicles', [SellerDashboardController::class,'completeProfileVehicles'])->name('completeProfileVehicles');
+Route::get('/continue-profile-vehicles/{id}', [SellerDashboardController::class,'continueCompleteProfile'])->name('continueCompleteProfile');
 Route::get('/bids-on-my-vehicles/{id}', [SellerDashboardController::class,'bidsOnVehicles'])->name('bidsOnVehicles');
 Route::get('/seller-sold-dealer-detail/{id}', [SellerDashboardController::class,'sellersSoldDealerDetails'])->name('sellersSoldDealerDetails');
 Route::get('/mark-as-sold-vehicles/{id}', [SellerDashboardController::class,'marksAsSoldVehicles'])->name('marksAsSoldVehicles');

@@ -385,42 +385,144 @@ $(document).ready(function () {
 
 
 
-let fileListArr;
-function uploadFile(elem) {
+// let fileListArr;
+// function uploadFile(elem) {
+//   console.log('aaaaaaaaaaaa');
+//   let files = elem.files;
+//   let chkIfItsExterior = $(elem).hasClass('uploadfile-exterior')
+//   if(chkIfItsExterior){
+//     $('#selected-first-img-qa').attr('src', URL.createObjectURL(elem.files[0]));
+//   }
+//   let imgsDiv = elem.nextElementSibling.nextElementSibling.nextElementSibling;
+//   imgsDiv.innerHTML = ''
+//   let errorDiv = elem.nextElementSibling.nextElementSibling;
+//   fileListArr = Array.from(files)
+//   if (fileListArr.length > 5 ) {
+//     errorDiv.textContent = 'Select Upto 5 images Only';
+//     fileListArr = '';
+//     elem.value = '';
+//   }
+//   else {
+//     errorDiv.textContent = '';
+//     fileListArr.forEach(function (f) {
+//       if (!f.type.match("image.*")) {
+//         return;
+//       }
+//       var reader = new FileReader();
+//       reader.onload = function (e) {
+//         imgsDiv.innerHTML += "<div class='image-box'  ><img src=\"" + e.target.result + "\"> <button type='button' onclick='Remove(this)' class='remove-img-btn'>X</div>";
+//       }
+//       reader.readAsDataURL(f);
+//     });
+//   }
+
+// }
+
+
+let fileListArr_1;
+function uploadFile_1(elem) {
+  console.log('length ', fileListArr_1?.length, elem.files.length);
+  let errorDiv = elem.nextElementSibling.nextElementSibling;
+  if (fileListArr_1?.length === 5 || elem.files.length > 5 || elem.files.length+fileListArr_1?.length > 5 ) {
+    errorDiv.textContent = 'Select Upto 5 images Only';
+    // fileListArr_1 = '';
+    // elem.value = '';
+    return;
+  }
   let files = elem.files;
-  // console.log('files ', elem.files)
   let chkIfItsExterior = $(elem).hasClass('uploadfile-exterior')
-  if(chkIfItsExterior){
+  if (chkIfItsExterior) {
     $('#selected-first-img-qa').attr('src', URL.createObjectURL(elem.files[0]));
   }
   let imgsDiv = elem.nextElementSibling.nextElementSibling.nextElementSibling;
   imgsDiv.innerHTML = ''
-  let errorDiv = elem.nextElementSibling.nextElementSibling;
-  fileListArr = Array.from(files)
-  if (fileListArr.length > 5) {
-    fileListArr = '';
-    elem.value = '';
-    errorDiv.textContent = 'Select Upto 5 images Only';
-  }
-  else {
-    errorDiv.textContent = '';
-    fileListArr.forEach(function (f) {
-      if (!f.type.match("image.*")) {
-        return;
-      }
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        imgsDiv.innerHTML += "<div class='image-box'  ><img src=\"" + e.target.result + "\"> <button type='button' onclick='Remove(this)' class='remove-img-btn'>X</div>";
-      }
-      reader.readAsDataURL(f);
-    });
-  }
-    
+  fileListArr_1 = fileListArr_1 ? fileListArr_1.concat(Array.from(files)) : Array.from(files);
+  errorDiv.textContent = '';
+  fileListArr_1.forEach(function (f) {
+    if (!f.type.match("image.*")) {
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      imgsDiv.innerHTML += "<div class='image-box'  ><img src=\"" + e.target.result + "\"> <button type='button' onclick='Remove_1(this)' class='remove-img-btn'>X</div>";
+    }
+    reader.readAsDataURL(f);
+  });
+
 }
 
 
-function Remove(elem) {
-  // let inp = document.getElementById('selectFiles')
+
+let fileListArr_2;
+function uploadFile_2(elem) {
+  console.log('elem.files.length ', elem.files);
+  let errorDiv = elem.nextElementSibling.nextElementSibling;
+  if (fileListArr_2?.length === 5 || elem.files.length > 5 || elem.files.length+fileListArr_2?.length > 5 ) {
+    errorDiv.textContent = 'Select Upto 5 images Only';
+    // fileListArr_2 = '';
+    // elem.value = '';
+    return;
+  }
+  let files = elem.files;
+  // let chkIfItsExterior = $(elem).hasClass('uploadfile-exterior')
+  // if (chkIfItsExterior) {
+  //   $('#selected-first-img-qa').attr('src', URL.createObjectURL(elem.files[0]));
+  // }
+  let imgsDiv = elem.nextElementSibling.nextElementSibling.nextElementSibling;
+  imgsDiv.innerHTML = ''
+  fileListArr_2 = fileListArr_2 ? fileListArr_2.concat(Array.from(files)) : Array.from(files);
+  errorDiv.textContent = '';
+  fileListArr_2.forEach(function (f) {
+    if (!f.type.match("image.*")) {
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      imgsDiv.innerHTML += "<div class='image-box'  ><img src=\"" + e.target.result + "\"> <button type='button' onclick='Remove_2(this)' class='remove-img-btn'>X</div>";
+    }
+    reader.readAsDataURL(f);
+  });
+
+}
+
+
+
+let fileListArr_3;
+function uploadFile_3(elem) {
+  console.log('elem.files.length ', elem.files);
+  let errorDiv = elem.nextElementSibling.nextElementSibling;
+  if (fileListArr_3?.length === 5 || elem.files.length > 5 || elem.files.length+fileListArr_3?.length > 5 ) {
+    errorDiv.textContent = 'Select Upto 5 images Only';
+    // fileListArr_3 = '';
+    // elem.value = '';
+    return;
+  }
+  let files = elem.files;
+  // let chkIfItsExterior = $(elem).hasClass('uploadfile-exterior')
+  // if (chkIfItsExterior) {
+  //   $('#selected-first-img-qa').attr('src', URL.createObjectURL(elem.files[0]));
+  // }
+  let imgsDiv = elem.nextElementSibling.nextElementSibling.nextElementSibling;
+  imgsDiv.innerHTML = ''
+  fileListArr_3 = fileListArr_3 ? fileListArr_3.concat(Array.from(files)) : Array.from(files);
+  errorDiv.textContent = '';
+  fileListArr_3.forEach(function (f) {
+    if (!f.type.match("image.*")) {
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      imgsDiv.innerHTML += "<div class='image-box'  ><img src=\"" + e.target.result + "\"> <button type='button' onclick='Remove_3(this)' class='remove-img-btn'>X</div>";
+    }
+    reader.readAsDataURL(f);
+  });
+
+}
+
+
+
+
+function Remove_1(elem) {
   let inp = elem.parentNode.parentNode.parentNode.childNodes[1]
   const dt = new DataTransfer()
   let index = $(elem).parent('.image-box').prevAll().length;
@@ -429,17 +531,58 @@ function Remove(elem) {
     if (index !== i)
       dt.items.add(file) // here you exclude the file. thus removing it.
   }
-    if(inp.files.length === 0){
-        $('#selected-first-img-qa').attr('src', '');
-    }
+  if (inp.files.length === 0) {
+    $('#selected-first-img-qa').attr('src', '');
+  }
   inp.files = dt.files;
-  console.log('inp.files ', inp.files);
-  fileListArr.splice(index,1)
-  console.log('index ', index);
+  fileListArr_1.splice(index, 1)
   $(elem).parent('.image-box').remove()
-  console.log('URL.createObjectURL(inp.files[0]) ',URL.createObjectURL(inp.files[0]))
+  console.log('inp.files ',inp.files);
   $('#selected-first-img-qa').attr('src', URL.createObjectURL(inp.files[0]));
 }
+
+
+function Remove_2(elem) {
+  let inp = elem.parentNode.parentNode.parentNode.childNodes[1]
+  const dt = new DataTransfer()
+  let index = $(elem).parent('.image-box').prevAll().length;
+  for (let i = 0; i < inp.files.length; i++) {
+    const file = inp.files[i]
+    if (index !== i)
+      dt.items.add(file) // here you exclude the file. thus removing it.
+  }
+  if (inp.files.length === 0) {
+    $('#selected-first-img-qa').attr('src', '');
+  }
+  inp.files = dt.files;
+  fileListArr_2.splice(index, 1)
+  $(elem).parent('.image-box').remove()
+  // $('#selected-first-img-qa').attr('src', URL.createObjectURL(inp.files[0]));
+}
+
+
+function Remove_3(elem) {
+  let inp = elem.parentNode.parentNode.parentNode.childNodes[1]
+  const dt = new DataTransfer()
+  let index = $(elem).parent('.image-box').prevAll().length;
+  for (let i = 0; i < inp.files.length; i++) {
+    const file = inp.files[i]
+    if (index !== i)
+      dt.items.add(file) // here you exclude the file. thus removing it.
+  }
+  if (inp.files.length === 0) {
+    $('#selected-first-img-qa').attr('src', '');
+  }
+  inp.files = dt.files;
+  fileListArr_3.splice(index, 1)
+  $(elem).parent('.image-box').remove()
+  // $('#selected-first-img-qa').attr('src', URL.createObjectURL(inp.files[0]));
+}
+
+
+// ===================
+
+
 
 
 
@@ -477,7 +620,7 @@ $(document).ready(function () {
 
 
 function startCountdown() {
-  var now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"}); // get current date and time in London timezone
+  var now = new Date().toLocaleString("en-US", { timeZone: "Europe/London" }); // get current date and time in London timezone
   now = new Date(now); // convert to Date object
   var target; // define target time for countdown
 
@@ -485,8 +628,8 @@ function startCountdown() {
   if (now.getHours() >= 8 && now.getHours() < 15) {
     target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0); // set target time to 3pm today
     document.getElementById("message").innerHTML = "Live Sale Ends in";
-    
-  } 
+
+  }
   // check if current time is between 3pm and 8am
   else if (now.getHours() >= 15 || now.getHours() < 8) {
     target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 8, 0, 0); // set target time to 8am tomorrow
@@ -494,11 +637,11 @@ function startCountdown() {
       target.setDate(target.getDate() + 1); // add one more day if it's currently after 3pm
     }
     document.getElementById("message").innerHTML = "Live Sale Starts in ";
-  
+
   }
 
-  var countdown = setInterval(function() {
-    var now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"}); // get current date and time in London timezone
+  var countdown = setInterval(function () {
+    var now = new Date().toLocaleString("en-US", { timeZone: "Europe/London" }); // get current date and time in London timezone
     now = new Date(now); // convert to Date object
 
     // check if it's a weekend (Saturday or Sunday)
@@ -518,7 +661,7 @@ function startCountdown() {
 
     // display the countdown in the HTML element with id="countdown"
     document.getElementById("countdown").innerHTML = hours + "h "
-    + minutes + "m " + seconds + "s ";
+      + minutes + "m " + seconds + "s ";
 
     // if the countdown is finished, clear the interval and start a new countdown
     if (distance <= 0) {
@@ -537,31 +680,31 @@ startCountdown();
 
 // live sale banner js 
 
-    // // get current time in London
-    // let now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"});
-    // let time = new Date(now);
-    
-    // // get hours from the time
-    // let hours = time.getHours();
-    
-    // // get the div to modify
-    // let div = document.getElementById("vehicles-displayed");
-    // let div2 = document.getElementById("vehicle-banner");
-    
-    // // check if the current time is between 3pm and 8am
-    // if (hours >= 15 || hours < 8) {
-    //   // add class if the time is between 3pm and 8am
-    //   div.classList.add("vehiclehide");
-    //   div2.classList.add("vehiclebannershow");
-    // } else {
-    //   // remove class if the time is not between 3pm and 8am
-    //   div.classList.remove("vehiclehide");
-    //   div2.classList.remove("vehiclebannershow");
-      
-    // }
-    
-    // Get current time in London
-let now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"});
+// // get current time in London
+// let now = new Date().toLocaleString("en-US", {timeZone: "Europe/London"});
+// let time = new Date(now);
+
+// // get hours from the time
+// let hours = time.getHours();
+
+// // get the div to modify
+// let div = document.getElementById("vehicles-displayed");
+// let div2 = document.getElementById("vehicle-banner");
+
+// // check if the current time is between 3pm and 8am
+// if (hours >= 15 || hours < 8) {
+//   // add class if the time is between 3pm and 8am
+//   div.classList.add("vehiclehide");
+//   div2.classList.add("vehiclebannershow");
+// } else {
+//   // remove class if the time is not between 3pm and 8am
+//   div.classList.remove("vehiclehide");
+//   div2.classList.remove("vehiclebannershow");
+
+// }
+
+// Get current time in London
+let now = new Date().toLocaleString("en-US", { timeZone: "Europe/London" });
 let time = new Date(now);
 
 // Get day of the week (0 = Sunday, 6 = Saturday)
@@ -572,29 +715,29 @@ let hours = time.getHours();
 
 // Get the div to modify
 let div = document.getElementById("vehicles-displayed");
-    let div2 = document.getElementById("vehicle-banner");
+let div2 = document.getElementById("vehicle-banner");
 
 // Check if the current time is between 8am and 3pm
 if (hours >= 8 && hours < 15) {
   // Add class if the time is between 8am and 3pm
 
-  
+
 } else {
   // Remove class if the time is not between 8am and 3pm
-    div.classList.add("vehiclehide")
-    div2.classList.add("vehiclebannershow");
+  div.classList.add("vehiclehide")
+  div2.classList.add("vehiclebannershow");
 }
 
 // Check if the day is Saturday or Sunday
 if (dayOfWeek === 0 || dayOfWeek === 6) {
   // Add class if the day is Saturday or Sunday
-    div.classList.add("vehiclehide")
-    div2.classList.add("vehiclebannershow");
+  div.classList.add("vehiclehide")
+  div2.classList.add("vehiclebannershow");
 
 } else {
   // Remove class if the day is not Saturday or Sunday
   div.classList.remove("vehiclehide")
-div2.classList.remove("vehiclebannershow");
+  div2.classList.remove("vehiclebannershow");
 }
 
 // start the initial countdown
@@ -605,3 +748,6 @@ startCountdown();
 let a = $('#selectedFiles').children().first().children('img').attr('src');
 
 $('.description-box .item-img').children('img').attr('src', a);
+
+// ==========
+

@@ -178,47 +178,39 @@
                                         <li>Drivers
                                             Assistance<span>{{ $vehicle->DealerVehicleHistory->drivers_assistance }}</span>
                                         </li> --}}
-                                        <li>More Details
-                                            <span>
+                                        <li>
+                                            <span>(More Details)
                                                 @php
                                                     $in_array_questions = explode(',', $vehicle->DealerVehicleHistory->checkbox_questions);
                                                 @endphp
                                                 @if (in_array('1', $in_array_questions))
-                                                    Battery Charge Warning ,
+                                                Leather seats ,
                                                 @endif
                                                 @if (in_array('2', $in_array_questions))
-                                                Cruise Control with Programmable Speed Limiter ,
+                                                Panoramic sunroof ,
                                                 @endif
                                                 @if (in_array('3', $in_array_questions))
-                                                Distance to Next Service Indicator ,
+                                                Cruise control ,
                                                 @endif
                                                 @if (in_array('4', $in_array_questions))
-                                                Door Open Warning ,
+                                                Parking cameras ,
                                                 @endif
                                                 @if (in_array('5', $in_array_questions))
-                                                Oil Level Indicator ,
+                                                Bluetooth ,
                                                 @endif
                                                 @if (in_array('6', $in_array_questions))
-                                                Park Assist - 180 Degree ,
+                                                Heated seats ,
                                                 @endif
                                                 @if (in_array('7', $in_array_questions))
-                                                Rear Parking Sensors ,
+                                                Digital DAB radio ,
                                                 @endif
                                                 @if (in_array('8', $in_array_questions))
-                                                Rev Counter ,
+                                                Satellite navigation ,
                                                 @endif
                                                 @if (in_array('9', $in_array_questions))
-                                                Speedometer with Digital Odometer and Digital Trip Recorder ,
+                                                Parking sensors ,
                                                 @endif
-                                                @if (in_array('10', $in_array_questions))
-                                                Trip Computer ,
-                                                @endif
-                                                @if (in_array('11', $in_array_questions))
-                                                Tyre Pressure Monitor ,
-                                                @endif
-                                                @if (in_array('12', $in_array_questions))
-                                                Water Temperature and Fuel Gauges ,
-                                                @endif
+                                               
                                             </span>
                                         </li>
                                         {{-- <li>Illumination<span>{{ $vehicle->DealerVehicleHistory->illumination }}</span></li>
@@ -436,7 +428,7 @@
                                                 <span class="sr-only">Loading...</span>
                                             </div>
                                             <button type="button" class="bid">Submit Bid</button>
-                                            <a href="{{route('buyItNowFromSeller',$vehicle->id)}}" class="text-decoration-none text-white"><button type="button" class="mt-2">Buy Now : £{{$vehicle->reserve_price}}</button></a>
+                                            <a href="{{route('buyNowFromDealer',$vehicle->id)}}" class="text-decoration-none text-white"><button type="button" class="mt-2">Buy Now : £{{$vehicle->reserve_price}}</button></a>
                                             <span class="text-danger warning"></span>
                                             <span class="text-danger error"></span>
                                         </div>

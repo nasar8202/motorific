@@ -33,39 +33,37 @@
                                 {{-- <p class="count">{{ $countOrder + $countDealerOrder }}<span style="margin: 5px">Results</span></p> --}}
                             </div>
                             <br>
-                            <div class="row" id="first">
+                            <div class="" id="first">
                                 <h4>Seller's Vehicle</h4>
                                 @forelse ($Orders as $Order)
-                                    <div class="col-sm-4 vec-box p-0" style="padding: 10px;"> <a
-                                            href="{{ route('completedVehicleDetails', $Order->vehicle->id) }}"><img
-                                                src="{{ asset('/vehicles/vehicles_images/' . $Order->vehicle->VehicleImage->front) }}"
-                                                width="300px" height="200px"> </a></div>
-                                    <div class="col-sm-8 vec-box p-0" style="padding: 10px">
-                                        <h1 style="font-size: 20px"><span
-                                                style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $Order->vehicle->vehicle_registartion_number }}</span>
+                                <div class="row vec-box-row">
+                                    <div class="col-sm-4 vec-box p-0" >
+                                        <a href="{{ route('completedVehicleDetails', $Order->vehicle->id) }}">
+                                            <img src="{{ asset('/vehicles/vehicles_images/' . $Order->vehicle->VehicleImage->front) }}">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-8 vec-box vec-box-big " >
+                                        <h1><span>{{ $Order->vehicle->vehicle_registartion_number }}</span>
                                         </h1>
                                         <p>{{ $Order->vehicle->vehicle_name }}</p>
-                                        <span>Requested Price:£ {{ $Order->request_price }}</span>
-                                        <br>
+                                        <span class="req-price">Requested Price:£ {{ $Order->request_price }}</span>
+                                        
                                         @if ($Order->admin_updated_status == 1)
-                                            <small>Your Price Was Updated By Admin</small>
+                                            <small class="updated-price">Your Price Was Updated By Admin</small>
                                         @endif
-                                        <span style="padding-left: 60px;">{{ $Order->created_at }}</span>
-                                        <span style="padding-left: 200px;">
-
-
-                                            <div class="card card-body " style="width: 40%;float: right;">
-                                                <ul>
-                                                    <li><a
-                                                            href="{{ route('sellerRequestedDetails', ['slug' => 'seller', 'id' => $Order->vehicle->id]) }}">
-                                                            Seller's Details</a></li>
-                                                    {{-- <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li> --}}
-                                                </ul>
-                                            </div>
-
-                                        </span>
+                                        <span class="order-date">{{ $Order->created_at }}</span>
+                                       
+                                        <div class="card card-body " >
+                                            <ul>
+                                                <li><a
+                                                        href="{{ route('sellerRequestedDetails', ['slug' => 'seller', 'id' => $Order->vehicle->id]) }}">
+                                                        Seller's Details</a></li>
+                                                {{-- <li><a href="{{route('deliveryDetailPage')}}">Delivery Details</a></li> --}}
+                                            </ul>
+                                        </div>
 
                                     </div>
+                                </div>
                                 @empty
                                     <div class="col-sm-12">No Purchases Vehicle Found!</div>
                                 @endforelse

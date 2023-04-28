@@ -3,9 +3,21 @@
 namespace App\Http\Controllers\frontend\seller;
 
 use App\Models\User;
+use App\Models\Finance;
+use App\Models\Smoking;
 use App\Models\Vehicle;
+use App\Models\ToolPack;
+use App\Models\VCLogBook;
+use App\Models\NumberOfKey;
 use App\Models\BidedVehicle;
+use App\Models\PrivatePlate;
+use App\Models\SeatMaterial;
+use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
+use App\Models\VehicleFeature;
+use App\Models\VehicleHistory;
+use App\Models\LockingWheelNut;
+use App\Models\vehicleCategories;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -103,6 +115,80 @@ class SellerDashboardController extends Controller
         ->with('vehicleInformation')->with('VehicleImage')->get();
         return view('frontend.seller.acceptedVehicles',compact('allVehicles'));
 
+    }
+    public function completeProfileVehicles()
+    {
+        $completeProfileVehicles = Vehicle::where('status',2)->Where('user_id',Auth::user()->id)
+        ->get();
+        // dd($completeProfileVehicles);
+        return view('frontend.seller.completeProfileVehicles',compact('completeProfileVehicles'));
+    }
+    public function continueCompleteProfile($id)
+    {
+        
+        
+      try{
+        
+        $currentUser = Auth::user()->id;
+     
+        $vehicleCategories = vehicleCategories::all();
+        $VehicleFeature = VehicleFeature::all();
+        $NumberOfKeys =  NumberOfKey::where('status',1)->get();
+        $SeatMaterials =  SeatMaterial::where('status',1)->get();
+        $ToolPacks =  ToolPack::where('status',1)->get();
+        $LockingWheelNuts =  LockingWheelNut::where('status',1)->get();
+        $Smokings =  Smoking::where('status',1)->get();
+        $VCLogBooks =  VCLogBook::where('status',1)->get();
+        $VehicleOwners =  VehicleOwner::where('status',1)->get();
+        $PrivatePlates =  PrivatePlate::where('status',1)->get();
+        $Finances =  Finance::where('status',1)->get();
+        $VehicleHistories =  VehicleHistory::where('status',1)->get();
+        $user = User::find($currentUser);
+        $registeration = str_replace(' ','',$id);
+      
+        $vehicle = Vehicle::where('vehicle_registartion_number',$registeration)->where('user_id',$currentUser)->first();
+
+        
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => "",
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 0,
+                  CURLOPT_FOLLOWLOCATION => true,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => "POST",
+                  CURLOPT_POSTFIELDS =>"{\n\t\"registrationNumber\": \"$id\"\n}",
+                  CURLOPT_HTTPHEADER => array(
+                    "x-api-key: XlMDFK2cy74gg0iIBYqFT9lgP4Zrul64aRVBpQC5",
+                    "Content-Type: application/json"
+                  ),
+                ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                curl_close($curl);
+                 
+                 $res = json_decode($response);
+
+        if( isset($id) ){
+            $milage = $vehicle->millage;
+            }else{
+                return back()->with('error','Record not found');
+            }
+      
+        return view('frontend.seller.photoUpload',compact('milage','res','vehicleCategories','VehicleFeature','NumberOfKeys','SeatMaterials','ToolPacks','LockingWheelNuts','Smokings','VCLogBooks','VehicleOwners','PrivatePlates','Finances','VehicleHistories','user'));
+    
+    }catch(\Exception $e)
+    {
+       return $e;
+        return Redirect()->back()
+            ->with('error',$e->getMessage() )
+            ->withInput();
+    }
     }
     public function marksAsSoldVehicles($id)
     {

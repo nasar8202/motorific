@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\DealerVehicle;
+use App\Models\DealersOrderVehicleRequest;
+
 class OrderVehicleRequestController extends Controller
 {
     public function vehicleRequest(Request $request)
@@ -89,4 +92,6 @@ class OrderVehicleRequestController extends Controller
       $vehicle->save();
       return redirect()->route('dealer.dashboard')->with('success', 'Vehicle Succesfully Purchase. Check Your Purchases For More Details');
     }
+
+   	
 }

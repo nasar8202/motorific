@@ -3,7 +3,7 @@
 @section('section')
 @section('headerClass','')
 @section('headerUlClass','navlinks')
-@section('logoMain','frontend/seller/assets/image/logo.png')
+@section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo.png')
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 <style>
     .dropdown {

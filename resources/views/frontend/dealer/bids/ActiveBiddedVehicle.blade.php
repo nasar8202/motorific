@@ -33,23 +33,26 @@
                         <p class="count">{{ $countBids  }} <span style="margin: 5px">Results</span></p>
                     </div>
                     <br>
-                    <div class="row" id="first" >
+                    <div class="" id="first" >
                         @forelse ($bids as $bid)
-                        <div class="col-sm-4 vec-box p-0"  ><img src="{{ asset('/vehicles/vehicles_images/'. $bid->vehicle->vehicleimage->front) }}" width="300px" height="200px"></div>
-                        <div class="col-sm-8 vec-box p-0" >
-                            <h1 style="font-size: 20px"><span >{{ $bid->vehicle->vehicle_registartion_number }}</span></h1>
-                           <p>{{ $bid->vehicle->vehicle_name }}</p>
-                            <span>Max Bid:{{ $bid->bid_price }}</span>
-                            <span style="padding-left: 60px;">{{ $bid->created_at }}</span>
-                            
-                                <div class="card card-body " style="width: 40%;float: right;" >
+                        <div class="row vec-box-row">
+                            <div class="col-sm-4 vec-box p-0"  >
+                                <img src="{{ asset('/vehicles/vehicles_images/'. $bid->vehicle->vehicleimage->front) }}">
+                            </div>
+                            <div class="col-sm-8 vec-box vec-box-big" >
+                                <h1><span >{{ $bid->vehicle->vehicle_registartion_number }}</span></h1>
+                                <p>{{ $bid->vehicle->vehicle_name }}</p>
+                                <span>Max Bid:{{ $bid->bid_price }}</span>
+                                <span class="order-date">{{ $bid->created_at }}</span>
+                                
+                                <div class="card card-body" >
                                     <ul>
                                         <li><a href="{{route('sellerDetails',['bided'=>"bided",'slug'=>"seller",'id'=>$bid->vehicle->id])}}"> Seller's Details</a></li>
                                         
                                     </ul>
                                 </div>
-                                
-                        
+                            
+                            </div>
                         </div>
                         @empty
                         <div class="col-sm-12">No active bids or offers!</div>

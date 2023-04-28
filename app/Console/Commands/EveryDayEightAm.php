@@ -56,7 +56,7 @@ class EveryDayEightAm extends Command
             Mail::to($data->email)->send(new EveryDayEightAmMail($data));
         }
      
-        //    $log = Log::info($data);
+            $log = Log::info('working every day eight am cron job');
         return "work";
 
     }

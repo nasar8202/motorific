@@ -404,7 +404,7 @@
     <!-- End -->
 
     <!-- Testimoniaol Section -->
-    <section class="testimonails-sec">
+    <!-- <section class="testimonails-sec">
         <div class="container-1170">
             <div class="row">
                 <div class="col-lg-8">
@@ -490,7 +490,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- ENd -->
 

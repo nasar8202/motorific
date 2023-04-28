@@ -4,11 +4,13 @@ namespace App\Http\Controllers\frontend\dealer;
 
 use Exception;
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Finance;
 use App\Models\Smoking;
 use App\Models\Vehicle;
 use App\Models\ToolPack;
 use App\Models\VCLogBook;
+use App\Models\UserDetail;
 use App\Models\NumberOfKey;
 use App\Models\BidedVehicle;
 use App\Models\LiveSaleTime;
@@ -19,6 +21,7 @@ use App\Models\VehicleOwner;
 use Illuminate\Http\Request;
 use App\Models\DealerVehicle;
 use App\Models\VehicleFeature;
+use App\Models\VehicleHistory;
 use App\Models\LockingWheelNut;
 use App\Models\VehicleExterior;
 use App\Models\VehicleInterior;
@@ -27,7 +30,6 @@ use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
 use App\Models\OrderVehicleRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\DealerVehicleExterior;
@@ -35,7 +37,6 @@ use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
 use App\Models\vehicleConditionAndDamage;
 use App\Models\DealersOrderVehicleRequest;
-use App\Models\VehicleHistory;
 
 class DealerDashboardController extends Controller
 {
@@ -1528,7 +1529,8 @@ die();
 
   public function myProfile(){
     $user_id = Auth::user()->id;
-    $currentUser =  User::where('id',$user_id)->first();
+    $currentUser =  User::with('userDetails')->where('id',$user_id)->first();
+    // dd($currentUser);
     return view('frontend.dealer.myProfile',compact('currentUser'));
    
   }
@@ -1558,6 +1560,12 @@ die();
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
         $user->save();
+
+        $userDetails = UserDetail::where('user_id',$id)->first();
+        // dd($userDetails);
+        $userDetails->address_line_1 = $request->address_line_1;
+        $userDetails->save();
+
         return redirect()->back()->with('success', 'Profile Updated Successfully!');
         }
         else{

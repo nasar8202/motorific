@@ -32,8 +32,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">Post Code</label>
-                                <input type="text" name="post_code" class="form-control"
-                                    value="{{ $currentUser->post_code }}" placeholder="Post Code">
+                                <!-- value="{{ $currentUser->post_code }}" -->
+                                <input type="text" name="post_code" class="form-control" value="{{ $currentUser->post_code }}"
+                                     placeholder="SW18 1JZ">
                                 @if ($errors->has('post_code'))
                                     <span class="text-danger">{{ $errors->first('post_code') }}</span>
                                 @endif
@@ -58,8 +59,30 @@
 
 
                             </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity"> address </label>
+                                    <input type="text" name="address_line_1" class="form-control"
+                                        value="{{ $currentUser->userDetails->address_line_1 }}" id="address_line_1" placeholder="address line 1">
+                                    @if ($errors->has('address_line_1'))
+                                        <span class="text-danger">{{ $errors->first('address_line_1') }}</span>
+                                    @endif
+                                </div>
+
+
+                            </div>
+                            <div class="form-row row">
+                                <div class="yad-card col-md-6 ">
+                                    <label for="inputCity"> ID Card </label>
+                                    <img src="{{ asset('/dealers/documents/'.$currentUser->userDetails->dealer_identity_card) }}" >
+                                </div>
+                                <div class="yad-card col-md-6 ">
+                                    <label for="inputCity"> Document </label>
+                                    <img src="{{ asset('/dealers/documents/'.$currentUser->userDetails->dealer_documents) }}">
+                                </div>
+                            </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary green-btn">Update</button>
                         </form>
                         <!-- BOX-1 -->
 
@@ -99,7 +122,7 @@
                             </div>
 
                             <br>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary green-btn">Update</button>
                         </form>
                         <!-- BOX-1 -->
 

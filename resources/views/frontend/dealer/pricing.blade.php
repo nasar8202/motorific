@@ -12,10 +12,11 @@
 
 <!-- MultiStep Form -->
 
-<section class="sec-2 productPageTn">
+<section class="sec-2 productPageTn hm-hiw-sec">
 <div class="container">
   <h2>Motorific buyers fee <?php echo date("Y"); ?></h2>
   <p>The following table outlines the fees based on the winning bid's value. The charge shall always be based on the winning bid, whether the actual purchase price is more or lower than the winning bid. If the Seller confirms the sale of the vehicle, Motorific must charge and invoice the buyers fee before revealing the sellers contact information.</p>            
+  <div class="hm-pricing-table">
   <table class="table">
     <thead>
       <tr>
@@ -31,6 +32,7 @@
     @endforelse
     </tbody>
   </table>
+  <div>
 </div>
 </section>
 

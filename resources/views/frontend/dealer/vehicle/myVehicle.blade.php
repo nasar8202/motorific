@@ -35,15 +35,17 @@
                                         style="margin: 5px">{{ $vehiclesCount }} Results</span></p>
                             </div>
                             <br>
-                            <div class="row vec-box" id="filter">
+                            <div class="" id="filter">
                                 @forelse ($vehicles as $vehicle)
-                                    <div class="col-sm-4 p-0" style="padding: 10px;"> <a
-                                            href="{{ route('dealersVehicleDetail', $vehicle->id) }}"><img
-                                                src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image) }}"
-                                                width="300px" height="200px"> </a></div>
-                                    <div class="col-sm-8 p-0" style="padding: 10px">
-                                        <h1 style="font-size: 20px"><span
-                                                style="background-color:rgba(72, 255, 0, 0);border-radius:45px;padding:7px">{{ $vehicle->vehicle_registartion_number }}</span>
+                                <div class="row vec-box-row">
+                                    <div class="col-sm-4 vec-box p-0">
+                                        <a href="{{ route('dealersVehicleDetail', $vehicle->id) }}">
+                                            <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image) }}">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-8 vec-box vec-box-big ">
+                                        <h1>
+                                            <span>{{ $vehicle->vehicle_registartion_number }}</span>
                                         </h1>
                                         <p>{{ $vehicle->vehicle_name }}</p>
                                         <p>Vehicle Price :£ {{ $vehicle->vehicle_price??"No Price Yet" }}</p>
@@ -58,28 +60,23 @@
                                         <span style="padding-left: 60px;">{{ $vehicle->created_at->format('d/m/Y') }}</span>
                                         {{-- <a href="{{route('markAsSoldDealerVehicle',$vehicle->id)}}">Marks As Sold ?</a> --}}
 
-                                        <span style="padding-left: 200px;">
-
-                                            <!-- Trigger Buttons HTML -->
-
-
-
-                                        </span>
+                                        <!-- <span style="padding-left: 200px;">Trigger Buttons HTML</span> -->
                                         <div class="btn-bids">
                                             <a href="{{ route('orderOnMyVehicle', $vehicle->id) }}"> Bids on my vehicle</a>
                                         </div>
-                                        {{-- <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$vehicle->id}}">...</button>
+                                         <!-- <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#myCollapse{{$vehicle->id}}">...</button> -->
 
-                                    <!-- Collapsible Element HTML -->
-                                    <div class="collapse" id="myCollapse{{$vehicle->id}}">
-                                        <div class="card card-body " style="width: 40%;float: right;" >
-                                            <ul>
-                                                <li><a href="{{route('orderOnMyVehicle',$vehicle->id)}}"> Biddes On Vehicle</a></li>
-                                            </ul>
+                                        <!-- Collapsible Element HTML -->
+                                        <div class="collapse" id="myCollapse{{$vehicle->id}}">
+                                            <div class="card card-body " >
+                                                <ul>
+                                                    <li><a href="{{route('orderOnMyVehicle',$vehicle->id)}}"> Biddes On Vehicle</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div> --}}
 
                                     </div>
+                                </div>
                                 @empty
                                     <div class="col-sm-12">No Vehicle Found!</div>
                                 @endforelse

@@ -134,6 +134,9 @@ z-index: 1;
 .dropdown:hover .dropdown-content {
 display: block;
 }
+.dropdown-menu a:active {
+    background: #202543;
+}
 /* SECTION-1 */
 
 section.sec-1 {
@@ -2637,6 +2640,7 @@ ol.tagLines li::marker {
 }
 .green-btn {
     background: #05eab5 !important;
+    border-color: #05eab5;
 }
 
 .green-btn a {
@@ -3231,6 +3235,7 @@ sec-3-txt button a{
 /*}*/
 button.green-btn:hover {
     background: #202543 !important;
+    border-color: #202543;
 }
 .head-btns button a:not([href]):not([class]) {
     color: #ffff;
