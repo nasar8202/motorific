@@ -2614,7 +2614,8 @@ section.sec-4 {
 }
 
 section.thanks {
-    padding: 160px 0 50px 0;
+    /* padding: 160px 0 50px 0; */
+    padding: 80px 0 60px 0;
 }
 .vp-box{
     margin-bottom: 30px;
@@ -3138,5 +3139,13 @@ table.table.table-striped {
 }
 .completed-status {
     margin-bottom: 10px;
+}
+.spinner-main {
+    left: -15px;
+    width: calc(100% + 30px);
+}
+
+.spinner-main h2 {
+    font-size: 16px;
 }
 }

@@ -35,7 +35,7 @@
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
-                    <h2>Sell My Car To a Dealer In a Motorific Way </h2>
+                    <h1>Sell My Car To a Dealer In a Motorific Way </h1>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p class="banner-dec">Motorific is an online marketplace to sell my car to a dealer where you'll find excellent bargains on new or used vehicles today. Obtain the best price for your car while putting in the smallest amount of effort. We provide the most fantastic offers so you may sell your car right now.

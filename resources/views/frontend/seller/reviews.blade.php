@@ -36,8 +36,8 @@
     <div class="container-1151">
         <div class="row banner-content">
             <div class="sec-1-txt col-lg-6">
-                <h2>Sell your car 
-                    with <span>Motorific</span></h2>
+                <h1>Sell your car 
+                    with <span>Motorific</span></h1>
                 <p class="banner-desc"> Find your best offer from over thousands of dealers and sell for up to £1,000* more. It’s that easy.</p>
                 <form class="millage_area" method="get" action="{{ route('photoUpload') }}">
 

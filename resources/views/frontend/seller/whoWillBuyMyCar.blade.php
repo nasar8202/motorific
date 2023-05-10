@@ -35,8 +35,8 @@
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
-                    <h2 class="fs-small"><h2>Sell your car 
-                        with  <span>Motorific</span></h2></h2>
+                    <h1 class="fs-small"><h1>Sell your car 
+                        with  <span>Motorific</span></h1></h1>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p class="banner-desc">Stop worrying about who will buy my car and sell an old car with Motorific. Our car value tracker uses live market data to offer you free car valuation. It also

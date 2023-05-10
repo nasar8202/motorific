@@ -56,9 +56,9 @@
 
             animation-duration: 5s;
         }
-        .check_area {
-    position: relative;
-}
+        .check_area, .check_area1 {
+            position: relative;
+        }
         .spinner-container {
             margin: 0 0;
             margin-left: -60px;
@@ -102,7 +102,7 @@
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-md-6">
-                    <h2 class="banner-title">Sell your car with  <span>Motorific</span></h2>
+                    <h1 class="banner-title">Sell your car with  <span>Motorific</span></h1>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
 
@@ -124,7 +124,7 @@
                         <button type="submit" class="btn-submit"><span>Continue</span></button>
 
                     </form>
-                    <div class="check_area">
+                    <div class="check_area vehicle-check">
 
                         <input type="text" name="registeration" id="registeration" placeholder="Enter REG"
                             value="{{ old('registeration') }}" style="text-transform: uppercase" required>

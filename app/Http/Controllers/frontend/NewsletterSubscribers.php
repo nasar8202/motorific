@@ -23,6 +23,18 @@ class NewsletterSubscribers extends Controller
     public function help(){
         return view("frontend.seller.help");
     }
+    public function blogs(){
+         return view("frontend.seller.blog");
+    }
+    public function blogsdetails1(){
+         return view("frontend.seller.blog1");
+    }
+    public function blogsdetails2(){
+         return view("frontend.seller.blog2");
+    }
+    public function blogsdetails3(){
+         return view("frontend.seller.blog3");
+    }
     public function applyForJob(Request $request)
     {
         // dd($request->all(),$request->file('cv'));

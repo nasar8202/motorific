@@ -3,100 +3,7 @@
 @section('section')
     <!-- form css -->
     <style>
-        /*custom font Update by Tn 5-5-23*/
-        div#selectedFiles > .selectedFilesTn a {
-            background: #166c6c;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 15px;
-            display: block;
-            width: 100%;
-            font-size: 14px;
-        }
-        div#selectedFiles img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-        div#selectedFiles > .selectedFilesTn {
-            text-align: center;
-            width: 20%;
-            border: 1px solid #e3e3e3;
-            margin-bottom: 20px;
-        }
-        div#selectedFiles > .selectedFilesTn a:hover {
-            cursor: pointer;
-        }
-        label.inputArea input {
-            display: none;
-        }
-
-        label.inputArea {
-            cursor: pointer;
-        }
-
-        .imagesWithMore {
-            position: relative;
-            width: 100%;
-        }
-
-        .addMore {
-            width: 100%;
-            height: 120px;
-            border: 1px solid #e3e3e3;
-            position: relative;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-        .imagesWithMoreMain,.DoneBtn{
-            display: none;
-        }
-        .addMore span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 40px;
-        }
-
-
-        .DoneBtn button {
-            padding: 15px 40px;
-            background: #166c6c;
-            color: #fff;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .imagesWithMore .upload-img-wraper {margin-bottom: 0;}
-
-        .DoneBtn {
-            text-align: center;
-        }
-
-        .inputImages {
-            margin-bottom: 20px;
-        }
-        .inputImages.notAllowedcontent label {
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-        .imgNameTn {
-            display: none;
-        }
-
-        .disabled_btn{
-            opacity: 0.7;
-        }
-        @media (max-width: 575px) {
-            .imagesWithMore .upload-img-wraper {
-                flex-wrap: wrap;
-            }
-
-            div#selectedFiles > .selectedFilesTn {
-                width: 47%;
-            }
-        }
+        /*custom font*/
     </style>
 
     <!-- MultiStep Form -->
@@ -110,9 +17,9 @@
                 <div class="col-lg-6 col-md-8">
 
                     <form action="{{ route('dealer.vehicleAndDetailsPost') }}" method="POST" accept-charset="utf-8"
-                       >
+                        enctype="multipart/form-data">
                         @csrf
-                        <h2 class="headingqa-2 f-40 mb-2 mt-3">Vehicle Media</h2>
+                        <h2 class="headingqa-2 f-40 mb-2">Vehicle Media</h2>
                         {{-- <h3 class="headingqa-3 f-20 c-gray mb-20">Vehicle Photos</h3>
                     <div class="upload-img-box graybox">
                         <label for="upload_image1" class="custom-upload-image">
@@ -137,28 +44,11 @@
                             <label class="gallery-top-text mb-10 f-18">Exterior</label>
                             <span>(Upload 5 pictures only)</span>
                             <div class="cts-files">
-                                <div class="inputImages">
-                                    <label class="inputArea" for="image_1">
-                                        <input type="file"  class="upload-img-btn-qa-1 upload-img-btn uploadfile-exterior" name="image_1"
-                                              id="image_1" accept="image/*" required>
-                                             <input type="text" class="upload_type" name="image_1[]" value=""/>
-                                        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png') }}">
-                                        <div class="imgNameTn imgNameTn1"></div>
-                                    </label>
-                                </div>
-                                <!-- <div class="upload-imgErros"></div> -->
-                                <div class="imagesWithMoreMain imagesWithMoreMain1">
-                                    <div class="imagesWithMore">
-                                        <div id="selectedFiles" class="selectedFiles1 upload-img-wraper selectedFilesTn selectedFilesTn-exterior"></div>
-                                        <div class="addMore addMore1">
-                                            <span>+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="DoneBtn DoneBtn1">
-                                    <button type="button" id="image1_done_btn">Finish</button>
-                                </div>
-                                
+                                <input type="file" onchange="uploadFile_1(this)"  class="upload-img-btn-qa-1 upload-img-btn uploadfile-exterior" name="image_1[]"
+                                    class="" multiple id="image_1" accept="image/*">
+                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img1.png') }}">
+                                <div class="upload-imgErros"></div>
+                                <div id="selectedFiles" class="upload-img-wraper selectedFilesTn selectedFilesTn-exterior"></div>
                             </div>
                             @if ($errors->has('image_1'))
                                 <span class="text-danger">{{ $errors->first('image_1') }}</span>
@@ -239,37 +129,14 @@
                             <!-- // qambar-ali  -->
                             <label class="gallery-top-text mb-10 f-18">Interior</label>
                             <span>(Upload 5 pictures only)</span>
-                            
-
-                            <!-- 2 Start-->
                             <div class="cts-files">
-                                <div class="inputImages">
-                                    <label class="inputArea" for="image_2">
-
-                                        <input type="file"  class="upload-img-btn-qa-2 upload-img-btn"
-                                    id="image_2" name="interior_image_1"  
+                                <input type="file" onchange="uploadFile_2(this)" class="upload-img-btn-qa-2 upload-img-btn"
+                                    id="interior_image_1" name="interior_image_1[]" class="" multiple
                                     accept="image/*">
-                                    <input type="text" class="interior_image_1" name="interior_image_1[]" value=""/>
-                                        <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png') }}">
-                                        <div class="upload-imgErros"></div>
-                                        <div class="imgNameTn imgNameTn2"></div>
-                                    </label>
-                                </div>
-                                <!-- <div class="upload-imgErros"></div> -->
-                                <div class="imagesWithMoreMain imagesWithMoreMain2">
-                                    <div class="imagesWithMore">
-                                        <div id="selectedFiles" class="selectedFiles2 upload-img-wraper selectedFilesTn selectedFilesTn-exterior"></div>
-                                        <div class="addMore addMore2">
-                                            <span>+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="DoneBtn DoneBtn2">
-                                    <button type="button" id="image2_done_btn">Finish</button>
-                                </div>
-                                
+                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png') }}">
+                                <div class="upload-imgErros"></div>
+                                <div id="selectedFiles" class="upload-img-wraper selectedFilesTn"></div>
                             </div>
-                            <!-- 2 end -->
 
                             @if ($errors->has('interior_image_1'))
                                 <span class="text-danger">{{ $errors->first('interior_image_1') }}</span>
@@ -367,38 +234,13 @@
                                 <h2 class="headingqa-4 f-40">Tyre tread depths</h2>
 
                                 <label class="gallery-top-text mb-10 f-18">Interior</label>
-                               
-
-                                <!-- 3 Start-->
-                                    <div class="cts-files">
-                                        <div class="inputImages">
-                                            <label class="inputArea" for="image_3">
-
-                                                <input type="file"  class="upload-img-btn-qa-2 upload-img-btn"
-                                            id="image_3" name="tyre_image" class="" 
-                                            accept="image/*">
-                                            <input type="text" class="tyre_image" name="tyre_image[]" value=""/>
-                                                <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png') }}">
-                                                <div class="upload-imgErros"></div>
-                                                <div class="imgNameTn imgNameTn3"></div>
-                                            </label>
-                                        </div>
-                                        <!-- <div class="upload-imgErros"></div> -->
-                                        <div class="imagesWithMoreMain imagesWithMoreMain3">
-                                            <div class="imagesWithMore">
-                                                <div id="selectedFiles" class="selectedFiles3 upload-img-wraper selectedFilesTn selectedFilesTn-exterior"></div>
-                                                <div class="addMore addMore3">
-                                                    <span>+</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="DoneBtn DoneBtn3">
-                                            <button type="button" id="image3_done_btn">Finish</button>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- 3 end -->
-
+                                <div class="cts-files">
+                                    <input type="file" onchange="uploadFile_3(this)" class="upload-img-btn-qa-3 upload-img-btn"
+                                        name="tyre_image[]" class="" multiple id="tyre_image" accept="image/*">
+                                    <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png') }}">
+                                    <div class="upload-imgErros"></div>
+                                    <div id="selectedFiles" class="upload-img-wraper qambaraaaa selectedFilesTn"></div>
+                                </div>
                                 <!-- <div class="cts-files">
                                         <input type="file" id="files11111" class="upload-img-btn" name="exterior" class="" multiple="" accept="image/*"  >
                                         <img src="{{ URL::asset('/frontend/dealers/assets/image/gallery-img10.png') }}">
@@ -546,7 +388,7 @@
                     @if ($errors->has('condition_damage_url'))
                     <span class="text-danger">{{ $errors->first('condition_damage_url') }}</span>
                     @endif --}}
-                            <h2 class="headingqa-2 f-40 mt-3">Vehicle Condition</h2>
+                            <h2 class="headingqa-2 f-40">Vehicle Condition</h2>
 
                             <div class="details-field-main">
 
@@ -637,7 +479,7 @@
         <span class="radio-circle"></span>
         <span>No</span>
     </label>                             --}}
-    <section class="step-form-sec mb-5">
+    <section class="step-form-sec ">
 
         <div class="container-1200">
             <div class="step-form-sec-dealer-main d-none">
@@ -1925,9 +1767,7 @@
                     <i class="fa-solid fa-arrow-left-long"></i>
                     <span><a href="{{ route('dealer.vehicleListing') }}">Go Back</a></span>
                 </button>
-                {{-- <button type="submit" class="btn-trans step2-btn-save">
-            Save for Now
-        </button> --}}
+                
                 <div class="d-flex gap-2 justify-content-end ">
                     {{-- <button type="button" class="btn-qa1 f-16 btn-border-sm">Save Advert</button> --}}
                     <button type="submit" class="btn-qa1 f-16 btn-filled-sm btn-publish">Publish Advert</button>
@@ -2015,414 +1855,83 @@
 
 <!--step-form-sec-dealer-main-->
 @push('child-scripts')
-
-  <script src="https://cdn.jsdelivr.net/npm/compressorjs@1.1.0/dist/compressor.min.js"></script>
-
-
     <script type="text/javascript">
- $(document).ready(function() {
+
+function compressimage(e) {
+  var file = e.files[0];
+  console.log("testssssssss",e.files)
+  var imgPreview = e.nextElementSibling
+
   
-// Initialize an array to store the image paths
-var imagePaths = [];
-// 1 input File Start
-$('#image_1').on('change', function() {
-    var files = $(this)[0].files;
-    // console.log("here",files.length);
-  var uploadedImages = $('div.selectedFiles1 > div.selectedFilesTn').length;
-  RealUploadedImages = 5 - uploadedImages;
-//   console.log("form name of image 1",$(this)[0].files);
-  
-    // Loop through each file and add it to the FormData object
-    for (var i = 0; i < files.length; i++) {
-        if(uploadedImages == 5){
-            $('.addMore1').slideUp();
-        }
-        else if (files.length <= 1) {
-            var file = files[i];
+  var reader = new FileReader();
+  // Read the image file
+  reader.readAsDataURL(file);
 
+  // Resize the image when loaded
+  reader.onload = function () {
+      var img = new Image();
+      img.src = reader.result;
+      img.onload = function () {
 
-            // Use CompressorJS to compress the image
-            new Compressor(file, {
-            quality: 0.6,
-            maxWidth: 800, // change as needed
-            maxHeight: 800, // change as needed
-            success: function(result) {
-                
-                var formData = new FormData();
-                formData.append('image_1[]', result,result.name);
-              
-                $('.DoneBtn1').slideDown();
-                $('.imagesWithMoreMain1').slideDown();
-                // Preview the compressed image
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    
-                    // Add the image path to the array
-                    imagePaths.push(e.target.result);
-                     
-                    // Append the image thumbnail with remove button
-                    $('.selectedFiles1').append('<div data-title="'+result.name+'" class="selectedFilesTn"><img src="' + e.target.result + '"><a href="javascript:void(0)" class="remove-image" data-image-path="' + e.target.result + '">Remove</a></div>');
-                    $('.imgNameTn1').append('<span data-name="'+result.name+'">'+result.name+',</span>');
-                    setTimeout(function(){
-                        var uploadedImages1 = $('div.selectedFiles1 > div.selectedFilesTn').length;
-                        if(uploadedImages1 == 5){
-                            $('.addMore1').slideUp();
-                        }
+          // Set the maximum file size in bytes (500kb)
+          var maxFileSize = 500 * 1024;
 
+          // Resize the image if necessary
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          var width = img.width;
+          var height = img.height;
+          var ratio = width / height;
+          
+          if (file.size > maxFileSize) {
+              width = Math.sqrt(maxFileSize * ratio);
+              height = width / ratio;
 
-                        //    Add Image on Right Area
-                        var firstImg = $('.selectedFiles1 .selectedFilesTn:nth-child(1) img').attr('src');
-                        $('.description-box .item-img img').attr('src', firstImg);
-                        
-                        // Add an onclick function using event delegation
-                        $('body').on('click', '.remove-image', function() {
-                            $(this).closest('.cts-files').find('.addMore').slideDown();
-                            var datatitleOfImg = $(this).closest('.selectedFilesTn').attr('data-title');
-                            $(this).closest('.cts-files').find('.imgNameTn span[data-name="'+datatitleOfImg+'"]').remove();
-                            var uploadedImages01 = $('div.selectedFiles1 > div.selectedFilesTn').length;
-                            
-                            if(uploadedImages01 < 1){
-                                $('.description-box .item-img img').attr('src', 'motorific.co.uk/frontend/dealers/assets/image/your-image-vehicle.png');
-                            }
+          }
 
-                            $(this).closest('.selectedFilesTn').remove();
-                        });
+          console.log('width3 ',width);
+          console.log('height3 ',height);
+          canvas.width = width;
+          canvas.height = height;
 
-                        $('.DoneBtn1 button').on('click', function(){
-                           
-                                const totalImages = $("#image_1")[0].files.length;
-                                let images = $("#image_1")[0];
+          ctx.drawImage(img, 0, 0, width, height);
 
-                                for (let i = 0; i <=5; i++) {
-                                    formData.append('image_1', images[i]);
-                                }
-                            //    formData.append('totalImages', totalImages);
-
-                                // console.log("done",formData);
-                            // Make an AJAX request to the server to upload the images
-                            $.ajax({    
-                                url:"{{ route('compressImageDealerSide') }}", // replace with your upload endpoint
-                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                                type: 'POST',
-                                data: formData,
-                                processData: false,
-                                contentType: false,
-                                success: function(response) {
-                                   
-                                    const uploadTypeInput = $('.upload_type');
-                                    const existingValue = uploadTypeInput.val();
-                                    const newValue = response.paths; // Replace with the value you want to append
-                                    const separator = ","; // Replace with the separator you want to use
-
-                                    const modifiedValue = existingValue ? `${existingValue}${separator}${newValue}` : newValue;
-
-                                    uploadTypeInput.val(modifiedValue);
-                                },
-                                error: function(xhr, status, error) {
-                                console.log(xhr.responseText);
-                                },
-                                complete: function() {
-                                    $('#image1_done_btn').prop('disabled', true);
-                                    $('#image1_done_btn').addClass('disabled_btn');
-                                    console.log('Image upload complete.');
-                                },
-                            });
-                        });
-                    },500);
-                    
-
-                }
-                reader.readAsDataURL(result);
-            // If all files have been compressed, make an AJAX request to the server
-                
-            },
-            error: function(err) {
-                // Handle the error
-                console.error('Error compressing image: ' + err.message);
-            }
-            });
-        }
-        else {
-            alert('You can only one image at a time.');
-            $('#image_1').val('');
-        }
-    }
-  
-});
-
-// 1 input File End
-
-// 2 input File Start
-$('#image_2').on('change', function() {
-  var files = $(this)[0].files;
-  var uploadedImages = $('div.selectedFiles2 > div.selectedFilesTn').length;
-  RealUploadedImages = 5 - uploadedImages;
-  
-  
-    // Loop through each file and add it to the FormData object
-    for (var i = 0; i < files.length; i++) {
-        if(uploadedImages == 5){
-            $('.addMore2').slideUp();
-        }
-        else if (files.length <= 1) {
-            var file = files[i];
-
-
-            // Use CompressorJS to compress the image
-            new Compressor(file, {
-            quality: 0.6,
-            maxWidth: 800, // change as needed
-            maxHeight: 800, // change as needed
-            success: function(result) {
-                
-                var formData = new FormData();
-                formData.append('interior_image_1[]', result, result.name);
-                console.log(result.name);
-                $('.DoneBtn2').slideDown();
-                $('.imagesWithMoreMain2').slideDown();
-                // Preview the compressed image
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    // Add the image path to the array
-                    imagePaths.push(e.target.result);
-                    // Append the image thumbnail with remove button
-                    $('.selectedFiles2').append('<div data-title="'+result.name+'" class="selectedFilesTn"><img src="' + e.target.result + '"><a href="javascript:void(0)" class="remove-image" data-image-path="' + e.target.result + '">Remove</a></div>');
-                    $('.imgNameTn2').append('<span data-name="'+result.name+'">'+result.name+',</span>');
-                    setTimeout(function(){
-                        var uploadedImages1 = $('div.selectedFiles2 > div.selectedFilesTn').length;
-                        if(uploadedImages1 == 5){
-                            $('.addMore2').slideUp();
-                        }
-                         // Add an onclick function using event delegation
-                         $('body').on('click', '.remove-image', function() {
-                            $(this).closest('.cts-files').find('.addMore').slideDown();
-                            var datatitleOfImg = $(this).closest('.selectedFilesTn').attr('data-title');
-                            $(this).closest('.cts-files').find('.imgNameTn span[data-name="'+datatitleOfImg+'"]').remove();
-                            $(this).closest('.selectedFilesTn').remove();
-                        });
-
-                        $('.DoneBtn2 button').on('click', function(){
-                                const totalImages = $("#image_2")[0].files.length;
-                                //console.log("ssssss",totalImages)
-                                let images = $("#image_2")[0];
-
-                                for (let i = 0; i <=5; i++) {
-                                    formData.append('interior_image_1', images[i]);
-                                }
-    
-                // Make an AJAX request to the server to upload the images
-                    $.ajax({    
-                        url:"{{ route('compressImageDealerSide') }}", // replace with your upload endpoint
-                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                        type: 'POST',
-                        data: formData,
-                        processData: false,
-                        contentType: false,
-                        success: function(response) {
-                            
-                            const uploadTypeInput = $('.interior_image_1');
-                                    const existingValue = uploadTypeInput.val();
-                                    const newValue = response.paths; // Replace with the value you want to append
-                                    const separator = ","; // Replace with the separator you want to use
-
-                                    const modifiedValue = existingValue ? `${existingValue}${separator}${newValue}` : newValue;
-
-                                    uploadTypeInput.val(modifiedValue);
-                        },
-                        error: function(xhr, status, error) {
-                        console.log(xhr.responseText);
-                        },
-                        complete: function() {
-                            $('#image2_done_btn').prop('disabled', true);
-                            $('#image2_done_btn').addClass('disabled_btn');
-                        console.log('Image upload complete.');
-                        },
-                    });
-                });
-// 2 input File End
-                    },500);
-                    
-                
-                }
-                reader.readAsDataURL(result);
-            // If all files have been compressed, make an AJAX request to the server
-                
-            },
-            error: function(err) {
-                // Handle the error
-                console.error('Error compressing image: ' + err.message);
-            }
-            });
-        }
-        else {
-            alert('You can only one image at a time.');
-            $('#image_1').val('');
-        }
-    }
-  
-});
-                
-
-
-// 3 input File Start
-$('#image_3').on('change', function() {
-  var files = $(this)[0].files;
-  var uploadedImages = $('div.selectedFiles3 > div.selectedFilesTn').length;
-  RealUploadedImages = 5 - uploadedImages;
-  
-  
-    // Loop through each file and add it to the FormData object
-    for (var i = 0; i < files.length; i++) {
-        if(uploadedImages == 5){
-            $('.addMore3').slideUp();
-        }
-        else if (files.length <= 1) {
-            var file = files[i];
-
-
-            // Use CompressorJS to compress the image
-            new Compressor(file, {
-            quality: 0.6,
-            maxWidth: 800, // change as needed
-            maxHeight: 800, // change as needed
-            success: function(result) {
-                
-                var formData = new FormData();
-                formData.append('tyre_image[]', result, result.name);
-                console.log(result.name);
-                $('.DoneBtn3').slideDown();
-                $('.imagesWithMoreMain3').slideDown();
-                // Preview the compressed image
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    // Add the image path to the array
-                    imagePaths.push(e.target.result);
-                    // Append the image thumbnail with remove button
-                    $('.selectedFiles3').append('<div data-title="'+result.name+'" class="selectedFilesTn"><img src="' + e.target.result + '"><a href="javascript:void(0)" class="remove-image" data-image-path="' + e.target.result + '">Remove</a></div>');
-                    $('.imgNameTn3').append('<span data-name="'+result.name+'">'+result.name+',</span>');
-                    setTimeout(function(){
-                        var uploadedImages1 = $('div.selectedFiles3 > div.selectedFilesTn').length;
-                        if(uploadedImages1 == 5){
-                            $('.addMore3').slideUp();
-                        }
-                         // Add an onclick function using event delegation
-                         $('body').on('click', '.remove-image', function() {
-                            $(this).closest('.cts-files').find('.addMore').slideDown();
-                            var datatitleOfImg = $(this).closest('.selectedFilesTn').attr('data-title');
-                            $(this).closest('.cts-files').find('.imgNameTn span[data-name="'+datatitleOfImg+'"]').remove();
-                            $(this).closest('.selectedFilesTn').remove();
-                        });
-
-                        $('.DoneBtn3 button').on('click', function(){
-                            // var imgNameTn = $('.imgNameTn3').text();
-                            // imgNameTn = imgNameTn.slice(0, -1); // remove the last character (which is a comma)
-                            // console.log(imgNameTn); // prints "one,two,three"
-                            const totalImages = $("#image_3")[0].files.length;
-                                console.log("ssssss",totalImages)
-                                let images = $("#image_3")[0];
-
-                                for (let i = 0; i <=5; i++) {
-                                    formData.append('image_3', images[i]);
-                                }
-                        // Make an AJAX request to the server to upload the images
-                            $.ajax({    
-                                url:"{{ route('compressImageDealerSide') }}", // replace with your upload endpoint
-                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                                type: 'POST',
-                                data: formData,
-                                processData: false,
-                                contentType: false,
-                                success: function(response) {
-                                    
-                                    const uploadTypeInput = $('.tyre_image');
-                                    const existingValue = uploadTypeInput.val();
-                                    const newValue = response.paths; // Replace with the value you want to append
-                                    const separator = ","; // Replace with the separator you want to use
-
-                                    const modifiedValue = existingValue ? `${existingValue}${separator}${newValue}` : newValue;
-
-                                    uploadTypeInput.val(modifiedValue);
-                                },
-                                error: function(xhr, status, error) {
-                                console.log(xhr.responseText);
-                                },
-                                complete: function() {
-                                    $('#image3_done_btn').prop('disabled', true);
-                                    $('#image3_done_btn').addClass('disabled_btn');
-                                console.log('Image upload complete.');
-                                },
-                            });
-                        });
-                        // 3 input File End
-                    },500);
-                    
-                
-                }
-                reader.readAsDataURL(result);
-            // If all files have been compressed, make an AJAX request to the server
-                
-            },
-            error: function(err) {
-                // Handle the error
-                console.error('Error compressing image: ' + err.message);
-            }
-            });
-        }
-        else {
-            alert('You can only one image at a time.');
-            $('#image_1').val('');
-        }
-    }
-  
-});
-
-
-// Jquery by Tn 5-5-523
-$('.inputImages').click(function() {
-    $(this).addClass('notAllowedcontent');
-})
-$('.addMore').click(function(){
-       jQuery(this).closest('.cts-files').find('.inputImages.notAllowedcontent label').trigger('click');
-});
-// Jquery by Tn 5-5-523 End
-
-
-
- // Listen for click on the remove button for each image
-//  $('body').on('click', '.remove-image', function() {
-//     $(this).closest('.selectedFilesTn').remove();
-//     $(this).closest('body').addClass('test543');
-//     // var imagePath = $(this).data('image-path');
-//     // $(this).closest('.selectedFilesTn').find('img[src="' + imagePath + '"]').remove();
-//     // $(this).remove();
-    
-//     $('#image').val('');
-// });
-
-
-function uploadImages(formData) {
-  // Call AJAX request to upload the compressed images
-  $.ajax({
-    url:"{{ route('compressImageDealerSide') }}", // replace with your upload endpoint
-    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-    type: 'POST',
-    data: formData,
-    processData: false,
-    contentType: false,
-    success: function(response) {
-      console.log(response);
-    },
-    error: function(xhr, status, error) {
-      console.log(xhr.responseText);
-    },
-    complete: function() {
-      console.log('Image upload complete.');
-    },
-  });
+          // Set the preview image source to the resized image
+          imgPreview.src = canvas.toDataURL('image/jpeg', 0.8);
+          imgPreview.width = width;
+          imgPreview.height = height;
+      }
+  }
 }
+        //  qambar-ali 
 
- 
-});
+//         function previewImages() {
+//             var preview = document.querySelector('#selectedFiles');
+//             var images = document.querySelector('#image_1').files;
+
+//             function readAndPreview(file) {
+//                 if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+//                     var reader = new FileReader();
+
+//                     reader.addEventListener("load", function () {
+//                         var image = new Image();
+//                         image.height = 100;
+//                         image.title = file.name;
+//                         image.src = this.result;
+//                         preview.appendChild( image );
+//                     }, false);
+
+//                     reader.readAsDataURL(file);
+//                 }
+//             }
+
+//             if (images) {
+//                 [].forEach.call(images, readAndPreview);
+//             }
+//         }
+
+// document.querySelector('#image_1').addEventListener("change", previewImages);
+
 
 
         $(document).ready(function() {

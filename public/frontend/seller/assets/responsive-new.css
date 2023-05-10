@@ -2622,10 +2622,26 @@ section.value-sec {
   font-size: 12px;
 }
 
+.blogs-main .blogs-inner {
+    flex: 0 0 47%;
+    max-width: 47%;
+}
 
+.blog-text {
+    font-size: 14px;
+}
 }
 
 @media(max-width:767px){
+  .fv-check .spinner-container {
+    display: inline-flex;
+    height:100%;
+    vertical-align: middle;
+    width: 100%;
+    max-width: 10%;
+    position: static;
+    vertical-align: middle;
+}
   .banner-inner-cont p {
     font-size: 13px;
     max-width: 100%;
@@ -2958,6 +2974,14 @@ section.banner-sec {
 /* seller index page end */
 .tit-par p {
   width: 100%;
+}
+.blogs-main .blogs-inner {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.blog-text {
+    font-size: 12px;
 }
 
 }

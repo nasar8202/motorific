@@ -117,7 +117,7 @@
 <!-- <body> -->
 <!--<body onload="move()" id="contentBody">-->
 
-<body onload="move()" id="contentBody">
+<body id="contentBody">
 
    <div id="myProgress">
        <div class="loader-img">

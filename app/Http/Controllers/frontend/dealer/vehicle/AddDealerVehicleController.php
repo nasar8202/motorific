@@ -148,19 +148,98 @@ class AddDealerVehicleController extends Controller
     {
         return view('frontend.dealer.dealerVehicles.vehicleAndDetails');
     }
+    public function compressImageDeleteFromDealerSide(Request $request)
+{
+    $image = $request->input('interior_image_1');
+    $path = public_path('uploads/dealerVehicles/interior1/' . $image);
+
+    if (file_exists($path)) {
+        unlink($path);
+        return response()->json(['success' => true]);
+    } else {
+        return response()->json(['success' => false]);
+    }
+}
+
+    public function compressImageDealerSide(Request $request)
+    {
+        
+    // dd($request->all());
+    // return('test432');
+    if ($request->hasFile('image_1')) {
+            if(! is_array($request->image_1)){
+                $images = [$request->file('image_1')];
+            }
+            else{
+                $images = $request->file('image_1') ; 
+            }
+            $paths = [];
+
+        foreach ($images as $image) {
+            $path = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path() . '/uploads/dealerVehicles/exterior/', $path);
+            $paths[] = $path;
+        }
+    
+        // Store the paths in the session
+        $request->session()->put('paths', $paths);
+    
+        return response()->json(['paths' => $paths]);
+        }
+
+        if ($request->hasFile('interior_image_1')) {
+            $paths = [];
+
+        foreach ($request->file('interior_image_1') as $image) {
+            $path = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path() . '/uploads/dealerVehicles/interior/', $path);
+            $paths[] = $path;
+        }
+    
+        // Store the paths in the session
+        $request->session()->put('paths', $paths);
+    
+        return response()->json(['paths' => $paths]);
+        }
+        
+        if ($request->hasFile('tyre_image')) {
+            $paths = [];
+
+            foreach ($request->file('tyre_image') as $image) {
+                $path = time() . '_' . $image->getClientOriginalName();
+                $image->move(public_path() . '/uploads/dealerVehicles/tyres/', $path);
+                $paths[] = $path;
+            }
+        
+            // Store the paths in the session
+            $request->session()->put('paths', $paths);
+        
+            return response()->json(['paths' => $paths]);
+        }
+    }
+    
 
     public function vehicleAndDetailsPost(Request $request)
     {
-        //  dd($request->all());
+        
+          //  dd($request->all());
+        // $interior_image_1 = explode(',',$request->interior_image_1[0]);
+        // $tyre_image = explode(',',$request->interior_image_1);
+        // dd($interior_image_1);
+        //    dd($img);
+        //   foreach($request->image_1 as $a){
+        //     echo $a;
+        //   }
+        //   die;
         $request->validate([
-            'image_1' => 'required',
-            'interior_image_1' => 'required',
+            'image_1.*' => 'required',
+           'interior_image_1.*' => 'required',
             
             'any_damage_checked' => 'required',
             'advert_description' => 'required',
             'attention_grabber' => 'required',
             
-            'tyre_image' => 'required',
+            'tyre_image.*' => 'required',
 
         ]);
 
@@ -277,41 +356,43 @@ class AddDealerVehicleController extends Controller
             $dealer_vehicle_media->offside_rear = $request->offside_rear;
             $dealer_vehicle_media->save();
            
-            foreach($request->image_1 as $exterior_images){
+            $image_1 = explode(',',$request->image_1[0]);
+            foreach($image_1 as $exterior_images){
 
-            $image_1 = time() . '_' . $exterior_images->getClientOriginalName();
-            $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
+            // $image_1 = time() . '_' . $exterior_images->getClientOriginalName();
+            // $exterior_images->move(public_path() . '/uploads/dealerVehicles/exterior/', $image_1);
 
 
             $dealer_vehicle_exterior = new DealerVehicleExterior;
             $dealer_vehicle_exterior->dealer_vehicle_id = $dealers_vehicle->id ;
-            $dealer_vehicle_exterior->exterior_image = $image_1;
+            $dealer_vehicle_exterior->exterior_image = $exterior_images;
             $dealer_vehicle_exterior->save();
             }
-
-            foreach($request->interior_image_1 as $interior_image){
-            $interior_image_1 = time() . '_' . $interior_image->getClientOriginalName();
-            $interior_image->move(public_path() . '/uploads/dealerVehicles/interior/', $interior_image_1);
+            $interior_image_1 = explode(',',$request->interior_image_1[0]);
+            foreach($interior_image_1 as $interior_image){
+            // $interior_image_1 = time() . '_' . $interior_image->getClientOriginalName();
+            // $interior_image->move(public_path() . '/uploads/dealerVehicles/interior/', $interior_image_1);
 
 
 
             $dealer_vehicle_interior = new DealerVehicleInterior;
             $dealer_vehicle_interior->dealer_vehicle_id = $dealers_vehicle->id;
-            $dealer_vehicle_interior->interior_image = $interior_image_1;
+            $dealer_vehicle_interior->interior_image = $interior_image;
             $dealer_vehicle_interior->save();
             //$image_1 = Session::get('image_1');
             }
 
+            $tyre_image = explode(',',$request->tyre_image[0]);
 
-            foreach($request->tyre_image as $interior_image){
-                $tyre_image = time() . '_' . $interior_image->getClientOriginalName();
-                $interior_image->move(public_path() . '/uploads/dealerVehicles/tyres/', $tyre_image);
+            foreach($tyre_image as $tyre){
+                // $tyre_image = time() . '_' . $interior_image->getClientOriginalName();
+                // $interior_image->move(public_path() . '/uploads/dealerVehicles/tyres/', $tyre_image);
 
 
 
                 $dealer_Vehicle_Tyres = new DealerVehicleTyres;
                 $dealer_Vehicle_Tyres->dealer_vehicle_id = $dealers_vehicle->id;
-                $dealer_Vehicle_Tyres->tyre_image = $tyre_image;
+                $dealer_Vehicle_Tyres->tyre_image = $tyre;
                 $dealer_Vehicle_Tyres->save();
                 //$image_1 = Session::get('image_1');
                 }
@@ -344,7 +425,7 @@ class AddDealerVehicleController extends Controller
                     'vehicle_registration'=>session()->get('vehicle_registartion_number'),
                     'vehicle_name'=>session()->get('vehicle_name'),
                     'vehicle_mileage'=>session()->get('vehicle_mileage'),
-                    'front'=>$image_1,
+                    'front'=>$request->interior_image_1[0][0],
                     'bidded_price'=>session()->get('reservePrice')??"No Price Yet!",
                     'age'=>session()->get('vehicle_year'),
     

@@ -97,7 +97,7 @@
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-md-6">
-                    <h2 class="banner-title">Sell your car with  <span>Motorific</span></h2>
+                    <h1 class="banner-title">Sell your car with  <span>Motorific</span></h1>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p class=banner-desc>We are aware that selling a car may be a demanding and stretched procedure.

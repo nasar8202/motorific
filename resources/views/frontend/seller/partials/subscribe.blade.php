@@ -18,7 +18,7 @@
                             <button type="submit" class="btn-submit"><span>Continue</span></button>
 
                         </form>
-                        <div class="check_area1">
+                        <div class="check_area1 fv-check">
 
                             <input type="text" name="registeration1" id="registeration1" style="text-transform: uppercase" placeholder="Enter REG"
                                 value="{{ old('registeration') }}" style="text-transform: uppercase">

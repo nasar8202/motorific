@@ -326,64 +326,58 @@ class FrontController extends Controller
 
     }
     //multipstep condition and damages code end
-
+ public function createVehicleUploadImage(Request $request)
+    {
+        // dd($request->all());
+        // if ($request->uploadImage)
+        // {
+            $request->validate([
+                'image' => 'required|mimes:jpeg,png,jpg,|max:5020'
+            ]);
+            $path = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path() . '/vehicles/vehicles_images/', $path);
+            session()->put($request->name, $path);
+            return response()->json(['path' => $path]);
+        // }
+        
+}
 
     public function createVehicle(Request $request)
     {
+       
+        // if ($request->uploadImage)
+        // {
+        //     $request->validate([
+        //         'image' => 'required|mimes:jpeg,png,jpg,|max:5020',
+        //         'name' => 'required'
+        //     ]);
+        //     $path = time() . '_' . $request->file('image')->getClientOriginalName();
+        //     $request->file('image')->move(public_path() . '/vehicles/vehicles_images/', $path);
+        //     session()->put($request->name, $path);
+        //     return response()->json(['path' => $path]);
+        // }
         $request->validate([
-            // 'RegisterationNumber' => 'required',
-            // 'VehicleName' => 'required',
-            // 'VehicleYear' => 'required',
-            // 'VehicleColor' => 'required',
-            // 'VehicleType' => 'required',
-            // 'VehicleTank' => 'required',
-            // 'VehicleMileage' => 'required',
-            // 'VehiclePrice' => 'required',
+          
             'vehicle_feature' => 'required',
             'seat_material' => 'required',
             'number_of_keys' => 'required',
             'tool_pack' => 'required',
             'locking_wheel_nut' => 'required',
-            // 'VehicleCategory'=>'required',
             'smoked_in' => 'required',
             'log_book' => 'required',
             'location' => 'required|max:256',
-            'houseName' => 'required|max:256',
+            //'houseName' => 'required|max:256',
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
-            // 'YourExteriorGrade' => 'required',
-            // 'scratchesandScuffs' => 'required',
-            // 'dents' => 'required',
-            // 'paintworkProblems' => 'required',
-            // 'WindscreenDamage' => 'required',
-            // 'brokenMissing' => 'required',
-            // 'WarningLights' => 'required',
-            // 'YourServiceRecord' => 'required',
-            // 'MainDealerServices' => 'required',
-            // 'IndependentDealerService' => 'required',
-            // 'interior' => 'required',
-            // 'body_type' => 'required',
-            // 'engine_size' => 'required',
-            // 'hpi' => 'required',
-            // 'vin' => 'required',
-            // 'register_date' => 'required',
-            // 'keeper_date' => 'required',
-            // 'mot_date' => 'required',
-            // 'previous_owner' => 'required',
-            // 'keeping_plate' => 'required',
-            // 'additional' => 'required',
-            'image1' => 'required|mimes:jpeg,png,jpg,|max:5020',
-            'image2' => 'required|mimes:jpeg,png,jpg,|max:5020',
-            'image3' => 'required|mimes:jpeg,png,jpg,|max:5020',
-            'image4' => 'required|mimes:jpeg,png,jpg,|max:5020',
-            'image5' => 'required|mimes:jpeg,png,jpg,|max:5020',
+           
 
 
         ]);
+
         DB::beginTransaction();
         try {
-
+//   dd($request->all());
             $users = User::where('id', $request->user_id)->first();
             $find = Vehicle::where('status', 2)->where('vehicle_registartion_number', $request->RegisterationNumber)->first();
             if (isset($find)) {
@@ -401,7 +395,7 @@ class FrontController extends Controller
             $update->status =  0;
             $update->save();
 
-            } 
+            }
             else
             {
 
@@ -419,6 +413,8 @@ class FrontController extends Controller
                 $vehicle->vehicle_category = $request->vehicleCateg;
                 $vehicle->status = 0;
                 $vehicle->save();
+            
+                
             }
 
 
@@ -450,7 +446,7 @@ class FrontController extends Controller
             else{
                 $exterior_detail->vehicle_id = $vehicle->id;
             }
-            
+
             $exterior_detail->front_door_left = $request->front_door_left;
             $exterior_detail->back_door_left = $request->back_door_left;
             $exterior_detail->front_door_right = $request->front_door_right;
@@ -461,21 +457,7 @@ class FrontController extends Controller
             $exterior_detail->front = $request->front;
             $exterior_detail->back = $request->back;
             $exterior_detail->save();
-            // $damages = new vehicleConditionAndDamage;
-            // $damages->vehicle_id = $vehicle->id;
-            // $damages->exterior_grade = $request->YourExteriorGrade;
-            // $damages->scratches_and_scuffs = $request->scratchesandScuffs;
-            // $damages->dents = $request->dents;
-            // $damages->paintwork_problems = $request->paintworkProblems;
-            // $damages->windscreen_damage = $request->WindscreenDamage;
-            // $damages->broken_missing = $request->brokenMissing;
-            // $damages->warning_lights_on_dashboard = $request->WarningLights;
-            // $damages->service_record = $request->YourServiceRecord;
-            // $damages->main_dealer_services = $request->MainDealerServices;
-            // $damages->independent_dealer_service = $request->IndependentDealerService;
-            // $damages->save();
-
-
+           
             $vehicle_feature_id =  implode(',', $request->vehicle_feature);
 
             $vehicleInformation = new vehicleInformation;
@@ -486,7 +468,7 @@ class FrontController extends Controller
                 $vehicleInformation->vehicle_id = $vehicle->id;
             }
 
-           
+
             $vehicleInformation->vehicle_feature_id = $vehicle_feature_id;
 
             $vehicleInformation->seat_material_id =  $request->seat_material;
@@ -501,32 +483,29 @@ class FrontController extends Controller
             $vehicleInformation->finance_id =  $request->finance;
             $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
-            // $vehicleInformation->interior =  $request->interior;
-            // $vehicleInformation->body_type =  $request->body_type;
-            // $vehicleInformation->engine_size =  $request->engine_size;
-            // $vehicleInformation->HPI_history_check =  $request->hpi;
-            // $vehicleInformation->vin =  $request->vin;
-            // $vehicleInformation->first_registered =  $request->register_date;
-            // $vehicleInformation->keeper_start_date =  $request->keeper_date;
-            // $vehicleInformation->last_mot_date =  $request->mot_date;
-            // $vehicleInformation->previous_owners =  $request->previous_owner;
-            // $vehicleInformation->seller_keeping_plate =  $request->keeping_plate;
+          
             $vehicleInformation->additional_information =  $request->houseName;
 
             $vehicleInformation->save();
 
 
-            $front = time() . '_' . $request->file('image1')->getClientOriginalName();
-            $request->file('image1')->move(public_path() . '/vehicles/vehicles_images/', $front);
-            $passenger_rare_side_corner = time() . '_' . $request->file('image2')->getClientOriginalName();
-            $request->file('image2')->move(public_path() . '/vehicles/vehicles_images/', $passenger_rare_side_corner);
-            $driver_rare_side_corner = time() . '_' . $request->file('image3')->getClientOriginalName();
-            $request->file('image3')->move(public_path() . '/vehicles/vehicles_images/', $driver_rare_side_corner);
-            $interior_front = time() . '_' . $request->file('image4')->getClientOriginalName();
-            $request->file('image4')->move(public_path() . '/vehicles/vehicles_images/', $interior_front);
-            $dashboard = time() . '_' . $request->file('image5')->getClientOriginalName();
-            $request->file('image5')->move(public_path() . '/vehicles/vehicles_images/', $dashboard);
+            // $front = time() . '_' . $request->file('image1')->getClientOriginalName();
+            // $request->file('image1')->move(public_path() . '/vehicles/vehicles_images/', $front);
+            // $passenger_rare_side_corner = time() . '_' . $request->file('image2')->getClientOriginalName();
+            // $request->file('image2')->move(public_path() . '/vehicles/vehicles_images/', $passenger_rare_side_corner);
+            // $driver_rare_side_corner = time() . '_' . $request->file('image3')->getClientOriginalName();
+            // $request->file('image3')->move(public_path() . '/vehicles/vehicles_images/', $driver_rare_side_corner);
+            // $interior_front = time() . '_' . $request->file('image4')->getClientOriginalName();
+            // $request->file('image4')->move(public_path() . '/vehicles/vehicles_images/', $interior_front);
+            // $dashboard = time() . '_' . $request->file('image5')->getClientOriginalName();
+            // $request->file('image5')->move(public_path() . '/vehicles/vehicles_images/', $dashboard);
 
+            // foreach ($_indx as $_sn) {
+            //     if(session()->get($_sn)) continue;
+            //     $p = time() . '_' . $request->file($_sn)->getClientOriginalName();
+            //     $request->file($_sn)->move(public_path() . '/vehicles/vehicles_images/', $p);
+            //     session()->put($_sn, $p);
+            // }
             $VehicleImage = new VehicleImage;
 
             if(isset($find)){
@@ -536,12 +515,19 @@ class FrontController extends Controller
                 $VehicleImage->vehicle_id =  $vehicle->id;
             }
 
+
+            // $VehicleImage->front = session()->get('image1');
+            // $VehicleImage->passenger_rare_side_corner = session()->get('image2');;
+            // $VehicleImage->driver_rare_side_corner = session()->get('image3');;
+            // $VehicleImage->interior_front =session()->get('image4');;
+            // $VehicleImage->dashboard = session()->get('image5');
+            // $VehicleImage->save();
             
-            $VehicleImage->front = $front;
-            $VehicleImage->passenger_rare_side_corner = $passenger_rare_side_corner;
-            $VehicleImage->driver_rare_side_corner = $driver_rare_side_corner;
-            $VehicleImage->interior_front = $interior_front;
-            $VehicleImage->dashboard = $dashboard;
+            $VehicleImage->front = $request->image1;
+            $VehicleImage->passenger_rare_side_corner = $request->image2;
+            $VehicleImage->driver_rare_side_corner = $request->image3;
+            $VehicleImage->interior_front = $request->image4;
+            $VehicleImage->dashboard = $request->image5;
             $VehicleImage->save();
 
             $originalDate = $find->created_at??$vehicle->created_at;
@@ -571,21 +557,24 @@ class FrontController extends Controller
                 'vehicle_registration' => $request->RegisterationNumber,
                 'vehicle_name' => $request->VehicleName,
                 'vehicle_mileage' => $request->VehicleMileage,
-                'front' => $front,
+                
                 'colour' => $find->vehicle_color??$vehicle->vehicle_color,
                 'bidded_price' => $request->VehiclePrice ?? "No Price Yet!",
                 'age' => $request->VehicleYear,
 
             ];
+            
             //$details = ['email' => $users->email];
             //SendEmailForSellerVehicleAddQueuing::dispatch($details);
             dispatch(new SendEmailForSellerVehicle($vehicle_details));
 
             //Mail::to($users->email)->send(new SellerVehicleAdded($data));
-            $request->session()->forget([
+           $request->session()->forget([
                 'vehicle_feature', 'seat_material', 'number_of_keys', 'tool_pack', 'locking_wheel_nut', 'smoked_in', 'log_book', 'location', 'HouseName', 'vehicle_owner', 'private_plate', 'finance', 'categ', 'VehicleHistory'
             ]);
+            // dd($request->all(),'sesioned');
         } catch (\Exception $e) {
+            // dd($request->all(),$e);
             DB::rollback();
             //  return $e;
             return Redirect()->back()
@@ -593,7 +582,6 @@ class FrontController extends Controller
                 ->withInput();
         }
         DB::commit();
-
         return redirect()->route('thankyou')->with('success', 'Vehicle Added Successfully. Wait For Admin Approvel!');
     }
 
@@ -613,16 +601,7 @@ class FrontController extends Controller
                 if ($vehicle != null) {
                     return back()->with('error', 'You Already Register This Vehicle');
                 } else {
-                    // $res = Http::withHeaders([
-                    //     'accept' => 'application/json',
-                    //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-                    // ])
-                    // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
-                    // ->json();
-                    // if($res['success'] == 'false'){
-                    //     return back()->with('error','Record not found');
-                    // }
-
+                  
                     $curl = curl_init();
 
                     curl_setopt_array($curl, array(
@@ -668,16 +647,7 @@ class FrontController extends Controller
             $VehicleHistories =  VehicleHistory::where('status', 1)->get();
             $user = User::find($currentUser);
             $registeration = str_replace(' ', '', $request->registeration);
-            // $res = Http::withHeaders([
-            //     'accept' => 'application/json',
-            //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-            // ])
-            // ->get("https://api.oneautoapi.com/autotrader/inventoryaugmentationfromvrm?vehicle_registration_mark=$registeration")
-            // ->json();
-            // if($res['success'] == 'false'){
-            //     return back()->with('error','Record not found');
-            // }
-            // dd($registeration);
+          
             $vehicle = Vehicle::where('vehicle_registartion_number', $registeration)->where('user_id', $currentUser)->first();
 
             if ($vehicle != null || !empty($vehicle)) {
@@ -709,10 +679,7 @@ class FrontController extends Controller
                 //echo $response;
                 $res = json_decode($response);
 
-                //return $response;
-                // $res = $res['result'];
-                // $id = $res['basic_vehicle_info']['autotrader_derivative_id'];
-                // $date = $res['basic_vehicle_info']['first_registration_date'];
+               
                 if (isset($res->registrationNumber)) {
                     $milage = $request->millage;
                 } else {
@@ -721,13 +688,7 @@ class FrontController extends Controller
                 // dd($milage);
                 return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'VehicleHistories', 'user'));
             }
-            // $milage= Http::withHeaders([
-            //     'accept' => 'application/json',
-            //     'authorizationToken' => '516b68e3-4165-4787-991b-052dbd23543f',
-            // ])
-            // ->get("https://api.oneautoapi.com/autotrader/valuationfromid?autotrader_derivative_id=$id&first_registration_date=$date&current_mileage=$check_millage")
-            // ->json();
-            // $milage = $milage['result'];
+            
         } catch (\Exception $e) {
             //return $e;
             return Redirect()->back()
@@ -962,4 +923,7 @@ class FrontController extends Controller
 
         return redirect('/seller-login')->with('success', 'Your password has been changed!');
     }
+    
+    
+    
 }

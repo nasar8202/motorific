@@ -336,11 +336,11 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-headingFour" aria-expanded="false" aria-controls="flush-collapseThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
                             <span class="hw-ac-img"><img src="{{ URL::asset('frontend/dealers/assets/image/images/hw-icon4.png') }}" alt=""></span> We Close Sale For You
                             </button>
                             </h2>
-                            <div id="flush-headingFour" class="accordion-collapse collapse" data-bs-parent="#hwAccordians">
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#hwAccordians">
                                 <div class="accordion-body">You pick the highest bid for your car and we close the sale for you like a pro!
                                 </div>
                             </div>

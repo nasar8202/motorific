@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <title>Registration Complete</title> --}}
+    <!-- <title>Registration Complete</title> -->
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <!-- Google Fonts -->
@@ -22,7 +22,7 @@
         }
         .container{
             width: 100%;
-            max-width: 75vw;
+            max-width: 100%;
             margin: 0 auto;
         }
         /* Header  */
@@ -205,10 +205,14 @@
         ul.reg-detail li span {
             font-weight: 700;
             margin-right: 15px;
+            width: 80px;
+            display: inline-block;
         }
 
         ul.reg-detail li {
-            margin-bottom: 4px;
+            margin-bottom: 0;
+            border: 1px solid;
+            padding: 5px;
         }
 
         .cont-main.unsub h4 {
@@ -216,7 +220,7 @@
         }
 
         .veh-detail .congt-box {
-            display: flex;
+            display: block;
             align-items: center;
             justify-content: space-between;
             max-width: 85%;
@@ -245,10 +249,11 @@
             font-size: 18px;
             color: #7977a2;
             margin: 0;
+            margin-bottom: 10px;
         }
 
         .veh-text p {
-            font-size: 16px;
+            font-size: 15px;
             margin: .95vw 0;
         }
 
@@ -257,7 +262,7 @@
         }
         .veh-text a.prim-btn {
             padding: 6px 11px;
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .unsub.veh-detail .prim-btn {
@@ -269,185 +274,7 @@
 
         /* End */
 
-        /* Responsive */
-        @media(max-width:991px){
-            .cont-main {
-                max-width: 70vw;
-            }
-            .congt-box h3 {
-                font-size: 20px;
-            }
-
-            .congt-msg {
-                font-size: 14px;
-            }
-
-            .price {
-                font-size: 26px;
-                margin: 24px auto;
-            }
-
-            .accept-msg {
-                font-size: 14px;
-            }
-
-            .prim-btn {
-                font-size: 14px;
-            }
-
-            .tos-box {
-                padding: 30px 20px;
-            }
-
-            .tos-box h2 {
-                font-size: 18px;
-            }
-
-            .tos-box p {
-                font-size: 14px;
-            }
-            .icon {
-                font-size: 55px;
-            }
-            ul.reg-detail li {
-                font-size: 14px;
-            }
-            .veh-detail .congt-box {
-                max-width: 100%;
-            }
-            .veh-detail .congt-box .veh-img {
-                max-width: 250px;
-                height: 140px;
-            }
-
-            .veh-text p {
-                font-size: 12px;
-                margin: 12px 0;
-            }
-
-            .veh-text h5 {
-                font-size: 14px;
-            }
-
-            .veh-text h6 {
-                font-size: 12px;
-            }
-
-
-        }
-
-        @media(max-width:767px){
-            .congt-box h3 {
-                font-size: 18px;
-            }
-
-            .congt-msg {
-                font-size: 12px;
-            }
-
-            .price {
-                font-size: 20px;
-                margin: 20px auto;
-            }
-
-            .accept-msg {
-                font-size: 12px;
-            }
-
-            .prim-btn {
-                font-size: 13px;
-            }
-
-            .tos-box h2 {
-                font-size: 16px;
-            }
-
-            .tos-box p {
-                font-size: 12px;
-            }
-
-            .main-content {
-                padding: 40px 0;
-            }
-
-            .footer-addr p {
-                font-size: 12px;
-            }
-
-            .footer-addr ul li a {
-                font-size: 12px;
-            }
-
-            .container {
-                max-width: 90vw;
-            }
-
-            .footer-social {
-                gap: 15px;
-            }
-
-            .footer-social li a {
-                width: 35px;
-                height: 35px;
-                border-width: 2px;
-            }
-            .icon {
-                font-size: 45px;
-            }
-            ul.site-links li a {
-                font-size: 14px;
-            }
-            .veh-detail .congt-box .veh-img {
-                max-width: 200px;
-                height: 110px;
-            }
-
-            header.veh-dt .title-name {
-                font-size: 22px;
-            }
-
-            header.veh-dt p {
-                font-size: 14px;
-            }
-
-
-
-
-        }
-
-        @media(max-width:575px){
-            .cont-main {
-                max-width: 85vw;
-            }
-            header.header .logo a {
-                font-size: 24px;
-            }
-
-            header.header {
-                padding: 12px 0;
-            }
-
-            .main-content {
-                padding: 30px 0 40px;
-            }
-            ul.site-links li a {
-                font-size: 13px;
-            }
-            .unsub .congt-box h3 {
-                font-size: 16px;
-                margin-bottom: 15px;
-            }
-
-            ul.reg-detail li {
-                font-size: 12px;
-            }
-            .veh-detail .congt-box .veh-img {
-                max-width: 160px;
-                height: 100px;
-            }
-
-
-        }
+        
 
         /* End */
     </style>
@@ -461,7 +288,7 @@
                 <br>
                 <h3 class="title-name">Hi {{ ucwords($vehicle_details['name']) }}!</h3>
                 <p>Your Vehicle details have been  successfully recieved for valuation</p>
-                {{-- <p>team to  review</p> --}}
+                 <!-- <p>team to  review</p>  -->
                 <h3 class="title-name">Car Details</h3>
             </div>
         </header>
@@ -479,9 +306,7 @@
                             <li><span>Car Age:</span> {{ $vehicle_details['age'] }} </li>
                             <li><span>Color:</span>{{ $vehicle_details['colour'] }}</li>
                         </ul>
-                        {{-- <div class="veh-img">
-                            <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle_details['front']) }}" width="80px" height="80px" alt="">
-                        </div> --}}
+                        
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
                             <p>Your valuation is being worked on by Motorific experts valuation team.
@@ -509,10 +334,10 @@
                             <li><a href="mailto:info@motorific.co.uk">info@motorific.co.uk</a></li>
                         </ul>
                     </div>
-                    {{-- <ul class="footer-social">
+                     <!-- <ul class="footer-social">
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    </ul> --}}
+                    </ul>  -->
                 </div>
             </div>
         </footer>

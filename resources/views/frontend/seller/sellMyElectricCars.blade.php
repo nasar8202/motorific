@@ -35,7 +35,7 @@
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
-                    <h2>Sell My Electric Car</h2>
+                    <h1>Sell My Electric Car</h1>
                         
                     <!--<p>Find your best offer from over 5,000 dealers and sell for up to £1,000* more. It’s that easy.</p>-->
                     <p class="banner-desc">If you are searching for the best way to sell my car then you do not need to look further because Motorific is selling my car for cash while generating a considerable amount of earnings and swiftly selling your car within a short period of time.  

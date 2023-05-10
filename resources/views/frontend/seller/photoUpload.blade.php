@@ -2,7 +2,7 @@
 @section('title','Photo Upload | Motorific')
 @section('section')
 
-@section('headerClass','')
+@section('headerClass','transparent-header')
 @section('headerUlClass','navlinks navlinks-w')
 @section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo-w.png')
 
@@ -27,6 +27,9 @@ z-index: 1;
 .dropdown:hover .dropdown-content {
 display: block;
 }
+.alertDisable {
+    color: red;
+}
 
 @media only screen and (max-width:767px ){
     .photo-up-sec-2-vehicle-information {
@@ -34,8 +37,8 @@ display: block;
 }
 
 .photo-up-sec-2-box-btn button {
-    font-size: 10px;
-    width: 80px;
+    font-size: 14px;
+    width: 110px;
     padding: 7px 0px;
 }
 
@@ -51,7 +54,7 @@ display: block;
   <!-- PHOTO-UPLOAD-SECTION-1 -->
   <section class="photo-up-sec-1">
     <div class="container-1151">
-       
+
         <h1>{{$res->make}}</h1>
         <h3>{{$res->registrationNumber}}</h3>
         <p> {{$res->make}}   {{$res->wheelplan}}</p>
@@ -62,14 +65,14 @@ display: block;
                     <li>{{$res->colour??"colour"}}</li>
                     <li>{{$res->wheelplan??"wheelplan"}}</li>
                     <li>{{$res->fuelType??"fueltype"}}</li>
-                
+
             </ul>
         </div>
     </div>
 </section>
 
 <!-- PHOTO-UPLOAD-SECTION-1 -->
-<form action="{{route('createVehicle')}}" id="createVehicle" method="POST" enctype="multipart/form-data" class="hz-form">
+<form action="{{route('createVehicle')}}" id="createVehicle" method="POST" class="hz-form">
     @csrf
     <section class="photo-up-sec-2">
         <div class="container-1151">
@@ -194,7 +197,7 @@ display: block;
                             <span class="text-danger">{{ $errors->first('VehicleMileage') }}</span>
                         @endif
                         </div>
-                        
+
 
                         <div class="personal-info-form-btn photo-up-sec-2-box-btn clr-s-gr text-center">
                             <div class="spinner-border mt-2 spinnerVehicle"  style="float: right;" role="status">
@@ -207,7 +210,7 @@ display: block;
                 </div>
             </div>
         </div>
-       
+
 
         <!--Interior Information Form-->
         <section class="step-form-sec">
@@ -438,7 +441,7 @@ display: block;
                                     </div>
                                 </div>
                             </section>
-                            
+
                             <section class="step-sec step-sec-qambar">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
@@ -489,7 +492,7 @@ display: block;
                                     </div>
                                 </div>
                             </section>
-                            
+
                             <section class="step-sec step-sec-qambar">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
@@ -514,7 +517,7 @@ display: block;
                                                 </label>
                                             </li>
                                             <li>
-                                                <label> 
+                                                <label>
                                                     <input type="radio" class="step-list-check" name="driver_back_door" value="Dirty" hidden="" />
                                                     <span>Dirty (D)</span>
                                                 </label>
@@ -850,19 +853,19 @@ display: block;
                             <div class="step-button-wrap step2-btns-qambar">
                                 <div class="step-button step-button-qambar prev-qambar disabled" id="prev">← Previous</div>
                                 <div class="step-button step-button-qambar nxtBtn next-qambar" id="next">Next →</div>
-                                
+
                             </div>
 
                             <p class="pt-4">If no damage to report! Then continue next .</p>
 
                         </section>
-                
+
                     </div>
                 </div>
                 <!--exterior -->
                 <div class="step-main-2">
                     <div class="step-main-wrap photo-upload">
-                
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <h1 class="step-main-head">Exterior Information</h1>
@@ -1282,7 +1285,7 @@ display: block;
                                     </div>
                                 </div>
                             </section>
-                            
+
                             <section class="step-sec-ext step-sec-qambar">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
@@ -1342,7 +1345,7 @@ display: block;
                             <p class="pt-4">If no damage to report! Then continue next.</p>
 
                         </section>
-                
+
                     </div>
                 </div>
 
@@ -1353,7 +1356,7 @@ display: block;
         <!--End-->
 
         <div class="photo-up-sec-2-box-main veicle-info">
-                
+
             <div class="photo-up-sec-2-box">
 
                 <div class="photo-up-sec-2-box-txt">
@@ -1361,7 +1364,7 @@ display: block;
                     <div class="photo-up-sec-2-box-personal-information">
                         <p>Features, equipment & ownership</p>
                     </div>
-                   
+
                     <div class="prf-complete d-flex align-items-center completeStatus-vehicelInfo-qa d-none">
                         <div>
                             <img src="{{ URL::asset('frontend/seller/assets/image/check-gr.png')}}" alt="" />
@@ -1399,7 +1402,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -1417,7 +1420,7 @@ display: block;
                             <div class="vehicleSteps" data-id="SeatMaterial">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Seat material</h3>
-                                
+
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns withImgInLabel">
@@ -1431,7 +1434,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                         @if ($errors->has('seat_material'))
                                         <span class="text-danger">{{ $errors->first('seat_material') }}</span>
@@ -1471,7 +1474,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            
+
                                         </div>
 
                                     </div>
@@ -1509,7 +1512,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            
+
                                         </div>
                                         @if ($errors->has('tool_pack'))
                                         <span class="text-danger">{{ $errors->first('tool_pack') }}</span>
@@ -1548,7 +1551,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -1587,7 +1590,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -1624,7 +1627,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -1680,7 +1683,7 @@ display: block;
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!--8-->
                             <div class="vehicleSteps" data-id="VehicleOwner">
                                 <span class="checboxNum" style="display:none;">0</span>
@@ -1697,7 +1700,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                     </div>
                                     @if ($errors->has('vehicle_owner'))
@@ -1730,7 +1733,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            
+
                                         </div>
                                         @if ($errors->has('private_plate'))
                                     <span class="text-danger">{{ $errors->first('private_plate') }}</span>
@@ -1770,7 +1773,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                         @if ($errors->has('finance'))
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
@@ -1868,7 +1871,7 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                         @if ($errors->has('finance'))
                                         <span class="text-danger">{{ $errors->first('finance') }}</span>
@@ -1892,7 +1895,7 @@ display: block;
                             <div class="vehicleSteps ifKeepingit ifNotKeepingit" data-id="vehicleCategory">
                                 <span class="checboxNum" style="display:none;">0</span>
                                 <h3>Vehicle Category</h3>
-                                
+
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
@@ -1904,14 +1907,14 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                            
+
                                         </div>
                                         @if ($errors->has('vehicleCateg'))
                                         <span class="text-danger">{{ $errors->first('vehicleCateg') }}</span>
                                     @endif
                                     </div>
                                     <div class="col-lg-5">
-                                        
+
                                     </div>
                                 </div>
                                 <!--Next Previous Button-->
@@ -1940,13 +1943,13 @@ display: block;
                                                 </div>
                                             </label>
                                             @endforeach
-                                           
+
                                         </div>
                                         @if ($errors->has('VehicleHistory'))
                                         <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
                                     @endif
                                     </div>
-                                    
+
                                 </div>
                                 <!--Next Previous Button-->
                                 <div class="photo-up-sec-2-vi-bnch-btns">
@@ -1967,16 +1970,16 @@ display: block;
                                         <div class="photo-up-sec-2-vi-input">
                                             <label for="search-loc" class="iconAbsolute">
                                                 <span><p>Enter postcode </p></span>
-                                           
+
                                                 <input type="search" name="location" id="search" class="location" value="@if(session()->get('location')) {{session()->get('location')}} @endif" id="search-loc" placeholder="Vehicle location"/>
-                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul> 
+                                                <ul class="list-group text-center fw-bolder suggestionSearch" id="result"></ul>
                                                 <br>
                                                 <span><p>House Name And Number </p></span>
-                                                
+
                                                 <input type="search" name="houseName"  class="HouseName"  value="@if(session()->get('HouseName')) {{session()->get('HouseName')}} @endif" id="search-loc" placeholder="Enter House Name And Location"/>
-                                           
+
                                             </label>
-                                            
+
                                         </div>
                                     </div>
                                     @if ($errors->has('location'))
@@ -2168,20 +2171,20 @@ display: block;
                         <div class="photo-up-sec-2-vi-btm-btns d-flex justify-content-between">
                             <div class="photo-up-sec-2-vi-btns">
                                 <div class="photo-up-sec-2-box-btn clr-prp my-auto">
-                                   
+
                                 </div>
                             </div>
                         </div>
                     </div>
-               
+
             </div>
 
-       
+
         </div>
 
         <div class="photo-up-sec-2-box-main photos-sec">
             <div class="photo-up-sec-2-box row align-items-center">
-                <div class="col-sm-6"> 
+                <div class="col-sm-6">
                     <div class="photo-up-sec-2-box-txt">
                         <h4>Photos</h4>
                         <div class="photo-up-sec-2-box-personal-information">
@@ -2197,7 +2200,7 @@ display: block;
             </div>
 
             <div class="main-add-photos form-wraper">
-
+                <div class="image-upload-main">
                     <div class="add-photos-inner row">
                         <div class="add-photos-box1 col-lg-6">
                             <label class="labelForFile" for="photo1">
@@ -2205,7 +2208,10 @@ display: block;
                                 <div class="add-photos-numbering">
                                     <h3>1</h3>
                                 </div>
-                                <input class="hz-img-input" type="file" name="image1" id="photo1" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                <input class="hz-img-input" type="file" id="photo1" accept="image/*" maxlength="500000" value="" onChange="compressimage(this)" />
+                                <input type="text" class="upload_type" name="image1" value=""/>
+                                
+                                
                                 <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt=""  accept="image/*" />
                                 <div class='text-danger error-msg-frontend'></div>
                             </label>
@@ -2219,7 +2225,8 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>2</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image2" id="photo2" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                    <input class="hz-img-input" type="file" id="photo2" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                     <input type="text" class="upload_type" name="image2" value=""/>
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2227,7 +2234,7 @@ display: block;
                                         <span class="text-danger">{{ $errors->first('image2') }}</span>
                                     @endif
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="add-p-bottom-row row">
@@ -2237,7 +2244,8 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>3</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image3" id="photo4" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                    <input class="hz-img-input" type="file" id="photo4" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                      <input type="text" class="upload_type" name="image3" value=""/>
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2252,7 +2260,8 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>4</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image4" id="photo5" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                    <input class="hz-img-input" type="file" id="photo5" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                     <input type="text" class="upload_type" name="image4" value=""/>
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2267,7 +2276,8 @@ display: block;
                                     <div class="add-photos-numbering">
                                         <h3>5</h3>
                                     </div>
-                                    <input class="hz-img-input" type="file" name="image5" id="photo6" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                    <input class="hz-img-input" type="file" id="photo6" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
+                                     <input type="text" class="upload_type" name="image5" value=""/>
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2277,11 +2287,16 @@ display: block;
                         @endif
                         </div>
                     </div>
+                    <div class="spinner-main">
+                        <div class="spinner-border"></div>
+                        <h2>Image is Uploading...</h2>
+                    </div>
+                </div>
                     <div class="photo-up-sec-2-btn photo-up-sec-2-box-btn text-center clr-s-gr">
                         <button class="submitBtn-photos-sec" type="submit">Submit</button>
                         <br>
                         <br>
-                        <span class="alertDisable">First Complete The Details.</span>
+                        <span class="alertDisable">Vehicle information all fields are mandatory.</span>
                     </div>
 
             </div>
@@ -2292,7 +2307,7 @@ display: block;
 </form>
 
 <!-- PHOTO-UPLOAD-SECTION-2 -->
-<section class="sec-7">
+<section class="sec-7 subscribe-sec">
     <div class="sec-7-bg-img sec-1-txt">
         <div class="container-1151">
             <div class="row">
@@ -2309,7 +2324,7 @@ display: block;
                     <div class="sec-7-box">
                         <h4>Newsletter</h4>
                         <p>Subscribe to our newsletter and stay on top of industry news.</p>
-                        <input class="mb-3" type="text">
+                        <input class="mb-3" type="text" placeholder="EMAIL">
                         <button>SUBSCRIBE</button>
                     </div>
                 </div>
@@ -2317,6 +2332,9 @@ display: block;
         </div>
     </div>
 </section>
+<!--Subscribe Sec-->
+<!-- @include('frontend.seller.partials.subscribe') -->
+
 
 <!--Alert Modal-->
 <button type="button" class="alertModalOn" data-bs-toggle="modal" data-bs-target="#selectAnyRadio" style="display:none;">Launch static backdrop modal</button>
@@ -2345,14 +2363,15 @@ display: block;
 @push('child-scripts')
 
 <script>
-
+$(".spinner-main").hide();
     // photoupload size compress
     // Get the input field and image preview element
 function compressimage(e) {
+    
     var file = e.files[0];
+  
     var imgPreview = e.nextElementSibling
 
-    
     var reader = new FileReader();
     // Read the image file
     reader.readAsDataURL(file);
@@ -2372,15 +2391,13 @@ function compressimage(e) {
             var width = img.width;
             var height = img.height;
             var ratio = width / height;
-            
+
             if (file.size > maxFileSize) {
                 width = Math.sqrt(maxFileSize * ratio);
                 height = width / ratio;
 
             }
 
-            console.log('width3 ',width);
-            console.log('height3 ',height);
             canvas.width = width;
             canvas.height = height;
 
@@ -2390,54 +2407,31 @@ function compressimage(e) {
             imgPreview.src = canvas.toDataURL('image/jpeg', 0.8);
             imgPreview.width = width;
             imgPreview.height = height;
+
+            var formData = new FormData();
+            formData.append('image', file);
+            formData.append('_token', '{{ csrf_token() }}'); // Add the CSRF token
+            $(".spinner-main").show();
+            $.ajax({
+                url: "{{route('createVehicleUploadImage')}}",
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $(e).parent().find('.upload_type').val(response.path);
+                   
+                },
+                complete: function() {
+                    $(".spinner-main").hide();
+                     console.log("Image upload complete.");
+                }
+            });
         }
     }
 }
 
-        // var fileUpload = document.getElementById('photo1');
-		// var imgPreview = document.getElementById('imgPreview');
-		
-		// // Listen for changes to the input field
-		// fileUpload.addEventListener('change', function() {
-		// 	var file = this.files[0];
-		// 	var reader = new FileReader();
-			
-		// 	// Read the image file
-		// 	reader.readAsDataURL(file);
-			
-		// 	// Resize the image when loaded
-		// 	reader.onload = function() {
-		// 		var img = new Image();
-		// 		img.src = reader.result;
-		// 		img.onload = function() {
-					
-		// 			// Set the maximum file size in bytes (500kb)
-		// 			var maxFileSize = 500 * 1024;
-					
-		// 			// Resize the image if necessary
-		// 			var canvas = document.createElement('canvas');
-		// 			var ctx = canvas.getContext('2d');
-		// 			var width = img.width;
-		// 			var height = img.height;
-		// 			var ratio = width / height;
-					
-		// 			if (file.size > maxFileSize) {
-		// 				width = Math.sqrt(maxFileSize * ratio);
-		// 				height = width / ratio;
-		// 			}
-					
-		// 			canvas.width = width;
-		// 			canvas.height = height;
-					
-		// 			ctx.drawImage(img, 0, 0, width, height);
-					
-		// 			// Set the preview image source to the resized image
-		// 			imgPreview.src = canvas.toDataURL('image/jpeg', 0.8);
-		// 			imgPreview.width = width;
-		// 			imgPreview.height = height;
-		// 		}
-		// 	}
-		// });
+     
 
     // photoupload size compress
         var form = document.querySelector('.hz-form');
@@ -2461,7 +2455,7 @@ function compressimage(e) {
 <script type="text/javascript">
 $(document).ready(function() {
 
-        
+
         // $(document).on('submit', '#createVehicle', function() {
         //     $('.submitBtn-photos-sec').attr('disabled', 'disabled');
         //     $(".submitBtn-photos-sec").attr("disabled", true);
@@ -2526,7 +2520,7 @@ $(".damagesDatas").click(function(){
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           success: function(response) {
-            
+
             if(response == "true"){
                 $(".temprorySubmitDamages").css("display","block");
                 $(".temprorySubmitDamages").html("Your Data Is Submited For Temprory Time Now Move Onto Next Step");
@@ -2638,9 +2632,9 @@ $("#store").click(function(){
     var finance = $(".finance:checked").val();
     var categ = $(".categ:checked").val();
     var VehicleHistory = $(".VehicleHistory:checked").val();
-    
 
-    
+
+
 
      $.ajax({
 
@@ -2655,7 +2649,7 @@ $("#store").click(function(){
             },
 
             success: function(response){
-              
+
                 var vehicleResponse = response.VehicleFeature;
                 var vehicledata = '';
                 var SeatMaterialsResponse = response.SeatMaterials;
@@ -2672,7 +2666,7 @@ $("#store").click(function(){
                 var Finances = response.Finances;
                 var VehicleHistory = response.VehicleHistory;
                 var categ = response.vehicleCategories;
-             
+
                 $.each(vehicleResponse,function(vehicleResponse,row){
                     vehicledata+='<p>'+row.title+'</p>';
 
@@ -2713,7 +2707,7 @@ $("#store").click(function(){
 
                 $("#vehicleHisory").html('');
                 $("#vehicleHisory").html(VehicleHistory.title);
-                
+
                 $("#vehicleCategory").html('');
                 $("#vehicleCategory").html(categ.title);
             },
@@ -2755,11 +2749,11 @@ $("#store").click(function(){
                      $("#vehicle_registration_details").html('<div class="container-1151"><div class="row"><div class="sec-1-txt col-lg-6"><h2>'+response.users.name+' <span>Motorific</span></h2><p>'+response.users.email+'</p><form id="myForm">@csrf Confirm mileage<input type="text" id="id" name="vehicle_registration_no" value="111" placeholder="Enter REG"><button id="submitid" type="submit" >Continue</button></form></div><div class="sec-1-img col-lg-6"><img  alt=""></div><div id="title"></div></div></div>');
                      $("#vehicle_registration").hide();
                 }else{
-                    console.log("some thing wrong")
+                    // console.log("some thing wrong")
                 }
                },
                error: function(data) {
-                   console.log('error')
+                //   console.log('error')
                }
            });
        });
@@ -2809,7 +2803,7 @@ $("#store").click(function(){
             $(this).closest('.vehicleSteps').find('.checkboxNum').text(totalChecked);
 
             var radioVal =  $(this).attr('id');
-                
+
                 // For Popup on False Condition
                 if( radioVal == 'hasV5LogBook-false'){
                     $(this).closest('.vehicleSteps').find('.nxtBtn').hide();
@@ -2980,19 +2974,19 @@ $("#store").click(function(){
         // Summary Step
         $('.stepOpener').on('click', function(){
             var thisData = $(this).attr('data-title');
-           
+
             $(this).closest('.vehicleSteps').removeClass('vehicleStepsActive');
             $(this).closest('.vehicleSteps').slideUp();
             $('.vehicleSteps[data-id="'+ thisData +'"]').slideDown();
             $('.vehicleSteps[data-id="'+ thisData +'"]').addClass('vehicleStepsActive');
         });
-        
-    
-        
-       
-        
+
+
+
+
+
         // submitBtn-photos-sec
-        
+
         // Modal Open Close of Vehicle Form
         $('.modalBtn').on('click',function(){
              $('#v5Cfalse').modal('toggle');
@@ -3009,7 +3003,7 @@ $("#store").click(function(){
        $(thisInpt).on('change', function(){
         $(this).parent()
           var file = $(thisInpt).get(0).files[0];
-          console.log('file.size ',file.size);
+        //   console.log('file.size ',file.size);
           if(file.size > 5000000){
             $(this).parent().children('.error-msg-frontend').text('File size must be less than 5 mb')
           }
@@ -3025,17 +3019,17 @@ $("#store").click(function(){
        $("#search").keyup( function() {
 
         $("#result").html('');
-        
+
         let zip = $("#search").val();
        let removspace =  zip.replace(/\s/g, '');
-       console.log(removspace)
+    //   console.log(removspace)
             let api = `https://maps.googleapis.com/maps/api/geocode/json?address=.'${removspace}'.&key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk`;
-       
+
         $.getJSON( api, function( results ) {
-            console.log(results,results.status,"cheking");
+            // console.log(results,results.status,"cheking");
             if(results?.results && results?.results.length !== 0){
             $.each( results.results, function( key, value ) {
-                if( value.formatted_address ) 
+                if( value.formatted_address )
                 {
                     $("#result").html(`<li class="list-group-item c">${value.formatted_address} </li>`)
                 }
@@ -3063,9 +3057,9 @@ $(".alertDisable").html(" ");
 <script>
         // DISABLE SUBIMIT BUTTON OF PHOTOS STEP
         $(".submitBtn-photos-sec").attr("disabled", true);
-        // SYBMIT SUMMARY STEP 
+        // SYBMIT SUMMARY STEP
         $('.submitVehicleInfo-qa').on('click', function(){
-            
+
             myFunction2()
             $('#startBtn-vehicleInfo').text('Edit')
             $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
@@ -3073,9 +3067,9 @@ $(".alertDisable").html(" ");
             $(".submitBtn-photos-sec").attr("disabled", false);
             $(".alertDisable").html(" ");
         });
-        
+
     </script>
-    
+
         @endif
 @endpush
 

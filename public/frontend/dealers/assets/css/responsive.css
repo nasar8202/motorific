@@ -204,7 +204,8 @@ section.services-sec {
     .services-sec {
         margin-bottom: 40px;
     }
-    .brands-sec:before {
+    .brands-sec:before,
+    .hw-sec:before {
         width: 95%;
     }
     
@@ -1595,7 +1596,13 @@ section.sec-2.productPageTn .vec-box.col-sm-4 {
     margin-right: 15px;
     margin-bottom: 10px;
 }
- brand.slick-slide img {
+.hw-sec .btn-wraper {
+    padding: 0 15px;
+}
+.hw-sec .btn-wraper a{
+    width: 100%;
+}
+.brand.slick-slide img {
     margin: 0 auto;
     max-width: 60px;
 }   

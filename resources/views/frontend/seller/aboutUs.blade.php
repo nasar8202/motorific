@@ -21,6 +21,8 @@
             </div>
         </div>
     </section>
+
+    <section class="about-sec2"></section>
     
     {{-- <section class="about-sec2">
         <div class="container-1151">

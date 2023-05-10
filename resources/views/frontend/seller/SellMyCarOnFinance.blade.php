@@ -37,7 +37,7 @@
         <div class="container-1151">
             <div class="row banner-content">
                 <div class="sec-1-txt col-lg-6">
-                    <h2>Sell My Car On Finance </h2>
+                    <h1>Sell My Car On Finance </h1>
                     <p class="banner-desc">Motorific can assist you in locating the best potential option to meet your needs by guiding you through the complexity of how to sell my car on finance. Our thousands of verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits while selling my car on finance. </p>
                     <!--<p class="banner-desc">Our thousands verified dealers can clear your finance on winning the bid. You’ll receive the maximum profits. </p>-->
                     <form class="millage_area" method="get" action="{{ route('photoUpload') }}">

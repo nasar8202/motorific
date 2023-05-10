@@ -96,7 +96,7 @@ z-index: 1;
         <div class="row banner-content">
             <div class="sec-1-txt col-md-6">
                 
-                <h2 class="banner-title mw-100"> Drive Away With A Great Deal Sell Your Car With Motorific</h2>
+                <h1 class="banner-title mw-100"> Drive Away With A Great Deal Sell Your Car With Motorific</h1>
                 
                 <p class="banner-desc">The process of selling a car is indeed a challenging and drawn-out task. But we do not need to stress about it because selling my car is now made simple with motoric. When you sell a vehicle on cash there are no discussions, potential purchasers, or advertisements to worry with. </p>
                 {{-- <h2>Sell your car

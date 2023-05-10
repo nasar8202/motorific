@@ -48,9 +48,11 @@ class AuctionClosingWithinHour extends Command
      */
     public function handle()
     {
+       
+        //   $log = Log::info('working within hour cron job');
         $dealers = User::where('role_id','3')->where('status',1)->get();
         $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
-        
+        // dd($dealers);
         $vehicles =   Vehicle::where('status',1)->where('start_vehicle_date',$start_end_vehicle_date)
         ->where('end_vehicle_date',$start_end_vehicle_date)->get();
         

@@ -48,8 +48,10 @@ class EveryDayEightAm extends Command
      */
     public function handle()
     {
+        
         $dealers = User::where('role_id','3')->where('status',1)->get();
         
+        //   $log = Log::info($dealers);
         
         foreach ($dealers as  $data) {
             

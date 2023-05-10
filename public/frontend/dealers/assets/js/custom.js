@@ -596,7 +596,7 @@ $(document).ready(function () {
   var width = $(window).width();
 
   $('.filterToggle').hide();
-  if (width < 800) {
+  if (width < 991) {
     $('.filterWraper').hide();
     $('.filterToggle').show();
     $('.filterToggle').click(function () {

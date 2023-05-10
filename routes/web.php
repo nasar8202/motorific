@@ -72,6 +72,10 @@ Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmai
 Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
 Route::get('about-us',[NewsletterSubscribers::class,'aboutUs'])->name('aboutUs');
 Route::get('help',[NewsletterSubscribers::class,'help'])->name('help');
+Route::get('blogs',[NewsletterSubscribers::class,'blogs'])->name('blog');
+Route::get('blogs1',[NewsletterSubscribers::class,'blogsdetails1'])->name('blog1');
+Route::get('blogs2',[NewsletterSubscribers::class,'blogsdetails2'])->name('blog2');
+Route::get('blogs3',[NewsletterSubscribers::class,'blogsdetails3'])->name('blog3');
 Route::post('get-intouch-post',[NewsletterSubscribers::class,'getIntouchPost'])->name('getIntouchPost');
 //end
 // Route::get('test', function () {
@@ -153,6 +157,7 @@ Route::post('/add-seller-vehicle', [FrontController::class,'addSellerVehicle'])-
 Route::post('/add-condition-and-damages', [FrontController::class,'addConditionDamages'])->name('addConditionDamages');
 Route::post('/vehicle_information', [FrontController::class,'vehicleInformation'])->name('vehicleInformation');
 Route::post('/create-vehicle', [FrontController::class,'createVehicle'])->name('createVehicle');
+Route::post('/createVehicleUploadImage', [FrontController::class,'createVehicleUploadImage'])->name('createVehicleUploadImage');
 Route::post('/update-seller', [FrontController::class,'updateSeller'])->name('updateSeller');
 Route::get('/longitude', [FrontController::class,'longitude'])->name('longitude');
 Route::post('/test_location', [FrontController::class,'testlocation'])->name('testlocation');
@@ -559,6 +564,8 @@ Route::group(['prefix' => 'dealer','middleware'=>['auth','dealer']], function ()
     Route::post('/media-condition', [AddDealerVehicleController::class, 'mediaConditionPost'])->name('dealer.mediaConditionPost');
     Route::get('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetails'])->name('dealer.vehicleAndDetails');
     Route::post('/vehicle-and-details', [AddDealerVehicleController::class, 'vehicleAndDetailsPost'])->name('dealer.vehicleAndDetailsPost');
+    Route::post('/compressImageDealerSide', [AddDealerVehicleController::class,'compressImageDealerSide'])->name('compressImageDealerSide');
+    
     Route::get('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListing'])->name('dealer.vehicleListing');
     Route::post('/vehicle-listing', [AddDealerVehicleController::class, 'vehicleListingPost'])->name('dealer.vehicleListingPost');
 

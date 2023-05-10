@@ -614,3 +614,71 @@ h3.overview-section__heading {
 }
 
 /*Reviews Page End*/
+
+div#myProgress{
+  z-index: 9999;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
+
+
+
+
+
+/*huzaifa css*/
+.sec-1-txt h1 span {
+    color: #7977a2;
+}
+
+.sec-1-txt h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: black;
+    max-width: 500px;
+    line-height: 1.1;
+}
+
+.banner-sec h1, .banner-inner-title {
+    line-height: 1.2;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.blogs-main .blogs-inner {
+    flex: 0 0 31%;
+    max-width: 31%;
+    border: 1px solid #cdcdcd;
+    margin: 1.16666%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.blog.image img {
+    width: 100%;
+}
+
+.blog-title {
+    color: #000;
+    text-decoration: none;
+}
+
+.blog-title h4 {
+    padding: 20px 0px 10px;
+}
+
+.blog-title:hover {
+    color: #7977a2;
+}
+
+.blog-content {
+    text-align: center;
+}
+.blogs-details .blog-content {
+    text-align: left;
+}
+
+.blogs-details .blog-text {
+    line-height: 2;
+}
