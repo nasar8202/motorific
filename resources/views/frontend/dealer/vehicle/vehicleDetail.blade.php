@@ -9,28 +9,30 @@
 </style>
 <main class="topPadingPage">
     <section class="veh-detail-sec">
-        <div class="backBtn">
+        <div class="container-1400">
+            <div class="backBtn">
                 <a href="{{route('dealer.dashboard')}}">Back to Vehicles</a>
             </div>
-        <div class="sliderImgVehicleDetail">
-            <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}">
-            </div>
-            <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->passenger_rare_side_corner ?? "") }}">
-            </div>
-            <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->driver_rare_side_corner ?? "") }}">
-            </div>
-            <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? "") }}">
+            <div class="sliderImgVehicleDetail">
+                <div class="sliderImgVehicleDetailRepeater">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front ?? "") }}">
+                </div>
+                <div class="sliderImgVehicleDetailRepeater">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->passenger_rare_side_corner ?? "") }}">
+                </div>
+                <div class="sliderImgVehicleDetailRepeater">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->driver_rare_side_corner ?? "") }}">
+                </div>
+                <div class="sliderImgVehicleDetailRepeater">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? "") }}">
+                </div>
             </div>
         </div>
     </section>
     
     
     <section class="sec-2 productPageTn">
-        <div class="container">
+        <div class="container-1400">
             <div class="row">
                 <div class="col-lg-8 vehicleDetailLeft">
                     <div class="row">
@@ -293,7 +295,7 @@
                             <form  action="#" >
                                 <div class="form-group">
                                     <label>Enter Maximum Bid</label>
-                                    <input type="number" name="bid" placeholder="£" class="bid_price" />
+                                    <input type="number" name="bid" placeholder="£"  class="bid_price" required />
                                     <input type="hidden" name="hidden_price" class="hidden_price" value="{{$vehicle->hidden_price}}" />
                                     <input type="hidden" name="vehicle_id" class="vehicle_id" value="{{$vehicle->id}}" />
                                     <div class="spinner-border"  style="margin-left: 150px; " role="status">
@@ -304,7 +306,7 @@
                                       <a href="{{route('buyItNowFromSeller',$vehicle->id)}}" class="text-decoration-none text-white"><button type="button" class="mt-2">Buy Now : £{{$vehicle->reserve_price}}</button></a>
                                    
                                       @else
-                                      <button type="button" class="bid">Submit Bid</button>
+                                      <button type="button" class="bid" id="submit_disable_start_time">Submit Bid</button>
                                       @endif
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Session;
 use App\Mail\WelcomeDealerRegistrationRequestMail;
 use App\Jobs\SendEmailForDealerRegistrationQueuing;
 use App\Notifications\NewDealerRequestNotification;
-
+use Illuminate\Database\QueryException;
 class MultiStepRegistration extends Controller
 {
     public function createStep1(Request $request)
@@ -91,8 +91,8 @@ class MultiStepRegistration extends Controller
             'company_type' => 'required',
             'website' => 'max:256',
             'company_phone' => 'required|min:11|max:11',
-            // 'dealer_identity_card' => 'required',
-            // 'dealer_documents' => 'required',
+            'dealer_identity_card' => 'nullable|image|max:2048', // max size is 2MB (2048KB)
+            'dealer_documents' => 'nullable|image|max:2048', // max size is 2MB (2048KB)
         ]);
 
         $zip =  str_replace(' ', '',$request->postcode);
@@ -175,6 +175,9 @@ class MultiStepRegistration extends Controller
             $user_detail->mileage_to = 2;
 
             if(!empty($request->file('dealer_identity_card')) ){
+                $request->validate([
+                    'dealer_identity_card' => 'file|max:2048', // max size in kilobytes (2 MB)
+                ]);
                 $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
                 $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
                 
@@ -186,6 +189,9 @@ class MultiStepRegistration extends Controller
                 //$user_detail->dealer_documents = $dealer_documents;
             }
             if( !empty($request->file('dealer_documents'))){
+                $request->validate([
+                    'dealer_documents' => 'file|max:2048', // max size in kilobytes (2 MB)
+                ]);
                 $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
                 $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
     
@@ -236,11 +242,21 @@ class MultiStepRegistration extends Controller
                 DB::rollBack();
                 return back()->with('error', 'Enter The Right Post Code');
             }
-        } catch (Swift_TransportException $e) {
-            DB::rollBack();
+        } catch (QueryException $e) {
+            // catch (Swift_TransportException $e) {
+            //DB::rollBack(); 
            // return $e;
-           Log::error($e->getMessage()); // log the error message
-    return redirect()->back()->withErrors(['error' => 'An error occurred while sending the email. Please try again later.']); // display user-friendly error message
+           DB::rollback();
+
+           if ($e->errorInfo[1] === 1062) {
+               // If the error code is 1062 (Integrity constraint violation),
+               // it means that the email address already exists in the database
+               return redirect()->back()->withErrors(['email' => 'The email address is already in use.'])->withInput();
+           }
+       
+           // For all other database errors, log the error message and display a generic error message to the user    
+           Log::error($e->getMessage());
+           return redirect()->back()->withErrors(['error' => 'An error occurred while processing your request. Please try again later.'])->withInput();
             //return back()->with('error', 'Something Went Wrong');
         }
     }

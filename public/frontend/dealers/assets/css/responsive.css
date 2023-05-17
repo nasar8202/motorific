@@ -393,6 +393,8 @@ div#loop .box {
     justify-content: space-between;
     padding: 90px 50px 0;
     /* margin-left: 160px; */
+    position: relative;
+    z-index: -1;
 }
 .mob-header-nav {
     padding-right: 0px;
@@ -675,7 +677,9 @@ div#loop .col-lg-3.col-md-3.blur_action {
     position: static;
 }
 header.header {
+    position: relative;
     padding: 20px 0 20px;
+    z-index: 9999999999999;
 }
 .mob-header {
     display: flex;
@@ -724,7 +728,7 @@ header.header {
 .header-btns.dealer {
     display: block;
 }
-.header-btns.dealer .dropdown-menu {
+.header-btns.dealer .dropdown-menu{
     position: static !important;
     transform: unset !important;
     transform: scaleY(0) !important;
@@ -1184,20 +1188,21 @@ section.sec-2.productPageTn span.filterToggle {
 
 .filterWraper {
     background: #f1f1f1;
-    padding: 0 20px;
+    padding: 0 25px 25px;
     margin-bottom: 40px;
+    border-radius: 0px 0px 15px 15px;
 }
 
 section.sec-2.productPageTn span {
     /*padding: 0 !important;*/
 }
 .p-cate-list .p-code {
-    padding: 3px 20px !important;
+    padding: 3px 15px !important;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 20px !important;
+    /* height: 20px !important;
     right: 20px !important;
-    top: 12px !important;
+    top: 12px !important; */
 }
 
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
@@ -1209,7 +1214,9 @@ section.sec-2.productPageTn span {
 .topRightFilter {
     float: none;
 }
-
+.p-cate-list .p-location {
+    width: 45%;
+}
 /* End */
 
 
@@ -1233,6 +1240,85 @@ section.sec-2.productPageTn span {
 .yad-card img {
     height: 160px;
 }
+.seller-bidCard .bid-messageBox .prim-btn {
+    padding: 14px 30px;
+}
+.metting-box .prim-btn {
+    padding: 14px 30px;
+    width: 100%;
+}
+
+.metting-box .prim-btn.meeting {
+    margin-bottom: 15px;
+}
+.seller-bidCard {
+    margin-top: 50px;
+}
+.my-vech .btn-bids {
+    position: static;
+    padding: 25px 0 8px;
+}
+
+.my-vech .btn-bids a {
+    border-radius: 6px;
+}
+.wheelSlider .slick-list {
+    padding: 0 !important;
+}
+
+.wheelSlider {
+    position: relative;
+}
+
+.wheelSlider .slick-arrow {
+    background: #05eab5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in;
+}
+
+.wheelSlider .slick-arrow:before {
+    all: unset;
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.wheelSlider .slick-prev.slick-arrow {
+    left: 10px;
+}
+
+.wheelSlider .slick-next.slick-arrow {
+    right: 10px;
+}
+
+.wheelSlider .slick-next.slick-arrow:before {
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-color: #fff;
+    right: 16px;
+}
+
+.wheelSlider .slick-prev.slick-arrow:before {
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    left: 16px;
+    border-color: #fff;
+}
+
+.wheelSlider .slick-arrow:hover {
+    background: #676692;
+}
+
+
 }
 
 @media (max-width: 575px) {
@@ -1428,11 +1514,11 @@ ul.parts-content li span {
 .bottomListTitle ul li svg {
     margin-right: 10px;
 }
-.vehicleDetailGalrepeatMain {
+/* .vehicleDetailGalrepeatMain {
     flex-wrap: nowrap;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-}
+} */
 .vehicleDetailGalrepeatMain .imgVehicle {
     flex: 0 0 100%;
     width: 100%;
@@ -1443,7 +1529,7 @@ ul.parts-content li span {
 }
 
  section.sec-2.productPageTn.requested-vehicles .col-sm-8{
-   margin-bottom: 19px; 
+   /* margin-bottom: 19px;  */
 
 
 }
@@ -1547,10 +1633,12 @@ section.sec-2.productPageTn.requested-vehicles .col-sm-4{
 }
 
 section.sec-2.productPageTn .vec-box.col-sm-4 {
-    height: 170px;
+    /* height: 170px; */
+    height: 200px;
 }
 .vec-box-big {
-    padding: 15px;
+    /* padding: 15px; */
+    padding: 20px;
 }
 
 .vec-box-big h1 {
@@ -1567,11 +1655,13 @@ section.sec-2.productPageTn .vec-box.col-sm-4 {
 
 .vec-box-big .card.card-body {
     min-width: 100%;
-    font-size: 13px;
+    font-size: 14px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .vec-box-row {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 .vec-box-big span {
     padding-left: 0;
@@ -1581,7 +1671,14 @@ section.sec-2.productPageTn .vec-box.col-sm-4 {
     display: block;
     text-align: center;
 }
+.procuts-wraper .reviews-add .product-card {
+    margin-bottom: 0;
 }
+
+}
+
+
+
 @media (max-width: 380px) {
     .userBtns a {
     padding: 5px 13px;
@@ -1606,5 +1703,14 @@ section.sec-2.productPageTn .vec-box.col-sm-4 {
     margin: 0 auto;
     max-width: 60px;
 }   
+div.productsFiltersCol{
+    padding: 0;
+}
+.productsFiltersCol + div {
+    padding: 0;
+}
+.p-content {
+    padding: 18px;
+}
     
 }

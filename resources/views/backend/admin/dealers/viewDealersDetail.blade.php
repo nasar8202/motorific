@@ -178,7 +178,7 @@
                                             </div>
                                         </div>
                                         
-                                        @if($dealers->userDetails->dealer_identity_card == null && $dealers->userDetails->dealer_documents == null)
+                                        @if(isset($dealers->userDetails) && $dealers->userDetails->dealer_identity_card == null && $dealers->userDetails->dealer_documents == null)
                                         
                                         <div class="card shadow-sm">
                                             <div class="card-header bg-transparent border-0">
@@ -258,8 +258,8 @@
                                                         <th width="3%">ID</th>
                                                         <td width="2%">:</td>
                                                         <td class="set-scr">
-                                                            @if($dealers->userDetails->dealer_identity_card == null) <input type="file"
-                                                            name="dealer_identity_card"> @else <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_identity_card) }}" width="400px" height="200px"> <input type="file"
+                                                            @if(isset($dealers->userDetails) && $dealers->userDetails->dealer_identity_card == null) <input type="file"
+                                                            name="dealer_identity_card"> @elseif(isset($dealers->userDetails)) <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_identity_card) }}" width="400px" height="200px"> <input type="file"
                                                             name="dealer_identity_card"> @endif 
                                                             @if ($errors->has('dealer_identity_card'))
                                                                 <span
@@ -271,7 +271,7 @@
                                                         <th width="3%">Documents</th>
                                                         <td width="2%">:</td>
                                                         <td class="set-scr"> 
-                                                            @if($dealers->userDetails->dealer_documents == null) <input type="file" name="dealer_documents">@else <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_documents) }}" width="400px" height="200px"> <input type="file" name="dealer_documents"> @endif
+                                                            @if(isset($dealers->userDetails) && $dealers->userDetails->dealer_documents == null) <input type="file" name="dealer_documents">@elseif(isset($dealers->userDetails)) <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_documents) }}" width="400px" height="200px"> <input type="file" name="dealer_documents"> @endif
                                                             <br>
                                                             @if ($errors->has('dealer_documents'))
                                                                 <span

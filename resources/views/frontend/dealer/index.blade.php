@@ -59,7 +59,7 @@
                         <h4>Mileage</h4>
                         <label class="selectCommon selectSingle">
                             <select name="mileAgePro" id="mileAgePro" multiple>
-                                <option value=""> Select MileAge </option>
+                                <option value=""> Select Mileage </option>
                                 <option value="848"> < 10,0000</option>
     							<option value="342"> < 50,0000</option>
     							<option value="100,000"> < 100,0000</option>

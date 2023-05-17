@@ -20,7 +20,8 @@
     }
 
     .mail-img-one img {
-      width: 520px;
+      /* width: 520px; */
+      width: 11rem;
     }
     .car-det {
       display: flex;
@@ -34,16 +35,18 @@
       display: flex;
       align-items: center;
       gap: 30px;
-      padding-left: 2rem;
+      /* padding-left: 2rem; */
       flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row-reverse;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
     }
 
     .content-img img {
       width: 300px;
       height: 200px;
-      display: flex
+      display: flex;
+      margin-top:10px;
+      object-fit:cover;
     }
     .social-icon {
     text-align: center;
@@ -60,7 +63,7 @@
       margin-left: 1.5rem;
       border-left: 1px solid #5c5a5a87;
       padding-left: 1rem;
-      margin-top: 2rem;
+      padding-top: 2rem;
       padding-bottom: 1rem;
     }
     .customer-detail .car-det {
@@ -93,7 +96,7 @@
     main {
       overflow-x: hidden;
     }
-    @media only screen and (max-width: 1200px) {
+    /* @media only screen and (max-width: 1200px) {
       .content-img img {
         width: 580px;
       }
@@ -142,7 +145,7 @@
 .footer-mail > span br{
     display:none;
 }
-    }
+    } */
   </style>
 
   <body>

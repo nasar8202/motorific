@@ -60,6 +60,8 @@
               transform: scale(1);
             }
           }
+
+          
     </style>
     <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -346,7 +348,8 @@
                 <div class="footer-sub contact">
                     <div>
                         <h5>Whatsapp</h5>
-                        <p><a href="https://api.whatsapp.com/send?phone=+447593839364">+44 7593 839364</a></p>
+                        <!-- <p><a href="https://api.whatsapp.com/send?phone=+447593839364">+44 7593 839364</a></p> -->
+                        <p><a href="https://wa.me/447888185014" target="_blank">+44 7888 185014</a></p>
                     </div>
                     <div>
                         <h5>Customer Support </h5>
@@ -371,14 +374,18 @@
                     <!--    </a>-->
                     <!--</div>-->
                     <ul class="footer-social my-3">
-                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                        <li><a href="https://www.facebook.com/Motorific-100480046330830"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="https://www.instagram.com/motorific_1/"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="https://uk.linkedin.com/company/motorific" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="https://www.facebook.com/Motorific-100480046330830" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.instagram.com/motorific_1/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="https://wa.me/447888185014" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                     <h4>© Motorific Online Ltd. <?php echo date("Y"); ?></h4>
                 </div>
             </div>
         </div>
+        <a href="https://wa.me/447888185014" class="wa-icon-footer" target="_blank">
+            <i class="fa fa-whatsapp wa-icon"></i>
+        </a>
     </section>
 
 

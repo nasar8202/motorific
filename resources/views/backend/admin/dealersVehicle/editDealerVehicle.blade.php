@@ -41,18 +41,19 @@ p {
         </div>
     </div>
 
- <div class="row dealer_vehicle_images">
-
+ <div class="row dealer_vehicle_images ext-images">
+ <div><h1>Exterior images</h1></div>
      @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
 
      <div class="col-md-3 col-sm-6">
-                    <img width="400px" height="200px" src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
+                    <img width="50" height="50" src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
               </div>
                 @empty
                 @endforelse
+                <div><h1>Interior images</h1></div>
                 @forelse($vehicle->DealerVehicleInterior as $interiorimage)
           <div class="col-md-3 col-sm-6">
-                    <img width="400px" height="200px" src="{{ asset('/uploads/dealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
+                    <img width="50" height="50" src="{{ asset('/uploads/dealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
                 </div>
                 @empty
                 @endforelse
@@ -219,7 +220,7 @@ p {
             </div> --}}
             <div class="vehicleDetailGal">
                 <h4>Wheels</h4>
-                <div class="vehicleDetailGalrepeatMain row dealer_vehicle_images">
+                <div class="vehicleDetailGalrepeatMain row dealer_vehicle_images ">
                     @forelse($vehicle->DealerVehicleTyre as $wheel)
                     <div class="col-md-4 col-sm-6">
                         <div class="imgVehicle">

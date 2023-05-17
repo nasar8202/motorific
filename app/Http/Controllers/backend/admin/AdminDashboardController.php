@@ -33,12 +33,11 @@ class AdminDashboardController extends Controller
     public function viewDealerDetails($id)
     {
         $dealers = User::where('id',$id)->with('userDetails')->first();
-
+       
         return view('backend.admin.dealers.viewDealersDetail',compact('dealers'));
     }
     public function approveRequestDocuments(Request $request)
     {
-       
         $dealerDetails = UserDetail::where('user_id',$request->id)->first();
         if( $dealerDetails->dealer_documents== null && $dealerDetails->dealer_identity_card == null ){
             $request->validate([
@@ -46,7 +45,7 @@ class AdminDashboardController extends Controller
                 'dealer_documents' => 'required|image',
                 
             ]);
-       
+            
             $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
             $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
             $dealerDetails->dealer_identity_card = $dealer_identity_card ;
@@ -73,11 +72,11 @@ class AdminDashboardController extends Controller
                 'actionURL' =>   url('/dealer-login?email=' . urlencode($user->email)),
                 'order_id' => 101
             ];
-    
+            
             // Notification::send($user->email, new MyFirstNotification($details));
             $user->notify(new ApprovedDealerApplication($details));
-    
-           return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
+            
+            return redirect()->route('dealer.approvedDealersByAdmin')->with('success', 'Dealer approved Successfully!');
         }
         else if($dealerDetails->dealer_identity_card == null ){
             $request->validate([

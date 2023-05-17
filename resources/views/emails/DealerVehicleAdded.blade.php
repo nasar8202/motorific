@@ -1,521 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <title>Registration Complete</title> --}}
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><!--[if !mso]><!-->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css"><!--<![endif]-->
+	<style>
+		* {
+			box-sizing: border-box;
+		}
 
-    <!-- Custom Css -->
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;   
-        }
-        body{
-            font-family: 'Poppins', sans-serif;
-        }
-        .container{
-            width: 100%;
-            max-width: 75vw;
-            margin: 0 auto;
-        }
-        /* Header  */
-        header.header {
-            padding: 15px 0;
-            text-align: center;
-            background: #fff;
-        }
+		body {
+			margin: 0;
+			padding: 0;
+		}
 
-        header.header .logo a {
-            font-size: 30px;
-            font-weight: 700;
-            color: black;
-            text-decoration: none;
-        }
+		a[x-apple-data-detectors] {
+			color: inherit !important;
+			text-decoration: inherit !important;
+		}
 
-        header.header .title-name  {
-            font-size: 30px;
-            font-weight: 700;
-            color: #7977a2;
-            text-decoration: none;
-        }
+		#MessageViewBody a {
+			color: inherit;
+			text-decoration: none;
+		}
 
-        header.header .logo {
-            margin: 0;
-        }
+		p {
+			line-height: inherit
+		}
 
-        /* End */
+		.desktop_hide,
+		.desktop_hide table {
+			mso-hide: all;
+			display: none;
+			max-height: 0px;
+			overflow: hidden;
+		}
 
-        /* Main Content */
-        .cont-main {
-            max-width: 100%;
-            margin: 0 auto;
-            text-align: center;
-        }
+		.image_block img+div {
+			display: none;
+		}
 
-        .main-content {
-            padding: 8% 0;
-        }
+		@media (max-width:520px) {
+			.desktop_hide table.icons-inner {
+				display: inline-block !important;
+			}
 
-        .congt-box h3 {
-            margin-bottom: 20px;
-            font-size: 26px;
-        }
+			.icons-inner {
+				text-align: center;
+			}
 
-        /* End */
+			.icons-inner td {
+				margin: 0 auto;
+			}
 
-        /* Footer */
-        footer.footer {
-            padding: 15px;
-            background: #7977a2;
-        }
+			.row-content {
+				width: 100% !important;
+			}
 
-        .footer-wraper {
-            display: flex;
-            justify-content: space-between;
-        }
+			.mobile_hide {
+				display: none;
+			}
 
-        .footer-addr p {
-            font-size: 14px;
-            color: #fff;
-        }
+			.stack .column {
+				width: 100%;
+				display: block;
+			}
 
-        .footer-addr ul {
-            list-style: none;
-        }
+			.mobile_hide {
+				min-height: 0;
+				max-height: 0;
+				max-width: 0;
+				overflow: hidden;
+				font-size: 0px;
+			}
 
-        .footer-addr ul li a {
-            font-size: 14px;
-            font-weight: 600;
-            color: #fff;
-            text-decoration: none;
-        }
+			.desktop_hide,
+			.desktop_hide table {
+				display: table !important;
+				max-height: none !important;
+			}
 
-        .footer-social {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+			.row-1 .column-1 .block-3.heading_block h1,
+			.row-1 .column-1 .block-5.heading_block h1 {
+				font-size: 20px !important;
+			}
 
-        .footer-social li a {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: #ffffff;
-            border-radius: 50%;
-            font-size: 14px;
-            border: 3px solid #ffffff;
-            transition: all .3s ease-in;
-            opacity: .4;
-        }
+			.row-1 .column-1 .block-1.image_block td.pad {
+				padding: 5px 0 0 !important;
+			}
 
-        .footer-social li a:hover {
-            opacity: 1;
-            background: #fff;
-            color: #7977a2;
-        }
-        .price {
-            font-size: 30px;
-            padding: 4px 40px;
-            max-width: fit-content;
-            margin: 30px auto;
-            background: #05eab5;
-        }
+			.row-1 .column-1 .block-6.list_block ul {
+				font-size: 14px !important;
+				line-height: auto !important;
+			}
 
-        .accept-msg {
-            font-weight: 600;
-            max-width: 580px;
-            margin: 0 auto;
-        }
+			.row-1 .column-1 .block-4.paragraph_block td.pad>div,
+			.row-1 .column-1 .block-8.paragraph_block td.pad>div {
+				font-size: 13px !important;
+			}
 
-        .prim-btn {
-            font-weight: 600;
-            padding: 8px 30px;
-            background: #7977a2;
-            display: inline-block;
-            text-decoration: none;
-            color: #fff;
-            margin: 30px 0;
-        }
+			.row-1 .column-1 .block-7.heading_block h3,
+			.row-1 .column-1 .block-9.heading_block h3 {
+				font-size: 16px !important;
+			}
 
-        .prim-btn span {
-            margin-left: 8px;
-            transition: all .3s ease-in;
-        }
-        .prim-btn:hover span {
-            margin-left: 0;
-        }
-        .tos-box h2 {
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-        .tos-box {
-            max-width: 600px;
-            background: #05eab559;
-            margin: 0 auto;
-            padding: 40px 20px;
-            border-radius: 12px;
-        }
-        .icon {
-            font-size: 70px;
-            color: #05eab5;
-        }
-        .green-btn {
-            background: #05eab5;
-            color: #000;
-            font-weight: 700;
-        }
-        .forget-pass h3 {
-            margin-bottom: 8px;
-        }
+			.row-1 .column-1,
+			.row-1 .column-1 .block-10.button_block td.pad {
+				padding: 10px !important;
+			}
 
-        .forget-pass .green-btn {
-            margin-top: 20px;
-        }
-        ul.site-links {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        ul.site-links li a {
-            text-decoration: none;
-            color: #000;
-        }
-        .unsub .prim-btn {
-            margin-bottom: 0;
-        }
-        .cont-main.unsub {
-            text-align: left;
-        }
-
-        ul.reg-detail {
-            list-style: none;
-        }
-
-        ul.reg-detail li span {
-            font-weight: 700;
-            margin-right: 15px;
-        }
-
-        ul.reg-detail li {
-            margin-bottom: 4px;
-        }
-
-        .cont-main.unsub h4 {
-            margin-top: 15px;
-        }
-
-        .veh-detail .congt-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 85%;
-            flex-wrap: wrap;
-            margin: 0 auto;
-        }
-
-        .veh-detail .congt-box .veh-img {
-            width: 100%;
-            max-width: 20vw;
-            height: 12vw;
-        }
-
-        .veh-detail .congt-box .veh-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .veh-text {
-            max-width: 100%;
-            margin-top: 15px;
-        }
-
-        .veh-text h5 {
-            font-weight: 700;
-            font-size: 17px;
-            color: #7977a2;
-            margin: 0;
-        }
-
-        .veh-text p {
-            font-size: 14px;
-            margin: .95vw 0;
-        }
-
-        .veh-text h6 {
-            font-size: 16px;
-        }
-        .veh-text .prim-btn {
-            padding: 9px 11px;
-            font-size: 12px;
-        }
-
-        .unsub.veh-detail .prim-btn {
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            max-width: fit-content;
-        }
-
-        /* End */
-
-        /* Responsive */
-        @media(max-width:991px){
-            .cont-main {
-                max-width: 70vw;
+			.row-1 .column-1 .block-10.button_block a span,
+			.row-1 .column-1 .block-10.button_block div,
+			.row-1 .column-1 .block-10.button_block div span {
+				font-size: 14px !important;
+				line-height: 2 !important;
+			}
+            .row-content.stack{
+                width: 100% !important;
             }
-            .congt-box h3 {
-                font-size: 20px;
-            }
-
-            .congt-msg {
-                font-size: 14px;
-            }
-
-            .price {
-                font-size: 26px;
-                margin: 24px auto;
-            }
-
-            .accept-msg {
-                font-size: 14px;
-            }
-
-            .prim-btn {
-                font-size: 14px;
-            }
-
-            .tos-box {
-                padding: 30px 20px;
-            }
-
-            .tos-box h2 {
-                font-size: 18px;
-            }
-
-            .tos-box p {
-                font-size: 14px;
-            }
-            .icon {
-                font-size: 55px;
-            }
-            ul.reg-detail li {
-                font-size: 14px;
-            }
-            .veh-detail .congt-box {
-                max-width: 100%;
-            }
-            .veh-detail .congt-box .veh-img {
-                max-width: 250px;
-                height: 140px;
-            }
-
-            .veh-text p {
-                font-size: 12px;
-                margin: 12px 0;
-            }
-
-            .veh-text h5 {
-                font-size: 14px;
-            }
-
-            .veh-text h6 {
-                font-size: 12px;
-            }
-
-
-        }
-
-        @media(max-width:767px){
-            .congt-box h3 {
-                font-size: 18px;
-            }
-
-            .congt-msg {
-                font-size: 12px;
-            }
-
-            .price {
-                font-size: 20px;
-                margin: 20px auto;
-            }
-
-            .accept-msg {
-                font-size: 12px;
-            }
-
-            .prim-btn {
-                font-size: 13px;
-            }
-
-            .tos-box h2 {
-                font-size: 16px;
-            }
-
-            .tos-box p {
-                font-size: 12px;
-            }
-
-            .main-content {
-                padding: 40px 0;
-            }
-
-            .footer-addr p {
-                font-size: 12px;
-            }
-
-            .footer-addr ul li a {
-                font-size: 12px;
-            }
-
-            .container {
-                max-width: 90vw;
-            }
-
-            .footer-social {
-                gap: 15px;
-            }
-
-            .footer-social li a {
-                width: 35px;
-                height: 35px;
-                border-width: 2px;
-            }
-            .icon {
-                font-size: 45px;
-            }
-            ul.site-links li a {
-                font-size: 14px;
-            }
-            .veh-detail .congt-box .veh-img {
-                max-width: 200px;
-                height: 110px;
-            }
-
-            header.veh-dt .title-name {
-                font-size: 22px;
-            }
-
-            header.veh-dt p {
-                font-size: 14px;
-            }
-
-
-
-
-        }
-
-        @media(max-width:575px){
-            .cont-main {
-                max-width: 85vw;
-            }
-            header.header .logo a {
-                font-size: 24px;
-            }
-
-            header.header {
-                padding: 12px 0;
-            }
-
-            .main-content {
-                padding: 30px 0 40px;
-            }
-            ul.site-links li a {
-                font-size: 13px;
-            }
-            .unsub .congt-box h3 {
-                font-size: 16px;
-                margin-bottom: 15px;
-            }
-
-            ul.reg-detail li {
-                font-size: 12px;
-            }
-            .veh-detail .congt-box .veh-img {
-                max-width: 160px;
-                height: 100px;
-            }
-
-
-        }
-
-        /* End */
-    </style>
-    <!-- End -->
+		}
+	</style>
 </head>
-<body>
-    <main>
-        <header class="header veh-dt">
-            <div class="container">
-                <h2 class="logo"><a href="{{route('index')}}">motorific</a></h2>
-                <br>
-                <h3 class="title-name">Hi {{ ucwords($queue_details['name']) }}!</h3>
-                <p style="display: block; ">Thank you for adding your vehicle to our dealer portal for sale.</p>
-                <p style="display: block; ">Our team is reviewing your advertisement and will notify you as soon as it goes live.</p>
-                <h3 class="title-name">Car Details</h3>
-            </div>
-        </header>
 
-        <div class="main-content">
-            <div class="container">
-                <div class="cont-main  unsub veh-detail">
-                    
-                    <div class="congt-box">
-                        
-                        <ul class="reg-detail">
-                            <li><span>Model:</span> {{ $queue_details['vehicle_name'] }} </li>
-                            <li><span>Reg:</span> {{ strtoupper($queue_details['vehicle_registration']) }}</li>
-                            <li><span>Mileage:</span>{{ $queue_details['vehicle_mileage'] }}</li>
-                            <li><span>Car Age:</span> {{ $queue_details['age'] }} </li>
-                           
-                        </ul>
-                        {{-- <div class="veh-img">
-                            <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$queue_details['front']) }}" width="80px" height="80px" alt="">
-                        </div> --}}
-                        <div class="veh-text">
-                            <h5>The Next Step?</h5>
-                            <p>Your valuation is being worked on by Motorific experts valuation team.
-                                The tools we use as industry experts will ensure you receive the best, genuine price for your car in today's market.</p>
-                            <h6>Want your valuation sooner?</h6>
-                            <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: +44 7593 839364</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-wraper">
-                    <div class="footer-addr">
-                        <p>©
-                            <?php echo date("Y"); ?>
-                            Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ.<br />
-                            
-                        </p>
-                        <ul>
-                            <li><a href="{{route('index')}}">www.motorific.co.uk</a></li>
-                            <li><a href="mailto:info@motorific.co.uk">info@motorific.co.uk</a></li>
-                        </ul>
-                    </div>
-                    {{-- <ul class="footer-social">
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    </ul> --}}
-                </div>
-            </div>
-        </footer>
-    </main>    
+<body style="background-color: #FFFFFF; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+	<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF;">
+		<tbody>
+			<tr>
+				<td>
+					<table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f5f5f5; color: #000000; width: 100%;" width="100%">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%" style="font-weight: 400; text-align: left; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; padding-top: 15px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
+																<div class="alignment" align="center" style="line-height:10px">
+                                                                <a href="https://motorific.co.uk/" target="_blank">    
+                                                                <img src="https://motorific.co.uk/frontend/seller/assets/image/logo.png" style="display: block; height: auto; border: 0; width: 167px; max-width: 100%;" width="167">
+                                                                </a>
+                                                                </div>
+															</td>
+														</tr>
+													</table>
+													<table class="divider_block block-2" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad">
+																<div class="alignment" align="center">
+																	<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																		<tr>
+																			<td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 1px solid #dddddd;"><span>&#8202;</span></td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="heading_block block-3" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad">
+																<h1 style="margin: 0; color: #7778a2; direction: ltr; font-family: 'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">Hi {{ ucwords($queue_details['name']) }}!</span></h1>
+															</td>
+														</tr>
+													</table>
+													<table class="paragraph_block block-4" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div style="color:#101112;direction:ltr;font-family:'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:19.2px;">
+																	<p style="margin: 0;">Thank you for adding your vehicle to our dealer portal for sale.<br>Our team is reviewing your advertisement and will notify you as soon as it goes live.</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="heading_block block-5" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad">
+																<h1 style="margin: 0; color: #7778a2; direction: ltr; font-family: 'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">Car Details</span></h1>
+															</td>
+														</tr>
+													</table><!--[if mso]><style>#list-r0c0m5 ul{margin: 0 !important; padding: 0 !important;} #list-r0c0m5 ul li{mso-special-format: bullet;}#list-r0c0m5 .levelOne li {margin-top: 0 !important;} #list-r0c0m5 .levelOne {margin-left: -20px !important;}#list-r0c0m5 .levelTwo li {margin-top: 0 !important;} #list-r0c0m5 .levelTwo {margin-left: 10px !important;}</style><![endif]-->
+													<table class="list_block block-6" id="list-r0c0m5" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div class="levelOne" style="margin-left: 0;">
+																	<ul class="leftList" start="1" style="margin-top: 0; margin-bottom: 0; padding: 0; padding-left: 0; font-weight: 400; text-align: left; color: #101112; direction: ltr; font-family: 'Source Sans Pro',Tahoma,Verdana,Segoe,sans-serif; font-size: 16px; letter-spacing: 0; line-height: 120%; mso-line-height-alt: 19.2px; list-style-type: disc;">
+																		<li style="margin-bottom: 0; text-align: left; list-style:none;"><strong>Mode:</strong> &nbsp;
+                                                                        {{ $queue_details['vehicle_name'] }}
+                                                                        </li>
+																		<li style="margin-bottom: 0; text-align: left; list-style:none;"><strong>Reg:</strong> &nbsp;
+                                                                        {{ strtoupper($queue_details['vehicle_registration']) }}
+                                                                        </li>
+																		<li style="margin-bottom: 0; text-align: left; list-style:none;"><strong>Mileage:</strong> &nbsp;
+                                                                        {{ $queue_details['vehicle_mileage'] }}
+                                                                        </li>
+																		<li style="margin-bottom: 0; text-align: left; list-style:none;"><strong>Care Age:</strong> &nbsp;
+                                                                        {{ $queue_details['age'] }}
+                                                                        </li>
+																	</ul>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="heading_block block-7" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad">
+																<h3 style="margin: 0; color: #7778a2; direction: ltr; font-family: 'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">The Next Step?</span></h3>
+															</td>
+														</tr>
+													</table>
+													<table class="paragraph_block block-8" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div style="color:#101112;direction:ltr;font-family:'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
+																	<p style="margin: 0;">Your valuation is being worked on by Motorific experts valuation team. The tools we use as industry experts will ensure you receive the best, genuine price for your car in today's market.</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="heading_block block-9" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad">
+																<h3 style="margin: 0; color: #7778a2; direction: ltr; font-family: 'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">Want your valuation sooner?</span></h3>
+															</td>
+														</tr>
+													</table>
+													<table class="button_block block-10" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad">
+																<div class="alignment" align="center"><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="tel:+447593839364" style="height:38px;width:280px;v-text-anchor:middle;" arcsize="11%" stroke="false" fillcolor="#05eab5"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Tahoma, Verdana, sans-serif; font-size:16px"><![endif]--><a href="tel:447593839364" target="_blank" style="text-decoration:none;display:block;color:#ffffff;background-color:#05eab5;border-radius:4px;width:100%;border-top:0px solid transparent;font-weight:400;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:0px;padding-right:0px;font-size:16px;display:inline-block;letter-spacing:normal;"><span dir="rtl" style="word-break: break-word; line-height: 32px;">Give us a call: +44 7593839364</span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table><!-- End -->
 </body>
+
 </html>

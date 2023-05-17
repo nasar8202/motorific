@@ -22,7 +22,7 @@
         }
         .container{
             width: 100%;
-            max-width: 75vw;
+            max-width: 100%;
             margin: 0 auto;
         }
         /* Header  */
@@ -44,6 +44,9 @@
             font-weight: 700;
             color: #7977a2;
             text-decoration: none;
+        }
+        .mail-desc strong {
+            font-size: 16px;
         }
 
         header.header .logo {
@@ -219,7 +222,7 @@
             /* display: flex; */
             /* align-items: center; */
             /* justify-content: space-between; */
-            max-width: 85%;
+            max-width: 90%;;
             /* flex-wrap: wrap; */
             margin: 0 auto;
         }
@@ -285,9 +288,15 @@
         }
         .hm-link-btn {
             background: rgb(5, 234, 181);
-            color: rgb(0, 0, 0);
-            padding: 6px 4px;
+            padding: 4px 11px;
             display: inline-block;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 10px;
+            border: 1px solid #7977a2;
+        }
+        .rejected-btn {
+            margin-left: 1px;
         }
         .hm-link-btn:last-child {
             margin-top: 5px;
@@ -486,8 +495,8 @@
                 <br>
                 <h3 class="title-name">Hi {{ ucwords($data['name']) }}!</h3>
                 
-                <p>Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
-                    for the price of £{{ $data['reserve_price'] }}.</p>
+                <p class="mail-desc">Congratulations - Your Vehicle <strong>{{ $data['vehicle_name'] }}</strong> valuation has been added by Motorific
+                    for the price of <strong>£{{ $data['reserve_price'] }}.<strong></p>
                 <h3 class="title-name">Car Details</h3>
             </div>
         </header>
@@ -510,18 +519,12 @@
                             </div>
                         </div>
                         
-                        {{-- <div class="veh-text">
-                            <h5>You Can Approved Or Reject Valuation</h5>
-                            <p>
-                            <a href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>
-                            </p>
-                        </div> --}}
+                    
                         <div class="veh-text">
                             <h5>The Next Step?</h5>
-                            <p class="veh-text-desc"> 1)  I accept the reserve price
-                                (<a class="hm-link-btn" href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a class="hm-link-btn" href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>).
+                            <p class="veh-text-desc"> 1)  I accept the reserve price <br>
+                                (<a class="hm-link-btn" href=" {{ route('approveBySellerVehicle',[$data['vehicle_id'],$data['user_id']]) }} ">Approved Valuation Price</a>
+                                <a class="hm-link-btn rejected-btn" href="{{route('rejectBySellerVehicle',[$data['vehicle_id'],$data['user_id']])}}">Reject Valuation Price</a>).
                             </p>
                             <p>2)Your vehicle will be added by our daily bidding platform, where thousands of dealers can bid on it. </p>
                             <p>3)At 4pm on the day the sale goes live you will receive an email with the outcome. </p>

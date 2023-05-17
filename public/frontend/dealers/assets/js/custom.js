@@ -48,6 +48,25 @@ $('.brands-slider').slick({
 // End
 
 
+// Vedicle Detail Wheel Slider Mobile
+if ($(window).width() <= '767'){
+
+  $('.wheelSlider').slick({
+    arrows: true,
+    centerMode: true,
+    centerPadding: '30px',
+    slidesToShow: 1,
+    dots: false,
+    infinite: true,
+    cssEase: 'linear',
+  });
+          
+      
+  }
+
+
+// Vedicle Detail Wheel Slider Mobile End
+
 // Products Carousel
 $('.procuts-wraper .products-slide').slick({
   dots: true,
@@ -246,7 +265,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.btn-icon').click(function () {
-    $('.row.header-nav-row').toggleClass('show');
+    $('.header-nav-row').toggleClass('show');
     $('body').toggleClass('overflow-hidden');
   })
 })
@@ -628,6 +647,9 @@ function startCountdown() {
   if (now.getHours() >= 8 && now.getHours() < 15) {
     target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0); // set target time to 3pm today
     document.getElementById("message").innerHTML = "Live Sale Ends in";
+        $('#submit_disable_start_time')
+        .prop('disabled', false);
+        
 
   }
   // check if current time is between 3pm and 8am
@@ -637,7 +659,13 @@ function startCountdown() {
       target.setDate(target.getDate() + 1); // add one more day if it's currently after 3pm
     }
     document.getElementById("message").innerHTML = "Live Sale Starts in ";
+       // $('#submit_disable_start_time').prop('disabled', true);
 
+      
+        $('#submit_disable_start_time')
+        .prop('disabled', true)
+        .text('Wait for Sale Start Time');
+      
   }
 
   var countdown = setInterval(function () {
@@ -649,6 +677,7 @@ function startCountdown() {
       clearInterval(countdown); // stop the countdown
       document.getElementById("countdown").innerHTML = "Sale is Closed on Weekends"; // display custom message
       document.getElementById("message").innerHTML = "";
+      
       return; // exit the function
     }
 

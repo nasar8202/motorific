@@ -2,7 +2,7 @@
     <h2>Shortlist</h2>
 
 
-     <div class="filterIn">
+     <div class="filterIn pb-0">
 
         <div class="filterIn">
             <button type="button" class="btn-qa" data-bs-toggle="collapse" data-bs-target="#Bids_and_offers">

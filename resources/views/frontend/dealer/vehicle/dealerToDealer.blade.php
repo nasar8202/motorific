@@ -153,7 +153,7 @@
                                     <h4>Mileage</h4>
                                     <label class="selectCommon selectSingle">
                                         <select name="mileAgePro" id="mileAgePro">
-                                            <option disabled selected value=""> Select MileAge </option>
+                                            <option disabled selected value=""> Select Mileage </option>
                                             <option value="100000">
                                                 < 10k</option>
                                             <option value="500000">
@@ -210,7 +210,7 @@
                                 </select>
                             </label>
                         </div> --}}
-                                <div class="filterIn">
+                                <div class="filterIn mb-3">
                                     <h4>Fuel Type</h4>
                                     <label class="selectCommon selectSingle">
                                         <select name="fuelType" id="fuelType">
@@ -252,8 +252,8 @@
                                 </select>
                             </label>
                         </div> --}}
-                                <button type="button" class="btn btn-primary" id="subm"> Filter</button>
-                                <a href="" class="btn btn-danger" id="subm">Clear Filter</a>
+                                <button type="button" class="btn btn-primary filterbtn" id="subm"> Filter</button>
+                                <a href="" class="btn btn-danger clearbtn" id="subm">Clear Filter</a>
                             </form>
                         </div>
                     </div>
@@ -490,7 +490,7 @@
                                                                         <h4>No Vehicle Found</h4>
     @endforelse
                                                                 </div> -->
-                        <div id="loop">
+                        <!-- <div id="loop">
                             <div class="col-lg-3 col-md-3 blur_action" >
 
 
@@ -499,7 +499,7 @@
 
 
                             </div>
-                        </div>
+                        </div> -->
 
 
 

@@ -37,7 +37,7 @@
                             <br>
                             <div class="" id="filter">
                                 @forelse ($vehicles as $vehicle)
-                                <div class="row vec-box-row">
+                                <div class="row vec-box-row my-vech">
                                     <div class="col-sm-4 vec-box p-0">
                                         <a href="{{ route('dealersVehicleDetail', $vehicle->id) }}">
                                             <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $vehicle->DealerVehicleExterior[0]->exterior_image) }}">
@@ -50,11 +50,11 @@
                                         <p>{{ $vehicle->vehicle_name }}</p>
                                         <p>Vehicle Price :£ {{ $vehicle->vehicle_price??"No Price Yet" }}</p>
                                         @if ($vehicle->status == 1)
-                                            <span class="badge badge-success">Approved </span>
+                                            <span class="badge badge-success px-0">Approved </span>
                                         @elseif($vehicle->status == 2)
-                                            <span class="badge badge-danger">Deactivate </span>
+                                            <span class="badge badge-danger  px-0">Deactivate </span>
                                         @else
-                                            <span class="badge badge-danger">Pending </span>
+                                            <span class="badge badge-danger px-0">Pending </span>
                                         @endif
 
                                         <span style="padding-left: 60px;">{{ $vehicle->created_at->format('d/m/Y') }}</span>

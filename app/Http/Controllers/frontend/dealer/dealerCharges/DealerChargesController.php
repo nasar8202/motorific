@@ -61,12 +61,25 @@ class DealerChargesController extends Controller
 
         $pricing = BidedVehicle::where('vehicle_id', $id)->where('user_id', $user_id)->first();
         
-        $charges_fee = VehicleWinningCharges::where('status', 1)
+        if($pricing->bid_price > 99999){
+            $pricing->bid_price = 99999;
+            $charges_fee = VehicleWinningCharges::where('status', 1)
             ->where('price_to', '>=', $pricing->bid_price)
             ->where('price_from', '<=', $pricing->bid_price)
             ->orderBy('id', "DESC")->first();
+           // dd("if",$pricing->bid_price);
+            
+        }else{
+           // dd("else",$pricing->bid_price);
+            $charges_fee = VehicleWinningCharges::where('status', 1)
+            ->where('price_to', '>=', $pricing->bid_price)
+            ->where('price_from', '<=', $pricing->bid_price)
+            ->orderBy('id', "DESC")->first();
+        }
 
+       
 
+            
         if ($charges == null) {
             $dealerCard =  CardDetails::where('user_id',$user_id)->first();
             $charges_payment = $charges_fee->fee;
@@ -228,7 +241,7 @@ class DealerChargesController extends Controller
         try {
             $user_email = Auth::user()->email;
             $amount = (int)100 * $request->amount;
-            Stripe::setApiKey(env('STRIPE_SECRET'));
+            Stripe::setApiKey("sk_test_51L6BbmHh7DA7fp0JBVYZphgLBNOStcNsdKyockhG7OdGCpfL8eBETqsN3XniEjRPGFuc8C272ORCR1YsFcKi2clz00ilFXOFCW");
 
             Charge::create([
                 "amount" => $amount,

@@ -57,6 +57,7 @@
       padding-left: 1rem;
       padding-right: 1rem;
       margin-top: 2rem;
+      padding-bottom: 1rem;
     }
     .customer-detail {
       margin-left: 1.5rem;
@@ -192,7 +193,7 @@
                 <span>Car age:{{ $data['age'] }} </span>
                 <span>Colour: {{ $data['colour'] }} </span>
               </div>
-              <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " width="100px" height="100px" alt="" />
+              <!-- <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }} " width="100px" height="100px" alt="" /> -->
             </div>
           </div>
         <div class="customer-detail">

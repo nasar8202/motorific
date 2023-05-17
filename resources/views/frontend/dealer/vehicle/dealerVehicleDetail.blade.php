@@ -5,37 +5,39 @@
 
     <main class="topPadingPage">
         <section class="veh-detail-sec">
-            <div class="backBtn">
-                <a href="{{route('dealerToDealer')}}">Back to Vehicles</a>
-            </div>
-            <input type="hidden" class="get-route" value="{{route('dealerToDealer')}}">
-            <div class="sliderImgVehicleDetail">
-                
-                @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
-                    <div class="sliderImgVehicleDetailRepeater">
-                        <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $exteriorimage->exterior_image ?? '') }}">
-                    </div>
-                @empty
-                @endforelse
-                @forelse($vehicle->DealerVehicleInterior as $interiorimage)
-                    <div class="sliderImgVehicleDetailRepeater">
-                        <img src="{{ asset('/uploads/dealerVehicles/interior/' . $interiorimage->interior_image ?? '') }}">
-                    </div>
-                @empty
-                @endforelse
-                {{-- <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->passenger_rare_side_corner ?? "") }}">
-            </div>
-            <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->driver_rare_side_corner ?? "") }}">
-            </div>
-            <div class="sliderImgVehicleDetailRepeater">
-                <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? "") }}">
-            </div> --}}
+            <div class="container-1400">
+                <div class="backBtn">
+                    <a href="{{route('dealerToDealer')}}">Back to Vehicles</a>
+                </div>
+                <input type="hidden" class="get-route" value="{{route('dealerToDealer')}}">
+                <div class="sliderImgVehicleDetail">
+                    
+                    @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
+                        <div class="sliderImgVehicleDetailRepeater">
+                            <img src="{{ asset('/uploads/dealerVehicles/exterior/' . $exteriorimage->exterior_image ?? '') }}">
+                        </div>
+                    @empty
+                    @endforelse
+                    @forelse($vehicle->DealerVehicleInterior as $interiorimage)
+                        <div class="sliderImgVehicleDetailRepeater">
+                            <img src="{{ asset('/uploads/dealerVehicles/interior/' . $interiorimage->interior_image ?? '') }}">
+                        </div>
+                    @empty
+                    @endforelse
+                    {{-- <div class="sliderImgVehicleDetailRepeater">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->passenger_rare_side_corner ?? "") }}">
+                </div>
+                <div class="sliderImgVehicleDetailRepeater">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->driver_rare_side_corner ?? "") }}">
+                </div>
+                <div class="sliderImgVehicleDetailRepeater">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? "") }}">
+                </div> --}}
+                </div>
             </div>
         </section>
         <section class="sec-2 productPageTn">
-            <div class="container">
+            <div class="container-1400">
                 <div class="row">
                     <div class="col-lg-8 vehicleDetailLeft">
                         <div class="row">
@@ -121,7 +123,7 @@
                         
                         {{-- <div class="vehicleDetailGal">
                         <h4>Tyre Treads</h4>
-                        <div class="vehicleDetailGalrepeatMain">
+                        <div class="vehicleDetailGalrepeatMain ">
                             <div class="imgVehicle">
                                 <img src="{{ URL::asset('frontend/seller/assets/image//box-1.png') }}" alt="">
                             </div>
@@ -143,7 +145,8 @@
                                 <ul>
                                     {{-- <li>Estimated Cost<span>{{ $vehicle->DealerVehicleMedia->condition_damage }}</span> --}}
                             
-                                    <li>Attention Grabber
+                                    <li>
+                                        <!-- Attention Grabber -->
                                         <span>{{ $vehicle->DealerVehicleMedia->attention_grabber }}</span>
                                     </li>
                                     <li>Advert description
@@ -157,7 +160,7 @@
                     <div class="col-12">
                         <div class="bottomList mainSpec">
                                 <div class="bottomListTitle">
-                                    <h4><i class="far fa-copy"></i> Vehicle History</h4>
+                                    <h4><i class="far fa-copy"></i> Vehicle Detail</h4>
                                     <ul>
                                         <li>Keys<span><i class="fas fa-exclamation-triangle"></i>
                                                 {{ $vehicle->DealerVehicleHistory->keys }}</span></li>
@@ -222,7 +225,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <div class="bottomList">
                             <div class="bottomListTitle">
                                 <h4><i class="fas fa-bolt"></i> Condition And Damages</h4>
@@ -251,7 +254,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-12">
                         <div class="bottomList">
                             <div class="bottomListTitle">
@@ -348,7 +351,7 @@
                     <div class="col-12">
                         <div class="vehicleDetailGal">
                             <h4>Wheels</h4>
-                            <div class="vehicleDetailGalrepeatMain">
+                            <div class="vehicleDetailGalrepeatMain wheelSlider">
                                 @forelse($vehicle->DealerVehicleTyre as $wheel)
                                     <div class="imgVehicle">
                                         <img src="{{ asset('/uploads/dealerVehicles/tyres/' . $wheel->tyre_image ?? '') }}"

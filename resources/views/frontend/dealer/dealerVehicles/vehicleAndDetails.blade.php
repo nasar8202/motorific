@@ -5,7 +5,8 @@
     <style>
         /*custom font Update by Tn 5-5-23*/
         div#selectedFiles > .selectedFilesTn a {
-            background: #166c6c;
+            /* background: #166c6c; */
+            background: #05eab5;
             color: #fff;
             text-decoration: none;
             padding: 10px 15px;
@@ -62,7 +63,8 @@
 
         .DoneBtn button {
             padding: 15px 40px;
-            background: #166c6c;
+            /* background: #166c6c; */
+            background: #05eab5;
             color: #fff;
             margin: 0 auto;
             width: 100%;
@@ -156,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="DoneBtn DoneBtn1">
-                                    <button type="button" id="image1_done_btn">Finish</button>
+                                    <button type="button" id="image1_done_btn" class="btn-finish">Finish</button>
                                 </div>
                                 
                             </div>
@@ -265,7 +267,7 @@
                                     </div>
                                 </div>
                                 <div class="DoneBtn DoneBtn2">
-                                    <button type="button" id="image2_done_btn">Finish</button>
+                                    <button type="button" id="image2_done_btn" class="btn-finish">Finish</button>
                                 </div>
                                 
                             </div>
@@ -393,7 +395,7 @@
                                             </div>
                                         </div>
                                         <div class="DoneBtn DoneBtn3">
-                                            <button type="button" id="image3_done_btn">Finish</button>
+                                            <button type="button" id="image3_done_btn" class="btn-finish">Finish</button>
                                         </div>
                                         
                                     </div>

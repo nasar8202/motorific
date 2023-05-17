@@ -56,6 +56,7 @@
       padding-left: 1rem;
       padding-right: 1rem;
       margin-top: 2rem;
+      padding-bottom: 1rem;
     }
     .customer-detail {
       margin-left: 1.5rem;
@@ -63,6 +64,7 @@
       padding-left: 1rem;
       padding-right: 1rem;
       margin-top: 0;
+      padding-top: 1rem;
       padding-bottom: 1rem;
     }
     .customer-detail .car-det {
@@ -95,7 +97,7 @@
     main {
       overflow-x: hidden;
     }
-    @media only screen and (max-width: 1200px) {
+    /* @media only screen and (max-width: 1200px) {
       .content-img img {
         width: 580px;
       }
@@ -144,7 +146,7 @@
 .footer-mail > span br{
     display:none;
 }
-    }
+    } */
   </style>
 
 
@@ -184,14 +186,14 @@
 
             <div class="content-img">
               <div class="car-det">
-                <span>Model: {{ $data['vehicle_name'] }} </span>
-                <span> Reg: {{ strtoupper($data['vehicle_registration']) }} </span>
+                <span><strong>Model:</strong> {{ $data['vehicle_name'] }} </span>
+                <span><strong> Reg:</strong> {{ strtoupper($data['vehicle_registration']) }} </span>
                 
-                <span> Mileage: {{ $data['vehicle_mileage'] }} </span>
-                <span>Car age:{{ $data['age'] }} </span>
-                <span>Colour: {{ $data['colour'] }} </span>
+                <span><strong> Mileage:</strong> {{ $data['vehicle_mileage'] }} </span>
+                <span><strong>Car age:</strong>{{ $data['age'] }} </span>
+                <span><strong>Colour:</strong> {{ $data['colour'] }} </span>
               </div>
-              <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" width="50px" height="50px" alt="" />
+              <!-- <img src="{{ asset('/vehicles/vehicles_images/'.$data['front']) }}" width="50px" height="50px" alt="" /> -->
             </div>
           </div>
         <div class="customer-detail">

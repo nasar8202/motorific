@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {{-- <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script> --}}
+    <!-- <script src="https://kit.fontawesome.com/e770fec82c.js" crossorigin="anonymous"></script>  -->
 
     <!-- BOOTSTRAP-5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -808,9 +807,10 @@
                 <img src="{{ URL::asset('frontend/seller/assets/image/logo.png')}}">
             </a>
             <ul class="footer-social">
-                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="https://www.facebook.com/Motorific-100480046330830"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="https://www.instagram.com/motorific_1/"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://uk.linkedin.com/company/motorific" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://www.facebook.com/Motorific-100480046330830" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/motorific_1/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://wa.me/447888185014" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
             </ul>
             <div class="footer-links-wraper">
                 <a href="{{route('index')}}" class="prim-btn">Motorific for sellers</a>
@@ -824,6 +824,9 @@
             </div>
         </div>
     </div>
+    <a href="https://wa.me/447888185014" class="wa-icon-footer" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </footer>
         <!--<section class="sec-8">-->
         <!--        <div class="container-1151">-->

@@ -3,7 +3,7 @@
 @section('section')
 <!-- form css -->
 
-<main class="topPadingPage">
+<main class="topPadingPage pt-0">
 
     <section class="sec-2 productPageTn">
         <div class="container">
@@ -33,9 +33,9 @@
                         </div>
                     </div> --}}
                     @if($pricing->dealer_status == null)
-                    <div class="bottomList">
-                        <button class="btn btn-info meeting">Schedule A Meeting</button>
-                        <button class="btn btn-danger cancelRequest">Cancel purchase </button>
+                    <div class="bottomList metting-box">
+                        <button class="btn meeting prim-btn">Schedule A Meeting</button>
+                        <button class="btn cancelRequest prim-btn secnd">Cancel purchase </button>
                         <div class="form-group mt-4 reviewSection">
                             <form method="POST" action="{{route('reviewForCancel')}}" enctype="multipart/form-data">
                                 @csrf
@@ -57,7 +57,7 @@
                             <span class="text-danger">{{ $errors->first('cancelImages') }}</span>
                             @endif
                             <br>
-                        <button type="submit" class="btn btn-info mt-4 float-left">Submit Review</button>
+                        <button type="submit" class="btn mt-4 prim-btn">Submit Review</button>
                     </form>
                     </div>
 
@@ -71,7 +71,7 @@
                         <input type="hidden" name="order_id" value="{{$pricing->id}}">
                         <input type="hidden" name="bided" value="{{$bided ??''}}">
                         <input type="datetime-local" class="form-control mt-4" name="date_time" required >
-                        <br><button type="submit" class="btn btn-info mt-4 float-left">Schedule Meeting</button>
+                        <br><button type="submit" class="btn mt-4 prim-btn">Schedule Meeting</button>
 
                         @else
                         <span> Your Meeting Is Already Set On <b>{{$pricing->meeting_date_time}}</b></span>
@@ -134,7 +134,7 @@
                     </div> --}}
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 vehicleDetailRight">
-                    <div class="liveSalesInProgress">
+                    <div class="liveSalesInProgress seller-bidCard">
                          <!-- <h4 class="bg bg-danger">Sold</h4>  -->
                         <div class="reserveDetail">
 
@@ -146,19 +146,19 @@
                                    </center>
 
                                    <br>
-                                 <div class="container">
+                                 <div class="bid-content">
                                       <h2 class="text text-warning">{{$allVehicles->vehicle_registartion_number}}</h2>
                                       <h5>{{$allVehicles->vehicle_name}}</h5>
                                       <p>{{$allVehicles->vehicle_year}} . {{$allVehicles->vehicle_mileage}} . {{$allVehicles->vehicle_tank}} . {{$allVehicles->vehicle_type}}</p>
                                     </div>
                                     <br>
                                     @if($pricing->dealer_status == null)
-                                    <div class="container">
+                                    <div class="bid-messageBox">
                                     <center><h5 type="button" >You Have Succesfully Purchase This Vehicle ?</h5>
                                   @if($allVehicles->all_auction == null)
-                                    <a href="{{route('BidedStatus',$allVehicles->id)}}"> <span class="badge bg-success btn" role="button">Confirm Purchase ✓</span></center></a>
+                                    <a href="{{route('BidedStatus',$allVehicles->id)}}"  class="prim-btn w-100"> <span  role="button">Confirm Purchase  ✓</span></center></a>
                                     @else
-                                    <a href="{{route('requestedOrderStatus',$allVehicles->id)}}"> <span class="badge bg-success">Confirm Purchase ✓</span></center></a>
+                                    <a href="{{route('requestedOrderStatus',$allVehicles->id)}}" class="btn-prim w-100"> <span>Confirm Purchase  ✓</span></center></a>
                                     @endif
                                     <span class="text-danger warning"></span>
                                     <span class="text-danger error"></span>

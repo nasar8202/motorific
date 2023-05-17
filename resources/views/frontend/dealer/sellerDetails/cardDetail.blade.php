@@ -27,7 +27,7 @@
                     method="post" 
                     class="require-validation"
                     data-cc-on-file="false"
-                    data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+                    data-stripe-publishable-key="pk_test_51L6BbmHh7DA7fp0Jmuouwc2S6BYw0nxzU7DQ1ReEbtzSxgZ9noLLm2tQKpvTSHVsbkem8FzrNuFG54WThtLTwB8X00Es15AMHg"
                     id="payment-form">
                 @csrf
                 <input type="hidden" name="vehicleId" value="{{$id}}">

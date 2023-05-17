@@ -20,7 +20,7 @@
     }
 
     .mail-img-one img {
-      width: 520px;
+      width: 10rem;
     }
     .car-det {
       display: flex;
@@ -34,16 +34,18 @@
       display: flex;
       align-items: center;
       gap: 30px;
-      padding-left: 2rem;
+      padding-right: 0;
       flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row-reverse;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
     }
 
     .content-img img {
-      width: 300px;
-      height: 200px;
-      display: flex
+      width: 258px;
+    margin-right: 14px;
+    height: 160px;
+    object-fit: cover;
+    margin-top: 10px;
     }
     .social-icon {
     text-align: center;
@@ -56,12 +58,16 @@
       padding-left: 1rem;
       margin-top: 2rem;
     }
+    .mail-content p {
+      padding: 0 1px;
+    }
     .customer-detail {
       margin-left: 1.5rem;
       border-left: 1px solid #5c5a5a87;
       padding-left: 1rem;
-      margin-top: 2rem;
+      /* margin-top: 2rem; */
       padding-bottom: 1rem;
+      padding-top: 2rem;
     }
     .customer-detail .car-det {
       padding-top: 1rem;
@@ -93,56 +99,7 @@
     main {
       overflow-x: hidden;
     }
-    @media only screen and (max-width: 1200px) {
-      .content-img img {
-        width: 580px;
-      }
-      .mail-img-one img {
-        width: 400px;
-      }
-    }
-    @media only screen and (max-width: 991px) {
-      .content-img img {
-        width: 400px;
-      }
-    }
-    @media only screen and (max-width: 767px) {
-      .mail-img-one img {
-        width: 240px;
-      }
-      .content-img {
-        display: block;
-        padding-left: 5px;
-        width: 91%;
-      }
-      .content-img img {
-        width: 100%;
-      }
-      p {
-        font-size: 14px;
-      }
-      .btn-mail a {
-        padding: 1rem 2rem;
-      }
-      .car-det span {
-        font-size: 14px;
-      }
-      .mail-content {
-    margin-left: 0.5rem;
-
-}
-.footer-mail img {
-    width: 210px;
-
-}
-.footer-mail > span {
-    font-size: 11px;
-}
-
-.footer-mail > span br{
-    display:none;
-}
-    }
+    
   </style>
 
   <body>

@@ -20,7 +20,8 @@
     }
 
     .mail-img-one img {
-      width: 520px;
+      /* width: 520px; */
+      width: 11rem;
     }
     .car-det {
       display: flex;
@@ -34,16 +35,19 @@
       display: flex;
       align-items: center;
       gap: 30px;
-      padding-left: 2rem;
+      /* padding-left: 2rem; */
       flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: flex-end;
     flex-direction: row-reverse;
     }
 
     .content-img img {
       width: 300px;
       height: 200px;
-      display: flex
+      display: flex;
+      object-fit:cover;
+      margin-top:15px;
     }
     .social-icon {
     text-align: center;
@@ -60,8 +64,9 @@
       margin-left: 1.5rem;
       border-left: 1px solid #5c5a5a87;
       padding-left: 1rem;
-      margin-top: 2rem;
+      /* margin-top: 2rem; */
       padding-bottom: 1rem;
+      padding-top: 2rem;
     }
     .customer-detail .car-det {
       padding-top: 1rem;
@@ -93,7 +98,7 @@
     main {
       overflow-x: hidden;
     }
-    @media only screen and (max-width: 1200px) {
+    /* @media only screen and (max-width: 1200px) {
       .content-img img {
         width: 580px;
       }
@@ -142,7 +147,7 @@
 .footer-mail > span br{
     display:none;
 }
-    }
+    } */
   </style>
 
   <body>
@@ -173,6 +178,7 @@
           <h2>You've just bought a car!</h2>
           <p>Hi {{ ucwords($data['name']) }}!</p>
           <p>
+            aaaaaaa
             Congratulations - you've successfully bought a
             <strong>{{ $data['vehicle_name'] }}</strong> for the price of £{{ $data['bidded_price'] }}.
         Your Car Offer Price Updated By Motorific
@@ -190,7 +196,7 @@
             </div>
           </div>
         </div>
-        <div class="customer-detail">
+        <div class="customer-detail ">
           {{-- <strong>Customer Contact Details</strong>
           <div class="car-det">
             <span>Name: Carter</span>

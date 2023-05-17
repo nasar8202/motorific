@@ -129,7 +129,7 @@ div#filter-price {
                         <h4>Mileage</h4>
                         <label class="selectCommon selectSingle">
                             <select name="mileAgePro" id="mileAgePro" >
-                                <option disabled selected value=""> Select MileAge </option>
+                                <option disabled selected value=""> Select Mileage </option>
                                 <option value="100000"> < 10,0000</option>
     							<option value="500000"> < 50,0000</option>
     							<option value="1000000"> < 100,0000</option>

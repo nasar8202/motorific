@@ -158,7 +158,7 @@
                                     <h4>Mileage</h4>
                                     <label class="selectCommon selectSingle">
                                         <select name="mileAgePro" id="mileAgePro">
-                                            <option disabled selected value=""> Select MileAge </option>
+                                            <option disabled selected value=""> Select Mileage </option>
                                             <option value="100000">
                                                 < 10k</option>
                                             <option value="500000">
@@ -213,7 +213,7 @@
                                 </select>
                             </label>
                         </div> --}}
-                                <div class="filterIn">
+                                <div class="filterIn mb-3">
                                     <h4>Fuel Type</h4>
                                     <label class="selectCommon selectSingle">
                                         <select name="fuelType" id="fuelType">
