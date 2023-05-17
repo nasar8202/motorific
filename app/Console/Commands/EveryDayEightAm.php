@@ -7,13 +7,14 @@ use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\BidedVehicle;
 use App\Models\VehicleImage;
-use App\Mail\EveryDayEightAm as EveryDayEightAmMail;
+use App\Models\DealerVehicle;
 use Illuminate\Console\Command;
 use App\Mail\WinnerBiddedPerson;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Artisan;
+use App\Mail\EveryDayEightAm as EveryDayEightAmMail;
 
 class EveryDayEightAm extends Command
 {
@@ -49,16 +50,31 @@ class EveryDayEightAm extends Command
     public function handle()
     {
         
-         $dealers = User::where('role_id', '3')->where('status', 1)->get();
+         $dealers = User::where('email', 'nasar.ullah@oip.com.pk')->where('status', 1)->get();
         $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
+        $vehicles = Vehicle::where('status', 1)
+        ->where('start_vehicle_date', $start_end_vehicle_date)
+        ->where('end_vehicle_date', $start_end_vehicle_date)
+        ->get();
+        $countbuyItNoVehicle = Vehicle::where('status',1)->where('all_auction','all' )->count();
+
+        
+        $allDealerVehicles = DealerVehicle::Where('status',1)
+        ->with('DealerAdvertVehicleDetail')
+        ->with('DealerVehicleExterior')
+        ->with('DealerVehicleHistory')
+        ->with('DealerVehicleInterior')
+        ->with('DealerVehicleMedia')
+        ->get();
+        $allDealerVehicles = count($allDealerVehicles);
         
         foreach ($dealers as $data1) {
-            $vehicles = Vehicle::where('status', 1)
-                ->where('start_vehicle_date', $start_end_vehicle_date)
-                ->where('end_vehicle_date', $start_end_vehicle_date)
-                ->get();
-        
-            $data = ['count' => count($vehicles)];
+           
+            $data = [
+            'count' => count($vehicles),
+            'countbuyItNoVehicle' => $countbuyItNoVehicle,
+            'allDealerVehicles'=> $allDealerVehicles
+        ];
         
             try {
                 Mail::to($data1->email)->send(new EveryDayEightAmMail($data));

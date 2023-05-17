@@ -133,7 +133,10 @@ a, a:hover {
 			padding-top: 25px; 
 			color: #000000;
 			font-family: sans-serif;" class="paragraph">
-				Our daily sale now has {{$data['count']??'No '}} vehicles available.
+			Auction {{$data['count']??'No '}} cars 
+			Buy now {{$data['countbuyItNoVehicle']??'No '}} cars 
+			Trade to trade {{$data['allDealerVehicles']??'No '}} cars
+			
                 
 		</td>
 	</tr>
