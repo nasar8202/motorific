@@ -50,7 +50,7 @@ class EveryDayEightAm extends Command
     public function handle()
     {
         
-         $dealers = User::where('email', 'nasar.ullah@oip.com.pk')->where('status', 1)->get();
+         $dealers = User::where('role_id','3')->where('status', 1)->get();
         $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
         $vehicles = Vehicle::where('status', 1)
         ->where('start_vehicle_date', $start_end_vehicle_date)
