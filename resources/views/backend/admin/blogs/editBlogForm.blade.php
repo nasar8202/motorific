@@ -56,25 +56,17 @@
                                              <div class="row">
                                              
                                                 <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            Title
-                                                        </div>
-                                                        <div class="card-body">
+                                                <div class="card-body">
+
                                                             <div class="form-floating">
                                                                 <textarea class="form-control" placeholder="enter title here"
                                                                     id="floatingTextarea" name="title" >{{$editBlog->title}}</textarea>
                                                                 <label for="floatingTextarea">title</label>
                                                             </div>
-                                                        </div>
-                                                    </div>
+                                                            </div>
                                                 </div>
                                                 
                                                 <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            Short Description
-                                                        </div>
                                                         <div class="card-body">
                                                             <div class="form-floating">
                                                                 <textarea class="form-control" placeholder="enter short description here"
@@ -82,39 +74,23 @@
                                                                 <label for="floatingTextarea">Short Description</label>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                 </div>
                                                 
                                                 <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h4 class="card-title">Long Description</h4>
-                                                        </div>
                                                         <div class="card-body">
                                                             <textarea name="long_description" id="default" cols="30" rows="10" placeholder="enter the long description here">{{$editBlog->long_description}}</textarea>
                                                         </div>
                                                     </div>
-                                                </div>
                                                 <div class="col-12">
-                                                    <div class="card">
-                                                    <div class="card-header">
-                                                            Image 
-                                                        </div>
+                                                    <label for="image">Image</label>
                                                         <div class="card-body">
                                                             <div class="form-floating">
-                                                               <input type="file" name="image">
-                                                                
+                                                               <input type="file" name="image" id="image">
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     <img src="{{ asset('/blogs/images/'.$editBlog->image) }}" width="100" height="100">
                                                 </div>
-                                            </div>
                                             <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            Meta Title
-                                                        </div>
                                                         <div class="card-body">
                                                             <div class="form-floating">
                                                                 <textarea class="form-control" placeholder="enter meta title here"
@@ -122,13 +98,8 @@
                                                                 <label for="floatingTextarea">Meta Title</label>
                                                             </div>
                                                         </div>
-                                                    </div>
                                             </div>
                                             <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                        Meta Description
-                                                        </div>
                                                         <div class="card-body">
                                                             <div class="form-floating">
                                                                 <textarea class="form-control" placeholder="enter meta description here"
@@ -136,7 +107,6 @@
                                                                 <label for="floatingTextarea">Meta Description</label>
                                                             </div>
                                                         </div>
-                                                    </div>
                                             </div>    
                                     
                                     <button type="submit" class="btn btn-outline-success">Save</button>
