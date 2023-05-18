@@ -70,32 +70,33 @@ class BlogController extends Controller
     {
         DB::beginTransaction();
         try {
-            $removeImage = Blog::where('id', $id)->first();
+            $blog = Blog::findOrFail($id);
+
+            // Handle image upload
             if ($request->hasFile('image')) {
-                if (file_exists(public_path("/blogs/images/" . $removeImage->image))) {
-                    unlink(public_path("/blogs/images/" . $removeImage->image));
+                // Delete the existing image file if it exists
+                if ($blog->image && file_exists(public_path("blogs/images/{$blog->image}"))) {
+                    unlink(public_path("blogs/images/{$blog->image}"));
                 }
-                if ($request->hasFile('image')) {
-
-                    $image = time() . '_' . $request->file('image')->getClientOriginalName();
-                    $request->file('image')->move(public_path() . '/blogs/images/', $image);
-                } else {
-                    // Handle the case when no image is uploaded
-                    // You can set a default image or display an error message
-                    $image = 'default.jpg';
-                }
+            
+                // Upload the new image file
+                $image = $request->file('image');
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $image->move(public_path('blogs/images/'), $imageName);
+            
+                $blog->image = $imageName;
             }
-            $slug = Str::slug($request->title);
-            $update = Blog::find($id);
-            $update->title = $request->title;
-            $update->short_description = $request->short_description;
-            $update->slug = $slug;
-            $update->image = $image;
-            $update->long_description = $request->long_description;
-            $update->meta_title = $request->meta_title;
-            $update->meta_description = $request->meta_description;
-            $update->save();
-
+            
+            // Update other blog fields
+            $blog->title = $request->title;
+            $blog->short_description = $request->short_description;
+            $blog->slug = Str::slug($request->title);
+            $blog->long_description = $request->long_description;
+            $blog->meta_title = $request->meta_title;
+            $blog->meta_description = $request->meta_description;
+            
+            $blog->save();
+            
             DB::commit();
         } catch (\Exception $e) {
 
