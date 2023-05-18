@@ -686,6 +686,11 @@
                                                 Pricing
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="blogs">
+                                                Blogs
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
                             @endif

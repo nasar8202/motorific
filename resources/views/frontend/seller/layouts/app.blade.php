@@ -146,9 +146,13 @@
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
+                    <a href="blogs">
+                        <li>Blogs</li>
+                    </a>
                     {{-- <a href="#">
                         <li>Help</li>
                     </a> --}}
+                    
                     @auth
 
                     @endauth
