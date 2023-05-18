@@ -377,12 +377,13 @@ class FrontController extends Controller
 
         DB::beginTransaction();
         try {
-//   dd($request->all());
+//    dd($request->all());
             $users = User::where('id', $request->user_id)->first();
-            $find = Vehicle::where('status', 2)->where('vehicle_registartion_number', $request->RegisterationNumber)->first();
+            $find = Vehicle::where('status', 5)->where('vehicle_registartion_number', $request->RegisterationNumber)->first();
+            
             if (isset($find)) {
-
-            $update = Vehicle::where('status', 2)->where('vehicle_registartion_number', $request->RegisterationNumber)->first();
+                
+            $update = Vehicle::where('status', 5)->where('vehicle_registartion_number', $request->RegisterationNumber)->first();
             $update->vehicle_registartion_number = strtoupper($request->RegisterationNumber);
             $update->vehicle_name = $request->VehicleName;
             $update->vehicle_year = $request->VehicleYear;
@@ -394,11 +395,11 @@ class FrontController extends Controller
             $update->vehicle_category = $request->vehicleCateg;
             $update->status =  0;
             $update->save();
-
+            // dd("if",$update);
             }
             else
             {
-
+                // dd("else",$find);
                 $vehicle = new Vehicle;
                 $vehicle->user_id = $request->user_id;
                 $vehicle->vehicle_registartion_number = strtoupper($request->RegisterationNumber);

@@ -131,8 +131,9 @@ class UserController extends Controller
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
+        $halfVehicleEntry =  Vehicle::where('status', 5)->first();
         
-        return view('backend.admin.userDetails.createVehicleForOldUser', compact('user','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
+        return view('backend.admin.userDetails.createVehicleForOldUser', compact('halfVehicleEntry','user','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
    
     }
 
@@ -187,12 +188,32 @@ class UserController extends Controller
         DB::beginTransaction();
         try {
 
-            $vehicle = Vehicle::where('vehicle_registartion_number',$request->register_number)->where('user_id',$id)->first();
+            $vehicle = Vehicle::Where('status','!=',5)->where('vehicle_registartion_number',$request->register_number)->where('user_id',$id)->first();
             
             if($vehicle != null){
                 return back()->with('error','User Already Register This Vehicle');
              } else{
-
+                $find = Vehicle::where('status', 5)->where('vehicle_registartion_number', $request->register_number)->first();
+            
+            if (isset($find)) {
+                
+            $update = Vehicle::where('status', 5)->where('vehicle_registartion_number', $request->register_number)->first();
+            $update->vehicle_registartion_number = strtoupper($request->register_number);
+            $update->vehicle_name = $request->vehicle_name;
+            $update->vehicle_year = $request->vehicle_year;
+            $update->vehicle_color = $request->vehicle_color;
+            $update->vehicle_type = $request->vehicle_type;
+            $update->vehicle_tank = $request->vehicle_tank;
+            $update->previous_owners = $request->previous_owner;
+            $update->vehicle_price = $request->vehicle_mileage;
+            $update->vehicle_price = $request->vehicle_price;
+            $update->vehicle_category = $request->vehicle_category;
+            $update->status =  0;
+            $update->save();
+            // dd("if",$update);
+            }
+            else
+            {
                 $vehicle = new Vehicle;
                 $vehicle->user_id = $id;
                 $vehicle->vehicle_registartion_number = strtoupper($request->register_number);
@@ -208,7 +229,7 @@ class UserController extends Controller
                 $vehicle->status = 0;
 
                 $vehicle->save();
-
+            }
                 // $damages = new vehicleConditionAndDamage;
                 // $damages->vehicle_id = $vehicle->id;
                 // $damages->exterior_grade = $request->exterior_grade;
@@ -227,7 +248,15 @@ class UserController extends Controller
                 $vehicle_feature_id =  implode(',', $request->vehicle_feature);
 
                 $vehicleInformation = new vehicleInformation;
-                $vehicleInformation->vehicle_id = $vehicle->id;
+
+                if(isset($find)){
+                    $vehicleInformation->vehicle_id = $find->id;
+                }
+                else{
+                    $vehicleInformation->vehicle_id = $vehicle->id;
+                }
+
+                // $vehicleInformation->vehicle_id = $vehicle->id;
                 $vehicleInformation->vehicle_feature_id = $vehicle_feature_id;
 
                 $vehicleInformation->seat_material_id =  $request->seat_material;
@@ -257,7 +286,15 @@ class UserController extends Controller
                 $vehicleInformation->save();
 
                 $interior_detail = new VehicleInterior;
-                $interior_detail->vehicle_id = $vehicle->id;
+
+                if(isset($find)){
+                    $interior_detail->vehicle_id = $find->id;
+                }
+                else{
+                    $interior_detail->vehicle_id = $vehicle->id;
+                }
+
+                // $interior_detail->vehicle_id = $vehicle->id;
                 $interior_detail->dashboard = $request->dashboard;
                 $interior_detail->passenger_side_interior = $request->passenger_side_interior;
                 $interior_detail->driver_side_interior = $request->driver_side_interior;
@@ -270,7 +307,15 @@ class UserController extends Controller
                 $interior_detail->rear_seats = $request->rear_seats;
                 $interior_detail->save();
                 $exterior_detail = new VehicleExterior;
-                $exterior_detail->vehicle_id = $vehicle->id;
+
+                if(isset($find)){
+                    $exterior_detail->vehicle_id = $find->id;
+                }
+                else{
+                    $exterior_detail->vehicle_id = $vehicle->id;
+                }
+
+                // $exterior_detail->vehicle_id = $vehicle->id;
                 $exterior_detail->front_door_left = $request->front_door_left;
                 $exterior_detail->back_door_left = $request->back_door_left;
                 $exterior_detail->front_door_right = $request->front_door_right;
@@ -293,7 +338,15 @@ class UserController extends Controller
                 $request->file('image5')->move(public_path() . '/vehicles/vehicles_images/', $dashboard);
 
                 $VehicleImage = new VehicleImage;
-                $VehicleImage->vehicle_id =  $vehicle->id;
+
+                if(isset($find)){
+                    $VehicleImage->vehicle_id = $find->id;
+                }
+                else{
+                    $VehicleImage->vehicle_id = $vehicle->id;
+                }
+
+                // $VehicleImage->vehicle_id =  $vehicle->id;
                 $VehicleImage->front = $front;
                 $VehicleImage->passenger_rare_side_corner = $passenger_rare_side_corner;
                 $VehicleImage->driver_rare_side_corner = $driver_rare_side_corner;
@@ -303,7 +356,7 @@ class UserController extends Controller
              }
             
         } catch (\Exception $e) {
-            return $e->getMessage();
+            // return $e->getMessage();
             DB::rollback();
             //return $e;
             return Redirect()->back()

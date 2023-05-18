@@ -2,7 +2,12 @@
 <html lang="en">
 
 <head>
-    <?php $currentUrl = url()->full();?>
+    <?php
+
+use App\Models\Vehicle;
+use Illuminate\Support\Facades\Auth;
+
+ $currentUrl = url()->full();?>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -146,7 +151,7 @@
                     <a href="{{ route('reviews') }}">
                         <li>Reviews</li>
                     </a>
-                    <a href="blogs">
+                    <a href="{{ route('blogList') }}">
                         <li>Blogs</li>
                     </a>
                     {{-- <a href="#">
@@ -191,7 +196,15 @@
                     </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('acceptedVehicles') }}">My Account</a>
-                        <!-- <a class="dropdown-item" href="{{ route('completeProfileVehicles') }}">Complete Profile</a> -->
+                            <?php 
+                            $user_id = Auth::user()->id;
+                            $halfEntry = Vehicle::where('user_id',$user_id)->where('status',5)->first();
+                       // dd($halfEntry);
+                            ?>
+                            @if($halfEntry)
+                            <a class="dropdown-item" href="{{ route('completeProfileVehicles') }}">Complete Profile</a>
+                            @endif
+                       
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

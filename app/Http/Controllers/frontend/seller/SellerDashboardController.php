@@ -120,7 +120,7 @@ class SellerDashboardController extends Controller
     }
     public function completeProfileVehicles()
     {
-        $completeProfileVehicles = Vehicle::where('status',2)->Where('user_id',Auth::user()->id)
+        $completeProfileVehicles = Vehicle::where('status',5)->Where('user_id',Auth::user()->id)
         ->get();
         // dd($completeProfileVehicles);
         return view('frontend.seller.completeProfileVehicles',compact('completeProfileVehicles'));

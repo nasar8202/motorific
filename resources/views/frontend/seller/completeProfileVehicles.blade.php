@@ -220,6 +220,9 @@
                     </div>
                     <div class="vpLists">
                         <h4>Your Pending Vehicles</h4>
+                        <?php 
+                            $count = 1;
+                        ?>
                         @forelse ($completeProfileVehicles as $allVehicle)
                         <table class="table align-middle mb-0 bg-white">
                             <thead class="bg-light">
@@ -237,7 +240,7 @@
                                
                                 
                                 <tr>
-                                    <td>{{$allVehicle->id}}</td>
+                                    <td>{{$count++}}</td>
                                 <td>
                                   {{$allVehicle->vehicle_name}}
                                 </td>

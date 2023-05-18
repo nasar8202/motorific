@@ -316,7 +316,7 @@ class ManageVehicleController extends Controller
                 return back()->with('error', 'Enter The Right Post Code');
             }
         } catch (\Exception $e) {
-            return $e->getMessage();
+           // return $e->getMessage();
             DB::rollback();
             //return $e;
             return Redirect()->back()

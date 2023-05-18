@@ -687,7 +687,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="blogs">
+                                        <a href="{{ route('blogList') }}">
                                                 Blogs
                                         </a>
                                     </li>

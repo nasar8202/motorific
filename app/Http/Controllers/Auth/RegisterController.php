@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Models\Finance;
 use App\Models\Smoking;
+use App\Models\Vehicle;
 use App\Models\ToolPack;
 use App\Models\VCLogBook;
 use App\Jobs\SellerDetail;
@@ -23,8 +24,8 @@ use App\Models\vehicleCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
@@ -258,8 +259,19 @@ class RegisterController extends Controller
                         curl_close($curl);
                         //echo $response;
                         $res = json_decode($response);
+                        
+                        $vehicle = new Vehicle;
+                        $vehicle->user_id = $currentUser;
+                        $vehicle->vehicle_registartion_number = strtoupper($res->registrationNumber);
+                        $vehicle->vehicle_name = $res->make;
+                        $vehicle->vehicle_year = $res->yearOfManufacture;
+                        $vehicle->vehicle_color = $res->colour;
+                        $vehicle->vehicle_tank = $res->fuelType;
+                        $vehicle->vehicle_mileage = $request->millage;
+                        $vehicle->status = 5;    // half entries
+                        $vehicle->save();
 
-                       
+                        
                         if (isset($res->registrationNumber)) {
                             $milage = $request->millage;
 

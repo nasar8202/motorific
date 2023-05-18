@@ -13,19 +13,20 @@ use App\Http\Controllers\frontend\NewsletterSubscribers;
 
 use App\Http\Controllers\backend\admin\VehicleController;
 use App\Http\Controllers\frontend\seller\FrontController;
+use App\Http\Controllers\backend\admin\Blog\BlogController;
 use App\Http\Controllers\frontend\dealer\PricingController;
 use App\Http\Controllers\frontend\dealer\HowItWorksController;
-use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 
+use App\Http\Controllers\frontend\dealer\MultiStepRegistration;
 use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\bid\BidVehicleController ;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategory;
 use App\Http\Controllers\backend\admin\meetings\MeetingController;
 use App\Http\Controllers\backend\admin\userdetails\UserController;
+
 use App\Http\Controllers\backend\admin\liveSell\LiveSellController;
 
 use App\Http\Controllers\frontend\dealer\DealerDashboardController;
-
 use App\Http\Controllers\frontend\seller\SellerDashboardController;
 use App\Http\Controllers\backend\admin\Categories\VehicleCategories;
 use App\Http\Controllers\frontend\dealer\bid\BidedVehicleController;
@@ -72,10 +73,15 @@ Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmai
 Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
 Route::get('about-us',[NewsletterSubscribers::class,'aboutUs'])->name('aboutUs');
 Route::get('help',[NewsletterSubscribers::class,'help'])->name('help');
-Route::get('blogs',[NewsletterSubscribers::class,'blogs'])->name('blog');
-Route::get('blogs1',[NewsletterSubscribers::class,'blogsdetails1'])->name('blog1');
-Route::get('blogs2',[NewsletterSubscribers::class,'blogsdetails2'])->name('blog2');
-Route::get('blogs3',[NewsletterSubscribers::class,'blogsdetails3'])->name('blog3');
+
+Route::get('/blog',[NewsletterSubscribers::class,'blogList'])->name('blogList');
+Route::get('/blog/{id}',[NewsletterSubscribers::class,'blogsdetail'])->name('blogsdetail');
+
+// Route::get('blogs',[NewsletterSubscribers::class,'blogs'])->name('blog');
+
+// Route::get('blogs1',[NewsletterSubscribers::class,'blogsdetails1'])->name('blog1');
+// Route::get('blogs2',[NewsletterSubscribers::class,'blogsdetails2'])->name('blog2');
+// Route::get('blogs3',[NewsletterSubscribers::class,'blogsdetails3'])->name('blog3');
 Route::post('get-intouch-post',[NewsletterSubscribers::class,'getIntouchPost'])->name('getIntouchPost');
 //end
 // Route::get('test', function () {
@@ -352,7 +358,16 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/mark-as-contacted/{id}', [UserController::class,'markAsContacted'])->name('markAsContacted');
     // end manage user
 
+    // blog start
+    Route::get('/add-blog', [BlogController::class,'addBlogForm'])->name('addBlogForm');
+    Route::post('/submit-blog', [BlogController::class,'addBlog'])->name('addBlog');
+    Route::get('/view-blogs', [BlogController::class,'viewBlogs'])->name('viewBlogs');
+    Route::get('/edit-blog/{id}', [BlogController::class,'editBlogForm'])->name('editBlogForm');
+    Route::post('/update-blog/{id}', [BlogController::class,'updateBlog'])->name('updateBlog');
 
+    Route::get('/delete-blog/{id}', [BlogController::class,'deleteBlog'])->name('deleteBlog');
+
+    //blog end 
     // vehcile categories
     Route::get('/view-categories', [VehicleCategory::class,'viewCategories'])->name('viewCategories');
     Route::get('/create-category', [VehicleCategory::class,'createCategoryForm'])->name('createCategoryForm');

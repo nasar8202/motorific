@@ -164,6 +164,22 @@
         </ul>
     </li>
     
+    <li class="sidebar-item  has-sub {{ request()->IS('admin/view-blogs') ||request()->IS('admin/add-blog') ? 'active' : '' }} ">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Blogs</span>
+        </a>
+        <ul class="submenu" style="display:{{  request()->IS('admin/view-blogs') ? 'active' : '' }}">
+            <li class="submenu-item {{ request()->IS('admin/add-blog') ? 'active' : '' }}">
+                <a href="{{ route('addBlogForm') }} ">Add Blog </a>
+            </li>
+            <li class="submenu-item {{ request()->IS('admin/view-seller-persons') ? 'active' : '' }}">
+                <a href="{{ route('viewBlogs') }}">View Blogs </a>
+            </li>
+            
+        </ul>
+    </li>
+
     <li class="   {{ (Request::is('admin') || request()->IS('/admin/get-contacts') || request()->IS('/admin/get-contacts') ? 'active' : '') }} ">
         
         <a href="{{route('getContacts')}}" class='sidebar-link'>

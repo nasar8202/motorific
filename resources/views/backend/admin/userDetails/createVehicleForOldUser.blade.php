@@ -70,7 +70,7 @@
                                                 <label for="first-name-column">Vehicle Registartion Number</label>
                                                 <input type="text" id="first-name-column" class="form-control"
                                                     placeholder="Registartion Number" name="register_number" style="text-transform: uppercase" readonly
-                                                    value="{{ $res->registrationNumber ?? old('register_number') }}">
+                                                    value="{{ $res->registrationNumber ?? $halfVehicleEntry->vehicle_registartion_number ?? old('register_number') }}">
                                             </div>
                                             @if ($errors->has('register_number'))
                                                 <span class="text-danger">{{ $errors->first('register_number') }}</span>
@@ -81,7 +81,7 @@
                                                 <label for="last-name-column">Vehicle Name</label>
                                                 <input type="text" id="last-name-column" class="form-control"
                                                     placeholder="Vehicle Name" name="vehicle_name" readonly
-                                                    value="{{ $res->make ?? old('vehicle_name') }}">
+                                                    value="{{ $res->make ?? $halfVehicleEntry->vehicle_name ?? old('vehicle_name') }}">
                                             </div>
                                             @if ($errors->has('vehicle_name'))
                                                 <span class="text-danger">{{ $errors->first('vehicle_name') }}</span>
@@ -92,7 +92,7 @@
                                                 <label for="city-column">Vehicle Year</label>
                                                 <input type="number" id="city-column" class="form-control"
                                                     placeholder="Vehicle Year" name="vehicle_year" readonly
-                                                    value="{{ $res->yearOfManufacture ?? old('vehicle_year') }}">
+                                                    value="{{ $res->yearOfManufacture ?? $halfVehicleEntry->vehicle_year ?? old('vehicle_year') }}">
                                             </div>
                                             @if ($errors->has('vehicle_year'))
                                                 <span class="text-danger">{{ $errors->first('vehicle_year') }}</span>
@@ -103,7 +103,7 @@
                                                 <label for="country-floating">Vehicle Color</label>
                                                 <input type="text" id="country-floating" class="form-control"
                                                     name="vehicle_color" placeholder="Vehicle Color" readonly
-                                                    value="{{ $res->colour ?? old('vehicle_color') }}">
+                                                    value="{{ $res->colour ?? $halfVehicleEntry->vehicle_color ?? old('vehicle_color') }}">
                                             </div>
                                             @if ($errors->has('vehicle_color'))
                                                 <span class="text-danger">{{ $errors->first('vehicle_color') }}</span>
@@ -125,7 +125,7 @@
                                                 <label for="email-id-column">Fuel type</label>
                                                 <input type="text" id="" class="form-control"
                                                     name="vehicle_tank" placeholder="Fuel type" readonly
-                                                    value="{{ $res->fuelType ?? old('vehicle_tank') }}">
+                                                    value="{{ $res->fuelType  ?? $halfVehicleEntry->vehicle_tank ?? old('vehicle_tank') }}">
                                             </div>
                                             @if ($errors->has('vehicle_tank'))
                                                 <span class="text-danger">{{ $errors->first('vehicle_tank') }}</span>
@@ -136,7 +136,7 @@
                                                 <label for="email-id-column">Vehicle Mileage</label>
                                                 <input type="number" id="email-id-column" class="form-control"
                                                     name="vehicle_mileage" placeholder="Vehicle Mileage"
-                                                    value="{{ old('vehicle_mileage') }}">
+                                                    value="{{  $halfVehicleEntry->vehicle_mileage ?? old('vehicle_mileage') }}">
                                             </div>
                                             @if ($errors->has('vehicle_mileage'))
                                                 <span class="text-danger">{{ $errors->first('vehicle_mileage') }}</span>

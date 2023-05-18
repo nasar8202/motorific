@@ -10,7 +10,7 @@
     <section class="inner-banner blog">
         <div class="container-1151">
             <div class="banner-inner-cont">
-                <h1>Blogs</h1>
+                <h1>{{$blogsdetail->title}}</h1>
             </div>
         </div>
     </section>
@@ -18,36 +18,15 @@
     <section class="help-acc-sec">
         <div class="container-1151">
             
-            <div class="row blogs-main">
+            <div class="row blogs-details">
                 
-                    @forelse($blogs as $blog)
-                    <div class="blogs-inner">
-                        <div class="blog image">
-                        <img src="{{ asset('/blogs/images/'.$blog->image) }}" width="100" height="100">
-                           
-                        </div>
-                        <div class="blog-content">
-                            <a href="{{route('blogsdetail',$blog->id)}}" class="blog-title">
-                                <h4>{{$blog->title}}</h4>
-                            </a>
-                            <p class="blog-text">{{$blog->short_description}}</p>
-                            <button class="btn-prim btn-second"><a href="{{route('blogsdetail',$blog->id)}}">Read More</a></button>
-                        </div>
+                    <div class="blog-content">
+                        {!! $blogsdetail->long_description !!}
                     </div>
-                    @empty
+                
+                
                     
-                    <div class="blogs-inner">
-                        
-                        <div class="blog-content">
-                            
-                            <p class="blog-text">No Blog Found!</p>
-                            
-                        </div>
-                    </div>
-                    @endforelse
-                   
-                
-                
+                </div>
             </div>
             
         </div>

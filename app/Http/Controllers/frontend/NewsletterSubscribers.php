@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Blog;
 use App\Models\GetInTouch;
+use App\Models\MotorificJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Mail\GetInTouchMailRecieve;
 use App\Http\Controllers\Controller;
-use App\Models\MotorificJob;
 use App\Models\NewsletterSubscriber;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -23,11 +24,18 @@ class NewsletterSubscribers extends Controller
     public function help(){
         return view("frontend.seller.help");
     }
-    public function blogs(){
+    public function blogList()
+    {
+         $blogs = Blog::where('status',0)->orderBy("created_at","desc")->get()->take(6);   
+         return view("frontend.seller.blog",compact('blogs'));
+    }
+    public function blogs()
+    {
          return view("frontend.seller.blog");
     }
-    public function blogsdetails1(){
-         return view("frontend.seller.blog1");
+    public function blogsdetail($id){
+        $blogsdetail = Blog::where('id',$id)->first();
+         return view("frontend.seller.blogsdetail",compact('blogsdetail'));
     }
     public function blogsdetails2(){
          return view("frontend.seller.blog2");
