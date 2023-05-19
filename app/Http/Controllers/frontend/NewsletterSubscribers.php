@@ -33,8 +33,8 @@ class NewsletterSubscribers extends Controller
     {
          return view("frontend.seller.blog");
     }
-    public function blogsdetail($id){
-        $blogsdetail = Blog::where('id',$id)->first();
+    public function blogsdetail($slug){
+        $blogsdetail = Blog::where('slug',$slug)->first();
          return view("frontend.seller.blogsdetail",compact('blogsdetail'));
     }
     public function blogsdetails2(){

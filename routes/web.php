@@ -75,7 +75,7 @@ Route::get('about-us',[NewsletterSubscribers::class,'aboutUs'])->name('aboutUs')
 Route::get('help',[NewsletterSubscribers::class,'help'])->name('help');
 
 Route::get('/blog',[NewsletterSubscribers::class,'blogList'])->name('blogList');
-Route::get('/blog/{id}',[NewsletterSubscribers::class,'blogsdetail'])->name('blogsdetail');
+Route::get('/blog/{slug}',[NewsletterSubscribers::class,'blogsdetail'])->name('blogsdetail');
 
 // Route::get('blogs',[NewsletterSubscribers::class,'blogs'])->name('blog');
 

@@ -6,7 +6,7 @@
     .container {
           max-width: 1200px;
       }
-  </style>
+</style>
 <header class="mb-3">
     <a href="#" class="burger-btn d-block d-xl-none">
         <i class="bi bi-justify fs-3"></i>
@@ -55,34 +55,32 @@
                                     
                                              <div class="row">
                                              
-                                                <div class="col-12">
-                                                  
-                                                        <div class="card-body">
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter title here"
-                                                                    id="floatingTextarea" name="title"></textarea>
-                                                                <label for="floatingTextarea">title</label>
+                                                <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="title">Title</label>
+                                                                <input type="text" id="title" class="form-control" placeholder="Enter title here" name="title" value="">
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                
-                                                <div class="col-12">
-                                                  
-                                                        <div class="card-body">
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter short description here"
-                                                                    id="floatingTextarea" name="short_description"></textarea>
-                                                                <label for="floatingTextarea">Short Description</label>
+                                                        
+                                                         <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="slug">Slug</label>
+                                                                <input type="text" id="slug" class="form-control" placeholder="Enter slug here" name="slug" value="">
                                                             </div>
                                                         </div>
+                                                
+                                                <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="short_description">Short Description</label>
+                                                                <textarea class="form-control" placeholder="Enter short description here"
+                                                                    id="short_description" name="short_description"></textarea>
+                                                            </div>
                                                     </div>
                                                 
                                                 
                                                 <div class="col-12">
-                                                  
-                                                        <div class="card-body">
-                                                            <textarea name="long_description" id="default" cols="30" rows="10" placeholder="enter the long description here"></textarea>
-                                                        </div>
+                                                    <div class="form-group">
+                                                        <textarea name="long_description" id="default" cols="30" rows="10" placeholder="Enter the long description here"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -94,30 +92,25 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                  
-                                                        <div class="card-body">
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter meta title here"
-                                                                    id="floatingTextarea" name="meta_title"></textarea>
-                                                                <label for="floatingTextarea">Meta Title</label>
-                                                            </div>
+                                            <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="meta_title">Meta Title</label>
+                                                            <input type="text" id="meta_title" class="form-control" placeholder="Enter meta title here" name="meta_title" value="">
                                                         </div>
-                                            </div>
-                                            <div class="col-12">
-                                                  
-                                                        <div class="card-body">
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter meta description here"
-                                                                    id="floatingTextarea" name="meta_description"></textarea>
-                                                                <label for="floatingTextarea">Meta Description</label>
-                                                            </div>
                                                     </div>
+                                            <div class="col-6">
+                                                  
+                                                    <div class="form-group">
+                                                          <div class="form-group">
+                                                            <label for="meta_description">Meta Description</label>
+                                                            <input type="text" id="meta_description" class="form-control" placeholder="Enter meta description here" name="meta_description" value="">
+                                                        </div>
+                                                            </div>
+                                                            
+                                            </div>    
                                             </div>    
                                     
-                                    <button type="submit" class="btn btn-outline-success">Save</button>
+                                    <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
                                 </form>
                             </div>
 

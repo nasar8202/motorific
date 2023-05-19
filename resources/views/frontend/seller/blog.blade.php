@@ -31,7 +31,7 @@
                                 <h4>{{$blog->title}}</h4>
                             </a>
                             <p class="blog-text">{{$blog->short_description}}</p>
-                            <button class="btn-prim btn-second"><a href="{{route('blogsdetail',$blog->id)}}">Read More</a></button>
+                            <button class="btn-prim btn-second"><a href="{{route('blogsdetail',$blog->slug)}}">Read More</a></button>
                         </div>
                     </div>
                     @empty

@@ -55,32 +55,33 @@
                                     
                                              <div class="row">
                                              
-                                                <div class="col-12">
-                                                <div class="card-body">
-
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter title here"
-                                                                    id="floatingTextarea" name="title" >{{$editBlog->title}}</textarea>
-                                                                <label for="floatingTextarea">title</label>
-                                                            </div>
-                                                            </div>
-                                                </div>
-                                                
-                                                <div class="col-12">
-                                                        <div class="card-body">
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter short description here"
-                                                                    id="floatingTextarea" name="short_description">{{$editBlog->short_description}}</textarea>
-                                                                <label for="floatingTextarea">Short Description</label>
+                                             
+                                                <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="title">Title</label>
+                                                                <input type="text" id="title" class="form-control" placeholder="Enter title here" name="title" value="{{$editBlog->title}}">
                                                             </div>
                                                         </div>
-                                                </div>
-                                                
-                                                <div class="col-12">
-                                                        <div class="card-body">
-                                                            <textarea name="long_description" id="default" cols="30" rows="10" placeholder="enter the long description here">{{$editBlog->long_description}}</textarea>
+                                                        
+                                                         <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="slug">Slug</label>
+                                                                <input type="text" id="slug" class="form-control" placeholder="Enter slug here" name="slug" value="{{$editBlog->slug}}">
+                                                            </div>
                                                         </div>
+                                                         <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="short_description">Short Description</label>
+                                                                <textarea class="form-control" placeholder="Enter short description here"
+                                                                    id="short_description" name="short_description">{{$editBlog->short_description}}</textarea>
+                                                            </div>
                                                     </div>
+                                                        
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <textarea name="long_description" id="default" cols="30" rows="10" placeholder="Enter the long description here">{{$editBlog->long_description}}</textarea>
+                                                    </div>
+                                                </div>
                                                 <div class="col-12">
                                                     <label for="image">Image</label>
                                                         <div class="card-body">
@@ -90,26 +91,23 @@
                                                         </div>
                                                     <img src="{{ asset('/blogs/images/'.$editBlog->image) }}" width="100" height="100">
                                                 </div>
-                                            <div class="col-12">
-                                                        <div class="card-body">
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter meta title here"
-                                                                    id="floatingTextarea" name="meta_title">{{$editBlog->meta_title}}</textarea>
-                                                                <label for="floatingTextarea">Meta Title</label>
-                                                            </div>
+                                                   <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="meta_title">Meta Title</label>
+                                                            <input type="text" id="meta_title" class="form-control" placeholder="Enter meta title here" name="meta_title" value="{{$editBlog->meta_title}}">
                                                         </div>
-                                            </div>
-                                            <div class="col-12">
-                                                        <div class="card-body">
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="enter meta description here"
-                                                                    id="floatingTextarea" name="meta_description">{{$editBlog->meta_description}}</textarea>
-                                                                <label for="floatingTextarea">Meta Description</label>
-                                                            </div>
+                                                    </div>
+                                            <div class="col-6">
+                                                  
+                                                    <div class="form-group">
+                                                          <div class="form-group">
+                                                            <label for="meta_description">Meta Description</label>
+                                                            <input type="text" id="meta_description" class="form-control" placeholder="Enter meta description here" name="meta_description" value="{{$editBlog->meta_description}}">
                                                         </div>
-                                            </div>    
+                                                            </div>
+                                                            </div>   
                                     
-                                    <button type="submit" class="btn btn-outline-success">Save</button>
+                                    <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
                                 </form>
                             </div>
 

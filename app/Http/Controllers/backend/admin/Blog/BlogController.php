@@ -18,7 +18,6 @@ class BlogController extends Controller
     public function addBlog(StoreBlog  $request)
     {
 
-
         DB::beginTransaction();
         try {
             if ($request->hasFile('image')) {
@@ -30,12 +29,12 @@ class BlogController extends Controller
                 // You can set a default image or display an error message
                 $image = 'default.jpg';
             }
-            $slug = Str::slug($request->title);
+            // $slug = Str::slug($request->title);
 
             $blog = new Blog();
             $blog->title = $request->title;
             $blog->short_description = $request->short_description;
-            $blog->slug = $slug;
+            $blog->slug = $request->slug;
             $blog->image = $image;
             $blog->long_description = $request->long_description;
             $blog->meta_title = $request->meta_title;
@@ -90,7 +89,7 @@ class BlogController extends Controller
             // Update other blog fields
             $blog->title = $request->title;
             $blog->short_description = $request->short_description;
-            $blog->slug = Str::slug($request->title);
+            $blog->slug = $request->slug;
             $blog->long_description = $request->long_description;
             $blog->meta_title = $request->meta_title;
             $blog->meta_description = $request->meta_description;

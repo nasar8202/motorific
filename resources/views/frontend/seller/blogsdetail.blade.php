@@ -1,9 +1,10 @@
 @extends('frontend.seller.layouts.app')
-@section('title','Blogs')
+@section('title', $blogsdetail->meta_title)
+@section('description', $blogsdetail->meta_description)
 @section('section')
 @section('headerClass','transparent-header')
 @section('headerUlClass','navlinks-w')
-@section('logoMain','frontend/seller/assets/image/logo-w.png')
+@section('logoMain','https://motorific.co.uk/frontend/seller/assets/image/logo-w.png')
 @section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
 
 
@@ -17,6 +18,8 @@
     
     <section class="help-acc-sec">
         <div class="container-1151">
+            
+            <img src="{{ asset('/blogs/images/'.$blogsdetail->image) }}">
             
             <div class="row blogs-details">
                 
