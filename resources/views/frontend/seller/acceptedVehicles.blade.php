@@ -218,14 +218,62 @@
                         <!-- BOX-1 -->
 
                     </div>
+                    @if(count($completeProfileVehicles) ==  1)
+                    <div class="vpLists">
+                        <h4>Your Pending Vehicles</h4>
+                        <?php 
+                            $count = 1;
+                        ?>
+                        @forelse ($completeProfileVehicles as $allVehicle)
+                        <table class="table align-middle mb-0 bg-white">
+                            <thead class="bg-light">
+                                <tr>
+                                <th>#</th>
+                                <th>Vehicle Name</th>
+                                <th>Vehcle Reg</th>
+                                <th>Vehicle Year</th>
+                                <th>Vehicle Color</th>
+                                <th>Fuel type</th>
+                                <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                
+                                <tr>
+                                    <td>{{$count++}}</td>
+                                <td>
+                                  {{$allVehicle->vehicle_name}}
+                                </td>
+                                <td>
+                                {{$allVehicle->vehicle_registartion_number}}
+                                </td>
+                                <td>
+                                {{$allVehicle->vehicle_year}}
+                                </td>
+                                <td>
+                                {{$allVehicle->vehicle_color}}
+                                </td>
+                                <td>{{$allVehicle->vehicle_tank}}</td>
+                                
+                                <td>
+                                    <a href="{{route('continueCompleteProfile',$allVehicle->vehicle_registartion_number)}}">Complete Profile</a>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        @empty
+                        <div class="col-sm-12">No Purchases Vehicle Found!</div>
+                    @endforelse
+                    </div>
+                    @else
                     <div class="vpLists">
                         <h4>Your Vehicles</h4>
                         @forelse ($allVehicles as $allVehicle)
                         <div class="row g-0 vp-box">
                             <div class="col-sm-4">
                                 <div class="vp-img">
-                                    <img src="{{ asset('/vehicles/vehicles_images/' . $allVehicle->VehicleImage->front) }}"
->
+                                    <img src="{{ asset('/vehicles/vehicles_images/' . $allVehicle->VehicleImage->front) }}">
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -255,8 +303,10 @@
                         </div>
                         @empty
                         <div class="col-sm-12">No Purchases Vehicle Found!</div>
-                    @endforelse
+                        @endforelse
                     </div>
+                    @endif
+                    
                     
                 </div>
             </div>

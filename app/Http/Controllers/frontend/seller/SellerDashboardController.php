@@ -115,7 +115,9 @@ class SellerDashboardController extends Controller
         ->with('vehicleInformation') ->with('vehicleImage')
         ->has('vehicleImage')->get();
         // dd($allVehicles);
-        return view('frontend.seller.acceptedVehicles',compact('allVehicles'));
+        $completeProfileVehicles = Vehicle::where('status',5)->Where('user_id',Auth::user()->id)
+        ->get();
+        return view('frontend.seller.acceptedVehicles',compact('allVehicles','completeProfileVehicles'));
 
     }
     public function completeProfileVehicles()
@@ -149,7 +151,7 @@ class SellerDashboardController extends Controller
         $registeration = str_replace(' ','',$id);
       
         $vehicle = Vehicle::where('vehicle_registartion_number',$registeration)->where('user_id',$currentUser)->first();
-
+        
         
 
                 $curl = curl_init();
@@ -177,7 +179,7 @@ class SellerDashboardController extends Controller
                  $res = json_decode($response);
 
         if( isset($id) ){
-            $milage = $vehicle->millage;
+            $milage = $vehicle->vehicle_mileage;
             }else{
                 return back()->with('error','Record not found');
             }
@@ -186,7 +188,7 @@ class SellerDashboardController extends Controller
     
     }catch(\Exception $e)
     {
-       return $e;
+    //    return $e;
         return Redirect()->back()
             ->with('error',$e->getMessage() )
             ->withInput();

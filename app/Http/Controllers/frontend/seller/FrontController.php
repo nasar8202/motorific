@@ -377,13 +377,14 @@ class FrontController extends Controller
 
         DB::beginTransaction();
         try {
-//    dd($request->all());
+    // dd($request->all());
             $users = User::where('id', $request->user_id)->first();
             $find = Vehicle::where('status', 5)->where('vehicle_registartion_number', $request->RegisterationNumber)->first();
-            
             if (isset($find)) {
+            
                 
-            $update = Vehicle::where('status', 5)->where('vehicle_registartion_number', $request->RegisterationNumber)->first();
+            $update = Vehicle::find($find->id);
+            
             $update->vehicle_registartion_number = strtoupper($request->RegisterationNumber);
             $update->vehicle_name = $request->VehicleName;
             $update->vehicle_year = $request->VehicleYear;
@@ -391,15 +392,16 @@ class FrontController extends Controller
             $update->vehicle_type = $request->VehicleType;
             $update->vehicle_tank = $request->VehicleTank;
             $update->previous_owners = $request->previous_owner;
+            $update->vehicle_mileage = $request->VehicleMileage;
             $update->vehicle_price = $request->VehiclePrice;
             $update->vehicle_category = $request->vehicleCateg;
             $update->status =  0;
             $update->save();
-            // dd("if",$update);
+            //  dd("if",$update);
             }
             else
             {
-                // dd("else",$find);
+                //  dd("else",$find);
                 $vehicle = new Vehicle;
                 $vehicle->user_id = $request->user_id;
                 $vehicle->vehicle_registartion_number = strtoupper($request->RegisterationNumber);
@@ -686,7 +688,7 @@ class FrontController extends Controller
                 } else {
                     return back()->with('error', 'Record not found');
                 }
-                // dd($milage);
+                    $milage = $request->millage;
                 return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'VehicleHistories', 'user'));
             }
             
