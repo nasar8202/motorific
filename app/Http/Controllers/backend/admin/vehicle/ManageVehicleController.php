@@ -327,7 +327,7 @@ class ManageVehicleController extends Controller
     public function viewVehicle()
     {
 
-        $vehicles = Vehicle::where('vehicle_availability', '=', null)->with('vehicleInformation')->with('VehicleImage')->orderBy('id', 'DESC')->get();
+        $vehicles = Vehicle::where('status','!=',5)->where('vehicle_availability', '=', null)->with('vehicleInformation')->with('VehicleImage')->orderBy('id', 'DESC')->get();
         //    dd($vehicles);
         return view('backend.admin.manageVehicle.viewVehicle', compact('vehicles'));
     }

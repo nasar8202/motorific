@@ -131,7 +131,7 @@ class UserController extends Controller
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
-        $halfVehicleEntry =  Vehicle::where('status', 5)->first();
+        $halfVehicleEntry =  Vehicle::where('user_id',$user->id)->where('status', 5)->first();
         
         return view('backend.admin.userDetails.createVehicleForOldUser', compact('halfVehicleEntry','user','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
    
