@@ -33,7 +33,7 @@
                                 {{-- <li id="payment"><strong>Purchasing requirements</strong></li> --}}
                             </ul>
                             <!-- fieldsets -->
-                            <form id="msform" class="dealerlogins" action="{{ route('register.post.step.2') }}" method="POST" enctype="multipart/form-data">
+                            <form id="msform" class="dealerlogins" action="{{ route('register.post.step.2') }}" method="POST" >
                                 @csrf
                             <fieldset>
                                 <div class="form-card">
@@ -76,7 +76,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Upload ID Card (Passport, driving license)</label>
-                                        <input type="file" name="dealer_identity_card" >
+                                        <input type="file" name="dealer_identity_card"  id="dealer_identity_card">
+                                        <input type="hidden" name="dealer_identity_card" id="hiddenIdentityCardField" value="">
+                                        <span id="dealer_identity_card_error"></span>
+
                                             
                                     </div>
                                     <div>
@@ -84,15 +87,13 @@
                                         (motor trade insurance)
                                         </label>
                                         
-                                        <input type="file" name="dealer_documents" >
+                                        <input type="file" name="dealer_documents" id="dealer_documents">
+                                        <input type="hidden" name="dealer_documents" id="hiddenDealerDocumentsField" value="">
+                                        <span id="dealer_documents_error"></span>
                                     </div>
                                     <div class="red-notice" style="color:red;">Note (No ID? You can submit at a later date, to continue simply clicking on the Submit tab)</div>
                                 </div>
-                                {{-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                <input type="button" name="next" class="next action-button" value="Next Step"/> --}}
-                                {{-- <button type="submit" name="next" class="next action-button">Next Step</button>
-                                <button type="submit"  href="{{ route('signup') }}" name="previous" class="previous action-button-previous">Previous</button> --}}
-                                {{-- <a type="button" href="{{ route('signup') }}" class="btn btn-warning">Back to Step 1</a> --}}
+                                
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </fieldset>
 
@@ -106,6 +107,108 @@
 @endsection
 @push('child-scripts')
 <script  type="text/javascript">
+$('#dealer_identity_card').change(function() {
+    validateImageFile(this); // Call the image file validation function
+    startUpload();
+});
+
+function validateImageFile(input) {
+    var file = input.files[0];
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+    if (!allowedExtensions.exec(input.value)) {
+        alert('Please select a valid image file (JPG, JPEG, or PNG).');
+        $('#dealer_identity_card').val(''); // Clear the file input field
+        $('#hiddenIdentityCardField').val('');
+        return false;
+    }
+
+    return true;
+}
+
+function startUpload() {
+    var formData = new FormData();
+    var imageFile = $('#dealer_identity_card')[0].files[0];
+    formData.append('dealer_identity_card', imageFile);
+
+    $.ajax({
+        url: 'uploadDocumentsImage',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        success: function(data, status) {
+            if (typeof data.errors !== 'undefined') {
+                var errors = data.errors;
+                if (errors.dealer_identity_card) {
+                    $('#dealer_identity_card_error').text(errors.dealer_identity_card[0]);
+                }
+            } else if (typeof data.path !== 'undefined') {
+                $('#hiddenIdentityCardField').val(data.path);
+                console.log('Image uploaded: ' + data.path);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.log("XHR status:", status);
+            console.log("XHR error:", error);
+        }
+    });
+    return false;
+}
+
+
+$('#dealer_documents').change(function() {
+    validateImageType(this); // Call the image type validation function
+    startUpload_2();
+});
+
+function validateImageType(input) {
+    
+    var file = input.files[0];
+    var imageType = /^image\//;
+
+    if (!imageType.test(file.type)) {
+        alert('Please select an image file.');
+        $('#dealer_documents').val(''); // Clear the file input field
+        return false;
+    }
+
+    return true;
+}
+
+function startUpload_2() {
+    var formData = new FormData();
+    var imageFile = $('#dealer_documents')[0].files[0];
+    formData.append('dealer_documents', imageFile);
+
+    $.ajax({
+        url: 'uploadDocumentsImage',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        success: function(data, status) {
+            if (typeof data.path !== 'undefined') {
+                $('#hiddenDealerDocumentsField').val(data.path);
+                console.log('Image uploaded: ' + data.path);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.log(error);
+        }
+    });
+    return false;
+}
+
+
     $(document).ready(function() {
         
         $(document).on('submit', 'form', function() {

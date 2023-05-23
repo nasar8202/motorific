@@ -130,7 +130,7 @@ Route::get('/register-create-step-3', [MultiStepRegistration::class,'createStep3
 Route::post('/register-post-step-3', [MultiStepRegistration::class,'PostcreateStep3'])->name('register.post.step.3');
 Route::post('/store', [MultiStepRegistration::class,'store'])->name('store');
 // Route::get('/data', [FrontController::class,'index'])->name('index');
-
+Route::post('/uploadDocumentsImage', [MultiStepRegistration::class,'uploadDocumentsImage'])->name('uploadDocumentsImage');
 // end multi step registration for dealer
 
 // start dealer login
@@ -164,6 +164,7 @@ Route::post('/add-condition-and-damages', [FrontController::class,'addConditionD
 Route::post('/vehicle_information', [FrontController::class,'vehicleInformation'])->name('vehicleInformation');
 Route::post('/create-vehicle', [FrontController::class,'createVehicle'])->name('createVehicle');
 Route::post('/createVehicleUploadImage', [FrontController::class,'createVehicleUploadImage'])->name('createVehicleUploadImage');
+
 Route::post('/update-seller', [FrontController::class,'updateSeller'])->name('updateSeller');
 Route::get('/longitude', [FrontController::class,'longitude'])->name('longitude');
 Route::post('/test_location', [FrontController::class,'testlocation'])->name('testlocation');

@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use App\Mail\WelcomeDealerRegistrationRequestMail;
 use App\Jobs\SendEmailForDealerRegistrationQueuing;
 use App\Notifications\NewDealerRequestNotification;
-use Illuminate\Database\QueryException;
+
 class MultiStepRegistration extends Controller
 {
     public function createStep1(Request $request)
@@ -80,7 +82,39 @@ class MultiStepRegistration extends Controller
       
         return redirect('/register-create-step-2');
     }
+    public function uploadDocumentsImage(Request $request)
+    {
+        // dd($request->all());
+        // $request->validate([
+        //     'dealer_identity_card' => 'image|mimes:jpeg,jpg,png,gif',
+        //     'dealer_documents' => 'image|mimes:jpeg,jpg,png,gif'
+        // ]);
+        $validator = Validator::make($request->all(), [
+            'dealer_identity_card' => 'image|mimes:jpeg,jpg,png,gif',
+            'dealer_documents' => 'image|mimes:jpeg,jpg,png,gif',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'The given data was invalid.',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+        if($request->file('dealer_identity_card')){
+            $path = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
+            $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $path);
+            session()->put($request->name, $path);
+            return response()->json(['path' => $path]);
+        }
+        
+        if($request->file('dealer_documents')){
+            $path = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
+            $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $path);
+            session()->put($request->name, $path);
+            return response()->json(['path' => $path]);
+        }
 
+
+    }
     public function PostcreateStep2(Request $request)
     {
         $validatedData = $request->validate([
@@ -91,8 +125,7 @@ class MultiStepRegistration extends Controller
             'company_type' => 'required',
             'website' => 'max:256',
             'company_phone' => 'required|min:11|max:11',
-            'dealer_identity_card' => 'nullable|image|max:2048', // max size is 2MB (2048KB)
-            'dealer_documents' => 'nullable|image|max:2048', // max size is 2MB (2048KB)
+            
         ]);
 
         $zip =  str_replace(' ', '',$request->postcode);
@@ -173,30 +206,31 @@ class MultiStepRegistration extends Controller
             $user_detail->age_range_to = 2;
             $user_detail->mileage_from = 1;
             $user_detail->mileage_to = 2;
-
-            if(!empty($request->file('dealer_identity_card')) ){
-                $request->validate([
-                    'dealer_identity_card' => 'file|max:2048', // max size in kilobytes (2 MB)
-                ]);
-                $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
-                $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
+            $user_detail->dealer_documents = $request->dealer_documents;
+            $user_detail->dealer_identity_card = $request->dealer_identity_card;
+            // if(!empty($request->file('dealer_identity_card')) ){
+            //     $request->validate([
+            //         'dealer_identity_card' => 'file|max:2048', // max size in kilobytes (2 MB)
+            //     ]);
+            //     $dealer_identity_card = time() . '_' . $request->file('dealer_identity_card')->getClientOriginalName();
+            //     $request->file('dealer_identity_card')->move(public_path() . '/dealers/documents/', $dealer_identity_card);
                 
-                // $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
-                // $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
+            //     // $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
+            //     // $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
     
     
-                $user_detail->dealer_identity_card = $dealer_identity_card;
-                //$user_detail->dealer_documents = $dealer_documents;
-            }
-            if( !empty($request->file('dealer_documents'))){
-                $request->validate([
-                    'dealer_documents' => 'file|max:2048', // max size in kilobytes (2 MB)
-                ]);
-                $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
-                $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
+            //     $user_detail->dealer_identity_card = $dealer_identity_card;
+            //     //$user_detail->dealer_documents = $dealer_documents;
+            // }
+            // if( !empty($request->file('dealer_documents'))){
+            //     $request->validate([
+            //         'dealer_documents' => 'file|max:2048', // max size in kilobytes (2 MB)
+            //     ]);
+            //     $dealer_documents = time() . '_' . $request->file('dealer_documents')->getClientOriginalName();
+            //     $request->file('dealer_documents')->move(public_path() . '/dealers/documents/', $dealer_documents);
     
-                $user_detail->dealer_documents = $dealer_documents;
-            }
+            //     $user_detail->dealer_documents = $dealer_documents;
+            // }
             $user_detail->how_far_distance = 2;
             $user_detail->purchase_each_month_vehicles = 2;
             // if ($request->input('all_makes') == 'all_makes') {
