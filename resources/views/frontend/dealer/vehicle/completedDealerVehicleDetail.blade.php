@@ -3,8 +3,8 @@
 @section('section')
 <!-- form css -->
 
-<main class="topPadingPage">
-    <section>
+
+    <section class="sec-2 productPageTn requested-vehicles">
         <div class="sliderImgVehicleDetail">
           
            @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
@@ -230,7 +230,7 @@
             </div>
         </div>
     </section>
-</main>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">

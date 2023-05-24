@@ -2208,7 +2208,7 @@ display: block;
                                 <div class="add-photos-numbering">
                                     <h3>1</h3>
                                 </div>
-                                <input class="hz-img-input" type="file" id="photo1" accept="image/*" maxlength="500000" value="" onChange="compressimage(this)" />
+                                <input class="hz-img-input" type="file" id="photo1" accept="image/*" maxlength="500000" value="" onChange="compressimage(this)" required/>
                                 <input type="text" class="upload_type" name="image1" value=""/>
                                 
                                 
@@ -2296,7 +2296,7 @@ display: block;
                         <button class="submitBtn-photos-sec" type="submit">Submit</button>
                         <br>
                         <br>
-                        <span class="alertDisable">Vehicle information all fields are mandatory.</span>
+                        <span class="alertDisable">Vehicle information all fields are mandatory and 5 image upload.</span>
                     </div>
 
             </div>
@@ -2364,6 +2364,7 @@ display: block;
 
 <script>
 $(".spinner-main").hide();
+var uploadedImages = 0; // Counter for uploaded images
     // photoupload size compress
     // Get the input field and image preview element
 function compressimage(e) {
@@ -2424,6 +2425,15 @@ function compressimage(e) {
                 },
                 complete: function() {
                     $(".spinner-main").hide();
+
+                    uploadedImages++; // Increment the counter
+
+                    if (uploadedImages === 5) {
+                        // All images uploaded, enable the submit button
+                       $(".submitBtn-photos-sec").attr("disabled", false);
+                    $(".alertDisable").html(" ");
+                    }
+                    
                      console.log("Image upload complete.");
                 }
             });
