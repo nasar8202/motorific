@@ -26,7 +26,6 @@ class DealerOrderVehicleRequestController extends Controller
       ->with('allbid')
       ->get();
 
-
     return view('backend.admin.DealersorderVehicleRequests.dealerOrderVehicle', compact('vehicles'));
   }
 

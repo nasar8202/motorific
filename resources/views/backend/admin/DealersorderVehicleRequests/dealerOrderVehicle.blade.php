@@ -53,6 +53,7 @@
                             $i = 1;
                         @endphp
                         @foreach ($vehicles as $vehicle)
+                  
                         <tr>
 
                             <td>{{ $i++ }}</td>
@@ -64,7 +65,12 @@
                             <td>{{ $vehicle->vehicle_price}}</td>
                             <td>{{ $vehicle->updated_at}}</td>
                             <td>
+                                @if(isset($vehicle->DealerVehicleExterior[0])) 
                                 <img src="{{ asset('/uploads/dealerVehicles/exterior/'.$vehicle->DealerVehicleExterior[0]->exterior_image) }}" width="100" height="100">
+                                
+                                @else 
+                                <span>Image Missing</span>
+                                @endif
                             </td>
                             @if($vehicle->status == 0)
                             <td class=""><span class="badge badge-danger"> Pending </span></td>

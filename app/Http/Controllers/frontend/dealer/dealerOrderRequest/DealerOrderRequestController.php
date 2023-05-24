@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\frontend\dealer\dealerOrderRequest;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\DealerVehicle;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\DealerToDealerVehicleBuy;
 use App\Models\DealersOrderVehicleRequest;
-use App\Models\DealerVehicle;
 
 class DealerOrderRequestController extends Controller
 {
@@ -78,7 +80,6 @@ class DealerOrderRequestController extends Controller
   {
     $vehicle = DealerVehicle::where('status',1)->where('id',$id)->first();
         
-    
     $order = new DealersOrderVehicleRequest;
     $order->user_id = Auth::user()->id;
     $order->vehicle_id = $id;
@@ -87,6 +88,20 @@ class DealerOrderRequestController extends Controller
     $order->save();
     $vehicle->status = 2;
     $vehicle->save();
+
+    $user =  User::where('id', Auth::user()->id)->first();
+    $details = [
+        'name'=>$user->name,
+        'email'=>"$user->email",
+        'vehicle_name'=>$vehicle->vehicle_name,
+        'vehicle_registration'=>$vehicle->vehicle_registartion_number,
+        'vehicle_mileage'=>$vehicle->vehicle_mileage,
+        'age'=>$vehicle->vehicle_year,
+        'reserve_price'=>$vehicle->reserve_price,
+        'colour'=>$vehicle->vehicle_color,
+    ];
+    dispatch(new DealerToDealerVehicleBuy($details));
+
     return redirect()->route('dealerToDealer')->with('success', 'Vehicle Succesfully Purchase. Check Your Purchases For More Details');
   }
 }

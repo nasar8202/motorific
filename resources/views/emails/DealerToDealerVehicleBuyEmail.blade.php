@@ -457,7 +457,7 @@
                 <br>
                 <h3 class="title-name">Hello {{ ucwords($details['name']) }}!</h3>
                 
-                <p>Congratulations on selling your vehicle via Motorific dealer to dealer portal.</p>
+                <p>Congratulations You have Purchase Vehicle on Price  : {{ $details['reserve_price'] }}.</p>
                 
             </div>
         </header>
@@ -475,18 +475,9 @@
                             <li><span>Car Age:</span> {{ $details['age'] }} </li>
                             <li><span>Color:</span>{{ $details['colour'] }}</li>
                         </ul>
-                        <h4 class="title-name">Sale price : {{ $details['reserve_price'] }}</h4>
-                        <h4 class="title-name">Dealer information:</h4>
-                        <ul class="reg-detail">
-                            <li><span>Name:</span> {{ $details['dealer_name'] }} </li>
-                            <li><span>Email:</span> {{ $details['dealer_email'] }}</li>
-                            <li><span>Phone Number:</span>{{ $details['dealer_phone_number'] }}</li>
-                           
-                        </ul>
+                        <br />
                         <div class="veh-text">
-                            <h5>The dealer will contact you to arrange payment and pickup.</h5>
-                           
-                           
+                            
                             <a href="tel:447593839364" class="prim-btn green-btn">Give us a call: +44 7593 839364</a>
                         </div>
 

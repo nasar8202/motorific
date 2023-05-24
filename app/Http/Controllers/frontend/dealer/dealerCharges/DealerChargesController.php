@@ -486,16 +486,15 @@ class DealerChargesController extends Controller
 
             $pricing = DealersOrderVehicleRequest::where('vehicle_id', $id)->where('user_id', $user_id)->first();
             //   dd($pricing);
-            $charges_fee = VehicleWinningCharges::where('status', 1)
-                ->where('price_to', '>=', $pricing->request_price)
-                ->where('price_from', '<=', $pricing->request_price)
-                ->orderBy('id', "DESC")->first();
+            $charges_fee = VehicleWinningCharges::where('status', 1)->get()->filter(function ($item) use ($pricing) {
+                return $item->price_from <= $pricing->request_price && $item->price_to >= $pricing->request_price;
+            })->sortByDesc('id')->first();
 
                 if ($charges == null) {
                     $dealerCard =  CardDetails::where('user_id',$user_id)->first();
                     $charges_payment = $charges_fee->fee;
                     if($dealerCard == null){
-                    return view('frontend.dealer.sellerDetails.cardDetail', compact('id', 'charges_payment', 'user_id', 'role', 'bided'))->with('error', 'First You Need To Pay');
+                    return view('frontend.dealer.sellerDetails.cardDetail', compact('id', 'charges_payment', 'user_id', 'role'))->with('error', 'First You Need To Pay');
                 }else{
         
                     Stripe::setApiKey("sk_test_51L6BbmHh7DA7fp0JBVYZphgLBNOStcNsdKyockhG7OdGCpfL8eBETqsN3XniEjRPGFuc8C272ORCR1YsFcKi2clz00ilFXOFCW");
@@ -569,7 +568,7 @@ class DealerChargesController extends Controller
                 return view('frontend.dealer.sellerDetails.ownerDealerDetail', compact('user', 'allVehicles', 'pricing', 'current', 'role'));
             }
         } catch (\Exception $e) {
-           // return $e;
+            // return $e;
             return Redirect()->back()
                 ->with('error', $e->getMessage())
                 ->withInput();
