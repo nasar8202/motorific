@@ -215,7 +215,7 @@
         </a>
     </li>
 
-    <li class=" {{ (Request::is('admin') ||  request()->IS('/admin/valuationNotifications') ? 'active' : '') }} ">
+    <!-- <li class=" {{ (Request::is('admin') ||  request()->IS('/admin/valuationNotifications') ? 'active' : '') }} ">
         
         <a href="{{route('valuationNotifications')}}" class='sidebar-link'>
             <i class="bi bi-stack"></i>
@@ -223,7 +223,7 @@
             
             
         </a>
-    </li>
+    </li> -->
 
 
     <li class="sidebar-item  has-sub {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? 'active open' : '') }} ">
