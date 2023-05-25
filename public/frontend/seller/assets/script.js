@@ -328,7 +328,7 @@ $(document).ready(function () {
 
 $('.submitVehicleInfo-qa').on('click', function(){
 
-    $(this).parentsUntil('.photo-up-sec-2-box-main').slideUp();
+    $(this).parentsUntil('.photo-up-sec-2-box-main').hide();
 })
 
 $(function(){

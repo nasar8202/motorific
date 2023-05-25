@@ -213,6 +213,11 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     //  Route::get('/approve-vehicle/{id}', [ManageVehicleController::class,'approveVehicle'])->name('approveVehicle');
     //  // end vehcile
 
+    // valuation task
+    Route::get('/valuation-notifications', [AdminDashboardController::class,'valuationNotifications'])->name('valuationNotifications');
+    Route::post('/store-valuation-notifications',[AdminDashboardController::class,'sendValuationsNotificationsToSellers'])->name('sendValuationsNotificationsToSellers');
+
+    //end
 
     Route::get('/dashboard', [AdminDashboardController::class,'admin'])->name('admin');
     Route::get('/requests-dealers', [AdminDashboardController::class,'viewDealers'])->name('ViewDealers');

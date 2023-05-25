@@ -24,6 +24,7 @@ class DealerOrderVehicleRequestController extends Controller
       ->with('DealerVehicleExterior')
       ->with('DealerVehicleInterior')
       ->with('allbid')
+      ->orderBy("id","DESC")
       ->get();
 
     return view('backend.admin.DealersorderVehicleRequests.dealerOrderVehicle', compact('vehicles'));

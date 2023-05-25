@@ -15,10 +15,45 @@ use App\Models\NewsletterSubscriber;
 use App\Notifications\RejectDealerNotification;
 use App\Notifications\ApprovedDealerApplication;
 use App\Notifications\ApprovedDealerNotification;
+use App\Jobs\SendEmailValuationNotificationToSeller;
 
 
 class AdminDashboardController extends Controller
 {
+    public function valuationNotifications()
+    {
+        $sellers = User::where('status',1)->where('role_id',2)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.valuations.valuationNotifications',compact('sellers'));
+    }
+
+    public function sendValuationsNotificationsToSellers(Request $request)
+    {
+       
+        try {
+                $user_ids = $request->users_id;
+                $data['title'] = $request->title;
+                $data['description'] = $request->description;
+            foreach($user_ids as $id){
+                $user_id = $id;
+                $user = User::where('id',$user_id)->first();
+                //echo  $user['email'];
+                
+                $data['email'] = $user['email'];
+                //dd($details['description']);
+               // SendEmailToSubscriber::dispatch($details);
+                dispatch(new SendEmailValuationNotificationToSeller($data));
+                //Mail::to($user['email'])->send(new MailToSubscriberUsers($data));
+           // Mail::to($user['email'])->send(new \App\Mail\SendEmailToSubscribers($details));
+           
+            }
+            return redirect()->route('valuationNotifications')->with('success', 'Notification Send Successfully!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong!');
+        }
+        
+    }
+
     public function index()
     {
      

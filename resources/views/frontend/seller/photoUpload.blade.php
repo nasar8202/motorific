@@ -1373,7 +1373,7 @@ display: block;
                     </div>
                 </div>
                 <div class="photo-up-sec-2-box-btn clr-s-gr my-auto">
-                    <button type="button" onclick="myFunction2()" id="startBtn-vehicleInfo">Start</button>
+                    <button type="button"  id="startBtn-vehicleInfo">Start</button>
                 </div>
             </div>
 
@@ -2363,9 +2363,14 @@ display: block;
 @push('child-scripts')
 
 <script>
+     $('.submitVehicleInfo-qa').on('click', function(){
+            $('.alertDisable').html('All 5 photos are mandatory')
+        })
+
+
 $(".spinner-main").hide();
 var uploadedImages = 0; // Counter for uploaded images
-    // photoupload size compress
+    // photoupload size compress    
     // Get the input field and image preview element
 function compressimage(e) {
     
@@ -2428,20 +2433,22 @@ function compressimage(e) {
 
                     uploadedImages++; // Increment the counter
 
-                    if (uploadedImages === 5) {
+                    if (uploadedImages === 5 ) {
                         // All images uploaded, enable the submit button
                        $(".submitBtn-photos-sec").attr("disabled", false);
-                    $(".alertDisable").html(" ");
+                        $(".alertDisable").html(" ");
                     }
                     
                      console.log("Image upload complete.");
+
                 }
             });
         }
     }
 }
 
-     
+       
+ 
 
     // photoupload size compress
         var form = document.querySelector('.hz-form');
@@ -3061,22 +3068,45 @@ $("#store").click(function(){
 <script>
 $(".submitBtn-photos-sec").attr("disabled", false);
 $('.completeStatus-vehicelInfo-qa').removeClass('d-none');
-$(".alertDisable").html(" ");
+// $(".alertDisable").html(" ");
 </script>
 @else
 <script>
+            $('#startBtn-vehicleInfo').on('click', function(){
+                if($(this).text() == "Edit"){
+                    $('.photo-up-sec-2-vehicle-information').show();
+                    $('.vehicleStepsMain').show();
+                    $('.vehicleSteps:first-child').addClass('vehicleStepsActive');
+                    $(this).parents('.photo-up-sec-2-box').next('#myDIV2').slideToggle();
+                }
+                else{
+                    $(this).parents('.photo-up-sec-2-box').next('#myDIV2').slideToggle();
+                }
+        })
         // DISABLE SUBIMIT BUTTON OF PHOTOS STEP
         $(".submitBtn-photos-sec").attr("disabled", true);
         // SYBMIT SUMMARY STEP
         $('.submitVehicleInfo-qa').on('click', function(){
-
-            myFunction2()
+            // myFunction2()
             $('#startBtn-vehicleInfo').text('Edit')
             $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
             $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
             $(".submitBtn-photos-sec").attr("disabled", false);
-            $(".alertDisable").html(" ");
+            // $(".alertDisable").html(" ");
         });
+        // $('#startBtn-vehicleInfo').on('click', function(){
+
+        //     if($(this).text('Edit')){
+        //         console.log(aaaa);
+        //     }else {
+        //         console.log(bbbb);
+        //     }
+        // })
+
+        // $('#startBtn-vehicleInfo').on('click', function(){
+        //     $(this).
+        // })
+        // $('#startBtn-vehicleInfo').
 
     </script>
 

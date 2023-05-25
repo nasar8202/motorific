@@ -259,19 +259,21 @@
                                                         <td width="2%">:</td>
                                                         <td class="set-scr">
                                                             @if(isset($dealers->userDetails) && $dealers->userDetails->dealer_identity_card == null) <input type="file"
-                                                            name="dealer_identity_card"> @elseif(isset($dealers->userDetails)) <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_identity_card) }}" width="400px" height="200px"> <input type="file"
+                                                            name="dealer_identity_card"> @elseif(isset($dealers->userDetails)) <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_identity_card) }}" width="400px" height="200px" class="image-click"> <input type="file"
                                                             name="dealer_identity_card"> @endif 
                                                             @if ($errors->has('dealer_identity_card'))
                                                                 <span
                                                                     class="text-danger ">{{ $errors->first('dealer_identity_card') }}</span>
                                                             @endif
+
+                                                            
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th width="3%">Documents</th>
                                                         <td width="2%">:</td>
                                                         <td class="set-scr"> 
-                                                            @if(isset($dealers->userDetails) && $dealers->userDetails->dealer_documents == null) <input type="file" name="dealer_documents">@elseif(isset($dealers->userDetails)) <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_documents) }}" width="400px" height="200px"> <input type="file" name="dealer_documents"> @endif
+                                                            @if(isset($dealers->userDetails) && $dealers->userDetails->dealer_documents == null) <input type="file" name="dealer_documents">@elseif(isset($dealers->userDetails)) <img src="{{ asset('/dealers/documents/'.$dealers->userDetails->dealer_documents) }}" width="400px" height="200px" class="image-click"> <input type="file" name="dealer_documents"> @endif
                                                             <br>
                                                             @if ($errors->has('dealer_documents'))
                                                                 <span
@@ -307,7 +309,38 @@
 
                 </div>
             </div>
-
+      
         </section>
     </div>
+    <!-- Modal -->
+    <div class="modal" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">ID and Documents</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="enlargedImage" src="" alt="Enlarged Image" class="img-fluid" >
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+@push('child-scripts')
+<script>
+    $(document).ready(function () {
+        $('.image-click').click(function () {
+            var imageUrl = $(this).attr('src');
+            $('#enlargedImage').attr('src', imageUrl);
+            $('#imageModal').modal('show');
+        });
+    });
+  $("button[data-dismiss=modal]").click(function()
+    {
+    $(".modal").modal('hide');
+    });
+</script>
+@endpush
