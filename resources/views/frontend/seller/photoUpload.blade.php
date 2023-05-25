@@ -1352,9 +1352,21 @@ display: block;
             </div>
         </section>
 
-
+        <input type="hidden" class="check_session" value="{{session()->get('vehicle_feature')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('seat_material')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('number_of_keys')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('tool_pack')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('locking_wheel_nut')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('smoked_in')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('log_book')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('location')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('HouseName')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('vehicle_owner')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('private_plate')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('finance')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('categ')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('VehicleHistory')}}">
         <!--End-->
-
         <div class="photo-up-sec-2-box-main veicle-info">
 
             <div class="photo-up-sec-2-box">
@@ -2363,9 +2375,6 @@ display: block;
 @push('child-scripts')
 
 <script>
-     $('.submitVehicleInfo-qa').on('click', function(){
-            $('.alertDisable').html('All 5 photos are mandatory')
-        })
 
 
 $(".spinner-main").hide();
@@ -2434,9 +2443,18 @@ function compressimage(e) {
                     uploadedImages++; // Increment the counter
 
                     if (uploadedImages === 5 ) {
+                        
+                    var check_session = $(".check_session").val();
+                        if(check_session === ''){
+                            $(".submitBtn-photos-sec").attr("disabled", true);
+                            $(".alertDisable").text("All 5 photos and vehicle info are mandatory");
+                        }
+                        else{
+                            $(".submitBtn-photos-sec").attr("disabled", false);
+                            $(".alertDisable").text("");
+                        }
+            // $('.alertDisable').html('All 5 photos are mandatory')
                         // All images uploaded, enable the submit button
-                       $(".submitBtn-photos-sec").attr("disabled", false);
-                        $(".alertDisable").html(" ");
                     }
                     
                      console.log("Image upload complete.");
@@ -3091,7 +3109,21 @@ $('.completeStatus-vehicelInfo-qa').removeClass('d-none');
             $('#startBtn-vehicleInfo').text('Edit')
             $('#startBtn-vehicleInfo').css({ background: "#7977a2" })
             $('.completeStatus-vehicelInfo-qa').removeClass('d-none')
-            $(".submitBtn-photos-sec").attr("disabled", false);
+            var check_session =$('.check_session').val("abcdjh");
+            if (uploadedImages === 5 ) {
+                $(".submitBtn-photos-sec").attr("disabled", false);
+                $(".alertDisable").text("");
+            }
+            
+            // var check_session = $(".check_session").val();
+            //     if(check_session != null){
+            //         alert("if")
+            //     }
+            //     else{
+            //         alert("else")
+            //     }
+            // $('.alertDisable').html('All 5 photos are mandatory')
+            // $(".submitBtn-photos-sec").attr("disabled", false);
             // $(".alertDisable").html(" ");
         });
         // $('#startBtn-vehicleInfo').on('click', function(){

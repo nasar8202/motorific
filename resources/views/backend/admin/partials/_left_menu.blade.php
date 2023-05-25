@@ -27,7 +27,7 @@
     </li>
     
     <li class="sidebar-item  has-sub">
-        <a href="#" class='sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-user') ) ? 'active open' : '' }}'>
+        <a href="#" class="sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-user') ) ? 'active open' : '' }}">
             <i class="bi bi-stack"></i>
             <span>Sellers </span>
         </a>
@@ -233,7 +233,7 @@
         </a>
         <ul class="submenu">
             <li class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? '' : '') }}'>
+                <a href="#" class="sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? '' : '') }}">
                     <i class="bi bi-stack"></i>
                     <span>Vehicle Details </span>
                 </a>
