@@ -3086,6 +3086,19 @@ $("#store").click(function(){
 <script>
 $(".submitBtn-photos-sec").attr("disabled", false);
 $('.completeStatus-vehicelInfo-qa').removeClass('d-none');
+$('#startBtn-vehicleInfo').text('Edit')
+$('#startBtn-vehicleInfo').css({ background: "#7977a2" })
+$('#startBtn-vehicleInfo').on('click', function(){
+                if($(this).text() == "Edit"){
+                    $('.photo-up-sec-2-vehicle-information').show();
+                    $('.vehicleStepsMain').show();
+                    $('.vehicleSteps:first-child').addClass('vehicleStepsActive');
+                    $(this).parents('.photo-up-sec-2-box').next('#myDIV2').slideToggle();
+                }
+                else{
+                    $(this).parents('.photo-up-sec-2-box').next('#myDIV2').slideToggle();
+                }
+        })
 // $(".alertDisable").html(" ");
 </script>
 @else
