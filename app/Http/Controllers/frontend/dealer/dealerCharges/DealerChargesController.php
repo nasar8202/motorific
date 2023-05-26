@@ -29,6 +29,7 @@ use App\Models\VehicleWinningCharges;
 use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
 use App\Models\DealersOrderVehicleRequest;
+use App\Mail\DealerAuctionPurchaseVehicleConfirmation;
 
 class DealerChargesController extends Controller
 {
@@ -63,18 +64,25 @@ class DealerChargesController extends Controller
         
         if($pricing->bid_price > 99999){
             $pricing->bid_price = 99999;
-            $charges_fee = VehicleWinningCharges::where('status', 1)
-            ->where('price_to', '>=', $pricing->bid_price)
-            ->where('price_from', '<=', $pricing->bid_price)
-            ->orderBy('id', "DESC")->first();
+            // $charges_fee = VehicleWinningCharges::where('status', 1)
+            // ->where('price_to', '>=', $pricing->bid_price)
+            // ->where('price_from', '<=', $pricing->bid_price)
+            // ->orderBy('id', "DESC")->first();
            // dd("if",$pricing->bid_price);
+
+           $charges_fee = VehicleWinningCharges::where('status', 1)->get()->filter(function ($item) use ($pricing) {
+            return $item->price_from <= $pricing->bid_price && $item->price_to >= $pricing->bid_price;
+        })->sortByDesc('id')->first();
             
         }else{
            // dd("else",$pricing->bid_price);
-            $charges_fee = VehicleWinningCharges::where('status', 1)
-            ->where('price_to', '>=', $pricing->bid_price)
-            ->where('price_from', '<=', $pricing->bid_price)
-            ->orderBy('id', "DESC")->first();
+            // $charges_fee = VehicleWinningCharges::where('status', 1)
+            // ->where('price_to', '>=', $pricing->bid_price)
+            // ->where('price_from', '<=', $pricing->bid_price)
+            // ->orderBy('id', "DESC")->first();
+            $charges_fee = VehicleWinningCharges::where('status', 1)->get()->filter(function ($item) use ($pricing) {
+                return $item->price_from <= $pricing->bid_price && $item->price_to >= $pricing->bid_price;
+            })->sortByDesc('id')->first();
         }
 
        
@@ -102,11 +110,12 @@ class DealerChargesController extends Controller
 
             $token = $result['id'];
             
+            
             $user_email = Auth::user()->email;
             $amount = (int)100 * $charges_payment;
             
             Stripe::setApiKey(env('STRIPE_SECRET'));
-            Charge::create([
+           $chargeId =  Charge::create([
                 "amount" => $amount,
                 "currency" => "gbp",
                 "source" => $token,
@@ -116,6 +125,8 @@ class DealerChargesController extends Controller
             
             $allVehicles = Vehicle::Where('status', 2)->where('id', $id)->with('vehicleInformation')->with('VehicleImage')->first();
             
+            
+
             $chargesDetails = new DealerWinningCharges;
             $user_id = Auth::user()->id;
             $chargesDetails->user_id = $user_id;
@@ -125,6 +136,23 @@ class DealerChargesController extends Controller
             $chargesDetails->status = 1;
             $chargesDetails->save();
             
+            $transactionId = $chargeId->id;
+            $cardDetails = CardDetails::where('user_id',$user_id)->first();
+            $originalDate = $chargesDetails->created_at;
+            $winDate = date("d/m/Y ", strtotime($originalDate));
+
+            $lastFourDigits = substr($cardDetails->card_number, -4);
+            $data = ([
+              'date' => $winDate,
+              'amount'=> $charges_payment,
+              'transactionId'=>$transactionId,
+              'vehicle_registration' => $allVehicles->vehicle_registartion_number,
+              'vehicle_name' => $allVehicles->vehicle_name,
+              'card_numbers' => $lastFourDigits,
+                
+            ]);
+            Mail::to($user_email)->send(new DealerAuctionPurchaseVehicleConfirmation($data));
+
             $user = User::where('id', $allVehicles->user_id)->first();
             $current = Auth::user()->id;
             $pricing = BidedVehicle::where('vehicle_id', $id)->where('user_id', $current)->first();
@@ -157,10 +185,14 @@ class DealerChargesController extends Controller
             $charges =  DealerWinningCharges::where('user_id', $user_id)->where('vehicle_id', $id)->first();
             $pricing = OrderVehicleRequest::where('vehicle_id', $id)->where('user_id', $user_id)->first();
 
-            $charges_fee = VehicleWinningCharges::where('status', 1)
-                ->where('price_to', '>=', $pricing->request_price)
-                ->where('price_from', '<=', $pricing->request_price)
-                ->orderBy('id', "DESC")->first();
+            // $charges_fee = VehicleWinningCharges::where('status', 1)
+            //     ->where('price_to', '>=', $pricing->request_price)
+            //     ->where('price_from', '<=', $pricing->request_price)
+            //     ->orderBy('id', "DESC")->first();
+
+            $charges_fee = VehicleWinningCharges::where('status', 1)->get()->filter(function ($item) use ($pricing) {
+                return $item->price_from <= $pricing->request_price && $item->price_to >= $pricing->request_price;
+            })->sortByDesc('id')->first();
 
                 if ($charges == null) {
                     $dealerCard =  CardDetails::where('user_id',$user_id)->first();
@@ -240,21 +272,17 @@ class DealerChargesController extends Controller
     {
         try {
             $user_email = Auth::user()->email;
-            $amount = (int)100 * $request->amount;
+            $amount = $request->amount;
             Stripe::setApiKey("sk_test_51L6BbmHh7DA7fp0JBVYZphgLBNOStcNsdKyockhG7OdGCpfL8eBETqsN3XniEjRPGFuc8C272ORCR1YsFcKi2clz00ilFXOFCW");
 
-            Charge::create([
-                "amount" => $amount,
-                "currency" => "gbp",
-                "source" => $request->stripeToken,
-                "description" => $user_email
-            ]);
+            
 
             $chargesDetails = new DealerWinningCharges;
             $user_id = Auth::user()->id;
             $chargesDetails->user_id = $user_id;
             if ($request->role == 'dealer') {
                 $chargesDetails->dealer_vehicle_id = $request->vehicleId;
+                
             } else {
                 $chargesDetails->vehicle_id = $request->vehicleId;
             }
@@ -270,6 +298,30 @@ class DealerChargesController extends Controller
             $cardDetails->expiration_year = $request->expiration_year;
             $cardDetails->status = 1;
             $cardDetails->save();
+
+            $chargeId = Charge::create([
+                "amount" => $amount * 100,
+                "currency" => "gbp",
+                "source" => $request->stripeToken,
+                "description" => $user_email
+            ]);
+            $transactionId = $chargeId->id;
+            $vehicle = Vehicle::Where('status', 2)->where('id', $request->vehicleId)->with('vehicleInformation')->with('VehicleImage')->first();
+            $originalDate = $cardDetails->created_at;
+            $winDate = date("d/m/Y ", strtotime($originalDate));
+
+            $lastFourDigits = substr($request->card_number, -4);
+            $data = ([
+              'date' => $winDate,
+              'amount'=> $amount,
+              'transactionId'=>$transactionId,
+              'vehicle_registration' => $vehicle->vehicle_registartion_number,
+              'vehicle_name' => $vehicle->vehicle_name,
+              'card_numbers' => $lastFourDigits,
+                
+            ]);
+            Mail::to($user_email)->send(new DealerAuctionPurchaseVehicleConfirmation($data));
+            
             return redirect()->route('bids.ActiveBiddedVehicle')->with('success', 'Your Payment Successfully Completed');
         } catch (\Exception $e) {
             //return $e;
