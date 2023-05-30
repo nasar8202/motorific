@@ -16,15 +16,15 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <a href="{{ route('viewAllSubscribers') }}"><span class="badge badge-success">Go Back</span></a>
-                <h3>Send Notification to all Subscribers</h3>
-                <p class="text-subtitle text-muted">Send Notification to all Subscribers</p>
+                <a href="{{ route('valuationNotifications') }}"><span class="badge badge-success">Go Back</span></a>
+                <h3>Send Valuation Notification to User</h3>
+                <p class="text-subtitle text-muted">Send Valuation Notification to User</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Vehicle</li>
+                        <li class="breadcrumb-item active" aria-current="page">Notification</li>
                     </ol>
                 </nav>
             </div>
@@ -35,7 +35,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header pb-sm-0">
-                    <h4 class="card-title">Send Notification to all Subscribers</h4>
+                    <h4 class="card-title">Send Valuation Notification to User</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
@@ -59,11 +59,11 @@
                                                 <div class="card-content">
                                                     <div class="card-body">
                                                     <div class="col-md-12 mb-4">
-                                                        <h6>Select Users To Send Notification</h6>
-                                                        <input type='checkbox' id='checkallusers' value=''> Select All<br/>
+                                                        <h6>Select User To Send Valuation Notification</h6>
+                                                        
                                                         <div class="form-group">
-                                                            <select name="users_id[]" id='sel_users' class="select2-multiple form-select "
-                                                                multiple="multiple">
+                                                            <select name="users_id" id='sel_users' class="select2-multiple form-select "
+                                                                >
                                                                 <option  value="0" disabled>Select Users</option>
                                                                 
                                                                 @forelse($sellers as $user)
@@ -137,35 +137,5 @@
         });
 
     </script>
-<script type='text/javascript'>
-    $(document).ready(function(){
-      $("#checkallusers").change(function(){
-        var checked = $(this).is(':checked'); // Checkbox state
-   
-        // Select all
-        if(checked){
-          $('#sel_users option').each(function() {
-             $(this).prop('selected',true);
-          });
-        }else{
-          // Deselect All
-          $('#sel_users option').each(function() {
-            $(this).prop('selected',false);
-          });
-        }
-    
-     });
-    
-     // Changing state of Checkbox
-     $("#sel_users").change(function(){
-    
-       // When total options equals to total selected option
-       if($("#sel_users option").length == $("#sel_users option:selected").length) {
-          $("#checkallusers").prop("checked", true);
-       } else {
-          $("#checkallusers").prop("checked", false);
-       }
-      });
-    });
-    </script>
+
 @endsection

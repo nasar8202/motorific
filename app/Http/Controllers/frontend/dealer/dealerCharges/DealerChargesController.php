@@ -30,6 +30,7 @@ use App\Models\CanceledRequestReviews;
 use Illuminate\Support\Facades\Session;
 use App\Models\DealersOrderVehicleRequest;
 use App\Mail\DealerAuctionPurchaseVehicleConfirmation;
+use App\Jobs\DealerAuctionPurchaseVehicleConfirmations;
 
 class DealerChargesController extends Controller
 {
@@ -143,6 +144,7 @@ class DealerChargesController extends Controller
 
             $lastFourDigits = substr($cardDetails->card_number, -4);
             $data = ([
+              'email'=>$user_email,
               'date' => $winDate,
               'amount'=> $charges_payment,
               'transactionId'=>$transactionId,
@@ -151,7 +153,8 @@ class DealerChargesController extends Controller
               'card_numbers' => $lastFourDigits,
                 
             ]);
-            Mail::to($user_email)->send(new DealerAuctionPurchaseVehicleConfirmation($data));
+            dispatch(new DealerAuctionPurchaseVehicleConfirmations($data));
+            //Mail::to($user_email)->send(new DealerAuctionPurchaseVehicleConfirmation($data));
 
             $user = User::where('id', $allVehicles->user_id)->first();
             $current = Auth::user()->id;
@@ -307,11 +310,12 @@ class DealerChargesController extends Controller
             ]);
             $transactionId = $chargeId->id;
             $vehicle = Vehicle::Where('status', 2)->where('id', $request->vehicleId)->with('vehicleInformation')->with('VehicleImage')->first();
-            $originalDate = $cardDetails->created_at;
+            $originalDate = $chargesDetails->created_at;
             $winDate = date("d/m/Y ", strtotime($originalDate));
-
+            
             $lastFourDigits = substr($request->card_number, -4);
             $data = ([
+                'email'=>$user_email,
               'date' => $winDate,
               'amount'=> $amount,
               'transactionId'=>$transactionId,
@@ -320,7 +324,9 @@ class DealerChargesController extends Controller
               'card_numbers' => $lastFourDigits,
                 
             ]);
-            Mail::to($user_email)->send(new DealerAuctionPurchaseVehicleConfirmation($data));
+           
+            dispatch(new DealerAuctionPurchaseVehicleConfirmations($data));
+            // Mail::to($user_email)->send(new DealerAuctionPurchaseVehicleConfirmation($data));
             
             return redirect()->route('bids.ActiveBiddedVehicle')->with('success', 'Your Payment Successfully Completed');
         } catch (\Exception $e) {

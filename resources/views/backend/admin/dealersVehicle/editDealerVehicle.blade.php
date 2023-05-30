@@ -46,25 +46,29 @@ p {
      @forelse($vehicle->DealerVehicleExterior as $exteriorimage)
 
      <div class="col-md-3 col-sm-6">
-                    <img width="50" height="50" src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? "") }}">
+     <a href="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? '') }}" download>
+                    <img width="50" height="50" src="{{ asset('/uploads/dealerVehicles/exterior/'.$exteriorimage->exterior_image ?? '') }}">
+     </a>
               </div>
                 @empty
                 @endforelse
                 <div><h1>Interior images</h1></div>
                 @forelse($vehicle->DealerVehicleInterior as $interiorimage)
           <div class="col-md-3 col-sm-6">
-                    <img width="50" height="50" src="{{ asset('/uploads/dealerVehicles/interior/'.$interiorimage->interior_image ?? "") }}">
+          <a href="{{ asset('/uploads/dealerVehicles/interior/'.$interiorimage->interior_image ?? '') }}" download>
+                    <img width="50" height="50" src="{{ asset('/uploads/dealerVehicles/interior/'.$interiorimage->interior_image ?? '') }}">
+          </a>
                 </div>
                 @empty
                 @endforelse
                 {{-- <div class="sliderImgVehicleDetailRepeater">
-                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->passenger_rare_side_corner ?? "") }}">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->passenger_rare_side_corner ?? '') }}">
                 </div>
                 <div class="sliderImgVehicleDetailRepeater">
-                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->driver_rare_side_corner ?? "") }}">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->driver_rare_side_corner ?? '') }}">
                 </div>
                 <div class="sliderImgVehicleDetailRepeater">
-                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? "") }}">
+                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->dashboard ?? '') }}">
                 </div> --}}
 
     </div>
@@ -224,7 +228,9 @@ p {
                     @forelse($vehicle->DealerVehicleTyre as $wheel)
                     <div class="col-md-4 col-sm-6">
                         <div class="imgVehicle">
-                            <img  width="400px" height="200px"  src="{{ asset('/uploads/dealerVehicles/tyres/'.$wheel->tyre_image ?? "") }}" alt="">
+                        <a href="{{ asset('/uploads/dealerVehicles/tyres/'.$wheel->tyre_image ?? '') }}" download>
+                            <img  width="400px" height="200px"  src="{{ asset('/uploads/dealerVehicles/tyres/'.$wheel->tyre_image ?? '') }}" alt="">
+                        </a>
                         </div>
                     </div>
                     @empty

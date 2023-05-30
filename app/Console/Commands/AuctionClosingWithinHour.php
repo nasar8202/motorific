@@ -48,9 +48,16 @@ class AuctionClosingWithinHour extends Command
      */
     public function handle()
     {
-        $dealers = User::where('role_id', 3)->where('status', 1)->get();
+            $dealers = User::where('role_id', 3)->where('status', 1)->get();
 
             foreach ($dealers as $data) {
+                // Check if it's a weekend (Saturday or Sunday)
+                $currentDayOfWeek = date('l');
+
+                if ($currentDayOfWeek === 'Sunday' || $currentDayOfWeek === 'Saturday') {
+                    continue; // Skip sending the email on weekends
+                }
+
                 try {
                     Mail::to($data->email)->send(new AuctionClosingWthinHourMail($data));
                     $log = Log::info('Email sent to ' . $data->email);
@@ -58,9 +65,10 @@ class AuctionClosingWithinHour extends Command
                     $log = Log::error('Error sending email to ' . $data->email . ': ' . $e->getMessage());
                 }
             }
-            
+
             $log = Log::info('Every day eight am cron job finished');
             return "work";
+
         // $dealers = User::where('role_id', '3')->where('status', 1)->get();
         // $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
         

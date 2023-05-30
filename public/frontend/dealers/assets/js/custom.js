@@ -675,7 +675,7 @@ function startCountdown() {
     // check if it's a weekend (Saturday or Sunday)
     if (now.getDay() === 6 || now.getDay() === 0) { // 6 = Saturday, 0 = Sunday
       clearInterval(countdown); // stop the countdown
-      document.getElementById("countdown").innerHTML = "Sale is Closed on Weekends"; // display custom message
+      document.getElementById("countdown").innerHTML = "Auction is Closed on Weekends"; // display custom message
       document.getElementById("message").innerHTML = "";
       
       return; // exit the function

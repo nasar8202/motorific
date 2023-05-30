@@ -54,7 +54,14 @@
                     </div>
                     <div class="mapAndText">
                         {{-- <p><strong>Collection:</strong> Available immediately</p> --}}
-                        <p><strong>Location:</strong> {{$vehicle->vehicleInformation->location}} ({{$distance ?? ''}} miles away)
+                        <?php 
+                        $address = $vehicle->vehicleInformation->location;
+                        
+                        $components = explode(" ", $address);
+                        $town = end($components);
+
+                        ?>
+                        <p><strong>Location:</strong> {{$town??""}} ({{$distance ?? ''}} miles away)
                         </p>
                         @php
                         // $variable = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBc18nAlur3f5u6N1HGgckDFyWW5IfkKWk&q=$lng,$lat";
@@ -257,7 +264,7 @@
                         <h4>Buy It Now</h4>
                         @else
                         <h4>Live Sale</h4>
-@endif
+                        @endif
                         <div class="reserveDetail vehicle">
                             <ul >
                                 <li>Reserve Price: <span>£{{$vehicle->reserve_price}}</span></li>

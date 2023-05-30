@@ -50,32 +50,37 @@ class EveryDayEightAm extends Command
     public function handle()
     {
         
-         $dealers = User::where('role_id','3')->where('status', 1)->get();
+        $dealers = User::where('role_id', '3')->where('status', 1)->get();
         $start_end_vehicle_date = Carbon::now()->format('Y-m-d');
         $vehicles = Vehicle::where('status', 1)
-        ->where('start_vehicle_date', $start_end_vehicle_date)
-        ->where('end_vehicle_date', $start_end_vehicle_date)
-        ->get();
-        $countbuyItNoVehicle = Vehicle::where('status',1)->where('all_auction','all' )->count();
+            ->where('start_vehicle_date', $start_end_vehicle_date)
+            ->where('end_vehicle_date', $start_end_vehicle_date)
+            ->get();
+        $countbuyItNoVehicle = Vehicle::where('status', 1)->where('all_auction', 'all')->count();
 
-        
-        $allDealerVehicles = DealerVehicle::Where('status',1)
-        ->with('DealerAdvertVehicleDetail')
-        ->with('DealerVehicleExterior')
-        ->with('DealerVehicleHistory')
-        ->with('DealerVehicleInterior')
-        ->with('DealerVehicleMedia')
-        ->get();
+        $allDealerVehicles = DealerVehicle::where('status', 1)
+            ->with('DealerAdvertVehicleDetail')
+            ->with('DealerVehicleExterior')
+            ->with('DealerVehicleHistory')
+            ->with('DealerVehicleInterior')
+            ->with('DealerVehicleMedia')
+            ->get();
         $allDealerVehicles = count($allDealerVehicles);
-        
+
         foreach ($dealers as $data1) {
-           
+            // Check if it's a weekend (Saturday or Sunday)
+            $currentDayOfWeek = date('l');
+
+                if ($currentDayOfWeek === 'Sunday' || $currentDayOfWeek === 'Saturday') {
+                    continue; // Skip sending the email on weekends
+                }
+
             $data = [
-            'count' => count($vehicles),
-            'countbuyItNoVehicle' => $countbuyItNoVehicle,
-            'allDealerVehicles'=> $allDealerVehicles
-        ];
-        
+                'count' => count($vehicles),
+                'countbuyItNoVehicle' => $countbuyItNoVehicle,
+                'allDealerVehicles' => $allDealerVehicles
+            ];
+
             try {
                 Mail::to($data1->email)->send(new EveryDayEightAmMail($data));
             } catch (\Exception $e) {
@@ -83,11 +88,11 @@ class EveryDayEightAm extends Command
                 Log::error('Error sending email to ' . $data1->email . ': ' . $errorMessage);
             }
         }
-        
+
         $log = Log::info('working within hour cron job');
         return "work";
-        
-        
+
+
         // $dealers = User::where('role_id', 3)->where('status', 1)->get();
 
         //     foreach ($dealers as $data) {

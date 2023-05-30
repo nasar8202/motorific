@@ -31,22 +31,22 @@ class AdminDashboardController extends Controller
     {
        
         try {
-                $user_ids = $request->users_id;
+                $user_id = $request->users_id;
+                
                 $data['title'] = $request->title;
                 $data['description'] = $request->description;
-            foreach($user_ids as $id){
-                $user_id = $id;
+            
                 $user = User::where('id',$user_id)->first();
                 //echo  $user['email'];
-                
+                dd($user);
                 $data['email'] = $user['email'];
                 //dd($details['description']);
                // SendEmailToSubscriber::dispatch($details);
-                dispatch(new SendEmailValuationNotificationToSeller($data));
+               // dispatch(new SendEmailValuationNotificationToSeller($data));
                 //Mail::to($user['email'])->send(new MailToSubscriberUsers($data));
            // Mail::to($user['email'])->send(new \App\Mail\SendEmailToSubscribers($details));
            
-            }
+            
             return redirect()->route('valuationNotifications')->with('success', 'Notification Send Successfully!');
         } catch (\Exception $e) {
             return back()->with('error', 'Something went wrong!');

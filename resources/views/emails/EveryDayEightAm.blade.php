@@ -69,7 +69,7 @@ a, a:hover {
 			<!-- LOGO -->
 			<a target="_blank" style="text-decoration: none;"
 				href="{{route('index')}}"><img border="0" vspace="0" hspace="0"
-				src="{{ URL::asset('frontend/seller/assets/image/logo.png') }}"
+				src="{{ URL::asset('frontend/seller/assets/image/logo-w.png') }}"
 				width="100" height="30"
 				 style="
 				color: #000000;
@@ -156,7 +156,7 @@ a, a:hover {
 			padding-bottom: 5px;" class="button"><a
 			href="{{route('DealerLogin')}}" target="_blank" style="text-decoration: underline;">
 				<table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;"><tr><td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
-					bgcolor="#E9703E"><a target="_blank" style="text-decoration: underline;
+					bgcolor="##05eab5"><a target="_blank" style="text-decoration: underline;
 					color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
 					href="{{route('DealerLogin')}}">
                     View  All Vehicles
