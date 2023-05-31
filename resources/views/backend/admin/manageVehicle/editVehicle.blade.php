@@ -16,6 +16,19 @@ p {
   font-weight: bold;
 }
   </style>
+  <style>
+    .image-container {
+        width: 500px;
+        height: 0px auto;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
 <header class="mb-3">
     <a href="#" class="burger-btn d-block d-xl-none">
         <i class="bi bi-justify fs-3"></i>
@@ -1165,7 +1178,9 @@ p {
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" download>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}"  class="rounded mx-auto d-block mb-3"  height="250px" width="500px" object-fit="cover">
+                        <div class="image-container">
+                            <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" class="rounded mx-auto d-block mb-3" alt="Vehicle Image">
+                        </div>
                         </a>
                     </div>
                     <div class="col-md-4">
@@ -1187,7 +1202,9 @@ p {
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" download>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" class="rounded mx-auto d-block  mb-3"  height="250px" width="500px" object-fit="cover">
+                        <div class="image-container">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        </div>
                         </a>
                     </div>
                     <div class="col-md-4">
@@ -1209,7 +1226,9 @@ p {
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}" download>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}"  class="rounded mx-auto d-block  mb-3"  height="250px" width="500px" object-fit="cover">
+                        <div class="image-container">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}"  class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        </div>
                         </a>
                     </div>
                     <div class="col-md-4">
@@ -1230,7 +1249,9 @@ p {
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}" download>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}"  class="rounded mx-auto d-block  mb-3"  height="250px" width="500px" object-fit="cover">
+                        <div class="image-container">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}"  class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        </div>
                         </a>
                     </div>
                     <div class="col-md-4">
@@ -1252,7 +1273,9 @@ p {
                     <div class="col-md-4">
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}" download>
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}"  class="rounded mx-auto d-block  mb-3"  height="250px" width="500px" object-fit="cover">
+                        <div class="image-container">
+                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}"  class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        </div>
                         </a>
                     </div>
                     <div class="col-md-4">
