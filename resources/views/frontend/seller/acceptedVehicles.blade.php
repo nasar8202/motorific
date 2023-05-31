@@ -266,7 +266,8 @@
                         <div class="col-sm-12">No Purchases Vehicle Found!</div>
                     @endforelse
                     </div>
-                    @else
+                    @endif
+                    <br />
                     <div class="vpLists">
                         <h4>Your Vehicles</h4>
                         @forelse ($allVehicles as $allVehicle)
@@ -305,7 +306,7 @@
                         <div class="col-sm-12">No Purchases Vehicle Found!</div>
                         @endforelse
                     </div>
-                    @endif
+                    
                     
                     
                 </div>

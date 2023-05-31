@@ -22,24 +22,68 @@ class AdminDashboardController extends Controller
 {
     public function valuationNotifications()
     {
-        $sellers = User::where('status',1)->where('role_id',2)->orderBy('id', 'DESC')->get();
+        $sellers = User::where(['role_id'=>2,'status'=>1])->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.valuations.valuationNotifications',compact('sellers'));
     }
-
+    public function saveValuation(Request $request)
+    {
+        $user = User::where('id',$request->userId)->first();
+        // $vehicleValuation = Vehicle::where('id',$request->vehicle_id)->first();
+        $vehicleValuation = Vehicle::where('id',$request->vehicle_id)->with('vehicleInformation')->with('VehicleImage')->first();
+        if($vehicleValuation->status == 5){
+            
+            // dd($user->email);
+            $data = [
+                'email'=>$user->email,
+                'name'=>$user->name,
+                'vehicle_registration_number'=>$vehicleValuation->vehicle_registartion_number,
+                'vehicle_name'=>$vehicleValuation->vehicle_name,
+                'valuation_price'=>$request->valuation,
+                'halfEntry' =>5
+                
+            ];
+        }else{
+           
+            $data = [
+                'email'=>$user->email,
+                'name'=>$user->name,
+                'vehicle_registration_number'=>$vehicleValuation->vehicle_registartion_number,
+                'vehicle_name'=>$vehicleValuation->vehicle_name,
+                'valuation_price'=>$request->valuation,
+                'halfEntry' =>0
+            ];
+        }
+        
+        $vehicleValuation->reserve_price = $request->valuation;
+        $vehicleValuation->save();
+        dispatch(new SendEmailValuationNotificationToSeller($data));
+        return response()->json(['success' => true]);
+    }
+    public function getVehicles($userId)
+    {
+        $user = User::where(['id'=> $userId,'status'=>1])->first();
+        
+        if ($user) {
+            $vehicles = Vehicle::where('user_id', $user->id)->get();
+            return response()->json($vehicles);
+        } else {
+            return response()->json([]);
+        }
+    }
     public function sendValuationsNotificationsToSellers(Request $request)
     {
        
         try {
-                $user_id = $request->users_id;
+                // $user_id = $request->users_id;
                 
-                $data['title'] = $request->title;
-                $data['description'] = $request->description;
+                // $data['title'] = $request->title;
+                // $data['description'] = $request->description;
             
-                $user = User::where('id',$user_id)->first();
+                // $user = User::where('id',$user_id)->first();
                 //echo  $user['email'];
-                dd($user);
-                $data['email'] = $user['email'];
+                // dd($user);
+                // $data['email'] = $user['email'];
                 //dd($details['description']);
                // SendEmailToSubscriber::dispatch($details);
                // dispatch(new SendEmailValuationNotificationToSeller($data));

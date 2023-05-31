@@ -216,6 +216,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     // valuation task
     Route::get('/valuation-notifications', [AdminDashboardController::class,'valuationNotifications'])->name('valuationNotifications');
     Route::post('/store-valuation-notifications',[AdminDashboardController::class,'sendValuationsNotificationsToSellers'])->name('sendValuationsNotificationsToSellers');
+    Route::get('/getVehicles/{userId}',[AdminDashboardController::class,'getVehicles'])->name('getVehicles');
+    Route::post('/saveValuation',[AdminDashboardController::class,'saveValuation'])->name('saveValuation');
 
     //end
 

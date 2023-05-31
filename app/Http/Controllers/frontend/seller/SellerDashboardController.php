@@ -114,9 +114,9 @@ class SellerDashboardController extends Controller
         $allVehicles = Vehicle::Where('user_id',Auth::user()->id)
         ->with('vehicleInformation') ->with('vehicleImage')
         ->has('vehicleImage')->get();
-        // dd($allVehicles);
         $completeProfileVehicles = Vehicle::where('status',5)->Where('user_id',Auth::user()->id)
         ->get();
+        // dd($allVehicles,$completeProfileVehicles);
         return view('frontend.seller.acceptedVehicles',compact('allVehicles','completeProfileVehicles'));
 
     }

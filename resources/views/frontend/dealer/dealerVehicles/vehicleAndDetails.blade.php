@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="DoneBtn DoneBtn1">
-                                    <button type="button" id="image1_done_btn" class="btn-finish">Finish</button>
+                                    <button type="button" id="image1_done_btn" class="btn-finish">Uploaded </button>
                                 </div>
                                 
                             </div>
@@ -267,7 +267,7 @@
                                     </div>
                                 </div>
                                 <div class="DoneBtn DoneBtn2">
-                                    <button type="button" id="image2_done_btn" class="btn-finish">Finish</button>
+                                    <button type="button" id="image2_done_btn" class="btn-finish">Uploaded </button>
                                 </div>
                                 
                             </div>
@@ -395,7 +395,7 @@
                                             </div>
                                         </div>
                                         <div class="DoneBtn DoneBtn3">
-                                            <button type="button" id="image3_done_btn" class="btn-finish">Finish</button>
+                                            <button type="button" id="image3_done_btn" class="btn-finish">Uploaded </button>
                                         </div>
                                         
                                     </div>
@@ -2126,6 +2126,7 @@ $('#image_1').on('change', function() {
                                 complete: function() {
                                     $('#image1_done_btn').prop('disabled', true);
                                     $('#image1_done_btn').addClass('disabled_btn');
+                                    $('#image1_done_btn').css('background-color', '#202543');
                                     console.log('Image upload complete.');
                                 },
                             });
@@ -2237,6 +2238,7 @@ $('#image_2').on('change', function() {
                         complete: function() {
                             $('#image2_done_btn').prop('disabled', true);
                             $('#image2_done_btn').addClass('disabled_btn');
+                            $('#image2_done_btn').css('background-color', '#202543');
                         console.log('Image upload complete.');
                         },
                     });
@@ -2351,6 +2353,7 @@ $('#image_3').on('change', function() {
                                 complete: function() {
                                     $('#image3_done_btn').prop('disabled', true);
                                     $('#image3_done_btn').addClass('disabled_btn');
+                                    $('#image3_done_btn').css('background-color', '#202543');
                                 console.log('Image upload complete.');
                                 },
                             });
