@@ -79,8 +79,8 @@ Route::get('/blog',[NewsletterSubscribers::class,'blogList'])->name('blogList');
 Route::get('/blog/{slug}',[NewsletterSubscribers::class,'blogsdetail'])->name('blogsdetail');
 
 //dealer blogs
-Route::get('/blogs',[NewsletterSubscribers::class,'dealerBlogList'])->name('dealerBlogList');
-Route::get('/blogs/{slug}',[NewsletterSubscribers::class,'dealerBlogsdetail'])->name('dealerBlogsdetail');
+Route::get('/dealer/blogs',[NewsletterSubscribers::class,'dealerBlogList'])->name('dealerBlogList');
+Route::get('/dealer/blogs/{slug}',[NewsletterSubscribers::class,'dealerBlogsdetail'])->name('dealerBlogsdetail');
 // Route::get('blogs',[NewsletterSubscribers::class,'blogs'])->name('blog');
 
 // Route::get('blogs1',[NewsletterSubscribers::class,'blogsdetails1'])->name('blog1');

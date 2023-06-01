@@ -1,11 +1,6 @@
-@extends('frontend.seller.layouts.app')
-@section('title','Blogs')
+@extends('frontend.dealer.layouts.app')
+@section('title','Sell your car the with Motorific')
 @section('section')
-@section('headerClass','transparent-header')
-@section('headerUlClass','navlinks-w')
-@section('logoMain','frontend/seller/assets/image/logo-w.png')
-@section('ContainerHeader','container-1600 d-flex justify-content-between pt-4')
-
 
     <section class="inner-banner blog">
         <div class="container-1151">

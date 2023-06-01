@@ -38,11 +38,16 @@ class NewsletterSubscribers extends Controller
          return view("frontend.seller.blogsdetail",compact('blogsdetail'));
     }
 
-    public function dealerBlogs()
+    public function dealerblogList()
     {
-         return view("frontend.dealer.blogs.blog");
+         $blogs = Blog::where('status',0)->orderBy("created_at","desc")->get()->take(6);   
+         return view("frontend.dealer.blogs.blog",compact('blogs'));
     }
-    public function dealerBlogsdetail($slug){
+    public function dealerblogs()
+    {
+         return view("frontend.seller.blog");
+    }
+    public function dealerblogsdetail($slug){
         $blogsdetail = Blog::where('slug',$slug)->first();
          return view("frontend.dealer.blogs.blogsdetail",compact('blogsdetail'));
     }
