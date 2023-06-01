@@ -300,8 +300,10 @@
                                         <a href="{{ route('vehicle.vehicleDetail', [$vehicle->id]) }}" class="product-main">
                                             <div class="product-card">
                                                 <div class="produc-img">
+                                                    @if(isset($vehicle->VehicleImage))
                                                     <img src="{{ asset('/vehicles/vehicles_images/' . $vehicle->VehicleImage->front ?? '') }}"
-                                                        width="180px" alt="">
+                                                    width="180px" alt="">
+                                                    @endif
                                                 </div>
                                                 <div class="p-content">
                                                     <h3 class="p-title">{{ $vehicle->vehicle_name }}</h3>
