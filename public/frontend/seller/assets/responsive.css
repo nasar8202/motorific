@@ -743,7 +743,11 @@ section.photo-up-sec-2 {
     width: 100%;
 }
 
-.sec-7-box {}
+ .sliderImgVehicleDetail .sliderImgVehicleDetailRepeater img {
+ 
+    height: 240px;
+  
+}
 
 .sec-7 {
     padding: 70px 0px;
@@ -1322,6 +1326,20 @@ section.photo-up-sec-2 {
 @media (max-width:991px){
     .bst-price-sec .fct-text {
     display: block;
+}
+
+.sliderImgVehicleDetail button.slick-arrow:before {
+  
+    width: 12px;
+    height: 12px;
+
+}
+
+.sliderImgVehicleDetail button.slick-arrow {
+
+    width: 40px;
+    height: 40px;
+
 }
 
 .bst-price-sec .fct-text .fct-cont {
@@ -2079,7 +2097,11 @@ div.photos-sec .add-photos-box1 {
 div.photos-sec .main-add-photos .add-photos-box1 {
     padding-left: 20px;
 }
-
+ .sliderImgVehicleDetail .sliderImgVehicleDetailRepeater img {
+ 
+    height: 140px;
+  
+}
 
 }
 
@@ -2841,7 +2863,11 @@ ol.tagLines li {
     right: 30px;
     font-size: 25px;
 }
-
+ .sliderImgVehicleDetail .sliderImgVehicleDetailRepeater img {
+ 
+    height: 130px;
+  
+}
 }
 
 @media (max-width: 575px) {
@@ -3155,5 +3181,30 @@ table.table.table-striped {
 
 .spinner-main h2 {
     font-size: 16px;
+}
+
+
+    
+.sliderImgVehicleDetail .sliderImgVehicleDetailRepeater img {
+ 
+    height: 120px;
+  
+}
+.sliderImgVehicleDetail button.slick-arrow {
+    
+        left: 10px;
+}
+.sliderImgVehicleDetail button.slick-arrow.slick-next {
+  
+    right: 10px; 
+    
+}
+
+}
+
+@media(max-width:480px) {
+    
+    .sliderImgVehicleDetail .sliderImgVehicleDetailRepeater img {
+    height: 170px;
 }
 }
