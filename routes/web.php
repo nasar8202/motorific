@@ -74,9 +74,13 @@ Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])
 Route::get('about-us',[NewsletterSubscribers::class,'aboutUs'])->name('aboutUs');
 Route::get('help',[NewsletterSubscribers::class,'help'])->name('help');
 
+//seller blogs
 Route::get('/blog',[NewsletterSubscribers::class,'blogList'])->name('blogList');
 Route::get('/blog/{slug}',[NewsletterSubscribers::class,'blogsdetail'])->name('blogsdetail');
 
+//dealer blogs
+Route::get('/blogs',[NewsletterSubscribers::class,'dealerBlogList'])->name('dealerBlogList');
+Route::get('/blogs/{slug}',[NewsletterSubscribers::class,'dealerBlogsdetail'])->name('dealerBlogsdetail');
 // Route::get('blogs',[NewsletterSubscribers::class,'blogs'])->name('blog');
 
 // Route::get('blogs1',[NewsletterSubscribers::class,'blogsdetails1'])->name('blog1');

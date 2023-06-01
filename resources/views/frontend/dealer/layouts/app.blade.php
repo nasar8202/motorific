@@ -687,7 +687,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('blogList') }}">
+                                        <a href="{{ route('dealerBlogList') }}">
                                                 Blogs
                                         </a>
                                     </li>

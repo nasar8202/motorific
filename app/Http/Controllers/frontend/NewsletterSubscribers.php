@@ -37,6 +37,16 @@ class NewsletterSubscribers extends Controller
         $blogsdetail = Blog::where('slug',$slug)->first();
          return view("frontend.seller.blogsdetail",compact('blogsdetail'));
     }
+
+    public function dealerBlogs()
+    {
+         return view("frontend.dealer.blogs.blog");
+    }
+    public function dealerBlogsdetail($slug){
+        $blogsdetail = Blog::where('slug',$slug)->first();
+         return view("frontend.dealer.blogs.blogsdetail",compact('blogsdetail'));
+    }
+
     public function blogsdetails2(){
          return view("frontend.seller.blog2");
     }
