@@ -214,7 +214,7 @@
             <img src="{{ URL::asset('frontend/seller/assets/image/trans.png') }} " alt="" />
         </div>
 
-
+<!-- address -->
             <span
               >© <?php echo date("Y"); ?>
               Motorific Online Ltd, All rights reserved. Company number 14710738 Motorific Online Ltd is registered in England & Wales. Trading Address: 55 Armory way London SW18 1JZ. <br />
