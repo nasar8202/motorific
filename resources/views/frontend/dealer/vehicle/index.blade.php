@@ -392,40 +392,6 @@
                         <!-- Products Cards New Design End -->
 
 
-                        <!-- <div id="first">
-                    @forelse ($allVehicles as $vehicle)
-    <div class="col-lg-3 col-md-3 blur_action mb-5" >
-                        <a href="{{ route('vehicle.vehicleDetail', [$vehicle->id]) }}">
-                            <div class="box" id>
-
-                                <div class="box-img">
-                                    <img src="{{ asset('/vehicles/vehicles_images/' . $vehicle->VehicleImage->front ?? '') }}" width="180px" alt="">
-                                </div>
-                                <h4>{{ $vehicle->vehicle_registartion_number }}</h4>
-                                <div class="d-flex justify-content-between">
-                                    <p>{{ $vehicle->vehicle_name }}</p>
-
-
-                                </div>
-                                <div class="d-flex justify-content-between">
-
-                                    <h6>{{ $vehicle->vehicle_year }}.{{ $vehicle->vehicle_tank }}.{{ $vehicle->vehicle_mileage }}.{{ $vehicle->vehicle_type }}</h6>
-
-
-
-                                </div>
-                                <span>£{{ $vehicle->vehicle_price }}</span>
-                            </div>
-                        </a>
-                        <br>
-
-                    </div>
-
-                @empty
-                    <h1>No Vehicle Found</h1>
-    @endforelse
-
-                    </div> -->
                         {{-- <div id="remove-row" class="text-center">
                     <button id="btn-more" data-id="{{ $vehicle->id }}" class="loadmore-btn">Load More</button>
                     </div> --}}
