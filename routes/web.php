@@ -45,6 +45,7 @@ use App\Http\Controllers\backend\admin\sellesPerson\ManageSellesPersonController
 use App\Http\Controllers\backend\admin\dealerCharges\AdminDealerChargesController;
 use App\Http\Controllers\frontend\dealer\orderRequest\OrderVehicleRequestController;
 use App\Http\Controllers\frontend\dealer\dealerOrderRequest\DealerOrderRequestController;
+use App\Http\Controllers\frontend\dealer\Sitemap;
 use App\Http\Controllers\backend\admin\dealerOrderVehicleRequest\DealerOrderVehicleRequestController;
 
 /*
@@ -73,6 +74,8 @@ Route::get('/add-subscriber-email', [NewsletterSubscribers::class,'subscribeEmai
 Route::get('get-in-touch',[NewsletterSubscribers::class,'GetInTouchSellerForm'])->name('GetInTouchSellerForm');
 Route::get('about-us',[NewsletterSubscribers::class,'aboutUs'])->name('aboutUs');
 Route::get('help',[NewsletterSubscribers::class,'help'])->name('help');
+Route::get('sitemap',[sitemap::class,'sitemap'])->name('sitemap');
+Route::get('sitemap.xml',[sitemap::class,'sitemap'])->name('sitemap');
 
 //seller blogs
 Route::get('/blog',[NewsletterSubscribers::class,'blogList'])->name('blogList');

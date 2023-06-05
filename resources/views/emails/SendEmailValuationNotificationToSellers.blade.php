@@ -172,7 +172,7 @@
 														<tr>
 															<td class="pad" style="padding-bottom:10px;padding-left:20px;padding-right:10px;padding-top:20px;">
 																<div style="color:#202543;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:150%;text-align:center;mso-line-height-alt:24px;">
-																	<p style="margin: 0;">At Motorway, you don't need to choose between price and convenience – you can have both with our easy, safe, and fully online process.</p>
+																	<p style="margin: 0;">At Motorific, you don't need to choose between price and convenience – you can have both with our easy, safe, and fully online process.</p>
 																</div>
 															</td>
 														</tr>
@@ -296,7 +296,7 @@
 																</div>
 																<div class="text" style="font-weight:400; margin-bottom:20px">
 																	<p style="margin-bottom:15px"><a href="#" style="color:#05EAB5;">Reviews</a> - How Motorfic Works - Help</p>
-																	<p>12-13 Wells Mews, London, W1T 3HE</p>
+																	<p>55 Armory way London SW18 1JZ.</p>
 																</div>
 
 																<div class="social-links" style="display:flex; color:#fff">
