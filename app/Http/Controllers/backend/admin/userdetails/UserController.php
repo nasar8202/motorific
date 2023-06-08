@@ -26,6 +26,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
+use App\Models\InsuranceWriteOff;
 
 class UserController extends Controller
 {
@@ -83,6 +84,7 @@ class UserController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWorkOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $registeration = str_replace(' ', '', $request->registeration);
 
@@ -111,7 +113,7 @@ class UserController extends Controller
         $res = json_decode($response);
         if (isset($res->registrationNumber)) {
 
-            return view('backend.admin.userDetails.createVehicleForOldUser', compact('user','VehicleHistories','res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+            return view('backend.admin.userDetails.createVehicleForOldUser', compact('user','InsuranceWorkOffs','VehicleHistories','res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         } else {
             return back()->with('error', 'Record not found');
         }
@@ -130,10 +132,11 @@ class UserController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWorkOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $halfVehicleEntry =  Vehicle::where('user_id',$user->id)->where('status', 5)->first();
         
-        return view('backend.admin.userDetails.createVehicleForOldUser', compact('halfVehicleEntry','user','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
+        return view('backend.admin.userDetails.createVehicleForOldUser', compact('halfVehicleEntry','InsuranceWorkOffs','user','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories','VehicleHistories'));
    
     }
 
@@ -153,6 +156,7 @@ class UserController extends Controller
     public function StoreVehicleByAdminForOldUser(Request $request,$id)
     {
         $request->validate([
+            'InsuranceWorkOff'=>'required',
             'register_number' => 'required',
             'vehicle_name' => 'required',
             'vehicle_year' => 'required',
@@ -183,7 +187,7 @@ class UserController extends Controller
 
 
         ]);
-
+        // dd($request->all());
 
         DB::beginTransaction();
         try {
@@ -256,8 +260,9 @@ class UserController extends Controller
                     $vehicleInformation->vehicle_id = $vehicle->id;
                 }
 
-                // $vehicleInformation->vehicle_id = $vehicle->id;
+                // $vehicleInformation->vehicle_id = $vehicle->id; InsuranceWorkOff
                 $vehicleInformation->vehicle_feature_id = $vehicle_feature_id;
+                $vehicleInformation->insurance_work_off_id = $request->InsuranceWorkOff;
 
                 $vehicleInformation->seat_material_id =  $request->seat_material;
                 $vehicleInformation->number_of_keys_id =  $request->number_of_keys;

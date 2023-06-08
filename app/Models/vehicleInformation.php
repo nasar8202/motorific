@@ -11,6 +11,6 @@ class vehicleInformation extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
-        'vehicle_id','vehicle_feature_id','seat_material_id','number_of_keys_id','tool_pack_id','looking_wheel_nut_id','smooking_id','logbook_id','location','vehicle_owner_id','private_plate_id','finance_id','status'
+        'vehicle_id','vehicle_feature_id','seat_material_id','insurance_work_off_id','number_of_keys_id','tool_pack_id','looking_wheel_nut_id','smooking_id','logbook_id','location','vehicle_owner_id','private_plate_id','finance_id','status'
     ];
 }

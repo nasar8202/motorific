@@ -164,56 +164,10 @@
         </ul>
     </li>
     
-    <li class="sidebar-item  has-sub {{ request()->IS('admin/view-blogs') ||request()->IS('admin/add-blog') ? 'active' : '' }} ">
-        <a href="#" class='sidebar-link'>
-            <i class="bi bi-stack"></i>
-            <span>Blogs</span>
-        </a>
-        <ul class="submenu" style="display:{{  request()->IS('admin/view-blogs') ? 'active' : '' }}">
-            <li class="submenu-item {{ request()->IS('admin/add-blog') ? 'active' : '' }}">
-                <a href="{{ route('addBlogForm') }} ">Add Blog </a>
-            </li>
-            <li class="submenu-item {{ request()->IS('admin/view-seller-persons') ? 'active' : '' }}">
-                <a href="{{ route('viewBlogs') }}">View Blogs </a>
-            </li>
-            
-        </ul>
-    </li>
+    
 
-    <li class="   {{ (Request::is('admin') || request()->IS('/admin/get-contacts') || request()->IS('/admin/get-contacts') ? 'active' : '') }} ">
-        
-        <a href="{{route('getContacts')}}" class='sidebar-link'>
-            <i class="bi bi-stack"></i>
-            <span>Get In Touch</span>
-            
-            
-        </a>
-    </li>
 
-    <li class="sidebar-item  has-sub {{ request()->IS('admin/view-all-subscribers') ||request()->IS('admin/view-all-subscribers') ? 'active' : '' }} ">
-        <a href="#" class='sidebar-link'>
-            <i class="bi bi-stack"></i>
-            <span>Subscribers</span>
-        </a>
-        <ul class="submenu" style="display:{{  request()->IS('admin/send-notification-to-subscribers') ? 'active' : '' }}">
-            <li class="submenu-item {{ request()->IS('admin/send-notification-to-subscribers') ? 'active' : '' }}">
-                <a href="{{ route('createNotificationToSubscriberForm') }} ">Send Notification </a>
-            </li>
-            <li class="submenu-item {{ request()->IS('admin/view-all-subscribers') ? 'active' : '' }}">
-                <a href="{{ route('viewAllSubscribers') }}">View Subscribers </a>
-            </li>
-            
-        </ul>
-    </li>
-    <li class="   {{ (Request::is('admin') ||  request()->IS('/admin/getCvs') ? 'active' : '') }} ">
-        
-        <a href="{{route('getCvs')}}" class='sidebar-link'>
-            <i class="bi bi-stack"></i>
-            <span>Job Request</span>
-            
-            
-        </a>
-    </li>
+    
 
     <li class=" {{ (Request::is('admin') ||  request()->IS('/admin/valuationNotifications') ? 'active' : '') }} ">
         
@@ -233,7 +187,7 @@
         </a>
         <ul class="submenu">
             <li class="sidebar-item  has-sub">
-                <a href="#" class="sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? '' : '') }}">
+                <a href="#" class="sidebar-link {{ (Request::is('admin') ||  request()->IS('admin/view-vehicle-features') ||  request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/add-vehicle-feature') || request()->IS('admin/add-vehicle-feature') ||  request()->IS('admin/view-seat-materials') ||  request()->IS('admin/add-seat-material') ? '' : '') }}">
                     <i class="bi bi-stack"></i>
                     <span>Vehicle Details </span>
                 </a>
@@ -271,6 +225,9 @@
                     <li class="submenu-item">
                         <a href="{{ route('viewVehicleHistory') }}">Vehicle History</a>
                     </li>
+                    <li class="submenu-item">
+                        <a href="{{ route('viewInsuranceWriteOff') }}">Insurance write-off</a>
+                    </li>
                 </ul>
             </li>
            
@@ -301,6 +258,54 @@
                 </ul>
             </li>
         </ul>
+    </li>
+    <li class="sidebar-item  has-sub {{ request()->IS('admin/view-blogs') ||request()->IS('admin/add-blog') ? 'active' : '' }} ">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Blogs</span>
+        </a>
+        <ul class="submenu" style="display:{{  request()->IS('admin/view-blogs') ? 'active' : '' }}">
+            <li class="submenu-item {{ request()->IS('admin/add-blog') ? 'active' : '' }}">
+                <a href="{{ route('addBlogForm') }} ">Add Blog </a>
+            </li>
+            <li class="submenu-item {{ request()->IS('admin/view-seller-persons') ? 'active' : '' }}">
+                <a href="{{ route('viewBlogs') }}">View Blogs </a>
+            </li>
+            
+        </ul>
+    </li>
+    <li class="sidebar-item  has-sub {{ request()->IS('admin/view-all-subscribers') ||request()->IS('admin/view-all-subscribers') ? 'active' : '' }} ">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Subscribers</span>
+        </a>
+        <ul class="submenu" style="display:{{  request()->IS('admin/send-notification-to-subscribers') ? 'active' : '' }}">
+            <li class="submenu-item {{ request()->IS('admin/send-notification-to-subscribers') ? 'active' : '' }}">
+                <a href="{{ route('createNotificationToSubscriberForm') }} ">Send Notification </a>
+            </li>
+            <li class="submenu-item {{ request()->IS('admin/view-all-subscribers') ? 'active' : '' }}">
+                <a href="{{ route('viewAllSubscribers') }}">View Subscribers </a>
+            </li>
+            
+        </ul>
+    </li>
+    <li class="   {{ (Request::is('admin') || request()->IS('/admin/get-contacts') || request()->IS('/admin/get-contacts') ? 'active' : '') }} ">
+        
+        <a href="{{route('getContacts')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Get In Touch</span>
+            
+            
+        </a>
+    </li>
+    <li class="   {{ (Request::is('admin') ||  request()->IS('/admin/getCvs') ? 'active' : '') }} ">
+        
+        <a href="{{route('getCvs')}}" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Job Request</span>
+            
+            
+        </a>
     </li>
     <li class="sidebar-item">
         <a href="{{route('logout')}}" class='sidebar-link'>

@@ -45,6 +45,7 @@
                             <th>Vehicle Price</th>
                             <th>Status</th>
                             <th>Vehicle Sale Time</th>
+                            <th>Add Vehicle For This User</th>
                             <th>Image</th>
                         </tr>
                     </thead>
@@ -78,6 +79,7 @@
                           @else
                             <td class=""><span class="badge badge-success"> Not In Sale </span></td>
                             @endif
+                            <td><a href="{{ route('addVehicleForOldUser',$vehicle->user_id) }}"><span class="badge badge-success">Add Vehicle For This User</span></a></td>
                             <td>
                                 @if(isset($vehicle->VehicleImage))
                                 <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">

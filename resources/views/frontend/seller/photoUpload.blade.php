@@ -1362,6 +1362,7 @@ display: block;
         <input type="hidden" class="check_session" value="{{session()->get('location')}}">
         <input type="hidden" class="check_session" value="{{session()->get('HouseName')}}">
         <input type="hidden" class="check_session" value="{{session()->get('vehicle_owner')}}">
+        <input type="hidden" class="check_session" value="{{session()->get('vehicle_insurance')}}">
         <input type="hidden" class="check_session" value="{{session()->get('private_plate')}}">
         <input type="hidden" class="check_session" value="{{session()->get('finance')}}">
         <input type="hidden" class="check_session" value="{{session()->get('categ')}}">
@@ -1728,6 +1729,41 @@ display: block;
                                     </div>
                                 </div>
                             </div>
+
+                            
+                            <!--8-->
+                            <div class="vehicleSteps" data-id="VehicleInsurance">
+                                <span class="checboxNum" style="display:none;">0</span>
+                                <h3>Vehicle Insurance work off</h3>
+                                <p>Is This Correct?</p>
+                                <div class="row photo-up-sec-2-vi-row-ay">
+                                    <div class="col-lg-6 my-auto">
+                                        <div class="photo-up-sec-2-vi-btns">
+                                            @foreach($InsuranceWriteOffs as $key=> $InsuranceWriteOff)
+                                            <label for="radio-keeperType-insurance-{{$key}}">
+                                                <input type="radio" name="vehicle_insurance" class="VehicleInsurance" value="{{$InsuranceWriteOff->id}}" @if($InsuranceWriteOff->id == session()->get('vehicle_insurance')) checked @endif id="radio-keeperType-insurance-{{$key}}" />
+                                                <div class="photo-up-sec-2-vi-btn">
+                                                    <p>{{$InsuranceWriteOff->title}}</p>
+                                                </div>
+                                            </label>
+                                            @endforeach
+
+                                        </div>
+                                    </div>
+                                    @if ($errors->has('vehicle_insurance'))
+                                    <span class="text-danger">{{ $errors->first('vehicle_insurance') }}</span>
+                                @endif
+                                </div>
+                                <!--Next Previous Button-->
+                                <div class="photo-up-sec-2-vi-bnch-btns">
+                                    <div class="d-flex photo-up-sec-2-box-btn photo-up-sec-2-vi-btm-btn clr-s-gr my-auto">
+                                        <button type="button" class="prevBtnToVehicleLocation">PREVIOUS</button>
+                                        <button type="button" class="nxtBtn formeBtn">NEXT</button>
+                                        <button style="display:none" type="button" class="forSomeoneElseBtn">NEXT</button>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!--9-->
                             <div class="vehicleSteps ifMe afterFriendNameInput afterProbateSale" data-id="PrivatePlate">
                                 <span class="checboxNum" style="display:none;">0</span>
@@ -2114,6 +2150,15 @@ display: block;
                                             						<td id="VehicleOwnerFinal" >N/A</td>
                                             						<td>
                                             						<span class="stepOpener" data-title="VehicleOwner" style="cursor: pointer">
+                                            							<i class="fa fa-pencil"></i>
+                                            						</span>
+                                            					</td>
+                                            				</tr>
+                                                            <tr class="SectionTable__withLink">
+                                            					<td><span>Insurance Work Off</span></td>
+                                            						<td id="VehicleInsuranceFinal" >N/A</td>
+                                            						<td>
+                                            						<span class="stepOpener" data-title="VehicleInsurance" style="cursor: pointer">
                                             							<i class="fa fa-pencil"></i>
                                             						</span>
                                             					</td>
@@ -2661,8 +2706,9 @@ $("#store").click(function(){
     var smoking = $(".smoking:checked").val();
     var logBook = $(".logBook:checked").val();
     var location = $(".location").val();
-    var HouseName = $(".HouseName").val();
+    var HouseName = $(".HouseName").val();  
     var vehicleOwner = $(".vehicleOwner:checked").val();
+    var VehicleInsurance = $(".VehicleInsurance:checked").val();
     var privatePlate = $(".privatePlate:checked").val();
     var finance = $(".finance:checked").val();
     var categ = $(".categ:checked").val();
@@ -2680,11 +2726,11 @@ $("#store").click(function(){
             },
             data: {the_value:the_value,seatMaterial:seatMaterial,numberOfKeys:numberOfKeys,
                 toolPack:toolPack,wheelNut:wheelNut,smoking:smoking,logBook:logBook,location:location,HouseName:HouseName,
-                vehicleOwner:vehicleOwner,privatePlate:privatePlate,finance:finance,VehicleHistory:VehicleHistory,categ:categ
+                vehicleOwner:vehicleOwner,VehicleInsurance:VehicleInsurance,privatePlate:privatePlate,finance:finance,VehicleHistory:VehicleHistory,categ:categ
             },
 
             success: function(response){
-
+                // console.log("sssssa",response.VehicleInsurances)
                 var vehicleResponse = response.VehicleFeature;
                 var vehicledata = '';
                 var SeatMaterialsResponse = response.SeatMaterials;
@@ -2697,12 +2743,14 @@ $("#store").click(function(){
                 var VehicleLocation = response.VehicleLocation;
                 var HouseName = response.HouseName;
                 var VehicleOwners = response.VehicleOwners;
+                var InsuranceWriteOffs = response.InsuranceWriteOffs;
                 var PrivatePlates = response.PrivatePlates;
                 var Finances = response.Finances;
                 var VehicleHistory = response.VehicleHistory;
                 var categ = response.vehicleCategories;
 
                 $.each(vehicleResponse,function(vehicleResponse,row){
+                    // console.log("v insu",VehicleInsurances,"ouw",VehicleOwners)
                     vehicledata+='<p>'+row.title+'</p>';
 
                     $("#vehicleFeaturefinal").html(vehicledata);
@@ -2733,6 +2781,10 @@ $("#store").click(function(){
 
                 $("#VehicleOwnerFinal").html('');
                 $("#VehicleOwnerFinal").html(VehicleOwners.title);
+
+                
+                $("#VehicleInsuranceFinal").html('');
+                $("#VehicleInsuranceFinal").html(InsuranceWriteOffs.title);
 
                 $("#PrivatePlateFinal").html('');
                 $("#PrivatePlateFinal").html(PrivatePlates.title);
@@ -2850,6 +2902,11 @@ $("#store").click(function(){
                 }
                 // If Select ME in Vehicle Owner
                 else if(radioVal == 'radio-keeperType-seller'){
+                    $(this).closest('.vehicleSteps').find('.nxtBtn').show();
+                    $(this).closest('.vehicleSteps').find('.forSomeoneElseBtn').hide();
+                }
+                // If Select ME in Vehicle Insurance
+                else if(radioVal == 'radio-keeperType-insurance'){
                     $(this).closest('.vehicleSteps').find('.nxtBtn').show();
                     $(this).closest('.vehicleSteps').find('.forSomeoneElseBtn').hide();
                 }

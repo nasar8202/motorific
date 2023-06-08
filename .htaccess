@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
+        Options -MultiViews -serveres
     </IfModule>
 
     RewriteEngine On
@@ -11,9 +11,9 @@
     RewriteCond %{HTTP_HOST} ^www\.motorific\.co.uk [NC]
     RewriteRule ^(.*)$ http://motorific.co.uk/$1 [L,R=301]
     
-    # Index to main
-    RewriteCond %{THE_REQUEST} ^.*/index\.php 
-    RewriteRule ^(.*)index.php$ /$1 [R=301,L] 
+    # server to main
+    RewriteCond %{THE_REQUEST} ^.*/server\.php 
+    RewriteRule ^(.*)server.php$ /$1 [R=301,L] 
     
     # Non Public
     RewriteCond %{REQUEST_URI} !^/public/
@@ -31,7 +31,7 @@
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteRule ^ server.php [L]
 </IfModule>
 
 # RewriteEngine On

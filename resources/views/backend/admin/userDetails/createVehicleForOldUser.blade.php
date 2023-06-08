@@ -869,6 +869,26 @@
                                                 <span class="text-danger">{{ $errors->first('VehicleHistory') }}</span>
                                             @endif
                                         </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <h6>Insurance Write Off</h6>
+
+                                            <div class="form-group">
+                                                <select class="form-select" name="InsuranceWorkOff" id="basicSelect">
+                                                    <option disabled selected>Select Insurance Write Off</option>
+                                                    @foreach ($InsuranceWorkOffs as $InsuranceWorkOff)
+                                                        <option
+                                                            {{ old('InsuranceWorkOff') == $InsuranceWorkOff->id ? 'selected' : '' }}
+                                                            value="{{ $InsuranceWorkOff->id }}">
+                                                            {{ $InsuranceWorkOff->title }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @if ($errors->has('InsuranceWorkOff'))
+                                                <span class="text-danger">{{ $errors->first('InsuranceWorkOff') }}</span>
+                                            @endif
+                                        </div>
+
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="email-id-column">House Name And Number</label>

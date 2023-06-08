@@ -16,6 +16,7 @@ use App\Models\LockingWheelNut;
 use App\Models\vehicleInformation;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\InsuranceWriteOff;
 use App\Models\Vehicle;
 use App\Models\VehicleHistory;
 use App\Models\VehicleImage;
@@ -27,6 +28,12 @@ class VehicleController extends Controller
         $VehicleFeatures = VehicleFeature::where('status',1)->orderBy('id', 'DESC')->get();
 
         return view('backend.admin.vehicles.viewVehicleFeatures',compact('VehicleFeatures'));
+    }
+    public function viewInsuranceWriteOff()
+    {
+        $InsuranceWriteOffs = InsuranceWriteOff::where('status',1)->orderBy('id', 'DESC')->get();
+
+        return view('backend.admin.vehicles.viewInsuranceWriteOff',compact('InsuranceWriteOffs'));
     }
     public function ViewSeatMaterials()
     {
@@ -100,6 +107,11 @@ class VehicleController extends Controller
     {
 
         return view('backend.admin.vehicles.createVehicleFeatureForm');
+    }
+    public function createInsuranceWriteOffForm()
+    {
+
+        return view('backend.admin.vehicles.createInsuranceWriteOffForm');
     }
     public function createVehicleHistoryForm()
     {
@@ -241,6 +253,28 @@ class VehicleController extends Controller
         }
         DB::commit();
         return redirect()->route('viewFinance')->with('success', 'Finance added  Successfully!');
+
+    }
+
+    public function addInsuranceWriteOff(Request $request)
+    {
+        $request->validate([
+            'addMoreInputFields.*.title' => 'required|max:256'
+        ]);
+        DB::beginTransaction();
+        try{
+        foreach ($request->addMoreInputFields as $key => $value) {
+            InsuranceWriteOff::create($value);
+        }
+        }catch(\Exception $e)
+        {
+            DB::rollback();
+            return Redirect()->back()
+                ->with('error',$e->getMessage() )
+                ->withInput();
+        }
+        DB::commit();
+        return redirect()->route('viewInsuranceWriteOff')->with('success', 'Insurance added  Successfully!');
 
     }
     
@@ -448,6 +482,12 @@ class VehicleController extends Controller
         return view('backend.admin.vehicles.editVehicleFeatureForm',compact('editVehicle'));
 
     }
+    public function insuranceWriteOffEditForm($id)
+    {
+        $editInsuranceWriteOff = InsuranceWriteOff::where('id',$id)->first();
+        return view('backend.admin.vehicles.insuranceWriteOffEditForm',compact('editInsuranceWriteOff'));
+
+    }
     public function editKeysForm($id)
     {
         $editKeys = NumberOfKey::where('id',$id)->first();
@@ -509,6 +549,17 @@ class VehicleController extends Controller
         NumberOfKey::where('id',$id)->update($data);
 
         return redirect()->route('ViewNumberOfkeys')->with('success', 'Key Updated  Successfully!');
+
+    }
+
+    public function editInsuranceWriteOff(Request $request,$id)
+    {
+        $data = [
+            'title'=>$request->title
+        ];
+        InsuranceWriteOff::where('id',$id)->update($data);
+
+        return redirect()->route('viewInsuranceWriteOff')->with('success', 'Insurance Updated  Successfully!');
 
     }
 
@@ -702,6 +753,19 @@ class VehicleController extends Controller
         return redirect()->route('viewWheelNut')->with('error', 'Wheel Nut Question  Deleted  Successfully!');
         }
     }
+
+    public function deleteInsuranceWriteOff($id)
+    {
+        $vehicleInformation = vehicleInformation::where('insurance_work_off_id', $id)->first();
+        if($vehicleInformation){
+
+            return redirect()->route('viewInsuranceWriteOff')->with('error', "You Can't Delete this Item Because It Already Exists in Vehicles !");
+        }else{
+        InsuranceWriteOff::where('id',$id)->delete();
+        return redirect()->route('viewInsuranceWriteOff')->with('error', 'Insurance write off  Deleted  Successfully!');
+        }
+    }
+
     public function deleteSmooking($id)
     {
         $vehicleInformation = vehicleInformation::where('smooking_id', $id)->first();

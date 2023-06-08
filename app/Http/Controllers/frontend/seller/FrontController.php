@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendEmailForSellerVehicle;
 use App\Models\vehicleConditionAndDamage;
 use App\Jobs\SendEmailForSellerVehicleAddQueuing;
+use App\Models\InsuranceWriteOff;
 
 class FrontController extends Controller
 {
@@ -230,7 +231,7 @@ class FrontController extends Controller
     //multistep question form submition code start
     public function vehicleInformation(Request $request)
     {
-        // dd($request->all());
+        //   dd($request->all());
         // $feature = implode($request->the_value, ',');
 
         $request->session()->put('vehicle_feature', $request->the_value);
@@ -245,6 +246,7 @@ class FrontController extends Controller
         $request->session()->put('vehicle_owner', $request->vehicleOwner);
         $request->session()->put('private_plate', $request->privatePlate);
         $request->session()->put('finance', $request->finance);
+        $request->session()->put('vehicle_insurance', $request->VehicleInsurance);
         $request->session()->put('categ', $request->categ);
         $request->session()->put('VehicleHistory', $request->VehicleHistory);
         $feature = explode(',', $request->the_value);
@@ -262,13 +264,14 @@ class FrontController extends Controller
         $VehicleOwners =  VehicleOwner::where('id', session()->get('vehicle_owner'))->first();
         $PrivatePlates =  PrivatePlate::where('id', session()->get('private_plate'))->first();
         $Finances =  Finance::where('id', session()->get('finance'))->first();
+        $InsuranceWriteOffs =  InsuranceWriteOff::where('id', session()->get('vehicle_insurance'))->first();
         $vehicleCategories =  vehicleCategories::where('id', session()->get('categ'))->first();
         $VehicleHistory =  VehicleHistory::where('id', session()->get('VehicleHistory'))->first();
 
 
 
         return [
-            'VehicleFeature' => $VehicleFeature, 'SeatMaterials' => $SeatMaterials, 'NumberOfKeys' => $numberOfKeys,
+            'VehicleFeature' => $VehicleFeature,'InsuranceWriteOffs'=>$InsuranceWriteOffs, 'SeatMaterials' => $SeatMaterials, 'NumberOfKeys' => $numberOfKeys,
             'ToolPack' => $ToolPack, 'LockingWheelNut' => $LockingWheelNut, 'Smokings' => $Smokings, 'VCLogBooks' => $VCLogBooks,
             'VehicleLocation' => $VehicleLocation, 'HouseName' => $HouseName, 'VehicleOwners' => $VehicleOwners, 'PrivatePlates' => $PrivatePlates, 'Finances' => $Finances, 'vehicleCategories' => $vehicleCategories, 'VehicleHistory' => $VehicleHistory
         ];
@@ -344,7 +347,7 @@ class FrontController extends Controller
 
     public function createVehicle(Request $request)
     {
-       
+    //    dd($request->all());
         // if ($request->uploadImage)
         // {
         //     $request->validate([
@@ -484,6 +487,7 @@ class FrontController extends Controller
             $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
             $vehicleInformation->private_plate_id =  $request->private_plate;
             $vehicleInformation->finance_id =  $request->finance;
+            $vehicleInformation->insurance_work_off_id =  $request->vehicle_insurance;
             $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
           
@@ -647,6 +651,7 @@ class FrontController extends Controller
             $VehicleOwners =  VehicleOwner::where('status', 1)->get();
             $PrivatePlates =  PrivatePlate::where('status', 1)->get();
             $Finances =  Finance::where('status', 1)->get();
+            $InsuranceWriteOffs =  InsuranceWriteOff::where('status', 1)->get();
             $VehicleHistories =  VehicleHistory::where('status', 1)->get();
             $user = User::find($currentUser);
             $registeration = str_replace(' ', '', $request->registeration);
@@ -689,7 +694,7 @@ class FrontController extends Controller
                     return back()->with('error', 'Record not found');
                 }
                     $milage = $request->millage;
-                return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'VehicleHistories', 'user'));
+                return view('frontend.seller.photoUpload', compact('milage','InsuranceWriteOffs', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'VehicleHistories', 'user'));
             }
             
         } catch (\Exception $e) {

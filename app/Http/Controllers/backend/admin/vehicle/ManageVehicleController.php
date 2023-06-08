@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
+use App\Models\InsuranceWriteOff;
 use App\Models\vehicleConditionAndDamage;
 
 class ManageVehicleController extends Controller
@@ -56,6 +57,7 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWorkOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $registeration = str_replace(' ', '', $request->registeration);
 
@@ -86,7 +88,7 @@ class ManageVehicleController extends Controller
         $res = json_decode($response);
         if (isset($res->registrationNumber)) {
 
-            return view('backend.admin.manageVehicle.createVehicle', compact('VehicleHistories', 'seller', 'res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+            return view('backend.admin.manageVehicle.createVehicle', compact('VehicleHistories','InsuranceWorkOffs', 'seller', 'res', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         } else {
             return back()->with('error', 'Record not found');
         }
@@ -105,9 +107,10 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWorkOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
 
-        return view('backend.admin.manageVehicle.createVehicle', compact('seller', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories', 'VehicleHistories'));
+        return view('backend.admin.manageVehicle.createVehicle', compact('seller','InsuranceWorkOffs', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories', 'VehicleHistories'));
     }
     public function StoreVehicleByAdmin(Request $request)
     {
@@ -140,6 +143,7 @@ class ManageVehicleController extends Controller
             'private_plate' => 'required',
             'finance' => 'required',
             'HouseName' => 'required',
+            'InsuranceWorkOff'=>'required',
             // 'exterior_grade' => 'required',
             // 'scratches' => 'required',
             // 'dents' => 'required',
@@ -234,7 +238,7 @@ class ManageVehicleController extends Controller
                 $vehicleInformation->finance_id =  $request->finance;
                 $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
-                // $vehicleInformation->interior =  $request->interior;
+                $vehicleInformation->insurance_work_off_id =  $request->InsuranceWorkOff;
                 // $vehicleInformation->body_type =  $request->body_type;
                 // $vehicleInformation->engine_size =  $request->engine_size;
                 // $vehicleInformation->HPI_history_check =  $request->hpi;
@@ -435,15 +439,17 @@ class ManageVehicleController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWorkOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $liveselltime = LiveSaleTime::first();
-        return view('backend.admin.manageVehicle.editVehicle', compact('exterior', 'interior', 'VehicleFeatures', 'seller', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicles', 'vehicleInformation', 'VehicleImage', 'damages', 'vehicleCategories', 'VehicleHistories', 'liveselltime'));
+        return view('backend.admin.manageVehicle.editVehicle', compact('exterior','InsuranceWorkOffs', 'interior', 'VehicleFeatures', 'seller', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicles', 'vehicleInformation', 'VehicleImage', 'damages', 'vehicleCategories', 'VehicleHistories', 'liveselltime'));
     }
     public function updateVehicle(Request $request, $id)
     {
         //  dd($request->all());
 
         $request->validate([
+            'InsuranceWorkOff'=>'required',
             'register_number' => 'required',
             'vehicle_name' => 'required',
             'vehicle_year' => 'required',
@@ -564,6 +570,7 @@ class ManageVehicleController extends Controller
             $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
             $vehicleInformation->private_plate_id =  $request->private_plate;
             $vehicleInformation->finance_id =  $request->finance;
+            $vehicleInformation->insurance_work_off_id =  $request->InsuranceWorkOff;
             $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
             // $vehicleInformation->interior =  $request->interior;

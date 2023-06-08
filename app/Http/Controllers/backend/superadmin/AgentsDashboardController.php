@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
 use App\Http\Requests\RolePermissionStoreRequest;
+use App\Models\InsuranceWriteOff;
 
 class AgentsDashboardController extends Controller
 {
@@ -49,6 +50,7 @@ class AgentsDashboardController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWriteOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $registeration = trim($request->registeration, ' ');
 
@@ -78,7 +80,7 @@ class AgentsDashboardController extends Controller
         $res = json_decode($response);
         if (isset($res->registrationNumber)) {
 
-            return view('backend.agents.vehicle.create', compact('res','VehicleHistories', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+            return view('backend.agents.vehicle.create', compact('res','InsuranceWriteOffs','VehicleHistories', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         } else {
             return back()->with('error', 'Record not found');
         }
@@ -114,6 +116,7 @@ class AgentsDashboardController extends Controller
             'private_plate' => 'required',
             'finance' => 'required',
             'HouseName' => 'required',
+            'InsuranceWriteOff'=>'required',
             // 'scratches' => 'required',
             // 'dents' => 'required',
             // 'paintwork' => 'required',
@@ -200,10 +203,10 @@ class AgentsDashboardController extends Controller
                 $vehicleInformation->logbook_id =  $request->logbook;
                 $vehicleInformation->location =  $request->location;
                 $vehicleInformation->vehicle_owner_id =  $request->vehicle_owner;
-                $vehicleInformation->private_plate_id =  $request->private_plate;
+                $vehicleInformation->private_plate_id =  $request->private_plate;  
                 $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
 
-                // $vehicleInformation->interior =  $request->interior;
+                $vehicleInformation->insurance_work_off_id =  $request->InsuranceWriteOff;
                 // $vehicleInformation->body_type =  $request->body_type;
                 // $vehicleInformation->engine_size =  $request->engine_size;
                 // $vehicleInformation->HPI_history_check =  $request->hpi;
@@ -306,8 +309,9 @@ class AgentsDashboardController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWriteOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
-        return view('backend.agents.vehicle.create', compact('VehicleHistories','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+        return view('backend.agents.vehicle.create', compact('VehicleHistories','InsuranceWriteOffs','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         
     }
    
@@ -325,8 +329,9 @@ class AgentsDashboardController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWriteOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
-        return view('backend.agents.vehicle.createVehicleForOldUser', compact('user','VehicleHistories','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+        return view('backend.agents.vehicle.createVehicleForOldUser', compact('user','InsuranceWriteOffs','VehicleHistories','VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         
     }
    
@@ -360,6 +365,7 @@ class AgentsDashboardController extends Controller
         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
         $Finances =  Finance::where('status', 1)->get();
+        $InsuranceWriteOffs =  InsuranceWriteOff::where('status', 1)->get();
         $VehicleHistories =  VehicleHistory::where('status', 1)->get();
         $registeration = trim($request->registeration, ' ');
 
@@ -389,7 +395,7 @@ class AgentsDashboardController extends Controller
         $res = json_decode($response);
         if (isset($res->registrationNumber)) {
 
-            return view('backend.agents.vehicle.createVehicleForOldUser', compact('user','res','VehicleHistories', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
+            return view('backend.agents.vehicle.createVehicleForOldUser', compact('user','InsuranceWriteOffs','res','VehicleHistories', 'VehicleFeatures', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances', 'vehicleCategories'));
         } else {
             return back()->with('error', 'Record not found');
         }
@@ -487,6 +493,7 @@ class AgentsDashboardController extends Controller
                 $vehicleInformation->private_plate_id =  $request->private_plate;
                 $vehicleInformation->finance_id =  $request->finance;
                 $vehicleInformation->vehicle_history_id =  $request->VehicleHistory;
+                $vehicleInformation->insurance_work_off_id =  $request->InsuranceWriteOff;
 
                 // $vehicleInformation->interior =  $request->interior;
                 // $vehicleInformation->body_type =  $request->body_type;
@@ -549,7 +556,7 @@ class AgentsDashboardController extends Controller
              }
             
         } catch (\Exception $e) {
-            return $e->getMessage();
+            // return $e->getMessage();
             DB::rollback();
             //return $e;
             return Redirect()->back()

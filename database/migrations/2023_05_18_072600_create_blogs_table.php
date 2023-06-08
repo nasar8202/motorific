@@ -13,7 +13,6 @@ class CreateBlogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
             Schema::create('blogs', function (Blueprint $table) {
                 $table->id();
                 $table->string('title');
@@ -26,7 +25,7 @@ class CreateBlogsTable extends Migration
                 $table->string('status')->default(0);
                 $table->timestamps();
             });
-        });
+        
     }
 
     /**

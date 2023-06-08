@@ -254,6 +254,19 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/delete-vehicle-feature/{id}', [VehicleController::class,'deleteVehicleFeature'])->name('deleteVehicleFeature');
     // end vehicle
 
+    //insurance write off
+    Route::get('/add-insurance-write-off', [VehicleController::class,'createInsuranceWriteOffForm'])->name('createInsuranceWriteOffForm');
+    Route::get('/view-insurance-write-off', [VehicleController::class,'viewInsuranceWriteOff'])->name('viewInsuranceWriteOff');
+    Route::post('/store-insurance-write-off', [VehicleController::class, 'addInsuranceWriteOff'])->name('addInsuranceWriteOff');
+    Route::get('/edit-insurance-write-off/{id}', [VehicleController::class,'insuranceWriteOffEditForm'])->name('insuranceWriteOffEditForm');
+    Route::post('/update-insurance-write-off/{id}', [VehicleController::class,'editInsuranceWriteOff'])->name('editInsuranceWriteOff');
+    Route::get('/delete-insurance-write-off/{id}', [VehicleController::class,'deleteInsuranceWriteOff'])->name('deleteInsuranceWriteOff');
+
+
+
+    //end
+
+
     // seat material
     // vehicle
     Route::get('/view-seat-materials', [VehicleController::class,'ViewSeatMaterials'])->name('ViewSeatMaterials');
