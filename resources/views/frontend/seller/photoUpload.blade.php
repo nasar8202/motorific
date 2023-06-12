@@ -48,6 +48,37 @@ display: block;
     bottom: 20px;
 }
 }
+
+.vehcile-insurance label {
+    position: relative;
+}
+
+.vehcile-insurance label input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #05eab5;
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.vehcile-insurance label input:checked {
+    background-image: url('https://i.ibb.co/yPbm5r4/check-tick-icon-14168.png');
+    /* background-image: url('https://i.ibb.co/zNZG8s1/check-tick-icon-14168-1.png'); */
+    /* background-color:#05eab5; */
+    /* background-color:#7977a2; */
+    background-color:#fff;
+    border-color: #fff;
+    /* border-color: #7977a2; */
+    background-size:80%;
+    background-repeat: no-repeat;
+    background-position:center;
+}
     </style>
  <!-- HEADER -->
 
@@ -1732,15 +1763,16 @@ display: block;
 
                             
                             <!--8-->
-                            <div class="vehicleSteps" data-id="VehicleInsurance">
+                            <div class="vehicleSteps vehcile-insurance" data-id="VehicleInsurance">
                                 <span class="checboxNum" style="display:none;">0</span>
-                                <h3>Vehicle Insurance work off</h3>
+                                <h3>Vehicle Information</h3>
                                 <p>Is This Correct?</p>
                                 <div class="row photo-up-sec-2-vi-row-ay">
                                     <div class="col-lg-6 my-auto">
                                         <div class="photo-up-sec-2-vi-btns">
                                             @foreach($InsuranceWriteOffs as $key=> $InsuranceWriteOff)
                                             <label for="radio-keeperType-insurance-{{$key}}">
+
                                                 <input type="radio" name="vehicle_insurance" class="VehicleInsurance" value="{{$InsuranceWriteOff->id}}" @if($InsuranceWriteOff->id == session()->get('vehicle_insurance')) checked @endif id="radio-keeperType-insurance-{{$key}}" />
                                                 <div class="photo-up-sec-2-vi-btn">
                                                     <p>{{$InsuranceWriteOff->title}}</p>
