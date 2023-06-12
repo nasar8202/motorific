@@ -20,11 +20,12 @@ use Illuminate\Http\Request;
 use App\Models\VehicleFeature;
 use App\Models\VehicleHistory;
 use App\Models\LockingWheelNut;
+use App\Models\InsuranceWriteOff;
 use App\Models\vehicleCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
@@ -232,6 +233,7 @@ class RegisterController extends Controller
                         $VehicleOwners =  VehicleOwner::where('status', 1)->get();
                         $PrivatePlates =  PrivatePlate::where('status', 1)->get();
                         $Finances =  Finance::where('status', 1)->get();
+                        $InsuranceWriteOffs =  InsuranceWriteOff::where('status', 1)->get();
                         $VehicleHistories  =  VehicleHistory::where('status', 1)->get();
                         $user = User::find($currentUser);
                         $registeration = trim($request->registeration, ' ');
@@ -277,7 +279,7 @@ class RegisterController extends Controller
 
                           
                             DB::commit();
-                            return view('frontend.seller.photoUpload', compact('milage', 'res', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances','VehicleHistories', 'user'));
+                            return view('frontend.seller.photoUpload', compact('milage', 'res','InsuranceWriteOffs', 'vehicleCategories', 'VehicleFeature', 'NumberOfKeys', 'SeatMaterials', 'ToolPacks', 'LockingWheelNuts', 'Smokings', 'VCLogBooks', 'VehicleOwners', 'PrivatePlates', 'Finances','VehicleHistories', 'user'));
                         } else {
                             return back()->with('error', 'Record not found');
                         }
