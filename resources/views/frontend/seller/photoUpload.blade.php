@@ -49,7 +49,7 @@ display: block;
 }
 }
 
-.vehcile-insurance label {
+/* .vehcile-insurance label {
     position: relative;
 }
 
@@ -69,16 +69,14 @@ display: block;
 
 .vehcile-insurance label input:checked {
     background-image: url('https://i.ibb.co/yPbm5r4/check-tick-icon-14168.png');
-    /* background-image: url('https://i.ibb.co/zNZG8s1/check-tick-icon-14168-1.png'); */
-    /* background-color:#05eab5; */
-    /* background-color:#7977a2; */
+    
     background-color:#fff;
     border-color: #fff;
-    /* border-color: #7977a2; */
+    
     background-size:80%;
     background-repeat: no-repeat;
     background-position:center;
-}
+} */
     </style>
  <!-- HEADER -->
 
