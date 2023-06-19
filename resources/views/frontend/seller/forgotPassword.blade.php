@@ -1,5 +1,5 @@
 @extends('frontend.seller.layouts.app')
-@section('title','Sell Login')
+@section('title','Enter Your Email To Get Your Password')
 @section('section')
 @section('headerClass','transparent-header')
 @section('headerUlClass','navlinks-w')

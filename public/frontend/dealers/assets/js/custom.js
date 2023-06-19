@@ -664,7 +664,7 @@ function startCountdown() {
       
         $('#submit_disable_start_time')
         .prop('disabled', true)
-        .text('Wait for Sale Start Time');
+        .text('Bidding starts at 8am');
       
   }
 

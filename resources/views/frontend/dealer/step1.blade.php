@@ -1,5 +1,5 @@
 @extends('frontend.dealer.layouts.app')
-@section('title','Sell your car the with Motorific')
+@section('title','Purchase your dealership Stock With motorific')
 @section('section')
 <!-- form css -->
 <style>
