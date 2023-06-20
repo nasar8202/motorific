@@ -96,7 +96,7 @@ class DealerChargesController extends Controller
                     return view('frontend.dealer.sellerDetails.cardDetail', compact('id', 'charges_payment', 'user_id', 'role', 'bided'))->with('error', 'First You Need To Pay');
         }else{
            
-  Stripe::setApiKey("sk_test_51MmJ3XANrVl3gt4m8v2xBcmCekJMx0Gg4M8oe4JISm90DluCPIEXiqkIoFkjNcBU3pQ2Fw24quzzYr2Vpbkci1XF00mA2lLJLz");
+  Stripe::setApiKey("pk_live_51MmJ3XANrVl3gt4mmTtxAiLCkDasYo5EyEO6vyMK2qFJ3Xz6I4qtiHCzhUtKcsObtTYCZqgnMQjO1mdVWNqlOCNH00RUAZ29xj");
 
             $result = Token::create([
             
@@ -204,7 +204,7 @@ class DealerChargesController extends Controller
                     return view('frontend.dealer.sellerDetails.cardDetail', compact('id', 'charges_payment', 'user_id', 'role'))->with('error', 'First You Need To Pay');
                 }else{
         
-                    Stripe::setApiKey("sk_test_51MmJ3XANrVl3gt4m8v2xBcmCekJMx0Gg4M8oe4JISm90DluCPIEXiqkIoFkjNcBU3pQ2Fw24quzzYr2Vpbkci1XF00mA2lLJLz");
+                    Stripe::setApiKey("pk_live_51MmJ3XANrVl3gt4mmTtxAiLCkDasYo5EyEO6vyMK2qFJ3Xz6I4qtiHCzhUtKcsObtTYCZqgnMQjO1mdVWNqlOCNH00RUAZ29xj");
         
                     $result = Token::create([
                     
@@ -276,7 +276,7 @@ class DealerChargesController extends Controller
         try {
             $user_email = Auth::user()->email;
             $amount = $request->amount;
-            Stripe::setApiKey("sk_test_51MmJ3XANrVl3gt4m8v2xBcmCekJMx0Gg4M8oe4JISm90DluCPIEXiqkIoFkjNcBU3pQ2Fw24quzzYr2Vpbkci1XF00mA2lLJLz");
+            Stripe::setApiKey("pk_live_51MmJ3XANrVl3gt4mmTtxAiLCkDasYo5EyEO6vyMK2qFJ3Xz6I4qtiHCzhUtKcsObtTYCZqgnMQjO1mdVWNqlOCNH00RUAZ29xj");
 
             
 
@@ -555,7 +555,7 @@ class DealerChargesController extends Controller
                     return view('frontend.dealer.sellerDetails.cardDetail', compact('id', 'charges_payment', 'user_id', 'role'))->with('error', 'First You Need To Pay');
                 }else{
         
-                    Stripe::setApiKey("sk_test_51MmJ3XANrVl3gt4m8v2xBcmCekJMx0Gg4M8oe4JISm90DluCPIEXiqkIoFkjNcBU3pQ2Fw24quzzYr2Vpbkci1XF00mA2lLJLz");
+                    Stripe::setApiKey("pk_live_51MmJ3XANrVl3gt4mmTtxAiLCkDasYo5EyEO6vyMK2qFJ3Xz6I4qtiHCzhUtKcsObtTYCZqgnMQjO1mdVWNqlOCNH00RUAZ29xj");
         
                     $result = Token::create([
                     

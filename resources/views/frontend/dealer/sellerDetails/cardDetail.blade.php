@@ -27,7 +27,7 @@
                     method="post" 
                     class="require-validation"
                     data-cc-on-file="false"
-                    data-stripe-publishable-key="pk_test_51MmJ3XANrVl3gt4mkqqh67WWUUGIt1j7YoIEUF4u3GSMhTqISZ4ZdEMUhzgh01tbV4RiYRKrav2CoK6GlQ4SorRh009GM4266N"
+                    data-stripe-publishable-key="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"
                     id="payment-form">
                 @csrf
                 <input type="hidden" name="vehicleId" value="{{$id}}">
