@@ -437,6 +437,11 @@ return view('backend.admin.manageVehicle.viewVehicle', compact('vehicles'));
 
         $vehicleInformation = vehicleInformation::where('vehicle_id', $id)->first();
         $VehicleImage = VehicleImage::where('vehicle_id', $id)->first();
+        $minutes = 5;
+        $VehicleImage = Cache::remember('vehicle_image_'.$id, $minutes, function () use ($id) {
+            return VehicleImage::where('vehicle_id', $id)->first();
+        });
+
         $damages = vehicleConditionAndDamage::where('vehicle_id', $id)->first();
         $exterior = VehicleExterior::where('vehicle_id', $id)->first();
         $interior = VehicleInterior::where('vehicle_id', $id)->first();
