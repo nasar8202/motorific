@@ -10,7 +10,7 @@
 <div class="container">
       
     @php
-    $stripe_key = 'pk_test_51L6BbmHh7DA7fp0Jmuouwc2S6BYw0nxzU7DQ1ReEbtzSxgZ9noLLm2tQKpvTSHVsbkem8FzrNuFG54WThtLTwB8X00Es15AMHg';
+    $stripe_key = 'pk_live_51MmJ3XANrVl3gt4mmTtxAiLCkDasYo5EyEO6vyMK2qFJ3Xz6I4qtiHCzhUtKcsObtTYCZqgnMQjO1mdVWNqlOCNH00RUAZ29xj';
     @endphp
     <div class="container" style="margin-top:10%;margin-bottom:10%">
         <div class="row justify-content-center">

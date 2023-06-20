@@ -18,15 +18,18 @@ p {
   </style>
   <style>
     .image-container {
-        width: 500px;
-        height: 0px auto;
+        width: 100%;
+        height: 200px;
+        /* height: 0px auto; */
         overflow: hidden;
     }
 
     .image-container img {
         max-width: 100%;
         max-height: 100%;
-        object-fit: contain;
+        width: 100%;
+        /* object-fit: contain; */
+        object-fit: cover;
     }
     section#multiple-column-form .col-md-4:last-child {
     max-width: 360px;
@@ -1200,7 +1203,7 @@ p {
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" download>
                         <div class="image-container">
-                            <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" class="rounded mx-auto d-block mb-3" alt="Vehicle Image">
+                            <img data-src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->front) }}" class="rounded mx-auto d-block mb-3 lazyload" alt="Vehicle Image">
                         </div>
                         </a>
                     </div>
@@ -1224,7 +1227,7 @@ p {
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" download>
                         <div class="image-container">
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        <img data-src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->passenger_rare_side_corner) }}" class="rounded mx-auto d-block  mb-3 lazyload"  alt="Vehicle Image">
                         </div>
                         </a>
                     </div>
@@ -1248,7 +1251,7 @@ p {
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}" download>
                         <div class="image-container">
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}"  class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        <img data-src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->driver_rare_side_corner) }}"  class="rounded mx-auto d-block  mb-3 lazyload"  alt="Vehicle Image">
                         </div>
                         </a>
                     </div>
@@ -1271,7 +1274,7 @@ p {
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}" download>
                         <div class="image-container">
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}"  class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        <img data-src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->interior_front) }}"  class="rounded mx-auto d-block  mb-3 lazyload"  alt="Vehicle Image">
                         </div>
                         </a>
                     </div>
@@ -1295,7 +1298,7 @@ p {
                         <label for="formFile" class="form-label d-block text-center">Yours Picture</label>
                         <a href="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}" download>
                         <div class="image-container">
-                        <img src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}"  class="rounded mx-auto d-block  mb-3"  alt="Vehicle Image">
+                        <img data-src="{{ asset('/vehicles/vehicles_images/'.$VehicleImage->dashboard) }}"  class="rounded mx-auto d-block  mb-3 lazyload"  alt="Vehicle Image">
                         </div>
                         </a>
                     </div>
@@ -1476,6 +1479,38 @@ p {
 
 </form>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var lazyloadImages = document.querySelectorAll('.lazyload');
+        if ('IntersectionObserver' in window) {
+            var lazyloadObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var lazyloadImage = entry.target;
+                        lazyloadImage.src = lazyloadImage.dataset.src;
+                        lazyloadImage.classList.remove('lazyload');
+                        lazyloadObserver.unobserve(lazyloadImage);
+                    }
+                });
+            });
+
+            lazyloadImages.forEach(function(lazyloadImage) {
+                lazyloadObserver.observe(lazyloadImage);
+            });
+        } else {
+            // Fallback for browsers without Intersection Observer support
+            var lazyloadThrottleTimeout;
+            lazyloadImages.forEach(function(lazyloadImage) {
+                if (lazyloadImage.classList.contains('lazyload')) {
+                    lazyloadImage.src = lazyloadImage.dataset.src;
+                    lazyloadImage.classList.remove('lazyload');
+                }
+            });
+        }
+    });
+</script>
+
 <script type="text/javascript">
 
 document.getElementById("start_vehicle_date").addEventListener("change", function() {

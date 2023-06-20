@@ -82,7 +82,7 @@
                                 @endif
                                 <td>
                                     @if(isset($vehicle->VehicleImage))
-                                    <img src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100">
+                                        <img data-src="{{ asset('/vehicles/vehicles_images/'.$vehicle->VehicleImage->front) }}" width="100" height="100" class="lazyload">
                                     @endif
                                 </td>
 
@@ -107,4 +107,36 @@
 
     </section>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var lazyloadImages = document.querySelectorAll('.lazyload');
+        if ('IntersectionObserver' in window) {
+            var lazyloadObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var lazyloadImage = entry.target;
+                        lazyloadImage.src = lazyloadImage.dataset.src;
+                        lazyloadImage.classList.remove('lazyload');
+                        lazyloadObserver.unobserve(lazyloadImage);
+                    }
+                });
+            });
+
+            lazyloadImages.forEach(function(lazyloadImage) {
+                lazyloadObserver.observe(lazyloadImage);
+            });
+        } else {
+            // Fallback for browsers without Intersection Observer support
+            var lazyloadThrottleTimeout;
+            lazyloadImages.forEach(function(lazyloadImage) {
+                if (lazyloadImage.classList.contains('lazyload')) {
+                    lazyloadImage.src = lazyloadImage.dataset.src;
+                    lazyloadImage.classList.remove('lazyload');
+                }
+            });
+        }
+    });
+</script>
+
 @endsection

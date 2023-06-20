@@ -2296,7 +2296,7 @@ display: block;
                                     <h3>1</h3>
                                 </div>
                                 <input class="hz-img-input" type="file" id="photo1" accept="image/*" maxlength="500000" value="" onChange="compressimage(this)" required/>
-                                <input type="text" class="upload_type" name="image1" value=""/>
+                                <input type="text" class="upload_type" name="image1" value=""required/>
                                 
                                 
                                 <img src="{{ URL::asset('frontend/seller/assets/image/add-p-front.png')}}" alt=""  accept="image/*" />
@@ -2313,7 +2313,7 @@ display: block;
                                         <h3>2</h3>
                                     </div>
                                     <input class="hz-img-input" type="file" id="photo2" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
-                                     <input type="text" class="upload_type" name="image2" value=""/>
+                                     <input type="text" class="upload_type" name="image2" value="" required />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2332,7 +2332,7 @@ display: block;
                                         <h3>3</h3>
                                     </div>
                                     <input class="hz-img-input" type="file" id="photo4" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
-                                      <input type="text" class="upload_type" name="image3" value=""/>
+                                      <input type="text" class="upload_type" name="image3" value="" required />
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-back-corner.png')}}" alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2348,7 +2348,7 @@ display: block;
                                         <h3>4</h3>
                                     </div>
                                     <input class="hz-img-input" type="file" id="photo5" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
-                                     <input type="text" class="upload_type" name="image4" value=""/>
+                                     <input type="text" class="upload_type" name="image4" required value=""/>
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-interior.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2364,7 +2364,7 @@ display: block;
                                         <h3>5</h3>
                                     </div>
                                     <input class="hz-img-input" type="file" id="photo6" accept="image/*" maxlength="500000" onChange="compressimage(this)" />
-                                     <input type="text" class="upload_type" name="image5" value=""/>
+                                     <input type="text" class="upload_type" name="image5" value="" required/>
                                     <img src="{{ URL::asset('frontend/seller/assets/image/add-p-dashboard.png')}}"  alt="" accept="image/*" />
                                     <div class='text-danger error-msg-frontend'></div>
                                 </label>
@@ -2531,7 +2531,17 @@ function compressimage(e) {
             // $('.alertDisable').html('All 5 photos are mandatory')
                         // All images uploaded, enable the submit button
                     }
-                    
+                    // Check if all images have been uploaded
+                if (uploadedImages >= 5) {
+                    console.log("All images uploaded.");
+                    // $(".alertDisable").text("All 5 photos and vehicle info are mandatory");
+                    // Enable the submit button
+                    $(".submitBtn-photos-sec").prop("disabled", false);
+                } else {
+                    $(".alertDisable").text("Image upload complete. Waiting for other images.");
+
+                    console.log("Image upload complete. Waiting for other images.");
+                }
                      console.log("Image upload complete.");
 
                 }

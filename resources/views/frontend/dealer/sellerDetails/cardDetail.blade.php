@@ -14,7 +14,7 @@
 <div class="container">
       
     @php
-    // $stripe_key = 'pk_test_51L6BbmHh7DA7fp0Jmuouwc2S6BYw0nxzU7DQ1ReEbtzSxgZ9noLLm2tQKpvTSHVsbkem8FzrNuFG54WThtLTwB8X00Es15AMHg';
+    // $stripe_key = 'pk_test_51MmJ3XANrVl3gt4mkqqh67WWUUGIt1j7YoIEUF4u3GSMhTqISZ4ZdEMUhzgh01tbV4RiYRKrav2CoK6GlQ4SorRh009GM4266N';
     @endphp
     <div class="container" style="margin-top:10%;margin-bottom:10%">
         <div class="row justify-content-center">
@@ -27,7 +27,7 @@
                     method="post" 
                     class="require-validation"
                     data-cc-on-file="false"
-                    data-stripe-publishable-key="pk_test_51L6BbmHh7DA7fp0Jmuouwc2S6BYw0nxzU7DQ1ReEbtzSxgZ9noLLm2tQKpvTSHVsbkem8FzrNuFG54WThtLTwB8X00Es15AMHg"
+                    data-stripe-publishable-key="pk_test_51MmJ3XANrVl3gt4mkqqh67WWUUGIt1j7YoIEUF4u3GSMhTqISZ4ZdEMUhzgh01tbV4RiYRKrav2CoK6GlQ4SorRh009GM4266N"
                     id="payment-form">
                 @csrf
                 <input type="hidden" name="vehicleId" value="{{$id}}">

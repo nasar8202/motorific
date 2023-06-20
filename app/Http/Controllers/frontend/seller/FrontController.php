@@ -347,7 +347,7 @@ class FrontController extends Controller
 
     public function createVehicle(Request $request)
     {
-    //    dd($request->all());
+        // dd($request->all());
         // if ($request->uploadImage)
         // {
         //     $request->validate([
@@ -373,7 +373,11 @@ class FrontController extends Controller
             'vehicle_owner' => 'required',
             'private_plate' => 'required',
             'finance' => 'required',
-           
+           'image1'=>'required',
+           'image2'=>'required',
+           'image3'=>'required',
+           'image4'=>'required',
+           'image5'=>'required',
 
 
         ]);
