@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NewSellerVehicleByAdmin;
 use App\Models\InsuranceWriteOff;
 use App\Models\vehicleConditionAndDamage;
-
+use Illuminate\Support\Facades\Cache;
 class ManageVehicleController extends Controller
 {
 
@@ -331,9 +331,22 @@ class ManageVehicleController extends Controller
     public function viewVehicle()
     {
 
-        $vehicles = Vehicle::where('status','!=',5)->where('vehicle_availability', '=', null)->with('vehicleInformation')->with('VehicleImage')->orderBy('id', 'DESC')->get();
-        //    dd($vehicles);
-        return view('backend.admin.manageVehicle.viewVehicle', compact('vehicles'));
+        // $vehicles = Vehicle::where('status','!=',5)->where('vehicle_availability', '=', null)->with('vehicleInformation')->with('VehicleImage')->orderBy('id', 'DESC')->get();
+        // //    dd($vehicles);
+        // return view('backend.admin.manageVehicle.viewVehicle', compact('vehicles'));
+        $minutes = 5;
+
+$vehicles = Cache::remember('vehicles', $minutes, function () {
+    return Vehicle::where('status','!=',5)
+        ->where('vehicle_availability', '=', null)
+        ->with('vehicleInformation')
+        ->with('VehicleImage')
+        ->orderBy('id', 'DESC')
+        ->get();
+});
+
+return view('backend.admin.manageVehicle.viewVehicle', compact('vehicles'));
+
     }
 
     public function deleteVehicle($id)
